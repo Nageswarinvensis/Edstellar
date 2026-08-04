@@ -166,13 +166,9 @@
 }
 
 /* The page shell. max-width plus the design's asymmetric gutters. */
-@utility container-page {
+@utility container {
   margin-inline: auto;
   max-width: 1280px;
-  padding-inline: 20px;
-  @media (width >= 621px) {
-    padding-inline: 40px;
-  }
 }
 
 /* Hero media masks. Too complex for inline arbitrary values, and the

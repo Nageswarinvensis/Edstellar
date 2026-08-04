@@ -1,5 +1,6 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import Section from "@/components/ui/Section";
 import ReadMore from "@/components/shared/read-more";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
@@ -22,108 +23,97 @@ function VendorAbout({ about }) {
   const contrast = about.contrast;
 
   return (
-    <Box
-      as="section"
+    <Section
       id="about"
-      className="relative border-b border-ink/12 py-[120px] max-sm:py-[78px]"
+      className="relative border-b border-ink/12 py-[80px] max-sm:py-[80px]"
     >
-      <Box className="container-page">
-        <Reveal>
-          <SectionMark
-            roman={about.mark?.roman}
-            keyword={about.mark?.keyword}
-            label={about.mark?.label}
-            className="mb-[30px]"
-          />
-        </Reveal>
+      <Reveal>
+        <SectionMark
+          roman={about.mark?.roman}
+          keyword={about.mark?.keyword}
+          label={about.mark?.label}
+          className="mb-7.5"
+        />
+      </Reveal>
 
+      <Reveal delay={1}>
+        <RichHeading
+          as="h2"
+          parts={about.headlineParts}
+          className="mb-6.5 max-w-[20ch]"
+        />
+      </Reveal>
+
+      <Box className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-12">
         <Reveal delay={1}>
-          <RichHeading
-            as="h2"
-            parts={about.headlineParts}
-            className="mb-[26px] max-w-[20ch]"
-          />
+          {about.body?.map((paragraph, index) => (
+            <Text as="p" key={index} className="mb-4.5 text-base leading-[1.75]">
+              {paragraph}
+            </Text>
+          ))}
+
+          {about.more?.length ? (
+            <ReadMore showIcon>
+              {about.more.map((paragraph, index) => (
+                <Text
+                  as="p"
+                  key={index}
+                  className="mb-4.5 text-base leading-[1.75]"
+                >
+                  {paragraph}
+                </Text>
+              ))}
+            </ReadMore>
+          ) : null}
         </Reveal>
 
-        <Box className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-12">
-          <Reveal delay={1}>
-            {about.body?.map((paragraph, index) => (
-              <Text
-                as="p"
-                key={index}
-                className="mb-[18px] text-base leading-[1.75]"
-              >
-                {paragraph}
-              </Text>
-            ))}
-
-            {about.more?.length ? (
-              <ReadMore showIcon>
-                {about.more.map((paragraph, index) => (
-                  <Text
-                    as="p"
-                    key={index}
-                    className="mb-[18px] text-base leading-[1.75]"
-                  >
-                    {paragraph}
-                  </Text>
-                ))}
-              </ReadMore>
-            ) : null}
-          </Reveal>
-
-          {contrast ? (
-            <Reveal delay={2}>
-              <Box className="overflow-hidden rounded-[18px] border border-ink/12 bg-white">
-                <table className="w-full border-collapse">
-                  <caption className="sr-only">{contrast.label}</caption>
-                  <thead>
-                    <tr>
-                      {contrast.columns.map((column, index) => (
-                        <th
-                          key={column}
-                          scope="col"
+        {contrast ? (
+          <Reveal delay={2}>
+            <Box className="overflow-hidden rounded-[18px] border border-ink/12 bg-white">
+              <table className="w-full border-collapse">
+                <caption className="sr-only">{contrast.label}</caption>
+                <thead>
+                  <tr>
+                    {contrast.columns.map((column, index) => (
+                      <th
+                        key={column}
+                        scope="col"
+                        className={[
+                          "w-1/2 border-b border-ink/12 px-5 py-4 text-left font-mono text-[10px] font-normal tracking-[0.14em] uppercase",
+                          index === 0 ? "text-ink/60" : "bg-lime/10 text-olive",
+                        ].join(" ")}
+                      >
+                        {column}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {contrast.rows.map((row, rowIndex) => (
+                    <tr key={rowIndex}>
+                      {row.map((cell, cellIndex) => (
+                        <td
+                          key={cellIndex}
                           className={[
-                            "w-1/2 border-b border-ink/12 px-5 py-4 text-left font-mono text-[10px] font-normal tracking-[0.14em] uppercase",
-                            index === 0
-                              ? "text-ink/60"
-                              : "bg-lime/10 text-olive",
+                            "px-5 py-3.5 align-top text-[13.5px] leading-[1.5]",
+                            rowIndex === contrast.rows.length - 1
+                              ? ""
+                              : "border-b border-ink/12",
+                            cellIndex === 0 ? "text-ink/60" : "bg-lime/5 text-ink",
                           ].join(" ")}
                         >
-                          {column}
-                        </th>
+                          {cell}
+                        </td>
                       ))}
                     </tr>
-                  </thead>
-                  <tbody>
-                    {contrast.rows.map((row, rowIndex) => (
-                      <tr key={rowIndex}>
-                        {row.map((cell, cellIndex) => (
-                          <td
-                            key={cellIndex}
-                            className={[
-                              "px-5 py-3.5 align-top text-[13.5px] leading-[1.5]",
-                              rowIndex === contrast.rows.length - 1
-                                ? ""
-                                : "border-b border-ink/12",
-                              cellIndex === 0
-                                ? "text-ink/60"
-                                : "bg-lime/5 text-ink",
-                            ].join(" ")}
-                          >
-                            {cell}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </Box>
-            </Reveal>
-          ) : null}
-        </Box>
+                  ))}
+                </tbody>
+              </table>
+            </Box>
+          </Reveal>
+        ) : null}
       </Box>
-    </Box>
+    </Section>
   );
 }
 

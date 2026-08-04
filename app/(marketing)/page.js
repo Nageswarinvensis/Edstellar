@@ -4,7 +4,10 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import CtaButton from "@/components/ui/CtaButton";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { getDomainCourseSlugs, getVendorCourseSlugs } from "@/lib/content/courses";
+import {
+  getDomainCourseSlugs,
+  getVendorCourseSlugs,
+} from "@/lib/content/courses";
 
 export const revalidate = 3600;
 
@@ -24,7 +27,7 @@ export default async function HomePage() {
   ]);
 
   return (
-    <Box className="container-page flex min-h-svh flex-col justify-center gap-10 py-20">
+    <Box className="container flex min-h-svh flex-col justify-center gap-10 py-20">
       <Box className="flex flex-col gap-3">
         <Text as="h1">Edstellar</Text>
         <Text as="p" className="max-w-[60ch]">

@@ -17,8 +17,8 @@ function TopicPills({ topics = [], label = "Topics covered", className }) {
       as="ul"
       aria-label={label}
       className={cn(
-        "no-scrollbar mt-10 flex flex-nowrap gap-2 overflow-x-auto pb-0.5 max-md:mt-8",
-        className
+        "no-scrollbar p-1 mt-10 flex flex-nowrap gap-2 overflow-x-auto pb-0.5 max-md:mt-8",
+        className,
       )}
     >
       {topics.map((topic) => (
