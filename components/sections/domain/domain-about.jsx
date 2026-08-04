@@ -24,6 +24,7 @@ function DomainAbout({ about }) {
       <Box className="container-page">
         <Reveal>
           <SectionMark
+            roman={about.mark?.roman}
             keyword={about.mark?.keyword}
             label={about.mark?.label}
             className="mb-6"

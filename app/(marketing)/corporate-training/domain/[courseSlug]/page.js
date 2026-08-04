@@ -4,7 +4,7 @@ import { getDomainCourse, getDomainCourseSlugs } from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo/json-ld";
 import JsonLd from "@/components/seo/json-ld";
-import DomainHero from "@/components/sections/domain/domain-hero";
+import DomainHero from "@/components/sections/domain/domain-hero-banner";
 import DomainAbout from "@/components/sections/domain/domain-about";
 
 export const revalidate = 3600;
