@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Download, Play, Star } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import { cn } from "@/lib/utils";
@@ -47,7 +49,7 @@ function Avatars({ people = [], tone }) {
   );
 }
 
-function ProofBar({ tone = "light", stats = [], trainers, className }) {
+function ProofBar({ tone = "light", stats = [], trainers, actions = [], className }) {
   const dark = tone === "dark";
 
   if (!stats.length && !trainers) return null;
@@ -117,6 +119,18 @@ function ProofBar({ tone = "light", stats = [], trainers, className }) {
         >
           <Avatars people={trainers.people} tone={tone} />
           <Box className="flex flex-col gap-[5px]">
+            {dark && trainers.stars ? (
+              <Box className="flex items-center gap-1" aria-hidden="true">
+                {Array.from({ length: trainers.stars }).map((_, index) => (
+                  <Star
+                    key={index}
+                    size={11}
+                    fill="currentColor"
+                    className="text-lime"
+                  />
+                ))}
+              </Box>
+            ) : null}
             <b
               className={cn(
                 "font-display text-2xl leading-none font-bold tracking-[-0.03em]",
@@ -134,6 +148,38 @@ function ProofBar({ tone = "light", stats = [], trainers, className }) {
               {trainers.label}
             </span>
           </Box>
+        </Box>
+      ) : null}
+
+      {dark && actions.length ? (
+        <Box className="flex flex-wrap items-center gap-3 max-sm:w-full max-sm:justify-center">
+          {actions.map((action) => (
+            <Link
+              key={action.label}
+              href={action.href}
+              className="group flex items-center gap-3 rounded-full border border-paper/14 bg-paper/5 px-4 py-2 font-mono text-[11px] tracking-[0.04em] text-paper transition-all duration-300 ease-out hover:-translate-y-1 hover:border-lime hover:bg-paper/10"
+            >
+              <Box
+                as="span"
+                aria-hidden="true"
+                className="grid size-7 flex-none place-items-center rounded-full bg-lime/20 transition-colors duration-300 group-hover:bg-lime"
+              >
+                {action.type === "preview" ? (
+                  <Play
+                    size={13}
+                    fill="currentColor"
+                    className="text-lime transition-colors duration-300 group-hover:text-navy"
+                  />
+                ) : (
+                  <Download
+                    size={13}
+                    className="text-lime transition-colors duration-300 group-hover:text-navy"
+                  />
+                )}
+              </Box>
+              {action.label}
+            </Link>
+          ))}
         </Box>
       ) : null}
     </Box>

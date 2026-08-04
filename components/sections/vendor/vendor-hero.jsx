@@ -20,11 +20,7 @@ function VendorHero({ hero, breadcrumbs }) {
   if (!hero) return null;
 
   return (
-    <Section
-      as="header"
-      id="top"
-      className="relative overflow-hidden pt-[38px] pb-[54px]"
-    >
+    <Section id="top" className="relative overflow-hidden pt-[38px] pb-[54px]">
       {/* No `relative` here — HeroMedia positions against the <header>. */}
       <Box className="grid grid-cols-1 items-center gap-[26px] lg:gap-[34px]">
         <HeroMedia

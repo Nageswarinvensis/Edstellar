@@ -165,12 +165,6 @@
   --color-olive: #6f8c0f;
 }
 
-/* The page shell. max-width plus the design's asymmetric gutters. */
-@utility container {
-  margin-inline: auto;
-  max-width: 1280px;
-}
-
 /* Hero media masks. Too complex for inline arbitrary values, and the
    -webkit- prefix is still required for Safari. */
 @utility hero-mask-x {
