@@ -5,6 +5,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd, courseJsonLd } from "@/lib/seo/json-ld";
 import JsonLd from "@/components/seo/json-ld";
 import VendorHero from "@/components/sections/vendor/vendor-hero";
+import VendorInfo from "@/components/sections/vendor/vendorInfo";
 import VendorAbout from "@/components/sections/vendor/vendor-about";
 
 export const revalidate = 3600;
@@ -53,9 +54,10 @@ export default async function VendorCoursePage({ params }) {
         ]}
       />
 
-      <VendorHero
-        hero={course.hero}
-        breadcrumbs={course.breadcrumbs}
+      <VendorHero hero={course.hero} breadcrumbs={course.breadcrumbs} />
+      <VendorInfo
+        topics={course.hero?.topics}
+        groupQuote={course.hero?.groupQuote}
         proof={course.proof}
       />
       <VendorAbout about={course.about} />

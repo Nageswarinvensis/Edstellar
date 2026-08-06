@@ -5,18 +5,20 @@ import Section from "@/components/ui/Section";
 import Breadcrumbs from "@/components/shared/breadcrumbs";
 import HeroMedia from "@/components/shared/hero-media";
 import HeroMeta from "@/components/shared/hero-meta";
+import ProofBar from "@/components/shared/proof-bar";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
+
 /**
- * Vendor course hero.
+ * Domain hub hero.
  *
- * Shares the layout skeleton with the domain hero but adds the topic pill rail,
- * the dark proof bar, and the multi-program group-quote prompt. The proof bar
- * tone is driven entirely by content (`proof.tone`), not by a page-level flag.
+ * Server Component. The only client code below it is Reveal (a class toggle) and
+ * the info popovers inside HeroMeta — all copy is in the initial HTML.
  *
- * Design: `header.hero` on the course page.
+ * Design: `header.hero` on the domain page. The domain proof bar is the light
+ * white-card variant; the vendor course page uses the dark one.
  */
-function VendorHero({ hero, breadcrumbs }) {
+function DomainHero({ hero, breadcrumbs, proof }) {
   if (!hero) return null;
 
   return (
@@ -77,14 +79,22 @@ function VendorHero({ hero, breadcrumbs }) {
               ))}
             </Box>
           </Reveal>
-
-          <Reveal>
-            <Breadcrumbs items={breadcrumbs} />
-          </Reveal>
         </Box>
       </Box>
+
+      <Reveal delay={4}>
+        <ProofBar
+          tone={proof?.tone}
+          stats={proof?.stats}
+          trainers={proof?.trainers}
+        />
+      </Reveal>
+
+      <Reveal>
+        <Breadcrumbs items={breadcrumbs} />
+      </Reveal>
     </Section>
   );
 }
 
-export default VendorHero;
+export default DomainHero;

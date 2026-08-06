@@ -1,5 +1,5 @@
-import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import Section from "@/components/ui/Section";
 import ReadMore from "@/components/shared/read-more";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
@@ -16,59 +16,57 @@ function DomainAbout({ about }) {
   if (!about) return null;
 
   return (
-    <Box
-      as="section"
+    <Section
       id="about"
       className="relative border-b border-ink/12 py-[88px] max-lg:py-[66px] max-sm:py-[78px]"
     >
-      <Box className="container-page">
-        <Reveal>
-          <SectionMark
-            keyword={about.mark?.keyword}
-            label={about.mark?.label}
-            className="mb-6"
-          />
-        </Reveal>
+      <Reveal>
+        <SectionMark
+          roman={about.mark?.roman}
+          keyword={about.mark?.keyword}
+          label={about.mark?.label}
+          className="mb-6"
+        />
+      </Reveal>
 
-        <Reveal delay={1}>
-          <RichHeading
-            as="h2"
-            parts={about.headlineParts}
-            // The domain hub steps the section headline down from the course
-            // scale. `leading` must be restated alongside any `text-*` override
-            // or tailwind-merge drops the base value.
-            className="mb-5 max-w-[20ch] text-[clamp(27px,3.2vw,40px)] leading-[1.08]"
-          />
-        </Reveal>
+      <Reveal delay={1}>
+        <RichHeading
+          as="h2"
+          parts={about.headlineParts}
+          // The domain hub steps the section headline down from the course
+          // scale. `leading` must be restated alongside any `text-*` override
+          // or tailwind-merge drops the base value.
+          className="mb-5 max-w-[20ch] text-[clamp(27px,3.2vw,40px)] leading-[1.08]"
+        />
+      </Reveal>
 
-        <Reveal delay={2}>
-          <Text
-            as="p"
-            className="mb-0 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7]"
-          >
-            {about.lede}
-          </Text>
-        </Reveal>
+      <Reveal delay={2}>
+        <Text
+          as="p"
+          className="mb-0 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7]"
+        >
+          {about.lede}
+        </Text>
+      </Reveal>
 
-        {about.more?.length ? (
-          <ReadMore className="mt-4 max-w-[64ch]">
-            {about.more.map((paragraph, index) => (
-              <Text
-                as="p"
-                key={index}
-                className={
-                  index === about.more.length - 1
-                    ? "text-base leading-[1.75]"
-                    : "mb-[18px] text-base leading-[1.75]"
-                }
-              >
-                {paragraph}
-              </Text>
-            ))}
-          </ReadMore>
-        ) : null}
-      </Box>
-    </Box>
+      {about.more?.length ? (
+        <ReadMore className="mt-4 max-w-[64ch]">
+          {about.more.map((paragraph, index) => (
+            <Text
+              as="p"
+              key={index}
+              className={
+                index === about.more.length - 1
+                  ? "text-base leading-[1.75]"
+                  : "mb-[18px] text-base leading-[1.75]"
+              }
+            >
+              {paragraph}
+            </Text>
+          ))}
+        </ReadMore>
+      ) : null}
+    </Section>
   );
 }
 

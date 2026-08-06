@@ -165,16 +165,6 @@
   --color-olive: #6f8c0f;
 }
 
-/* The page shell. max-width plus the design's asymmetric gutters. */
-@utility container-page {
-  margin-inline: auto;
-  max-width: 1200px;
-  padding-inline: 24px;
-  @media (width >= 621px) {
-    padding-inline: 56px;
-  }
-}
-
 /* Hero media masks. Too complex for inline arbitrary values, and the
    -webkit- prefix is still required for Safari. */
 @utility hero-mask-x {
@@ -186,14 +176,7 @@
     #000 94%,
     rgba(0, 0, 0, 0) 100%
   );
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0,
-    rgba(0, 0, 0, 0.45) 18%,
-    #000 40%,
-    #000 94%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #000 40%);
 }
 
 @utility hero-mask-y {

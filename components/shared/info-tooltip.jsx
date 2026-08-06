@@ -40,7 +40,7 @@ function InfoTooltip({ label, heading, children, className }) {
     <Box
       ref={wrapRef}
       as="span"
-      className={cn("relative inline-flex items-center gap-[7px]", className)}
+      className={cn("relative inline-flex items-center gap-2", className)}
     >
       {label}
       <button
@@ -52,7 +52,7 @@ function InfoTooltip({ label, heading, children, className }) {
           "grid size-4 flex-none cursor-pointer place-items-center rounded-full border font-serif text-[11px] leading-none italic transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
           open
             ? "border-navy bg-navy text-lime"
-            : "border-ink/22 text-ink/60 hover:border-navy hover:bg-navy hover:text-lime"
+            : "border-ink/22 text-ink/60 hover:border-navy hover:bg-navy hover:text-lime",
         )}
       >
         <span aria-hidden="true">i</span>
@@ -72,10 +72,10 @@ function InfoTooltip({ label, heading, children, className }) {
           "max-md:before:right-[22px] md:before:left-[22px]",
           open
             ? "pointer-events-auto translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-[5px] opacity-0"
+            : "pointer-events-none -translate-y-[5px] opacity-0",
         )}
       >
-        <b className="mb-[7px] block font-mono text-[9.5px] tracking-[0.15em] text-lime uppercase">
+        <b className="mb-2 block font-mono text-[9.5px] tracking-[0.15em] text-lime uppercase">
           {heading}
         </b>
         {children}
