@@ -18,7 +18,7 @@ function Breadcrumbs({ items = [], className }) {
       as="nav"
       aria-label="Breadcrumb"
       className={cn(
-        "no-scrollbar mt-6 flex flex-nowrap items-center gap-1.5 overflow-x-auto font-mono text-[9.5px] tracking-[0.1em] whitespace-nowrap text-ink/45 uppercase",
+        "no-scrollbar mt-6 flex flex-nowrap items-center gap-1.5 overflow-x-auto font-mono text-[9.5px] tracking-[0.1em] whitespace-nowrap color-ink-muted uppercase",
         className
       )}
     >
@@ -32,7 +32,7 @@ function Breadcrumbs({ items = [], className }) {
             ) : (
               <Link
                 href={item.href}
-                className="transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+                className="transition-colors hover:color-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
               >
                 {item.label}
               </Link>
