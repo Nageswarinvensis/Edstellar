@@ -34,7 +34,7 @@ function VendorHero({ hero, breadcrumbs }) {
             <RichHeading
               as="h1"
               parts={hero.headlineParts}
-              emphasisClassName="text-olive"
+              emphasisClassName="color-ink"
               // Only the responsive bump is overridden. Repeating the base
               // size unprefixed would make tailwind-merge drop the base
               // `leading-[1.05]`, since `text-*` also sets line-height in v4.

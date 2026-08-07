@@ -34,7 +34,7 @@ function Avatars({ people = [], tone }) {
         >
           {person.photo ? (
             <Image
-              src={person.photo}
+              src="{person.photo}"
               alt=""
               fill
               sizes="30px"
