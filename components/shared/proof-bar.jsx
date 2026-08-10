@@ -16,41 +16,24 @@ import { cn } from "@/lib/utils";
  */
 function Avatars({ people = [], tone }) {
   if (!people.length) return null;
-  const dark = tone === "dark";
+
+  const person = people[0];
 
   return (
-    <Box className="flex flex-none">
-      {people.slice(0, 4).map((person, index) => (
-        <Box
-          key={`${person.name || "person"}-${index}`}
-          aria-hidden="true"
-          className={cn(
-            "relative grid size-[30px] flex-none place-items-center overflow-hidden rounded-full border-2 font-mono text-[11px] tracking-[0.04em]",
-            index === 0 ? "ml-0" : "-ml-[9px]",
-            dark
-              ? "border-navy bg-navy-soft text-lime"
-              : "border-white bg-navy text-lime shadow-[0_1px_3px_rgba(10,22,40,0.2)]"
-          )}
-        >
-          {person.photo ? (
-            <Image
-              src={person.photo}
-              alt=""
-              fill
-              sizes="30px"
-              className="object-cover"
-            />
-          ) : (
-            <Image
-              src="https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6a69c57f6097d45480150d76_avtar.svg"
-              alt=""
-              fill
-              sizes="30px"
-              className="object-cover"
-            />
-          )}
-        </Box>
-      ))}
+    <Box
+      aria-hidden="true"
+      className="flex h-[30px] w-[72px] flex-none items-center"
+    >
+      {person.photo ? (
+        <Image
+          src={person.photo}
+          alt=""
+          width={72}
+          height={30}
+          sizes="72px"
+          className="h-[30px] w-[72px] object-contain"
+        />
+      ) : null}
     </Box>
   );
 }

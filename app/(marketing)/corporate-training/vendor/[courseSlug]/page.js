@@ -6,6 +6,7 @@ import { breadcrumbJsonLd, courseJsonLd } from "@/lib/seo/json-ld";
 import JsonLd from "@/components/seo/json-ld";
 import VendorHero from "@/components/sections/vendor/vendor-hero";
 import VendorInfo from "@/components/sections/vendor/vendorInfo";
+import ClientLogos from "@/components/sections/vendor/client-logo";
 import VendorAbout from "@/components/sections/vendor/vendor-about";
 
 export const revalidate = 3600;
@@ -60,6 +61,7 @@ export default async function VendorCoursePage({ params }) {
         groupQuote={course.hero?.groupQuote}
         proof={course.proof}
       />
+      <ClientLogos data={course.ClientsLogosData} />
       <VendorAbout about={course.about} />
     </>
   );
