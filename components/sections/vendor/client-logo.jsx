@@ -13,7 +13,7 @@ function ClientLogos({ data }) {
         {/* Small eyebrow */}
         <Text
           as="p"
-          className="mb-8 font-mono text-[9px] tracking-[0.18em] text-ink/60 uppercase"
+          className="mb-8 font-mono text-[10px] tracking-[0.18em] text-ink/60 uppercase"
         >
           {data.heading}
         </Text>
@@ -25,7 +25,7 @@ function ClientLogos({ data }) {
           {[...data.logos, ...data.logos].map((logo, index) => (
             <Box
               key={`${logo.alt}-${index}`}
-              className="flex h-[54px] w-[140px] flex-none items-center justify-center rounded-[4px] bg-white px-4 py-2"
+              className="flex h-[54px] w-[140px] flex-none items-center justify-center rounded-[8px] bg-white px-4 py-2"
             >
               <Image
                 src={logo.src}
