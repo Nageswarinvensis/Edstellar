@@ -34,15 +34,11 @@ export default function StickyTabs({ data }) {
         <Box
           as="a"
           href="#about"
-          className="
-            flex
-            shrink-0
-            items-center
-          "
+          className="flex shrink-0 items-center"
         >
           <img
-            src="/images/edstellar-logo.svg"
-            alt="Edstellar"
+            src={data?.logo?.src}
+            alt={data?.logo?.alt || "Edstellar"}
             className="h-[28px] w-auto object-contain"
           />
         </Box>
