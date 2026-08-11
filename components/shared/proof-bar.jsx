@@ -16,35 +16,24 @@ import { cn } from "@/lib/utils";
  */
 function Avatars({ people = [], tone }) {
   if (!people.length) return null;
-  const dark = tone === "dark";
+
+  const person = people[0];
 
   return (
-    <Box className="flex flex-none">
-      {people.slice(0, 4).map((person, index) => (
-        <Box
-          key={`${person.name || "person"}-${index}`}
-          aria-hidden="true"
-          className={cn(
-            "relative grid size-[30px] flex-none place-items-center overflow-hidden rounded-full border-2 font-mono text-[11px] tracking-[0.04em]",
-            index === 0 ? "ml-0" : "-ml-[9px]",
-            dark
-              ? "border-navy bg-navy-soft text-lime"
-              : "border-white bg-navy text-lime shadow-[0_1px_3px_rgba(10,22,40,0.2)]"
-          )}
-        >
-          {person.photo ? (
-            <Image
-              src={person.photo}
-              alt=""
-              fill
-              sizes="30px"
-              className="object-cover"
-            />
-          ) : (
-            (person.name || "?").charAt(0)
-          )}
-        </Box>
-      ))}
+    <Box
+      aria-hidden="true"
+      className="flex h-[30px] w-[72px] flex-none items-center"
+    >
+      {person.photo ? (
+        <Image
+          src={person.photo}
+          alt=""
+          width={72}
+          height={30}
+          sizes="72px"
+          className="h-[30px] w-[72px] object-contain"
+        />
+      ) : null}
     </Box>
   );
 }
@@ -111,45 +100,71 @@ function ProofBar({ tone = "light", stats = [], trainers, actions = [], classNam
       ))}
 
       {trainers ? (
-        <Box
+  <>
+    {/* Trainers */}
+    <Box
+      className={cn(
+        "flex flex-row items-center gap-3",
+        "border-l border-paper/12 pl-5",
+        !dark && "min-w-0 flex-1 border-ink/12 max-sm:pl-4"
+      )}
+    >
+      <Avatars people={trainers.people} tone={tone} />
+
+      <Box className="flex flex-col gap-[5px]">
+        <Box className="flex items-center gap-1.5 whitespace-nowrap">
+          <b className="font-display text-[16px] leading-none font-bold text-lime">
+            {trainers.count || `${trainers.people?.length || 0}+`}
+          </b>
+
+          <span
+            className={cn(
+              "font-mono text-[14px] tracking-[0.02em] whitespace-nowrap",
+              dark ? "text-paper/85" : "text-ink/70"
+            )}
+          >
+            {trainers.trainerLabel || "Expert trainers"}
+          </span>
+        </Box>
+
+        <span
           className={cn(
-            "flex flex-row items-center gap-3",
-            !dark && "min-w-0 flex-1 border-l border-ink/12 pl-[26px] max-sm:pl-4"
+            "font-mono text-[9px] tracking-[0.14em] whitespace-nowrap uppercase hover:text-lime hover:underline hover:underline-offset-4",
+            dark ? "text-paper/55" : "text-ink/60"
           )}
         >
-          <Avatars people={trainers.people} tone={tone} />
-          <Box className="flex flex-col gap-[5px]">
-            {dark && trainers.stars ? (
-              <Box className="flex items-center gap-1" aria-hidden="true">
-                {Array.from({ length: trainers.stars }).map((_, index) => (
-                  <Star
-                    key={index}
-                    size={11}
-                    fill="currentColor"
-                    className="text-lime"
-                  />
-                ))}
-              </Box>
-            ) : null}
-            <b
-              className={cn(
-                "font-display text-2xl leading-none font-bold tracking-[-0.03em]",
-                dark ? "text-lime" : "text-ink"
-              )}
-            >
-              {trainers.value}
-            </b>
-            <span
-              className={cn(
-                "font-mono text-[9.5px] tracking-[0.14em] whitespace-nowrap uppercase",
-                dark ? "text-paper/55" : "text-ink/60"
-              )}
-            >
-              {trainers.label}
-            </span>
-          </Box>
+          {trainers.meetLabel || "Meet them"} →
+        </span>
+      </Box>
+    </Box>
+
+    {/* Rating */}
+    {dark && trainers.stars ? (
+      <Box className="flex flex-col gap-2 border-l border-paper/12 pl-5">
+        <Box className="flex items-center gap-1" aria-hidden="true">
+          {Array.from({ length: trainers.stars }).map((_, index) => (
+            <Star
+              key={index}
+              size={10}
+              fill="currentColor"
+              className="text-lime"
+            />
+          ))}
         </Box>
-      ) : null}
+
+        <Box className="flex items-baseline gap-2 whitespace-nowrap">
+          <span className="font-mono text-[9px] tracking-[0.12em] whitespace-nowrap text-paper/55 uppercase">
+            {trainers.value}
+          </span>
+
+          <span className="font-mono text-[9px] tracking-[0.12em] whitespace-nowrap text-paper/55 uppercase">
+            · {trainers.label}
+          </span>
+        </Box>
+      </Box>
+    ) : null}
+  </>
+) : null}
 
       {dark && actions.length ? (
         <Box className="flex flex-wrap items-center gap-3 max-sm:w-full max-sm:justify-center">

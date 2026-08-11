@@ -2,14 +2,13 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/shared/reveal";
-import TopicPills from "@/components/shared/topic-pills";
 import ProofBar from "@/components/shared/proof-bar";
 
 function VendorInfo({ topics, groupQuote, proof }) {
   const badges = proof?.badges ?? [];
 
   return (
-    <Section className="overflow-hidden">
+    <Section className="overflow-hidden pb-[48px]">
       {badges.length ? (
         <Reveal delay={4}>
           <Box
@@ -66,7 +65,7 @@ function VendorInfo({ topics, groupQuote, proof }) {
 
             <a
               href={groupQuote.href}
-              className="group border-b border-lime/55 pb-0.5 font-mono text-[10px] font-medium tracking-[0.13em] text-olive uppercase transition-colors hover:border-navy hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy max-sm:text-[9.5px]"
+              className="group border-b border-lime/55 pb-0.5 font-mono text-[10px] font-medium tracking-[0.13em] text-ink/60 uppercase transition-colors hover:border-navy hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy max-sm:text-[9.5px]"
             >
               {groupQuote.label}
 

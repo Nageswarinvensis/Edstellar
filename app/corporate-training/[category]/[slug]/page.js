@@ -1,54 +1,80 @@
 import { notFound } from "next/navigation";
-import RichHeading from "@/components/shared/rich-heading";
-import courses from "@/lib/content/courses";
+
+import { getCategoryCourse } from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { breadcrumbJsonLd, courseJsonLd } from "@/lib/seo/json-ld";
+
+import JsonLd from "@/components/seo/json-ld";
+import CategoryHero from "@/components/sections/category/category-hero";
+import CategoryInfo from "@/components/sections/category/categoryInfo";
+import ClientLogos from "@/components/sections/category/client-logo";
+import StickyTabs from "@/components/sections/category/sticky-navbar";
+import CategoryAbout from "@/components/sections/category/category-about";
 import Certificate from "@/components/sections/course/certificate";
 import Faq from "@/components/sections/course/faq";
 
-export async function generateStaticParams() {
-  return courses.map((course) => ({
-    category: course.category,
-    slug: course.slug,
-  }));
-}
+export const revalidate = 3600;
 
-export const dynamicParams = false;
+function pathFor(category, slug) {
+  return `/corporate-training/${category}/${slug}`;
+}
 
 export async function generateMetadata({ params }) {
   const { category, slug } = await params;
-  const course = courses.find((item) => item.slug === slug);
 
-  if (!course) {
-    return buildMetadata({
-      title: "Course Not Found",
-      path: `/corporate-training/${category}/${slug}`,
-      noIndex: true,
-    });
-  }
+  const course = await getCategoryCourse(slug);
+
+  if (!course) return {};
 
   return buildMetadata({
-    title: course.title,
-    path: `/corporate-training/${category}/${course.slug}`,
+    title: course.seo.title,
+    description: course.seo.description,
+    path: pathFor(category, slug),
+    image: course.seo.ogImage,
   });
 }
 
 export default async function CoursePage({ params }) {
-  const { slug } = await params;
+  const { category, slug } = await params;
 
-  const course = courses.find((item) => item.slug === slug);
+  const course = await getCategoryCourse(slug);
 
-  if (!course) {
-    notFound();
-  }
+  if (!course) notFound();
+
+  const workload = course.proof?.stats?.find(
+    (stat) => stat.label === "Hours"
+  );
 
   return (
     <>
-      <RichHeading
-        as="h1"
-        parts={[{ text: course.title }]}
-        emphasisClassName="color-ink"
-        className="mb-10 text-center"
+      <JsonLd
+        data={[
+          courseJsonLd({
+            name: course.name,
+            description: course.seo.description,
+            path: pathFor(category, slug),
+            workload: workload
+              ? `${workload.value} hours`
+              : undefined,
+          }),
+          breadcrumbJsonLd(course.breadcrumbs),
+        ]}
       />
+
+      <CategoryHero
+        hero={course.hero}
+        breadcrumbs={course.breadcrumbs}
+      />
+
+      <CategoryInfo
+        topics={course.hero?.topics}
+        groupQuote={course.hero?.groupQuote}
+        proof={course.proof}
+      />
+
+      <ClientLogos data={course.ClientsLogosData} />
+      <StickyTabs data={course.tabs} />
+      <CategoryAbout about={course.about} />
       <Certificate certificate={course.certificate} />
       <Faq faqs={course.faqs} />
     </>

@@ -48,6 +48,8 @@ function InfoTooltip({ label, heading, children, className }) {
         aria-expanded={open}
         aria-describedby={open ? popoverId : undefined}
         onClick={() => setOpen((value) => !value)}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
         className={cn(
           "grid size-4 flex-none cursor-pointer place-items-center rounded-full border font-serif text-[11px] leading-none italic transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
           open

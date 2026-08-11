@@ -16,6 +16,7 @@ function DomainAbout({ about }) {
   if (!about) return null;
 
   return (
+    <>
     <Section
       id="about"
       className="relative border-b border-ink/12 py-[88px] max-lg:py-[66px] max-sm:py-[78px]"
@@ -67,6 +68,8 @@ function DomainAbout({ about }) {
         </ReadMore>
       ) : null}
     </Section>
+  </>
+
   );
 }
 

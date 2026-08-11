@@ -31,13 +31,16 @@ export default function Certificate({ certificate }) {
               className="max-w-[560px] tracking-[-0.04em]"
             />
 
-            <Text as="p" className="mt-7 max-w-[530px]  leading-7 text-ink/60">
+            <Text
+              as="p"
+              className="mt-7 max-w-[530px] text-[15px] leading-7 text-ink/60"
+            >
               {certificate.description}
             </Text>
 
             <Text
               as="p"
-              className="mt-4 max-w-[530px] text-[14px] leading-5 text-ink/60"
+              className="mt-4 max-w-[530px] text-[11px] leading-5 text-ink/60"
             >
               <strong className="font-semibold text-ink">
                 {certificate.highlight.title}
@@ -73,8 +76,7 @@ export default function Certificate({ certificate }) {
                 {/* Subtitle */}
                 <Text
                   as="p"
-                  className="mt-3 text-[14px] tracking-[0.28em] --muted-soft
-                   uppercase"
+                  className="mt-3 text-[8px] tracking-[0.28em] text-paper/50 uppercase"
                 >
                   {certificate.certificateCard.subtitle}
                 </Text>

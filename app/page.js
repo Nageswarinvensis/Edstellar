@@ -4,7 +4,10 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import CtaButton from "@/components/ui/CtaButton";
 import { buildMetadata } from "@/lib/seo/metadata";
-import courses from "@/lib/content/courses";
+import {
+  getDomainCourseSlugs,
+  getCategoryCourseSlugs,
+} from "@/lib/content/courses";
 
 export const revalidate = 3600;
 
@@ -96,15 +99,19 @@ const SITE_MAP = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [domainSlugs, categorySlugs] = await Promise.all([
+    getDomainCourseSlugs(),
+    getCategoryCourseSlugs(),
+  ]);
+
   const corporateTraining = {
     kicker: "Corporate Training",
     title: "Corporate training courses",
     links: [
       "/corporate-training",
-      ...courses.map(
-        (course) => `/corporate-training/${course.category}/${course.slug}`
-      ),
+      ...domainSlugs.map((slug) => `/corporate-training/domain/${slug}`),
+      ...categorySlugs.map((slug) => `/corporate-training/vendor/${slug}`),
     ],
   };
 
