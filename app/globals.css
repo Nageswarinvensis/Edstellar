@@ -156,6 +156,7 @@
   --color-lime: #c8f135;
   --color-lime-soft: #e4f89a;
   --color-ink: #0a1628;
+  --color-ink-muted:#0a162899;
   --color-paper: #fafaf7;
   --color-paper-warm: #f2f0e8;
   --color-paper-cream: #ede9dd;
@@ -213,5 +214,14 @@
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+@keyframes logoSlide {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
   }
 }
