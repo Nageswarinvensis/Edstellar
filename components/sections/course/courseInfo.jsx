@@ -4,7 +4,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/shared/reveal";
 import ProofBar from "@/components/shared/proof-bar";
 
-function VendorInfo({ topics, groupQuote, proof }) {
+function CourseInfo({ topics, groupQuote, proof }) {
   const badges = proof?.badges ?? [];
 
   return (
@@ -83,4 +83,4 @@ function VendorInfo({ topics, groupQuote, proof }) {
   );
 }
 
-export default VendorInfo;
+export default CourseInfo;

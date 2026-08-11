@@ -5,11 +5,11 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd, courseJsonLd } from "@/lib/seo/json-ld";
 
 import JsonLd from "@/components/seo/json-ld";
-import CategoryHero from "@/components/sections/category/category-hero";
-import CategoryInfo from "@/components/sections/category/categoryInfo";
-import ClientLogos from "@/components/sections/category/client-logo";
-import StickyTabs from "@/components/sections/category/sticky-navbar";
-import CategoryAbout from "@/components/sections/category/category-about";
+import CategoryHero from "@/components/sections/course/course-hero";
+import CategoryInfo from "@/components/sections/course/courseInfo";
+import ClientLogos from "@/components/sections/course/client-logo";
+import StickyTabs from "@/components/sections/course/sticky-navbar";
+import CategoryAbout from "@/components/sections/course/course-about";
 import Certificate from "@/components/sections/course/certificate";
 import Faq from "@/components/sections/course/faq";
 
@@ -41,9 +41,7 @@ export default async function CoursePage({ params }) {
 
   if (!course) notFound();
 
-  const workload = course.proof?.stats?.find(
-    (stat) => stat.label === "Hours"
-  );
+  const workload = course.proof?.stats?.find((stat) => stat.label === "Hours");
 
   return (
     <>
@@ -53,18 +51,13 @@ export default async function CoursePage({ params }) {
             name: course.name,
             description: course.seo.description,
             path: pathFor(category, slug),
-            workload: workload
-              ? `${workload.value} hours`
-              : undefined,
+            workload: workload ? `${workload.value} hours` : undefined,
           }),
           breadcrumbJsonLd(course.breadcrumbs),
         ]}
       />
 
-      <CategoryHero
-        hero={course.hero}
-        breadcrumbs={course.breadcrumbs}
-      />
+      <CategoryHero hero={course.hero} breadcrumbs={course.breadcrumbs} />
 
       <CategoryInfo
         topics={course.hero?.topics}
