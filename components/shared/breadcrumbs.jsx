@@ -18,17 +18,22 @@ function Breadcrumbs({ items = [], className }) {
       as="nav"
       aria-label="Breadcrumb"
       className={cn(
-        "no-scrollbar mt-6 flex flex-nowrap items-center gap-1.5 overflow-x-auto font-mono text-[9.5px] tracking-[0.1em] whitespace-nowrap color-ink-muted uppercase",
-        className
+        " mt-6 flex flex-wrap items-center gap-1.5  font-mono text-[9.5px] tracking-[0.1em] color-ink-muted uppercase",
+        className,
       )}
     >
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
 
         return (
-          <span key={`${item.label}-${index}`} className="flex items-center gap-1.5">
+          <span
+            key={`${item.label}-${index}`}
+            className="flex items-center gap-1.5"
+          >
             {isLast || !item.href ? (
-              <span aria-current={isLast ? "page" : undefined}>{item.label}</span>
+              <span aria-current={isLast ? "page" : undefined}>
+                {item.label}
+              </span>
             ) : (
               <Link
                 href={item.href}
