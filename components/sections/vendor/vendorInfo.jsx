@@ -2,7 +2,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/shared/reveal";
-
 import ProofBar from "@/components/shared/proof-bar";
 
 function VendorInfo({ topics, groupQuote, proof }) {
