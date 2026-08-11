@@ -144,10 +144,10 @@
      widths, so the default Tailwind scale is replaced rather than approximated.
      Offsets are +1px because Tailwind breakpoints are min-width, which makes
      `max-sm:` resolve to the design's `max-width:620px` query. */
-  --breakpoint-sm: 621px;
-  --breakpoint-md: 821px;
-  --breakpoint-lg: 1141px;
-  --breakpoint-xl: 1181px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 758px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
 
   /* Palette */
   --color-navy: #0a1628;

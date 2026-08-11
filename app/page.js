@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import CtaButton from "@/components/ui/CtaButton";
@@ -16,10 +16,6 @@ export const metadata = buildMetadata({
   path: "/",
 });
 
-/**
- * Placeholder home page. Exists so the two course templates are reachable while
- * the real marketing home page is designed.
- */
 export default async function HomePage() {
   const [domainSlugs, vendorSlugs] = await Promise.all([
     getDomainCourseSlugs(),
@@ -27,29 +23,45 @@ export default async function HomePage() {
   ]);
 
   return (
-    <Box className="container flex min-h-svh flex-col justify-center gap-10 py-20">
-      <Box className="flex flex-col gap-3">
+    <Section>
+      <Box className="flex flex-col gap-4">
         <Text as="h1">Edstellar</Text>
-        <Text as="p" className="max-w-[60ch]">
-          Next.js App Router · JavaScript · Tailwind CSS v4. The two course page
-          templates below are built from the approved designs against static
-          content.
+        <Text as="p" className="max-w-[60ch] mb-4">
+          The Best Corporate Training Experiences are Instructor-led
         </Text>
       </Box>
-
-      <Box className="flex flex-col gap-2">
+      <Box className="flex flex-col gap-4">
         <Text
           as="span"
           className="font-mono text-[11px] tracking-[0.24em] uppercase"
         >
-          Domain hub
+          Corporate Page{" "}
         </Text>
 
         {domainSlugs.map((slug) => (
           <CtaButton
             key={slug}
             variant="ghost"
-            className="self-start"
+            className="self-start mb-4"
+            render={<Link href={`/corporate-training`} />}
+          >
+            /corporate-training
+          </CtaButton>
+        ))}
+      </Box>
+      <Box className="flex flex-col gap-4">
+        <Text
+          as="span"
+          className="font-mono text-[11px] tracking-[0.24em] uppercase"
+        >
+          Category Page{" "}
+        </Text>
+
+        {domainSlugs.map((slug) => (
+          <CtaButton
+            key={slug}
+            variant="ghost"
+            className="self-start mb-4"
             render={<Link href={`/corporate-training/${slug}`} />}
           >
             /corporate-training/{slug}
@@ -57,24 +69,28 @@ export default async function HomePage() {
         ))}
       </Box>
 
-      <Box className="flex flex-col gap-2">
+      <Box className="flex flex-col gap-4">
         <Text
           as="span"
           className="font-mono text-[11px] tracking-[0.24em] uppercase"
         >
-          Vendor course
+          Course Page{" "}
         </Text>
 
         {vendorSlugs.map((slug) => (
           <CtaButton
             key={slug}
             className="self-start"
-            render={<Link href={`/corporate-training/${slug}`} />}
+            render={
+              <Link
+                href={`/corporate-training/artificial-intelligence/${slug}`}
+              />
+            }
           >
-            /corporate-training/{slug}
+            /corporate-training/artificial-intelligence/{slug}
           </CtaButton>
         ))}
       </Box>
-    </Box>
+    </Section>
   );
 }
