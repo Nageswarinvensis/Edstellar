@@ -7,7 +7,7 @@ function page() {
         <RichHeading
           as="h1"
           parts={[
-            { text: "Corporate " },
+            { text: "Corporated " },
             { text: "Training Page", highlighted: true },
           ]}
           emphasisClassName="color-ink"
