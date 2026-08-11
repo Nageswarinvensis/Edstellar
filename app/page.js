@@ -49,6 +49,16 @@ const SITE_MAP = [
     links: ["/skill-based-organization"],
   },
   {
+    kicker: "Coaching",
+    title: "Coaching services",
+    links: ["/coaching-services"],
+  },
+  {
+    kicker: "Platform",
+    title: "Training management software",
+    links: ["/training-management-software"],
+  },
+  {
     kicker: "Resources",
     title: "Brochures, templates & tools",
     links: [
@@ -68,6 +78,16 @@ const SITE_MAP = [
     kicker: "Conversion",
     title: "Thank you page",
     links: ["/thank-you/example"],
+  },
+  {
+    kicker: "Company",
+    title: "About, contact & enquiry",
+    links: ["/about-us", "/contact-us", "/enquiry-now"],
+  },
+  {
+    kicker: "Legal",
+    title: "Privacy & terms",
+    links: ["/privacy-policy", "/terms-and-conditions"],
   },
 ];
 
