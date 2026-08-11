@@ -19,8 +19,8 @@ function HeroMeta({ items = [], className }) {
       as="p"
       className={cn(
         "m-0 mb-5 flex flex-wrap items-center gap-x-3.5 gap-y-2.5 font-mono text-[11px] font-semibold tracking-[0.08em] text-ink uppercase",
-        "max-md:mt-[18px] max-md:mb-[26px] max-md:gap-x-[11px] max-md:gap-y-2 max-md:text-[10.5px]",
-        className
+        "max-md:mt-4.5 max-md:mb-6.5 max-md:gap-x-2.75 max-md:gap-y-2 max-md:text-[10.5px]",
+        className,
       )}
     >
       {items.map((item, index) => {
@@ -28,11 +28,15 @@ function HeroMeta({ items = [], className }) {
         const label = isString ? item : item.label;
 
         return (
-          <Box as="span" key={`${label}-${index}`} className="flex flex-none items-center gap-x-3.5">
+          <Box
+            as="span"
+            key={`${label}-${index}`}
+            className="flex flex-none items-center gap-x-3.5"
+          >
             {index > 0 ? (
               <span
                 aria-hidden="true"
-                className="block size-[5px] flex-none rounded-full bg-lime"
+                className="block size-1.25 flex-none rounded-full bg-lime"
               />
             ) : null}
 

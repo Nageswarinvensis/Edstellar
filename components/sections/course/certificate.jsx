@@ -28,19 +28,19 @@ export default function Certificate({ certificate }) {
               as="h2"
               parts={certificate.title.parts}
               emphasisClassName="font-serif italic font-normal"
-              className="max-w-[560px] tracking-[-0.04em]"
+              className="max-w-140 tracking-[-0.04em]"
             />
 
             <Text
               as="p"
-              className="mt-7 max-w-[530px] text-[15px] leading-7 text-ink/60"
+              className="mt-7 max-w-132.5 text-[15px] leading-7 text-ink/60"
             >
               {certificate.description}
             </Text>
 
             <Text
               as="p"
-              className="mt-4 max-w-[530px] text-[14px] leading-5 text-ink/60"
+              className="mt-4 max-w-132.5 text-[14px] leading-5 text-ink/60"
             >
               <strong className="font-semibold text-ink">
                 {certificate.highlight.title}
@@ -52,9 +52,9 @@ export default function Certificate({ certificate }) {
 
         {/* Certificate Card */}
         <Reveal delay={2}>
-          <Box className="relative mx-auto w-full max-w-[460px]">
-            <Box className="rounded-[15px] bg-navy p-[11px] shadow-sm">
-              <Box className="flex min-h-[315px] flex-col items-center justify-center rounded-[11px] border border-lime/20 px-8 text-center">
+          <Box className="relative mx-auto w-full max-w-115">
+            <Box className="rounded-[15px] bg-navy p-3 shadow-sm">
+              <Box className="flex min-h-78 flex-col items-center justify-center rounded-[11px] border border-lime/20 px-8 text-center">
                 {/* Icon */}
                 <Box className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-lime">
                   <Star

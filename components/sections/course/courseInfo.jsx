@@ -55,7 +55,7 @@ function CourseInfo({ groupQuote, proof }) {
           <Reveal delay={4}>
             <Box
               as="p"
-              className="mt-4 flex flex-wrap items-center justify-center gap-[9px] max-sm:mt-[13px] max-sm:gap-2"
+              className="mt-4 flex flex-wrap items-center justify-center gap-[9px] max-sm:mt-3.25 max-sm:gap-2"
             >
               <Box
                 as="span"

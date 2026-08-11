@@ -10,6 +10,7 @@ import CategoryInfo from "@/components/sections/course/courseInfo";
 import ClientLogos from "@/components/sections/course/client-logo";
 import StickyTabs from "@/components/sections/course/sticky-navbar";
 import CategoryAbout from "@/components/sections/course/course-about";
+import WhyNow from "@/components/sections/course/why-now";
 import Certificate from "@/components/sections/course/certificate";
 import Faq from "@/components/sections/course/faq";
 
@@ -66,8 +67,9 @@ export default async function CoursePage({ params }) {
       />
 
       <ClientLogos data={course.ClientsLogosData} />
-      <StickyTabs data={course.tabs} />
+      <StickyTabs data={course.stickyNavbarData} />
       <CategoryAbout about={course.about} />
+      <WhyNow whyNow={course.whyNow} />
       <Certificate certificate={course.certificate} />
       <Faq faqs={course.faqs} />
     </>

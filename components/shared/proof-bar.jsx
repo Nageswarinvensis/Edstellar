@@ -11,10 +11,7 @@ function Avatars({ people = [], tone }) {
   const person = people[0];
 
   return (
-    <Box
-      aria-hidden="true"
-      className="flex h-[30px] w-[72px] flex-none items-center"
-    >
+    <Box aria-hidden="true" className="flex h-7.5 w-18 flex-none items-center">
       {person.photo ? (
         <Image
           src={person.photo}
@@ -22,7 +19,7 @@ function Avatars({ people = [], tone }) {
           width={72}
           height={30}
           sizes="72px"
-          className="h-[30px] w-[72px] object-contain"
+          className="h-7.5 w-18 object-contain"
         />
       ) : null}
     </Box>
@@ -48,7 +45,7 @@ function ProofBar({
         dark
           ? "gap-1"
           : cn(
-              "min-w-0 flex-1 gap-[5px] border-l border-ink/12 pl-[26px] first:border-l-0 first:pl-0",
+              "min-w-0 flex-1 gap-2 border-l border-ink/12 pl-6 first:border-l-0 first:pl-0",
               // ≤620px the strip becomes two columns, so every odd cell starts a row.
               "max-sm:flex-[1_1_44%] max-sm:pl-4 max-sm:odd:border-l-0 max-sm:odd:pl-0",
             ),
