@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/constants";
 import {
   getDomainCourseSlugs,
-  getCategoryCourseSlugs,
+  getCategoryCourses,
 } from "@/lib/content/courses";
 
 /**
@@ -16,18 +16,16 @@ export default async function sitemap() {
     priority,
   });
 
-  const [domainSlugs, categorySlugs] = await Promise.all([
+  const [categorySlugs, categoryCourses] = await Promise.all([
     getDomainCourseSlugs(),
-    getCategoryCourseSlugs(),
+    getCategoryCourses(),
   ]);
 
   return [
     entry("/", 1, "daily"),
-    ...domainSlugs.map((slug) =>
-      entry(`/corporate-training/domain/${slug}`, 0.8)
-    ),
-    ...categorySlugs.map((slug) =>
-      entry(`/corporate-training/vendor/${slug}`, 0.8)
+    ...categorySlugs.map((slug) => entry(`/corporate-training/${slug}`, 0.7)),
+    ...categoryCourses.map((course) =>
+      entry(`/corporate-training/${course.category}/${course.slug}`, 0.8)
     ),
   ];
 }
