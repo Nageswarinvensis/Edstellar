@@ -73,7 +73,7 @@ function ProofBar({
   return (
     <Box
       className={cn(
-        "mt-[22px] flex flex-wrap items-center",
+        "mt-5.5 flex flex-wrap items-center",
         dark
           ? "justify-between gap-x-5 gap-y-4 rounded-[20px] bg-navy px-[22px] py-[18px] shadow-[0_34px_70px_-46px_rgba(10,22,40,0.75)] max-lg:px-5 xl:flex-nowrap"
           : "gap-x-6 gap-y-4 rounded-[18px] border border-ink/12 bg-white px-6 py-[18px] shadow-[0_18px_44px_-34px_rgba(10,22,40,0.35)]",

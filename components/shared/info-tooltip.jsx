@@ -67,7 +67,7 @@ function InfoTooltip({ label, heading, children, className }) {
         role="tooltip"
         className={cn(
           // ≤820px the popover flips to right-aligned so it never overflows.
-          "absolute top-[calc(100%+11px)] z-60 w-[330px] max-w-[78vw] rounded-[14px] bg-navy px-[18px] py-4 font-body text-[13px] leading-[1.65] tracking-normal text-paper normal-case shadow-[0_26px_54px_-28px_rgba(10,22,40,0.75)] transition-[opacity,transform] duration-200",
+          "absolute top-[calc(100%+11px)] z-60 w-[330px] max-w-[78vw] rounded-[14px] bg-navy px-4.5 py-4 font-body text-[13px] leading-[1.65] tracking-normal text-paper normal-case shadow-[0_26px_54px_-28px_rgba(10,22,40,0.75)] transition-[opacity,transform] duration-200",
           "max-md:right-0 max-md:left-auto md:left-0",
           // Arrow
           "before:absolute before:-top-1.5 before:size-3 before:rotate-45 before:rounded-[2px] before:bg-navy before:content-['']",

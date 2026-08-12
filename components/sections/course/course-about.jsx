@@ -4,7 +4,6 @@ import Section from "@/components/ui/Section";
 import ReadMore from "@/components/shared/read-more";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
-import SectionMark from "@/components/shared/section-mark";
 
 /**
  * Vendor course "what is this" block — two columns: the definition copy on the
@@ -27,15 +26,6 @@ function VendorAbout({ about }) {
       id="about"
       className="relative border-b border-ink/12 py-[80px] max-sm:py-[80px]"
     >
-      <Reveal>
-        <SectionMark
-          roman={about.mark?.roman}
-          keyword={about.mark?.keyword}
-          label={about.mark?.label}
-          className="mb-7.5"
-        />
-      </Reveal>
-
       <Reveal delay={1}>
         <RichHeading
           as="h2"
@@ -47,7 +37,11 @@ function VendorAbout({ about }) {
       <Box className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-12">
         <Reveal delay={1}>
           {about.body?.map((paragraph, index) => (
-            <Text as="p" key={index} className="mb-4.5 text-base leading-[1.75]">
+            <Text
+              as="p"
+              key={index}
+              className="mb-4.5 text-base leading-[1.75]"
+            >
               {paragraph}
             </Text>
           ))}
@@ -99,7 +93,9 @@ function VendorAbout({ about }) {
                             rowIndex === contrast.rows.length - 1
                               ? ""
                               : "border-b border-ink/12",
-                            cellIndex === 0 ? "text-ink/60" : "bg-lime/5 text-ink",
+                            cellIndex === 0
+                              ? "text-ink/60"
+                              : "bg-lime/5 text-ink",
                           ].join(" ")}
                         >
                           {cell}

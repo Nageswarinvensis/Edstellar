@@ -2,7 +2,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/shared/rich-heading";
-import SectionMark from "@/components/shared/section-mark";
 import Reveal from "@/components/shared/reveal";
 
 /**
@@ -19,15 +18,6 @@ export default function WhyNow({ whyNow }) {
     <Section id="why-now" className="border-t border-ink/10 bg-paper-warm">
       <Box className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <Box>
-          <Reveal>
-            <SectionMark
-              roman={whyNow.mark?.roman}
-              keyword={whyNow.mark?.keyword}
-              label={whyNow.mark?.label}
-              className="mb-6"
-            />
-          </Reveal>
-
           <Reveal delay={1}>
             <RichHeading
               as="h2"

@@ -8,7 +8,7 @@ export default async function AuthorPage({ params }) {
 
   return (
     <main>
-      <section className="container mx-auto px-4 py-16">
+      <Section>
         <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500">
           Author
         </p>
@@ -18,7 +18,7 @@ export default async function AuthorPage({ params }) {
         <p className="mt-4 max-w-3xl text-lg text-gray-600">
           Explore articles and insights written by {heading}.
         </p>
-      </section>
+      </Section>
     </main>
   );
 }

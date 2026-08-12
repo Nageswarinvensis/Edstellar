@@ -8,7 +8,7 @@ function Section({ className, children, ...props }) {
       className={cn("px-5 py-10 lg:px-10 lg:py-20", className)}
       {...props}
     >
-      <Box className="max-w-7xl mx-auto">{children}</Box>
+      <Box className="rail-container max-w-7xl mx-auto">{children}</Box>
     </Box>
   );
 }

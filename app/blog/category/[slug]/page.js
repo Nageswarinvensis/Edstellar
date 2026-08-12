@@ -8,7 +8,7 @@ export default async function CategoryPage({ params }) {
 
   return (
     <main>
-      <section className="container mx-auto px-4 py-16">
+      <section>
         <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500">
           Category
         </p>
