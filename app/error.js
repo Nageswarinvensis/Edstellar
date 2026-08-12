@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import CtaButton from "@/components/ui/CtaButton";
+import CtaButton from "@/components/shared/CtaButton";
 
 /**
  * Segment-level error boundary. Catches render/data errors thrown below it

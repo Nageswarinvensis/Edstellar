@@ -2,7 +2,7 @@ import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import CtaButton from "@/components/ui/CtaButton";
+import CtaButton from "@/components/shared/CtaButton";
 import { buildMetadata } from "@/lib/seo/metadata";
 import {
   getDomainCourseSlugs,

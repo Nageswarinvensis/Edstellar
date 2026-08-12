@@ -1,6 +1,6 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import CtaButton from "@/components/ui/CtaButton";
+import CtaButton from "@/components/shared/CtaButton";
 import Section from "@/components/ui/Section";
 import Breadcrumbs from "@/components/shared/breadcrumbs";
 import HeroMedia from "@/components/shared/hero-media";
@@ -70,6 +70,7 @@ function VendorHero({ hero, breadcrumbs }) {
                 <CtaButton
                   key={action.label}
                   variant={action.variant}
+                  arrow
                   render={<a href={action.href} />}
                 >
                   {action.label}

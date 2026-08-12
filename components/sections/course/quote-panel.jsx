@@ -6,7 +6,7 @@ import { Check } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import { CtaButton } from "@/components/ui/CtaButton";
+import { CtaButton } from "@/components/shared/CtaButton";
 import { cn } from "@/lib/utils";
 import { COUNTRY_DIAL_CODES } from "@/lib/constants";
 
@@ -246,8 +246,8 @@ export default function QuotePanel({ title = "Request a training quote", slaNote
           </Text>
         ) : null}
 
-        <CtaButton type="submit" size="sm" block disabled={isSubmitting} className="mt-4.5">
-          Request my quote →
+        <CtaButton type="submit" size="sm" block arrow disabled={isSubmitting} className="mt-4.5">
+          Request my quote
         </CtaButton>
 
         {slaNote ? (

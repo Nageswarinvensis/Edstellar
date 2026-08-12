@@ -126,6 +126,7 @@
   }
   body {
     @apply bg-paper text-ink;
+    font-family: "DM Sans", serif;
   }
   html {
     @apply font-body;

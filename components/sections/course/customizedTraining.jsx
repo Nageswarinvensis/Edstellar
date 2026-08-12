@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import { CtaButton } from "@/components/ui/CtaButton";
+import { CtaButton } from "@/components/shared/CtaButton";
 import Reveal from "@/components/shared/reveal";
 
 export default function CustomizedTraining({ data }) {
@@ -38,10 +38,7 @@ export default function CustomizedTraining({ data }) {
             </Text>
 
             {data.cta ? (
-              <CtaButton
-                render={<a href={data.cta.href} />}
-                className="bg-lime text-navy hover:shadow-[0_10px_20px_-12px_rgba(10,22,40,0.35)]"
-              >
+              <CtaButton color="lime" arrow render={<a href={data.cta.href} />}>
                 {data.cta.label}
               </CtaButton>
             ) : null}

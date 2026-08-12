@@ -25,7 +25,10 @@ export default function DeliveryModeTabs({ tabs }) {
 
   return (
     <Box>
-      <Box role="tablist" className="mb-8 flex flex-wrap border-b border-ink/12">
+      <Box
+        role="tablist"
+        className="mb-8 flex flex-wrap border-b border-ink/12"
+      >
         {tabs.map((tab) => {
           const isActive = tab.id === active.id;
 
@@ -49,7 +52,7 @@ export default function DeliveryModeTabs({ tabs }) {
                 as="span"
                 className={cn(
                   "font-display text-base font-semibold tracking-[-0.01em]",
-                  isActive ? "text-ink" : "text-ink/60"
+                  isActive ? "text-ink" : "text-ink/60",
                 )}
               >
                 {tab.label}
@@ -59,7 +62,7 @@ export default function DeliveryModeTabs({ tabs }) {
                 aria-hidden="true"
                 className={cn(
                   "absolute -bottom-px left-0 h-0.5 bg-lime transition-all duration-300",
-                  isActive ? "w-full" : "w-0"
+                  isActive ? "w-full" : "w-0",
                 )}
               />
             </button>

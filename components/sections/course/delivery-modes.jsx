@@ -4,13 +4,6 @@ import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
 import DeliveryModeTabs from "@/components/sections/course/delivery-mode-tabs";
 
-/**
- * Vendor course delivery modes — virtual, on-site, and off-site, switched
- * via tabs.
- *
- * Design: `section#modes.block.section`. Rendered at `id="delivery"` to
- * match the anchor `stickyNavbarData` already points at for this section.
- */
 export default function DeliveryModes({ deliveryModes }) {
   if (!deliveryModes?.tabs?.length) return null;
 
@@ -20,7 +13,7 @@ export default function DeliveryModes({ deliveryModes }) {
         <RichHeading
           as="h2"
           parts={deliveryModes.heading.parts}
-          className="mb-6.5 max-w-[24ch] tracking-[-0.03em]"
+          className="mb-6.5 max-w-24ch tracking-[-0.03em]"
         />
       </Reveal>
 
