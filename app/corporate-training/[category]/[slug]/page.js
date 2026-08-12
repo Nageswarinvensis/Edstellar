@@ -20,8 +20,10 @@ import DeliveryModes from "@/components/sections/course/delivery-modes";
 import QuoteRail from "@/components/sections/course/quote-rail";
 import Testimonials from "@/components/sections/course/testimonials";
 import Trainers from "@/components/sections/course/trainers";
+import MapSection from "@/components/sections/course/mapsection";
 import Certificate from "@/components/sections/course/certificate";
 import Faq from "@/components/sections/course/faq";
+import AdjacentSection from "@/components/sections/course/adjusentsection";
 import CustomizedTraining from "@/components/sections/course/customizedTraining";
 import StickyFooter from "@/components/sections/course/sticky-footer";
 
@@ -91,8 +93,10 @@ export default async function CoursePage({ params }) {
       </QuoteRail>
       <Testimonials testimonials={course.testimonials} />
       <Trainers trainers={course.trainers} />
+      <MapSection data={course.mapsectionData} />
       <Certificate certificate={course.certificate} />
       <Faq faqs={course.faqs} />
+      <AdjacentSection faqs={course.AdjacentSectionData} />
       <CustomizedTraining data={course.customizedTraining} />
       <StickyFooter data={course.stickyFooter} />
     </>
