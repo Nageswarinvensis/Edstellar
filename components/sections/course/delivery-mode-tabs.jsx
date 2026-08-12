@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
@@ -43,6 +44,7 @@ export default function DeliveryModeTabs({ tabs }) {
               >
                 {tab.sublabel}
               </Text>
+
               <Text
                 as="span"
                 className={cn(
@@ -52,6 +54,7 @@ export default function DeliveryModeTabs({ tabs }) {
               >
                 {tab.label}
               </Text>
+
               <span
                 aria-hidden="true"
                 className={cn(
@@ -69,16 +72,35 @@ export default function DeliveryModeTabs({ tabs }) {
         className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10"
       >
         <Box>
-          <Text as="h3" className="mb-3 font-display text-2xl font-semibold tracking-[-0.02em] text-ink">
+          <Text
+            as="h3"
+            className="mb-3 font-display text-2xl font-semibold tracking-[-0.02em] text-ink"
+          >
             {active.title}
           </Text>
-          <Text as="p" className="mb-4.5 text-[15px] leading-[1.6] text-ink/60">
+
+          <Text
+            as="p"
+            className="mb-4.5 text-[15px] leading-[1.6] text-ink/60"
+          >
             {active.description}
           </Text>
-          <Box as="ul" className="flex flex-col divide-y divide-ink/12">
+
+          <Box
+            as="ul"
+            className="flex flex-col divide-y divide-ink/12"
+          >
             {active.points?.map((point) => (
-              <Box as="li" key={point} className="flex gap-3 py-2.25 text-[14.5px] leading-[1.5] text-ink/60">
-                <Text as="span" aria-hidden="true" className="font-bold text-ink/60">
+              <Box
+                as="li"
+                key={point}
+                className="flex gap-3 py-2.25 text-[14.5px] --tw-leading: 1.5 text-ink/60"
+              >
+                <Text
+                  as="span"
+                  aria-hidden="true"
+                  className="font-bold text-ink/60"
+                >
                   →
                 </Text>
                 {point}
@@ -89,14 +111,16 @@ export default function DeliveryModeTabs({ tabs }) {
 
         <Box
           aria-hidden="true"
-          className="relative flex h-[280px] items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
+          className="relative flex h-70 items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
         >
-          <Text
-            as="span"
-            className="font-display text-5xl font-bold tracking-[-0.03em] text-paper/25"
-          >
-            {active.badge}
-          </Text>
+          <Image
+            src={active.image}
+            alt={active.alt}
+            title={active.title}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
         </Box>
       </Box>
     </Box>
