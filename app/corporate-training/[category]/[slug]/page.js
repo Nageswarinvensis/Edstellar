@@ -11,7 +11,6 @@ import ClientLogos from "@/components/sections/course/client-logo";
 import StickyTabs from "@/components/sections/course/sticky-navbar";
 import CategoryAbout from "@/components/sections/course/course-about";
 import WhyNow from "@/components/sections/course/why-now";
-<<<<<<< HEAD
 import Lifecycle from "@/components/sections/course/lifecycle";
 import Skills from "@/components/sections/course/skills";
 import Outcomes from "@/components/sections/course/outcomes";
@@ -19,21 +18,12 @@ import Curriculum from "@/components/sections/course/curriculum";
 import Audience from "@/components/sections/course/audience";
 import DeliveryModes from "@/components/sections/course/delivery-modes";
 import QuoteRail from "@/components/sections/course/quote-rail";
+import Testimonials from "@/components/sections/course/testimonials";
 import Trainers from "@/components/sections/course/trainers";
-=======
-import MapSection from "@/components/sections/course/mapsection";
->>>>>>> be8e438db064019fc64bcea7c85436d20331f6d6
 import Certificate from "@/components/sections/course/certificate";
 import Faq from "@/components/sections/course/faq";
 import CustomizedTraining from "@/components/sections/course/customizedTraining";
 import StickyFooter from "@/components/sections/course/sticky-footer";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 export const revalidate = 3600;
 
@@ -91,7 +81,6 @@ export default async function CoursePage({ params }) {
       <StickyTabs data={course.stickyNavbarData} />
       <CategoryAbout about={course.about} />
       <WhyNow whyNow={course.whyNow} />
-<<<<<<< HEAD
       <Lifecycle lifecycle={course.lifecycle} />
       <QuoteRail>
         <Skills skills={course.skills} />
@@ -100,10 +89,8 @@ export default async function CoursePage({ params }) {
         <Audience audience={course.audience} />
         <DeliveryModes deliveryModes={course.deliveryModes} />
       </QuoteRail>
+      <Testimonials testimonials={course.testimonials} />
       <Trainers trainers={course.trainers} />
-=======
-      <MapSection data={course.mapsectionData} />
->>>>>>> be8e438db064019fc64bcea7c85436d20331f6d6
       <Certificate certificate={course.certificate} />
       <Faq faqs={course.faqs} />
       <CustomizedTraining data={course.customizedTraining} />

@@ -5,7 +5,7 @@ import { X } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import { CtaButton } from "@/components/ui/CtaButton";
+import { CtaButton } from "@/components/shared/CtaButton";
 
 const ROTATE_MS = 5200;
 
@@ -132,8 +132,9 @@ export default function StickyFooter({ data }) {
           {data.cta ? (
             <CtaButton
               size="sm"
+              color="lime"
+              arrow
               render={<a href={data.cta.href} />}
-              className="bg-lime text-navy hover:shadow-[0_14px_28px_-14px_rgba(200,241,53,0.65)]"
             >
               {data.cta.label}
             </CtaButton>

@@ -24,7 +24,10 @@ export default function DeliveryModeTabs({ tabs }) {
 
   return (
     <Box>
-      <Box role="tablist" className="mb-8 flex flex-wrap border-b border-ink/12">
+      <Box
+        role="tablist"
+        className="mb-8 flex flex-wrap border-b border-ink/12"
+      >
         {tabs.map((tab) => {
           const isActive = tab.id === active.id;
 
@@ -47,7 +50,7 @@ export default function DeliveryModeTabs({ tabs }) {
                 as="span"
                 className={cn(
                   "font-display text-base font-semibold tracking-[-0.01em]",
-                  isActive ? "text-ink" : "text-ink/60"
+                  isActive ? "text-ink" : "text-ink/60",
                 )}
               >
                 {tab.label}
@@ -56,7 +59,7 @@ export default function DeliveryModeTabs({ tabs }) {
                 aria-hidden="true"
                 className={cn(
                   "absolute -bottom-px left-0 h-0.5 bg-lime transition-all duration-300",
-                  isActive ? "w-full" : "w-0"
+                  isActive ? "w-full" : "w-0",
                 )}
               />
             </button>
@@ -69,7 +72,10 @@ export default function DeliveryModeTabs({ tabs }) {
         className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10"
       >
         <Box>
-          <Text as="h3" className="mb-3 font-display text-2xl font-semibold tracking-[-0.02em] text-ink">
+          <Text
+            as="h3"
+            className="mb-3 font-display text-2xl font-semibold tracking-[-0.02em] text-ink"
+          >
             {active.title}
           </Text>
           <Text as="p" className="mb-4.5 text-[15px] leading-[1.6] text-ink/60">
@@ -77,8 +83,16 @@ export default function DeliveryModeTabs({ tabs }) {
           </Text>
           <Box as="ul" className="flex flex-col divide-y divide-ink/12">
             {active.points?.map((point) => (
-              <Box as="li" key={point} className="flex gap-3 py-2.25 text-[14.5px] leading-[1.5] text-ink/60">
-                <Text as="span" aria-hidden="true" className="font-bold text-ink/60">
+              <Box
+                as="li"
+                key={point}
+                className="flex gap-3 py-2.25 text-[14.5px] leading-[1.5] text-ink/60"
+              >
+                <Text
+                  as="span"
+                  aria-hidden="true"
+                  className="font-bold text-ink/60"
+                >
                   →
                 </Text>
                 {point}
@@ -89,7 +103,7 @@ export default function DeliveryModeTabs({ tabs }) {
 
         <Box
           aria-hidden="true"
-          className="relative flex h-[280px] items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
+          className="relative flex h-70 items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
         >
           <Text
             as="span"

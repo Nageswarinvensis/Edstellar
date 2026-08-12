@@ -2,7 +2,7 @@ import { Star, User } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import { CtaButton } from "@/components/ui/CtaButton";
+import { CtaButton } from "@/components/shared/CtaButton";
 import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
 
@@ -114,10 +114,11 @@ export default function Trainers({ trainers }) {
               <CtaButton
                 variant="ghost"
                 size="sm"
+                arrow
                 render={<a href="#apply" />}
                 className="mt-4 w-full justify-center border-ink/22 px-4 py-2.5 text-[12.5px] hover:border-navy hover:bg-navy hover:text-lime"
               >
-                View trainer profile →
+                View trainer profile
               </CtaButton>
             </Box>
           </Reveal>

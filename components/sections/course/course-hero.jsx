@@ -1,6 +1,6 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import CtaButton from "@/components/ui/CtaButton";
+import CtaButton from "@/components/shared/CtaButton";
 import Section from "@/components/ui/Section";
 import Breadcrumbs from "@/components/shared/breadcrumbs";
 import HeroMedia from "@/components/shared/hero-media";
@@ -21,12 +21,7 @@ function VendorHero({ hero, breadcrumbs }) {
   if (!hero) return null;
 
   return (
-<<<<<<< HEAD
-    <Section id="top" className="relative overflow-hidden pt-0.5 pb-13.5">
-=======
     <Section id="top" className="relative overflow-hidden pt-9.5 pb-13.5">
->>>>>>> be8e438db064019fc64bcea7c85436d20331f6d6
-      {/* No `relative` here — HeroMedia positions against the <header>. */}
       <Box className="grid grid-cols-1 items-center gap-6.5 lg:gap-8.5">
         <HeroMedia
           image={hero.media?.image}
@@ -72,6 +67,7 @@ function VendorHero({ hero, breadcrumbs }) {
                 <CtaButton
                   key={action.label}
                   variant={action.variant}
+                  arrow
                   render={<a href={action.href} />}
                 >
                   {action.label}
