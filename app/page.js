@@ -6,7 +6,7 @@ import CtaButton from "@/components/ui/CtaButton";
 import { buildMetadata } from "@/lib/seo/metadata";
 import {
   getDomainCourseSlugs,
-  getVendorCourseSlugs,
+  getCategoryCourseSlugs,
 } from "@/lib/content/courses";
 
 export const revalidate = 3600;
@@ -92,9 +92,9 @@ const SITE_MAP = [
 ];
 
 export default async function HomePage() {
-  const [domainSlugs, vendorSlugs] = await Promise.all([
+  const [domainSlugs, categorySlugs] = await Promise.all([
     getDomainCourseSlugs(),
-    getVendorCourseSlugs(),
+    getCategoryCourseSlugs(),
   ]);
 
   const corporateTraining = {
@@ -103,7 +103,7 @@ export default async function HomePage() {
     links: [
       "/corporate-training",
       ...domainSlugs.map((slug) => `/corporate-training/${slug}`),
-      ...vendorSlugs.map(
+      ...categorySlugs.map(
         (slug) => `/corporate-training/artificial-intelligence/${slug}`
       ),
     ],
