@@ -24,7 +24,7 @@ const componentMap = {
  */
 const tailwindClasses = {
   h1: "font-display font-bold text-ink text-[clamp(30px,3.5vw,47px)] leading-[1.05] tracking-[-0.035em] break-words hyphens-auto",
-  h2: "font-display font-bold text-ink text-[clamp(30px,4vw,50px)] leading-[1.08] tracking-[-0.03em] break-words hyphens-auto",
+  h2: "font-display font-bold text-ink text-[clamp(27px,3.2vw,40px)] leading-[1.08] tracking-[-0.03em] break-words hyphens-auto",
   h3: "font-display font-bold text-ink text-[clamp(20px,2vw,26px)] leading-[1.15] tracking-[-0.02em] break-words hyphens-auto",
   h4: "font-display font-semibold text-ink text-lg leading-snug tracking-[-0.01em] break-words hyphens-auto",
   h5: "font-display font-semibold text-ink text-base leading-snug break-words hyphens-auto",

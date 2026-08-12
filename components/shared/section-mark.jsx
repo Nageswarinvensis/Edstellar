@@ -15,7 +15,7 @@ function SectionMark({ roman, keyword, label, tone = "light", className }) {
       className={cn(
         "flex flex-wrap items-baseline gap-3 font-mono text-[11px] tracking-[0.24em] uppercase",
         dark ? "text-paper/60" : "text-ink/60",
-        className
+        className,
       )}
     >
       {roman ? (
@@ -25,7 +25,7 @@ function SectionMark({ roman, keyword, label, tone = "light", className }) {
         <span
           className={cn(
             "font-serif text-base tracking-normal normal-case italic",
-            dark ? "text-paper" : "text-ink"
+            dark ? "text-paper" : "text-ink",
           )}
         >
           {keyword}
