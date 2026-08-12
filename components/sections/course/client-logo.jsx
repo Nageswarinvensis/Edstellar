@@ -22,7 +22,6 @@ function ClientLogos({ data }) {
       </Box>
 
       {/* Logo animation - full width */}
-      <Reveal delay={1}>
         <Box className="w-full overflow-hidden">
           <Box className="flex w-max animate-[logoSlide_30s_linear_infinite] items-center gap-8 hover:paused">
             {[...data.logos, ...data.logos].map((logo, index) => (
@@ -42,7 +41,6 @@ function ClientLogos({ data }) {
             ))}
           </Box>
         </Box>
-      </Reveal>
     </Box>
   );
 }

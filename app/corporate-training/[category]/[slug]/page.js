@@ -11,6 +11,7 @@ import ClientLogos from "@/components/sections/course/client-logo";
 import StickyTabs from "@/components/sections/course/sticky-navbar";
 import CategoryAbout from "@/components/sections/course/course-about";
 import WhyNow from "@/components/sections/course/why-now";
+import MapSection from "@/components/sections/course/mapsection";
 import Certificate from "@/components/sections/course/certificate";
 import Faq from "@/components/sections/course/faq";
 
@@ -70,6 +71,7 @@ export default async function CoursePage({ params }) {
       <StickyTabs data={course.stickyNavbarData} />
       <CategoryAbout about={course.about} />
       <WhyNow whyNow={course.whyNow} />
+      <MapSection data={course.mapsectionData} />
       <Certificate certificate={course.certificate} />
       <Faq faqs={course.faqs} />
     </>

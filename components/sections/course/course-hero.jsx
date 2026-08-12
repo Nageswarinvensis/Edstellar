@@ -7,6 +7,7 @@ import HeroMedia from "@/components/shared/hero-media";
 import HeroMeta from "@/components/shared/hero-meta";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
+
 /**
  * Vendor course hero.
  *
@@ -20,9 +21,9 @@ function VendorHero({ hero, breadcrumbs }) {
   if (!hero) return null;
 
   return (
-    <Section id="top" className="relative overflow-hidden pt-[38px] pb-[54px]">
+    <Section id="top" className="relative overflow-hidden pt-9.5 pb-13.5">
       {/* No `relative` here — HeroMedia positions against the <header>. */}
-      <Box className="grid grid-cols-1 items-center gap-[26px] lg:gap-[34px]">
+      <Box className="grid grid-cols-1 items-center gap-6.5 lg:gap-8.5">
         <HeroMedia
           image={hero.media?.image}
           video={hero.media?.video}
@@ -35,9 +36,6 @@ function VendorHero({ hero, breadcrumbs }) {
               as="h1"
               parts={hero.headlineParts}
               emphasisClassName="color-ink"
-              // Only the responsive bump is overridden. Repeating the base
-              // size unprefixed would make tailwind-merge drop the base
-              // `leading-[1.05]`, since `text-*` also sets line-height in v4.
               className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
             />
           </Reveal>
