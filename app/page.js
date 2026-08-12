@@ -25,7 +25,10 @@ const SITE_MAP = [
   {
     kicker: "Assessments",
     title: "Talent assessment services",
-    links: ["/talent-assessment-services", "/talent-assessment-services/example"],
+    links: [
+      "/talent-assessment-services",
+      "/talent-assessment-services/example",
+    ],
   },
   {
     kicker: "Consulting",
@@ -72,7 +75,12 @@ const SITE_MAP = [
   {
     kicker: "Blog",
     title: "Articles, authors & categories",
-    links: ["/blog", "/blog/example", "/blog/author/example", "/blog/category/example"],
+    links: [
+      "/blog",
+      "/blog/example",
+      "/blog/author/example",
+      "/blog/category/example",
+    ],
   },
   {
     kicker: "Conversion",
@@ -92,18 +100,18 @@ const SITE_MAP = [
 ];
 
 export default async function HomePage() {
-  const [domainSlugs, categorySlugs] = await Promise.all([
+  const [domainSlugs, vendorSlugs] = await Promise.all([
     getDomainCourseSlugs(),
     getCategoryCourseSlugs(),
   ]);
 
   const corporateTraining = {
     kicker: "Corporate Training",
-    title: "Domains, categories & courses",
+    title: "Corporate training courses",
     links: [
       "/corporate-training",
       ...domainSlugs.map((slug) => `/corporate-training/${slug}`),
-      ...categorySlugs.map(
+      ...vendorSlugs.map(
         (slug) => `/corporate-training/artificial-intelligence/${slug}`
       ),
     ],

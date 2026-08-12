@@ -9,7 +9,7 @@ export default function StickyTabs({ data }) {
       as="nav"
       aria-label="Course navigation"
       className="
-        sticky top-0 z-[880]
+        sticky top-0 z-1
         w-full
         border-y
         border-[rgba(10,22,40,0.12)]
@@ -22,24 +22,20 @@ export default function StickyTabs({ data }) {
         className="
           mx-auto
           flex
-          h-[52px]
+          h-13
           w-full
           max-w-[1800px]
           items-center
           px-5
-          lg:px-[50px]
+          lg:px-12.5
         "
       >
         {/* Logo */}
-        <Box
-          as="a"
-          href="#about"
-          className="flex shrink-0 items-center"
-        >
+        <Box as="a" href="#about" className="flex shrink-0 items-center">
           <img
             src={data?.logo?.src}
             alt={data?.logo?.alt || "Edstellar"}
-            className="h-[28px] w-auto object-contain"
+            className="h-7 w-auto object-contain"
           />
         </Box>
 
@@ -57,21 +53,17 @@ export default function StickyTabs({ data }) {
           "
         >
           {data?.tabs?.map((tab) => (
-            <Box
-              as="li"
-              key={tab.id}
-              className="flex h-full items-center"
-            >
+            <Box as="li" key={tab.id} className="flex h-full items-center">
               <Box
                 as="a"
                 href={`#${tab.id}`}
                 className={`
                   flex
-                  h-[35px]
+                  h-8.75
                   items-center
                   justify-center
                   rounded-[10px]
-                  px-[13px]
+                  px-3.25
                   transition-colors
                   duration-200
                   ${
@@ -88,11 +80,7 @@ export default function StickyTabs({ data }) {
                     text-[13px]
                     font-normal
                     leading-none
-                    ${
-                      tab.active
-                        ? "text-[#0A1628]"
-                        : "text-[#626875]"
-                    }
+                    ${tab.active ? "text-[#0A1628]" : "text-[#626875]"}
                   `}
                 >
                   {tab.label}
