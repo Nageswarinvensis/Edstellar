@@ -24,7 +24,7 @@ function VendorAbout({ about }) {
   return (
     <Section
       id="about"
-      className="relative border-b border-ink/12 py-[80px] max-sm:py-[80px]"
+      className="relative border-b border-ink/12 py-20 max-sm:py-20"
     >
       <Reveal delay={1}>
         <RichHeading
@@ -89,7 +89,7 @@ function VendorAbout({ about }) {
                         <td
                           key={cellIndex}
                           className={[
-                            "px-5 py-3.5 align-top text-[13.5px] leading-[1.5]",
+                            "px-5 py-3.5 align-top text-[13.5px] tw-leading-1.5",
                             rowIndex === contrast.rows.length - 1
                               ? ""
                               : "border-b border-ink/12",

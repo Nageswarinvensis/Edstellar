@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import Box from "@/components/ui/Box";
 import { cn } from "@/lib/utils";
 
@@ -24,15 +23,12 @@ function HeroMedia({ image, video, alt = "", poster, className }) {
 
   return (
     <Box
-      // Decorative when it carries no media; labelled when it does.
       role={hasMedia ? "img" : undefined}
       aria-label={hasMedia ? alt : undefined}
       aria-hidden={hasMedia ? undefined : "true"}
       className={cn(
         "hidden",
-        // 621–1140px: inline block above the copy
         "sm:mb-1.5 sm:block sm:h-70 sm:w-full sm:overflow-hidden sm:rounded-[14px] sm:hero-mask-y",
-        // ≥1141px: absolute, bleeding right, masked from the left
         "lg:pointer-events-none lg:absolute lg:-top-16 lg:-bottom-6 lg:left-[calc(22%+56px)] lg:right-0 lg:z-0 lg:mb-0 lg:h-auto lg:w-auto lg:rounded-none lg:hero-mask-x",
         className,
       )}
@@ -54,7 +50,6 @@ function HeroMedia({ image, video, alt = "", poster, className }) {
           src={image}
           alt={alt}
           fill
-          // The hero image is the LCP element on these pages.
           priority
           sizes="(max-width: 620px) 0px, (max-width: 1140px) 100vw, 60vw"
           className="object-cover object-right"
