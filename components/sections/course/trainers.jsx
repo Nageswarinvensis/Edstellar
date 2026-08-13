@@ -6,16 +6,6 @@ import { CtaButton } from "@/components/shared/CtaButton";
 import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
 
-/**
- * Vendor course trainer roster. Every field on `trainer` is placeholder
- * content — generic name, stand-in rating/sessions/years — until a real
- * trainer is matched at scheduling (see `trainers.note`). Swap for the
- * real roster when it exists; don't attach these stats to an invented
- * specific person's name or photo in the meantime.
- *
- * Design: `section#trainers.block.warm`, `.tr-grid`, `.tr-card`, `.tr-btn`,
- * `.tr-stats`.
- */
 export default function Trainers({ trainers }) {
   if (!trainers?.people?.length) return null;
 
