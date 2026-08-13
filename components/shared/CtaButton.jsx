@@ -1,5 +1,6 @@
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import { cva } from "class-variance-authority";
+import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -11,6 +12,10 @@ import { cn } from "@/lib/utils";
  * any edit would be overwritten (TASTE.md §6.2). The PascalCase filename
  * matches Text.jsx / Box.jsx and guarantees the CLI will never claim it.
  *
+ * `color` only swaps the `primary` variant's fill (navy pill vs. lime pill,
+ * e.g. for CTAs that sit on a dark background) — `ghost` stays ink-on-transparent
+ * regardless, since nothing in the designs needs a colored ghost button yet.
+ *
  * To render as a link, use Base UI's `render` prop — there is no `asChild` in
  * Base UI:
  *   <CtaButton render={<Link href="/contact" />}>Talk to us</CtaButton>
@@ -20,10 +25,13 @@ const ctaButtonVariants = cva(
   {
     variants: {
       variant: {
-        primary:
-          "bg-navy text-lime hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-12px_rgba(10,22,40,0.5)]",
+        primary: "hover:-translate-y-0.5",
         ghost:
           "border border-ink/22 bg-transparent text-ink hover:border-navy hover:bg-ink/[0.04]",
+      },
+      color: {
+        navy: "",
+        lime: "",
       },
       size: {
         default: "px-7 py-4 text-sm",
@@ -34,21 +42,46 @@ const ctaButtonVariants = cva(
         false: "",
       },
     },
+    compoundVariants: [
+      {
+        variant: "primary",
+        color: "navy",
+        class: "bg-navy text-lime hover:shadow-[0_14px_30px_-12px_rgba(10,22,40,0.5)]",
+      },
+      {
+        variant: "primary",
+        color: "lime",
+        class: "bg-lime text-navy hover:shadow-[0_14px_28px_-14px_rgba(200,241,53,0.65)]",
+      },
+    ],
     defaultVariants: {
       variant: "primary",
+      color: "navy",
       size: "default",
       block: false,
     },
   }
 );
 
-function CtaButton({ className, variant, size, block, ...props }) {
+function CtaButton({
+  className,
+  variant,
+  color,
+  size,
+  block,
+  arrow = false,
+  children,
+  ...props
+}) {
   return (
     <ButtonPrimitive
       data-slot="cta-button"
-      className={cn(ctaButtonVariants({ variant, size, block }), className)}
+      className={cn(ctaButtonVariants({ variant, color, size, block }), className)}
       {...props}
-    />
+    >
+      {children}
+      {arrow ? <ArrowRight size={16} strokeWidth={2.25} aria-hidden="true" /> : null}
+    </ButtonPrimitive>
   );
 }
 

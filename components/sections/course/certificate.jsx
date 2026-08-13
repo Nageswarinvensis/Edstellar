@@ -2,7 +2,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/shared/rich-heading";
-import SectionMark from "@/components/shared/section-mark";
 import Reveal from "@/components/shared/reveal";
 import { Star } from "lucide-react";
 
@@ -11,15 +10,6 @@ export default function Certificate({ certificate }) {
 
   return (
     <Section id="certificate" className="border-t border-ink/10">
-      <Reveal>
-        <SectionMark
-          roman={certificate.mark?.roman}
-          keyword={certificate.mark?.keyword}
-          label={certificate.mark?.label}
-          className="mb-14"
-        />
-      </Reveal>
-
       <Box className="grid items-center gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
         {/* Left */}
         <Reveal delay={1}>

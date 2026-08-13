@@ -7,7 +7,7 @@ function ClientLogos({ data }) {
   if (!data) return null;
 
   return (
-    <Box className="overflow-hidden bg-[#F5F3EB] py-12 border-b border-[rgba(10,22,40,0.12)]">
+    <Box className="px-10 overflow-hidden bg-[#F5F3EB] py-12 border-b border-[rgba(10,22,40,0.12)]">
       {/* Content container */}
       <Box className="mx-auto max-w-7xl">
         {/* Small eyebrow */}
@@ -22,7 +22,6 @@ function ClientLogos({ data }) {
       </Box>
 
       {/* Logo animation - full width */}
-      <Reveal delay={1}>
         <Box className="w-full overflow-hidden">
           <Box className="flex w-max animate-[logoSlide_30s_linear_infinite] items-center gap-8 hover:paused">
             {[...data.logos, ...data.logos].map((logo, index) => (
@@ -42,7 +41,6 @@ function ClientLogos({ data }) {
             ))}
           </Box>
         </Box>
-      </Reveal>
     </Box>
   );
 }

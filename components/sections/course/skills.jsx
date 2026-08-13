@@ -1,0 +1,39 @@
+import Text from "@/components/ui/Text";
+import Section from "@/components/ui/Section";
+import RichHeading from "@/components/shared/rich-heading";
+import Reveal from "@/components/shared/reveal";
+import SkillCards from "@/components/sections/course/skill-cards";
+
+/**
+ * Vendor course skills grid — seven flippable cards, one per capability area.
+ *
+ * Design: `section#skills.block.section`, `.skill-grid`.
+ */
+export default function Skills({ skills }) {
+  if (!skills?.items?.length) return null;
+
+  return (
+    <Section id="skills" className="border-t border-ink/10">
+      <Reveal delay={1}>
+        <RichHeading
+          as="h2"
+          parts={skills.heading.parts}
+          className="mb-6.5 max-w-[20ch] tracking-[-0.03em]"
+        />
+      </Reveal>
+
+      <Reveal delay={2}>
+        <Text
+          as="p"
+          className="mb-15 max-w-[64ch] text-[16.5px] leading-[1.7] text-ink/60"
+        >
+          {skills.description}
+        </Text>
+      </Reveal>
+
+      <Reveal delay={2}>
+        <SkillCards items={skills.items} />
+      </Reveal>
+    </Section>
+  );
+}
