@@ -36,7 +36,7 @@ const FREE_MAIL_DOMAINS = new Set([
 ]);
 
 const inputClasses =
-  "w-full rounded-[10px] border border-ink/15 bg-paper-warm/50 px-3 py-2.5 text-[12px] text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-navy focus:bg-white";
+  "w-full rounded-[10px] border border-ink/15 bg-white px-3 py-2.5 text-[12px] text-ink outline-none transition-colors placeholder:text-[#0A1628] focus:border-navy focus:bg-white";
 
 function Field({ label, required, error, className, children }) {
   return (
@@ -123,7 +123,7 @@ export default function QuotePanel({
         className,
       )}
     >
-      <Box className="flex-none rounded-t-2xl border-b border-ink/12 bg-paper-warm p-4 text-center">
+      <Box className="flex-none rounded-t-2xl border-b border-ink/12 p-4 text-center">
         <Text
           as="h3"
           className="font-display text-base font-bold tracking-tight text-ink"
@@ -138,28 +138,11 @@ export default function QuotePanel({
             {...register("name", { required: "Required." })}
             type="text"
             autoComplete="name"
-            placeholder="Full name"
+            placeholder="Enter Your Full Name*"
             aria-invalid={Boolean(errors.name)}
             className={inputClasses}
           />
         </Field>
-
-        <Field
-          label="Job title"
-          required
-          error={errors.jobTitle?.message}
-          className="mt-3"
-        >
-          <input
-            {...register("jobTitle", { required: "Required." })}
-            type="text"
-            autoComplete="organization-title"
-            placeholder="Job title"
-            aria-invalid={Boolean(errors.jobTitle)}
-            className={inputClasses}
-          />
-        </Field>
-
         <Field
           label="Work email"
           required
@@ -179,8 +162,23 @@ export default function QuotePanel({
             })}
             type="email"
             autoComplete="email"
-            placeholder="jane@company.com"
+            placeholder="Enter Work Email Address*"
             aria-invalid={Boolean(errors.workEmail)}
+            className={inputClasses}
+          />
+        </Field>
+        <Field
+          label="Job title"
+          required
+          error={errors.jobTitle?.message}
+          className="mt-3"
+        >
+          <input
+            {...register("jobTitle", { required: "Required." })}
+            type="text"
+            autoComplete="organization-title"
+            placeholder="Enter Your Job Title*s"
+            aria-invalid={Boolean(errors.jobTitle)}
             className={inputClasses}
           />
         </Field>
@@ -197,7 +195,7 @@ export default function QuotePanel({
             })}
             type="text"
             autoComplete="organization"
-            placeholder="Your company"
+            placeholder="Enter Company Name*"
             aria-invalid={Boolean(errors.company)}
             className={inputClasses}
           />
@@ -214,7 +212,7 @@ export default function QuotePanel({
         </Field>
 
         <Field label="Phone" className="mt-3">
-          <Box className="flex items-stretch overflow-hidden rounded-[10px] border border-ink/15 bg-paper-warm/50 focus-within:border-navy focus-within:bg-white">
+          <Box className="flex items-stretch overflow-hidden rounded-[10px] border border-ink/22 focus-within:border-navy focus-within:bg-white">
             <Text
               as="span"
               className="flex items-center border-r border-ink/15 px-2.5 font-mono text-[12.5px] text-ink/60"
@@ -236,7 +234,7 @@ export default function QuotePanel({
           <textarea
             {...register("requirements")}
             rows={3}
-            placeholder="Team size, delivery format, your production stack, preferred timing."
+            placeholder="Tell Us About Your Training Requirements"
             className={cn(inputClasses, "resize-none")}
           />
         </Field>
