@@ -19,10 +19,11 @@ export default function StickyFooter({ data }) {
   const [dismissed, setDismissed] = useState(false);
   const [pastHero, setPastHero] = useState(false);
   const [atForm, setAtForm] = useState(false);
+  const [atFooter, setAtFooter] = useState(false);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  const visible = pastHero && !atForm && !dismissed;
+  const visible = pastHero && !atForm && !atFooter && !dismissed;
   const messages = data?.messages;
 
   useEffect(() => {
@@ -31,11 +32,12 @@ export default function StickyFooter({ data }) {
 
     const hero = document.getElementById("top");
     const form = document.getElementById(data?.formAnchorId || "apply");
+    const footer = document.getElementById("site-footer");
     if (!hero) return;
 
     const heroObserver = new IntersectionObserver(
       ([entry]) => setPastHero(!entry.isIntersecting),
-      { threshold: 0 }
+      { threshold: 0 },
     );
     heroObserver.observe(hero);
 
@@ -46,9 +48,23 @@ export default function StickyFooter({ data }) {
       : null;
     formObserver?.observe(form);
 
+    // The bar is fixed to the viewport bottom, so it would otherwise sit on
+    // top of the site footer's last row (copyright/ISO line) once scrolled
+    // into view. Hide it as soon as any part of the footer is visible.
+    const footerObserver = footer
+      ? new IntersectionObserver(
+          ([entry]) => setAtFooter(entry.isIntersecting),
+          {
+            threshold: 0,
+          },
+        )
+      : null;
+    footerObserver?.observe(footer);
+
     return () => {
       heroObserver.disconnect();
       formObserver?.disconnect();
+      footerObserver?.disconnect();
     };
   }, [data?.formAnchorId]);
 
@@ -64,7 +80,7 @@ export default function StickyFooter({ data }) {
 
     const timer = setInterval(
       () => setIndex((cur) => (cur + 1) % messages.length),
-      ROTATE_MS
+      ROTATE_MS,
     );
     return () => clearInterval(timer);
   }, [visible, paused, messages?.length]);
@@ -96,13 +112,12 @@ export default function StickyFooter({ data }) {
     >
       <Box
         className="
-          mx-auto flex h-15.5 w-full max-w-[1800px] items-center gap-5.5
-          px-5 max-md:h-auto max-md:flex-wrap max-md:gap-2.5 max-md:py-3
-          lg:px-12.5
+          mx-auto flex h-15.5 w-full max-w-7xl items-center justify-center gap-5.5
+          max-lg:h-auto max-lg:py-3  px-5 lg:px-10
         "
       >
         <Box
-          className="relative h-4.5 min-w-0 flex-1 max-md:order-2 max-md:h-4 max-md:flex-[1_0_100%]"
+          className="relative h-4.5 min-w-0 flex-1 max-lg:hidden"
           aria-live="polite"
           aria-atomic="true"
         >
@@ -128,12 +143,13 @@ export default function StickyFooter({ data }) {
           </Box>
         </Box>
 
-        <Box className="flex flex-none items-center gap-3 max-md:w-full max-md:justify-between">
+        <Box className="flex flex-none items-center gap-3 max-lg:w-full max-lg:justify-center">
           {data.cta ? (
             <CtaButton
               size="sm"
               color="lime"
               arrow
+              className="max-lg:w-full"
               render={<a href={data.cta.href} />}
             >
               {data.cta.label}
@@ -145,7 +161,7 @@ export default function StickyFooter({ data }) {
             type="button"
             aria-label="Dismiss this bar"
             onClick={() => setDismissed(true)}
-            className="cursor-pointer p-1.25 text-paper/45 transition-colors duration-200 hover:text-paper"
+            className="cursor-pointer p-1.25 text-paper/45 transition-colors duration-200 hover:text-paper max-lg:hidden"
           >
             <X size={19} strokeWidth={2} />
           </Box>

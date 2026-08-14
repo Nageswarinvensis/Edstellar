@@ -19,11 +19,16 @@ function ProgramCard({ program }) {
         "hover:-translate-y-1 hover:border-[#0a162838]",
         "hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.5)]",
         program.featured
-          ? "border-[#07162C] bg-[#07162C] text-white shadow-[0_14px_30px_rgba(10,22,40,0.14)]"
+          ? "border-navy-soft bg-navy-soft text-white shadow-[0_14px_30px_rgba(10,22,40,0.14)]"
           : "",
       ].join(" ")}
     >
-      <Box className="relative mx-3 mt-3 h-27.5 overflow-hidden rounded-[9px] bg-[#F0EEE6]">
+      <Box
+        className={[
+          "relative mx-3 mt-3 h-27.5 overflow-hidden rounded-[9px]",
+          program.featured ? "bg-navy-soft" : "bg-[#F0EEE6]",
+        ].join(" ")}
+      >
         <Image
           src={program.image}
           alt={program.imageAlt}
@@ -72,15 +77,9 @@ function ProgramCard({ program }) {
               program.featured ? "text-white/60" : "text-ink/60",
             ].join(" ")}
           >
-            <Clock3
-              size={11}
-              strokeWidth={1.5}
-              className="shrink-0"
-            />
+            <Clock3 size={11} strokeWidth={1.5} className="shrink-0" />
 
-            <span className="text-[10px]">
-              {program.duration}
-            </span>
+            <span className="text-[10px]">{program.duration}</span>
           </Box>
         </Box>
       </Box>
@@ -141,7 +140,7 @@ function RelatedCourseCard({ course }) {
   );
 }
 
-export default function AdjacentSection({ data }) {
+export default function WhyEds({ data }) {
   if (!data) return null;
 
   return (

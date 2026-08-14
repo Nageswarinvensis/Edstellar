@@ -7,7 +7,7 @@ function CourseInfo({ groupQuote, proof }) {
   const badges = proof?.badges ?? [];
 
   return (
-    <section className="pt-5 pb-10 px-10 overflow-hidden">
+    <section className="pt-5 pb-10 px-5 lg:px-10 overflow-hidden">
       <Box as="div" className="max-w-7xl m-auto">
         {badges.length ? (
           <Reveal delay={4}>
