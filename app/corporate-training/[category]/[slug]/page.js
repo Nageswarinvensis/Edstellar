@@ -19,12 +19,14 @@ import Audience from "@/components/sections/course/audience";
 import DeliveryModes from "@/components/sections/course/delivery-modes";
 import QuoteRail from "@/components/sections/course/quote-rail";
 import Testimonials from "@/components/sections/course/testimonials";
-import Trainers from "@/components/sections/course/trainers";
+import CustomizedTraining from "@/components/sections/course/customizedTraining";
 import MapSection from "@/components/sections/course/mapsection";
+import SlideSection from "@/components/sections/course/SlideSection";
+import Trainers from "@/components/sections/course/trainers";
 import Certificate from "@/components/sections/course/certificate";
 import Faq from "@/components/sections/course/faq";
 import AdjacentSection from "@/components/sections/course/adjusentsection";
-import CustomizedTraining from "@/components/sections/course/customizedTraining";
+
 import StickyFooter from "@/components/sections/course/sticky-footer";
 
 export const revalidate = 3600;
@@ -92,12 +94,13 @@ export default async function CoursePage({ params }) {
         <DeliveryModes deliveryModes={course.deliveryModes} />
       </QuoteRail>
       <Testimonials testimonials={course.testimonials} />
-      <Trainers trainers={course.trainers} />
+      <CustomizedTraining data={course.customizedTraining} />
       <MapSection data={course.mapsectionData} />
+      <SlideSection data={course.SlideData} />
+      <Trainers trainers={course.trainers} />
       <Certificate certificate={course.certificate} />
       <Faq faqs={course.faqs} />
-      <AdjacentSection faqs={course.AdjacentSectionData} />
-      <CustomizedTraining data={course.customizedTraining} />
+      <AdjacentSection data={course.AdjacentSectionData} />
       <StickyFooter data={course.stickyFooter} />
     </>
   );
