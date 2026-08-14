@@ -29,7 +29,7 @@ function HeroMedia({ image, video, alt = "", poster, className }) {
       className={cn(
         "hidden",
         "sm:mb-1.5 sm:block sm:h-70 sm:w-full sm:overflow-hidden sm:rounded-[14px] sm:hero-mask-y",
-        "lg:pointer-events-none lg:absolute lg:-top-16 lg:-bottom-6 lg:left-[calc(22%+56px)] lg:right-0 lg:z-0 lg:mb-0 lg:h-auto lg:w-auto lg:rounded-none lg:hero-mask-x",
+        "lg:pointer-events-none lg:absolute lg:-top-16 lg:-bottom-6 lg:left-[calc(22%+56px)] lg:right-[calc(50%-50vw)] lg:z-0 lg:mb-0 lg:h-auto lg:w-auto lg:rounded-none lg:hero-mask-x lg:bg-cover",
         className,
       )}
     >

@@ -21,7 +21,6 @@ function VendorHero({ hero, breadcrumbs }) {
 
   return (
     <Section id="top" className="relative overflow-hidden pt-9.5 pb-13.5">
-      {/* No `relative` here — HeroMedia positions against the <header>. */}
       <Box className="grid grid-cols-1 items-center gap-6.5 lg:gap-8.5">
         <HeroMedia
           image={hero.media?.image}
