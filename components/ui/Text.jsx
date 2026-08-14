@@ -9,6 +9,7 @@ const componentMap = {
   p: "p",
   span: "span",
   div: "div",
+  label: "label",
 };
 
 /**
@@ -31,6 +32,7 @@ const tailwindClasses = {
   p: "font-body text-ink/60 text-base leading-[1.7] break-words hyphens-auto",
   span: "font-body text-ink/60 text-sm break-words",
   div: "font-body text-ink/60 text-base break-words",
+  label: "font-body text-ink/60 text-sm break-words",
 };
 
 function Text({ as = "p", children, className, ...props }) {

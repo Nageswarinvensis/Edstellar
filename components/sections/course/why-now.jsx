@@ -37,7 +37,7 @@ export default function WhyNow({ whyNow }) {
         </Box>
 
         <Reveal delay={2}>
-          <Box className="grid grid-cols-2 gap-4">
+          <Box className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {whyNow.stats?.map((stat) => (
               <Box
                 key={stat.description}

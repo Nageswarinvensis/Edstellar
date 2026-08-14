@@ -75,8 +75,8 @@ function ProofBar({
       className={cn(
         "mt-5.5 flex flex-wrap items-center",
         dark
-          ? "justify-between gap-x-5 gap-y-4 rounded-[20px] bg-navy px-[22px] py-[18px] shadow-[0_34px_70px_-46px_rgba(10,22,40,0.75)] max-lg:px-5 xl:flex-nowrap"
-          : "gap-x-6 gap-y-4 rounded-[18px] border border-ink/12 bg-white px-6 py-[18px] shadow-[0_18px_44px_-34px_rgba(10,22,40,0.35)]",
+          ? "justify-center gap-x-5 gap-y-4 rounded-[20px] bg-navy px-5.5 py-4.5 shadow-[0_34px_70px_-46px_rgba(10,22,40,0.75)] max-lg:px-5 xl:flex-nowrap xl:justify-between"
+          : "gap-x-6 gap-y-4 rounded-[18px] border border-ink/12 bg-white px-6 py-4.5 shadow-[0_18px_44px_-34px_rgba(10,22,40,0.35)]",
         className,
       )}
     >
@@ -87,7 +87,7 @@ function ProofBar({
           {dark && index < stats.length - 1 ? (
             <Box
               aria-hidden="true"
-              className="h-[30px] w-px flex-none bg-paper/15 max-md:hidden"
+              className="h-7.5  flex-none bg-paper/15 max-md:hidden"
             />
           ) : null}
         </Box>
@@ -99,13 +99,14 @@ function ProofBar({
           <Box
             className={cn(
               "flex flex-row items-center gap-3",
-              "border-l border-paper/12 pl-5",
-              !dark && "min-w-0 flex-1 border-ink/12 max-sm:pl-4",
+              dark
+                ? "xl:border-l xl:border-paper/12 xl:pl-5"
+                : "min-w-0 flex-1 border-l border-ink/12 pl-5 max-sm:pl-4",
             )}
           >
             <Avatars people={trainers.people} tone={tone} />
 
-            <Box className="flex flex-col gap-[5px]">
+            <Box className="flex flex-col gap-1.5">
               <Box className="flex items-center gap-1.5 whitespace-nowrap">
                 <b className="font-display text-[16px] leading-none font-bold text-lime">
                   {trainers.count || `${trainers.people?.length || 0}+`}
@@ -134,7 +135,7 @@ function ProofBar({
 
           {/* Rating */}
           {dark && trainers.stars ? (
-            <Box className="flex flex-col gap-2 border-l border-paper/12 pl-5">
+            <Box className="flex flex-col gap-2 xl:border-l xl:border-paper/12 xl:pl-5">
               <Box className="flex items-center gap-1" aria-hidden="true">
                 {Array.from({ length: trainers.stars }).map((_, index) => (
                   <Star

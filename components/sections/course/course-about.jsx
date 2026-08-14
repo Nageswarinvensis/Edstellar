@@ -22,10 +22,7 @@ function VendorAbout({ about }) {
   const contrast = about.contrast;
 
   return (
-    <Section
-      id="about"
-      className="relative border-b border-ink/12 py-20 max-sm:py-20"
-    >
+    <Section id="about" className="relative border-b border-ink/12 ">
       <Reveal delay={1}>
         <RichHeading
           as="h2"

@@ -103,7 +103,7 @@ export default function StickyFooter({ data }) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       className={`
-        fixed inset-x-0 bottom-0 z-[920]
+        fixed inset-x-0 bottom-0 z-[920] px-5 lg:px-10
         border-t border-lime/22 bg-navy
         shadow-[0_-18px_40px_-30px_rgba(10,22,40,0.9)]
         transition-transform duration-[450ms] ease-out
@@ -113,7 +113,7 @@ export default function StickyFooter({ data }) {
       <Box
         className="
           mx-auto flex h-15.5 w-full max-w-7xl items-center justify-center gap-5.5
-          max-lg:h-auto max-lg:py-3  px-5 lg:px-10
+          max-lg:h-auto max-lg:py-3  
         "
       >
         <Box
