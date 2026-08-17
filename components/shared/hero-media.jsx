@@ -36,10 +36,10 @@ function HeroMedia({ image, video, alt = "", poster, className }) {
       {video ? (
         <video
           className="absolute inset-0 block size-full object-cover object-right"
+          autoPlay
           muted
           playsInline
-          loop
-          preload="metadata"
+          preload="auto"
           poster={poster || undefined}
           aria-hidden="true"
         >
