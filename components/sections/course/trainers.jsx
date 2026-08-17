@@ -31,8 +31,8 @@ export default function Trainers({ trainers }) {
       <Box className="grid grid-cols-4 gap-5 max-[1000px]:grid-cols-2 max-[600px]:grid-cols-1">
         {trainers.people.map((trainer, index) => (
           <Reveal key={trainer.name ?? index} delay={Math.min(index + 1, 4)}>
-            <Box className="group flex h-full flex-col rounded-2xl border border-ink/10 bg-white px-5.5 py-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.25 hover:border-ink/20 hover:shadow-[0_28px_58px_-34px_rgba(10,22,40,0.5)]">
-              <Box className="mb-4 flex size-16 flex-none items-center justify-center overflow-hidden rounded-full bg-navy text-lime transition-transform duration-300 group-hover:scale-[1.06]">
+            <Box className="group flex h-full flex-col rounded-2xl border border-ink/10 bg-white px-5.5 py-6 transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1.25 hover:border-ink/20 hover:shadow-[0_28px_58px_-34px_rgba(10,22,40,0.5)]">
+              <Box className="mb-4 flex size-16 flex-none items-center justify-center overflow-hidden rounded-full bg-navy text-lime transition-transform duration-500 group-hover:scale-[1.06]">
                 {trainer.image ? (
                   <img
                     src={trainer.image}

@@ -9,7 +9,7 @@ function ClientLogos({ data }) {
   return (
     <Box
       as="section"
-      className="px-5 lg:px-10 overflow-hidden bg-[#F5F3EB] py-12 border-b border-[rgba(10,22,40,0.12)]"
+      className="px-5 lg:px-10 overflow-hidden bg-[#F5F3EB] py-12"
     >
       {/* Content container */}
       <Box className="mx-auto max-w-7xl">
