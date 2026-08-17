@@ -4,40 +4,56 @@ import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
 import LifecycleStages from "@/components/sections/course/lifecycle-stages";
 
-/**
- * Vendor course monitoring lifecycle — dark, interactive: pick a stage on
- * the left, its detail renders on the right. The section's eyebrow/roman
- * mark above the heading is intentionally omitted here.
- *
- * Design: `section#lifecycle.block.section.dark.arcs`, `.life-wrap`
- * (the decorative `.arcs` radial-gradient background is not reproduced —
- * it uses off-palette colors and adds no information).
- */
 export default function Lifecycle({ lifecycle }) {
   if (!lifecycle?.stages?.length) return null;
 
   return (
-    <Section id="lifecycle" className="border-t border-paper/10 bg-navy">
-      <Reveal delay={1}>
-        <RichHeading
-          as="h2"
-          parts={lifecycle.heading.parts}
-          className="mb-6.5 max-w-[20ch] text-paper tracking-[-0.03em]"
+    <Section
+      id="lifecycle"
+      className="relative overflow-hidden border-t border-paper/10 bg-navy"
+    >
+      {/* Decorative lifecycle arcs */}
+      {lifecycle.image?.src && (
+        <img
+          src={lifecycle.image.src}
+          alt={lifecycle.image.alt || ""}
+          aria-hidden={!lifecycle.image.alt}
+          className="
+            pointer-events-none
+            absolute
+            -right-7.5
+            top-21.25
+            z-0
+            hidden
+            max-w-none
+            lg:block
+          "
         />
-      </Reveal>
+      )}
 
-      <Reveal delay={2}>
-        <Text
-          as="p"
-          className="mb-15 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-paper/78"
-        >
-          {lifecycle.description}
-        </Text>
-      </Reveal>
+      {/* Main content */}
+      <div className="relative z-10">
+        <Reveal delay={1}>
+          <RichHeading
+            as="h2"
+            parts={lifecycle.heading.parts}
+            className="mb-6.5 max-w-[20ch] text-paper tracking-[-0.03em]"
+          />
+        </Reveal>
 
-      <Reveal delay={2}>
-        <LifecycleStages stages={lifecycle.stages} />
-      </Reveal>
+        <Reveal delay={2}>
+          <Text
+            as="p"
+            className="mb-15 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-paper/78"
+          >
+            {lifecycle.description}
+          </Text>
+        </Reveal>
+
+        <Reveal delay={2}>
+          <LifecycleStages stages={lifecycle.stages} />
+        </Reveal>
+      </div>
     </Section>
   );
 }
