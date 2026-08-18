@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Check } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/shared/CtaButton";
+import { useGroupQuoteHandoff } from "@/components/shared/group-quote-context";
 import { cn } from "@/lib/utils";
 import { COUNTRY_DIAL_CODES } from "@/lib/constants";
 
@@ -78,9 +79,16 @@ export default function QuotePanel({
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm({ defaultValues: { country: "United States" } });
   const [submitted, setSubmitted] = useState(false);
+  const { handoff } = useGroupQuoteHandoff();
+
+  useEffect(() => {
+    if (!handoff) return;
+    setValue("requirements", handoff.requirements, { shouldDirty: true });
+  }, [handoff, setValue]);
 
   const dialCode =
     COUNTRY_DIAL_CODES.find((country) => country.name === watch("country"))
@@ -93,6 +101,7 @@ export default function QuotePanel({
   if (submitted) {
     return (
       <Box
+        id="apply"
         tabIndex={-1}
         className={cn(
           "flex flex-col overflow-hidden rounded-2xl border border-ink/22 bg-white p-6.5 text-center shadow-[0_1px_0_rgba(10,22,40,0.04),0_24px_48px_-30px_rgba(10,22,40,0.42),0_4px_14px_-8px_rgba(10,22,40,0.16)]",
@@ -115,6 +124,7 @@ export default function QuotePanel({
 
   return (
     <Box
+      id="apply"
       as="form"
       noValidate
       onSubmit={handleSubmit(onSubmit)}
@@ -123,7 +133,7 @@ export default function QuotePanel({
         className,
       )}
     >
-      <Box className="flex-none rounded-t-2xl border-b border-ink/12 p-4 text-center">
+      <Box className="flex-none rounded-t-2xl border-b border-ink/12 bg-paper-warm p-4 text-center">
         <Text
           as="h3"
           className="font-display text-base font-bold tracking-tight text-ink"
@@ -133,6 +143,13 @@ export default function QuotePanel({
       </Box>
 
       <Box className="min-h-0 flex-1 overflow-y-auto p-5">
+        {handoff ? (
+          <Box className="mb-3.5 rounded-[10px] border border-lime/45 bg-lime/12 px-3.25 py-2.5 text-[11.5px] leading-[1.5] text-ink">
+            <b className="font-semibold">Carried from your quote answers:</b>{" "}
+            {handoff.summary}
+          </Box>
+        ) : null}
+
         <Field label="Name" required error={errors.name?.message}>
           <input
             {...register("name", { required: "Required." })}
@@ -250,7 +267,7 @@ export default function QuotePanel({
           <Text
             as="label"
             htmlFor="qp-consent"
-            className="text-[10.5px] leading-[1.5] text-ink/60"
+            className="text-[10.5px] leading-normal text-ink/60"
           >
             I agree to be contacted about this request, per the{" "}
             <a href="/privacy-policy" className="underline hover:text-ink">
