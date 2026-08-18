@@ -19,7 +19,7 @@ function HeroMeta({ items = [], className }) {
       as="p"
       className={cn(
         "m-0 mb-5 flex flex-wrap items-center gap-x-3.5 gap-y-2.5 font-mono text-[11px] font-semibold tracking-[0.08em] text-ink uppercase",
-        "max-md:mt-4.5 max-md:mb-6.5 max-md:gap-x-2.75 max-md:gap-y-2 max-md:text-[10.5px]",
+        "max-md:mt-4.5 max-md:mb-6.5 max-md:gap-x-2.75 max-md:gap-y-2 max-md:text-[10.5px] max-w-120",
         className,
       )}
     >

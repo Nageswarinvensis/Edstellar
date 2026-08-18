@@ -25,9 +25,7 @@ import SlideSection from "@/components/sections/course/SlideSection";
 import Trainers from "@/components/sections/course/trainers";
 import Certificate from "@/components/sections/course/certificate";
 import WhyEds from "@/components/sections/course/whyEds";
-
 import Faq from "@/components/sections/course/faq";
-
 import StickyFooter from "@/components/sections/course/sticky-footer";
 
 export const revalidate = 3600;
@@ -100,7 +98,6 @@ export default async function CoursePage({ params }) {
       <SlideSection data={course.SlideData} />
       <Trainers trainers={course.trainers} />
       <Certificate certificate={course.certificate} />
-
       <Faq faqs={course.faqs} />
       <WhyEds data={course.WhyEds} />
       <StickyFooter data={course.stickyFooter} />
