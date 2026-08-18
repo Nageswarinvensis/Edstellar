@@ -4,12 +4,6 @@ import Section from "@/components/ui/Section";
 import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
 
-/**
- * Vendor course learning outcomes — a plain checklist of the success
- * measures the curriculum and KPIs are built around.
- *
- * Design: `section#outcomes.block.section.warm`, `.out-list`, `.out-item`.
- */
 export default function Outcomes({ outcomes }) {
   if (!outcomes?.items?.length) return null;
 

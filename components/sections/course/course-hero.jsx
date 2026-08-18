@@ -29,65 +29,65 @@ function VendorHero({ hero, breadcrumbs }) {
         />
 
         <Box
-  className={`relative z-1 max-w-full ${
-    hero.actions?.some(
-      (action) =>
-        action.label?.toLowerCase() === "download brochure"
-    )
-      ? "lg:max-w-[50%]"
-      : "lg:max-w-[46%]"
-  }`}
->
-  <Reveal delay={1}>
-    <RichHeading
-      as="h1"
-      parts={hero.headlineParts}
-      emphasisClassName="color-ink"
-      className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
-    />
-  </Reveal>
-
-  <Reveal delay={1}>
-    <Text
-      as="p"
-      className="mb-3.5 max-w-[38ch] font-serif text-[clamp(17px,1.6vw,21px)] leading-[1.3] text-ink italic"
-    >
-      {hero.subhead}
-    </Text>
-  </Reveal>
-
-  <Reveal delay={2}>
-    <Text
-      as="p"
-      className="mb-5 max-w-[60ch] text-[clamp(14px,1.1vw,16px)] leading-[1.6]"
-    >
-      {hero.lede}
-    </Text>
-  </Reveal>
-
-  <Reveal delay={4}>
-    <HeroMeta items={hero.meta} />
-  </Reveal>
-
-  <Reveal delay={3}>
-    <Box className="flex flex-wrap gap-3">
-      {hero.actions?.map((action) => (
-        <CtaButton
-          key={action.label}
-          variant={action.variant}
-          arrow
-          render={<a href={action.href} />}
+          className={`relative z-1 max-w-full ${
+            hero.actions?.some(
+              (action) =>
+                action.label?.toLowerCase() === "download brochure"
+            )
+              ? "lg:max-w-[50%]"
+              : "lg:max-w-[46%]"
+          }`}
         >
-          {action.label}
-        </CtaButton>
-      ))}
-    </Box>
-  </Reveal>
+          <Reveal delay={1}>
+            <RichHeading
+              as="h1"
+              parts={hero.headlineParts}
+              emphasisClassName="color-ink"
+              className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
+            />
+          </Reveal>
 
-  <Reveal>
-    <Breadcrumbs items={breadcrumbs} />
-  </Reveal>
-</Box>
+          <Reveal delay={1}>
+            <Text
+              as="p"
+              className="mb-3.5 max-w-[38ch] font-serif text-[clamp(17px,1.6vw,21px)] leading-[1.3] text-ink italic"
+            >
+              {hero.subhead}
+            </Text>
+          </Reveal>
+
+          <Reveal delay={2}>
+            <Text
+              as="p"
+              className="mb-5 max-w-[60ch] text-[clamp(14px,1.1vw,16px)] leading-[1.6]"
+            >
+              {hero.lede}
+            </Text>
+          </Reveal>
+
+          <Reveal delay={4}>
+            <HeroMeta items={hero.meta} />
+          </Reveal>
+
+          <Reveal delay={3}>
+            <Box className="flex flex-wrap gap-3">
+              {hero.actions?.map((action) => (
+                <CtaButton
+                  key={action.label}
+                  variant={action.variant}
+                  arrow
+                  render={<a href={action.href} />}
+                >
+                  {action.label}
+                </CtaButton>
+              ))}
+            </Box>
+          </Reveal>
+
+          <Reveal>
+            <Breadcrumbs items={breadcrumbs} />
+          </Reveal>
+        </Box>
 
       </Box>
     </Section>
