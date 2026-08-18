@@ -4,10 +4,8 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import CtaButton from "@/components/shared/CtaButton";
 import { buildMetadata } from "@/lib/seo/metadata";
-import {
-  getDomainCourseSlugs,
-  getCategoryCourseSlugs,
-} from "@/lib/content/courses";
+import { getCategoryCourseSlugs } from "@/lib/content/courses";
+import { getCategorySlugs } from "@/lib/content/category";
 
 export const revalidate = 3600;
 
@@ -101,7 +99,7 @@ const SITE_MAP = [
 
 export default async function HomePage() {
   const [domainSlugs, vendorSlugs] = await Promise.all([
-    getDomainCourseSlugs(),
+    getCategorySlugs(),
     getCategoryCourseSlugs(),
   ]);
 
@@ -112,7 +110,7 @@ export default async function HomePage() {
       "/corporate-training",
       ...domainSlugs.map((slug) => `/corporate-training/${slug}`),
       ...vendorSlugs.map(
-        (slug) => `/corporate-training/artificial-intelligence/${slug}`
+        (slug) => `/corporate-training/artificial-intelligence/${slug}`,
       ),
     ],
   };

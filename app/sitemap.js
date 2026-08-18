@@ -1,8 +1,6 @@
 import { SITE } from "@/lib/constants";
-import {
-  getDomainCourseSlugs,
-  getCategoryCourses,
-} from "@/lib/content/courses";
+import { getCategoryCourses } from "@/lib/content/courses";
+import { getCategorySlugs } from "@/lib/content/category";
 
 /**
  * Generated from the content layer, never hand-maintained — a new course must
@@ -17,7 +15,7 @@ export default async function sitemap() {
   });
 
   const [categorySlugs, categoryCourses] = await Promise.all([
-    getDomainCourseSlugs(),
+    getCategorySlugs(),
     getCategoryCourses(),
   ]);
 
@@ -25,7 +23,7 @@ export default async function sitemap() {
     entry("/", 1, "daily"),
     ...categorySlugs.map((slug) => entry(`/corporate-training/${slug}`, 0.7)),
     ...categoryCourses.map((course) =>
-      entry(`/corporate-training/${course.category}/${course.slug}`, 0.8)
+      entry(`/corporate-training/${course.category}/${course.slug}`, 0.8),
     ),
   ];
 }
