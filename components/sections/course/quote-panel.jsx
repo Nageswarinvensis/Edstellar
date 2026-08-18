@@ -1,40 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Check } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/shared/CtaButton";
-import { useGroupQuoteHandoff } from "@/components/shared/group-quote-context";
 import { cn } from "@/lib/utils";
-import { COUNTRY_DIAL_CODES } from "@/lib/constants";
-
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-const FREE_MAIL_DOMAINS = new Set([
-  "gmail.com",
-  "yahoo.com",
-  "yahoo.co.in",
-  "outlook.com",
-  "hotmail.com",
-  "live.com",
-  "icloud.com",
-  "me.com",
-  "aol.com",
-  "proton.me",
-  "protonmail.com",
-  "gmx.com",
-  "mail.com",
-  "yandex.com",
-  "mail.ru",
-  "qq.com",
-  "163.com",
-  "126.com",
-  "rediffmail.com",
-  "zoho.com",
-]);
+import {
+  COUNTRY_DIAL_CODES,
+  EMAIL_PATTERN,
+  FREE_MAIL_DOMAINS,
+} from "@/lib/constants";
 
 const inputClasses =
   "w-full rounded-[10px] border border-ink/15 bg-white px-3 py-2.5 text-[12px] text-ink outline-none transition-colors placeholder:text-[#0A1628] focus:border-navy focus:bg-white";
@@ -79,16 +57,9 @@ export default function QuotePanel({
     register,
     handleSubmit,
     watch,
-    setValue,
     formState: { errors, isSubmitting },
   } = useForm({ defaultValues: { country: "United States" } });
   const [submitted, setSubmitted] = useState(false);
-  const { handoff } = useGroupQuoteHandoff();
-
-  useEffect(() => {
-    if (!handoff) return;
-    setValue("requirements", handoff.requirements, { shouldDirty: true });
-  }, [handoff, setValue]);
 
   const dialCode =
     COUNTRY_DIAL_CODES.find((country) => country.name === watch("country"))
@@ -101,7 +72,6 @@ export default function QuotePanel({
   if (submitted) {
     return (
       <Box
-        id="apply"
         tabIndex={-1}
         className={cn(
           "flex flex-col overflow-hidden rounded-2xl border border-ink/22 bg-white p-6.5 text-center shadow-[0_1px_0_rgba(10,22,40,0.04),0_24px_48px_-30px_rgba(10,22,40,0.42),0_4px_14px_-8px_rgba(10,22,40,0.16)]",
@@ -124,7 +94,6 @@ export default function QuotePanel({
 
   return (
     <Box
-      id="apply"
       as="form"
       noValidate
       onSubmit={handleSubmit(onSubmit)}
@@ -143,13 +112,6 @@ export default function QuotePanel({
       </Box>
 
       <Box className="min-h-0 flex-1 overflow-y-auto p-5">
-        {handoff ? (
-          <Box className="mb-3.5 rounded-[10px] border border-lime/45 bg-lime/12 px-3.25 py-2.5 text-[11.5px] leading-[1.5] text-ink">
-            <b className="font-semibold">Carried from your quote answers:</b>{" "}
-            {handoff.summary}
-          </Box>
-        ) : null}
-
         <Field label="Name" required error={errors.name?.message}>
           <input
             {...register("name", { required: "Required." })}

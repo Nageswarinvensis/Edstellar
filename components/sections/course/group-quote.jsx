@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
-import { ArrowLeft, Minus, Plus, Search } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import { ArrowLeft, Check, Minus, Plus, Search } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -9,8 +10,13 @@ import Section from "@/components/ui/Section";
 import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
 import { CtaButton } from "@/components/shared/CtaButton";
-import { useGroupQuoteHandoff } from "@/components/shared/group-quote-context";
+import { FormField, formInputClasses } from "@/components/shared/form-field";
 import { cn } from "@/lib/utils";
+import {
+  COUNTRY_DIAL_CODES,
+  EMAIL_PATTERN,
+  FREE_MAIL_DOMAINS,
+} from "@/lib/constants";
 import {
   GROUP_QUOTE_CATALOG,
   LICENSE_PACKAGES,
@@ -22,6 +28,36 @@ const TABS = [
 ];
 const TEAM_SIZE_OPTIONS = ["1-10", "11-25", "26-50", "51-100", "custom"];
 const SESSION_OPTIONS = ["2", "4", "8", "custom"];
+
+// Dial code shown on the final step's phone field is guessed from the
+// visitor's timezone — there's no country selector on this compact form.
+const TIMEZONE_COUNTRY = {
+  "Asia/Kolkata": "India",
+  "Asia/Calcutta": "India",
+  "Europe/London": "United Kingdom",
+  "Europe/Dublin": "Ireland",
+  "Europe/Berlin": "Germany",
+  "Europe/Paris": "France",
+  "Europe/Amsterdam": "Netherlands",
+  "Europe/Madrid": "Spain",
+  "Europe/Rome": "Italy",
+  "Asia/Dubai": "United Arab Emirates",
+  "Asia/Singapore": "Singapore",
+  "Asia/Tokyo": "Japan",
+  "Australia/Sydney": "Australia",
+  "Africa/Johannesburg": "South Africa",
+  "America/Toronto": "Canada",
+  "America/Sao_Paulo": "Brazil",
+};
+
+function guessCountry() {
+  try {
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    return TIMEZONE_COUNTRY[timeZone] || "United States";
+  } catch {
+    return "United States";
+  }
+}
 
 function pathFor(mode) {
   return mode === "multiple"
@@ -35,13 +71,13 @@ function stripTrainingSuffix(name) {
 
 /**
  * Group-quote wizard — qualifies a training request in a few clicks (team
- * size, programs, frequency), then hands the summary off to `QuotePanel`'s
- * requirements field via `GroupQuoteContext` so the visitor only fills in
- * contact details once. Sits below the sticky quote rail, matching the
- * source design's "unnumbered block after delivery modes" placement.
+ * size, programs, frequency), then sends it from its own contact form on the
+ * last step. This section stands alone and does not hand off to `QuotePanel`
+ * elsewhere on the page — each has its own independent submit. Sits below
+ * the sticky quote rail, matching the source design's "unnumbered block
+ * after delivery modes" placement.
  */
 export default function GroupQuote({ data }) {
-  const { sendHandoff } = useGroupQuoteHandoff();
   const cardRef = useRef(null);
 
   const [mode, setMode] = useState("one-time");
@@ -74,6 +110,27 @@ export default function GroupQuote({ data }) {
       ),
     })).filter((group) => group.items.length > 0);
   }, [query]);
+
+  const [dialCountry, setDialCountry] = useState("United States");
+  useEffect(() => {
+    setDialCountry(guessCountry());
+  }, []);
+  const dialCode =
+    COUNTRY_DIAL_CODES.find((country) => country.name === dialCountry)
+      ?.dialCode || "+1";
+
+  const {
+    register: registerContact,
+    handleSubmit: handleContactSubmit,
+    formState: { errors: contactErrors, isSubmitting: contactSubmitting },
+  } = useForm();
+  const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [contactCompany, setContactCompany] = useState("");
+
+  function onContactSubmit(values) {
+    setContactCompany(values.company);
+    setContactSubmitted(true);
+  }
 
   if (!data) return null;
 
@@ -164,33 +221,6 @@ export default function GroupQuote({ data }) {
     }
     if (fileName) bits.push(`list attached (${fileName})`);
     return bits.join(" · ") || "Not selected";
-  }
-
-  function handleContinue() {
-    const scopeLabel =
-      mode === "multiple" ? "Multiple training" : "One-time training";
-    const lines = [
-      `Team size: ${sizeText() || "Not specified"}`,
-      `Request type: ${scopeLabel}`,
-      `Frequency: ${freqText() || "Not specified"}`,
-    ];
-    if (mode === "multiple") lines.push(`Programs: ${programsText()}`);
-
-    sendHandoff({
-      summary: [
-        sizeText(),
-        scopeLabel,
-        freqText(),
-        mode === "multiple" ? programsText() : null,
-      ]
-        .filter(Boolean)
-        .join(" · "),
-      requirements: lines.join("\n"),
-    });
-
-    document
-      .getElementById("apply")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   let stepBody;
@@ -623,71 +653,239 @@ export default function GroupQuote({ data }) {
           as="h3"
           className="mb-6 text-center font-display text-[clamp(19px,2vw,25px)] font-bold tracking-[-0.025em] text-ink"
         >
-          Review your selection.
+          Review and send your request.
         </Text>
 
-        <Box
-          as="dl"
-          className="grid grid-cols-1 gap-x-6 gap-y-2.5 rounded-[14px] bg-paper-warm p-5.5 sm:grid-cols-[auto_1fr]"
-        >
-          <Box as="dt" className="text-[13.5px] text-ink/60">
-            Team members
-          </Box>
+        <Box className="grid grid-cols-1 items-start gap-5 lg:grid-cols-[2fr_3fr]">
           <Box
-            as="dd"
-            className="m-0 text-[13.5px] font-semibold text-ink sm:text-right"
+            as="dl"
+            className="grid grid-cols-1 gap-x-6 gap-y-2.5 rounded-[14px] bg-paper-warm p-5.5 sm:grid-cols-[auto_1fr] lg:sticky lg:top-24"
           >
-            {sizeText() || "Not selected"}
+            <Box as="dt" className="text-[13.5px] text-ink/60">
+              Team members
+            </Box>
+            <Box
+              as="dd"
+              className="m-0 text-[13.5px] font-semibold text-ink sm:text-right"
+            >
+              {sizeText() || "Not selected"}
+            </Box>
+
+            <Box as="dt" className="text-[13.5px] text-ink/60">
+              Request type
+            </Box>
+            <Box
+              as="dd"
+              className="m-0 text-[13.5px] font-semibold text-ink sm:text-right"
+            >
+              {mode === "multiple" ? "Multiple training" : "One-time training"}
+            </Box>
+
+            <Box as="dt" className="text-[13.5px] text-ink/60">
+              Frequency
+            </Box>
+            <Box
+              as="dd"
+              className="m-0 text-[13.5px] font-semibold text-ink sm:text-right"
+            >
+              {freqText() || "Not selected"}
+            </Box>
+
+            {mode === "multiple" ? (
+              <>
+                <Box as="dt" className="text-[13.5px] text-ink/60">
+                  Programs
+                </Box>
+                <Box
+                  as="dd"
+                  className="m-0 text-[13.5px] font-semibold text-ink sm:text-right"
+                >
+                  {programsText()}
+                </Box>
+              </>
+            ) : null}
           </Box>
 
-          <Box as="dt" className="text-[13.5px] text-ink/60">
-            Request type
-          </Box>
-          <Box
-            as="dd"
-            className="m-0 text-[13.5px] font-semibold text-ink sm:text-right"
-          >
-            {mode === "multiple" ? "Multiple training" : "One-time training"}
-          </Box>
-
-          <Box as="dt" className="text-[13.5px] text-ink/60">
-            Frequency
-          </Box>
-          <Box
-            as="dd"
-            className="m-0 text-[13.5px] font-semibold text-ink sm:text-right"
-          >
-            {freqText() || "Not selected"}
-          </Box>
-
-          {mode === "multiple" ? (
-            <>
-              <Box as="dt" className="text-[13.5px] text-ink/60">
-                Programs
+          <Box className="rounded-[14px] border border-ink/15 bg-white p-6 sm:p-6.5">
+            {contactSubmitted ? (
+              <Box className="pt-1 text-center">
+                <Box className="mx-auto mb-4.5 grid size-12 place-items-center rounded-full bg-navy text-lime">
+                  <Check size={22} strokeWidth={2.5} aria-hidden="true" />
+                </Box>
+                <Text
+                  as="h4"
+                  className="mb-1.5 font-display text-lg font-semibold text-ink"
+                >
+                  Request received.
+                </Text>
+                <Text
+                  as="p"
+                  className="mb-5 text-[13.5px] leading-[1.6] text-ink/60"
+                >
+                  Thanks, a training specialist will reply within one business
+                  day with a tailored proposal.
+                </Text>
+                <Box className="rounded-[14px] bg-paper-warm p-4.5 text-left text-[13.5px] leading-[1.7] text-ink">
+                  <Text
+                    as="span"
+                    className="mb-1.5 block font-mono text-[10px] tracking-[0.15em] text-ink/50 uppercase"
+                  >
+                    What we received
+                  </Text>
+                  {contactCompany}
+                  <br />
+                  {[sizeText(), freqText()].filter(Boolean).join(" · ")}
+                  <br />
+                  {dialCountry}
+                </Box>
               </Box>
-              <Box
-                as="dd"
-                className="m-0 text-[13.5px] font-semibold text-ink sm:text-right"
-              >
-                {programsText()}
-              </Box>
-            </>
-          ) : null}
+            ) : (
+              <>
+                <Text
+                  as="h4"
+                  className="mb-1 font-display text-lg font-semibold text-ink"
+                >
+                  Your contact details
+                </Text>
+                <Text
+                  as="p"
+                  className="mb-5 text-[13px] leading-[1.6] text-ink/60"
+                >
+                  Send this requirement straight from here. A training
+                  specialist replies within one business day with a tailored
+                  proposal.
+                </Text>
+
+                <Box
+                  as="form"
+                  noValidate
+                  onSubmit={handleContactSubmit(onContactSubmit)}
+                  className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+                >
+                  <FormField
+                    label="Name"
+                    required
+                    error={contactErrors.name?.message}
+                  >
+                    <input
+                      {...registerContact("name", {
+                        required: "Please enter your name.",
+                      })}
+                      type="text"
+                      autoComplete="name"
+                      placeholder="Enter your name"
+                      className={formInputClasses}
+                    />
+                  </FormField>
+
+                  <FormField
+                    label="Work email"
+                    required
+                    error={contactErrors.workEmail?.message}
+                  >
+                    <input
+                      {...registerContact("workEmail", {
+                        required: "Please enter your work email address.",
+                        pattern: {
+                          value: EMAIL_PATTERN,
+                          message: "That email address does not look right.",
+                        },
+                        validate: (value) =>
+                          !FREE_MAIL_DOMAINS.has(
+                            value.split("@")[1]?.toLowerCase(),
+                          ) ||
+                          "Please use your work email so we can identify your organization.",
+                      })}
+                      type="email"
+                      autoComplete="email"
+                      placeholder="Enter your work email"
+                      className={formInputClasses}
+                    />
+                  </FormField>
+
+                  <FormField
+                    label="Company name"
+                    required
+                    error={contactErrors.company?.message}
+                  >
+                    <input
+                      {...registerContact("company", {
+                        required: "Please enter your company name.",
+                      })}
+                      type="text"
+                      autoComplete="organization"
+                      placeholder="Enter your company name"
+                      className={formInputClasses}
+                    />
+                  </FormField>
+
+                  <FormField label="Phone">
+                    <Box className="flex items-stretch overflow-hidden rounded-xl border border-ink/15 focus-within:border-navy focus-within:bg-white">
+                      <Text
+                        as="span"
+                        className="flex items-center border-r border-ink/12 px-2.5 font-mono text-[12.5px] text-ink/60"
+                      >
+                        {dialCode}
+                      </Text>
+                      <input
+                        {...registerContact("phone")}
+                        type="tel"
+                        inputMode="tel"
+                        autoComplete="tel-national"
+                        placeholder="201-555-0123"
+                        className="w-full min-w-0 bg-transparent p-3 text-[13.5px] text-ink outline-none placeholder:text-ink/35"
+                      />
+                    </Box>
+                  </FormField>
+
+                  <Box className="flex items-start gap-2.5 sm:col-span-2">
+                    <input
+                      {...registerContact("consent", { required: true })}
+                      type="checkbox"
+                      id="gq-consent"
+                      aria-invalid={Boolean(contactErrors.consent)}
+                      className="mt-0.75 size-3.5 flex-none accent-navy"
+                    />
+                    <Text
+                      as="label"
+                      htmlFor="gq-consent"
+                      className="text-[12px] leading-normal text-ink/60"
+                    >
+                      I agree that Edstellar may contact me about this
+                      training request and store my details as described in
+                      the{" "}
+                      <a href="/privacy-policy" className="underline hover:text-ink">
+                        privacy policy
+                      </a>
+                      .
+                    </Text>
+                  </Box>
+                  {contactErrors.consent ? (
+                    <Text
+                      role="alert"
+                      className="-mt-2.5 text-[11.5px] text-red-600 sm:col-span-2"
+                    >
+                      Please accept the privacy policy to continue.
+                    </Text>
+                  ) : null}
+
+                  <Box className="border-t border-ink/10 pt-4.5 sm:col-span-2">
+                    <CtaButton
+                      type="submit"
+                      size="sm"
+                      arrow
+                      disabled={contactSubmitting}
+                    >
+                      Request my quote
+                    </CtaButton>
+                  </Box>
+                </Box>
+              </>
+            )}
+          </Box>
         </Box>
 
-        <Text
-          as="p"
-          className="mt-4.5 text-center text-[13px] leading-[1.65] text-ink/60"
-        >
-          Continue to the request form and these answers travel with it. We
-          reply within one business day with a tailored proposal.
-        </Text>
-
-        <WizardNav
-          onBack={handleBack}
-          onNext={handleContinue}
-          nextLabel="Continue to the form"
-        />
+        <WizardNav onBack={handleBack} />
       </Box>
     );
   }
@@ -887,9 +1085,12 @@ function WizardNav({ onBack, onNext, nextLabel, showBack = true }) {
           Previous
         </CtaButton>
       ) : null}
-      <CtaButton type="button" size="sm" arrow onClick={onNext}>
-        {nextLabel}
-      </CtaButton>
+      {onNext ? (
+        <CtaButton type="button" size="sm" arrow onClick={onNext}>
+          {nextLabel}
+        </CtaButton>
+      ) : null}
     </Box>
   );
 }
+

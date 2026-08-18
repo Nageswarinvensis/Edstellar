@@ -49,7 +49,11 @@ export default async function CategoryPage({ params }) {
   return (
     <>
       <CategoryHero hero={data.hero} breadcrumbs={data.breadcrumbs} />
-      <CategoryInfo topics={data.hero?.topics} groupQuote={data.hero?.groupQuote} proof={data.proof} />
+      <CategoryInfo
+        topics={data.hero?.topics}
+        groupQuote={data.hero?.groupQuote}
+        proof={data.proof}
+      />
       <ClientLogos data={data.ClientsLogosData} />
       <StickyTabs data={data.stickyNavbarData} />
       <CategoryAbout about={data.about} />
