@@ -226,3 +226,17 @@
     transform: translateX(0);
   }
 }
+
+@keyframes stack-marquee {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-stack-marquee {
+  animation: stack-marquee 30s linear infinite;
+}

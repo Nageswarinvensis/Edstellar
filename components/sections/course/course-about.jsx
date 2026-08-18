@@ -4,19 +4,9 @@ import Section from "@/components/ui/Section";
 import ReadMore from "@/components/shared/read-more";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
+import CtaBanner from "@/components/shared/ctabanner";
 
-/**
- * Vendor course "what is this" block — two columns: the definition copy on the
- * left, and the traditional-vs-ML comparison table on the right.
- *
- * Design: `section#about.block`, `.def-wrap`, `.contrast`. Course-page block
- * padding is 120px (78px ≤620px), heavier than the domain hub's 88px.
- *
- * The comparison renders as a real <table> rather than the design's nested divs:
- * it is tabular data, so a screen reader should be able to announce the column
- * a cell belongs to. Visual result is identical.
- */
-function VendorAbout({ about }) {
+function VendorAbout({ about, ctaBannerData }) {
   if (!about) return null;
 
   const contrast = about.contrast;
@@ -105,7 +95,10 @@ function VendorAbout({ about }) {
             </Box>
           </Reveal>
         ) : null}
-      </Box>
+     </Box>
+     {ctaBannerData ? (
+          <CtaBanner data={ctaBannerData} />
+        ) : null}   
     </Section>
   );
 }

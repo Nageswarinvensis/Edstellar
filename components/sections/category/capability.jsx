@@ -34,14 +34,7 @@ export default function Capability({ data }) {
           {data.items.map((card) => (
             <Reveal key={card.title}>
               <Box
-                className="
-                  flex h-full flex-col
-                  rounded-[12px]
-                  border border-white/15
-                  bg-[#162642]
-                  p-5
-                  transition-transform duration-500 ease-out
-                  hover:-translate-y-1
+                className="flex h-full flex-col rounded-[12px] border border-white/15 bg-[#162642] p-5 transition-transform duration-500 ease-out hover:-translate-y-1
                 "
               >
                 <Text

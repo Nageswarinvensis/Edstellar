@@ -8,12 +8,13 @@ import CategoryInfo from "@/components/sections/course/courseInfo";
 import ClientLogos from "@/components/sections/course/client-logo";
 import StickyTabs from "@/components/sections/course/sticky-navbar";
 import CategoryAbout from "@/components/sections/course/course-about";
-import Card from "@/components/sections/course/card";
+import Card from "@/components/sections/category/card";
+import Marquee from "@/components/sections/category/marquee";
 import Trainers from "@/components/sections/course/trainers";
 import MapSection from "@/components/sections/course/mapsection";
-import Capability from "@/components/sections/course/capability";
+import Capability from "@/components/sections/category/capability";
 import Faq from "@/components/sections/course/faq";
-import Domain from "@/components/sections/course/domain";
+import Domain from "@/components/sections/category/domain";
 import StickyFooter from "@/components/sections/course/sticky-footer";
 
 export const revalidate = 3600;
@@ -52,8 +53,10 @@ export default async function CategoryPage({ params }) {
       <CategoryInfo topics={data.hero?.topics} groupQuote={data.hero?.groupQuote} proof={data.proof} />
       <ClientLogos data={data.ClientsLogosData} />
       <StickyTabs data={data.stickyNavbarData} />
-      <CategoryAbout about={data.about} />
+      <CategoryAbout about={data.about} 
+      ctaBannerData={data.ctaBannerData?.upskillLight} />
       <Card data={data.cardData} />
+      <Marquee stack={data.marqueeData} />
       <Trainers trainers={data.trainers} />
       <MapSection data={data.mapsectionData} />
       <Capability data={data.capabilityData} />
