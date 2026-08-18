@@ -8,32 +8,11 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/shared/CtaButton";
 import { cn } from "@/lib/utils";
-import { COUNTRY_DIAL_CODES } from "@/lib/constants";
-
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-const FREE_MAIL_DOMAINS = new Set([
-  "gmail.com",
-  "yahoo.com",
-  "yahoo.co.in",
-  "outlook.com",
-  "hotmail.com",
-  "live.com",
-  "icloud.com",
-  "me.com",
-  "aol.com",
-  "proton.me",
-  "protonmail.com",
-  "gmx.com",
-  "mail.com",
-  "yandex.com",
-  "mail.ru",
-  "qq.com",
-  "163.com",
-  "126.com",
-  "rediffmail.com",
-  "zoho.com",
-]);
+import {
+  COUNTRY_DIAL_CODES,
+  EMAIL_PATTERN,
+  FREE_MAIL_DOMAINS,
+} from "@/lib/constants";
 
 const inputClasses =
   "w-full rounded-[10px] border border-ink/15 bg-white px-3 py-2.5 text-[12px] text-ink outline-none transition-colors placeholder:text-[#0A1628] focus:border-navy focus:bg-white";
@@ -123,7 +102,7 @@ export default function QuotePanel({
         className,
       )}
     >
-      <Box className="flex-none rounded-t-2xl border-b border-ink/12 p-4 text-center">
+      <Box className="flex-none rounded-t-2xl border-b border-ink/12 bg-paper-warm p-4 text-center">
         <Text
           as="h3"
           className="font-display text-base font-bold tracking-tight text-ink"
@@ -250,7 +229,7 @@ export default function QuotePanel({
           <Text
             as="label"
             htmlFor="qp-consent"
-            className="text-[10.5px] leading-[1.5] text-ink/60"
+            className="text-[10.5px] leading-normal text-ink/60"
           >
             I agree to be contacted about this request, per the{" "}
             <a href="/privacy-policy" className="underline hover:text-ink">

@@ -2,7 +2,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/shared/reveal";
 import ProofBar from "@/components/shared/proof-bar";
-import Section from "@/components/ui/Section";
 
 function CourseInfo({ groupQuote, proof }) {
   const badges = proof?.badges ?? [];

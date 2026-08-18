@@ -18,6 +18,7 @@ import Curriculum from "@/components/sections/course/curriculum";
 import Audience from "@/components/sections/course/audience";
 import DeliveryModes from "@/components/sections/course/delivery-modes";
 import QuoteRail from "@/components/sections/course/quote-rail";
+import GroupQuote from "@/components/sections/course/group-quote";
 import Testimonials from "@/components/sections/course/testimonials";
 import CustomizedTraining from "@/components/sections/course/customizedTraining";
 import MapSection from "@/components/sections/course/mapsection";
@@ -26,6 +27,7 @@ import Trainers from "@/components/sections/course/trainers";
 import Certificate from "@/components/sections/course/certificate";
 import WhyEds from "@/components/sections/course/whyEds";
 import Faq from "@/components/sections/course/faq";
+import LeadForm from "@/components/sections/course/lead-form";
 import StickyFooter from "@/components/sections/course/sticky-footer";
 
 export const revalidate = 3600;
@@ -92,6 +94,7 @@ export default async function CoursePage({ params }) {
         <Audience audience={course.audience} />
         <DeliveryModes deliveryModes={course.deliveryModes} />
       </QuoteRail>
+      <GroupQuote data={course.groupQuote} />
       <Testimonials testimonials={course.testimonials} />
       <CustomizedTraining data={course.customizedTraining} />
       <MapSection data={course.mapsectionData} />
@@ -100,6 +103,7 @@ export default async function CoursePage({ params }) {
       <Certificate certificate={course.certificate} />
       <Faq faqs={course.faqs} />
       <WhyEds data={course.WhyEds} />
+      <LeadForm data={course.leadForm} />
       <StickyFooter data={course.stickyFooter} />
     </>
   );
