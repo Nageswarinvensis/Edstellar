@@ -11,11 +11,14 @@ const VARIANTS = {
   },
 
   dark: {
-    wrapper: "bg-ink border-white/10 border-l-lime",
+    // Exact dark CTA background from reference
+    wrapper: "bg-[#14233D] border-white/10 border-l-lime",
     eyebrow: "text-white/40",
     heading: "text-white",
+
+    // Exact button background from reference
     button:
-      "bg-white text-ink shadow-[0_8px_20px_rgba(0,0,0,0.14)] hover:-translate-y-[2px] hover:shadow-[0_12px_24px_rgba(0,0,0,0.22)]",
+      "bg-[#FAFAF7] text-[#0A1628] shadow-[0_8px_20px_rgba(0,0,0,0.14)] hover:-translate-y-[2px] hover:shadow-[0_12px_24px_rgba(0,0,0,0.22)]",
   },
 };
 
