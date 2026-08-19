@@ -12,10 +12,13 @@ export default function Marquee({ stack }) {
   if (!stack) return null;
 
   return (
-    <Section id="stack" className="relative overflow-hidden border-b border-ink/12 bg-white" >
+    <Section
+      id="stack"
+      className="relative overflow-hidden border-b border-ink/12 bg-white"
+    >
       {/* Header */}
       <Reveal delay={1}>
-        <Box className="mx-auto max-w-[650px] text-center">
+        <Box className="mx-auto max-w-155 text-center">
           <Text className="mb-3 font-mono text-[10px] uppercase tracking-[0.14em] text-ink/60">
             {stack.eyebrow}
           </Text>
@@ -43,7 +46,7 @@ export default function Marquee({ stack }) {
               key={`${item}-${index}`}
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
-              className="flex h-[50px] shrink-0 cursor-default items-center rounded-[10px] border border-ink/12 bg-[#FAFAF7] px-5 transition-colors duration-200 hover:bg-[#F2F0E8]"
+              className="flex h-12.5 shrink-0 cursor-default items-center rounded-[10px] border border-ink/12 bg-paper px-5 transition-colors duration-200 hover:bg-paper-warm"
             >
               <Text className="whitespace-nowrap text-[14px] font-bold text-[#0A1628]">
                 {item}
@@ -55,7 +58,7 @@ export default function Marquee({ stack }) {
 
       {/* Disclaimer */}
       <Reveal delay={1}>
-        <Text className="mx-auto mt-6 max-w-[620px] text-center text-[11px] leading-[1.6] text-ink/50">
+        <Text className="mx-auto mt-6 max-w-155 text-center text-[11px] leading-[1.6] text-ink/50">
           {stack.disclaimer}
         </Text>
       </Reveal>

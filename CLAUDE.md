@@ -6,7 +6,7 @@
 
 Public **marketing website** for Edstellar. Next.js 15.2.8 App Router · **JavaScript only, never TypeScript** · Tailwind CSS v4 · shadcn/ui · react-hook-form.
 
-Route contract: `/consulting/{slug}`, `/corporate-training/domain/{course-slug}`, `/corporate-training/vendor/{course-slug}`, `/resources/{category}/{slug}`, `/blog/{slug}` (phase 2). Full detail in TASTE.md §1.
+Route contract: `/consulting/{slug}`, `/corporate-training/{category}`, `/corporate-training/{category}/{course-slug}`, `/resources/{category}/{slug}`, `/blog/{slug}` (phase 2). Full detail in TASTE.md §1.
 
 ## Non-negotiables
 

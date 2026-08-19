@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -7,13 +6,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
 
-/**
- * "Pressures" horizontal scroller inside the why-now accordion's third
- * panel: the cost-of-inaction cards, with prev/next arrows and a position
- * readout. Uses native scroll + scrollBy rather than an embla carousel —
- * four short cards don't need the extra weight, and this mirrors the
- * manual-scroll pattern already used in `components/sections/course/sticky-navbar.jsx`.
- */
 export default function WhyNowPressures({ pressures, note }) {
   const trackRef = useRef(null);
   const [canPrev, setCanPrev] = useState(false);
@@ -53,9 +45,14 @@ export default function WhyNowPressures({ pressures, note }) {
 
     const card = track.children[0];
     const step = card ? card.getBoundingClientRect().width + 14 : 300;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
-    track.scrollBy({ left: direction * step, behavior: reduceMotion ? "auto" : "smooth" });
+    track.scrollBy({
+      left: direction * step,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
     setTimeout(syncState, 320);
   }
 
@@ -71,7 +68,9 @@ export default function WhyNowPressures({ pressures, note }) {
           aria-label="Previous pressure"
           className={cn(
             "grid size-7.5 flex-none place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",
-            canPrev ? "hover:border-navy hover:bg-navy hover:text-lime" : "opacity-30",
+            canPrev
+              ? "hover:border-navy hover:bg-navy hover:text-lime"
+              : "opacity-30",
           )}
         >
           <ChevronLeft size={15} aria-hidden="true" />
@@ -84,13 +83,18 @@ export default function WhyNowPressures({ pressures, note }) {
           aria-label="Next pressure"
           className={cn(
             "grid size-7.5 flex-none place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",
-            canNext ? "hover:border-navy hover:bg-navy hover:text-lime" : "opacity-30",
+            canNext
+              ? "hover:border-navy hover:bg-navy hover:text-lime"
+              : "opacity-30",
           )}
         >
           <ChevronRight size={15} aria-hidden="true" />
         </button>
 
-        <Text as="span" className="font-mono text-[10px] tracking-[0.12em] text-ink/40">
+        <Text
+          as="span"
+          className="font-mono text-[10px] tracking-[0.12em] text-ink/40"
+        >
           {position} / {pressures.length}
         </Text>
       </Box>
@@ -101,14 +105,17 @@ export default function WhyNowPressures({ pressures, note }) {
         tabIndex={0}
         role="group"
         aria-label="Pressures, scroll sideways"
-        className="flex gap-3.5 overflow-x-auto pb-3 [scroll-snap-type:x_mandatory] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex gap-3.5 overflow-x-auto pb-3 [scroll-snap-type:x_mandatory] scrollbar-none [&::-webkit-scrollbar]:hidden"
       >
         {pressures.map((pressure) => (
           <Box
             key={pressure.kicker}
-            className="relative flex min-w-62.5 flex-none basis-[85%] flex-col overflow-hidden rounded-2xl border border-ink/10 bg-white p-6.5 [scroll-snap-align:start] before:absolute before:inset-x-0 before:top-0 before:h-[3px] before:bg-linear-to-r before:from-navy before:to-lime before:content-[''] sm:basis-[46%] lg:basis-[31.5%]"
+            className="relative flex min-w-62.5 flex-none basis-[85%] flex-col overflow-hidden rounded-2xl border border-ink/10 bg-white p-6.5 snap-start before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-linear-to-r before:from-navy before:to-lime before:content-[''] sm:basis-[46%] lg:basis-[31.5%]"
           >
-            <Text as="span" className="mb-4 font-mono text-[10px] tracking-[0.15em] text-ink/50 uppercase">
+            <Text
+              as="span"
+              className="mb-4 font-mono text-[10px] tracking-[0.15em] text-ink/50 uppercase"
+            >
               {pressure.kicker}
             </Text>
 
@@ -119,11 +126,17 @@ export default function WhyNowPressures({ pressures, note }) {
               {pressure.figure}
             </Text>
 
-            <Text as="p" className="mt-1.5 mb-3.5 text-[13px] leading-[1.4] font-semibold text-ink">
+            <Text
+              as="p"
+              className="mt-1.5 mb-3.5 text-[13px] leading-[1.4] font-semibold text-ink"
+            >
               {pressure.unit}
             </Text>
 
-            <Text as="p" className="mb-4.5 text-[13.5px] leading-[1.7] text-ink/60">
+            <Text
+              as="p"
+              className="mb-4.5 text-[13.5px] leading-[1.7] text-ink/60"
+            >
               {pressure.description}
             </Text>
 
@@ -138,7 +151,10 @@ export default function WhyNowPressures({ pressures, note }) {
       </Box>
 
       {note ? (
-        <Text as="p" className="mt-4.5 max-w-[84ch] text-[12.5px] leading-[1.65] text-ink/45">
+        <Text
+          as="p"
+          className="mt-4.5 max-w-[84ch] text-[12.5px] leading-[1.65] text-ink/45"
+        >
           {note}
         </Text>
       ) : null}

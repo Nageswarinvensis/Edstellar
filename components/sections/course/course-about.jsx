@@ -6,7 +6,7 @@ import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
 import CtaBanner from "@/components/shared/ctabanner";
 
-function VendorAbout({ about, ctaBannerData }) {
+function CategoryAbout({ about, ctaBannerData }) {
   if (!about) return null;
 
   const contrast = about.contrast;
@@ -104,4 +104,4 @@ function VendorAbout({ about, ctaBannerData }) {
   );
 }
 
-export default VendorAbout;
+export default CategoryAbout;

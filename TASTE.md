@@ -36,10 +36,8 @@ These URLs are the public contract. They are load-bearing for SEO — **never ch
 /consulting                                    Consulting index
 /consulting/{slug}                             Consulting service page
 /corporate-training                            Training index
-/corporate-training/domain                     Domain listing
-/corporate-training/domain/{course-slug}       Domain course page
-/corporate-training/vendor                     Vendor listing
-/corporate-training/vendor/{course-slug}       Vendor course page
+/corporate-training/{category}                 Category page (e.g. artificial-intelligence)
+/corporate-training/{category}/{course-slug}   Course page within that category
 /resources                                     Resources hub
 /resources/{category}                          Category listing (tools, templates, …)
 /resources/{category}/{slug}                   Individual resource
@@ -68,12 +66,9 @@ app/
 │   │       └── loading.js
 │   ├── corporate-training/
 │   │   ├── page.js
-│   │   ├── domain/
-│   │   │   ├── page.js
-│   │   │   └── [courseSlug]/page.js
-│   │   └── vendor/
+│   │   └── [category]/
 │   │       ├── page.js
-│   │       └── [courseSlug]/page.js
+│   │       └── [slug]/page.js
 │   ├── resources/
 │   │   ├── page.js
 │   │   └── [category]/
@@ -89,7 +84,7 @@ app/
 ### 1.3 Rules
 
 - **One route group, `(marketing)`.** Parentheses mean it adds no URL segment. It exists so the header/footer shell lives in exactly one place. Add a second group only when a page needs a genuinely different shell (e.g. a bare landing page with no nav).
-- **`domain` and `vendor` are separate static segments, not `[type]`.** They are a closed set of two with different content models, different metadata, and different structured data. Keep them explicit.
+- **`corporate-training/[category]` is dynamic**, backed by `lib/content/category.js`. A category page (e.g. `/corporate-training/artificial-intelligence`) lists that category's courses; `[category]/[slug]` is an individual course page within it, backed by `lib/content/courses.js`. Unknown category or slug → `notFound()`.
 - **`resources/[category]` is dynamic with a whitelist.** The five categories share one page template. Validate against the whitelist in `lib/content/resources.js` and call `notFound()` on anything else. If a category's template genuinely diverges, promote it to its own static folder — do not add conditional branches to the shared template.
 - **Slugs are lowercase kebab-case.** No underscores, no uppercase, no trailing slash. `trailingSlash` stays at its default of `false`.
 - **Never place a page file outside a route group** unless it intentionally renders without the site shell.
@@ -112,8 +107,8 @@ Every page is either fully static (SSG) or statically generated with periodic re
 | `/consulting` index | Content layer | ISR | `3600` |
 | `/consulting/{slug}` | Content layer | **SSG + ISR** via `generateStaticParams` | `3600` |
 | `/corporate-training` index | Content layer | ISR | `3600` |
-| `/corporate-training/domain` · `/vendor` listings | Content layer | ISR | `3600` |
-| `/corporate-training/{type}/{course-slug}` | Content layer | **SSG + ISR** via `generateStaticParams` | `3600` |
+| `/corporate-training/{category}` | Content layer | **SSG + ISR** via `generateStaticParams` | `3600` |
+| `/corporate-training/{category}/{course-slug}` | Content layer | **SSG + ISR** via `generateStaticParams` | `3600` |
 | `/resources` hub | Content layer | ISR | `3600` |
 | `/resources/{category}` | Content layer | **SSG + ISR** | `3600` |
 | `/resources/{category}/{slug}` | Content layer | **SSG + ISR** | `3600` |
@@ -135,10 +130,10 @@ Every page is either fully static (SSG) or statically generated with periodic re
 Copy this shape for every dynamic content page.
 
 ```jsx
-// app/(marketing)/corporate-training/domain/[courseSlug]/page.js
+// app/(marketing)/corporate-training/[category]/[slug]/page.js
 import { notFound } from "next/navigation";
 
-import { getDomainCourse, getDomainCourseSlugs } from "@/lib/content/courses";
+import { getCategoryCourse, getCategoryCourseSlugs } from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { courseJsonLd, breadcrumbJsonLd } from "@/lib/seo/json-ld";
 import JsonLd from "@/components/seo/json-ld";
@@ -149,26 +144,26 @@ import LeadForm from "@/components/forms/lead-form";
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const slugs = await getDomainCourseSlugs();
-  return slugs.map((courseSlug) => ({ courseSlug }));
+  const slugs = await getCategoryCourseSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
-  const { courseSlug } = await params;          // params is a Promise in Next 15
-  const course = await getDomainCourse(courseSlug);
+  const { category, slug } = await params;      // params is a Promise in Next 15
+  const course = await getCategoryCourse(slug);
   if (!course) return {};
 
   return buildMetadata({
     title: course.metaTitle,
     description: course.metaDescription,
-    path: `/corporate-training/domain/${courseSlug}`,
+    path: `/corporate-training/${category}/${slug}`,
     image: course.ogImage,
   });
 }
 
-export default async function DomainCoursePage({ params }) {
-  const { courseSlug } = await params;
-  const course = await getDomainCourse(courseSlug);
+export default async function CoursePage({ params }) {
+  const { slug } = await params;
+  const course = await getCategoryCourse(slug);
 
   if (!course) notFound();                       // real 404, never a soft 404
 
@@ -177,7 +172,7 @@ export default async function DomainCoursePage({ params }) {
       <JsonLd data={[courseJsonLd(course), breadcrumbJsonLd(course.breadcrumbs)]} />
       <CourseHero course={course} />
       <CourseOutline modules={course.modules} />
-      <LeadForm courseSlug={courseSlug} />       {/* the only client leaf */}
+      <LeadForm courseSlug={slug} />             {/* the only client leaf */}
     </>
   );
 }
@@ -267,7 +262,8 @@ Emit JSON-LD via the `<JsonLd>` component. One builder per content type in `lib/
 ```
 lib/
 ├── content/            All content reads — the ONLY place that knows the data source
-│   ├── courses.js      getDomainCourse, getVendorCourse, get*Slugs
+│   ├── category.js     getCategory, getCategorySlugs
+│   ├── courses.js      getCategoryCourse, getCategoryCourseSlugs, getCategoryCourses
 │   ├── consulting.js
 │   ├── resources.js    RESOURCE_CATEGORIES whitelist + reads
 │   └── blog.js         Phase 2
@@ -490,11 +486,11 @@ Performance & A11y
 
 Resolve these before or during the first feature build; each one is a real decision, not a placeholder.
 
-1. **Content source is undecided.** These rules keep it isolated behind `lib/content/` precisely so the choice can be deferred — but it must be made before real page work starts. It determines revalidation strategy and whether on-demand revalidation webhooks are needed. `lib/content/courses.js` currently holds hand-transcribed static view models; swapping in the API should touch only its four exported reads.
+1. **Content source is undecided.** These rules keep it isolated behind `lib/content/` precisely so the choice can be deferred — but it must be made before real page work starts. It determines revalidation strategy and whether on-demand revalidation webhooks are needed. `lib/content/courses.js` currently holds hand-transcribed static view models; swapping in the API should touch only its three exported reads.
 2. **The five resource categories are not yet named.** `RESOURCE_CATEGORIES` in `lib/content/resources.js` must be the single source of truth, consumed by `generateStaticParams`, the whitelist check, and `sitemap.js`.
 3. **No real image or video assets.** The designs ship base64 placeholders that cannot be reused, so `hero.media` is `null` on every record and `HeroMedia` renders a tonal placeholder. Trainer avatars fall back to initials. Real files must land in `/public` with consent for the trainer portraits before launch.
 4. **Primitive library conflict is unresolved.** `components/ui/` is built on `@base-ui/react`; the `radix-ui` dependency is installed but unused. Settle this before writing components against either API. Note this also means **`asChild` does not exist** — use Base UI's `render` prop.
 5. **`@hookform/resolvers` is not installed**, so schema-based form validation is unavailable (§7.1).
 6. **Next.js 15.2.8 carries 26 high-severity advisories** (SSRF, cache poisoning, XSS, middleware bypass). For a public internet-facing site this is a live risk, not a theoretical one. Upgrade within 15.x unless the pin is contractually required.
 7. **Site header and footer do not exist.** `app/(marketing)/layout.js` renders only the `<main>` landmark. The sticky subnav, scroll-progress bar and side rail from the designs are also outstanding.
-8. **34 sections remain** across the two templates (16 domain, 18 vendor), including the vendor 4-step quote wizard and the domain catalog with filters and pagination.
+8. **Sections remain** across the category and course templates, including the group-quote wizard and the category catalog with filters and pagination.

@@ -4,7 +4,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
 
-export default function Domain({ data }) {
+export default function RelatedCategories({ data }) {
   if (!data?.items?.length) return null;
 
   return (
@@ -30,7 +30,7 @@ export default function Domain({ data }) {
           </Text>
         </Reveal>
 
-        {/* DOMAIN CARDS */}
+        {/* CATEGORY CARDS */}
         <Reveal delay={2}>
           <Box className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {data.items.map((item) => (

@@ -80,7 +80,7 @@ function ProgressionDivider({ label, first }) {
 }
 
 /**
- * Vendor course audience — role filter on the left, skill-progression panel
+ * Course audience — role filter on the left, skill-progression panel
  * on the right.
  *
  * Design: `section#audience.block.section.warm`, `.aud-split`, `.prog-wrap`.

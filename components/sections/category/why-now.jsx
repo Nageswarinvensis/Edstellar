@@ -6,7 +6,11 @@ import Section from "@/components/ui/Section";
 import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
 import CtaBanner from "@/components/shared/ctabanner";
-import { Accordion, AccordionItem, AccordionContent } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import WhyNowShifts from "@/components/sections/category/why-now-shifts";
 import WhyNowPressures from "@/components/sections/category/why-now-pressures";
 
@@ -36,9 +40,12 @@ function WhyNowTrigger({ parts }) {
           )}
         </Text>
 
-        <span aria-hidden="true" className="relative flex size-5.5 flex-none items-center justify-center">
-          <span className="absolute h-[1.5px] w-[15px] rounded-full bg-ink" />
-          <span className="absolute h-[15px] w-[1.5px] rounded-full bg-ink transition-transform duration-300 group-aria-expanded/why-now-trigger:scale-y-0" />
+        <span
+          aria-hidden="true"
+          className="relative flex size-5.5 flex-none items-center justify-center"
+        >
+          <span className="absolute h-[1.5px] w-3.75 rounded-full bg-ink" />
+          <span className="absolute h-3.75 w-[1.5px] rounded-full bg-ink transition-transform duration-300 group-aria-expanded/why-now-trigger:scale-y-0" />
         </span>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
@@ -69,23 +76,38 @@ export default function WhyNow({ whyNow, ctaBannerData }) {
       </Reveal>
 
       <Reveal delay={2}>
-        <Text as="p" className="mt-4 mb-11 max-w-[64ch] text-[16.5px] leading-[1.7] text-ink/60">
+        <Text
+          as="p"
+          className="mt-4 mb-11 max-w-[64ch] text-[16.5px] leading-[1.7] text-ink/60"
+        >
           {whyNow.description}
         </Text>
       </Reveal>
 
       <Reveal delay={2}>
-        <Accordion defaultValue={[whyNow.accordion[0].id]} className="border-t border-ink/10">
+        <Accordion
+          defaultValue={[whyNow.accordion[0].id]}
+          className="border-t border-ink/10"
+        >
           {whyNow.accordion.map((item) => (
-            <AccordionItem key={item.id} value={item.id} className="border-ink/10">
+            <AccordionItem
+              key={item.id}
+              value={item.id}
+              className="border-ink/10"
+            >
               <WhyNowTrigger parts={item.question.parts} />
 
               <AccordionContent className="pb-11">
-                <Text as="p" className="mb-7.5 max-w-[62ch] text-[15px] leading-[1.7] text-ink/60">
+                <Text
+                  as="p"
+                  className="mb-7.5 max-w-[62ch] text-[15px] leading-[1.7] text-ink/60"
+                >
                   {item.lede}
                 </Text>
 
-                {item.shifts ? <WhyNowShifts shifts={item.shifts} note={item.note} /> : null}
+                {item.shifts ? (
+                  <WhyNowShifts shifts={item.shifts} note={item.note} />
+                ) : null}
 
                 {item.stats ? (
                   <Box className="grid grid-cols-1 overflow-hidden rounded-2xl border border-ink/10 bg-white sm:grid-cols-3">
@@ -104,10 +126,16 @@ export default function WhyNow({ whyNow, ctaBannerData }) {
                         >
                           {stat.value}
                         </Text>
-                        <Text as="p" className="mt-2.5 mb-3.5 text-[13.5px] leading-[1.65] text-ink/60">
+                        <Text
+                          as="p"
+                          className="mt-2.5 mb-3.5 text-[13.5px] leading-[1.65] text-ink/60"
+                        >
                           {stat.description}
                         </Text>
-                        <Text as="span" className="font-mono text-[10px] tracking-[0.12em] text-ink/40 uppercase">
+                        <Text
+                          as="span"
+                          className="font-mono text-[10px] tracking-[0.12em] text-ink/40 uppercase"
+                        >
                           {stat.source}
                         </Text>
                       </Box>
@@ -116,7 +144,10 @@ export default function WhyNow({ whyNow, ctaBannerData }) {
                 ) : null}
 
                 {item.pressures ? (
-                  <WhyNowPressures pressures={item.pressures} note={item.note} />
+                  <WhyNowPressures
+                    pressures={item.pressures}
+                    note={item.note}
+                  />
                 ) : null}
               </AccordionContent>
             </AccordionItem>

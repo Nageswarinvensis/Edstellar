@@ -98,7 +98,7 @@ const SITE_MAP = [
 ];
 
 export default async function HomePage() {
-  const [domainSlugs, vendorSlugs] = await Promise.all([
+  const [categorySlugs, courseSlugs] = await Promise.all([
     getCategorySlugs(),
     getCategoryCourseSlugs(),
   ]);
@@ -108,8 +108,8 @@ export default async function HomePage() {
     title: "Corporate training courses",
     links: [
       "/corporate-training",
-      ...domainSlugs.map((slug) => `/corporate-training/${slug}`),
-      ...vendorSlugs.map(
+      ...categorySlugs.map((slug) => `/corporate-training/${slug}`),
+      ...courseSlugs.map(
         (slug) => `/corporate-training/artificial-intelligence/${slug}`,
       ),
     ],

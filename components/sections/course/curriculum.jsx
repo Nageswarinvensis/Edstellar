@@ -31,7 +31,7 @@ function MethodStepText({ parts = [] }) {
 }
 
 /**
- * Vendor course curriculum — heading, the review badge, the Learn / Practice
+ * Course curriculum — heading, the review badge, the Learn / Practice
  * / Apply method breakdown, and the filterable module accordion.
  *
  * Design: `section#curriculum.block.section`, `.cur-head`, `.cur-method`,

@@ -5,7 +5,7 @@ import Reveal from "@/components/shared/reveal";
 import SkillCards from "@/components/sections/course/skill-cards";
 
 /**
- * Vendor course skills grid — seven flippable cards, one per capability area.
+ * Course skills grid — seven flippable cards, one per capability area.
  *
  * Design: `section#skills.block.section`, `.skill-grid`.
  */

@@ -5,7 +5,7 @@ import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
 
 /**
- * Vendor course "why now" block — the case for urgency, in three parts: a
+ * Course "why now" block — the case for urgency, in three parts: a
  * lede with four headline stats, three evidence cards (degradation, market,
  * regulation), and a platform-adoption strip.
  *

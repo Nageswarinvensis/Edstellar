@@ -91,7 +91,7 @@ function QuoteArrows() {
 }
 
 /**
- * Vendor course proof — a looping testimonial carousel built on the shared
+ * Course proof — a looping testimonial carousel built on the shared
  * `components/ui/carousel` (embla) primitive rather than a hand-rolled
  * slider, with a dot/arrow nav row driven by `useCarousel()`.
  *
