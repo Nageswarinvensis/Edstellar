@@ -49,11 +49,12 @@ function WhyNowTrigger({ parts }) {
  * The market case for urgency, merged into one accordion: what changed in
  * the field (five shifts, tab-and-detail), why hiring cannot close the gap
  * (a three-stat band), and what standing still costs (a pressures
- * scroller). Ends in the same "build versus buy" CTA as `course-about.jsx`.
+ * scroller). Ends in the same "build versus buy" CTA banner(s) as
+ * `course-about.jsx`, rendered the same way — `ctaBannerData` is an array.
  *
  * Design: `section#why-now.block.warm`, `.acc`, `.shf-wrap`, `.loss-wrap`.
  */
-export default function WhyNow({ whyNow, cta }) {
+export default function WhyNow({ whyNow, ctaBannerData }) {
   if (!whyNow?.accordion?.length) return null;
 
   return (
@@ -123,11 +124,11 @@ export default function WhyNow({ whyNow, cta }) {
         </Accordion>
       </Reveal>
 
-      {cta ? (
-        <Reveal delay={2}>
+      {ctaBannerData?.map((cta, index) => (
+        <Reveal key={index} delay={2}>
           <CtaBanner data={cta} />
         </Reveal>
-      ) : null}
+      ))}
     </Section>
   );
 }
