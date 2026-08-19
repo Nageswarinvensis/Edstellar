@@ -8,6 +8,7 @@ import CategoryInfo from "@/components/sections/course/courseInfo";
 import ClientLogos from "@/components/sections/course/client-logo";
 import StickyTabs from "@/components/sections/course/sticky-navbar";
 import CategoryAbout from "@/components/sections/course/course-about";
+import WhyNow from "@/components/sections/category/why-now";
 import Card from "@/components/sections/category/card";
 import Marquee from "@/components/sections/category/marquee";
 import Trainers from "@/components/sections/course/trainers";
@@ -57,8 +58,8 @@ export default async function CategoryPage({ params }) {
       />
       <ClientLogos data={data.ClientsLogosData} />
       <StickyTabs data={data.stickyNavbarData} />
-      <CategoryAbout about={data.about} 
-      ctaBannerData={data.ctaBannerData?.upskillLight} />
+      <CategoryAbout about={data.about} />
+      <WhyNow whyNow={data.whyNow} cta={data.ctaBannerData?.upskillLight} />
       <Card data={data.cardData} />
       <Marquee stack={data.marqueeData} />
       <Trainers trainers={data.trainers} />
