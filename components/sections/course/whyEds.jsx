@@ -146,7 +146,7 @@ export default function WhyEds({ data }) {
   return (
     <Section
       id="adjacent-programs"
-      className="relative border-b border-ink/12 bg-[#F3F1E8]"
+      className="relative border-b border-ink/12 bg-paper-warm"
     >
       <Box>
         <Reveal>

@@ -18,6 +18,12 @@ import {
   FREE_MAIL_DOMAINS,
 } from "@/lib/constants";
 
+const BACKGROUND_CLASSES = {
+  "paper-warm": "bg-paper-warm",
+  paper: "bg-paper",
+  white: "bg-white",
+};
+
 /**
  * The page's single dominant CTA — a full-width lead form sitting right
  * before the site footer (`#apply`, matching the hero/sticky-footer CTAs
@@ -25,8 +31,14 @@ import {
  * file header), so submission only validates and swaps to a thank-you state
  * client-side, the same fallback the source design uses when its own
  * `FORM_ENDPOINT` is unset.
+ *
+ * `background` is required from the caller rather than assumed here — this
+ * component is shared by the category and course page templates, and each
+ * page decides explicitly what should sit behind it instead of it silently
+ * inheriting whatever the previous section happens to use. Pick one of
+ * `BACKGROUND_CLASSES` (a design token, never a raw hex per TASTE.md §9).
  */
-export default function LeadForm({ data }) {
+export default function LeadForm({ data, background = "paper-warm" }) {
   const {
     register,
     handleSubmit,
@@ -46,7 +58,11 @@ export default function LeadForm({ data }) {
   }
 
   return (
-    <Section id="apply" aria-label="Request training">
+    <Section
+      id="apply"
+      aria-label="Request training"
+      className={BACKGROUND_CLASSES[background] ?? BACKGROUND_CLASSES["paper-warm"]}
+    >
       <Reveal>
         <RichHeading
           as="h2"

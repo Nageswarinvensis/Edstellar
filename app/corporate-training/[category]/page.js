@@ -71,7 +71,7 @@ export default async function CategoryPage({ params }) {
       <Capability data={data.capabilityData} />
       <Faq faqs={data.faqs} />
       <RelatedCategories data={data.relatedCategoriesData} />
-      <LeadForm data={data.leadForm} />
+      <LeadForm data={data.leadForm} background="paper-warm" />
 
       <StickyFooter data={data.stickyFooter} />
     </>
