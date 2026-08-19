@@ -14,6 +14,7 @@ import Marquee from "@/components/sections/category/marquee";
 import Trainers from "@/components/sections/course/trainers";
 import MapSection from "@/components/sections/course/mapsection";
 import Capability from "@/components/sections/category/capability";
+import Method from "@/components/sections/category/method";
 import Faq from "@/components/sections/course/faq";
 import RelatedCategories from "@/components/sections/category/related-categories";
 import LeadForm from "@/components/sections/course/lead-form";
@@ -59,16 +60,17 @@ export default async function CategoryPage({ params }) {
       />
       <ClientLogos data={data.ClientsLogosData} />
       <StickyTabs data={data.stickyNavbarData} />
-      <CategoryAbout
-        about={data.about}
-        ctaBannerData={data.about?.ctaBannerData}
-      />
-      <WhyNow whyNow={data.whyNow} ctaBannerData={data.whyNow?.ctaBannerData} />
-      <Card data={data.cardData} />
+      <CategoryAbout about={data.about}
+        ctaBannerData={data.about?.ctaBannerData} />
+      <WhyNow whyNow={data.whyNow} 
+        ctaBannerData={data.whyNow?.ctaBannerData} />
+      <Card data={data.cardData} 
+        ctaBannerData={data.cardData?.ctaBannerData} />
       <Marquee stack={data.marqueeData} />
       <Trainers trainers={data.trainers} />
       <MapSection data={data.mapsectionData} />
       <Capability data={data.capabilityData} />
+      <Method data={data.methodData} />
       <Faq faqs={data.faqs} />
       <RelatedCategories data={data.relatedCategoriesData} />
       <LeadForm data={data.leadForm} background="paper-warm" />

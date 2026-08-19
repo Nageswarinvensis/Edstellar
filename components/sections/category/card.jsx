@@ -3,8 +3,9 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
+import CtaBanner from "@/components/shared/ctabanner";
 
-export default function Card({ data }) {
+export default function Card({ data, ctaBannerData }) {
   if (!data) return null;
 
   return (
@@ -74,6 +75,10 @@ export default function Card({ data }) {
             {data.note}
           </Text>
         </Reveal>
+        {ctaBannerData?.map((cta, index) => (
+          <CtaBanner key={index} data={cta} />
+         ))
+        }
       </Box>
     </Section>
   );
