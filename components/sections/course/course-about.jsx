@@ -96,9 +96,10 @@ function VendorAbout({ about, ctaBannerData }) {
           </Reveal>
         ) : null}
      </Box>
-     {ctaBannerData ? (
-          <CtaBanner data={ctaBannerData} />
-        ) : null}   
+     {ctaBannerData?.map((cta, index) => (
+        <CtaBanner key={index} data={cta} />
+      ))
+     }
     </Section>
   );
 }

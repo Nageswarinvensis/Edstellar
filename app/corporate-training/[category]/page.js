@@ -58,8 +58,15 @@ export default async function CategoryPage({ params }) {
       />
       <ClientLogos data={data.ClientsLogosData} />
       <StickyTabs data={data.stickyNavbarData} />
+<<<<<<< HEAD
       <CategoryAbout about={data.about} />
       <WhyNow whyNow={data.whyNow} cta={data.ctaBannerData?.upskillLight} />
+=======
+      <CategoryAbout
+  about={data.about}
+  ctaBannerData={data.about?.ctaBannerData}
+/>
+>>>>>>> 552924bfd875db9e65d7df20b5e4172a018a0f55
       <Card data={data.cardData} />
       <Marquee stack={data.marqueeData} />
       <Trainers trainers={data.trainers} />
