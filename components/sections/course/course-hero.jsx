@@ -88,7 +88,6 @@ function CategoryHero({ hero, breadcrumbs }) {
             <Breadcrumbs items={breadcrumbs} />
           </Reveal>
         </Box>
-
       </Box>
     </Section>
   );
