@@ -63,7 +63,7 @@ export default function SlideSection({ data }) {
   if (!data) return null;
 
   return (
-    <Section id="results" className="bg-[#F8F7F3]">
+    <Section id="results" className="border-t border-ink/10">
       <Box className="mx-auto max-w-225">
 
        <Reveal delay={0}>

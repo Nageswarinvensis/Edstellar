@@ -1,9 +1,9 @@
+import Image from "next/image";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
-import { Star } from "lucide-react";
 
 export default function Certificate({ certificate }) {
   if (!certificate) return null;
@@ -44,32 +44,14 @@ export default function Certificate({ certificate }) {
         <Reveal delay={2}>
           <Box className="relative mx-auto w-full max-w-115">
             <Box className="rounded-[15px] bg-navy p-3 shadow-sm">
-              <Box className="flex min-h-78 flex-col items-center justify-center rounded-[11px] border border-lime/20 px-8 text-center">
-                {/* Icon */}
-                <Box className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-lime">
-                  <Star
-                    size={21}
-                    strokeWidth={2}
-                    fill="currentColor"
-                    className="text-navy"
-                  />
-                </Box>
-
-                {/* Certificate title */}
-                <Text
-                  as="h3"
-                  className="font-serif text-xl leading-snug font-normal text-paper italic"
-                >
-                  {certificate.certificateCard.title}
-                </Text>
-
-                {/* Subtitle */}
-                <Text
-                  as="p"
-                  className="mt-3 text-[8px] tracking-[0.28em] text-paper/50 uppercase"
-                >
-                  {certificate.certificateCard.subtitle}
-                </Text>
+              <Box className="relative aspect-[1080/764] overflow-hidden rounded-[11px] border border-lime/20">
+                <Image
+                  src="/course/Edstellar Sample Certificate.webp"
+                  alt={certificate.certificateCard.title}
+                  title={certificate.certificateCard.title}
+                  fill
+                  className="object-cover"
+                />
               </Box>
             </Box>
           </Box>
