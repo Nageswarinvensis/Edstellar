@@ -72,10 +72,8 @@ function stripTrainingSuffix(name) {
 /**
  * Group-quote wizard — qualifies a training request in a few clicks (team
  * size, programs, frequency), then sends it from its own contact form on the
- * last step. This section stands alone and does not hand off to `QuotePanel`
- * elsewhere on the page — each has its own independent submit. Sits below
- * the sticky quote rail, matching the source design's "unnumbered block
- * after delivery modes" placement.
+ * last step. This section stands alone and does not hand off to `LeadForm`
+ * elsewhere on the page — each has its own independent submit.
  */
 export default function GroupQuote({ data }) {
   const cardRef = useRef(null);
@@ -697,7 +695,7 @@ export default function GroupQuote({ data }) {
                   Programs
                 </Box>
                 <Box
-                  as="dd"
+                  as="div"
                   className="m-0 text-[13.5px] font-semibold text-ink sm:text-right"
                 >
                   {programsText()}
@@ -851,10 +849,12 @@ export default function GroupQuote({ data }) {
                       htmlFor="gq-consent"
                       className="text-[12px] leading-normal text-ink/60"
                     >
-                      I agree that Edstellar may contact me about this
-                      training request and store my details as described in
-                      the{" "}
-                      <a href="/privacy-policy" className="underline hover:text-ink">
+                      I agree that Edstellar may contact me about this training
+                      request and store my details as described in the{" "}
+                      <a
+                        href="/privacy-policy"
+                        className="underline hover:text-ink"
+                      >
                         privacy policy
                       </a>
                       .
@@ -1093,4 +1093,3 @@ function WizardNav({ onBack, onNext, nextLabel, showBack = true }) {
     </Box>
   );
 }
-

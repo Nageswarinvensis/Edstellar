@@ -2,6 +2,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
+import SecCta from "@/components/shared/sec-cta";
 import DeliveryModeTabs from "@/components/sections/course/delivery-mode-tabs";
 
 export default function DeliveryModes({ deliveryModes }) {
@@ -29,6 +30,8 @@ export default function DeliveryModes({ deliveryModes }) {
       <Reveal delay={2}>
         <DeliveryModeTabs tabs={deliveryModes.tabs} />
       </Reveal>
+
+      <SecCta {...deliveryModes.sectionCta} />
     </Section>
   );
 }

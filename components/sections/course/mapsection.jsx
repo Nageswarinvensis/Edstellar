@@ -1,10 +1,38 @@
 import Image from "next/image";
+import { MessageCircle, Route, UserCheck, Wrench, Rocket, Award } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
+
+const APPROACH_ICONS = [MessageCircle, Route, UserCheck, Wrench, Rocket, Award];
+
+function ApproachStep({ step, Icon }) {
+  return (
+    <Box as="li" className="flex min-w-0 flex-col gap-2">
+      <Box className="relative z-10 flex size-12 flex-none items-center justify-center rounded-full border border-lime/65 bg-navy text-lime">
+        <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
+      </Box>
+      <Text
+        as="span"
+        className="mt-4 font-mono text-[10px] font-medium tracking-[0.12em] text-lime uppercase"
+      >
+        Step {step.number}
+      </Text>
+      <Text
+        as="h4"
+        className="font-display text-base font-semibold tracking-[-0.01em] text-paper"
+      >
+        {step.title}
+      </Text>
+      <Text as="p" className="text-[14px] leading-[1.6] text-paper/60">
+        {step.description}
+      </Text>
+    </Box>
+  );
+}
 
 export default function MapSection({ data }) {
   if (!data) return null;
@@ -159,6 +187,48 @@ export default function MapSection({ data }) {
                   </Text>
                 </Box>
               ))}
+            </Box>
+          </Reveal>
+        )}
+
+        {/* =========================================================
+            APPROACH — six-stage process rail
+            Only render when approach data exists
+        ========================================================== */}
+        {data.approach?.steps?.length > 0 && (
+          <Reveal delay={4}>
+            <Box className="mt-9 rounded-[18px] bg-navy p-10 max-[600px]:p-6">
+              <RichHeading
+                as="h3"
+                parts={data.approach.heading.parts}
+                emphasisClassName="font-serif font-normal italic text-lime"
+                className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-[1.25] font-semibold tracking-[-0.02em] text-paper"
+              />
+              <Text
+                as="p"
+                className="mt-4 max-w-[66ch] text-base leading-[1.7] text-paper/60"
+              >
+                {data.approach.description}
+              </Text>
+
+              <Box
+                as="ol"
+                className="relative mt-10 grid grid-cols-1 gap-8 min-[541px]:grid-cols-2 min-[761px]:grid-cols-3 min-[1081px]:grid-cols-6"
+              >
+                <Box
+                  aria-hidden="true"
+                  className="pointer-events-none absolute top-6 left-6 hidden h-px bg-paper/12 min-[1081px]:block"
+                  style={{ right: "calc((100% - 5 * 2rem) / 6 - 1.5rem)" }}
+                />
+
+                {data.approach.steps.map((step, index) => (
+                  <ApproachStep
+                    key={step.number}
+                    step={step}
+                    Icon={APPROACH_ICONS[index] || MessageCircle}
+                  />
+                ))}
+              </Box>
             </Box>
           </Reveal>
         )}

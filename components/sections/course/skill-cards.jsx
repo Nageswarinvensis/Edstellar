@@ -80,7 +80,7 @@ export default function SkillCards({ items }) {
   if (!items?.length) return null;
 
   return (
-    <Box className="skill-grid grid grid-cols-3 gap-4.5 max-[820px]:grid-cols-2 max-[540px]:grid-cols-1">
+    <Box className="skill-grid grid grid-cols-2 gap-4.5 max-[540px]:grid-cols-1">
       {items.map((item) => (
         <SkillCard key={item.number} item={item} />
       ))}

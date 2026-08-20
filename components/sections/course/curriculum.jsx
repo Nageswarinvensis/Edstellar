@@ -4,6 +4,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
+import SecCta from "@/components/shared/sec-cta";
 import CurriculumModules from "@/components/sections/course/curriculum-modules";
 
 const SEGMENT_CLASSES = {
@@ -35,17 +36,23 @@ function MethodStepText({ parts = [] }) {
  * / Apply method breakdown, and the filterable module accordion.
  *
  * Design: `section#curriculum.block.section`, `.cur-head`, `.cur-method`,
- * `.rev-badge`. The reviewed-by avatar strip is not reproduced — it borrows
- * the hero's trainer roster, and this section only receives its own data.
- * The "request a quote" rail lives one level up, in the page — it spans
- * this section plus Skills/Outcomes/Audience/DeliveryModes (see
- * `app/corporate-training/[category]/[slug]/page.js`), so it isn't part of
- * this component.
+ * `.rev-badge`, `.sec-cta`. The reviewed-by avatar strip is not reproduced —
+ * it borrows the hero's trainer roster, and this section only receives its
+ * own data.
  */
 export default function Curriculum({ curriculum }) {
   if (!curriculum?.modules?.length) return null;
 
-  const { heading, description, badge, method, filters, modules } = curriculum;
+  const {
+    heading,
+    description,
+    meta,
+    badge,
+    method,
+    filters,
+    modules,
+    sectionCta,
+  } = curriculum;
 
   return (
     <Section id="curriculum" className="border-t border-ink/10">
@@ -88,6 +95,18 @@ export default function Curriculum({ curriculum }) {
           </Reveal>
         ) : null}
       </Box>
+
+      {meta?.length ? (
+        <Reveal delay={2}>
+          <Box className="mb-7.5 flex flex-wrap gap-x-5 gap-y-1.5 border-y border-ink/12 py-3.5 font-mono text-[11px] tracking-[0.09em] text-ink/60 uppercase">
+            {meta.map((item) => (
+              <Text as="span" key={item.label}>
+                <b className="font-semibold text-ink">{item.value}</b> {item.label}
+              </Text>
+            ))}
+          </Box>
+        </Reveal>
+      ) : null}
 
       {method ? (
         <Reveal delay={2}>
@@ -243,6 +262,8 @@ export default function Curriculum({ curriculum }) {
           <CurriculumModules filters={filters} modules={modules} />
         </Box>
       </Reveal>
+
+      <SecCta {...sectionCta} />
     </Section>
   );
 }

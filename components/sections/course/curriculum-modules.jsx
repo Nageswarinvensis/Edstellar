@@ -152,7 +152,7 @@ export default function CurriculumModules({ filters, modules }) {
   return (
     <Box>
       {filters?.length ? (
-        <Box className="mb-7 flex flex-wrap gap-2.5">
+        <Box className="sticky top-17 z-10 -mx-1 mb-7 flex flex-wrap gap-2.5 bg-paper px-1 py-3">
           {filters.map((filter) => (
             <button
               key={filter.id}
@@ -179,6 +179,7 @@ export default function CurriculumModules({ filters, modules }) {
           return (
             <AccordionItem
               key={module.number}
+              id={`mod-${module.number}`}
               value={module.number}
               className={cn(
                 "overflow-hidden rounded-2xl border border-ink/12 bg-white",
