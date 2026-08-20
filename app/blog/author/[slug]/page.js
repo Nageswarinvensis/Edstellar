@@ -1,3 +1,5 @@
+import Section from "@/components/ui/Section";
+
 export default async function AuthorPage({ params }) {
   const { slug } = await params;
 
