@@ -8,7 +8,7 @@ export default function Trainers({ trainers }) {
   if (!trainers?.people?.length) return null;
 
   return (
-    <Section id="trainers" className="border-t border-ink/10 bg-paper-warm">
+    <Section id="trainers" className="border-t border-ink/10">
       <Reveal delay={1}>
         <RichHeading
           as="h2"

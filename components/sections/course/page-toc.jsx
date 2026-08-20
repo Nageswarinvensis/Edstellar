@@ -118,7 +118,7 @@ export default function PageToc({ toc, modules, children }) {
     <Box className="relative">
       <Box className="xl:[&_.rail-container]:pl-[302px]">{children}</Box>
 
-      <Box className="hidden xl:pointer-events-none xl:absolute xl:inset-x-0 xl:inset-y-0 xl:block">
+      <Box className="hidden xl:pointer-events-none xl:absolute xl:inset-x-0 xl:inset-y-0 xl:block xl:px-10">
         <Box className="mx-auto flex h-full max-w-7xl">
           <nav
             ref={navRef}

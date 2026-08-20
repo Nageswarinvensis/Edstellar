@@ -15,7 +15,7 @@ export default function SecCta({ title, description, cta }) {
   return (
     <Reveal delay={2}>
       <Box className="mt-9 flex flex-wrap items-center justify-between gap-5.5 rounded-r-2xl border border-ink/12 border-l-4 border-l-lime bg-paper-cream px-7 py-6 max-[620px]:flex-col max-[620px]:items-start max-[620px]:px-5.5 max-[620px]:py-5">
-        <Box className="min-w-0 flex-1 basis-75">
+        <Box className="min-w-0 flex-1 basis-75 max-[620px]:basis-auto">
           <Text
             as="p"
             className="font-display text-[18.5px] leading-[1.28] font-bold tracking-[-0.025em] text-ink"

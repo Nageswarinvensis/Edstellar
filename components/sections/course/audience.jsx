@@ -164,7 +164,7 @@ export default function Audience({ audience }) {
   const lastPrerequisiteIndex = prerequisiteFlags?.lastIndexOf(true) ?? -1;
 
   return (
-    <Section id="audience" className="border-t border-ink/10 bg-paper-warm">
+    <Section id="audience" className="border-t border-ink/10">
       <Reveal delay={1}>
         <RichHeading
           as="h2"
