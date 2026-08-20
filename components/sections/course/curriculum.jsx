@@ -211,6 +211,29 @@ export default function Curriculum({ curriculum }) {
                 ) : null}
               </Box>
             ) : null}
+
+            {method.tools?.length ? (
+              <Box className="mt-5.5 border-t border-ink/12 pt-5">
+                <Text
+                  as="p"
+                  className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink"
+                >
+                  {method.toolsLabel}
+                </Text>
+
+                <Box className="mt-3 flex flex-wrap gap-2">
+                  {method.tools.map((tool) => (
+                    <Text
+                      key={tool}
+                      as="span"
+                      className="rounded-full bg-paper-warm px-3.5 py-1.5 text-[12.5px] font-medium text-ink"
+                    >
+                      {tool}
+                    </Text>
+                  ))}
+                </Box>
+              </Box>
+            ) : null}
           </Box>
         </Reveal>
       ) : null}

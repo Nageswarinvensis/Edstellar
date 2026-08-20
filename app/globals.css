@@ -217,6 +217,61 @@
     display: none;
   }
 }
+
+/* Concentric arcs bleeding off a dark band's right edge, behind its content
+   (e.g. the customized-training band). Too complex for inline arbitrary
+   values — three annuli, each a radial-gradient with sharp transparent/color
+   stops, masked to only the half nearest the edge. */
+@utility arc-rings {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    overflow: hidden;
+    background:
+      radial-gradient(
+        circle at 100% 50%,
+        transparent 0 100px,
+        rgba(146, 180, 234, 0.2) 100px 114px,
+        transparent 114px
+      ),
+      radial-gradient(
+        circle at 100% 50%,
+        transparent 0 129px,
+        rgba(119, 157, 216, 0.24) 129px 143px,
+        transparent 143px
+      ),
+      radial-gradient(
+        circle at 100% 50%,
+        transparent 0 158px,
+        rgba(37, 95, 255, 0.29) 158px 172px,
+        transparent 172px
+      );
+    -webkit-mask-image: conic-gradient(
+      from 180deg at 100% 50%,
+      #000 0 180deg,
+      transparent 180deg
+    );
+    mask-image: conic-gradient(
+      from 180deg at 100% 50%,
+      #000 0 180deg,
+      transparent 180deg
+    );
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+}
 @keyframes logoSlide {
   from {
     transform: translateX(-50%);

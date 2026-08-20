@@ -50,56 +50,58 @@ function CategoryAbout({ about, ctaBannerData }) {
 
         {contrast ? (
           <Reveal delay={2}>
-            <Box className="overflow-hidden rounded-[18px] border border-ink/12 bg-white">
-              <table className="w-full border-collapse">
-                <caption className="sr-only">{contrast.label}</caption>
-                <thead>
-                  <tr>
-                    {contrast.columns.map((column, index) => (
-                      <th
-                        key={column}
-                        scope="col"
-                        className={[
-                          "w-1/2 border-b border-ink/12 px-5 py-4 text-left font-mono text-[10px] font-normal tracking-[0.14em] uppercase",
-                          index === 0 ? "text-ink/60" : "bg-lime/10 text-olive",
-                        ].join(" ")}
-                      >
-                        {column}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {contrast.rows.map((row, rowIndex) => (
-                    <tr key={rowIndex}>
-                      {row.map((cell, cellIndex) => (
-                        <td
-                          key={cellIndex}
-                          className={[
-                            "px-5 py-3.5 align-top text-[13.5px] tw-leading-1.5",
-                            rowIndex === contrast.rows.length - 1
-                              ? ""
-                              : "border-b border-ink/12",
-                            cellIndex === 0
-                              ? "text-ink/60"
-                              : "bg-lime/5 text-ink",
-                          ].join(" ")}
+            <Box>
+              {contrast.label ? (
+                <Text
+                  as="h3"
+                  className="mb-5 inline-block border-b-[3px] border-lime pb-2.5 font-display text-[22px] leading-[1.25] font-bold tracking-[-0.025em] text-ink"
+                >
+                  {contrast.label}
+                </Text>
+              ) : null}
+
+              <Box className="grid grid-cols-1 overflow-hidden rounded-[18px] border border-ink/12 bg-white sm:grid-cols-2">
+                {contrast.columns.map((column, index) => (
+                  <Box
+                    key={column.heading}
+                    className={[
+                      "p-5",
+                      index === 0
+                        ? "border-b border-ink/12 sm:border-r sm:border-b-0"
+                        : "bg-lime/5",
+                    ].join(" ")}
+                  >
+                    <Text
+                      as="p"
+                      className={[
+                        "mb-3.5 font-mono text-[10px] font-normal tracking-[0.14em] uppercase",
+                        index === 0 ? "text-ink/60" : "rounded bg-lime/10 px-2 py-1 text-ink",
+                      ].join(" ")}
+                    >
+                      {column.heading}
+                    </Text>
+
+                    <Box as="ul" className="flex flex-col gap-3.25">
+                      {column.items.map((item) => (
+                        <Box
+                          as="li"
+                          key={item}
+                          className="relative pl-5.5 text-[14.5px] leading-[1.5] font-medium text-ink before:absolute before:top-[0.46em] before:left-0 before:size-1.75 before:rounded-full before:border before:border-ink/22 before:bg-lime"
                         >
-                          {cell}
-                        </td>
+                          {item}
+                        </Box>
                       ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
             </Box>
           </Reveal>
         ) : null}
-     </Box>
-     {ctaBannerData?.map((cta, index) => (
+      </Box>
+      {ctaBannerData?.map((cta, index) => (
         <CtaBanner key={index} data={cta} />
-      ))
-     }
+      ))}
     </Section>
   );
 }
