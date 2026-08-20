@@ -18,7 +18,7 @@ export default function Marquee({ stack }) {
     >
       {/* Header */}
       <Reveal delay={1}>
-        <Box className="mx-auto max-w-155 text-center">
+        <Box className="mx-auto max-w-155 text-center text-white">
           <Text className="mb-3 font-mono text-[10px] uppercase tracking-[0.14em] text-ink/60">
             {stack.eyebrow}
           </Text>

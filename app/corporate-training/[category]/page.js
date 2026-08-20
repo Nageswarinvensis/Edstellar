@@ -11,14 +11,17 @@ import CategoryAbout from "@/components/sections/course/course-about";
 import WhyNow from "@/components/sections/category/why-now";
 import Card from "@/components/sections/category/card";
 import Marquee from "@/components/sections/category/marquee";
+import Governence from "@/components/sections/category/governence";
 import Trainers from "@/components/sections/course/trainers";
 import MapSection from "@/components/sections/course/mapsection";
 import Capability from "@/components/sections/category/capability";
 import Method from "@/components/sections/category/method";
+import LDCards from "@/components/sections/category/ld";
 import Faq from "@/components/sections/course/faq";
 import RelatedCategories from "@/components/sections/category/related-categories";
 import LeadForm from "@/components/sections/course/lead-form";
 import StickyFooter from "@/components/sections/course/sticky-footer";
+import { headers } from "next/headers";
 
 export const revalidate = 3600;
 
@@ -67,10 +70,12 @@ export default async function CategoryPage({ params }) {
       <Card data={data.cardData} 
         ctaBannerData={data.cardData?.ctaBannerData} />
       <Marquee stack={data.marqueeData} />
+      <Governence data={data.governenceData}/>
       <Trainers trainers={data.trainers} />
       <MapSection data={data.mapsectionData} />
       <Capability data={data.capabilityData} />
       <Method data={data.methodData} />
+      <LDCards data={data.ldData} />
       <Faq faqs={data.faqs} />
       <RelatedCategories data={data.relatedCategoriesData} />
       <LeadForm data={data.leadForm} background="paper-warm" />
