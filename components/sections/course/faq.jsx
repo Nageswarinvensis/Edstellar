@@ -4,6 +4,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
+import SecCta from "@/components/shared/sec-cta";
 import {
   Accordion,
   AccordionItem,
@@ -39,7 +40,7 @@ export default function Faq({ faqs }) {
 
   return (
     <Section id="faq" className="border-t border-ink/10">
-      <Box className="mx-auto max-w-180">
+      <Box>
         <Reveal delay={1}>
           <RichHeading
             as="h2"
@@ -71,6 +72,8 @@ export default function Faq({ faqs }) {
             ))}
           </Accordion>
         </Reveal>
+
+        <SecCta {...faqs.sectionCta} />
       </Box>
     </Section>
   );

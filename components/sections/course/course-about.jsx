@@ -5,37 +5,28 @@ import ReadMore from "@/components/shared/read-more";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
 import CtaBanner from "@/components/shared/ctabanner";
+import CustomizedTraining from "@/components/sections/course/customizedTraining";
 
-function CategoryAbout({ about, ctaBannerData }) {
+function CategoryAbout({ about, ctaBannerData, customizedTraining }) {
   if (!about) return null;
 
   const contrast = about.contrast;
 
   return (
     <Section id="about" className="relative border-b border-ink/12 ">
-      <Reveal delay={1}>
-        <RichHeading
-          as="h2"
-          parts={about.headlineParts}
-          className="mb-6.5 max-w-[20ch]"
-        />
-      </Reveal>
+      <Box className="grid grid-cols-1 items-start gap-8 gap-x-12 md:grid-cols-2 md:gap-12">
+        <Box>
+          <Reveal delay={1}>
+            <RichHeading
+              as="h2"
+              parts={about.headlineParts}
+              className="max-w-[20ch]"
+            />
+          </Reveal>
 
-      <Box className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-12">
-        <Reveal delay={1}>
-          {about.body?.map((paragraph, index) => (
-            <Text
-              as="p"
-              key={index}
-              className="mb-4.5 text-base leading-[1.75]"
-            >
-              {paragraph}
-            </Text>
-          ))}
-
-          {about.more?.length ? (
-            <ReadMore showIcon>
-              {about.more.map((paragraph, index) => (
+          <Reveal delay={1}>
+            <Box className="pt-6">
+              {about.body?.map((paragraph, index) => (
                 <Text
                   as="p"
                   key={index}
@@ -44,23 +35,39 @@ function CategoryAbout({ about, ctaBannerData }) {
                   {paragraph}
                 </Text>
               ))}
-            </ReadMore>
-          ) : null}
-        </Reveal>
+
+              {about.more?.length ? (
+                <ReadMore showIcon>
+                  {about.more.map((paragraph, index) => (
+                    <Text
+                      as="p"
+                      key={index}
+                      className="mb-4.5 text-base leading-[1.75]"
+                    >
+                      {paragraph}
+                    </Text>
+                  ))}
+                </ReadMore>
+              ) : null}
+            </Box>
+          </Reveal>
+        </Box>
 
         {contrast ? (
-          <Reveal delay={2}>
-            <Box>
-              {contrast.label ? (
+          <Box>
+            {contrast.label ? (
+              <Reveal delay={1}>
                 <Text
                   as="h3"
-                  className="mb-5 inline-block border-b-[3px] border-lime pb-2.5 font-display text-[22px] leading-[1.25] font-bold tracking-[-0.025em] text-ink"
+                  className="inline-block border-b-[3px] border-lime pb-2.5 font-display text-[22px] leading-[1.25] font-bold tracking-[-0.025em] text-ink"
                 >
                   {contrast.label}
                 </Text>
-              ) : null}
+              </Reveal>
+            ) : null}
 
-              <Box className="grid grid-cols-1 overflow-hidden rounded-[18px] border border-ink/12 bg-white sm:grid-cols-2">
+            <Reveal delay={2}>
+              <Box className="mt-6 grid grid-cols-1 overflow-hidden rounded-[18px] border border-ink/12 bg-white sm:grid-cols-2">
                 {contrast.columns.map((column, index) => (
                   <Box
                     key={column.heading}
@@ -95,13 +102,15 @@ function CategoryAbout({ about, ctaBannerData }) {
                   </Box>
                 ))}
               </Box>
-            </Box>
-          </Reveal>
+            </Reveal>
+          </Box>
         ) : null}
       </Box>
       {ctaBannerData?.map((cta, index) => (
         <CtaBanner key={index} data={cta} />
       ))}
+
+      <CustomizedTraining data={customizedTraining} />
     </Section>
   );
 }
