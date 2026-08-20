@@ -9,7 +9,7 @@ import { CtaButton } from "@/components/shared/CtaButton";
 /**
  * Slide-down panel for SiteHeader's mobile menu. Controlled entirely by the
  * parent — no menu-open state lives here — so it stays a dumb presentational
- * leaf that SiteHeader (or any future trigger) can drive.
+ * leaf that SiteHeader (or any future trigger) can drive. 
  */
 export default function MobileNav({ id, open, onClose, links, cta }) {
   useEffect(() => {
