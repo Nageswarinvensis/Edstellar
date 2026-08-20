@@ -14,12 +14,12 @@ This is a **public, content-driven marketing website**. Its job is to rank in se
 
 **Consequences that drive every rule below:**
 
-| Because… | Therefore… |
-|---|---|
-| Every page is public | There is no auth, no session, no user-specific data, no portals |
+| Because…                                       | Therefore…                                                                                     |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Every page is public                           | There is no auth, no session, no user-specific data, no portals                                |
 | Search rankings are the primary business asset | Every page must be **fully prerendered HTML**. Content must exist in the initial HTML response |
-| Content changes without code deploys | Dynamic routes use **ISR**, never fully dynamic rendering |
-| Conversion happens through forms | Forms are the only genuinely interactive surface, and are isolated to client leaves |
+| Content changes without code deploys           | Dynamic routes use **ISR**, never fully dynamic rendering                                      |
+| Conversion happens through forms               | Forms are the only genuinely interactive surface, and are isolated to client leaves            |
 
 > **The single most important rule in this document:** never fetch page content in a Client Component with `useEffect`. That pattern — correct for an authenticated dashboard — renders an empty shell to search crawlers and destroys the SEO value of the page. Content is fetched on the server, at build or revalidation time.
 
@@ -36,10 +36,8 @@ These URLs are the public contract. They are load-bearing for SEO — **never ch
 /consulting                                    Consulting index
 /consulting/{slug}                             Consulting service page
 /corporate-training                            Training index
-/corporate-training/domain                     Domain listing
-/corporate-training/domain/{course-slug}       Domain course page
-/corporate-training/vendor                     Vendor listing
-/corporate-training/vendor/{course-slug}       Vendor course page
+/corporate-training/{category}                 Category page (e.g. artificial-intelligence)
+/corporate-training/{category}/{course-slug}   Course page within that category
 /resources                                     Resources hub
 /resources/{category}                          Category listing (tools, templates, …)
 /resources/{category}/{slug}                   Individual resource
@@ -68,12 +66,9 @@ app/
 │   │       └── loading.js
 │   ├── corporate-training/
 │   │   ├── page.js
-│   │   ├── domain/
-│   │   │   ├── page.js
-│   │   │   └── [courseSlug]/page.js
-│   │   └── vendor/
+│   │   └── [category]/
 │   │       ├── page.js
-│   │       └── [courseSlug]/page.js
+│   │       └── [slug]/page.js
 │   ├── resources/
 │   │   ├── page.js
 │   │   └── [category]/
@@ -89,7 +84,7 @@ app/
 ### 1.3 Rules
 
 - **One route group, `(marketing)`.** Parentheses mean it adds no URL segment. It exists so the header/footer shell lives in exactly one place. Add a second group only when a page needs a genuinely different shell (e.g. a bare landing page with no nav).
-- **`domain` and `vendor` are separate static segments, not `[type]`.** They are a closed set of two with different content models, different metadata, and different structured data. Keep them explicit.
+- **`corporate-training/[category]` is dynamic**, backed by `lib/content/category.js`. A category page (e.g. `/corporate-training/artificial-intelligence`) lists that category's courses; `[category]/[slug]` is an individual course page within it, backed by `lib/content/courses.js`. Unknown category or slug → `notFound()`.
 - **`resources/[category]` is dynamic with a whitelist.** The five categories share one page template. Validate against the whitelist in `lib/content/resources.js` and call `notFound()` on anything else. If a category's template genuinely diverges, promote it to its own static folder — do not add conditional branches to the shared template.
 - **Slugs are lowercase kebab-case.** No underscores, no uppercase, no trailing slash. `trailingSlash` stays at its default of `false`.
 - **Never place a page file outside a route group** unless it intentionally renders without the site shell.
@@ -106,20 +101,20 @@ Every page is either fully static (SSG) or statically generated with periodic re
 
 ### 2.2 Rendering Decision Table
 
-| Page | Content source | Rendering | `revalidate` |
-|---|---|---|---|
-| Home | Editorial, changes often | ISR | `3600` |
-| `/consulting` index | Content layer | ISR | `3600` |
-| `/consulting/{slug}` | Content layer | **SSG + ISR** via `generateStaticParams` | `3600` |
-| `/corporate-training` index | Content layer | ISR | `3600` |
-| `/corporate-training/domain` · `/vendor` listings | Content layer | ISR | `3600` |
-| `/corporate-training/{type}/{course-slug}` | Content layer | **SSG + ISR** via `generateStaticParams` | `3600` |
-| `/resources` hub | Content layer | ISR | `3600` |
-| `/resources/{category}` | Content layer | **SSG + ISR** | `3600` |
-| `/resources/{category}/{slug}` | Content layer | **SSG + ISR** | `3600` |
-| `/blog` index | CMS | ISR | `300` |
-| `/blog/{slug}` | CMS | **SSG + ISR** | `300` |
-| Legal / static copy | Hardcoded | Pure SSG | — |
+| Page                                           | Content source           | Rendering                                | `revalidate` |
+| ---------------------------------------------- | ------------------------ | ---------------------------------------- | ------------ |
+| Home                                           | Editorial, changes often | ISR                                      | `3600`       |
+| `/consulting` index                            | Content layer            | ISR                                      | `3600`       |
+| `/consulting/{slug}`                           | Content layer            | **SSG + ISR** via `generateStaticParams` | `3600`       |
+| `/corporate-training` index                    | Content layer            | ISR                                      | `3600`       |
+| `/corporate-training/{category}`               | Content layer            | **SSG + ISR** via `generateStaticParams` | `3600`       |
+| `/corporate-training/{category}/{course-slug}` | Content layer            | **SSG + ISR** via `generateStaticParams` | `3600`       |
+| `/resources` hub                               | Content layer            | ISR                                      | `3600`       |
+| `/resources/{category}`                        | Content layer            | **SSG + ISR**                            | `3600`       |
+| `/resources/{category}/{slug}`                 | Content layer            | **SSG + ISR**                            | `3600`       |
+| `/blog` index                                  | CMS                      | ISR                                      | `300`        |
+| `/blog/{slug}`                                 | CMS                      | **SSG + ISR**                            | `300`        |
+| Legal / static copy                            | Hardcoded                | Pure SSG                                 | —            |
 
 ### 2.3 Rules
 
@@ -135,10 +130,13 @@ Every page is either fully static (SSG) or statically generated with periodic re
 Copy this shape for every dynamic content page.
 
 ```jsx
-// app/(marketing)/corporate-training/domain/[courseSlug]/page.js
+// app/(marketing)/corporate-training/[category]/[slug]/page.js
 import { notFound } from "next/navigation";
 
-import { getDomainCourse, getDomainCourseSlugs } from "@/lib/content/courses";
+import {
+  getCategoryCourse,
+  getCategoryCourseSlugs,
+} from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { courseJsonLd, breadcrumbJsonLd } from "@/lib/seo/json-ld";
 import JsonLd from "@/components/seo/json-ld";
@@ -149,35 +147,37 @@ import LeadForm from "@/components/forms/lead-form";
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const slugs = await getDomainCourseSlugs();
-  return slugs.map((courseSlug) => ({ courseSlug }));
+  const slugs = await getCategoryCourseSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
-  const { courseSlug } = await params;          // params is a Promise in Next 15
-  const course = await getDomainCourse(courseSlug);
+  const { category, slug } = await params; // params is a Promise in Next 15
+  const course = await getCategoryCourse(slug);
   if (!course) return {};
 
   return buildMetadata({
     title: course.metaTitle,
     description: course.metaDescription,
-    path: `/corporate-training/domain/${courseSlug}`,
+    path: `/corporate-training/${category}/${slug}`,
     image: course.ogImage,
   });
 }
 
-export default async function DomainCoursePage({ params }) {
-  const { courseSlug } = await params;
-  const course = await getDomainCourse(courseSlug);
+export default async function CoursePage({ params }) {
+  const { slug } = await params;
+  const course = await getCategoryCourse(slug);
 
-  if (!course) notFound();                       // real 404, never a soft 404
+  if (!course) notFound(); // real 404, never a soft 404
 
   return (
     <>
-      <JsonLd data={[courseJsonLd(course), breadcrumbJsonLd(course.breadcrumbs)]} />
+      <JsonLd
+        data={[courseJsonLd(course), breadcrumbJsonLd(course.breadcrumbs)]}
+      />
       <CourseHero course={course} />
       <CourseOutline modules={course.modules} />
-      <LeadForm courseSlug={courseSlug} />       {/* the only client leaf */}
+      <LeadForm courseSlug={slug} /> {/* the only client leaf */}
     </>
   );
 }
@@ -197,18 +197,18 @@ On this site, Server Components should be the overwhelming majority. If more tha
 
 ### 3.2 Classification Table
 
-| File | Type | Reason |
-|---|---|---|
-| `app/layout.js` | **Server** | Fonts + CSS only |
-| `(marketing)/layout.js` | **Server** | Static header/footer shell |
-| All `page.js` | **Server** | Content must be in the HTML |
-| `components/sections/*` | **Server** | Presentational content blocks |
-| `components/ui/Text` · `Box` | **Server** | No interactivity |
-| `site-header.jsx` | **Client** | Mobile menu toggle, dropdowns |
-| `components/forms/*` | **Client** | react-hook-form, user input |
-| Accordion / tabs / carousel usage | **Client** | shadcn interactive primitives |
-| Filter and pagination controls | **Client** | `useSearchParams`, local state |
-| Analytics / consent banner | **Client** | Browser APIs |
+| File                              | Type       | Reason                         |
+| --------------------------------- | ---------- | ------------------------------ |
+| `app/layout.js`                   | **Server** | Fonts + CSS only               |
+| `(marketing)/layout.js`           | **Server** | Static header/footer shell     |
+| All `page.js`                     | **Server** | Content must be in the HTML    |
+| `components/sections/*`           | **Server** | Presentational content blocks  |
+| `components/ui/Text` · `Box`      | **Server** | No interactivity               |
+| `site-header.jsx`                 | **Client** | Mobile menu toggle, dropdowns  |
+| `components/forms/*`              | **Client** | react-hook-form, user input    |
+| Accordion / tabs / carousel usage | **Client** | shadcn interactive primitives  |
+| Filter and pagination controls    | **Client** | `useSearchParams`, local state |
+| Analytics / consent banner        | **Client** | Browser APIs                   |
 
 ### 3.3 Rules
 
@@ -238,15 +238,15 @@ This site's value is its search visibility. These rules are not optional polish.
 
 Emit JSON-LD via the `<JsonLd>` component. One builder per content type in `lib/seo/json-ld.js`.
 
-| Page | Schema types |
-|---|---|
-| Root layout | `Organization`, `WebSite` |
-| Course pages | `Course` (+ `provider`, `hasCourseInstance`, `offers`) |
-| Consulting pages | `Service` |
-| Resource pages | `CreativeWork` (or `HowTo` for tools) |
-| Blog posts | `BlogPosting` (+ `author`, `datePublished`) |
-| Every deep page | `BreadcrumbList` |
-| Pages with an FAQ section | `FAQPage` |
+| Page                      | Schema types                                           |
+| ------------------------- | ------------------------------------------------------ |
+| Root layout               | `Organization`, `WebSite`                              |
+| Course pages              | `Course` (+ `provider`, `hasCourseInstance`, `offers`) |
+| Consulting pages          | `Service`                                              |
+| Resource pages            | `CreativeWork` (or `HowTo` for tools)                  |
+| Blog posts                | `BlogPosting` (+ `author`, `datePublished`)            |
+| Every deep page           | `BreadcrumbList`                                       |
+| Pages with an FAQ section | `FAQPage`                                              |
 
 **Rule: structured data must describe what is actually visible on the page.** Marking up content the user cannot see is cloaking and risks manual action.
 
@@ -267,7 +267,8 @@ Emit JSON-LD via the `<JsonLd>` component. One builder per content type in `lib/
 ```
 lib/
 ├── content/            All content reads — the ONLY place that knows the data source
-│   ├── courses.js      getDomainCourse, getVendorCourse, get*Slugs
+│   ├── category.js     getCategory, getCategorySlugs
+│   ├── courses.js      getCategoryCourse, getCategoryCourseSlugs, getCategoryCourses
 │   ├── consulting.js
 │   ├── resources.js    RESOURCE_CATEGORIES whitelist + reads
 │   └── blog.js         Phase 2
@@ -300,7 +301,7 @@ components/
 ├── layout/             site-header.jsx, site-footer.jsx, mobile-nav.jsx, breadcrumbs.jsx
 ├── forms/              lead-form.jsx, contact-form.jsx, newsletter-form.jsx
 ├── seo/                json-ld.jsx
-└── shared/             Cross-page domain components (course-card, resource-card, pagination)
+└── shared/             Cross-page category components (course-card, resource-card, pagination)
 ```
 
 ### 6.2 Rules
@@ -358,7 +359,7 @@ import "react-phone-input-2/lib/style.css";
       containerClass="!w-full"
     />
   )}
-/>
+/>;
 ```
 
 It ships its own CSS, so Tailwind overrides need `!` importance prefixes. Keep those overrides in the form component, never patch the vendor stylesheet.
@@ -438,16 +439,16 @@ Rule: **never pass a bare `text-*` size to a `Text` component without also passi
 
 ## 11. File Naming
 
-| Type | Convention | Example |
-|---|---|---|
-| Route files | Next.js reserved names | `page.js`, `layout.js`, `loading.js`, `error.js`, `route.js` |
-| Dynamic segments | camelCase in brackets | `[courseSlug]`, `[slug]`, `[category]` |
-| Route groups | parenthesised, lowercase | `(marketing)` |
-| Components | `kebab-case.jsx` | `components/sections/course-hero.jsx` |
-| Design primitives | `PascalCase.jsx` | `components/ui/Text.jsx`, `components/ui/Box.jsx` |
-| Utilities | `kebab-case.js` | `lib/seo/metadata.js` |
-| Hooks | `use-*.js` | `hooks/use-media-query.js` |
-| Constants | `SCREAMING_SNAKE_CASE` | `RESOURCE_CATEGORIES` |
+| Type              | Convention               | Example                                                      |
+| ----------------- | ------------------------ | ------------------------------------------------------------ |
+| Route files       | Next.js reserved names   | `page.js`, `layout.js`, `loading.js`, `error.js`, `route.js` |
+| Dynamic segments  | camelCase in brackets    | `[courseSlug]`, `[slug]`, `[category]`                       |
+| Route groups      | parenthesised, lowercase | `(marketing)`                                                |
+| Components        | `kebab-case.jsx`         | `components/sections/course-hero.jsx`                        |
+| Design primitives | `PascalCase.jsx`         | `components/ui/Text.jsx`, `components/ui/Box.jsx`            |
+| Utilities         | `kebab-case.js`          | `lib/seo/metadata.js`                                        |
+| Hooks             | `use-*.js`               | `hooks/use-media-query.js`                                   |
+| Constants         | `SCREAMING_SNAKE_CASE`   | `RESOURCE_CATEGORIES`                                        |
 
 `Text.jsx` and `Box.jsx` are deliberately PascalCase because they are used as JSX elements and read as types, matching their component names. Every other component file is kebab-case. Do not "fix" this inconsistency in one direction only.
 
@@ -456,29 +457,34 @@ Rule: **never pass a bare `text-*` size to a `Text` component without also passi
 ## 12. Checklist for Every New Page
 
 Architecture
+
 - [ ] Does the URL match the contract in §1.1? If it replaces a live URL, is a `permanent` redirect added?
 - [ ] Is it inside `(marketing)/` so it gets the site shell?
 - [ ] Is `page.js` a Server Component with **no** `"use client"`?
 
 Rendering
+
 - [ ] Is `revalidate` exported explicitly?
 - [ ] For a dynamic route, is `generateStaticParams` implemented?
 - [ ] Does a missing record call `notFound()` rather than rendering a "not found" message?
 - [ ] Have I avoided `cookies()`, `headers()`, and `searchParams` in the page?
 
 SEO
+
 - [ ] Does the page export `generateMetadata` (or `metadata`) with title, description, and canonical?
 - [ ] Is the right JSON-LD emitted, including `BreadcrumbList`?
 - [ ] Will this page appear in `sitemap.js` automatically?
 - [ ] Exactly one `<h1>`, and do heading levels descend correctly?
 
 Components & Data
+
 - [ ] Is all content fetched on the server and passed down as props?
 - [ ] Is `"use client"` only on interactive leaves?
 - [ ] Do all content reads go through `lib/content/`?
 - [ ] Am I using `<Text>` and `<Box>` instead of raw tags?
 
 Performance & A11y
+
 - [ ] `next/image` everywhere, with `priority` on the LCP image only and `sizes` on responsive ones?
 - [ ] Are heavy below-the-fold components dynamically imported?
 - [ ] Tailwind classes only, no hardcoded hex, no inline styles?
@@ -490,11 +496,11 @@ Performance & A11y
 
 Resolve these before or during the first feature build; each one is a real decision, not a placeholder.
 
-1. **Content source is undecided.** These rules keep it isolated behind `lib/content/` precisely so the choice can be deferred — but it must be made before real page work starts. It determines revalidation strategy and whether on-demand revalidation webhooks are needed. `lib/content/courses.js` currently holds hand-transcribed static view models; swapping in the API should touch only its four exported reads.
+1. **Content source is undecided.** These rules keep it isolated behind `lib/content/` precisely so the choice can be deferred — but it must be made before real page work starts. It determines revalidation strategy and whether on-demand revalidation webhooks are needed. `lib/content/courses.js` currently holds hand-transcribed static view models; swapping in the API should touch only its three exported reads.
 2. **The five resource categories are not yet named.** `RESOURCE_CATEGORIES` in `lib/content/resources.js` must be the single source of truth, consumed by `generateStaticParams`, the whitelist check, and `sitemap.js`.
 3. **No real image or video assets.** The designs ship base64 placeholders that cannot be reused, so `hero.media` is `null` on every record and `HeroMedia` renders a tonal placeholder. Trainer avatars fall back to initials. Real files must land in `/public` with consent for the trainer portraits before launch.
 4. **Primitive library conflict is unresolved.** `components/ui/` is built on `@base-ui/react`; the `radix-ui` dependency is installed but unused. Settle this before writing components against either API. Note this also means **`asChild` does not exist** — use Base UI's `render` prop.
 5. **`@hookform/resolvers` is not installed**, so schema-based form validation is unavailable (§7.1).
 6. **Next.js 15.2.8 carries 26 high-severity advisories** (SSRF, cache poisoning, XSS, middleware bypass). For a public internet-facing site this is a live risk, not a theoretical one. Upgrade within 15.x unless the pin is contractually required.
 7. **Site header and footer do not exist.** `app/(marketing)/layout.js` renders only the `<main>` landmark. The sticky subnav, scroll-progress bar and side rail from the designs are also outstanding.
-8. **34 sections remain** across the two templates (16 domain, 18 vendor), including the vendor 4-step quote wizard and the domain catalog with filters and pagination.
+8. **Sections remain** across the category and course templates, including the group-quote wizard and the category catalog with filters and pagination.

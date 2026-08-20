@@ -7,7 +7,7 @@ function CourseInfo({ groupQuote, proof }) {
   const badges = proof?.badges ?? [];
 
   return (
-    <section className="pt-5 pb-10 px-10 overflow-hidden">
+    <Box as="section" className="px-5 py-5 lg:px-10">
       <Box as="div" className="max-w-7xl m-auto">
         {badges.length ? (
           <Reveal delay={4}>
@@ -54,7 +54,7 @@ function CourseInfo({ groupQuote, proof }) {
           <Reveal delay={4}>
             <Box
               as="p"
-              className="mt-4 flex flex-wrap items-center justify-center gap-[9px] max-sm:mt-3.25 max-sm:gap-2"
+              className="mt-4 flex flex-wrap items-center justify-center gap-2 max-sm:mt-3.25 max-sm:gap-2"
             >
               <Box
                 as="span"
@@ -80,7 +80,7 @@ function CourseInfo({ groupQuote, proof }) {
           </Reveal>
         ) : null}
       </Box>
-    </section>
+    </Box>
   );
 }
 

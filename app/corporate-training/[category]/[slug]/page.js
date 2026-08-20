@@ -3,28 +3,27 @@ import { notFound } from "next/navigation";
 import { getCategoryCourse } from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd, courseJsonLd } from "@/lib/seo/json-ld";
-
 import JsonLd from "@/components/seo/json-ld";
 import CategoryHero from "@/components/sections/course/course-hero";
 import CategoryInfo from "@/components/sections/course/courseInfo";
 import ClientLogos from "@/components/sections/course/client-logo";
 import StickyTabs from "@/components/sections/course/sticky-navbar";
 import CategoryAbout from "@/components/sections/course/course-about";
-import WhyNow from "@/components/sections/course/why-now";
-import Lifecycle from "@/components/sections/course/lifecycle";
 import Skills from "@/components/sections/course/skills";
-import Outcomes from "@/components/sections/course/outcomes";
 import Curriculum from "@/components/sections/course/curriculum";
 import Audience from "@/components/sections/course/audience";
 import DeliveryModes from "@/components/sections/course/delivery-modes";
 import QuoteRail from "@/components/sections/course/quote-rail";
+import GroupQuote from "@/components/sections/course/group-quote";
 import Testimonials from "@/components/sections/course/testimonials";
-import Trainers from "@/components/sections/course/trainers";
-import MapSection from "@/components/sections/course/mapsection";
-import Certificate from "@/components/sections/course/certificate";
-import Faq from "@/components/sections/course/faq";
-import AdjacentSection from "@/components/sections/course/adjusentsection";
 import CustomizedTraining from "@/components/sections/course/customizedTraining";
+import MapSection from "@/components/sections/course/mapsection";
+import SlideSection from "@/components/sections/course/SlideSection";
+import Trainers from "@/components/sections/course/trainers";
+import Certificate from "@/components/sections/course/certificate";
+import WhyEds from "@/components/sections/course/whyEds";
+import Faq from "@/components/sections/course/faq";
+import LeadForm from "@/components/sections/course/lead-form";
 import StickyFooter from "@/components/sections/course/sticky-footer";
 
 export const revalidate = 3600;
@@ -82,22 +81,26 @@ export default async function CoursePage({ params }) {
       <ClientLogos data={course.ClientsLogosData} />
       <StickyTabs data={course.stickyNavbarData} />
       <CategoryAbout about={course.about} />
-      <WhyNow whyNow={course.whyNow} />
-      <Lifecycle lifecycle={course.lifecycle} />
+
+      <CustomizedTraining data={course.customizedTraining} />
+
       <QuoteRail>
         <Skills skills={course.skills} />
-        <Outcomes outcomes={course.outcomes} />
         <Curriculum curriculum={course.curriculum} />
         <Audience audience={course.audience} />
+        <Certificate certificate={course.certificate} />
         <DeliveryModes deliveryModes={course.deliveryModes} />
+        <Trainers trainers={course.trainers} />
+        <Faq faqs={course.faqs} />
+        <Testimonials testimonials={course.testimonials} />
+        <SlideSection data={course.SlideData} />
       </QuoteRail>
-      <Testimonials testimonials={course.testimonials} />
-      <Trainers trainers={course.trainers} />
+      <WhyEds data={course.WhyEds} />
+
+      <GroupQuote data={course.groupQuote} />
       <MapSection data={course.mapsectionData} />
-      <Certificate certificate={course.certificate} />
-      <Faq faqs={course.faqs} />
-      <AdjacentSection faqs={course.AdjacentSectionData} />
-      <CustomizedTraining data={course.customizedTraining} />
+
+      <LeadForm data={course.leadForm} />
       <StickyFooter data={course.stickyFooter} />
     </>
   );

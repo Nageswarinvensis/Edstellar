@@ -8,46 +8,22 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/shared/CtaButton";
 import { cn } from "@/lib/utils";
-import { COUNTRY_DIAL_CODES } from "@/lib/constants";
-
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-const FREE_MAIL_DOMAINS = new Set([
-  "gmail.com",
-  "yahoo.com",
-  "yahoo.co.in",
-  "outlook.com",
-  "hotmail.com",
-  "live.com",
-  "icloud.com",
-  "me.com",
-  "aol.com",
-  "proton.me",
-  "protonmail.com",
-  "gmx.com",
-  "mail.com",
-  "yandex.com",
-  "mail.ru",
-  "qq.com",
-  "163.com",
-  "126.com",
-  "rediffmail.com",
-  "zoho.com",
-]);
+import {
+  COUNTRY_DIAL_CODES,
+  EMAIL_PATTERN,
+  FREE_MAIL_DOMAINS,
+} from "@/lib/constants";
 
 const inputClasses =
-  "w-full rounded-[10px] border border-ink/15 bg-paper-warm/50 px-3 py-2.5 text-[13.5px] text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-navy focus:bg-white";
+  "w-full rounded-[10px] border border-ink/15 bg-white px-3 py-2.5 text-[12px] text-ink outline-none transition-colors placeholder:text-[#0A1628] focus:border-navy focus:bg-white";
 
 function Field({ label, required, error, className, children }) {
   return (
     <Box as="label" className={cn("flex flex-col gap-1.25", className)}>
-      <Text as="span" className="text-[12px] font-medium text-ink/70">
-        {label}{" "}
-        {required ? (
-          <span className="text-red-500" aria-hidden="true">
-            *
-          </span>
-        ) : null}
+      {/* Visually hidden, not removed — inputs still need a real accessible
+          name (TASTE.md §10); the placeholder carries the visual label. */}
+      <Text as="span" className="sr-only">
+        {label} {required ? "(required)" : null}
       </Text>
       {children}
       {error ? (
@@ -72,7 +48,11 @@ function Field({ label, required, error, className, children }) {
  * in that caller via the `className` prop — this component only owns the
  * card's own look.
  */
-export default function QuotePanel({ title = "Request a training quote", slaNote, className }) {
+export default function QuotePanel({
+  title = "Request a training quote",
+  slaNote,
+  className,
+}) {
   const {
     register,
     handleSubmit,
@@ -95,7 +75,7 @@ export default function QuotePanel({ title = "Request a training quote", slaNote
         tabIndex={-1}
         className={cn(
           "flex flex-col overflow-hidden rounded-2xl border border-ink/22 bg-white p-6.5 text-center shadow-[0_1px_0_rgba(10,22,40,0.04),0_24px_48px_-30px_rgba(10,22,40,0.42),0_4px_14px_-8px_rgba(10,22,40,0.16)]",
-          className
+          className,
         )}
       >
         <Box className="mx-auto mb-4 flex size-11 items-center justify-center rounded-full bg-lime text-navy">
@@ -105,8 +85,8 @@ export default function QuotePanel({ title = "Request a training quote", slaNote
           Request received.
         </Text>
         <Text as="p" className="mt-2 text-[13.5px] leading-[1.6] text-ink/60">
-          Thanks, a training specialist will reply within one business day
-          with a tailored proposal.
+          Thanks, a training specialist will reply within one business day with
+          a tailored proposal.
         </Text>
       </Box>
     );
@@ -119,41 +99,35 @@ export default function QuotePanel({ title = "Request a training quote", slaNote
       onSubmit={handleSubmit(onSubmit)}
       className={cn(
         "flex flex-col overflow-hidden rounded-2xl border border-ink/22 bg-white shadow-[0_1px_0_rgba(10,22,40,0.04),0_24px_48px_-30px_rgba(10,22,40,0.42),0_4px_14px_-8px_rgba(10,22,40,0.16)]",
-        className
+        className,
       )}
     >
-      <Box className="flex-none rounded-t-2xl border-b border-ink/12 bg-paper-warm px-6.5 py-4.5 text-center">
-        <Text as="h3" className="font-display text-base font-bold tracking-[-0.025em] text-ink">
+      <Box className="flex-none rounded-t-2xl border-b border-ink/12 bg-paper-warm p-4 text-center">
+        <Text
+          as="h3"
+          className="font-display text-base font-bold tracking-tight text-ink"
+        >
           {title}
         </Text>
       </Box>
 
-      <Box className="min-h-0 flex-1 overflow-y-auto p-6.5">
-        <Box className="grid grid-cols-2 gap-3">
-          <Field label="Name" required error={errors.name?.message}>
-            <input
-              {...register("name", { required: "Required." })}
-              type="text"
-              autoComplete="name"
-              placeholder="Jane Okafor"
-              aria-invalid={Boolean(errors.name)}
-              className={inputClasses}
-            />
-          </Field>
-
-          <Field label="Job title" required error={errors.jobTitle?.message}>
-            <input
-              {...register("jobTitle", { required: "Required." })}
-              type="text"
-              autoComplete="organization-title"
-              placeholder="Head of ML"
-              aria-invalid={Boolean(errors.jobTitle)}
-              className={inputClasses}
-            />
-          </Field>
-        </Box>
-
-        <Field label="Work email" required error={errors.workEmail?.message} className="mt-3">
+      <Box className="min-h-0 flex-1 overflow-y-auto p-5">
+        <Field label="Name" required error={errors.name?.message}>
+          <input
+            {...register("name", { required: "Required." })}
+            type="text"
+            autoComplete="name"
+            placeholder="Enter Your Full Name*"
+            aria-invalid={Boolean(errors.name)}
+            className={inputClasses}
+          />
+        </Field>
+        <Field
+          label="Work email"
+          required
+          error={errors.workEmail?.message}
+          className="mt-3"
+        >
           <input
             {...register("workEmail", {
               required: "Please enter your work email address.",
@@ -167,59 +141,79 @@ export default function QuotePanel({ title = "Request a training quote", slaNote
             })}
             type="email"
             autoComplete="email"
-            placeholder="jane@company.com"
+            placeholder="Enter Work Email Address*"
             aria-invalid={Boolean(errors.workEmail)}
             className={inputClasses}
           />
         </Field>
-
-        <Field label="Company name" required error={errors.company?.message} className="mt-3">
+        <Field
+          label="Job title"
+          required
+          error={errors.jobTitle?.message}
+          className="mt-3"
+        >
           <input
-            {...register("company", { required: "Please enter your company name." })}
+            {...register("jobTitle", { required: "Required." })}
+            type="text"
+            autoComplete="organization-title"
+            placeholder="Enter Your Job Title*s"
+            aria-invalid={Boolean(errors.jobTitle)}
+            className={inputClasses}
+          />
+        </Field>
+
+        <Field
+          label="Company name"
+          required
+          error={errors.company?.message}
+          className="mt-3"
+        >
+          <input
+            {...register("company", {
+              required: "Please enter your company name.",
+            })}
             type="text"
             autoComplete="organization"
-            placeholder="Your company"
+            placeholder="Enter Company Name*"
             aria-invalid={Boolean(errors.company)}
             className={inputClasses}
           />
         </Field>
 
-        <Box className="mt-3 grid grid-cols-2 gap-3">
-          <Field label="Country">
-            <select {...register("country")} className={inputClasses}>
-              {COUNTRY_DIAL_CODES.map((country) => (
-                <option key={country.name} value={country.name}>
-                  {country.name}
-                </option>
-              ))}
-            </select>
-          </Field>
+        <Field label="Country" className="mt-3">
+          <select {...register("country")} className={inputClasses}>
+            {COUNTRY_DIAL_CODES.map((country) => (
+              <option key={country.name} value={country.name}>
+                {country.name}
+              </option>
+            ))}
+          </select>
+        </Field>
 
-          <Field label="Phone">
-            <Box className="flex items-stretch overflow-hidden rounded-[10px] border border-ink/15 bg-paper-warm/50 focus-within:border-navy focus-within:bg-white">
-              <Text
-                as="span"
-                className="flex items-center border-r border-ink/15 px-2.5 font-mono text-[12.5px] text-ink/60"
-              >
-                {dialCode || "—"}
-              </Text>
-              <input
-                {...register("phone")}
-                type="tel"
-                inputMode="tel"
-                autoComplete="tel-national"
-                placeholder="201-555-0123"
-                className="w-full bg-transparent px-2.5 py-2.5 text-[13.5px] text-ink outline-none placeholder:text-ink/35"
-              />
-            </Box>
-          </Field>
-        </Box>
+        <Field label="Phone" className="mt-3">
+          <Box className="flex items-stretch overflow-hidden rounded-[10px] border border-ink/22 focus-within:border-navy focus-within:bg-white">
+            <Text
+              as="span"
+              className="flex items-center border-r border-ink/15 px-2.5 font-mono text-[12.5px] text-ink/60"
+            >
+              {dialCode || "—"}
+            </Text>
+            <input
+              {...register("phone")}
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel-national"
+              placeholder="201-555-0123"
+              className="w-full bg-transparent p-2.5 text-[12px] text-ink outline-none placeholder:text-ink/35"
+            />
+          </Box>
+        </Field>
 
         <Field label="Your training requirements" className="mt-3">
           <textarea
             {...register("requirements")}
             rows={3}
-            placeholder="Team size, delivery format, your production stack, preferred timing."
+            placeholder="Tell Us About Your Training Requirements"
             className={cn(inputClasses, "resize-none")}
           />
         </Field>
@@ -230,9 +224,13 @@ export default function QuotePanel({ title = "Request a training quote", slaNote
             type="checkbox"
             id="qp-consent"
             aria-invalid={Boolean(errors.consent)}
-            className="mt-0.75 size-4 flex-none accent-navy"
+            className="mt-0.75 size-3 flex-none accent-navy"
           />
-          <Text as="label" htmlFor="qp-consent" className="text-[12px] leading-[1.5] text-ink/60">
+          <Text
+            as="label"
+            htmlFor="qp-consent"
+            className="text-[10.5px] leading-normal text-ink/60"
+          >
             I agree to be contacted about this request, per the{" "}
             <a href="/privacy-policy" className="underline hover:text-ink">
               privacy policy
@@ -246,7 +244,14 @@ export default function QuotePanel({ title = "Request a training quote", slaNote
           </Text>
         ) : null}
 
-        <CtaButton type="submit" size="sm" block arrow disabled={isSubmitting} className="mt-4.5">
+        <CtaButton
+          type="submit"
+          size="sm"
+          block
+          arrow
+          disabled={isSubmitting}
+          className="mt-4.5"
+        >
           Request my quote
         </CtaButton>
 

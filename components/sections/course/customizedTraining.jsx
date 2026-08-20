@@ -4,16 +4,23 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import { CtaButton } from "@/components/shared/CtaButton";
 import Reveal from "@/components/shared/reveal";
+import Image from "next/image";
 
 export default function CustomizedTraining({ data }) {
   if (!data) return null;
 
   return (
-    <Section
-      aria-label="Training delivery capability"
-      className="bg-navy py-14 lg:py-14 max-[900px]:py-11"
-    >
-      <Box className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-13">
+    <Section aria-label="Customized training">
+      <Box className="relative p-14 rounded-[18px] lg:py-14 max-[900px]:py-11 bg-navy arc-rings grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-13">
+        <Box as="div" className="absolute inset-0 z-[-1]">
+          <Image
+            src="/course/Custimized Training.webp"
+            alt="Custimized Training"
+            title="Custimized Training"
+            fill
+            className="object-cover rounded-[18px] "
+          />
+        </Box>
         <Reveal>
           <Box>
             <Text

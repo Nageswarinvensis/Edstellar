@@ -34,7 +34,7 @@ export default function AudienceRoles({ filters, roles, groupLabels }) {
                 "cursor-pointer rounded-full border px-3.25 py-2 font-mono text-[10px] tracking-[0.08em] uppercase transition-colors duration-200",
                 activeGroup === filter.id
                   ? "border-navy bg-navy text-lime"
-                  : "border-ink/22 text-ink/60 hover:border-navy hover:bg-navy hover:text-lime"
+                  : "border-ink/22 text-ink/60 hover:border-navy hover:bg-navy hover:text-lime",
               )}
             >
               {filter.label}
@@ -56,13 +56,13 @@ export default function AudienceRoles({ filters, roles, groupLabels }) {
                 matched
                   ? "order-0 border-olive/50 shadow-[0_8px_20px_-14px_rgba(10,22,40,0.4)]"
                   : "order-1",
-                hidden && "opacity-[0.18] grayscale"
+                hidden && "opacity-[0.18] grayscale",
               )}
             >
               {item.role}
               <Text
                 as="span"
-                className="ml-auto flex-none rounded-[5px] bg-paper-warm px-1.75 py-0.75 font-mono text-[10px] tracking-[0.1em] text-ink/60 uppercase"
+                className="ml-auto flex-none rounded-[5px] bg-paper-warm px-1.75 py-0.75 font-mono text-[10px] tracking-widset text-ink/60 uppercase"
               >
                 {groupLabels?.[item.group]}
               </Text>

@@ -34,7 +34,9 @@ const LAB_KIND_CLASSES = {
 function formatHours(hours) {
   const wholeHours = Math.floor(hours);
   const minutes = Math.round((hours - wholeHours) * 60);
-  return minutes ? `${wholeHours}:${String(minutes).padStart(2, "0")} h` : `${wholeHours} h`;
+  return minutes
+    ? `${wholeHours}:${String(minutes).padStart(2, "0")} h`
+    : `${wholeHours} h`;
 }
 
 function ModuleTrigger({ module }) {
@@ -42,8 +44,11 @@ function ModuleTrigger({ module }) {
 
   return (
     <AccordionPrimitive.Header className="flex">
-      <AccordionPrimitive.Trigger className="group/mod-trigger flex flex-1 items-center gap-4.5 px-6 py-5 text-left outline-none cursor-pointer">
-        <Text as="span" className="flex-none font-mono text-xs tracking-[0.1em] text-ink/60">
+      <AccordionPrimitive.Trigger className="group/mod-trigger flex flex-1 items-center gap-4.5 px-5 py-5 text-left outline-none cursor-pointer">
+        <Text
+          as="span"
+          className="flex-none font-mono text-xs tracking-[0.1em] text-ink/60"
+        >
           {module.number}
         </Text>
 
@@ -54,7 +59,10 @@ function ModuleTrigger({ module }) {
           >
             {module.title}
           </Text>
-          <Text as="p" className="mt-0.75 text-[12.5px] leading-[1.5] text-ink/60">
+          <Text
+            as="p"
+            className="mt-0.75 text-[12.5px] leading-[1.5] text-ink/60"
+          >
             {module.subtitle}
           </Text>
 
@@ -64,7 +72,7 @@ function ModuleTrigger({ module }) {
                 as="span"
                 className={cn(
                   "rounded-[5px] px-2.25 py-0.75 font-mono text-[10px] font-semibold tracking-[0.1em] uppercase",
-                  BAND_CLASSES[band]
+                  BAND_CLASSES[band],
                 )}
               >
                 {module.band}
@@ -103,10 +111,14 @@ function ModuleLab({ lab }) {
     <Box
       className={cn(
         "mt-4.5 flex gap-3.5 rounded-xl border p-4.25",
-        LAB_KIND_CLASSES[lab.kind]
+        LAB_KIND_CLASSES[lab.kind],
       )}
     >
-      <Zap size={16} className="mt-0.5 flex-none text-lime" aria-hidden="true" />
+      <Zap
+        size={16}
+        className="mt-0.5 flex-none text-lime"
+        aria-hidden="true"
+      />
       <Box>
         <Text
           as="p"
@@ -150,7 +162,7 @@ export default function CurriculumModules({ filters, modules }) {
                 "cursor-pointer rounded-full border px-3.75 py-2.5 font-mono text-[11px] tracking-[0.1em] uppercase transition-colors duration-200",
                 activeFilter === filter.id
                   ? "border-navy bg-navy text-lime"
-                  : "border-ink/22 text-ink/60 hover:border-navy hover:text-ink"
+                  : "border-ink/22 text-ink/60 hover:border-navy hover:text-ink",
               )}
             >
               {filter.label}
@@ -170,7 +182,7 @@ export default function CurriculumModules({ filters, modules }) {
               value={module.number}
               className={cn(
                 "overflow-hidden rounded-2xl border border-ink/12 bg-white",
-                !visible && "hidden"
+                !visible && "hidden",
               )}
             >
               <ModuleTrigger module={module} />

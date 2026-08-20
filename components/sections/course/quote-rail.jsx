@@ -34,10 +34,10 @@ export default function QuoteRail({ children }) {
         {children}
       </Box>
 
-      <Box className="px-5 pb-10 lg:px-10 lg:pb-20 xl:pointer-events-none xl:absolute xl:inset-x-0 xl:inset-y-9 xl:px-0 xl:pb-0">
-        <Box className="mx-auto flex max-w-7xl justify-center xl:h-full xl:items-start xl:justify-end xl:px-10">
+      <Box className="px-4  pb-10 lg:px-10 lg:pb-20 lg:pr-10 xl:pointer-events-none xl:absolute xl:inset-x-0 xl:inset-y-9 xl:px-0 xl:pb-0 xl:pr-10">
+        <Box className="mx-auto flex max-w-7xl justify-center xl:h-full xl:items-start xl:justify-end ">
           <QuotePanel
-            className="w-full max-w-lg xl:pointer-events-auto xl:sticky xl:top-24 xl:w-95 xl:max-w-none xl:max-h-[calc(100vh-7.5rem)]"
+            className="w-full max-w-lg xl:pointer-events-auto xl:sticky xl:top-14 xl:w-95 xl:max-w-none xl:max-h-[calc(100vh-7.5rem)]"
             slaNote="A specialist replies within one business day."
           />
         </Box>

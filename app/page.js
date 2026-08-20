@@ -4,10 +4,8 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import CtaButton from "@/components/shared/CtaButton";
 import { buildMetadata } from "@/lib/seo/metadata";
-import {
-  getDomainCourseSlugs,
-  getCategoryCourseSlugs,
-} from "@/lib/content/courses";
+import { getCategoryCourseSlugs } from "@/lib/content/courses";
+import { getCategorySlugs } from "@/lib/content/category";
 
 export const revalidate = 3600;
 
@@ -100,8 +98,8 @@ const SITE_MAP = [
 ];
 
 export default async function HomePage() {
-  const [domainSlugs, vendorSlugs] = await Promise.all([
-    getDomainCourseSlugs(),
+  const [categorySlugs, courseSlugs] = await Promise.all([
+    getCategorySlugs(),
     getCategoryCourseSlugs(),
   ]);
 
@@ -110,9 +108,9 @@ export default async function HomePage() {
     title: "Corporate training courses",
     links: [
       "/corporate-training",
-      ...domainSlugs.map((slug) => `/corporate-training/${slug}`),
-      ...vendorSlugs.map(
-        (slug) => `/corporate-training/artificial-intelligence/${slug}`
+      ...categorySlugs.map((slug) => `/corporate-training/${slug}`),
+      ...courseSlugs.map(
+        (slug) => `/corporate-training/artificial-intelligence/${slug}`,
       ),
     ],
   };

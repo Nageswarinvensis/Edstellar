@@ -7,7 +7,10 @@ function ClientLogos({ data }) {
   if (!data) return null;
 
   return (
-    <Box className="px-10 overflow-hidden bg-[#F5F3EB] py-12 border-b border-[rgba(10,22,40,0.12)]">
+    <Box
+      as="section"
+      className="px-5 lg:px-10 overflow-hidden bg-[#F5F3EB] py-12"
+    >
       {/* Content container */}
       <Box className="mx-auto max-w-7xl">
         {/* Small eyebrow */}
@@ -22,25 +25,25 @@ function ClientLogos({ data }) {
       </Box>
 
       {/* Logo animation - full width */}
-        <Box className="w-full overflow-hidden">
-          <Box className="flex w-max animate-[logoSlide_30s_linear_infinite] items-center gap-8 hover:paused">
-            {[...data.logos, ...data.logos].map((logo, index) => (
-              <Box
-                key={`${logo.alt}-${index}`}
-                className="flex h-13.5 w-35 flex-none items-center justify-center rounded-[8px] bg-white px-4 py-2"
-              >
-                <Image
-                  src={logo.src}
-                  alt={logo.alt || ""}
-                  title={logo.title || logo.alt || ""}
-                  width={140}
-                  height={48}
-                  className="max-h-10.5 w-auto max-w-30 object-contain"
-                />
-              </Box>
-            ))}
-          </Box>
+      <Box className="w-full overflow-hidden">
+        <Box className="flex w-max animate-[logoSlide_30s_linear_infinite] items-center gap-8 hover:paused">
+          {[...data.logos, ...data.logos].map((logo, index) => (
+            <Box
+              key={`${logo.alt}-${index}`}
+              className="flex h-13.5 w-35 flex-none items-center justify-center rounded-[8px] bg-white px-4 py-2"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt || ""}
+                title={logo.title || logo.alt || ""}
+                width={140}
+                height={48}
+                className="max-h-10.5 w-auto max-w-30 object-contain"
+              />
+            </Box>
+          ))}
         </Box>
+      </Box>
     </Box>
   );
 }

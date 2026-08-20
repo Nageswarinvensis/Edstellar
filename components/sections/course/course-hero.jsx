@@ -8,20 +8,19 @@ import HeroMeta from "@/components/shared/hero-meta";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
 /**
- * Vendor course hero.
+ * Category hero — shared by the category page and the course page within it.
  *
- * Shares the layout skeleton with the domain hero but adds the topic pill rail,
- * the dark proof bar, and the multi-program group-quote prompt. The proof bar
- * tone is driven entirely by content (`proof.tone`), not by a page-level flag.
+ * Adds the topic pill rail, the dark proof bar, and the multi-program
+ * group-quote prompt. The proof bar tone is driven entirely by content
+ * (`proof.tone`), not by a page-level flag.
  *
  * Design: `header.hero` on the course page.
  */
-function VendorHero({ hero, breadcrumbs }) {
+function CategoryHero({ hero, breadcrumbs }) {
   if (!hero) return null;
 
   return (
     <Section id="top" className="relative overflow-hidden pt-9.5 pb-13.5">
-      {/* No `relative` here — HeroMedia positions against the <header>. */}
       <Box className="grid grid-cols-1 items-center gap-6.5 lg:gap-8.5">
         <HeroMedia
           image={hero.media?.image}
@@ -29,15 +28,21 @@ function VendorHero({ hero, breadcrumbs }) {
           alt={hero.media?.alt}
         />
 
-        <Box className="relative z-1 max-w-full lg:max-w-[46%]">
+        <Box
+          className={`relative z-1 max-w-full ${
+            hero.actions?.some(
+              (action) =>
+                action.label?.toLowerCase() === "download brochure"
+            )
+              ? "lg:max-w-[50%]"
+              : "lg:max-w-[46%]"
+          }`}
+        >
           <Reveal delay={1}>
             <RichHeading
               as="h1"
               parts={hero.headlineParts}
               emphasisClassName="color-ink"
-              // Only the responsive bump is overridden. Repeating the base
-              // size unprefixed would make tailwind-merge drop the base
-              // `leading-[1.05]`, since `text-*` also sets line-height in v4.
               className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
             />
           </Reveal>
@@ -83,9 +88,10 @@ function VendorHero({ hero, breadcrumbs }) {
             <Breadcrumbs items={breadcrumbs} />
           </Reveal>
         </Box>
+
       </Box>
     </Section>
   );
 }
 
-export default VendorHero;
+export default CategoryHero;
