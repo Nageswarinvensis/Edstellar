@@ -849,8 +849,9 @@ export default function GroupQuote({ data }) {
                       htmlFor="gq-consent"
                       className="text-[12px] leading-normal text-ink/60"
                     >
-                      I agree that Edstellar may contact me about this training
-                      request and store my details as described in the{" "}
+                      I agree that Edstellar may use my details to respond to my
+                      training request and provide relevant training solutions,
+                      as described in the{" "}
                       <a
                         href="/privacy-policy"
                         className="underline hover:text-ink"
@@ -977,16 +978,10 @@ export default function GroupQuote({ data }) {
       <Reveal delay={2}>
         <Box className="mt-12 border-t border-ink/10 pt-9 lg:mt-14">
           <Text
-            as="p"
-            className="mb-2.5 font-mono text-[10px] tracking-[0.15em] text-ink/50 uppercase"
-          >
-            For annual and enterprise-wide buying
-          </Text>
-          <Text
             as="h3"
             className="mb-2.5 max-w-[26ch] font-display text-[clamp(19px,2vw,24px)] font-bold leading-[1.25] tracking-[-0.025em] text-ink"
           >
-            Buying a year of training, not one program?
+            ML Model Monitoring Training Packages & Pricing
           </Text>
           <Text
             as="p"

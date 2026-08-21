@@ -9,9 +9,16 @@ export default function CustomizedTraining({ data }) {
   if (!data) return null;
 
   return (
-    <Box as="section" aria-label="Customized training" className="mt-10 lg:mt-14">
+    <Box
+      as="section"
+      aria-label="Customized training"
+      className="mt-10 lg:mt-14"
+    >
       <Box className="relative p-14 rounded-[18px] min-[901px]:py-14 max-[900px]:p-5 bg-navy min-[901px]:arc-rings grid grid-cols-1 items-center gap-8 min-[901px]:grid-cols-[0.92fr_1.08fr] min-[901px]:gap-13">
-        <Box as="div" className="!absolute inset-0 !z-[-1] hidden min-[901px]:block">
+        <Box
+          as="div"
+          className="!absolute inset-0 !z-[-1] hidden min-[901px]:block"
+        >
           <Image
             src="/course/Custimized Training.webp"
             alt="Custimized Training"
@@ -22,13 +29,6 @@ export default function CustomizedTraining({ data }) {
         </Box>
         <Reveal>
           <Box>
-            <Text
-              as="p"
-              className="mb-3.5 font-mono text-[10px] tracking-[0.17em] text-lime uppercase"
-            >
-              {data.eyebrow}
-            </Text>
-
             <Text
               as="h2"
               className="mb-3.5 font-display text-[clamp(26px,2.6vw,34px)] leading-[1.18] font-bold tracking-[-0.03em] text-paper"

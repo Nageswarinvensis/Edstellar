@@ -34,6 +34,33 @@ export default function PageToc({ toc, modules, children }) {
   const [activeId, setActiveId] = useState(null);
   const [activeModule, setActiveModule] = useState(null);
   const navRef = useRef(null);
+  const mobileNavRef = useRef(null);
+
+  // Publishes the mobile chip bar's real height as a CSS var so anything
+  // else that needs to stick below it (e.g. CurriculumModules' own filter
+  // bar) can offset off `var(--mobile-toc-h)` instead of a guessed pixel
+  // value. Resolves to 0 automatically once `xl:hidden` takes the bar out
+  // of layout, so downstream consumers don't need a breakpoint of their own.
+  useEffect(() => {
+    const nav = mobileNavRef.current;
+    if (!nav || typeof ResizeObserver === "undefined") return;
+
+    const setHeight = () => {
+      document.documentElement.style.setProperty(
+        "--mobile-toc-h",
+        `${nav.offsetHeight}px`,
+      );
+    };
+
+    const observer = new ResizeObserver(setHeight);
+    observer.observe(nav);
+    setHeight();
+
+    return () => {
+      observer.disconnect();
+      document.documentElement.style.removeProperty("--mobile-toc-h");
+    };
+  }, [items]);
 
   useEffect(() => {
     if (!items?.length || typeof window === "undefined") return;
@@ -116,6 +143,36 @@ export default function PageToc({ toc, modules, children }) {
 
   return (
     <Box className="relative">
+      {/* Mobile/tablet fallback: the sticky rail becomes a scrolling chip
+          bar below `xl` — matching the source design's `.spine-m`. No
+          module sub-list here, only the top-level sections. */}
+      <nav
+        ref={mobileNavRef}
+        aria-label="Sections"
+        className="no-scrollbar sticky top-17 z-30 flex gap-2 overflow-x-auto border-b border-ink/10 bg-paper px-5 py-2.75 lg:px-10 xl:hidden"
+      >
+        {items.map((item) => {
+          const isActive = item.id === activeId;
+
+          return (
+            <Box
+              as="a"
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={scrollToId(item.id, "start")}
+              className={cn(
+                "flex-none rounded-full border px-3.25 py-1.75 font-mono text-[10.5px] tracking-[0.08em] whitespace-nowrap uppercase transition-colors duration-200",
+                isActive
+                  ? "border-navy bg-navy text-lime"
+                  : "border-ink/22 text-ink/60",
+              )}
+            >
+              {item.label}
+            </Box>
+          );
+        })}
+      </nav>
+
       <Box className="xl:[&_.rail-container]:pl-[302px]">{children}</Box>
 
       <Box className="hidden xl:pointer-events-none xl:absolute xl:inset-x-0 xl:inset-y-0 xl:block xl:px-10">

@@ -248,8 +248,9 @@ export default function LeadForm({ data, background = "paper-warm" }) {
                     htmlFor="lf-consent"
                     className="text-[12.5px] leading-normal text-ink/60"
                   >
-                    I agree that Edstellar may contact me about this training
-                    request and store my details as described in the{" "}
+                    I agree that Edstellar may use my details to respond to my
+                    training request and provide relevant training solutions, as
+                    described in the{" "}
                     <a
                       href="/privacy-policy"
                       className="underline hover:text-ink"

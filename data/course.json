@@ -54,7 +54,7 @@
   },
   "breadcrumbs": [
     { "label": "Home", "href": "/" },
-    { "label": "IT & Technical", "href": "/corporate-training" },
+    { "label": "Corporate Training", "href": "/corporate-training" },
     {
       "label": "Artificial Intelligence",
       "href": "/corporate-training/artificial-intelligence"
@@ -218,7 +218,7 @@
           "heading": "In the program",
           "items": [
             "10 modules, 24–40 hours",
-            "8 hands-on labs and a capstone",
+            "hands-on labs and a capstone",
             "Curriculum scoped with you before delivery",
             "Labs on your production stack",
             "Live, hands-on sessions with discussion and Q&A",
@@ -556,9 +556,9 @@
   "skills": {
     "heading": {
       "parts": [
-        { "text": "ML monitoring " },
-        { "text": "skills", "em": true },
-        { "text": " your team will gain." }
+        { "text": "Key " },
+        { "text": "skills ", "em": true },
+        { "text": "your team will gain." }
       ]
     },
     "description": "These are the core, practical skills your team develops during the program. Tap any card to see what it means in production.",
@@ -622,7 +622,7 @@
     "heading": {
       "parts": [
         { "text": "ML Model Monitoring " },
-        { "text": "course outline", "em": true },
+        { "text": "course curriculum", "em": true },
         { "text": "." }
       ]
     },
@@ -650,7 +650,7 @@
         {
           "label": "Practice",
           "parts": [
-            { "text": "8 hands-on labs", "strong": true },
+            { "text": "hands-on labs", "strong": true },
             {
               "text": " on a live monitoring stack, including what to do when a model drifts."
             }
@@ -1152,8 +1152,8 @@
     ],
     "sectionCta": {
       "title": "Want this syllabus re-weighted to your gaps?",
-      "description": "The ten modules are not fixed hours. Tell us where monitoring stops today and we rebuild the running order around it.",
-      "cta": { "label": "Request a Training Proposal", "href": "#apply" }
+      "description": "The modules can be adapted to your needs. Tell us what your team already knows, and we’ll customize the training curriculum around it.",
+      "cta": { "label": "Cutomize your Training Today ", "href": "#apply" }
     }
   },
   "audience": {
@@ -1254,14 +1254,14 @@
     },
     "sectionCta": {
       "title": "Mixed cohort, or several teams at once?",
-      "description": "Model builders and platform engineers can run at different depths in the same program. Tell us who is attending.",
-      "cta": { "label": "Request a Training Proposal", "href": "#apply" }
+      "description": "We can tailor the training to different teams, roles, and experience levels within the same program.",
+      "cta": { "label": "Share Your Requirements", "href": "#apply" }
     }
   },
   "deliveryModes": {
     "heading": {
       "parts": [
-        { "text": "Training delivery: " },
+        { "text": "Training delivery modes : " },
         { "text": "onsite, virtual", "em": true },
         { "text": ", and offsite." }
       ]
@@ -1317,15 +1317,15 @@
       }
     ],
     "sectionCta": {
-      "title": "Want a format that fits around your releases?",
+      "title": "Need a training format that works for your team?",
       "description": "Full days, half days across weeks, or split by module. Tell us the delivery window and we schedule the cohort around it.",
-      "cta": { "label": "Request a Training Proposal", "href": "#apply" }
+      "cta": { "label": "Plan Your Training", "href": "#apply" }
     }
   },
   "groupQuote": {
     "title": {
       "parts": [
-        { "text": "Get a proposal " },
+        { "text": "Start an RFP " },
         { "text": "shaped to your needs", "em": true },
         { "text": "." }
       ]
@@ -1337,8 +1337,8 @@
     "heading": {
       "parts": [
         { "text": "Learn from " },
-        { "text": "world-class", "em": true },
-        { "text": " ML monitoring practitioners." }
+        { "text": "industry experts ", "em": true },
+        { "text": "." }
       ]
     },
     "description": "Every session is led by a practitioner who has run monitoring for models in production, not a generalist working from slides.",
@@ -1396,21 +1396,21 @@
       "Scale Your Training: Small to Large Teams",
       "In-person Onsite, Live Virtual or Hybrid Training Modes",
       "Plan from 2000+ Industry-ready Training Programs",
-      "8 Hands-On Labs on Live Infrastructure, Led by Industry Experts"
+      "Hands-On Labs on Live Infrastructure, Led by Industry Experts"
     ]
   },
   "certificate": {
     "title": {
       "parts": [
-        { "text": "Your ML Model Monitoring " },
-        { "text": "training certificate", "em": true },
+        { "text": "Certificate of  " },
+        { "text": "Training Completion", "em": true },
         { "text": "." }
       ]
     },
     "description": "On successful completion, employees receive an Edstellar course completion certificate, recognizing their commitment to ongoing learning and professional development. It validates the skills they have built and motivates them to keep growing and contribute to organizational success.",
     "highlight": {
       "title": "Earned, not attended.",
-      "description": "Awarded on completion of all 8 hands-on labs and the capstone project."
+      "description": "Awarded on completion of all hands-on labs and the capstone project."
     },
     "certificateCard": {
       "title": "Certificate of Completion",
@@ -1455,15 +1455,15 @@
     "sectionCta": {
       "title": "Question not answered here?",
       "description": "Put it in the request. A training specialist answers it directly, within one business day.",
-      "cta": { "label": "Request a Training Proposal", "href": "#apply" }
+      "cta": { "label": "Talk to our Expert", "href": "#apply" }
     }
   },
   "leadForm": {
     "title": {
       "parts": [
-        { "text": "Request " },
-        { "text": "ML Model Monitoring", "em": true },
-        { "text": " training for your team." }
+        { "text": "Request a Quote for your " },
+        { "text": "Corporate Training Requirements", "em": true },
+        { "text": "." }
       ]
     },
     "description": "Tell us what your team needs. Anything you selected in the course outline comes through with your request.",
@@ -1502,7 +1502,7 @@
   },
   "WhyEds": {
     "headingParts": [
-      { "text": "Where this fits in your team's " },
+      { "text": "Where this Training Fits in Your Team’s " },
       { "text": "learning path.", "em": true }
     ],
     "description": "In the standard ML lifecycle, monitoring sits after deployment, not after model building. You ship a model, keep it healthy in production, turn what monitoring tells you into managed risk, then extend the same discipline as your systems change.",

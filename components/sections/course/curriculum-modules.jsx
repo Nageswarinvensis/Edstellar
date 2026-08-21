@@ -152,14 +152,14 @@ export default function CurriculumModules({ filters, modules }) {
   return (
     <Box>
       {filters?.length ? (
-        <Box className="sticky top-17 z-10 -mx-1 mb-7 flex flex-wrap gap-2.5 bg-paper px-1 py-3">
+        <Box className="no-scrollbar sticky top-[calc(68px_+_var(--mobile-toc-h,0px))] z-10 -mx-1 mb-7 flex flex-nowrap gap-2.5 overflow-x-auto bg-paper px-1 py-3 md:flex-wrap md:overflow-visible">
           {filters.map((filter) => (
             <button
               key={filter.id}
               type="button"
               onClick={() => setActiveFilter(filter.id)}
               className={cn(
-                "cursor-pointer rounded-full border px-3.75 py-2.5 font-mono text-[11px] tracking-[0.1em] uppercase transition-colors duration-200",
+                "flex-none cursor-pointer rounded-full border px-3.75 py-2.5 font-mono text-[11px] tracking-[0.1em] whitespace-nowrap uppercase transition-colors duration-200",
                 activeFilter === filter.id
                   ? "border-navy bg-navy text-lime"
                   : "border-ink/22 text-ink/60 hover:border-navy hover:text-ink",
