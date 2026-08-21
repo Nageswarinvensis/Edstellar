@@ -273,7 +273,7 @@ export default function LeadForm({ data, background = "paper-warm" }) {
                   {data.slaNote ? (
                     <Text
                       as="p"
-                      className="max-w-[38ch] text-[12.5px] leading-[1.55] text-ink/60"
+                      className="max-w-[45ch] text-[12.5px] leading-[1.55] text-ink/60"
                     >
                       {data.slaNote}
                     </Text>
