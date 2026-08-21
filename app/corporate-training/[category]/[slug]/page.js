@@ -83,8 +83,9 @@ export default async function CoursePage({ params }) {
       />
 
       <PageToc toc={course.pageToc} modules={course.curriculum?.modules}>
-        <Skills skills={course.skills} />
         <Curriculum curriculum={course.curriculum} />
+        <Skills skills={course.skills} />
+
         <Audience audience={course.audience} />
         <Certificate certificate={course.certificate} />
         <DeliveryModes deliveryModes={course.deliveryModes} />
