@@ -38,7 +38,7 @@ export default function SiteHeader() {
       <Box
         as="header"
         className={`
-          sticky top-0 z-[900] border-b border-ink/12 bg-paper/94 backdrop-blur-[14px]
+          sticky top-0 z-900 border-b border-ink/12 bg-paper/94 backdrop-blur-[14px]
           transition-transform duration-300 ease-out px-5 lg:px-10
           ${hidden ? "-translate-y-full" : "translate-y-0"}
         `}
