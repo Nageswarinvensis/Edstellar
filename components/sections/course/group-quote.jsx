@@ -9,6 +9,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/shared/rich-heading";
 import Reveal from "@/components/shared/reveal";
+import SecCta from "@/components/shared/sec-cta";
 import { CtaButton } from "@/components/shared/CtaButton";
 import { FormField, formInputClasses } from "@/components/shared/form-field";
 import { cn } from "@/lib/utils";
@@ -1046,19 +1047,7 @@ export default function GroupQuote({ data }) {
             ))}
           </Box>
 
-          <Text
-            as="p"
-            className="mt-4.5 max-w-[80ch] text-[12.5px] leading-[1.7] text-ink/60"
-          >
-            Packages are priced per engagement and quoted against your actual
-            mix of programs.{" "}
-            <a
-              href="/corporate-training-pricing#table"
-              className="text-ink underline underline-offset-3 hover:text-ink/70"
-            >
-              See the full package table
-            </a>
-          </Text>
+          <SecCta {...data.sectionCta} />
         </Box>
       </Reveal>
     </Section>
