@@ -43,7 +43,7 @@ function ProofBar({
       className={cn(
         "flex flex-col",
         dark
-          ? "gap-1"
+          ? "flex-none gap-1"
           : cn(
               "min-w-0 flex-1 gap-2 border-l border-ink/12 pl-6 first:border-l-0 first:pl-0",
               // ≤620px the strip becomes two columns, so every odd cell starts a row.
@@ -53,7 +53,7 @@ function ProofBar({
     >
       <b
         className={cn(
-          "font-display text-2xl leading-none font-bold tracking-[-0.03em] max-md:text-[23px]",
+          "font-display text-2xl leading-none font-bold tracking-[-0.03em] whitespace-nowrap max-md:text-[23px]",
           dark ? "text-lime" : "text-ink",
         )}
       >
@@ -61,7 +61,7 @@ function ProofBar({
       </b>
       <span
         className={cn(
-          "font-mono text-[9.5px] tracking-[0.14em] whitespace-nowrap uppercase",
+          "font-mono text-[9.5px] tracking-[0.14em] uppercase max-w-52",
           dark ? "text-paper/55" : "text-ink/60",
         )}
       >
@@ -75,7 +75,7 @@ function ProofBar({
       className={cn(
         "mt-5.5 flex flex-wrap items-center",
         dark
-          ? "justify-center gap-x-5 gap-y-4 rounded-[20px] bg-navy px-5.5 py-4.5 shadow-[0_34px_70px_-46px_rgba(10,22,40,0.75)] max-lg:px-5 xl:flex-nowrap xl:justify-between"
+          ? "justify-center gap-x-5 gap-y-4 rounded-[20px] bg-navy px-5.5 py-4.5 shadow-[0_34px_70px_-46px_rgba(10,22,40,0.75)] max-lg:px-5 min-[1400px]:flex-nowrap min-[1400px]:justify-between"
           : "gap-x-6 gap-y-4 rounded-[18px] border border-ink/12 bg-white px-6 py-4.5 shadow-[0_18px_44px_-34px_rgba(10,22,40,0.35)]",
         className,
       )}
@@ -162,12 +162,12 @@ function ProofBar({
       ) : null}
 
       {dark && actions.length ? (
-        <Box className="flex flex-wrap items-center gap-3 max-sm:w-full max-sm:justify-center">
+        <Box className="flex flex-nowrap items-center gap-3 max-[1399px]:w-full max-[1399px]:justify-center max-[1399px]:border-t max-[1399px]:border-paper/13 max-[1399px]:pt-4 max-sm:flex-wrap">
           {actions.map((action) => (
             <Link
               key={action.label}
               href={action.href}
-              className="group flex items-center gap-3 rounded-full border border-paper/14 bg-paper/5 px-4 py-2 font-mono text-[11px] tracking-[0.04em] text-paper transition-all duration-300 ease-out hover:-translate-y-1 hover:border-lime hover:bg-paper/10"
+              className="group flex flex-none items-center gap-3 rounded-full border border-paper/14 bg-paper/5 px-4 py-2 font-mono text-[11px] whitespace-nowrap tracking-[0.04em] text-paper transition-all duration-300 ease-out hover:-translate-y-1 hover:border-lime hover:bg-paper/10"
             >
               <Box
                 as="span"

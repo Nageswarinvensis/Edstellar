@@ -10,8 +10,8 @@ export default function CustomizedTraining({ data }) {
 
   return (
     <Box as="section" aria-label="Customized training" className="mt-10 lg:mt-14">
-      <Box className="relative p-14 rounded-[18px] lg:py-14 max-[900px]:p-5 bg-navy arc-rings grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-13">
-        <Box as="div" className="absolute inset-0 z-[-1] hidden lg:block">
+      <Box className="relative p-14 rounded-[18px] min-[901px]:py-14 max-[900px]:p-5 bg-navy min-[901px]:arc-rings grid grid-cols-1 items-center gap-8 min-[901px]:grid-cols-[0.92fr_1.08fr] min-[901px]:gap-13">
+        <Box as="div" className="!absolute inset-0 !z-[-1] hidden min-[901px]:block">
           <Image
             src="/course/Custimized Training.webp"
             alt="Custimized Training"

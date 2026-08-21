@@ -24,20 +24,6 @@ const BACKGROUND_CLASSES = {
   white: "bg-white",
 };
 
-/**
- * The page's single dominant CTA — a full-width lead form sitting right
- * before the site footer (`#apply`, matching the hero/sticky-footer CTAs
- * that link to it). No backend exists yet (see `lib/content/courses.js`'s
- * file header), so submission only validates and swaps to a thank-you state
- * client-side, the same fallback the source design uses when its own
- * `FORM_ENDPOINT` is unset.
- *
- * `background` is required from the caller rather than assumed here — this
- * component is shared by the category and course page templates, and each
- * page decides explicitly what should sit behind it instead of it silently
- * inheriting whatever the previous section happens to use. Pick one of
- * `BACKGROUND_CLASSES` (a design token, never a raw hex per TASTE.md §9).
- */
 export default function LeadForm({ data, background = "paper-warm" }) {
   const {
     register,
@@ -61,7 +47,9 @@ export default function LeadForm({ data, background = "paper-warm" }) {
     <Section
       id="apply"
       aria-label="Request training"
-      className={BACKGROUND_CLASSES[background] ?? BACKGROUND_CLASSES["paper-warm"]}
+      className={
+        BACKGROUND_CLASSES[background] ?? BACKGROUND_CLASSES["paper-warm"]
+      }
     >
       <Reveal>
         <RichHeading
@@ -98,8 +86,8 @@ export default function LeadForm({ data, background = "paper-warm" }) {
                   as="p"
                   className="mx-auto mb-6 max-w-[46ch] text-[14.5px] leading-[1.6] text-ink/60"
                 >
-                  Thanks, a training specialist will reply within one
-                  business day with a tailored proposal.
+                  Thanks, a training specialist will reply within one business
+                  day with a tailored proposal.
                 </Text>
 
                 <Box className="mx-auto mb-7 max-w-[36ch] rounded-[14px] bg-paper-warm p-4.5 text-left text-[13.5px] leading-[1.7] text-ink">
@@ -121,7 +109,11 @@ export default function LeadForm({ data, background = "paper-warm" }) {
                 </Box>
 
                 {data.pricingHref ? (
-                  <CtaButton size="sm" arrow render={<a href={data.pricingHref} />}>
+                  <CtaButton
+                    size="sm"
+                    arrow
+                    render={<a href={data.pricingHref} />}
+                  >
                     See pricing while you wait
                   </CtaButton>
                 ) : null}
@@ -199,7 +191,10 @@ export default function LeadForm({ data, background = "paper-warm" }) {
                   </FormField>
 
                   <FormField label="Country">
-                    <select {...register("country")} className={formInputClasses}>
+                    <select
+                      {...register("country")}
+                      className={formInputClasses}
+                    >
                       {COUNTRY_DIAL_CODES.map((country) => (
                         <option key={country.name} value={country.name}>
                           {country.name}
@@ -255,14 +250,20 @@ export default function LeadForm({ data, background = "paper-warm" }) {
                   >
                     I agree that Edstellar may contact me about this training
                     request and store my details as described in the{" "}
-                    <a href="/privacy-policy" className="underline hover:text-ink">
+                    <a
+                      href="/privacy-policy"
+                      className="underline hover:text-ink"
+                    >
                       privacy policy
                     </a>
                     .
                   </Text>
                 </Box>
                 {errors.consent ? (
-                  <Text role="alert" className="mt-1.5 text-[11.5px] text-red-600">
+                  <Text
+                    role="alert"
+                    className="mt-1.5 text-[11.5px] text-red-600"
+                  >
                     Please accept the privacy policy to continue.
                   </Text>
                 ) : null}
