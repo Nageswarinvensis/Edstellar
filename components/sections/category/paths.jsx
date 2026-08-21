@@ -28,7 +28,7 @@ const icons = {
   server: ServerCog,
 };
 
-export default function Governence({ data }) {
+export default function Paths({ data }) {
   const [page, setPage] = useState(0);
   const [hoveredCard, setHoveredCard] = useState(null);
 
@@ -134,7 +134,7 @@ export default function Governence({ data }) {
                   onMouseLeave={() => setHoveredCard(null)}
                 >
                   <Reveal delay={2}>
-                    <Box className="rounded-[12px] bg-white p-[18px] text-[#0b1729]">
+                    <Box className="rounded-[12px] bg-white p-4.5 text-[#0b1729]">
                       {/* Card Header */}
                       <Box className="flex items-start gap-3">
                         <Box
@@ -171,13 +171,13 @@ export default function Governence({ data }) {
                       {/* Timeline */}
                       <Box className="relative">
                         {/* Base Timeline */}
-                        <span className="absolute bottom-[10px] left-[7px] top-[6px] w-px bg-[#d0d5da]" />
+                        <span className="absolute bottom-2.5 left-1.75 top-1.5 w-0.5 bg-[#d0d5da]" />
 
                         {/* Animated Timeline */}
                         <span
-                          className={`absolute bottom-[10px] left-[7px] top-[6px] w-[2px] origin-top bg-[#c8ef32] ${
+                          className={`absolute bottom-2.5 left-1.75 top-1.5 w-0.5 origin-top bg-[#c8ef32] ${
                             isHovered
-                              ? "scale-y-100 transition-transform duration-[1200ms] ease-linear"
+                              ? "scale-y-100 transition-transform duration-1200 ease-linear"
                               : "scale-y-0 transition-none"
                           }`}
                         />
@@ -203,28 +203,28 @@ export default function Governence({ data }) {
 
                             <Text
                               as="h4"
-                              className="text-[9px] font-medium leading-[1.3] text-[#0b1729] md:text-[10px]"
+                              className="text-[14px] font-medium leading-[1.3] text-[#0b1729]"
                             >
                               {item.title}
                             </Text>
 
                             {item.tag && (
-                              <Text className="mt-[2px] block text-[6px] tracking-[0.12em] text-[#8e98a3]">
+                              <Text className="mt-0.5 block text-[10px] tracking-[0.12em] text-[#8e98a3]">
                                 {item.tag}
                               </Text>
                             )}
 
-                            <Text className="mt-[3px] text-[8px] leading-[1.4] text-[#7b8490]">
+                            <Text className="mt-0.75 text-[12px] leading-[1.4] text-[#7b8490]">
                               {item.description}
                             </Text>
                           </Box>
                         ))}
 
                         {/* Outcome */}
-                        <Box className="relative pl-[20px]">
+                        <Box className="relative pl-5">
                           {/* Diamond */}
                           <span
-                            className={`absolute left-[2px] top-[5px] h-3 w-3 rotate-45 border border-[#0b1729] ${
+                            className={`absolute left-0.5 top-1.25 h-3 w-3 rotate-45 border border-[#0b1729] ${
                               isHovered
                                 ? "bg-[#c8ef32] transition-colors duration-200"
                                 : "bg-white transition-none"
@@ -256,16 +256,16 @@ export default function Governence({ data }) {
 
                       {/* Footer */}
                       <Box className="mt-3 border-t border-[#dfe2e4] pt-3">
-                        <Text className="min-h-[38px] text-[8px] leading-[1.45] text-[#7b8490]">
+                        <Text className="min-h-9.5 text-[12px] leading-[1.45] text-[#7b8490]">
                           {path.footer}
                         </Text>
 
                         {/* CTA */}
                         <button
                           type="button"
-                          className="mt-2 h-[26px] w-full rounded-full border border-[#cbd0d5] bg-white text-[7px] font-medium tracking-[0.13em] text-[#0b1729] transition-colors duration-200 hover:border-[#0b1729] hover:bg-[#0b1729] hover:text-white"
+                          className="mt-2 h-6.5 w-full rounded-full border border-[#cbd0d5] bg-white text-[7px] font-medium tracking-[0.13em] text-[#0b1729] transition-colors duration-200 hover:border-[#0b1729] hover:bg-[#0b1729] hover:text-white"
                         >
-                          VIEW ALL AI TRAINING PROGRAMS →
+                          {path.button}
                         </button>
                       </Box>
                     </Box>
@@ -278,7 +278,7 @@ export default function Governence({ data }) {
 
         {/* Note */}
         <Reveal delay={3}>
-          <Text className="mt-7 max-w-[700px] text-[8px] leading-[1.5] text-[#718097]">
+          <Text className="mt-7 max-w-175 text-[12px] leading-normal text-[#FAFAF799]">
             {data.note}
           </Text>
         </Reveal>

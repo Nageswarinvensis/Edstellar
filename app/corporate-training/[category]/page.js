@@ -9,9 +9,12 @@ import ClientLogos from "@/components/sections/course/client-logo";
 import StickyTabs from "@/components/sections/course/sticky-navbar";
 import CategoryAbout from "@/components/sections/course/course-about";
 import WhyNow from "@/components/sections/category/why-now";
+import Outcomes1 from "@/components/sections/category/outcomes";
 import Card from "@/components/sections/category/card";
+import Industries from "@/components/sections/category/industries";
 import Marquee from "@/components/sections/category/marquee";
-import Governence from "@/components/sections/category/governence";
+import Paths from "@/components/sections/category/paths";
+import Governance from "@/components/sections/category/governance";
 import Trainers from "@/components/sections/course/trainers";
 import MapSection from "@/components/sections/course/mapsection";
 import Capability from "@/components/sections/category/capability";
@@ -21,7 +24,6 @@ import Faq from "@/components/sections/course/faq";
 import RelatedCategories from "@/components/sections/category/related-categories";
 import LeadForm from "@/components/sections/course/lead-form";
 import StickyFooter from "@/components/sections/course/sticky-footer";
-import { headers } from "next/headers";
 
 export const revalidate = 3600;
 
@@ -67,10 +69,16 @@ export default async function CategoryPage({ params }) {
         ctaBannerData={data.about?.ctaBannerData} />
       <WhyNow whyNow={data.whyNow} 
         ctaBannerData={data.whyNow?.ctaBannerData} />
+      <Outcomes1 data={data.outcomesData} 
+        ctaBannerData={data.outcomesData?.ctaBannerData} />
       <Card data={data.cardData} 
         ctaBannerData={data.cardData?.ctaBannerData} />
+      <Industries data={data.industriesData} 
+        ctaBannerData={data.industriesData?.ctaBannerData} />
       <Marquee stack={data.marqueeData} />
-      <Governence data={data.governenceData}/>
+      <Paths data={data.pathsData}/>
+      <Governance data={data.governanceData}
+      ctaBannerData={data.governanceData?.ctaBannerData} />
       <Trainers trainers={data.trainers} />
       <MapSection data={data.mapsectionData} />
       <Capability data={data.capabilityData} />
