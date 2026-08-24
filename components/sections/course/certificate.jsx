@@ -9,7 +9,10 @@ export default function Certificate({ certificate }) {
   if (!certificate) return null;
 
   return (
-    <Section id="certificate" className="border-t border-ink/10">
+    <Section
+      id="certificate"
+      className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] border-t border-ink/10"
+    >
       <Box className="grid items-center gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
         {/* Left */}
         <Reveal delay={1}>

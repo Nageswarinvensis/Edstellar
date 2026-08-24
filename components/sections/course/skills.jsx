@@ -13,7 +13,10 @@ export default function Skills({ skills }) {
   if (!skills?.items?.length) return null;
 
   return (
-    <Section id="skills" className="border-t border-ink/10">
+    <Section
+      id="skills"
+      className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] border-t border-ink/10"
+    >
       <Reveal delay={1}>
         <RichHeading
           as="h2"

@@ -161,6 +161,31 @@ export default function CurriculumModules({ filters, modules }) {
       });
   }, [activeFilter]);
 
+  // Publishes this bar's own height as a CSS var, same pattern as PageToc's
+  // `--mobile-toc-h` — module anchors (`#mod-N`) need to clear the header,
+  // the mobile TOC chip bar, AND this filter bar, since all three can be
+  // stacked and sticky at once.
+  useEffect(() => {
+    const bar = filtersRef.current;
+    if (!bar || typeof ResizeObserver === "undefined") return;
+
+    const setHeight = () => {
+      document.documentElement.style.setProperty(
+        "--module-filter-h",
+        `${bar.offsetHeight}px`,
+      );
+    };
+
+    const observer = new ResizeObserver(setHeight);
+    observer.observe(bar);
+    setHeight();
+
+    return () => {
+      observer.disconnect();
+      document.documentElement.style.removeProperty("--module-filter-h");
+    };
+  }, [filters]);
+
   if (!modules?.length) return null;
 
   return (
@@ -200,7 +225,7 @@ export default function CurriculumModules({ filters, modules }) {
               id={`mod-${module.number}`}
               value={module.number}
               className={cn(
-                "overflow-hidden rounded-2xl border border-ink/12 bg-white",
+                "scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_var(--module-filter-h,0px)_+_16px)] overflow-hidden rounded-2xl border border-ink/12 bg-white",
                 !visible && "hidden",
               )}
             >

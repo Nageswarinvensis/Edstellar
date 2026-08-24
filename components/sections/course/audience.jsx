@@ -164,7 +164,10 @@ export default function Audience({ audience }) {
   const lastPrerequisiteIndex = prerequisiteFlags?.lastIndexOf(true) ?? -1;
 
   return (
-    <Section id="audience" className="border-t border-ink/10">
+    <Section
+      id="audience"
+      className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] border-t border-ink/10"
+    >
       <Reveal delay={1}>
         <RichHeading
           as="h2"

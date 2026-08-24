@@ -9,7 +9,10 @@ export default function DeliveryModes({ deliveryModes }) {
   if (!deliveryModes?.tabs?.length) return null;
 
   return (
-    <Section id="delivery" className="border-t border-ink/10">
+    <Section
+      id="delivery"
+      className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] border-t border-ink/10"
+    >
       <Reveal delay={1}>
         <RichHeading
           as="h2"

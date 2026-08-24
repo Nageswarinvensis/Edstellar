@@ -39,7 +39,10 @@ export default function Faq({ faqs }) {
   if (!faqs?.items?.length) return null;
 
   return (
-    <Section id="faq" className="border-t border-ink/10">
+    <Section
+      id="faq"
+      className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] border-t border-ink/10"
+    >
       <Box>
         <Reveal delay={1}>
           <RichHeading
