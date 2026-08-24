@@ -160,7 +160,7 @@ export default function PageToc({ toc, modules, children }) {
   if (!items?.length) return <>{children}</>;
 
   return (
-    <Box className="relative">
+    <Box className="relative lg:px-10">
       {/* Mobile/tablet fallback: the sticky rail becomes a scrolling chip
           bar below `xl` — matching the source design's `.spine-m`. No
           module sub-list here, only the top-level sections. */}
@@ -296,7 +296,6 @@ export default function PageToc({ toc, modules, children }) {
           {toc.cta ? (
             <Box className="mt-5.5 border-t border-ink/12 pt-5">
               <CtaButton
-                size="sm"
                 block
                 arrow
                 render={<a href={toc.cta.href} />}

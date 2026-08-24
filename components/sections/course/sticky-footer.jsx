@@ -146,7 +146,6 @@ export default function StickyFooter({ data }) {
         <Box className="flex flex-none items-center gap-3 max-lg:w-full max-lg:justify-center">
           {data.cta ? (
             <CtaButton
-              size="sm"
               color="lime"
               arrow
               className="max-lg:w-full"

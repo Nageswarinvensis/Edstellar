@@ -111,7 +111,6 @@ export default function LeadForm({ data, background = "paper-warm" }) {
 
                 {data.pricingHref ? (
                   <CtaButton
-                    size="sm"
                     arrow
                     render={<a href={data.pricingHref} />}
                   >

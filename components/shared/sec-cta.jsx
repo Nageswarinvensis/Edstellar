@@ -33,7 +33,6 @@ export default function SecCta({ title, description, cta }) {
         </Box>
 
         <CtaButton
-          size="sm"
           arrow
           className="flex-none max-[620px]:w-full"
           render={<a href={cta.href} />}

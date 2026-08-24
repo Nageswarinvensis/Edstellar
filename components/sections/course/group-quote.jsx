@@ -874,7 +874,6 @@ export default function GroupQuote({ data }) {
                   <Box className="border-t border-ink/10 pt-4.5 sm:col-span-2">
                     <CtaButton
                       type="submit"
-                      size="sm"
                       arrow
                       disabled={contactSubmitting}
                     >
@@ -1061,7 +1060,6 @@ function WizardNav({ onBack, onNext, nextLabel, showBack = true }) {
         <CtaButton
           type="button"
           variant="ghost"
-          size="sm"
           onClick={onBack}
           className="sm:mr-auto"
         >
@@ -1070,7 +1068,7 @@ function WizardNav({ onBack, onNext, nextLabel, showBack = true }) {
         </CtaButton>
       ) : null}
       {onNext ? (
-        <CtaButton type="button" size="sm" arrow onClick={onNext}>
+        <CtaButton type="button" arrow onClick={onNext}>
           {nextLabel}
         </CtaButton>
       ) : null}

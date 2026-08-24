@@ -174,7 +174,6 @@ export default function TrainerCarousel({ people }) {
 
             <CtaButton
               variant="ghost"
-              size="sm"
               arrow
               render={<a href="#apply" />}
               className="mt-4 w-full justify-center border-ink/22 px-4 py-2.5 text-[12.5px] hover:border-navy hover:bg-navy hover:text-lime"

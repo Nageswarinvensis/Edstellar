@@ -35,7 +35,7 @@ const ctaButtonVariants = cva(
       },
       size: {
         default: "px-7 py-4 text-sm",
-        sm: "px-[22px] py-3 text-[13px]",
+        sm: "px-[22px] py-3 text-[14px]",
       },
       block: {
         true: "w-full",
@@ -46,12 +46,14 @@ const ctaButtonVariants = cva(
       {
         variant: "primary",
         color: "navy",
-        class: "bg-navy text-lime hover:shadow-[0_14px_30px_-12px_rgba(10,22,40,0.5)]",
+        class:
+          "bg-navy text-lime hover:shadow-[0_14px_30px_-12px_rgba(10,22,40,0.5)]",
       },
       {
         variant: "primary",
         color: "lime",
-        class: "bg-lime text-navy hover:shadow-[0_14px_28px_-14px_rgba(200,241,53,0.65)]",
+        class:
+          "bg-lime text-navy hover:shadow-[0_14px_28px_-14px_rgba(200,241,53,0.65)]",
       },
     ],
     defaultVariants: {
@@ -60,7 +62,7 @@ const ctaButtonVariants = cva(
       size: "default",
       block: false,
     },
-  }
+  },
 );
 
 function CtaButton({
@@ -71,16 +73,24 @@ function CtaButton({
   block,
   arrow = false,
   children,
+  render,
   ...props
 }) {
   return (
     <ButtonPrimitive
       data-slot="cta-button"
-      className={cn(ctaButtonVariants({ variant, color, size, block }), className)}
+      render={render}
+      nativeButton={!render}
+      className={cn(
+        ctaButtonVariants({ variant, color, size, block }),
+        className,
+      )}
       {...props}
     >
       {children}
-      {arrow ? <ArrowRight size={16} strokeWidth={2.25} aria-hidden="true" /> : null}
+      {arrow ? (
+        <ArrowRight size={16} strokeWidth={2.25} aria-hidden="true" />
+      ) : null}
     </ButtonPrimitive>
   );
 }
