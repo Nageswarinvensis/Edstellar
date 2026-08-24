@@ -43,7 +43,7 @@ function ProofBar({
       className={cn(
         "flex flex-col",
         dark
-          ? "flex-none gap-1"
+          ? "flex-none items-center gap-1 text-center min-[1400px]:items-start min-[1400px]:text-left"
           : cn(
               "min-w-0 flex-1 gap-2 border-l border-ink/12 pl-6 first:border-l-0 first:pl-0",
               // ≤620px the strip becomes two columns, so every odd cell starts a row.

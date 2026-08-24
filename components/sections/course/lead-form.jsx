@@ -47,9 +47,10 @@ export default function LeadForm({ data, background = "paper-warm" }) {
     <Section
       id="apply"
       aria-label="Request training"
-      className={
-        BACKGROUND_CLASSES[background] ?? BACKGROUND_CLASSES["paper-warm"]
-      }
+      className={cn(
+        "border-t border-ink/10",
+        BACKGROUND_CLASSES[background] ?? BACKGROUND_CLASSES["paper-warm"],
+      )}
     >
       <Reveal>
         <RichHeading

@@ -4,6 +4,7 @@ import { SITE } from "@/lib/constants";
 import AppProviders from "@/components/providers/app-providers";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
+import ReadingProgress from "@/components/shared/reading-progress";
 import "./globals.css";
 
 const sora = Sora({
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${sora.variable} ${cormorant.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
       >
+        <ReadingProgress />
         <SiteHeader />
         <AppProviders>{children}</AppProviders>
         <SiteFooter />

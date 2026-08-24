@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import { Zap } from "lucide-react";
 
@@ -146,20 +146,38 @@ function ModuleLab({ lab }) {
  */
 export default function CurriculumModules({ filters, modules }) {
   const [activeFilter, setActiveFilter] = useState("all");
+  const filtersRef = useRef(null);
+
+  // Center the active filter chip in its scroll container — matches the
+  // page-level TOC chip bar's behavior above it.
+  useEffect(() => {
+    if (!filtersRef.current) return;
+    filtersRef.current
+      .querySelector(`[data-filter="${activeFilter}"]`)
+      ?.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+  }, [activeFilter]);
 
   if (!modules?.length) return null;
 
   return (
     <Box>
       {filters?.length ? (
-        <Box className="no-scrollbar sticky top-[calc(68px_+_var(--mobile-toc-h,0px))] z-10 -mx-1 mb-7 flex flex-nowrap gap-2.5 overflow-x-auto bg-paper px-1 py-3 md:flex-wrap md:overflow-visible">
+        <Box
+          ref={filtersRef}
+          className="no-scrollbar sticky top-[calc(68px_+_var(--mobile-toc-h,0px))] z-10 -mx-1 mb-7 flex flex-nowrap gap-2.5 overflow-x-auto bg-paper px-1 py-3 md:flex-wrap md:overflow-visible"
+        >
           {filters.map((filter) => (
             <button
               key={filter.id}
               type="button"
+              data-filter={filter.id}
               onClick={() => setActiveFilter(filter.id)}
               className={cn(
-                "flex-none cursor-pointer rounded-full border px-3.75 py-2.5 font-mono text-[11px] tracking-[0.1em] whitespace-nowrap uppercase transition-colors duration-200",
+                "flex-none cursor-pointer rounded-full border px-3.25 py-1.75 font-mono text-[10.5px] tracking-[0.08em] whitespace-nowrap uppercase transition-colors duration-200",
                 activeFilter === filter.id
                   ? "border-navy bg-navy text-lime"
                   : "border-ink/22 text-ink/60 hover:border-navy hover:text-ink",

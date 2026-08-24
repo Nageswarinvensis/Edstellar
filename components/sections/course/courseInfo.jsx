@@ -14,7 +14,7 @@ function CourseInfo({ groupQuote, proof }) {
             <Box
               as="ul"
               aria-label="Included with this course"
-              className="mt-4 flex flex-wrap gap-3 max-md:mt-3"
+              className="mt-4 flex flex-wrap gap-3 max-md:mt-0"
             >
               {badges.map((badge) => (
                 <Box

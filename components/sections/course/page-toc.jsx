@@ -18,10 +18,14 @@ import { cn } from "@/lib/utils";
  * visible on this page — there is no secondary nav bar above this one to
  * additionally clear).
  *
- * Uses the same floating-overlay technique `QuoteRail` used to use: the nav
- * is an absolutely-positioned column pinned to the content column's left
- * edge, not a real grid column, so every wrapped section keeps its own
- * full-bleed background.
+ * The nav is a real grid column, not an absolute overlay: the wrapper is
+ * `xl:grid xl:grid-cols-[nav_1fr]` with exactly two grid items — the nav and
+ * a single Box wrapping every section — so there is only one implicit row
+ * and no row-spanning trick is needed. The nav stays visually pinned via
+ * `xl:sticky` against that row's height (the combined height of every
+ * section). This is safe because every section in this run shares the same
+ * background — there is no full-bleed color difference between them that a
+ * shared column width would clip.
  *
  * Active-state tracking is scroll-position-based (which section's top has
  * been crossed), not IntersectionObserver, matching the source design — a
@@ -127,6 +131,20 @@ export default function PageToc({ toc, modules, children }) {
       ?.scrollIntoView({ block: "nearest" });
   }, [activeModule]);
 
+  // Center the active chip in the mobile scrolling bar as the section
+  // changes underneath, so the highlighted item never sits clipped at the
+  // scroller's edge.
+  useEffect(() => {
+    if (!activeId || !mobileNavRef.current) return;
+    mobileNavRef.current
+      .querySelector(`[data-section="${activeId}"]`)
+      ?.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+  }, [activeId]);
+
   function scrollToId(id, block) {
     return (event) => {
       const target = document.getElementById(id);
@@ -149,7 +167,7 @@ export default function PageToc({ toc, modules, children }) {
       <nav
         ref={mobileNavRef}
         aria-label="Sections"
-        className="no-scrollbar sticky top-17 z-30 flex gap-2 overflow-x-auto border-b border-ink/10 bg-paper px-5 py-2.75 lg:px-10 xl:hidden"
+        className="no-scrollbar sticky top-17 z-30 flex gap-2 overflow-x-auto border-b border-ink/10 bg-paper px-5 py-2.75 xl:hidden"
       >
         {items.map((item) => {
           const isActive = item.id === activeId;
@@ -158,6 +176,7 @@ export default function PageToc({ toc, modules, children }) {
             <Box
               as="a"
               key={item.id}
+              data-section={item.id}
               href={`#${item.id}`}
               onClick={scrollToId(item.id, "start")}
               className={cn(
@@ -173,135 +192,130 @@ export default function PageToc({ toc, modules, children }) {
         })}
       </nav>
 
-      <Box className="xl:[&_.rail-container]:pl-[302px]">{children}</Box>
+      <Box className="xl:mx-auto xl:grid xl:max-w-7xl xl:grid-cols-[15.25rem_1fr] xl:items-start xl:gap-x-10 ">
+        <nav
+          ref={navRef}
+          aria-label="On this page"
+          className="hidden xl:block xl:sticky xl:top-17 xl:max-h-[calc(100vh-6.25rem)] xl:self-start xl:overflow-y-auto xl:pt-6 xl:pb-6"
+        >
+          <Box as="ol" className="space-y-1">
+            {items.map((item) => {
+              const isActive = item.id === activeId;
+              const showModules =
+                item.hasModules && isActive && modules?.length;
 
-      <Box className="hidden xl:pointer-events-none xl:absolute xl:inset-x-0 xl:inset-y-0 xl:block xl:px-10">
-        <Box className="mx-auto flex h-full max-w-7xl">
-          <nav
-            ref={navRef}
-            aria-label="On this page"
-            className="xl:pointer-events-auto xl:sticky xl:top-17 xl:max-h-[calc(100vh-6.25rem)] xl:w-61 xl:flex-none xl:overflow-y-auto xl:pt-6"
-          >
-            <Box as="ol" className="space-y-1">
-              {items.map((item) => {
-                const isActive = item.id === activeId;
-                const showModules =
-                  item.hasModules && isActive && modules?.length;
-
-                return (
-                  <Box as="li" key={item.id}>
-                    <Box
-                      as="a"
-                      href={`#${item.id}`}
-                      onClick={scrollToId(item.id, "start")}
+              return (
+                <Box as="li" key={item.id}>
+                  <Box
+                    as="a"
+                    href={`#${item.id}`}
+                    onClick={scrollToId(item.id, "start")}
+                    className={cn(
+                      "flex items-baseline gap-2.5 rounded-[9px] border-l-2 px-3 py-2 transition-colors duration-200",
+                      isActive
+                        ? "border-l-lime bg-paper-warm"
+                        : "border-l-transparent hover:bg-paper-warm",
+                    )}
+                  >
+                    <Text
+                      as="span"
                       className={cn(
-                        "flex items-baseline gap-2.5 rounded-[9px] border-l-2 px-3 py-2 transition-colors duration-200",
-                        isActive
-                          ? "border-l-lime bg-paper-warm"
-                          : "border-l-transparent hover:bg-paper-warm",
+                        "flex-none pt-px font-mono text-[10px] tracking-[0.1em]",
+                        isActive ? "text-ink" : "text-ink/45",
                       )}
                     >
-                      <Text
-                        as="span"
-                        className={cn(
-                          "flex-none pt-px font-mono text-[10px] tracking-[0.1em]",
-                          isActive ? "text-ink" : "text-ink/45",
-                        )}
-                      >
-                        {item.number}
-                      </Text>
-                      <Text
-                        as="span"
-                        className={cn(
-                          "font-display text-[13.5px] leading-[1.35] font-semibold tracking-[-0.015em]",
-                          isActive ? "text-ink" : "text-ink/60",
-                        )}
-                      >
-                        {item.label}
-                      </Text>
-                    </Box>
+                      {item.number}
+                    </Text>
+                    <Text
+                      as="span"
+                      className={cn(
+                        "font-display text-[13.5px] leading-[1.35] font-semibold tracking-[-0.015em]",
+                        isActive ? "text-ink" : "text-ink/60",
+                      )}
+                    >
+                      {item.label}
+                    </Text>
+                  </Box>
 
-                    {showModules ? (
-                      <Box
-                        as="ol"
-                        className="mt-0.5 mb-2.5 space-y-0.25 border-l border-ink/12 pl-3"
-                      >
-                        {modules.map((module) => {
-                          const isActiveModule =
-                            module.number === activeModule;
+                  {showModules ? (
+                    <Box
+                      as="ol"
+                      className="mt-0.5 mb-2.5 space-y-0.25 border-l border-ink/12 pl-3"
+                    >
+                      {modules.map((module) => {
+                        const isActiveModule = module.number === activeModule;
 
-                          return (
-                            <Box as="li" key={module.number}>
-                              <Box
-                                as="a"
-                                href={`#mod-${module.number}`}
-                                data-mod={module.number}
-                                onClick={scrollToId(
-                                  `mod-${module.number}`,
-                                  "center",
-                                )}
+                        return (
+                          <Box as="li" key={module.number}>
+                            <Box
+                              as="a"
+                              href={`#mod-${module.number}`}
+                              data-mod={module.number}
+                              onClick={scrollToId(
+                                `mod-${module.number}`,
+                                "center",
+                              )}
+                              className={cn(
+                                "flex items-baseline gap-2 rounded-[7px] px-2.5 py-1.25 transition-colors duration-200",
+                                isActiveModule
+                                  ? "bg-paper-cream"
+                                  : "hover:bg-paper-warm",
+                              )}
+                            >
+                              <Text
+                                as="span"
                                 className={cn(
-                                  "flex items-baseline gap-2 rounded-[7px] px-2.5 py-1.25 transition-colors duration-200",
+                                  "flex-none font-mono text-[9.5px] tracking-[0.08em]",
                                   isActiveModule
-                                    ? "bg-paper-cream"
-                                    : "hover:bg-paper-warm",
+                                    ? "text-ink/75"
+                                    : "text-ink/40",
                                 )}
                               >
-                                <Text
-                                  as="span"
-                                  className={cn(
-                                    "flex-none font-mono text-[9.5px] tracking-[0.08em]",
-                                    isActiveModule
-                                      ? "text-ink/75"
-                                      : "text-ink/40",
-                                  )}
-                                >
-                                  {module.number}
-                                </Text>
-                                <Text
-                                  as="span"
-                                  className={cn(
-                                    "text-[12px] leading-[1.4] font-medium",
-                                    isActiveModule
-                                      ? "text-ink"
-                                      : "text-ink/55",
-                                  )}
-                                >
-                                  {module.title}
-                                </Text>
-                              </Box>
+                                {module.number}
+                              </Text>
+                              <Text
+                                as="span"
+                                className={cn(
+                                  "text-[12px] leading-[1.4] font-medium",
+                                  isActiveModule ? "text-ink" : "text-ink/55",
+                                )}
+                              >
+                                {module.title}
+                              </Text>
                             </Box>
-                          );
-                        })}
-                      </Box>
-                    ) : null}
-                  </Box>
-                );
-              })}
-            </Box>
+                          </Box>
+                        );
+                      })}
+                    </Box>
+                  ) : null}
+                </Box>
+              );
+            })}
+          </Box>
 
-            {toc.cta ? (
-              <Box className="mt-5.5 border-t border-ink/12 pt-5">
-                <CtaButton
-                  size="sm"
-                  block
-                  arrow
-                  render={<a href={toc.cta.href} />}
+          {toc.cta ? (
+            <Box className="mt-5.5 border-t border-ink/12 pt-5">
+              <CtaButton
+                size="sm"
+                block
+                arrow
+                render={<a href={toc.cta.href} />}
+              >
+                {toc.cta.label}
+              </CtaButton>
+              {toc.cta.note ? (
+                <Text
+                  as="p"
+                  className="mt-2.25 text-[11.5px] leading-[1.5] text-ink/45"
                 >
-                  {toc.cta.label}
-                </CtaButton>
-                {toc.cta.note ? (
-                  <Text
-                    as="p"
-                    className="mt-2.25 text-[11.5px] leading-[1.5] text-ink/45"
-                  >
-                    {toc.cta.note}
-                  </Text>
-                ) : null}
-              </Box>
-            ) : null}
-          </nav>
-        </Box>
+                  {toc.cta.note}
+                </Text>
+              ) : null}
+            </Box>
+          ) : null}
+        </nav>
+
+        <Box className="min-w-0 xl:[&>section]:px-0">{children}</Box>
       </Box>
     </Box>
   );
