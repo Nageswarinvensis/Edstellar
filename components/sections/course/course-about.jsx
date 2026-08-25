@@ -7,7 +7,7 @@ import RichHeading from "@/components/shared/rich-heading";
 import CtaBanner from "@/components/shared/ctabanner";
 import CustomizedTraining from "@/components/sections/course/customizedTraining";
 
-function CategoryAbout({ about, ctaBannerData, customizedTraining }) {
+function CategoryAbout({ about, ctaBannerData }) {
   if (!about) return null;
 
   const contrast = about.contrast;
@@ -110,7 +110,7 @@ function CategoryAbout({ about, ctaBannerData, customizedTraining }) {
         <CtaBanner key={index} data={cta} />
       ))}
 
-      <CustomizedTraining data={customizedTraining} />
+      <CustomizedTraining />
     </Section>
   );
 }

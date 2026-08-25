@@ -9,6 +9,7 @@ import CategoryInfo from "@/components/sections/course/courseInfo";
 import ClientLogos from "@/components/sections/course/client-logo";
 import CategoryAbout from "@/components/sections/course/course-about";
 import Skills from "@/components/sections/course/skills";
+
 import Curriculum from "@/components/sections/course/curriculum";
 import Audience from "@/components/sections/course/audience";
 import DeliveryModes from "@/components/sections/course/delivery-modes";
@@ -16,6 +17,7 @@ import PageToc from "@/components/sections/course/page-toc";
 import GroupQuote from "@/components/sections/course/group-quote";
 import Testimonials from "@/components/sections/course/testimonials";
 import MapSection from "@/components/sections/course/mapsection";
+
 import SlideSection from "@/components/sections/course/SlideSection";
 import Trainers from "@/components/sections/course/trainers";
 import Certificate from "@/components/sections/course/certificate";
@@ -77,10 +79,7 @@ export default async function CoursePage({ params }) {
       />
 
       <ClientLogos data={course.ClientsLogosData} />
-      <CategoryAbout
-        about={course.about}
-        customizedTraining={course.customizedTraining}
-      />
+      <CategoryAbout about={course.about} />
 
       <PageToc toc={course.pageToc} modules={course.curriculum?.modules}>
         <Curriculum curriculum={course.curriculum} />
@@ -98,6 +97,7 @@ export default async function CoursePage({ params }) {
       <WhyEds data={course.WhyEds} />
 
       <MapSection data={course.mapsectionData} />
+
       <GroupQuote data={course.groupQuote} />
 
       <LeadForm data={course.leadForm} />

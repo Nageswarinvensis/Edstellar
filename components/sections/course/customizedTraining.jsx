@@ -5,8 +5,25 @@ import { CtaButton } from "@/components/shared/CtaButton";
 import Reveal from "@/components/shared/reveal";
 import Image from "next/image";
 
-export default function CustomizedTraining({ data }) {
-  if (!data) return null;
+const CONTENT = {
+  title: "Get Customized Expert-led Training for Your Teams",
+  description:
+    "One partner for instructor-led corporate training, delivered the way your teams work.",
+  cta: {
+    label: "Request a Training Quote",
+    href: "#apply",
+  },
+  benefits: [
+    "Customized Training Delivery",
+    "Scale Your Training: Small to Large Teams",
+    "In-person Onsite, Live Virtual or Hybrid Training Modes",
+    "Plan from 2000+ Industry-ready Training Programs",
+    "Hands-On Labs on Live Infrastructure, Led by Industry Experts",
+  ],
+};
+
+export default function CustomizedTraining() {
+  const data = CONTENT;
 
   return (
     <Box

@@ -20,7 +20,7 @@ export default function Trainers({ trainers }) {
       <Reveal delay={2}>
         <Text
           as="p"
-          className="mb-15 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink/60"
+          className="mb-5 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink/60"
         >
           {trainers.description}
         </Text>

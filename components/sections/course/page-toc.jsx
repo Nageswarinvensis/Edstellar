@@ -314,7 +314,7 @@ export default function PageToc({ toc, modules, children }) {
           ) : null}
         </nav>
 
-        <Box className="min-w-0 xl:[&>section]:px-0">{children}</Box>
+        <Box className="min-w-0 lg:[&>section]:px-0">{children}</Box>
       </Box>
     </Box>
   );

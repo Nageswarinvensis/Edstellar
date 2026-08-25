@@ -9,6 +9,22 @@ import RichHeading from "@/components/shared/rich-heading";
 
 const APPROACH_ICONS = [MessageCircle, Route, UserCheck, Wrench, Rocket, Award];
 
+const STATS = [
+  { value: "10,000+", label: "EXPERT TRAINERS" },
+  { value: "13+", label: "YEARS DELIVERING" },
+  { value: "1,000+", label: "ORGANIZATIONS TRAINED" },
+  { value: "ISO 9001", connector: "&", secondaryValue: "27001", label: "CERTIFIED" },
+];
+
+const APPROACH_STEPS = [
+  { number: "01", title: "Consult", description: "We start with your monitoring reality: what is in production, what broke last quarter, and which teams own the response." },
+  { number: "02", title: "Plan", description: "A scoped roadmap with module sequence, cohort split and the dates that fit around your release calendar." },
+  { number: "03", title: "Align", description: "A practitioner trainer matched to your stack, briefed on your tooling before the first session." },
+  { number: "04", title: "Customize", description: "Exercises rebuilt around your models and your alerting, so the practice transfers on Monday." },
+  { number: "05", title: "Execute", description: "Instructor-led delivery, on-site, virtual or blended, with hands-on labs rather than slideware." },
+  { number: "06", title: "Evaluate", description: "Impact measured against a number you already track, plus competency evidence for every participant." },
+];
+
 function ApproachStep({ step, Icon }) {
   return (
     <Box as="li" className="flex min-w-0 flex-col gap-2">
@@ -95,7 +111,7 @@ export default function MapSection({ data }) {
         ========================================================== */}
         <Reveal delay={2}>
           <Box className="mt-11 grid grid-cols-1 overflow-hidden rounded-[14px] border border-[#D9DCE0] bg-white sm:grid-cols-2 lg:grid-cols-4">
-            {data.stats?.map((stat, index) => (
+            {STATS.map((stat, index) => (
               <Box
                 key={index}
                 className="min-h-22.5 border-[#D9DCE0] px-5 py-5 sm:px-6 lg:border-r lg:last:border-r-0"
@@ -195,7 +211,7 @@ export default function MapSection({ data }) {
             APPROACH — six-stage process rail
             Only render when approach data exists
         ========================================================== */}
-        {data.approach?.steps?.length > 0 && (
+        {data.approach?.heading && (
           <Reveal delay={4}>
             <Box className="mt-9 rounded-[18px] bg-navy p-10 max-[600px]:p-6">
               <RichHeading
@@ -221,7 +237,7 @@ export default function MapSection({ data }) {
                   style={{ right: "calc((100% - 5 * 2rem) / 6 - 1.5rem)" }}
                 />
 
-                {data.approach.steps.map((step, index) => (
+                {APPROACH_STEPS.map((step, index) => (
                   <ApproachStep
                     key={step.number}
                     step={step}

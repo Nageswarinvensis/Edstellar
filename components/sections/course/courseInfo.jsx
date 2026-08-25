@@ -3,8 +3,19 @@ import Text from "@/components/ui/Text";
 import Reveal from "@/components/shared/reveal";
 import ProofBar from "@/components/shared/proof-bar";
 
+const DELIVERY_STAT = {
+  value: "Delivery",
+  label: "Instructor-led (onsite/virtual/hybrid)",
+};
+
 function CourseInfo({ groupQuote, proof }) {
   const badges = proof?.badges ?? [];
+  const stats = proof
+    ? [
+        ...(proof.stats ?? []).filter((stat) => stat.value !== "Delivery"),
+        DELIVERY_STAT,
+      ]
+    : [];
 
   return (
     <Box as="section" className="px-5 py-5 lg:px-10">
@@ -44,7 +55,7 @@ function CourseInfo({ groupQuote, proof }) {
         <Reveal delay={4}>
           <ProofBar
             tone={proof?.tone}
-            stats={proof?.stats}
+            stats={stats}
             trainers={proof?.trainers}
             actions={proof?.actions}
           />
