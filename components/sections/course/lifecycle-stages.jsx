@@ -53,6 +53,7 @@ export default function LifecycleStages({ stages }) {
               key={stage.index}
               type="button"
               onClick={() => setActiveIndex(index)}
+              title={`Click Here to View ${stage.title}`}
               aria-pressed={isActive}
               className={cn(
                 "flex items-center gap-3.5 rounded-[14px] border px-5 py-4.5 text-left transition-colors duration-200",

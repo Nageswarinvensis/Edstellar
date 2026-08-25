@@ -44,6 +44,7 @@ function ReadMore({
 
       <button
         type="button"
+        title={`Click Here to View ${open ? labelOpen : labelClosed}`}
         aria-expanded={open}
         aria-controls={contentId}
         onClick={() => setOpen((value) => !value)}

@@ -61,6 +61,7 @@ export default function WhyNowShifts({ shifts, note }) {
                 key={shift.title}
                 type="button"
                 role="tab"
+                title={`Click Here to View ${shift.title}`}
                 aria-selected={isActive}
                 onClick={() => setActiveIndex(index)}
                 className={cn(

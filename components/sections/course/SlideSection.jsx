@@ -46,6 +46,7 @@ function ProgressBars({ count }) {
           key={index}
           type="button"
           onClick={() => api?.scrollTo(index)}
+          title={`Click Here to View Slide ${index + 1}`}
           aria-label={`Go to slide ${index + 1}`}
           className={[
             "h-1 w-8 rounded-full transition-all duration-300",

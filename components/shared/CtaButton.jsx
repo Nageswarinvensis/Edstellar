@@ -1,8 +1,21 @@
+import { Children } from "react";
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import { cva } from "class-variance-authority";
 import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+
+/** Pulls the visible label out of children — a plain string, or the text
+ * node inside an icon + label pairing (e.g. `<ArrowLeft /> Previous`). */
+function labelFromChildren(children) {
+  let label = "";
+  Children.forEach(children, (child) => {
+    if (typeof child === "string" || typeof child === "number") {
+      label += child;
+    }
+  });
+  return label.trim() || undefined;
+}
 
 /**
  * The pill button from the designs.
@@ -74,13 +87,18 @@ function CtaButton({
   arrow = false,
   children,
   render,
+  title,
   ...props
 }) {
+  const label = labelFromChildren(children) || props["aria-label"];
+  const derivedTitle = title ?? (label ? `Click Here to View ${label}` : undefined);
+
   return (
     <ButtonPrimitive
       data-slot="cta-button"
       render={render}
       nativeButton={!render}
+      title={derivedTitle}
       className={cn(
         ctaButtonVariants({ variant, color, size, block }),
         className,

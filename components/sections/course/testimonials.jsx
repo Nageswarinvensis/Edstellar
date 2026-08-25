@@ -53,6 +53,7 @@ function QuoteDots({ count }) {
         <button
           key={index}
           type="button"
+          title={`Click Here to View Testimonial ${index + 1}`}
           aria-label={`Go to testimonial ${index + 1}`}
           onClick={() => api?.scrollTo(index)}
           className={cn(
@@ -72,6 +73,7 @@ function QuoteArrows() {
     <Box className="ml-auto flex gap-2">
       <button
         type="button"
+        title="Click Here to View Previous testimonial"
         aria-label="Previous testimonial"
         onClick={scrollPrev}
         className="flex size-10.5 cursor-pointer items-center justify-center rounded-full border border-ink/22 bg-transparent transition-colors duration-200 hover:border-navy hover:bg-navy hover:text-lime"
@@ -80,6 +82,7 @@ function QuoteArrows() {
       </button>
       <button
         type="button"
+        title="Click Here to View Next testimonial"
         aria-label="Next testimonial"
         onClick={scrollNext}
         className="flex size-10.5 cursor-pointer items-center justify-center rounded-full border border-ink/22 bg-transparent transition-colors duration-200 hover:border-navy hover:bg-navy hover:text-lime"

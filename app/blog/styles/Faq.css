@@ -1,0 +1,119 @@
+.faq {
+  background-color: white;
+  padding: 1rem;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+  cursor: pointer;
+  padding: 12px;
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question h3,
+.faq-question p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  word-wrap: break-word;
+  transition: color 0.3s ease;
+}
+
+.faq-item.active > .faq-question h3,
+.faq-question:hover h3 {
+  color: #264cbe;
+}
+.faq-item.active > .faq-question p,
+.faq-question:hover p {
+  color: #264cbe;
+}
+
+.faq-item.active .toggle-icon,
+.faq-question:hover .toggle-icon {
+  border-color: #264cbe;
+}
+
+.faq-item.active .toggle-icon::before,
+.faq-item.active .toggle-icon::after,
+.faq-question:hover .toggle-icon::before,
+.faq-question:hover .toggle-icon::after {
+  background-color: #264cbe;
+}
+
+@media (max-width: 568px) {
+  .faq-question h3 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .faq-question p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .faq {
+    padding: 0;
+  }
+}
+
+.faq-answer {
+  padding: 0 16px;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.4s ease,
+    padding 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px; /* Adjust based on content */
+  padding: 10px 16px;
+}
+
+.toggle-icon {
+  min-width: 20px;
+  min-height: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.toggle-icon::before {
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  transform: translate(-50%, -50%);
+}
+
+.toggle-icon::after {
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.faq-item.active .toggle-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}

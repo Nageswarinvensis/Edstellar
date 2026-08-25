@@ -20,7 +20,10 @@ import {
 function FaqTrigger({ children }) {
   return (
     <AccordionPrimitive.Header className="flex">
-      <AccordionPrimitive.Trigger className="group/faq-trigger flex flex-1 items-center justify-between gap-6 py-6 text-left font-display text-lg font-medium tracking-[-0.01em] text-ink outline-none cursor-pointer">
+      <AccordionPrimitive.Trigger
+        title={typeof children === "string" ? `Click Here to View ${children}` : undefined}
+        className="group/faq-trigger flex flex-1 items-center justify-between gap-6 py-6 text-left font-display text-lg font-medium tracking-[-0.01em] text-ink outline-none cursor-pointer"
+      >
         <span>{children}</span>
 
         <span

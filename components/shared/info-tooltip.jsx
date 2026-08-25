@@ -45,6 +45,7 @@ function InfoTooltip({ label, heading, children, className }) {
       {label}
       <button
         type="button"
+        title={`Click Here to View ${heading}`}
         aria-expanded={open}
         aria-describedby={open ? popoverId : undefined}
         onClick={() => setOpen((value) => !value)}

@@ -24,7 +24,10 @@ import WhyNowPressures from "@/components/sections/category/why-now-pressures";
 function WhyNowTrigger({ parts }) {
   return (
     <AccordionPrimitive.Header className="flex">
-      <AccordionPrimitive.Trigger className="group/why-now-trigger flex w-full flex-1 cursor-pointer items-center gap-4.5 py-6.5 text-left outline-none">
+      <AccordionPrimitive.Trigger
+        title={`Click Here to View ${parts.map((part) => part.text).join("")}`}
+        className="group/why-now-trigger flex w-full flex-1 cursor-pointer items-center gap-4.5 py-6.5 text-left outline-none"
+      >
         <Text
           as="span"
           className="flex-1 font-display text-[clamp(20px,2vw,27px)] font-bold leading-[1.2] tracking-[-0.02em] text-ink"

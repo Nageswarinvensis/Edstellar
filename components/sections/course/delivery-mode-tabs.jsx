@@ -37,6 +37,7 @@ export default function DeliveryModeTabs({ tabs }) {
               key={tab.id}
               type="button"
               role="tab"
+              title={`Click Here to View ${tab.label}`}
               aria-selected={isActive}
               onClick={() => setActiveId(tab.id)}
               className="relative mr-5.5 cursor-pointer border-none bg-transparent px-1.5 py-3.5 text-left transition-colors duration-200"

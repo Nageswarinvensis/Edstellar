@@ -147,6 +147,7 @@ export default function StickyFooter({ data }) {
           {data.cta ? (
             <CtaButton
               color="lime"
+              size="sm"
               arrow
               className="max-lg:w-full"
               render={<a href={data.cta.href} />}
@@ -158,6 +159,7 @@ export default function StickyFooter({ data }) {
           <Box
             as="button"
             type="button"
+            title="Click Here to View Dismiss enquiry bar"
             aria-label="Dismiss this bar"
             onClick={() => setDismissed(true)}
             className="cursor-pointer p-1.25 text-paper/45 transition-colors duration-200 hover:text-paper max-lg:hidden"

@@ -65,6 +65,7 @@ export default function WhyNowPressures({ pressures, note }) {
           type="button"
           onClick={() => scrollByCards(-1)}
           disabled={!canPrev}
+          title="Click Here to View Previous pressure"
           aria-label="Previous pressure"
           className={cn(
             "grid size-7.5 flex-none place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",
@@ -80,6 +81,7 @@ export default function WhyNowPressures({ pressures, note }) {
           type="button"
           onClick={() => scrollByCards(1)}
           disabled={!canNext}
+          title="Click Here to View Next pressure"
           aria-label="Next pressure"
           className={cn(
             "grid size-7.5 flex-none place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",

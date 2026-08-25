@@ -37,6 +37,7 @@ export default function GlobalError({ error, reset }) {
           <button
             type="button"
             onClick={reset}
+            title="Click Here to View Try again"
             className="inline-flex cursor-pointer items-center justify-center rounded-full bg-navy px-7 py-4 font-body text-sm font-semibold text-lime transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
           >
             Try again

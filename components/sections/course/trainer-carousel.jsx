@@ -64,6 +64,7 @@ export default function TrainerCarousel({ people }) {
             type="button"
             onClick={() => scrollByCards(-1)}
             disabled={!canPrev}
+            title="Click Here to View Previous instructors"
             aria-label="Previous instructors"
             aria-controls="trainer-grid"
             className={cn(
@@ -78,6 +79,7 @@ export default function TrainerCarousel({ people }) {
             type="button"
             onClick={() => scrollByCards(1)}
             disabled={!canNext}
+            title="Click Here to View Next instructors"
             aria-label="Next instructors"
             aria-controls="trainer-grid"
             className={cn(

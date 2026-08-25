@@ -267,6 +267,7 @@ export default function GroupQuote({ data }) {
             <button
               type="button"
               onClick={() => setTeamSizeCustom((n) => Math.max(1, n - 1))}
+              title="Click Here to View Decrease number of team members"
               aria-label="Decrease number of team members"
               className="grid w-11 flex-none place-items-center bg-paper-warm text-ink transition-colors duration-200 hover:bg-paper-cream"
             >
@@ -285,6 +286,7 @@ export default function GroupQuote({ data }) {
             <button
               type="button"
               onClick={() => setTeamSizeCustom((n) => n + 1)}
+              title="Click Here to View Increase number of team members"
               aria-label="Increase number of team members"
               className="grid w-11 flex-none place-items-center bg-paper-warm text-ink transition-colors duration-200 hover:bg-paper-cream"
             >
@@ -319,6 +321,7 @@ export default function GroupQuote({ data }) {
           <button
             type="button"
             onClick={() => setProgramMode("catalog")}
+            title="Click Here to View Select from the catalog"
             className={cn(
               "rounded-full px-4.5 py-2 font-body text-[12.5px] font-semibold transition-colors duration-200",
               programMode === "catalog" ? "bg-navy text-lime" : "text-ink/60",
@@ -329,6 +332,7 @@ export default function GroupQuote({ data }) {
           <button
             type="button"
             onClick={() => setProgramMode("upload")}
+            title="Click Here to View Upload a list"
             className={cn(
               "rounded-full px-4.5 py-2 font-body text-[12.5px] font-semibold transition-colors duration-200",
               programMode === "upload" ? "bg-navy text-lime" : "text-ink/60",
@@ -363,6 +367,7 @@ export default function GroupQuote({ data }) {
                 <button
                   type="button"
                   onClick={clearPrograms}
+                  title="Click Here to View Clear all"
                   className="text-[13px] text-ink/60 underline underline-offset-3 hover:text-ink"
                 >
                   Clear all
@@ -605,6 +610,7 @@ export default function GroupQuote({ data }) {
                 <button
                   type="button"
                   onClick={() => setSessionsCustom((n) => Math.max(2, n - 1))}
+                  title="Click Here to View Decrease number of sessions"
                   aria-label="Decrease number of sessions"
                   className="grid w-11 flex-none place-items-center bg-paper-warm text-ink transition-colors duration-200 hover:bg-paper-cream"
                 >
@@ -623,6 +629,7 @@ export default function GroupQuote({ data }) {
                 <button
                   type="button"
                   onClick={() => setSessionsCustom((n) => n + 1)}
+                  title="Click Here to View Increase number of sessions"
                   aria-label="Increase number of sessions"
                   className="grid w-11 flex-none place-items-center bg-paper-warm text-ink transition-colors duration-200 hover:bg-paper-cream"
                 >
@@ -929,6 +936,7 @@ export default function GroupQuote({ data }) {
                 key={tab.id}
                 type="button"
                 role="tab"
+                title={`Click Here to View ${tab.label}`}
                 aria-selected={mode === tab.id}
                 onClick={() => handleTab(tab.id)}
                 className={cn(

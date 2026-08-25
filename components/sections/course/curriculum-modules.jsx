@@ -44,7 +44,10 @@ function ModuleTrigger({ module }) {
 
   return (
     <AccordionPrimitive.Header className="flex">
-      <AccordionPrimitive.Trigger className="group/mod-trigger flex flex-1 items-center gap-4.5 px-5 py-5 text-left outline-none cursor-pointer">
+      <AccordionPrimitive.Trigger
+        title={`Click Here to View ${module.title}`}
+        className="group/mod-trigger flex flex-1 items-center gap-4.5 px-5 py-5 text-left outline-none cursor-pointer"
+      >
         <Text
           as="span"
           className="flex-none font-mono text-xs tracking-[0.1em] text-ink/60"
@@ -199,6 +202,7 @@ export default function CurriculumModules({ filters, modules }) {
             <button
               key={filter.id}
               type="button"
+              title={`Click Here to View ${filter.label}`}
               data-filter={filter.id}
               onClick={() => setActiveFilter(filter.id)}
               className={cn(
