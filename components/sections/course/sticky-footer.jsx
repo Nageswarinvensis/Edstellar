@@ -9,6 +9,8 @@ import { CtaButton } from "@/components/shared/CtaButton";
 
 const ROTATE_MS = 5200;
 
+const STICKY_CTA = { label: "Request a Training Quote", href: "#apply" };
+
 /**
  * Fixed enquiry bar that appears once the hero has scrolled away and retreats
  * while the quote form is on screen, so it never competes with the form it
@@ -144,17 +146,15 @@ export default function StickyFooter({ data }) {
         </Box>
 
         <Box className="flex flex-none items-center gap-3 max-lg:w-full max-lg:justify-center">
-          {data.cta ? (
-            <CtaButton
-              color="lime"
-              size="sm"
-              arrow
-              className="max-lg:w-full"
-              render={<a href={data.cta.href} />}
-            >
-              {data.cta.label}
-            </CtaButton>
-          ) : null}
+          <CtaButton
+            color="lime"
+            size="sm"
+            arrow
+            className="max-lg:w-full"
+            render={<a href={STICKY_CTA.href} />}
+          >
+            {STICKY_CTA.label}
+          </CtaButton>
 
           <Box
             as="button"

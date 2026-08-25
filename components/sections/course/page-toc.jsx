@@ -33,6 +33,12 @@ import { cn } from "@/lib/utils";
  * without ever re-firing, and the same scroll calc is what lets the
  * curriculum item nest its own active module underneath it.
  */
+const TOC_CTA = {
+  label: "Request a Proposal",
+  href: "#apply",
+  note: "A specialist replies within one business day.",
+};
+
 export default function PageToc({ toc, modules, children }) {
   const items = toc?.items;
   const [activeId, setActiveId] = useState(null);
@@ -293,25 +299,17 @@ export default function PageToc({ toc, modules, children }) {
             })}
           </Box>
 
-          {toc.cta ? (
-            <Box className="mt-5.5 border-t border-ink/12 pt-5">
-              <CtaButton
-                block
-                arrow
-                render={<a href={toc.cta.href} />}
-              >
-                {toc.cta.label}
-              </CtaButton>
-              {toc.cta.note ? (
-                <Text
-                  as="p"
-                  className="mt-2.25 text-[11.5px] leading-[1.5] text-ink/45"
-                >
-                  {toc.cta.note}
-                </Text>
-              ) : null}
-            </Box>
-          ) : null}
+          <Box className="mt-5.5 border-t border-ink/12 pt-5">
+            <CtaButton block arrow render={<a href={TOC_CTA.href} />}>
+              {TOC_CTA.label}
+            </CtaButton>
+            <Text
+              as="p"
+              className="mt-2.25 text-[11.5px] leading-[1.5] text-ink/45"
+            >
+              {TOC_CTA.note}
+            </Text>
+          </Box>
         </nav>
 
         <Box className="min-w-0 lg:[&>section]:px-0">{children}</Box>

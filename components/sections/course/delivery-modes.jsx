@@ -5,6 +5,13 @@ import Reveal from "@/components/shared/reveal";
 import SecCta from "@/components/shared/sec-cta";
 import DeliveryModeTabs from "@/components/sections/course/delivery-mode-tabs";
 
+const SECTION_CTA = {
+  title: "Need a training format that works for your team?",
+  description:
+    "Full days, half days across weeks, or split by module. Tell us the delivery window and we schedule the cohort around it.",
+  cta: { label: "Plan Your Training", href: "#apply" },
+};
+
 export default function DeliveryModes({ deliveryModes }) {
   if (!deliveryModes?.tabs?.length) return null;
 
@@ -34,7 +41,7 @@ export default function DeliveryModes({ deliveryModes }) {
         <DeliveryModeTabs tabs={deliveryModes.tabs} />
       </Reveal>
 
-      <SecCta {...deliveryModes.sectionCta} />
+      <SecCta {...SECTION_CTA} />
     </Section>
   );
 }

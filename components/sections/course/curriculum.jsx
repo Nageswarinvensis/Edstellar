@@ -19,6 +19,13 @@ const LEGEND_DOT_CLASSES = {
   apply: "bg-navy",
 };
 
+const SECTION_CTA = {
+  title: "Want this syllabus re-weighted to your gaps?",
+  description:
+    "The modules can be adapted to your needs. Tell us what your team already knows, and we’ll customize the training curriculum around it.",
+  cta: { label: "Customize Your Training Today", href: "#apply" },
+};
+
 function MethodStepText({ parts = [] }) {
   return parts.map((part, index) =>
     part.strong ? (
@@ -43,16 +50,8 @@ function MethodStepText({ parts = [] }) {
 export default function Curriculum({ curriculum }) {
   if (!curriculum?.modules?.length) return null;
 
-  const {
-    heading,
-    description,
-    meta,
-    badge,
-    method,
-    filters,
-    modules,
-    sectionCta,
-  } = curriculum;
+  const { heading, description, meta, badge, method, filters, modules } =
+    curriculum;
 
   return (
     <Section
@@ -266,7 +265,7 @@ export default function Curriculum({ curriculum }) {
         </Box>
       </Reveal>
 
-      <SecCta {...sectionCta} />
+      <SecCta {...SECTION_CTA} />
     </Section>
   );
 }

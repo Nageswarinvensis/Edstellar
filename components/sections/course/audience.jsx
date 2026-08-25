@@ -14,6 +14,13 @@ const LEVEL_CODE = {
   "Very Advanced": "VA",
 };
 
+const SECTION_CTA = {
+  title: "Mixed cohort, or several teams at once?",
+  description:
+    "We can tailor the training to different teams, roles, and experience levels within the same program.",
+  cta: { label: "Share Your Requirements", href: "#apply" },
+};
+
 const GROUP_VARIANT = {
   light: {
     card: "border-ink/12 bg-white",
@@ -154,7 +161,7 @@ function ProgressionDivider({ label, first }) {
 export default function Audience({ audience }) {
   if (!audience?.groups?.length) return null;
 
-  const { heading, description, groups, prerequisites, progression, sectionCta } =
+  const { heading, description, groups, prerequisites, progression } =
     audience;
 
   const prerequisiteFlags = progression?.items?.map((item) =>
@@ -246,7 +253,7 @@ export default function Audience({ audience }) {
         </Reveal>
       ) : null}
 
-      <SecCta {...sectionCta} />
+      <SecCta {...SECTION_CTA} />
     </Section>
   );
 }

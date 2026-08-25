@@ -30,6 +30,13 @@ const TABS = [
 const TEAM_SIZE_OPTIONS = ["1-10", "11-25", "26-50", "51-100", "custom"];
 const SESSION_OPTIONS = ["2", "4", "8", "custom"];
 
+const SECTION_CTA = {
+  title: "Training Packages & Pricing",
+  description:
+    "Choose the training format that works for your team. Pricing is customized based on your requirements, cohort size, and delivery needs.",
+  cta: { label: "See the full package table", href: "#apply" },
+};
+
 // Dial code shown on the final step's phone field is guessed from the
 // visitor's timezone — there's no country selector on this compact form.
 const TIMEZONE_COUNTRY = {
@@ -1054,7 +1061,7 @@ export default function GroupQuote({ data }) {
             ))}
           </Box>
 
-          <SecCta {...data.sectionCta} />
+          <SecCta {...SECTION_CTA} />
         </Box>
       </Reveal>
     </Section>

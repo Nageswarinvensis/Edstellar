@@ -11,6 +11,13 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 
+const SECTION_CTA = {
+  title: "Question not answered here?",
+  description:
+    "Put it in the request. A training specialist answers it directly, within one business day.",
+  cta: { label: "Talk to our Expert", href: "#apply" },
+};
+
 /**
  * `AccordionTrigger` in components/ui/accordion.jsx bakes in chevron icons
  * with no way to swap them, and that file is shadcn-owned (never edit it
@@ -79,7 +86,7 @@ export default function Faq({ faqs }) {
           </Accordion>
         </Reveal>
 
-        <SecCta {...faqs.sectionCta} />
+        <SecCta {...SECTION_CTA} />
       </Box>
     </Section>
   );
