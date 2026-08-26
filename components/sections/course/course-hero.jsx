@@ -7,6 +7,12 @@ import HeroMedia from "@/components/shared/hero-media";
 import HeroMeta from "@/components/shared/hero-meta";
 import Reveal from "@/components/shared/reveal";
 import RichHeading from "@/components/shared/rich-heading";
+
+const HERO_ACTIONS = [
+  { href: "#curriculum", label: "View course outline", variant: "primary" },
+  { href: "#apply", label: "Enquire now", variant: "ghost" },
+];
+
 /**
  * Category hero — shared by the category page and the course page within it.
  *
@@ -30,9 +36,8 @@ function CategoryHero({ hero, breadcrumbs }) {
 
         <Box
           className={`relative z-1 max-w-full ${
-            hero.actions?.some(
-              (action) =>
-                action.label?.toLowerCase() === "download brochure"
+            HERO_ACTIONS.some(
+              (action) => action.label?.toLowerCase() === "download brochure",
             )
               ? "lg:max-w-[50%]"
               : "lg:max-w-[46%]"
@@ -71,7 +76,7 @@ function CategoryHero({ hero, breadcrumbs }) {
 
           <Reveal delay={3}>
             <Box className="flex flex-wrap gap-3">
-              {hero.actions?.map((action) => (
+              {HERO_ACTIONS.map((action) => (
                 <CtaButton
                   key={action.label}
                   variant={action.variant}
