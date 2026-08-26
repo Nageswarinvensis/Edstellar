@@ -108,7 +108,7 @@ export default function Industries({ data }) {
         )}
 
         {data.subtitle && (
-          <Text as="p" className="mt-4 max-w-[720px] text-[13px] leading-[1.7] text-[#526176]">
+          <Text as="p" className="mt-4 max-w-180 text-[13px] leading-[1.7] text-[#526176]">
             {data.subtitle}
           </Text>
         )}
@@ -124,7 +124,7 @@ export default function Industries({ data }) {
                 <ul className="mt-4 space-y-2.5 text-[12px] leading-[1.6] text-[#4A5568]">
                   {data.infoBoxes.left.points?.map((p, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <Box as="span" className="mt-1.5 h-[3px] w-[3px] rounded-full bg-[#718096] shrink-0" />
+                      <Box as="span" className="mt-1.5 h-0.75 w-0.75 rounded-full bg-[#718096] shrink-0" />
                       <Text as="span">
                         {p.text}{" "}
                         {p.bold && <strong className="font-semibold text-[#1A202C]">{p.bold}</strong>}{" "}
@@ -216,7 +216,7 @@ export default function Industries({ data }) {
             {filteredCatalog.map((card) => (
               <Box
                 key={card.id || card.title}
-                className="w-[395px] shrink-0 rounded-[8px] border border-[#E2E8F0] bg-[#FFFFFF] p-5 shadow-sm flex flex-col justify-between"
+                className="w-98.75 shrink-0 rounded-[8px] border border-[#E2E8F0] bg-[#FFFFFF] p-5 shadow-sm flex flex-col justify-between"
               >
                 <Box>
                   <Box className="flex items-center gap-3">
@@ -293,7 +293,7 @@ export default function Industries({ data }) {
             {filteredProposed.map((card) => (
               <Box
                 key={card.id || card.title}
-                className="w-[395px] shrink-0 rounded-[8px] border border-dashed border-[#CBD5E0] bg-transparent p-5 flex flex-col justify-between"
+                className="w-98.75 shrink-0 rounded-[8px] border border-dashed border-[#CBD5E0] bg-transparent p-5 flex flex-col justify-between"
               >
                 <Box>
                   <Box className="flex items-center gap-3">

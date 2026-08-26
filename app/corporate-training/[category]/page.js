@@ -13,6 +13,7 @@ import Outcomes1 from "@/components/sections/category/outcomes";
 import Card from "@/components/sections/category/card";
 import Industries from "@/components/sections/category/industries";
 import Marquee from "@/components/sections/category/marquee";
+import Program from "@/components/sections/category/programs";
 import Paths from "@/components/sections/category/paths";
 import Governance from "@/components/sections/category/governance";
 import Trainers from "@/components/sections/course/trainers";
@@ -77,6 +78,7 @@ export default async function CategoryPage({ params }) {
         ctaBannerData={data.industriesData?.ctaBannerData} />
       <Marquee stack={data.marqueeData} />
       <Paths data={data.pathsData}/>
+      <Program data={data.programData}/>
       <Governance data={data.governanceData}
       ctaBannerData={data.governanceData?.ctaBannerData} />
       <Trainers trainers={data.trainers} />
