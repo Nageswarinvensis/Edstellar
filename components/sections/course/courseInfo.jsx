@@ -8,7 +8,19 @@ const DELIVERY_STAT = {
   label: "Instructor-led (onsite/virtual/hybrid)",
 };
 
-function CourseInfo({ groupQuote, proof }) {
+const GROUP_QUOTE = {
+  href: "#group-quote",
+  label: "Get a group quote",
+  helperText: "Need more than one program?",
+};
+
+const TRAINERS_STATIC = {
+  people: [{ photo: "/course/Avatar.webp" }],
+  trainerLabel: "Expert trainers",
+  meetLabel: "Meet them",
+};
+
+function CourseInfo({ proof }) {
   const badges = proof?.badges ?? [];
   const stats = proof
     ? [
@@ -16,6 +28,10 @@ function CourseInfo({ groupQuote, proof }) {
         DELIVERY_STAT,
       ]
     : [];
+  const trainers = proof?.trainers && {
+    ...proof.trainers,
+    ...TRAINERS_STATIC,
+  };
 
   return (
     <Box as="section" className="px-5 py-5 lg:px-10">
@@ -56,40 +72,38 @@ function CourseInfo({ groupQuote, proof }) {
           <ProofBar
             tone={proof?.tone}
             stats={stats}
-            trainers={proof?.trainers}
+            trainers={trainers}
             actions={proof?.actions}
           />
         </Reveal>
 
-        {groupQuote ? (
-          <Reveal delay={4}>
+        <Reveal delay={4}>
+          <Box
+            as="p"
+            className="mt-4 flex flex-wrap items-center justify-center gap-2 max-sm:mt-3.25 max-sm:gap-2"
+          >
             <Box
-              as="p"
-              className="mt-4 flex flex-wrap items-center justify-center gap-2 max-sm:mt-3.25 max-sm:gap-2"
+              as="span"
+              className="font-mono text-[10px] tracking-[0.13em] text-ink/60 uppercase max-sm:text-[9.5px]"
             >
-              <Box
-                as="span"
-                className="font-mono text-[10px] tracking-[0.13em] text-ink/60 uppercase max-sm:text-[9.5px]"
-              >
-                {groupQuote.prompt}
-              </Box>
-
-              <a
-                href={groupQuote.href}
-                className="group border-b border-lime/55 pb-0.5 font-mono text-[10px] font-medium tracking-[0.13em] text-ink/60 uppercase transition-colors hover:border-navy hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy max-sm:text-[9.5px]"
-              >
-                {groupQuote.label}
-
-                <span
-                  aria-hidden="true"
-                  className="ml-1.5 inline-block transition-transform duration-[250ms] group-hover:translate-x-1 motion-reduce:transition-none"
-                >
-                  →
-                </span>
-              </a>
+              {GROUP_QUOTE.helperText}
             </Box>
-          </Reveal>
-        ) : null}
+
+            <a
+              href={GROUP_QUOTE.href}
+              className="group border-b border-lime/55 pb-0.5 font-mono text-[10px] font-medium tracking-[0.13em] text-ink/60 uppercase transition-colors hover:border-navy hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy max-sm:text-[9.5px]"
+            >
+              {GROUP_QUOTE.label}
+
+              <span
+                aria-hidden="true"
+                className="ml-1.5 inline-block transition-transform duration-[250ms] group-hover:translate-x-1 motion-reduce:transition-none"
+              >
+                →
+              </span>
+            </a>
+          </Box>
+        </Reveal>
       </Box>
     </Box>
   );

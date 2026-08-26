@@ -72,11 +72,7 @@ export default async function CoursePage({ params }) {
 
       <CategoryHero hero={course.hero} breadcrumbs={course.breadcrumbs} />
 
-      <CategoryInfo
-        topics={course.hero?.topics}
-        groupQuote={course.hero?.groupQuote}
-        proof={course.proof}
-      />
+      <CategoryInfo topics={course.hero?.topics} proof={course.proof} />
 
       <ClientLogos data={course.ClientsLogosData} />
       <CategoryAbout about={course.about} />
@@ -98,7 +94,7 @@ export default async function CoursePage({ params }) {
 
       <MapSection data={course.mapsectionData} />
 
-      <GroupQuote data={course.groupQuote} />
+      <GroupQuote />
 
       <LeadForm data={course.leadForm} />
       <StickyFooter data={course.stickyFooter} />

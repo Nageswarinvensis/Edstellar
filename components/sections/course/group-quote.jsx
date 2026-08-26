@@ -37,6 +37,19 @@ const SECTION_CTA = {
   cta: { label: "See the full package table", href: "#apply" },
 };
 
+const SECTION_DATA = {
+  title: {
+    parts: [
+      { text: "Start an RFP " },
+      { text: "shaped to your needs", em: true },
+      { text: "." },
+    ],
+  },
+  description:
+    "Answer three quick questions about team size, scope, and how often you need the program run, then send the request from the last step. Everything you choose travels with it, so you only fill this in once.",
+  lockedProgram: "ML Model Monitoring Training",
+};
+
 // Dial code shown on the final step's phone field is guessed from the
 // visitor's timezone — there's no country selector on this compact form.
 const TIMEZONE_COUNTRY = {
@@ -83,7 +96,7 @@ function stripTrainingSuffix(name) {
  * last step. This section stands alone and does not hand off to `LeadForm`
  * elsewhere on the page — each has its own independent submit.
  */
-export default function GroupQuote({ data }) {
+export default function GroupQuote() {
   const cardRef = useRef(null);
 
   const [mode, setMode] = useState("one-time");
@@ -100,7 +113,7 @@ export default function GroupQuote({ data }) {
   const [programMode, setProgramMode] = useState("catalog");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(
-    () => new Set(data?.lockedProgram ? [data.lockedProgram] : []),
+    () => new Set([SECTION_DATA.lockedProgram]),
   );
   const [fileName, setFileName] = useState("");
 
@@ -137,8 +150,6 @@ export default function GroupQuote({ data }) {
     setContactCompany(values.company);
     setContactSubmitted(true);
   }
-
-  if (!data) return null;
 
   function isStepValid(step) {
     if (step === "size") {
@@ -187,7 +198,7 @@ export default function GroupQuote({ data }) {
   }
 
   function toggleProgram(name) {
-    if (name === data.lockedProgram) return;
+    if (name === SECTION_DATA.lockedProgram) return;
     setSelected((prev) => {
       const next = new Set(prev);
       if (next.has(name)) next.delete(name);
@@ -198,7 +209,7 @@ export default function GroupQuote({ data }) {
   }
 
   function clearPrograms() {
-    setSelected(new Set(data.lockedProgram ? [data.lockedProgram] : []));
+    setSelected(new Set([SECTION_DATA.lockedProgram]));
   }
 
   function sizeText() {
@@ -393,7 +404,7 @@ export default function GroupQuote({ data }) {
                       {group.group}
                     </Text>
                     {group.items.map((item) => {
-                      const locked = item.name === data.lockedProgram;
+                      const locked = item.name === SECTION_DATA.lockedProgram;
                       const checked = selected.has(item.name);
                       return (
                         <Box
@@ -914,7 +925,7 @@ export default function GroupQuote({ data }) {
       <Reveal delay={1}>
         <RichHeading
           as="h2"
-          parts={data.title?.parts}
+          parts={SECTION_DATA.title.parts}
           className="mb-5 max-w-[18ch] font-display text-[clamp(28px,4vw,46px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink"
         />
       </Reveal>
@@ -924,7 +935,7 @@ export default function GroupQuote({ data }) {
           as="p"
           className="mb-11 max-w-[64ch] text-[15px] leading-[1.7] text-ink/60 lg:text-[17px]"
         >
-          {data.description}
+          {SECTION_DATA.description}
         </Text>
       </Reveal>
 
