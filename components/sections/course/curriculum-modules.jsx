@@ -40,7 +40,7 @@ function formatHours(hours) {
 }
 
 function ModuleTrigger({ module }) {
-  const band = module.band?.toLowerCase();
+  const band = module.learning_phase?.toLowerCase();
 
   return (
     <AccordionPrimitive.Header className="flex">
@@ -78,7 +78,7 @@ function ModuleTrigger({ module }) {
                   BAND_CLASSES[band],
                 )}
               >
-                {module.band}
+                {module.learning_phase}
               </Text>
             ) : null}
             <Text as="span" className="font-mono text-[10px] text-ink/45">

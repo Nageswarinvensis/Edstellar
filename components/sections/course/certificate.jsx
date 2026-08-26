@@ -2,8 +2,8 @@ import Image from "next/image";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/shared/rich-heading";
-import Reveal from "@/components/shared/reveal";
+import RichHeading from "@/components/common/rich-heading";
+import Reveal from "@/components/common/reveal";
 
 export default function Certificate({ certificate }) {
   if (!certificate) return null;
@@ -50,8 +50,8 @@ export default function Certificate({ certificate }) {
               <Box className="relative aspect-[1080/764] overflow-hidden rounded-[11px] border border-lime/20">
                 <Image
                   src="/course/Edstellar Sample Certificate.webp"
-                  alt={certificate.certificateCard.title}
-                  title={certificate.certificateCard.title}
+                  alt={certificate.certificate_card?.title}
+                  title={certificate.certificate_card?.title}
                   fill
                   className="object-cover"
                 />

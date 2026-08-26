@@ -6,7 +6,7 @@
 
 Public **marketing website** for Edstellar. Next.js 15.2.8 App Router · **JavaScript only, never TypeScript** · Tailwind CSS v4 · shadcn/ui · react-hook-form.
 
-Route contract: `/consulting/{slug}`, `/corporate-training/{category}`, `/corporate-training/{category}/{course-slug}`, `/resources/{category}/{slug}`, `/blog/{slug}` (phase 2). Full detail in TASTE.md §1.
+Route contract: `/corporate-training/{slug}` (one route serving **industry | vendor | domain**, three different designs), `/corporate-training/{domain}/{course-slug}`, top-level consulting pillars with `[slug]` children, `/resources/{type}/{slug}` (five types, own design each), `/blog/{slug}`, `/trainers/{slug}`. Full detail in TASTE.md §1.
 
 ## Non-negotiables
 
@@ -18,10 +18,22 @@ Route contract: `/consulting/{slug}`, `/corporate-training/{category}`, `/corpor
 6. **Unknown slug → `notFound()`**, never a 200 response saying "not found" (soft 404).
 7. **Use `<Text>` and `<Box>`** from `components/ui/` instead of raw `h1`–`h5`/`p`/`span`/`div`.
 8. **Never edit `components/ui/` shadcn files** — the CLI regenerates them. Wrap or compose instead.
-9. **All content reads go through `lib/content/`.** Pages never call a CMS or database directly.
-10. **Tailwind only** — no inline styles, no hardcoded hex. Tokens live in the `@theme` block in `app/globals.css`; there is no `tailwind.config.js`.
+9. **All content reads go through `lib/content/`**, and **`lib/api/client.js` holds the only `fetch` in the codebase.** Both API modules carry `import "server-only"` — adding a second `fetch` anywhere else is a bug, not a shortcut.
+10. **Components read the CMS's field names verbatim — `snake_case`.** `heading_parts` stays `heading_parts` from the API response into the JSX. There is no adapter layer. Data fields are snake_case; props and variables stay camelCase. See TASTE.md §5.4.
+11. **Route groups are layout tools, not folder tools.** Three layout boundaries exist: `(site)`, `(bare)`, `(legal)`. A group with a `layout.js` remounts its shell when you cross it; a group *without* one is free organization. Never one group per section.
+12. **Page designs live in `components/templates/`**, one file per design — a Server Component taking one view-model prop and composing sections. `/corporate-training/{slug}` picks a template by resolved type; it cannot use `layout.js` for this, because all three types share one route.
+13. **`lib/content/taxonomy.js` owns slug→type resolution** and throws on a slug collision across industry/vendor/domain. A collision must fail the build.
+14. **Tailwind only** — no inline styles, no hardcoded hex. Tokens live in the `@theme` block in `app/globals.css`; there is no `tailwind.config.js`.
 
 ## Gotchas verified in this codebase
+
+- **Never add a root `app/loading.js`.** It wraps every route in Suspense, so Next sends HTTP 200 with the spinner before `notFound()` can set a 404 — every unknown slug becomes a soft 404. Verified by measurement: with it, a bad course URL returned 200 and a spinner; without it, 404. One existed in this repo and was removed.
+- **A course does not need to be in `COURSES_BY_DOMAIN` to work.** Ownership is decided by the CMS's `page.meta.category`. The registry only controls what gets prerendered and listed in `sitemap.xml`; an unlisted published course still renders on demand. Verified by building with a course removed from the registry and fetching it successfully.
+- **Heading emphasis is `is_italic`, not `em`.** `RichHeading` reads `part.is_italic` because that is what the CMS sends. A literal `{ text, em: true }` in a component renders with no emphasis and fails silently — there is no error.
+- **`Testimonials` sends a flat `heading_parts`; most other components send nested `heading: { parts }`.** The CMS is not internally consistent here. Read what the component actually sends rather than assuming the common shape.
+- **The CMS has no index endpoint** — only `/api/v2/pages/{slug}`. `content/courses/index.js` is therefore the enumeration source for `generateStaticParams` and `sitemap.js`, and it is also what proves a course belongs to its domain.
+- **`getPrerenderedCoursePaths` and `getAllCoursePaths` are deliberately different sets.** The sitemap must use the second one: catalog pagination is client-side, so the sitemap is the only crawl path to the long tail.
+- **`import "server-only"` is a real dependency** and is installed. It is what keeps `CMS_API_URL` out of the client bundle.
 
 - **Overriding `text-*` on a `<Text>` silently deletes its `leading-*`.** In Tailwind v4 `text-*` sets font-size *and* line-height, so `tailwind-merge` treats a later `text-*` as superseding an earlier `leading-*`. Whenever you pass a size override, restate the line-height in the same `className` — or override only the responsive variant (`max-lg:text-[…]`), which does not conflict. This bit all four sections on the first pass.
 - **There is no `asChild`** — `components/ui/` is Base UI, which uses a `render` prop: `<CtaButton render={<Link href="/x" />}>`. Passing `asChild` silently nests an anchor inside a button.

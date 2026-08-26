@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import { CtaButton } from "@/components/shared/CtaButton";
+import { CtaButton } from "@/components/common/cta-button";
 import { cn } from "@/lib/utils";
 
 /**
@@ -80,7 +80,7 @@ export default function PageToc({ toc, modules, children }) {
       .filter(Boolean);
     if (!sections.length) return;
 
-    const moduleSectionId = items.find((item) => item.hasModules)?.id;
+    const moduleSectionId = items.find((item) => item.has_modules)?.id;
     const moduleEls = modules?.length
       ? modules
           .map((module) => document.getElementById(`mod-${module.number}`))
@@ -208,7 +208,7 @@ export default function PageToc({ toc, modules, children }) {
             {items.map((item) => {
               const isActive = item.id === activeId;
               const showModules =
-                item.hasModules && isActive && modules?.length;
+                item.has_modules && isActive && modules?.length;
 
               return (
                 <Box as="li" key={item.id}>

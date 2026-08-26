@@ -6,14 +6,14 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 import Box from "@/components/ui/Box";
-import { CtaButton } from "@/components/shared/CtaButton";
+import { CtaButton } from "@/components/common/cta-button";
 import MobileNav from "@/components/layout/mobile-nav";
 import { NAV_LINKS, HEADER_CTA } from "@/lib/constants";
 import {
   subscribeHeaderHidden,
   getHeaderHiddenSnapshot,
   getHeaderHiddenServerSnapshot,
-} from "@/lib/header-visibility";
+} from "@/lib/client/header-visibility";
 
 /**
  * Global sticky nav. Client Component for the mobile menu toggle — the
@@ -23,7 +23,7 @@ import {
  *
  * On course pages the sticky tab bar takes over the top of the viewport once
  * it's pinned, so this hides itself rather than sit underneath it — see
- * `lib/header-visibility.js`.
+ * `lib/client/header-visibility.js`.
  */
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);

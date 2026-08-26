@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import CtaButton from "@/components/shared/CtaButton";
+import CtaButton from "@/components/common/cta-button";
 
 export const metadata = {
   title: "Page not found",

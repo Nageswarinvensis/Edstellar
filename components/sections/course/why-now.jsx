@@ -1,8 +1,8 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/shared/rich-heading";
-import Reveal from "@/components/shared/reveal";
+import RichHeading from "@/components/common/rich-heading";
+import Reveal from "@/components/common/reveal";
 
 /**
  * Course "why now" block — the case for urgency, in three parts: a

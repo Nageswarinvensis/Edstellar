@@ -2,9 +2,9 @@ import { ArrowRight, Star } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/shared/rich-heading";
-import Reveal from "@/components/shared/reveal";
-import SecCta from "@/components/shared/sec-cta";
+import RichHeading from "@/components/common/rich-heading";
+import Reveal from "@/components/common/reveal";
+import SecCta from "@/components/common/sec-cta";
 import CurriculumModules from "@/components/sections/course/curriculum-modules";
 
 const SEGMENT_CLASSES = {
@@ -50,7 +50,7 @@ function MethodStepText({ parts = [] }) {
 export default function Curriculum({ curriculum }) {
   if (!curriculum?.modules?.length) return null;
 
-  const { heading, description, meta, badge, method, filters, modules } =
+  const { heading, description, meta, author_credit, method, filters, modules } =
     curriculum;
 
   return (
@@ -76,7 +76,7 @@ export default function Curriculum({ curriculum }) {
           </Text>
         </Reveal>
 
-        {badge ? (
+        {author_credit ? (
           <Reveal delay={2}>
             <Box className="w-full max-w-[330px] rounded-[14px] border border-ink/12 bg-white p-3.75 transition-[border-color,box-shadow] duration-300 hover:border-ink/20 hover:shadow-[0_16px_36px_-28px_rgba(10,22,40,0.45)]">
               <Box className="mb-2 flex items-center gap-2.5">
@@ -87,11 +87,11 @@ export default function Curriculum({ curriculum }) {
                   as="h3"
                   className="min-w-0 font-display text-[12.5px] leading-[1.3] font-semibold tracking-[-0.01em] text-ink"
                 >
-                  {badge.title}
+                  {author_credit.title}
                 </Text>
               </Box>
               <Text as="p" className="text-[11.5px] leading-[1.55] text-ink/60">
-                {badge.description}
+                {author_credit.description}
               </Text>
             </Box>
           </Reveal>
@@ -159,8 +159,8 @@ export default function Curriculum({ curriculum }) {
                 >
                   {method.split.map((segment) => (
                     <Box
-                      key={segment.key}
-                      className={`${SEGMENT_CLASSES[segment.key]} not-first:border-l not-first:border-navy`}
+                      key={segment.phase_key}
+                      className={`${SEGMENT_CLASSES[segment.phase_key]} not-first:border-l not-first:border-navy`}
                       style={{ width: `${segment.percent}%` }}
                     />
                   ))}
@@ -169,12 +169,12 @@ export default function Curriculum({ curriculum }) {
                 <Box className="mt-3 flex flex-wrap gap-5">
                   {method.split.map((segment) => (
                     <Box
-                      key={segment.key}
+                      key={segment.phase_key}
                       className="flex items-center gap-1.75"
                     >
                       <Box
                         aria-hidden="true"
-                        className={`size-2.25 flex-none rounded-[3px] ${LEGEND_DOT_CLASSES[segment.key]}`}
+                        className={`size-2.25 flex-none rounded-[3px] ${LEGEND_DOT_CLASSES[segment.phase_key]}`}
                       />
                       <Text
                         as="span"
@@ -215,7 +215,7 @@ export default function Curriculum({ curriculum }) {
                   </Text>
                 ))}
 
-                {method.capsule?.map((item) => (
+                {method.summary_pills?.map((item) => (
                   <Text
                     key={item}
                     as="span"
@@ -225,9 +225,9 @@ export default function Curriculum({ curriculum }) {
                   </Text>
                 ))}
 
-                {method.capsuleNote ? (
+                {method.summary_note ? (
                   <Text as="span" className="ml-auto text-[12px] text-ink/60">
-                    {method.capsuleNote}
+                    {method.summary_note}
                   </Text>
                 ) : null}
               </Box>
@@ -239,7 +239,7 @@ export default function Curriculum({ curriculum }) {
                   as="p"
                   className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink"
                 >
-                  {method.toolsLabel}
+                  {method.tools_label}
                 </Text>
 
                 <Box className="mt-3 flex flex-wrap gap-2">

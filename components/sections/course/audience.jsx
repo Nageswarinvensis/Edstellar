@@ -1,9 +1,9 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/shared/rich-heading";
-import Reveal from "@/components/shared/reveal";
-import SecCta from "@/components/shared/sec-cta";
+import RichHeading from "@/components/common/rich-heading";
+import Reveal from "@/components/common/reveal";
+import SecCta from "@/components/common/sec-cta";
 import { cn } from "@/lib/utils";
 
 const LEVEL_CODE = {
@@ -99,31 +99,31 @@ function ProgressionRow({ item }) {
           as="span"
           className="flex-none font-mono text-[10px] tracking-[0.06em] text-ink/60 uppercase"
         >
-          {LEVEL_CODE[item.entryLevel]} <span aria-hidden="true">→</span>{" "}
-          <b className="font-semibold text-ink">{LEVEL_CODE[item.exitLevel]}</b>
+          {LEVEL_CODE[item.entry_level]} <span aria-hidden="true">→</span>{" "}
+          <b className="font-semibold text-ink">{LEVEL_CODE[item.exit_level]}</b>
         </Text>
       </Box>
 
       <Box
         role="img"
-        aria-label={`${item.skill}: ${item.entryLevel} on entry, ${item.exitLevel} on completion`}
+        aria-label={`${item.skill}: ${item.entry_level} on entry, ${item.exit_level} on completion`}
         className="relative h-2 overflow-visible rounded-full bg-paper-warm"
       >
         <Box
           className="absolute top-0 left-0 h-full rounded-full bg-[linear-gradient(90deg,var(--color-navy-deep),var(--color-lime))]"
-          style={{ width: `${item.exitPercent}%` }}
+          style={{ width: `${item.exit_percent}%` }}
         />
-        {item.entryPercent > 0 ? (
+        {item.entry_percent > 0 ? (
           <Box
             aria-hidden="true"
             className="absolute top-1/2 h-2 w-0.5 -translate-y-1/2 rounded-xs bg-paper/85"
-            style={{ left: `${item.entryPercent}%` }}
+            style={{ left: `${item.entry_percent}%` }}
           />
         ) : null}
         <Box
           aria-hidden="true"
           className="absolute top-1/2 h-3.75 w-0.5 -translate-y-1/2 rounded-xs bg-ink/60"
-          style={{ left: `${item.exitPercent}%` }}
+          style={{ left: `${item.exit_percent}%` }}
         />
       </Box>
     </Box>
@@ -165,7 +165,7 @@ export default function Audience({ audience }) {
     audience;
 
   const prerequisiteFlags = progression?.items?.map((item) =>
-    Boolean(item.prerequisite),
+    Boolean(item.is_prerequisite),
   );
   const firstPrerequisiteIndex = prerequisiteFlags?.indexOf(true) ?? -1;
   const lastPrerequisiteIndex = prerequisiteFlags?.lastIndexOf(true) ?? -1;

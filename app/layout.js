@@ -1,11 +1,16 @@
 import { Sora, Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 
 import { SITE } from "@/lib/constants";
-import AppProviders from "@/components/providers/app-providers";
-import SiteHeader from "@/components/layout/site-header";
-import SiteFooter from "@/components/layout/site-footer";
-import ReadingProgress from "@/components/shared/reading-progress";
 import "./globals.css";
+
+/**
+ * Root layout. Fonts, `metadataBase`, and the document shell — nothing else.
+ *
+ * The header and footer live in `(site)/layout.js` rather than here, so a page
+ * can opt out of them by living in `(bare)/` instead. There is exactly one
+ * root layout: a second one would turn every navigation between groups into a
+ * full page load (TASTE.md §1.4).
+ */
 
 const sora = Sora({
   variable: "--font-sora",
@@ -55,10 +60,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${sora.variable} ${cormorant.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
       >
-        <ReadingProgress />
-        <SiteHeader />
-        <AppProviders>{children}</AppProviders>
-        <SiteFooter />
+        {children}
       </body>
     </html>
   );

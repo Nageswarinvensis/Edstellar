@@ -1,8 +1,8 @@
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/shared/rich-heading";
-import Reveal from "@/components/shared/reveal";
-import SecCta from "@/components/shared/sec-cta";
+import RichHeading from "@/components/common/rich-heading";
+import Reveal from "@/components/common/reveal";
+import SecCta from "@/components/common/sec-cta";
 import DeliveryModeTabs from "@/components/sections/course/delivery-mode-tabs";
 
 const SECTION_CTA = {

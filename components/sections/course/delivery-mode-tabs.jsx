@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
  * Design: `#modeTabs`, `.tab`, `#modePanels`, `.tab-panel`, `.mode-art`. The
  * design's photography is not reproduced (no real asset exists yet) — a
  * tonal placeholder carries the mode's badge instead, matching the
- * convention in `components/shared/hero-media.jsx`.
+ * convention in `components/common/hero-media.jsx`.
  */
 export default function DeliveryModeTabs({ tabs }) {
   const [activeId, setActiveId] = useState(tabs?.[0]?.id);

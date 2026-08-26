@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 
 import Box from "@/components/ui/Box";
-import { CtaButton } from "@/components/shared/CtaButton";
+import { CtaButton } from "@/components/common/cta-button";
 
 /**
  * Slide-down panel for SiteHeader's mobile menu. Controlled entirely by the

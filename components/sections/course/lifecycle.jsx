@@ -1,7 +1,7 @@
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/shared/rich-heading";
-import Reveal from "@/components/shared/reveal";
+import RichHeading from "@/components/common/rich-heading";
+import Reveal from "@/components/common/reveal";
 import LifecycleStages from "@/components/sections/course/lifecycle-stages";
 
 export default function Lifecycle({ lifecycle }) {
