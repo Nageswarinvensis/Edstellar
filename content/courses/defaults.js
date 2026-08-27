@@ -117,6 +117,10 @@ export const COURSE_DEFAULTS = {
   },
 
   mapsectionData: {
+    image: {
+      src: "/course/map1.png",
+      alt: "Global delivery map",
+    },
     stats: [
       { value: "10,000+", label: "EXPERT TRAINERS" },
       { value: "13+", label: "YEARS DELIVERING" },

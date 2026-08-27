@@ -64,7 +64,7 @@ export default function Curriculum({ curriculum }) {
   return (
     <Section
       id="curriculum"
-      className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] "
+      className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))]"
     >
       <Reveal delay={1}>
         <RichHeading
@@ -86,7 +86,7 @@ export default function Curriculum({ curriculum }) {
 
         {author_credit ? (
           <Reveal delay={2}>
-            <Box className="w-full max-w-[330px] rounded-[14px] border border-ink/12 bg-white p-3.75 transition-[border-color,box-shadow] duration-300 hover:border-ink/20 hover:shadow-[0_16px_36px_-28px_rgba(10,22,40,0.45)]">
+            <Box className="w-full max-w-82.5 rounded-[14px] border border-ink/12 bg-white p-3.75 transition-[border-color,box-shadow] duration-300 hover:border-ink/20 hover:shadow-[0_16px_36px_-28px_rgba(10,22,40,0.45)]">
               <Box className="mb-2 flex items-center gap-2.5">
                 <Image
                   src="/course/Avatar.webp"
@@ -202,7 +202,7 @@ export default function Curriculum({ curriculum }) {
                 {method.note ? (
                   <Text
                     as="p"
-                    className="mt-[13px] max-w-[76ch] text-[12px] leading-[1.6] text-ink/60"
+                    className="mt-3.25 max-w-[76ch] text-[12px] leading-[1.6] text-ink/60"
                   >
                     {method.note}
                   </Text>

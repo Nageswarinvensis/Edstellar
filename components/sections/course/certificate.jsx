@@ -11,7 +11,7 @@ export default function Certificate({ certificate }) {
   return (
     <Section
       id="certificate"
-      className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] border-t border-ink/10"
+      className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
     >
       <Box className="grid items-center gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
         {/* Left */}

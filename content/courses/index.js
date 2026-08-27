@@ -23,6 +23,8 @@ import mlModelMonitoring from "./ml-model-monitoring.json";
  */
 export const COURSES_BY_DOMAIN = {
   "artificial-intelligence": ["ml-model-monitoring", "phishing-awareness-training"],
+  "devops-training": ["platform-engineering-training"],
+  "soft-skills-training": ["email-etiquette-training"],
 };
 
 /**

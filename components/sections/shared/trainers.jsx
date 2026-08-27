@@ -8,7 +8,10 @@ export default function Trainers({ trainers }) {
   if (!trainers?.people?.length) return null;
 
   return (
-    <Section id="trainers" className="border-t border-ink/10">
+    <Section
+      id="trainers"
+      className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
+    >
       <Reveal delay={1}>
         <RichHeading
           as="h2"

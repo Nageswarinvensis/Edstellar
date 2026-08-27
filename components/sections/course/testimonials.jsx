@@ -113,9 +113,9 @@ export default function Testimonials({ testimonials }) {
   return (
     <Section
       id="results"
-      className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] border-t border-ink/10"
+      className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
     >
-      <Box className="mx-auto max-w-[57.5rem]">
+      <Box className="mx-auto max-w-230">
         <Reveal delay={1}>
           <RichHeading
             as="h2"
