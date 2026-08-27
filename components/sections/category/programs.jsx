@@ -16,11 +16,15 @@ import Section from "@/components/ui/Section";
 
 const COURSES_PER_PAGE = 9;
 
+const paginationButtonBase = "flex h-8 w-8 items-center justify-center rounded-[7px] border transition-all duration-200";
+
+const paginationTextBase = "text-[9px] font-medium uppercase tracking-[1px]";
+
 function RichHeading({ parts }) {
   return (
     <Text
-      as="h1"
-      className="max-w-180 text-[38px] font-semibold leading-[0.98] tracking-[-1.8px] text-[#07182C] sm:text-[44px] lg:text-[48px]"
+      as="h2"
+      className="max-w-110 text-[30px] font-semibold leading-[0.98] tracking-[-1.8px] text-[#07182C] lg:text-[36px]"
     >
       {parts.map((part, index) =>
         part.em ? (
@@ -149,69 +153,53 @@ function Duration({ duration, data }) {
     return null;
   }
 
-  if (duration.type === "request") {
-    return (
-      <div className="flex items-center gap-[7px]">
-        <Clock3
-          size={12}
-          strokeWidth={1.5}
-          className="text-[#7A818A]"
-        />
+  const durationText =
+    duration.type === "request"
+      ? cardData.durationOnRequest
+      : duration.type === "range" &&
+          duration.min !== undefined &&
+          duration.max !== undefined
+        ? `${duration.min} - ${duration.max} ${cardData.hoursSuffix}`
+        : null;
 
-        <Text
-          as="span"
-          className="text-[9px] font-medium uppercase tracking-[1.3px] text-[#727984]"
-        >
-          {cardData.durationOnRequest}
-        </Text>
-      </div>
-    );
+  if (!durationText) {
+    return null;
   }
 
-  if (
-    duration.type === "range" &&
-    duration.min !== undefined &&
-    duration.max !== undefined
-  ) {
-    return (
-      <div className="flex items-center gap-[7px]">
-        <Clock3
-          size={12}
-          strokeWidth={1.5}
-          className="text-[#7A818A]"
-        />
+  return (
+    <div className="flex items-center gap-[7px]">
+      <Clock3
+        size={12}
+        strokeWidth={1.5}
+        className="text-[#7A818A]"
+      />
 
-        <Text
-          as="span"
-          className="text-[9px] font-medium uppercase tracking-[1.3px] text-[#727984]"
-        >
-          {duration.min} - {duration.max}{" "}
-          {cardData.hoursSuffix}
-        </Text>
-      </div>
-    );
-  }
-
-  return null;
+      <Text
+        as="span"
+        className="text-[9px] font-medium uppercase tracking-[1.3px] text-[#727984]"
+      >
+        {durationText}
+      </Text>
+    </div>
+  );
 }
 
 function CourseCard({ course, data }) {
   const cardData = data.catalog.card;
 
+  const cardClasses = [
+    "group block overflow-hidden rounded-[12px]",
+    course.proposed
+      ? "border border-dashed border-[#D7DADF] hover:border-[#0A1628]"
+      : "border border-solid border-[#D7DADF]",
+    course.proposed ? "bg-paper-warm" : "bg-white",
+    "transition-all duration-300",
+    "hover:-translate-y-0.75",
+    "hover:shadow-[0_12px_30px_rgba(7,24,44,0.09)]",
+  ].join(" ");
+
   return (
-    <a
-      href={course.href}
-      className={[
-        "group block overflow-hidden rounded-[12px]",
-        course.proposed
-        ? "border border-dashed border-[#D7DADF] hover:border-[#0A1628]"
-        : "border border-solid border-[#D7DADF]",
-        course.proposed ? "bg-paper-warm" : "bg-white",
-        "transition-all duration-300",
-        "hover:-translate-y-0.75",
-        "hover:shadow-[0_12px_30px_rgba(7,24,44,0.09)]",
-        ].join(" ")}
-    >
+    <a href={course.href} className={cardClasses}>
       <CourseImage
         course={course}
         data={data}
@@ -278,6 +266,34 @@ function CourseCard({ course, data }) {
   );
 }
 
+function PaginationButton({
+  disabled,
+  active,
+  onClick,
+  children,
+  ariaLabel,
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={ariaLabel}
+      disabled={disabled}
+      onClick={onClick}
+      className={[
+        paginationButtonBase,
+        active
+          ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
+          : "border-[#D7DADF] bg-white text-[#07182C]",
+        disabled
+          ? "cursor-not-allowed opacity-40"
+          : "hover:border-[#07182C]",
+      ].join(" ")}
+    >
+      {children}
+    </button>
+  );
+}
+
 function Pagination({
   currentPage,
   totalPages,
@@ -286,92 +302,78 @@ function Pagination({
 }) {
   const paginationData = data.catalog.pagination;
 
-  const pages = useMemo(() => {
-    const result = [];
+  const handlePageChange = (page) => {
+    onPageChange(page);
 
-    for (let page = 1; page <= totalPages; page += 1) {
-      result.push(page);
-    }
+    requestAnimationFrame(() => {
+      document
+        .getElementById("program-catalog")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+    });
+  };
 
-    return result;
-  }, [totalPages]);
+  const pages = useMemo(
+    () =>
+      Array.from(
+        { length: totalPages },
+        (_, index) => index + 1,
+      ),
+    [totalPages],
+  );
 
   return (
     <div className="mt-3.5 flex flex-wrap items-center justify-center gap-[5px]">
-      <button
-        type="button"
-        aria-label={paginationData.previous}
+      <PaginationButton
+        ariaLabel={paginationData.previous}
         disabled={currentPage === 1}
         onClick={() =>
-          onPageChange(Math.max(1, currentPage - 1))
+          handlePageChange(
+            Math.max(1, currentPage - 1),
+          )
         }
-        className={[
-          "flex h-8 w-8 items-center justify-center rounded-[7px] border",
-          "border-[#D7DADF] bg-white",
-          "text-[#07182C]",
-          "transition-all duration-200",
-          currentPage === 1
-            ? "cursor-not-allowed opacity-40"
-            : "hover:border-[#07182C]",
-        ].join(" ")}
       >
         <ChevronLeft size={14} strokeWidth={1.5} />
-      </button>
+      </PaginationButton>
 
       {pages.map((page) => (
-        <button
+        <PaginationButton
           key={page}
-          type="button"
-          onClick={() => onPageChange(page)}
-          className={[
-            "flex h-8 w-8 items-center justify-center rounded-[7px] border px-2",
-            "text-[10px] font-medium",
-            "transition-all duration-200",
-            currentPage === page
-              ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
-              : "border-[#D7DADF] bg-white text-[#07182C] hover:border-[#07182C]",
-          ].join(" ")}
+          active={currentPage === page}
+          onClick={() => handlePageChange(page)}
         >
           {page}
-        </button>
+        </PaginationButton>
       ))}
 
-      <button
-        type="button"
-        aria-label={paginationData.next}
+      <PaginationButton
+        ariaLabel={paginationData.next}
         disabled={currentPage === totalPages}
         onClick={() =>
-          onPageChange(
+          handlePageChange(
             Math.min(totalPages, currentPage + 1),
           )
         }
-        className={[
-          "flex h-8 w-8 items-center justify-center rounded-[7px] border",
-          "border-[#D7DADF] bg-white",
-          "text-[#07182C]",
-          "transition-all duration-200",
-          currentPage === totalPages
-            ? "cursor-not-allowed opacity-40"
-            : "hover:border-[#07182C]",
-        ].join(" ")}
       >
         <ChevronRight size={14} strokeWidth={1.5} />
-      </button>
+      </PaginationButton>
 
+      {/* ================= ALL PROGRAMS ================= */}
       <Text
         as="span"
         className={[
-            "ml-1.5",
-            "text-[9px] font-medium uppercase tracking-[1px]",
-            "text-[#727984]",
-            "underline underline-offset-[3px]",
-            "transition-colors duration-200",
-            "hover:text-[#07182C]",
-            "hover:cursor-pointer",
+          "ml-1.5",
+          paginationTextBase,
+          "text-[#727984]",
+          "underline underline-offset-[3px]",
+          "transition-colors duration-200",
+          "hover:text-[#07182C]",
+          "hover:cursor-pointer",
         ].join(" ")}
       >
-        {paginationData.allProgramsSuffix}{" "}
-        {data.catalog.courseCount} →
+        All {data.catalog.courseCount} →
       </Text>
     </div>
   );
@@ -524,7 +526,7 @@ export default function Program({ data }) {
         );
 
   return (
-    <Section className="bg-paper">
+    <Section id="program-catalog" className="bg-paper">
       <Box>
         {/* ================= HEADER ================= */}
         <Box>
@@ -631,61 +633,61 @@ export default function Program({ data }) {
             {data.catalog.liveCatalogLabel}
           </Text>
 
-          {/* SEARCH */}
+          {/* ================= SEARCH ================= */}
           <Box className="relative w-full sm:w-[238px]">
-  <Search
-    size={14}
-    strokeWidth={1.5}
-    className="absolute left-[10px] top-1/2 -translate-y-1/2 text-[#7A818A]"
-  />
+            <Search
+              size={14}
+              strokeWidth={1.5}
+              className="absolute left-[10px] top-1/2 -translate-y-1/2 text-[#7A818A]"
+            />
 
-  <input
-    type="search"
-    value={search}
-    onChange={handleSearchChange}
-    placeholder={
-      data.catalog.searchPlaceholder
-    }
-    className={[
-      "h-[34px] w-full rounded-[8px]",
-      "border border-[#BFC4CA]",
-      "bg-white pl-[30px] pr-[32px]",
-      "text-[11px] text-[#07182C]",
-      "outline-none",
-      "placeholder:text-[#89909A]",
-      "focus:border-[#07182C]",
-      "[&::-webkit-search-cancel-button]:appearance-none",
-      "[&::-webkit-search-decoration]:appearance-none",
-    ].join(" ")}
-  />
+            <input
+              type="search"
+              value={search}
+              onChange={handleSearchChange}
+              placeholder={
+                data.catalog.searchPlaceholder
+              }
+              className={[
+                "h-[34px] w-full rounded-[8px]",
+                "border border-[#BFC4CA]",
+                "bg-white pl-[30px] pr-[32px]",
+                "text-[11px] text-[#07182C]",
+                "outline-none",
+                "placeholder:text-[#89909A]",
+                "focus:border-[#07182C]",
+                "[&::-webkit-search-cancel-button]:appearance-none",
+                "[&::-webkit-search-decoration]:appearance-none",
+              ].join(" ")}
+            />
 
-  {search && (
-    <button
-      type="button"
-      aria-label="Clear search"
-      onClick={() => {
-        setSearch("");
-        setCurrentPage(1);
-      }}
-      className={[
-        "absolute right-[7px] top-1/2",
-        "flex h-[20px] w-[20px] -translate-y-1/2",
-        "items-center justify-center",
-        "rounded-full",
-        "bg-paper-warm",
-        "text-[#727984]",
-        "transition-all duration-200",
-        "hover:bg-[#07182C]",
-        "hover:text-[#B8F500]",
-        "hover:cursor-pointer",
-      ].join(" ")}
-    >
-      <span className="text-[15px] font-medium leading-none">
-        ×
-      </span>
-    </button>
-  )}
-</Box>
+            {search && (
+              <button
+                type="button"
+                aria-label="Clear search"
+                onClick={() => {
+                  setSearch("");
+                  setCurrentPage(1);
+                }}
+                className={[
+                  "absolute right-[7px] top-1/2",
+                  "flex h-[20px] w-[20px] -translate-y-1/2",
+                  "items-center justify-center",
+                  "rounded-full",
+                  "bg-paper-warm",
+                  "text-[#727984]",
+                  "transition-all duration-200",
+                  "hover:bg-[#07182C]",
+                  "hover:text-[#B8F500]",
+                  "hover:cursor-pointer",
+                ].join(" ")}
+              >
+                <span className="text-[15px] font-medium leading-none">
+                  ×
+                </span>
+              </button>
+            )}
+          </Box>
         </Box>
 
         {/* ================= COURSES ================= */}
@@ -700,23 +702,24 @@ export default function Program({ data }) {
             ))}
           </Box>
         ) : (
-          <Box className="flex p-8 items-center justify-center rounded-[12px] border border-dashed border-[#D7DADF] bg-white">
+          <Box className="flex items-center justify-center rounded-[12px] border border-dashed border-[#D7DADF] bg-white p-8">
             <Text
               as="p"
-              className="mb-4.5 text-[12px] max-w-137.5 text-center text-[#727984]"
+              className="mb-4.5 max-w-137.5 text-center text-[12px] text-[#727984]"
             >
               {data.catalog.noResults}
             </Text>
+
             {data.actions?.map((action) => (
-                <CtaButton
-                  key={action.label}
-                  variant={action.variant}
-                  arrow
-                  render={<a href={action.href} />}
-                >
-                  {action.label}
-                </CtaButton>
-              ))}
+              <CtaButton
+                key={action.label}
+                variant={action.variant}
+                arrow
+                render={<a href={action.href} />}
+              >
+                {action.label}
+              </CtaButton>
+            ))}
           </Box>
         )}
 

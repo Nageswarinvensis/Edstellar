@@ -77,8 +77,8 @@ export default async function CategoryPage({ params }) {
       <Industries data={data.industriesData} 
         ctaBannerData={data.industriesData?.ctaBannerData} />
       <Marquee stack={data.marqueeData} />
-      <Paths data={data.pathsData}/>
       <Program data={data.programData}/>
+      <Paths data={data.pathsData}/>
       <Governance data={data.governanceData}
       ctaBannerData={data.governanceData?.ctaBannerData} />
       <Trainers trainers={data.trainers} />
