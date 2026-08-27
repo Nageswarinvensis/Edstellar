@@ -1,4 +1,5 @@
-import { ArrowRight, Star } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
@@ -50,13 +51,20 @@ function MethodStepText({ parts = [] }) {
 export default function Curriculum({ curriculum }) {
   if (!curriculum?.modules?.length) return null;
 
-  const { heading, description, meta, author_credit, method, filters, modules } =
-    curriculum;
+  const {
+    heading,
+    description,
+    meta,
+    author_credit,
+    method,
+    filters,
+    modules,
+  } = curriculum;
 
   return (
     <Section
       id="curriculum"
-      className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] border-t border-ink/10"
+      className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] "
     >
       <Reveal delay={1}>
         <RichHeading
@@ -80,9 +88,13 @@ export default function Curriculum({ curriculum }) {
           <Reveal delay={2}>
             <Box className="w-full max-w-[330px] rounded-[14px] border border-ink/12 bg-white p-3.75 transition-[border-color,box-shadow] duration-300 hover:border-ink/20 hover:shadow-[0_16px_36px_-28px_rgba(10,22,40,0.45)]">
               <Box className="mb-2 flex items-center gap-2.5">
-                <Box className="flex size-6.5 flex-none items-center justify-center rounded-[8px] bg-lime-soft text-navy">
-                  <Star size={12} strokeWidth={0} fill="currentColor" />
-                </Box>
+                <Image
+                  src="/course/Avatar.webp"
+                  alt=""
+                  width={44}
+                  height={24}
+                  className="h-6.5 w-auto flex-none object-contain"
+                />
                 <Text
                   as="h3"
                   className="min-w-0 font-display text-[12.5px] leading-[1.3] font-semibold tracking-[-0.01em] text-ink"
@@ -103,7 +115,8 @@ export default function Curriculum({ curriculum }) {
           <Box className="mb-7.5 flex flex-wrap gap-x-5 gap-y-1.5 border-y border-ink/12 py-3.5 font-mono text-[11px] tracking-[0.09em] text-ink/60 uppercase">
             {meta.map((item) => (
               <Text as="span" key={item.label}>
-                <b className="font-semibold text-ink">{item.value}</b> {item.label}
+                <b className="font-semibold text-ink">{item.value}</b>{" "}
+                {item.label}
               </Text>
             ))}
           </Box>

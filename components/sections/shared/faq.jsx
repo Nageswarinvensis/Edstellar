@@ -24,11 +24,15 @@ const SECTION_CTA = {
  * directly — TASTE.md §13). The FAQ design wants a plus that flips to a
  * minus, so this composes the base-ui trigger primitive directly instead.
  */
-function FaqTrigger({ children, }) {
+function FaqTrigger({ children }) {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
-        title={typeof children === "string" ? `Click Here to View ${children}` : undefined}
+        title={
+          typeof children === "string"
+            ? `Click Here to View ${children}`
+            : undefined
+        }
         className="group/faq-trigger flex flex-1 items-center justify-between gap-6 py-6 text-left font-display text-lg font-medium tracking-[-0.01em] text-ink outline-none cursor-pointer"
       >
         <span>{children}</span>
@@ -50,7 +54,7 @@ export default function Faq({ faqs }) {
 
   return (
     <Section
-      id="faq"
+      id="faqs"
       className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] border-t border-ink/10"
     >
       <Box>

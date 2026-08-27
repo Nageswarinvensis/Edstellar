@@ -1,8 +1,8 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import CtaButton from "@/components/common/cta-button";
 import Section from "@/components/ui/Section";
 import Breadcrumbs from "@/components/common/breadcrumbs";
+import HeroActions from "@/components/common/hero-actions";
 import HeroMedia from "@/components/common/hero-media";
 import HeroMeta from "@/components/common/hero-meta";
 import Reveal from "@/components/common/reveal";
@@ -75,18 +75,7 @@ function CategoryHero({ hero, breadcrumbs }) {
           </Reveal>
 
           <Reveal delay={3}>
-            <Box className="flex flex-wrap gap-3">
-              {HERO_ACTIONS.map((action) => (
-                <CtaButton
-                  key={action.label}
-                  variant={action.variant}
-                  arrow
-                  render={<a href={action.href} />}
-                >
-                  {action.label}
-                </CtaButton>
-              ))}
-            </Box>
+            <HeroActions actions={HERO_ACTIONS} />
           </Reveal>
 
           <Reveal>

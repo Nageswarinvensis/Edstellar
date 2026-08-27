@@ -25,7 +25,10 @@ function QuoteSlide({ item }) {
       >
         “{item.quote}”
       </Text>
-      <Text as="p" className="font-mono text-[11px] tracking-[0.12em] text-ink/60 uppercase">
+      <Text
+        as="p"
+        className="font-mono text-[11px] tracking-[0.12em] text-ink/60 uppercase"
+      >
         <b className="font-medium text-ink">{item.name}</b> · {item.role}
       </Text>
     </Box>
@@ -58,7 +61,7 @@ function QuoteDots({ count }) {
           onClick={() => api?.scrollTo(index)}
           className={cn(
             "h-1 w-8.5 cursor-pointer rounded-[4px] border-none transition-colors duration-300",
-            selected === index ? "bg-navy" : "bg-ink/22"
+            selected === index ? "bg-navy" : "bg-ink/22",
           )}
         />
       ))}
@@ -109,7 +112,7 @@ export default function Testimonials({ testimonials }) {
 
   return (
     <Section
-      id="proof"
+      id="results"
       className="scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_16px)] border-t border-ink/10"
     >
       <Box className="mx-auto max-w-[57.5rem]">

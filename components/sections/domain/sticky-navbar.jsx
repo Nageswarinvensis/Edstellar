@@ -11,6 +11,22 @@ import { setHeaderHidden } from "@/lib/client/header-visibility";
 // (the header hides itself once this bar is pinned, see below).
 const HEADER_OFFSET = 68;
 
+// Plain `<a href="#id">` anchors let the browser natively navigate to that
+// hash on click, which then sticks in the URL — a later hard refresh jumps
+// straight to that section instead of starting at the top. Intercepting the
+// click and scrolling manually keeps the URL clean (same pattern as
+// page-toc.jsx's scrollToId).
+function scrollToHash(event) {
+  const id = event.currentTarget.getAttribute("href")?.slice(1);
+  const target = id && document.getElementById(id);
+  if (!target) return;
+  event.preventDefault();
+  const reduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+  target.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
+}
+
 export default function StickyTabs({ data }) {
   const tabs = data?.tabs;
 
@@ -140,7 +156,12 @@ export default function StickyTabs({ data }) {
         "
       >
         {/* Logo */}
-        <Box as="a" href="#about" className="flex shrink-0 items-center">
+        <Box
+          as="a"
+          href="#about"
+          onClick={scrollToHash}
+          className="flex shrink-0 items-center"
+        >
           <img
             src={data?.logo?.src}
             alt={data?.logo?.alt || "Edstellar"}
@@ -177,6 +198,7 @@ export default function StickyTabs({ data }) {
                 <Box
                   as="a"
                   href={`#${tab.id}`}
+                  onClick={scrollToHash}
                   className={`
                     flex
                     h-8.75
