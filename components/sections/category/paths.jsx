@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -32,9 +32,29 @@ export default function Paths({ data }) {
   const [page, setPage] = useState(0);
   const [hoveredCard, setHoveredCard] = useState(null);
 
+  const [cardsPerView, setCardsPerView] = useState(3);
+
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth < 768) {
+        setCardsPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setCardsPerView(2);
+      } else {
+        setCardsPerView(3);
+      }
+    };
+
+    updateCardsPerView();
+    window.addEventListener("resize", updateCardsPerView);
+
+    return () => {
+      window.removeEventListener("resize", updateCardsPerView);
+    };
+  }, []);
+
   if (!data) return null;
 
-  const cardsPerView = 3;
   const totalPages = data.paths.length;
   const maxPage = Math.max(data.paths.length - cardsPerView, 0);
 
@@ -45,9 +65,13 @@ export default function Paths({ data }) {
   const previousPage = () => {
     setPage((prev) => Math.max(prev - 1, 0));
   };
+
+  useEffect(() => {
+    setPage((prev) => Math.min(prev, maxPage));
+  }, [cardsPerView, maxPage]);
   
   const navigationButtonClass =
-  "grid h-8 w-8 place-items-center rounded-full border border-[#53647b] text-white transition-all duration-200 hover:bg-[#C8F135] hover:border-[#C8F135] hover:text-[#0A1628] disabled:pointer-events-none disabled:opacity-30";
+    "grid h-8 w-8 place-items-center rounded-full border border-[#53647b] text-white transition-all duration-200 hover:bg-[#C8F135] hover:border-[#C8F135] hover:text-[#0A1628] disabled:pointer-events-none disabled:opacity-30";
   return (
     <Section
       id="governance"
@@ -129,12 +153,12 @@ export default function Paths({ data }) {
               return (
                 <Box
                   key={path.id}
-                  className="w-1/3 shrink-0 px-1.5"
+                  className="w-full shrink-0 px-1.5 md:w-1/2 lg:w-1/3"
                   onMouseEnter={() => setHoveredCard(path.id)}
                   onMouseLeave={() => setHoveredCard(null)}
                 >
                   <Reveal delay={2}>
-                    <Box className="rounded-[12px] bg-white p-4.5 text-[#0b1729]">
+                    <Box className="flex h-140 flex-col rounded-[12px] bg-white p-4.5 text-[#0b1729]">
                       {/* Card Header */}
                       <Box className="flex items-start gap-3">
                         <Box
@@ -255,7 +279,7 @@ export default function Paths({ data }) {
                       </Box>
 
                       {/* Footer */}
-                      <Box className="mt-3 border-t border-[#dfe2e4] pt-3">
+                      <Box className="mt-auto border-t border-[#dfe2e4] pt-3">
                         <Text className="min-h-9.5 text-[12px] leading-[1.45] text-[#7b8490]">
                           {path.footer}
                         </Text>

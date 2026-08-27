@@ -84,9 +84,9 @@ function DeliveryBadge({ delivery, data }) {
   }
 
   return (
-    <div className="absolute bottom-[9px] left-[10px] z-10">
-      <div className="flex items-center gap-[5px] rounded-[5px] bg-[#B8F500] px-[7px] py-[5px]">
-        <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-[#07182C]" />
+    <div className="absolute bottom-2.25 left-2.5 z-10">
+      <div className="flex items-center gap-1.25 rounded-[5px] bg-[#B8F500] px-1.25 py-1.25px">
+        <span className="h-1.25 w-1.25 shrink-0 rounded-full bg-[#07182C]" />
 
         <Text
           as="span"
@@ -167,7 +167,7 @@ function Duration({ duration, data }) {
   }
 
   return (
-    <div className="flex items-center gap-[7px]">
+    <div className="flex items-center gap-1.75">
       <Clock3
         size={12}
         strokeWidth={1.5}
@@ -205,8 +205,8 @@ function CourseCard({ course, data }) {
         data={data}
       />
 
-      <Box className="flex min-h-[141px] flex-col px-4 py-3">
-        <div className="mb-[7px] flex min-h-[13px] items-center gap-2.5">
+      <Box className="flex min-h-35 flex-col px-4 py-3">
+        <div className="mb-1.25 flex min-h-3 items-center gap-2.5">
           <Text
             as="span"
             className="text-[9px] font-medium uppercase tracking-[1.4px] text-[#4F5863]"
@@ -233,12 +233,12 @@ function CourseCard({ course, data }) {
 
         <Text
           as="p"
-          className="mt-[7px] line-clamp-2 text-[11px] leading-[1.45] text-[#727984]"
+          className="mt-1.25 line-clamp-2 text-[11px] leading-[1.45] text-[#727984]"
         >
           {course.description}
         </Text>
 
-        <div className="mt-auto flex items-end justify-between gap-3 border-t border-[#E0E2E5] pt-[11px]">
+        <div className="mt-auto flex items-end justify-between gap-3 border-t border-[#E0E2E5] pt-3">
           <Duration
             duration={course.duration}
             data={data}
@@ -325,7 +325,7 @@ function Pagination({
   );
 
   return (
-    <div className="mt-3.5 flex flex-wrap items-center justify-center gap-[5px]">
+    <div className="mt-3.5 flex flex-wrap items-center justify-center gap-1.25">
       <PaginationButton
         ariaLabel={paginationData.previous}
         disabled={currentPage === 1}
@@ -380,14 +380,9 @@ function Pagination({
 }
 
 export default function Program({ data }) {
-  const [selectedDiscipline, setSelectedDiscipline] =
-    useState(null);
-
-  const [selectedRole, setSelectedRole] =
-    useState(null);
-
+  const [selectedDiscipline, setSelectedDiscipline] = useState(null);
+  const [selectedRole, setSelectedRole] = useState(null);
   const [search, setSearch] = useState("");
-
   const [currentPage, setCurrentPage] = useState(1);
 
   /*
@@ -441,9 +436,7 @@ export default function Program({ data }) {
           selectedDiscipline,
         );
 
-      const matchesRole =
-        !selectedRole ||
-        course.roles?.includes(selectedRole);
+      const matchesRole = !selectedRole || course.roles?.includes(selectedRole);
 
       if (!matchesDiscipline || !matchesRole) {
         return false;
@@ -536,19 +529,19 @@ export default function Program({ data }) {
 
           <Text
             as="p"
-            className="mt-2 max-w-125 text-[12px] leading-[1.45] text-[#727984]"
+            className="mt-3 max-w-125 text-[12px] leading-[1.45] text-[#727984]"
           >
             {data.description}
           </Text>
         </Box>
 
         {/* ================= FILTERS ================= */}
-        <Box className="mt-[22px]">
+        <Box className="mt-5">
           {/* ================= DISCIPLINE ================= */}
-          <Box className="flex flex-col gap-2 md:flex-row md:items-center">
+          <Box className="flex flex-col gap-2.5 md:flex-row md:items-center">
             <Text
               as="span"
-              className="w-[68px] shrink-0 text-[8px] font-medium uppercase tracking-[1.5px] text-[#727984]"
+              className="w-17 shrink-0 text-[10px] font-medium uppercase tracking-[1.5px] text-[#727984] whitespace-nowrap"
             >
               {data.eyebrow.discipline}
             </Text>
@@ -583,7 +576,7 @@ export default function Program({ data }) {
           <Box className="mt-2 flex flex-col gap-2 md:flex-row md:items-center">
             <Text
               as="span"
-              className="w-[68px] shrink-0 text-[8px] font-medium uppercase tracking-[1.5px] text-[#727984]"
+              className="w-17 shrink-0 text-[10px] font-medium uppercase tracking-[1.5px] text-[#727984]"
             >
               {data.eyebrow.role}
             </Text>
@@ -614,23 +607,33 @@ export default function Program({ data }) {
         </Box>
 
         {/* ================= DIVIDER ================= */}
-        <Box className="my-[13px] h-px w-full bg-[#D7DADF]" />
+        <Box className="my-3 h-px w-full bg-[#D7DADF]" />
 
         {/* ================= CATALOG TOP BAR ================= */}
-        <Box className="mb-[10px] flex flex-col gap-[10px] sm:flex-row sm:items-center sm:justify-between">
+        <Box className="mb-2.5 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
           <Text
             as="p"
-            className="text-[8px] font-medium uppercase tracking-[1.4px] text-[#727984]"
+            className="text-[10px] font-medium uppercase tracking-[1.4px] text-[#727984]"
           >
             {data.catalog.showingLabel}{" "}
             {showingStart}–{showingEnd}{" "}
             {data.catalog.ofLabel}{" "}
             {filteredCourses.length}{" "}
-            <span className="mx-[5px] text-[#B7BCC2]">
-              ·
-            </span>
-            {data.catalog.courseCount}{" "}
-            {data.catalog.liveCatalogLabel}
+            <span className="mx-1.25 text-link-muted">-</span>
+            <a
+              href="#program-catalog"
+              className={[
+                "text-link-muted",
+                "tracking-[1px]",
+                "underline underline-offset-[3px]",
+                "transition-colors duration-200",
+                "hover:text-[#07182C]",
+                "hover:cursor-pointer",
+              ].join(" ")}
+            >
+              {data.catalog.courseCount}{" "}
+              {data.catalog.liveCatalogLabel}
+            </a>
           </Text>
 
           {/* ================= SEARCH ================= */}
@@ -638,7 +641,7 @@ export default function Program({ data }) {
             <Search
               size={14}
               strokeWidth={1.5}
-              className="absolute left-[10px] top-1/2 -translate-y-1/2 text-[#7A818A]"
+              className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#7A818A]"
             />
 
             <input
@@ -649,9 +652,9 @@ export default function Program({ data }) {
                 data.catalog.searchPlaceholder
               }
               className={[
-                "h-[34px] w-full rounded-[8px]",
+                "h-8.5 w-full rounded-[8px]",
                 "border border-[#BFC4CA]",
-                "bg-white pl-[30px] pr-[32px]",
+                "bg-white pl-7.5 pr-8",
                 "text-[11px] text-[#07182C]",
                 "outline-none",
                 "placeholder:text-[#89909A]",
@@ -670,8 +673,8 @@ export default function Program({ data }) {
                   setCurrentPage(1);
                 }}
                 className={[
-                  "absolute right-[7px] top-1/2",
-                  "flex h-[20px] w-[20px] -translate-y-1/2",
+                  "absolute right-1.5 top-1/2",
+                  "flex h-5 w-5 -translate-y-1/2",
                   "items-center justify-center",
                   "rounded-full",
                   "bg-paper-warm",
@@ -682,7 +685,7 @@ export default function Program({ data }) {
                   "hover:cursor-pointer",
                 ].join(" ")}
               >
-                <span className="text-[15px] font-medium leading-none">
+                <span className="text-[16px] font-medium leading-none">
                   ×
                 </span>
               </button>
@@ -702,7 +705,7 @@ export default function Program({ data }) {
             ))}
           </Box>
         ) : (
-          <Box className="flex items-center justify-center rounded-[12px] border border-dashed border-[#D7DADF] bg-white p-8">
+          <Box className="flex flex-col items-center justify-center rounded-[12px] border border-dashed border-[#D7DADF] bg-white p-8">
             <Text
               as="p"
               className="mb-4.5 max-w-137.5 text-center text-[12px] text-[#727984]"
