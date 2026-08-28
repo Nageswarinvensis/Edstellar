@@ -6,7 +6,6 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 import { cn } from "@/lib/utils";
 import {
@@ -106,9 +105,7 @@ function QuoteArrows() {
 export default function Testimonials({ testimonials }) {
   if (!testimonials?.items?.length) return null;
 
-  // The CMS sends a flat `heading_parts` for this component, not the nested
-  // `heading: { parts }` most others use. Read what it actually sends.
-  const { heading_parts, items } = testimonials;
+  const { heading, items } = testimonials;
 
   return (
     <Section
@@ -117,10 +114,10 @@ export default function Testimonials({ testimonials }) {
     >
       <Box className="mx-auto max-w-230">
         <Reveal delay={1}>
-          <RichHeading
+          <Text
             as="h2"
-            parts={heading_parts}
             className="mb-9 max-w-[22ch] tracking-[-0.03em]"
+            dangerouslySetInnerHTML={{ __html: heading || "" }}
           />
         </Reveal>
 

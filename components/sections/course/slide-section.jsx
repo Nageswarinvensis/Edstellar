@@ -7,7 +7,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
-import RichHeading from "@/components/common/rich-heading";
 
 import {
   Carousel,
@@ -68,10 +67,10 @@ export default function SlideSection({ data }) {
       <Box className="mx-auto max-w-225">
 
        <Reveal delay={0}>
-        <RichHeading
+        <Text
           as="h2"
-          parts={data.heading_parts}
           className="mb-10 max-w-180"
+          dangerouslySetInnerHTML={{ __html: data.heading || "" }}
         />
         </Reveal>
 

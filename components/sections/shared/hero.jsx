@@ -6,7 +6,6 @@ import HeroActions from "@/components/common/hero-actions";
 import HeroMedia from "@/components/common/hero-media";
 import HeroMeta from "@/components/common/hero-meta";
 import Reveal from "@/components/common/reveal";
-import RichHeading from "@/components/common/rich-heading";
 
 const HERO_ACTIONS = [
   { href: "#curriculum", label: "View course outline", variant: "primary" },
@@ -44,11 +43,14 @@ function CategoryHero({ hero, breadcrumbs }) {
           }`}
         >
           <Reveal delay={1}>
-            <RichHeading
+            {/* The CMS's hero component sends `heading` as a string with the
+                emphasized phrase already wrapped in `<span>` — the italic
+                serif treatment for it is a global `h1 span` rule in
+                globals.css, not a `parts` array like other headings. */}
+            <Text
               as="h1"
-              parts={hero.heading_parts}
-              emphasisClassName="color-ink"
               className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
+              dangerouslySetInnerHTML={{ __html: hero.heading }}
             />
           </Reveal>
 

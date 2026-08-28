@@ -5,7 +5,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
-import RichHeading from "@/components/common/rich-heading";
 
 function ProgramCard({ program }) {
   return (
@@ -150,10 +149,10 @@ export default function WhyEds({ data }) {
     >
       <Box>
         <Reveal>
-          <RichHeading
+          <Text
             as="h2"
-            parts={data.heading_parts}
             className="mb-4 max-w-[20ch]"
+            dangerouslySetInnerHTML={{ __html: data.heading || "" }}
           />
         </Reveal>
 

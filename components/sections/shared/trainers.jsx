@@ -1,6 +1,5 @@
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 import TrainerCarousel from "@/components/sections/shared/trainer-carousel";
 
@@ -13,10 +12,10 @@ export default function Trainers({ trainers }) {
       className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
     >
       <Reveal delay={1}>
-        <RichHeading
+        <Text
           as="h2"
-          parts={trainers.heading.parts}
           className="mb-6.5 max-w-[20ch] tracking-[-0.03em]"
+          dangerouslySetInnerHTML={{ __html: trainers.heading || "" }}
         />
       </Reveal>
 

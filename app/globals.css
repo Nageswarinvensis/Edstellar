@@ -167,6 +167,20 @@
   --color-olive: #6f8c0f;
 }
 
+/* Every heading's CMS `heading`/`title` field is a plain string with its
+   emphasized phrase already wrapped in `<span>` and rendered via
+   `dangerouslySetInnerHTML` — the serif-italic accent treatment therefore
+   has to be a global element rule rather than a class on a React element.
+   A heading that needs a different weight or color than this default
+   overrides it locally with a `[&_span]:...` class in its own `className`,
+   the same way `emphasisClassName` used to override `RichHeading`'s `<em>`. */
+h1 span,
+h2 span {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-style: italic;
+}
+
 /* Hero media masks. Too complex for inline arbitrary values, and the
    -webkit- prefix is still required for Safari. */
 @utility hero-mask-x {

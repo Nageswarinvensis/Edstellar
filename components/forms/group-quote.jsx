@@ -7,7 +7,6 @@ import { ArrowLeft, Check, Minus, Plus, Search } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 import SecCta from "@/components/common/sec-cta";
 import { CtaButton } from "@/components/common/cta-button";
@@ -38,13 +37,7 @@ const SECTION_CTA = {
 };
 
 const SECTION_DATA = {
-  title: {
-    parts: [
-      { text: "Start an RFP " },
-      { text: "shaped to your needs", is_italic: true },
-      { text: "." },
-    ],
-  },
+  title: "Start an RFP <span>shaped to your needs</span>.",
   description:
     "Answer three quick questions about team size, scope, and how often you need the program run, then send the request from the last step. Everything you choose travels with it, so you only fill this in once.",
   lockedProgram: "ML Model Monitoring Training",
@@ -923,10 +916,10 @@ export default function GroupQuote() {
       className="border-t border-ink/10 bg-paper-warm"
     >
       <Reveal delay={1}>
-        <RichHeading
+        <Text
           as="h2"
-          parts={SECTION_DATA.title.parts}
           className="mb-5 max-w-[18ch] font-display text-[clamp(28px,4vw,46px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink"
+          dangerouslySetInnerHTML={{ __html: SECTION_DATA.title }}
         />
       </Reveal>
 

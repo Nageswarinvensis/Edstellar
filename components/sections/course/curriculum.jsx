@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 import SecCta from "@/components/common/sec-cta";
 import CurriculumModules from "@/components/sections/course/curriculum-modules";
@@ -67,10 +66,10 @@ export default function Curriculum({ curriculum }) {
       className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))]"
     >
       <Reveal delay={1}>
-        <RichHeading
+        <Text
           as="h2"
-          parts={heading.parts}
           className="mb-6.5 max-w-[24ch] tracking-[-0.03em]"
+          dangerouslySetInnerHTML={{ __html: heading || "" }}
         />
       </Reveal>
 

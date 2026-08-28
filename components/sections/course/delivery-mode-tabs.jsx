@@ -11,17 +11,24 @@ import { cn } from "@/lib/utils";
  * it. Kept as the smallest client leaf — the section heading/lede stay
  * server-rendered.
  *
- * Design: `#modeTabs`, `.tab`, `#modePanels`, `.tab-panel`, `.mode-art`. The
- * design's photography is not reproduced (no real asset exists yet) — a
- * tonal placeholder carries the mode's badge instead, matching the
- * convention in `components/common/hero-media.jsx`.
+ * The panel photo is a static asset per tab `id`, not CMS-driven — the CMS
+ * doesn't model delivery-mode imagery, and every course shows the same three
+ * modes with the same three photos.
+ *
+ * Design: `#modeTabs`, `.tab`, `#modePanels`, `.tab-panel`, `.mode-art`.
  */
+const TAB_IMAGES = {
+  virtual: { src: "/course/vertual.webp", alt: "Virtual training" },
+  onsite: { src: "/course/on-site.webp", alt: "On-site training" },
+  offsite: { src: "/course/off-site.webp", alt: "Off-site training" },
+};
 export default function DeliveryModeTabs({ tabs }) {
   const [activeId, setActiveId] = useState(tabs?.[0]?.id);
 
   if (!tabs?.length) return null;
 
   const active = tabs.find((tab) => tab.id === activeId) || tabs[0];
+  const image = TAB_IMAGES[active.id];
 
   return (
     <Box>
@@ -117,14 +124,16 @@ export default function DeliveryModeTabs({ tabs }) {
           aria-hidden="true"
           className="relative flex h-70 items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
         >
-          <Image
-            src={active.image}
-            alt={active.alt}
-            title={active.title}
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
+          {image ? (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              title={active.title}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          ) : null}
         </Box>
       </Box>
     </Box>

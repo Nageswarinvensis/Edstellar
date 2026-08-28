@@ -2,7 +2,6 @@ import Image from "next/image";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 
 export default function Certificate({ certificate }) {
@@ -17,11 +16,10 @@ export default function Certificate({ certificate }) {
         {/* Left */}
         <Reveal delay={1}>
           <Box>
-            <RichHeading
+            <Text
               as="h2"
-              parts={certificate.title.parts}
-              emphasisClassName="font-serif italic font-normal"
-              className="max-w-140 tracking-[-0.04em]"
+              className="max-w-140 tracking-[-0.04em] [&_span]:font-normal"
+              dangerouslySetInnerHTML={{ __html: certificate.title || "" }}
             />
 
             <Text

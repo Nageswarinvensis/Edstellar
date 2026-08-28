@@ -1,7 +1,6 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 
 /**
@@ -19,10 +18,10 @@ export default function WhyNow({ whyNow }) {
       <Box className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <Box>
           <Reveal delay={1}>
-            <RichHeading
+            <Text
               as="h2"
-              parts={whyNow.heading.parts}
               className="max-w-[20ch] tracking-[-0.03em]"
+              dangerouslySetInnerHTML={{ __html: whyNow.heading || "" }}
             />
           </Reveal>
 

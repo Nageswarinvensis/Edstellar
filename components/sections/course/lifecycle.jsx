@@ -1,6 +1,5 @@
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 import LifecycleStages from "@/components/sections/course/lifecycle-stages";
 
@@ -34,10 +33,10 @@ export default function Lifecycle({ lifecycle }) {
       {/* Main content */}
       <div className="relative z-10">
         <Reveal delay={1}>
-          <RichHeading
+          <Text
             as="h2"
-            parts={lifecycle.heading.parts}
             className="mb-6.5 max-w-[20ch] text-paper tracking-[-0.03em]"
+            dangerouslySetInnerHTML={{ __html: lifecycle.heading || "" }}
           />
         </Reveal>
 

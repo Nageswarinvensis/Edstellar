@@ -3,7 +3,6 @@ import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 import CtaBanner from "@/components/common/cta-banner";
 import {
@@ -70,11 +69,10 @@ export default function WhyNow({ whyNow, ctaBannerData }) {
   return (
     <Section id="why-now" className="border-t border-ink/10 bg-paper-warm">
       <Reveal delay={1}>
-        <RichHeading
+        <Text
           as="h2"
-          parts={whyNow.heading.parts}
-          emphasisClassName="font-serif italic font-normal"
-          className="max-w-[20ch] tracking-[-0.03em]"
+          className="max-w-[20ch] tracking-[-0.03em] [&_span]:font-normal"
+          dangerouslySetInnerHTML={{ __html: whyNow.heading || "" }}
         />
       </Reveal>
 

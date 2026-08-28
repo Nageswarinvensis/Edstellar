@@ -68,10 +68,10 @@ export default function MapSection({ data }) {
           <Box className="max-w-[650px]">
             {/* Heading */}
             <Reveal>
-              <RichHeading
+              <Text
                 as="h2"
-                parts={data.heading_parts}
                 className="mb-6.5 max-w-[20ch]"
+                dangerouslySetInnerHTML={{ __html: data.heading || "" }}
               />
             </Reveal>
 
@@ -86,12 +86,12 @@ export default function MapSection({ data }) {
             </Reveal>
           </Box>
 
-          {/* World map */}
+          {/* World map — static asset, not CMS-driven */}
           <Box className="flex w-full items-start justify-center lg:justify-end">
             <Box className="relative mt-1 h-37.5 w-full max-w-97.5 overflow-hidden">
               <Image
-                src={data.image.src}
-                alt={data.image.alt}
+                src="/course/map1.png"
+                alt="Global delivery map"
                 fill
                 priority
                 sizes="390px"
