@@ -3,10 +3,10 @@ import mlModelMonitoring from "./ml-model-monitoring.json";
 /**
  * Courses to prerender and list in the sitemap.
  *
- * **This is an enumeration hint, not a gate.** Ownership is decided by the CMS
- * (`page.meta.category`), so a published course that is *not* listed here
- * still renders correctly at its URL — it is generated on first request and
- * cached from then on, with no code change and no deploy.
+ * **This is an enumeration hint, not a gate.** Ownership is decided by the
+ * CMS page's own slug (`{domain}/{course}`), so a published course that is
+ * *not* listed here still renders correctly at its URL — it is generated on
+ * first request and cached from then on, with no code change and no deploy.
  *
  * What being listed here buys a course:
  *   - prerendered at build time instead of on first request
@@ -21,11 +21,7 @@ import mlModelMonitoring from "./ml-model-monitoring.json";
  * When the backend grows a list endpoint, delete this and derive it there;
  * `lib/content/courses.js` is the only file that changes.
  */
-export const COURSES_BY_DOMAIN = {
-  "artificial-intelligence": ["ml-model-monitoring", "phishing-awareness-training"],
-  "devops-training": ["platform-engineering-training"],
-  "soft-skills-training": ["email-etiquette-training"],
-};
+export const COURSES_BY_DOMAIN = {};
 
 /**
  * Per-course fallback content, deep-merged *under* the CMS response by

@@ -57,8 +57,8 @@ export default async function CourseRoute({ params }) {
   // parent slug, including an industry or a vendor (TASTE.md §1.2).
   const course = await getCourse(slug, courseSlug);
 
-  // Covers three distinct failures at once: no such course, the parent is not
-  // a domain, or the course belongs to a different domain. All are real 404s.
+  // Covers two distinct failures at once: no such course, or the course
+  // belongs to a different domain than the one in the URL. Both are real 404s.
   if (!course) notFound();
 
   return (
