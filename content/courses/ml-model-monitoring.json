@@ -249,11 +249,6 @@
         "id": "faq",
         "number": "06",
         "label": "FAQs"
-      },
-      {
-        "id": "results",
-        "number": "07",
-        "label": "Results"
       }
     ],
     "cta": {
@@ -354,22 +349,13 @@
         "eyebrow": "SILENT DEGRADATION",
         "title": "91% of models",
         "description": "A peer-reviewed study in Scientific Reports tested 128 model–dataset pairs across healthcare, finance, transportation and weather, and found temporal degradation in 91% of them, which the researchers call AI aging. Nothing in the code changes; the world does.",
-        "tags": [
-          "Data drift",
-          "Concept drift",
-          "Model staleness",
-          "AI aging"
-        ]
+        "tags": ["Data drift", "Concept drift", "Model staleness", "AI aging"]
       },
       {
         "eyebrow": "MARKET GROWTH",
         "title": "$16.6B by 2030",
         "description": "The global MLOps market is projected to reach USD 16.6 billion by 2030, growing at a 40.5% compound annual rate from 2025, with monitoring and governance among the fastest-moving components of the stack.",
-        "tags": [
-          "MLOps platforms",
-          "ML observability",
-          "Model governance"
-        ]
+        "tags": ["MLOps platforms", "ML observability", "Model governance"]
       },
       {
         "eyebrow": "REGULATORY PRESSURE",
@@ -912,16 +898,8 @@
         }
       ],
       "note": "Weighted toward hands-on practice. Labs run against a live monitoring stack with injected drift, not slides.",
-      "formats": [
-        "Multi-day bootcamp",
-        "Weekly sessions",
-        "Blended"
-      ],
-      "summary_pills": [
-        "8 labs",
-        "+ capstone",
-        "24–40 hours"
-      ],
+      "formats": ["Multi-day bootcamp", "Weekly sessions", "Blended"],
+      "summary_pills": ["8 labs", "+ capstone", "24–40 hours"],
       "summary_note": "customized to your team's depth and schedule",
       "tools_label": "Tools participants will practice on",
       "tools": [
@@ -981,9 +959,7 @@
         "number": "01",
         "title": "Introduction to ML Model Monitoring",
         "subtitle": "Why monitoring matters and the monitoring landscape",
-        "tags": [
-          "foundations"
-        ],
+        "tags": ["foundations"],
         "learning_phase": "Learn",
         "hours": 4.25,
         "topics": 19,
@@ -1035,9 +1011,7 @@
         "number": "02",
         "title": "Data Drift and Distribution Shift Detection",
         "subtitle": "From statistical tests to a production drift system",
-        "tags": [
-          "detect"
-        ],
+        "tags": ["detect"],
         "learning_phase": "Practice",
         "hours": 3.75,
         "topics": 17,
@@ -1087,9 +1061,7 @@
         "number": "03",
         "title": "Model Performance Metrics and Evaluation",
         "subtitle": "Metrics, slices, ground truth, and dashboards",
-        "tags": [
-          "detect"
-        ],
+        "tags": ["detect"],
         "learning_phase": "Practice",
         "hours": 3.25,
         "topics": 14,
@@ -1132,9 +1104,7 @@
         "number": "04",
         "title": "Monitoring Infrastructure and Tooling",
         "subtitle": "Instrumentation, metrics, and dashboard platforms",
-        "tags": [
-          "operate"
-        ],
+        "tags": ["operate"],
         "learning_phase": "Practice",
         "hours": 3.25,
         "topics": 14,
@@ -1177,9 +1147,7 @@
         "number": "05",
         "title": "Alerting and Incident Response",
         "subtitle": "Alert design, routing, runbooks, and reviews",
-        "tags": [
-          "operate"
-        ],
+        "tags": ["operate"],
         "learning_phase": "Practice",
         "hours": 2.75,
         "topics": 12,
@@ -1220,9 +1188,7 @@
         "number": "06",
         "title": "Model Retraining and Lifecycle Management",
         "subtitle": "Triggers, pipelines, registries, and deployment",
-        "tags": [
-          "retrain"
-        ],
+        "tags": ["retrain"],
         "learning_phase": "Practice",
         "hours": 3.0,
         "topics": 13,
@@ -1264,9 +1230,7 @@
         "number": "07",
         "title": "A/B Testing and Shadow Deployment",
         "subtitle": "Experiments, bandits, and safe validation",
-        "tags": [
-          "retrain"
-        ],
+        "tags": ["retrain"],
         "learning_phase": "Practice",
         "hours": 3.0,
         "topics": 13,
@@ -1308,9 +1272,7 @@
         "number": "08",
         "title": "Explainability and Interpretability Monitoring",
         "subtitle": "Attribution, stability, and audit trails",
-        "tags": [
-          "govern"
-        ],
+        "tags": ["govern"],
         "learning_phase": "Practice",
         "hours": 2.75,
         "topics": 12,
@@ -1351,9 +1313,7 @@
         "number": "09",
         "title": "Bias, Fairness, and Compliance Monitoring",
         "subtitle": "Fairness metrics, bias drift, and regulation",
-        "tags": [
-          "govern"
-        ],
+        "tags": ["govern"],
         "learning_phase": "Apply",
         "hours": 3.0,
         "topics": 13,
@@ -1395,10 +1355,7 @@
         "number": "10",
         "title": "Building a Scalable MLOps Monitoring Strategy",
         "subtitle": "Architecture, model fleets, cost, and a capstone",
-        "tags": [
-          "foundations",
-          "operate"
-        ],
+        "tags": ["foundations", "operate"],
         "learning_phase": "Apply",
         "hours": 3.0,
         "topics": 14,
@@ -1722,11 +1679,7 @@
         "years": "11+ years in reliability",
         "rating": "4.8",
         "sessions": "160+",
-        "specializations": [
-          "Alerting design",
-          "Incident response",
-          "Tracing"
-        ]
+        "specializations": ["Alerting design", "Incident response", "Tracing"]
       }
     ],
     "note": "Trainers are matched to your stack and delivery window at scheduling. We confirm your assigned trainer, with a full profile, before the program is booked."

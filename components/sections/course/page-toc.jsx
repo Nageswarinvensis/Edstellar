@@ -305,7 +305,7 @@ export default function PageToc({ toc, modules, children }) {
             </CtaButton>
             <Text
               as="p"
-              className="mt-2.25 text-[11.5px] leading-[1.5] text-ink/45"
+              className="mt-2.25 text-[11.5px] leading-normal text-ink/45"
             >
               {TOC_CTA.note}
             </Text>

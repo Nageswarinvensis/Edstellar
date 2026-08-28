@@ -150,28 +150,24 @@ function ModuleLab({ lab }) {
 export default function CurriculumModules({ filters, modules }) {
   const [activeFilter, setActiveFilter] = useState("all");
   const filtersRef = useRef(null);
-  const isFirstRender = useRef(true);
 
   // Center the active filter chip in its scroll container — matches the
-  // page-level TOC chip bar's behavior above it. Skip the initial mount:
-  // `activeFilter` starts truthy ("all"), so without this guard the effect
-  // fires before the user ever touches a filter — and since this bar sits
-  // below the fold on load, `scrollIntoView` drags the whole page down to
-  // it instead of just centering the chip within its own strip.
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-    if (!filtersRef.current) return;
+  // page-level TOC chip bar's behavior above it. Triggered directly from the
+  // click handler (not a `useEffect` watching `activeFilter`) so it only ever
+  // runs in response to a real click: an effect fires on mount too, and since
+  // this bar sits below the fold on load, `scrollIntoView` would drag the
+  // whole page down to it instead of just centering the chip within its own
+  // strip.
+  function selectFilter(id) {
+    setActiveFilter(id);
     filtersRef.current
-      .querySelector(`[data-filter="${activeFilter}"]`)
+      ?.querySelector(`[data-filter="${id}"]`)
       ?.scrollIntoView({
         behavior: "smooth",
         inline: "center",
         block: "nearest",
       });
-  }, [activeFilter]);
+  }
 
   // Publishes this bar's own height as a CSS var, same pattern as PageToc's
   // `--mobile-toc-h` — module anchors (`#mod-N`) need to clear the header,
@@ -213,7 +209,7 @@ export default function CurriculumModules({ filters, modules }) {
               type="button"
               title={`Click Here to View ${filter.label}`}
               data-filter={filter.id}
-              onClick={() => setActiveFilter(filter.id)}
+              onClick={() => selectFilter(filter.id)}
               className={cn(
                 "flex-none cursor-pointer rounded-full border px-3.25 py-1.75 font-mono text-[10.5px] tracking-[0.08em] whitespace-nowrap uppercase transition-colors duration-200",
                 activeFilter === filter.id

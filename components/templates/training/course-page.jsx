@@ -13,7 +13,7 @@ import Skills from "@/components/sections/course/skills";
 import Audience from "@/components/sections/course/audience";
 import Certificate from "@/components/sections/course/certificate";
 import DeliveryModes from "@/components/sections/course/delivery-modes";
-import Testimonials from "@/components/sections/course/testimonials";
+
 import WhyEdstellar from "@/components/sections/course/why-edstellar";
 
 import GroupQuote from "@/components/forms/group-quote";
@@ -47,7 +47,6 @@ export default function CoursePage({ course }) {
         <DeliveryModes deliveryModes={course.deliveryModes} />
         <Trainers trainers={course.trainers} />
         <Faq faqs={course.faqs} />
-        <Testimonials testimonials={course.Testimonials} />
       </PageToc>
 
       <WhyEdstellar data={course.WhyEds} />

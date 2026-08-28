@@ -157,15 +157,14 @@ export default async function HomePage() {
 
             <Box className="flex flex-wrap gap-2">
               {section.links.map((href) => (
-                <CtaButton
+                <Link
                   key={href}
-                  variant="ghost"
-                  size="sm"
+                  href={href}
+                  scroll={true}
                   className="font-mono text-[12px]"
-                  render={<Link href={href} />}
                 >
                   {href}
-                </CtaButton>
+                </Link>
               ))}
             </Box>
           </Box>
