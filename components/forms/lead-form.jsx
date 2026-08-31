@@ -24,7 +24,7 @@ const BACKGROUND_CLASSES = {
   white: "bg-white",
 };
 
-export default function LeadForm({ data, background = "paper-warm" }) {
+export default function LeadForm({ data, courseName, background = "paper-warm" }) {
   const {
     register,
     handleSubmit,
@@ -55,9 +55,13 @@ export default function LeadForm({ data, background = "paper-warm" }) {
       <Reveal>
         <RichHeading
           as="h2"
-          parts={data.title?.parts}
+          parts={[
+            { text: "Request " },
+            { text: courseName ?? "", is_italic: true },
+            { text: " training for your team." },
+          ]}
           className="mb-4 max-w-[20ch] font-display text-[clamp(30px,4vw,50px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink"
-          emphasisClassName="font-normal italic text-olive"
+          emphasisClassName="font-normal italic"
         />
       </Reveal>
 

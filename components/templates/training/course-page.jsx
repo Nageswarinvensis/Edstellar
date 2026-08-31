@@ -52,7 +52,7 @@ export default function CoursePage({ course }) {
       <WhyEdstellar data={course.WhyEds} />
       <MapSection data={course.mapsectionData} />
       <GroupQuote />
-      <LeadForm data={course.leadForm} />
+      <LeadForm data={course.leadForm} courseName={course.name} />
       <StickyFooter data={course.stickyFooter} />
     </>
   );
