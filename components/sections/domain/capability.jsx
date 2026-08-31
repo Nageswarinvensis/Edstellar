@@ -4,6 +4,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 
 export default function Capability({ data }) {
   if (!data?.items?.length) return null;
@@ -12,10 +13,11 @@ export default function Capability({ data }) {
     <Section className="bg-navy">
       <Box className="mx-auto">
         <Reveal>
-          <Text
+          <RichHeading
             as="h2"
-            className="max-w-[20ch] tracking-[-0.03em] text-white [&_span]:font-normal"
-            dangerouslySetInnerHTML={{ __html: data.heading || "" }}
+            parts={data.heading?.parts}
+            className="max-w-[20ch] tracking-[-0.03em] text-white"
+            emphasisClassName="font-normal italic text-lime"
           />
         </Reveal>
 

@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionContent,
 } from "@/components/ui/accordion";
+import RichHeading from "@/components/common/rich-heading";
 
 const SECTION_CTA = {
   title: "Question not answered here?",
@@ -58,10 +59,11 @@ export default function Faq({ faqs }) {
     >
       <Box>
         <Reveal delay={1}>
-          <Text
+          <RichHeading
             as="h2"
-            className="max-w-[20ch] tracking-[-0.03em] [&_span]:font-normal"
-            dangerouslySetInnerHTML={{ __html: faqs.title || "" }}
+            parts={faqs.title?.parts}
+            className="max-w-[20ch] tracking-[-0.03em]"
+            emphasisClassName="font-normal italic text-olive"
           />
         </Reveal>
 

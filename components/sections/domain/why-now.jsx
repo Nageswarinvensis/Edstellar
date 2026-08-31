@@ -5,6 +5,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import CtaBanner from "@/components/common/cta-banner";
+import RichHeading from "@/components/common/rich-heading";
 import {
   Accordion,
   AccordionItem,
@@ -69,10 +70,11 @@ export default function WhyNow({ whyNow, ctaBannerData }) {
   return (
     <Section id="why-now" className="border-t border-ink/10 bg-paper-warm">
       <Reveal delay={1}>
-        <Text
+        <RichHeading
           as="h2"
-          className="max-w-[20ch] tracking-[-0.03em] [&_span]:font-normal"
-          dangerouslySetInnerHTML={{ __html: whyNow.heading || "" }}
+          parts={whyNow.heading?.parts}
+          className="max-w-[20ch] tracking-[-0.03em]"
+          emphasisClassName="font-normal italic text-olive"
         />
       </Reveal>
 

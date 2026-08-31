@@ -3,6 +3,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import CtaBanner from "@/components/common/cta-banner";
+import RichHeading from "@/components/common/rich-heading";
 
 export default function Card({ data, ctaBannerData }) {
   if (!data) return null;
@@ -11,10 +12,11 @@ export default function Card({ data, ctaBannerData }) {
     <Section id="capability" className="bg-white">
       <Box>
         <Reveal>
-          <Text
+          <RichHeading
             as="h2"
-            className="mb-6.5 max-w-[20ch] [&_span]:font-normal"
-            dangerouslySetInnerHTML={{ __html: data.heading || "" }}
+            parts={data.heading?.parts}
+            className="mb-6.5 max-w-[20ch]"
+            emphasisClassName="font-normal italic text-olive"
           />
         </Reveal>
 

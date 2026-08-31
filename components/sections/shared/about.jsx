@@ -4,6 +4,7 @@ import Section from "@/components/ui/Section";
 import ReadMore from "@/components/common/read-more";
 import Reveal from "@/components/common/reveal";
 import CtaBanner from "@/components/common/cta-banner";
+import RichHeading from "@/components/common/rich-heading";
 import CustomizedTraining from "@/components/sections/shared/customized-training";
 
 function CategoryAbout({ about, ctaBannerData }) {
@@ -16,11 +17,20 @@ function CategoryAbout({ about, ctaBannerData }) {
       <Box className="grid grid-cols-1 items-start gap-8 gap-x-12 md:grid-cols-2 md:gap-12">
         <Box>
           <Reveal delay={1}>
-            <Text
-              as="h2"
-              className="max-w-[20ch]"
-              dangerouslySetInnerHTML={{ __html: about.heading || "" }}
-            />
+            {about.heading_parts ? (
+              <RichHeading
+                as="h2"
+                parts={about.heading_parts}
+                className="max-w-[20ch]"
+                emphasisClassName="font-normal italic text-olive"
+              />
+            ) : (
+              <Text
+                as="h2"
+                className="max-w-[20ch]"
+                dangerouslySetInnerHTML={{ __html: about.heading || "" }}
+              />
+            )}
           </Reveal>
 
           <Reveal delay={1}>

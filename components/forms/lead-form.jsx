@@ -8,6 +8,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 import { CtaButton } from "@/components/common/cta-button";
 import { FormField, formInputClasses } from "@/components/common/form-field";
 import { cn } from "@/lib/utils";
@@ -52,10 +53,11 @@ export default function LeadForm({ data, background = "paper-warm" }) {
       )}
     >
       <Reveal>
-        <Text
+        <RichHeading
           as="h2"
+          parts={data.title?.parts}
           className="mb-4 max-w-[20ch] font-display text-[clamp(30px,4vw,50px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink"
-          dangerouslySetInnerHTML={{ __html: data.title || "" }}
+          emphasisClassName="font-normal italic text-olive"
         />
       </Reveal>
 

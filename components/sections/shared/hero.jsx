@@ -5,6 +5,7 @@ import Breadcrumbs from "@/components/common/breadcrumbs";
 import HeroActions from "@/components/common/hero-actions";
 import HeroMedia from "@/components/common/hero-media";
 import HeroMeta from "@/components/common/hero-meta";
+import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 
 const HERO_ACTIONS = [
@@ -43,15 +44,23 @@ function CategoryHero({ hero, breadcrumbs }) {
           }`}
         >
           <Reveal delay={1}>
-            {/* The CMS's hero component sends `heading` as a string with the
-                emphasized phrase already wrapped in `<span>` — the italic
-                serif treatment for it is a global `h1 span` rule in
-                globals.css, not a `parts` array like other headings. */}
-            <Text
-              as="h1"
-              className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
-              dangerouslySetInnerHTML={{ __html: hero.heading }}
-            />
+            {/* CMS pages send `heading` as an HTML string (span-wrapped for
+                emphasis); local domain content uses `heading_parts`. Render
+                whichever is present. */}
+            {hero.heading_parts ? (
+              <RichHeading
+                as="h1"
+                parts={hero.heading_parts}
+                className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
+                emphasisClassName="font-normal italic text-olive"
+              />
+            ) : (
+              <Text
+                as="h1"
+                className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
+                dangerouslySetInnerHTML={{ __html: hero.heading || "" }}
+              />
+            )}
           </Reveal>
 
           <Reveal delay={1}>

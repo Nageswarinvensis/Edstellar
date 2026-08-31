@@ -68,11 +68,20 @@ export default function MapSection({ data }) {
           <Box className="max-w-[650px]">
             {/* Heading */}
             <Reveal>
-              <Text
-                as="h2"
-                className="mb-6.5 max-w-[20ch]"
-                dangerouslySetInnerHTML={{ __html: data.heading || "" }}
-              />
+              {data.heading_parts ? (
+                <RichHeading
+                  as="h2"
+                  parts={data.heading_parts}
+                  className="mb-6.5 max-w-[20ch]"
+                  emphasisClassName="font-normal italic text-olive"
+                />
+              ) : (
+                <Text
+                  as="h2"
+                  className="mb-6.5 max-w-[20ch]"
+                  dangerouslySetInnerHTML={{ __html: data.heading || "" }}
+                />
+              )}
             </Reveal>
 
             {/* Description */}

@@ -2,6 +2,7 @@ import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 
 export default function Method({ data }) {
   return (
@@ -11,10 +12,11 @@ export default function Method({ data }) {
         {/* LIFECYCLE */}
         <Box>
           <Reveal delay={1}>
-          <Text
+          <RichHeading
             as="h2"
-            className="max-w-[20ch] tracking-[-0.03em] [&_span]:font-normal"
-            dangerouslySetInnerHTML={{ __html: data.lifecycle.heading || "" }}
+            parts={data.lifecycle.heading}
+            className="max-w-[20ch] tracking-[-0.03em]"
+            emphasisClassName="font-normal italic text-olive"
           />
         </Reveal>
 

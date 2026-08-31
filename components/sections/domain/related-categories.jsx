@@ -2,6 +2,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 
 export default function RelatedCategories({ data }) {
   if (!data?.items?.length) return null;
@@ -11,10 +12,11 @@ export default function RelatedCategories({ data }) {
       <Box className="mx-auto">
         {/* HEADING */}
         <Reveal>
-          <Text
+          <RichHeading
             as="h2"
-            className="max-w-[22ch] tracking-[-0.03em] [&_span]:font-normal"
-            dangerouslySetInnerHTML={{ __html: data.heading || "" }}
+            parts={data.heading?.parts}
+            className="max-w-[22ch] tracking-[-0.03em]"
+            emphasisClassName="font-normal italic text-olive"
           />
         </Reveal>
 
