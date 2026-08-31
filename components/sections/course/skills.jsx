@@ -1,6 +1,7 @@
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 import SkillCards from "@/components/sections/course/skill-cards";
 
 /**
@@ -17,11 +18,20 @@ export default function Skills({ skills }) {
       className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
     >
       <Reveal delay={1}>
-        <Text
-          as="h2"
-          className="mb-6.5 max-w-[20ch] tracking-[-0.03em]"
-          dangerouslySetInnerHTML={{ __html: skills.heading || "" }}
-        />
+        {skills.heading?.parts ? (
+          <RichHeading
+            as="h2"
+            parts={skills.heading.parts}
+            className="mb-6.5 max-w-[20ch] tracking-[-0.03em]"
+            emphasisClassName="font-normal italic text-olive"
+          />
+        ) : (
+          <Text
+            as="h2"
+            className="mb-6.5 max-w-[20ch] tracking-[-0.03em]"
+            dangerouslySetInnerHTML={{ __html: skills.heading || "" }}
+          />
+        )}
       </Reveal>
 
       <Reveal delay={2}>

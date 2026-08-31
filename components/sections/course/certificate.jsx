@@ -3,9 +3,10 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 
 export default function Certificate({ certificate }) {
-  if (!certificate) return null;
+  if (!certificate || Array.isArray(certificate) || !certificate.title) return null;
 
   return (
     <Section
@@ -16,11 +17,20 @@ export default function Certificate({ certificate }) {
         {/* Left */}
         <Reveal delay={1}>
           <Box>
-            <Text
-              as="h2"
-              className="max-w-140 tracking-[-0.04em] [&_span]:font-normal"
-              dangerouslySetInnerHTML={{ __html: certificate.title || "" }}
-            />
+            {certificate.title?.parts ? (
+              <RichHeading
+                as="h2"
+                parts={certificate.title.parts}
+                className="max-w-140 tracking-[-0.04em]"
+                emphasisClassName="font-normal italic text-olive"
+              />
+            ) : (
+              <Text
+                as="h2"
+                className="max-w-140 tracking-[-0.04em] [&_span]:font-normal"
+                dangerouslySetInnerHTML={{ __html: certificate.title || "" }}
+              />
+            )}
 
             <Text
               as="p"

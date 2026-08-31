@@ -52,7 +52,7 @@ function SkillCard({ item }) {
           </Text>
           <Text
             as="p"
-            className="mt-3 text-[13px] leading-[1.55] text-paper/82"
+            className="mt-3 text-[13px] leading-[1.55] text-white"
           >
             {item.description}
           </Text>

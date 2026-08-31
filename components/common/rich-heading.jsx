@@ -21,7 +21,7 @@ function RichHeading({
   return (
     <Text as={as} className={className} {...props}>
       {parts.map((part, index) =>
-        part.is_italic ? (
+        (part.is_italic || part.em) ? (
           <em
             key={index}
             className={cn("font-serif font-bold italic", emphasisClassName)}

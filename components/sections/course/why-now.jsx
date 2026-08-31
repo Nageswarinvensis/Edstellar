@@ -2,6 +2,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 
 /**
  * Course "why now" block — the case for urgency, in three parts: a
@@ -18,11 +19,20 @@ export default function WhyNow({ whyNow }) {
       <Box className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <Box>
           <Reveal delay={1}>
-            <Text
-              as="h2"
-              className="max-w-[20ch] tracking-[-0.03em]"
-              dangerouslySetInnerHTML={{ __html: whyNow.heading || "" }}
-            />
+            {whyNow.heading?.parts ? (
+              <RichHeading
+                as="h2"
+                parts={whyNow.heading.parts}
+                className="max-w-[20ch] tracking-[-0.03em]"
+                emphasisClassName="font-normal italic text-olive"
+              />
+            ) : (
+              <Text
+                as="h2"
+                className="max-w-[20ch] tracking-[-0.03em]"
+                dangerouslySetInnerHTML={{ __html: whyNow.heading || "" }}
+              />
+            )}
           </Reveal>
 
           <Reveal delay={2}>

@@ -17,10 +17,10 @@ function CategoryAbout({ about, ctaBannerData }) {
       <Box className="grid grid-cols-1 items-start gap-8 gap-x-12 md:grid-cols-2 md:gap-12">
         <Box>
           <Reveal delay={1}>
-            {about.heading_parts ? (
+            {(about.heading_parts ?? about.heading?.parts)?.length ? (
               <RichHeading
                 as="h2"
-                parts={about.heading_parts}
+                parts={about.heading_parts ?? about.heading.parts}
                 className="max-w-[20ch]"
                 emphasisClassName="font-normal italic text-olive"
               />
@@ -28,7 +28,7 @@ function CategoryAbout({ about, ctaBannerData }) {
               <Text
                 as="h2"
                 className="max-w-[20ch]"
-                dangerouslySetInnerHTML={{ __html: about.heading || "" }}
+                dangerouslySetInnerHTML={{ __html: typeof about.heading === "string" ? about.heading : "" }}
               />
             )}
           </Reveal>

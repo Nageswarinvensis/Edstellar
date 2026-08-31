@@ -61,7 +61,7 @@ export default function Faq({ faqs }) {
         <Reveal delay={1}>
           <RichHeading
             as="h2"
-            parts={faqs.title?.parts}
+            parts={[{ text: "Corporate " }, ...(faqs.title?.parts ?? [])]}
             className="max-w-[20ch] tracking-[-0.03em]"
             emphasisClassName="font-normal italic text-olive"
           />
