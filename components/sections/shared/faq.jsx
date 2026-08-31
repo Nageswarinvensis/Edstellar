@@ -82,8 +82,15 @@ function FaqTrigger({ children }) {
   );
 }
 
+function toTitleCase(text = "") {
+  return text
+    .toLowerCase()
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
 export default function Faq({ faqs, courseName }) {
   if (!faqs || Array.isArray(faqs) || !faqs.items?.length) return null;
+
 
   return (
     <Section
@@ -95,7 +102,7 @@ export default function Faq({ faqs, courseName }) {
           <RichHeading
             as="h2"
             parts={[
-              { text: `Corporate ${courseName ?? ""} Training ` },
+              { text: `Corporate ${toTitleCase(courseName ?? "")} Training ` },
               { text: "FAQs", is_italic: true },
             ]}
             className="max-w-[28ch] tracking-[-0.03em]"
