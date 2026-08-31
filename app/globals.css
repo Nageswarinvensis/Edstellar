@@ -124,6 +124,14 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  /* CMS headings wrap emphasis in <span> — style them globally */
+  h1 span, h2 span {
+    font-family: var(--font-cormorant);
+    font-weight: 400 !important;
+    font-style: italic;
+  }
+
   body {
     @apply bg-paper text-ink;
     font-family: "DM Sans", serif;

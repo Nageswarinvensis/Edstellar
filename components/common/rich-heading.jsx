@@ -24,7 +24,7 @@ function RichHeading({
         (part.is_italic || part.em) ? (
           <em
             key={index}
-            className={cn("font-serif font-bold italic", emphasisClassName)}
+            className={cn("font-serif font-normal italic", emphasisClassName)}
           >
             {part.text}
           </em>

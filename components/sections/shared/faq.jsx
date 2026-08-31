@@ -68,7 +68,7 @@ function FaqTrigger({ children }) {
         }
         className="group/faq-trigger flex flex-1 items-center justify-between gap-6 py-6 text-left font-display text-lg font-medium tracking-[-0.01em] text-ink outline-none cursor-pointer"
       >
-        <span>{children}</span>
+        <span className="font-display font-medium not-italic">{children}</span>
 
         <span
           aria-hidden="true"
@@ -82,7 +82,7 @@ function FaqTrigger({ children }) {
   );
 }
 
-export default function Faq({ faqs }) {
+export default function Faq({ faqs, courseName }) {
   if (!faqs || Array.isArray(faqs) || !faqs.items?.length) return null;
 
   return (
@@ -94,9 +94,12 @@ export default function Faq({ faqs }) {
         <Reveal delay={1}>
           <RichHeading
             as="h2"
-            parts={[{ text: "Corporate " }, ...(faqs.title?.parts ?? [])]}
-            className="max-w-[20ch] tracking-[-0.03em]"
-            emphasisClassName="font-normal italic text-olive"
+            parts={[
+              { text: `Corporate ${courseName ?? ""} Training ` },
+              { text: "FAQs", is_italic: true },
+            ]}
+            className="max-w-[28ch] tracking-[-0.03em]"
+            emphasisClassName="font-normal italic"
           />
         </Reveal>
 

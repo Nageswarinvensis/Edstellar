@@ -15,9 +15,13 @@ export default function Trainers({ trainers }) {
       <Reveal delay={1}>
         <RichHeading
           as="h2"
-          parts={trainers.heading?.parts}
+          parts={[
+            { text: "Learn from " },
+            { text: "industry experts", is_italic: true },
+            { text: "." },
+          ]}
           className="mb-6.5 max-w-[20ch] tracking-[-0.03em]"
-          emphasisClassName="font-normal italic text-olive"
+          emphasisClassName="font-normal italic"
         />
       </Reveal>
 

@@ -57,7 +57,7 @@ function CategoryHero({ hero, breadcrumbs }) {
             ) : (
               <Text
                 as="h1"
-                className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
+                className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)] [&_span]:font-serif [&_span]:!font-normal [&_span]:italic"
                 dangerouslySetInnerHTML={{ __html: hero.heading || "" }}
               />
             )}
