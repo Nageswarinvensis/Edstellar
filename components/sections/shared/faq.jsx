@@ -1,3 +1,5 @@
+"use client";
+
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -10,6 +12,37 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import RichHeading from "@/components/common/rich-heading";
+
+function FaqAnswer({ answer }) {
+  function handleClick(e) {
+    const anchor = e.target.closest("a[href^='#']");
+    if (!anchor) return;
+    const id = anchor.getAttribute("href").slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+  }
+
+  if (typeof answer === "string" && answer.includes("<")) {
+    const html = answer.replace(/\\"/g, '"');
+    return (
+      <Text
+        as="p"
+        className="text-[15px] leading-[1.7] text-ink/60 [&_a]:font-semibold [&_a]:text-olive [&_a]:underline [&_a]:underline-offset-2"
+        onClick={handleClick}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    );
+  }
+
+  return (
+    <Text as="p" className="text-[15px] leading-[1.7] text-ink/60">
+      {answer}
+    </Text>
+  );
+}
 
 const SECTION_CTA = {
   title: "Question not answered here?",
@@ -50,7 +83,7 @@ function FaqTrigger({ children }) {
 }
 
 export default function Faq({ faqs }) {
-  if (!faqs?.items?.length) return null;
+  if (!faqs || Array.isArray(faqs) || !faqs.items?.length) return null;
 
   return (
     <Section
@@ -78,12 +111,7 @@ export default function Faq({ faqs }) {
                 <FaqTrigger>{faq.question}</FaqTrigger>
 
                 <AccordionContent>
-                  <Text
-                    as="p"
-                    className="text-[15px] leading-[1.7] text-ink/60"
-                  >
-                    {faq.answer}
-                  </Text>
+                  <FaqAnswer answer={faq.answer} />
                 </AccordionContent>
               </AccordionItem>
             ))}

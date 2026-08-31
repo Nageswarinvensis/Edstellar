@@ -46,7 +46,7 @@ export default function CoursePage({ course }) {
         <Certificate certificate={course.certificate} />
         <DeliveryModes deliveryModes={course.deliveryModes} />
         <Trainers trainers={course.trainers} />
-        <Faq faqs={course.faqs} />
+        <Faq faqs={course.faqs ?? course.Faqs} />
       </PageToc>
 
       <WhyEdstellar data={course.WhyEds} />

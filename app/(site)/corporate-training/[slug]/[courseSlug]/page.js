@@ -39,11 +39,11 @@ export async function generateMetadata({ params }) {
 
   if (!course) return {};
 
+  const rawTitle = course.seo?.meta_title ?? course.name;
+  const title = rawTitle.replace(/\s*\|\s*Edstellar\s*$/i, "").trim();
+
   return buildMetadata({
-    // Falls back to the page title if the CMS sends no seo component at all.
-    // This cannot catch seo copy that is present but *wrong* — see TASTE.md
-    // §13 on `meta_title` being duplicated across courses upstream.
-    title: course.seo?.meta_title ?? course.name,
+    title,
     description: course.seo?.Meta_description,
     path: `/corporate-training/${slug}/${courseSlug}`,
     image: course.seo?.og_image_url,
