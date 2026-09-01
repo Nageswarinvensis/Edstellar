@@ -17,10 +17,15 @@ export default function Certificate({ certificate }) {
         <Reveal delay={1}>
           <Box>
             <Text as="h2" className="max-w-140 tracking-[-0.04em]">
-              {(typeof certificate.title === "string" ? certificate.title : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-                const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-                return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
-              })}
+              {certificate.title?.parts
+                ? certificate.title.parts.map((p, i) =>
+                    (p.is_italic || p.em) ? <em key={i} className="font-serif font-normal italic">{p.text}</em> : p.text
+                  )
+                : (typeof certificate.title === "string" ? certificate.title : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+                    const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+                    return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+                  })
+              }
             </Text>
 
             <Text

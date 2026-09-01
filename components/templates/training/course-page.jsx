@@ -46,13 +46,13 @@ export default function CoursePage({ course }) {
         <Certificate certificate={course.certificate} />
         <DeliveryModes deliveryModes={course.deliveryModes} />
         <Trainers trainers={course.trainers} />
-        <Faq faqs={course.faqs ?? course.Faqs} courseName={course.name} />
+        <Faq faqs={course.faqs ?? course.Faqs} />
       </PageToc>
 
       <WhyEdstellar data={course.WhyEds} />
       <MapSection data={course.mapsectionData} />
       <GroupQuote />
-      <LeadForm data={course.leadForm} courseName={course.name} />
+      <LeadForm data={course.leadForm} />
       <StickyFooter data={course.stickyFooter} />
     </>
   );

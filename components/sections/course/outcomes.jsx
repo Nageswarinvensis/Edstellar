@@ -10,10 +10,15 @@ export default function Outcomes({ outcomes }) {
     <Section id="outcomes" className="border-t border-ink/10 bg-paper-warm">
       <Reveal delay={1}>
         <Text as="h2" className="mb-6.5 max-w-[20ch] tracking-[-0.03em]">
-          {(typeof outcomes.heading === "string" ? outcomes.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-            const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-            return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
-          })}
+          {outcomes.heading?.parts
+            ? outcomes.heading.parts.map((p, i) =>
+                (p.is_italic || p.em) ? <em key={i} className="font-serif font-normal italic">{p.text}</em> : p.text
+              )
+            : (typeof outcomes.heading === "string" ? outcomes.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+                const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+                return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+              })
+          }
         </Text>
       </Reveal>
 

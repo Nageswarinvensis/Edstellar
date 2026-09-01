@@ -34,10 +34,15 @@ export default function Lifecycle({ lifecycle }) {
       <div className="relative z-10">
         <Reveal delay={1}>
           <Text as="h2" className="mb-6.5 max-w-[20ch] text-paper tracking-[-0.03em]">
-            {(typeof lifecycle.heading === "string" ? lifecycle.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-              const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-              return match ? <em key={i} className="font-serif font-normal italic text-lime">{match[1]}</em> : fragment;
-            })}
+            {lifecycle.heading?.parts
+              ? lifecycle.heading.parts.map((p, i) =>
+                  (p.is_italic || p.em) ? <em key={i} className="font-serif font-normal italic">{p.text}</em> : p.text
+                )
+              : (typeof lifecycle.heading === "string" ? lifecycle.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+                  const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+                  return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+                })
+            }
           </Text>
         </Reveal>
 

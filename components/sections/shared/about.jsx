@@ -17,10 +17,15 @@ function CategoryAbout({ about, ctaBannerData }) {
         <Box>
           <Reveal delay={1}>
             <Text as="h2" className="max-w-[20ch]">
-              {(typeof about.heading === "string" ? about.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-                const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-                return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
-              })}
+              {(about.heading_parts ?? about.heading?.parts)
+                ? (about.heading_parts ?? about.heading.parts).map((p, i) =>
+                    (p.is_italic || p.em) ? <em key={i} className="font-serif font-normal italic">{p.text}</em> : p.text
+                  )
+                : (typeof about.heading === "string" ? about.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+                    const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+                    return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+                  })
+              }
             </Text>
           </Reveal>
 

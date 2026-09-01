@@ -115,10 +115,15 @@ export default function Testimonials({ testimonials }) {
       <Box className="mx-auto max-w-230">
         <Reveal delay={1}>
           <Text as="h2" className="mb-9 max-w-[22ch] tracking-[-0.03em]">
-            {(typeof heading === "string" ? heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-              const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-              return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
-            })}
+            {heading?.parts
+              ? heading.parts.map((p, i) =>
+                  (p.is_italic || p.em) ? <em key={i} className="font-serif font-normal italic">{p.text}</em> : p.text
+                )
+              : (typeof heading === "string" ? heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+                  const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+                  return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+                })
+            }
           </Text>
         </Reveal>
 

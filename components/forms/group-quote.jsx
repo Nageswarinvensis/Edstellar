@@ -37,7 +37,7 @@ const SECTION_CTA = {
 };
 
 const SECTION_DATA = {
-  title: "Start an RFP <span>shaped to your needs</span>.",
+  heading: "Start an RFP <span>shaped to your needs.</span>",
   description:
     "Answer three quick questions about team size, scope, and how often you need the program run, then send the request from the last step. Everything you choose travels with it, so you only fill this in once.",
   lockedProgram: "ML Model Monitoring Training",
@@ -89,7 +89,7 @@ function stripTrainingSuffix(name) {
  * last step. This section stands alone and does not hand off to `LeadForm`
  * elsewhere on the page — each has its own independent submit.
  */
-export default function GroupQuote() {
+export default function GroupQuote({ heading }) {
   const cardRef = useRef(null);
 
   const [mode, setMode] = useState("one-time");
@@ -916,11 +916,12 @@ export default function GroupQuote() {
       className="border-t border-ink/10 bg-paper-warm"
     >
       <Reveal delay={1}>
-        <Text
-          as="h2"
-          className="mb-5 max-w-[18ch] font-display text-[clamp(28px,4vw,46px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink"
-          dangerouslySetInnerHTML={{ __html: SECTION_DATA.title }}
-        />
+        <Text as="h2" className="mb-5 max-w-[18ch] font-display text-[clamp(28px,4vw,46px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink">
+          {(heading || SECTION_DATA.heading).split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+            const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+            return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+          })}
+        </Text>
       </Reveal>
 
       <Reveal delay={2}>

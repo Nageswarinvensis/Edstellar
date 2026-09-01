@@ -11,7 +11,6 @@ import {
   AccordionItem,
   AccordionContent,
 } from "@/components/ui/accordion";
-import RichHeading from "@/components/common/rich-heading";
 
 function FaqAnswer({ answer }) {
   function handleClick(e) {
@@ -82,13 +81,7 @@ function FaqTrigger({ children }) {
   );
 }
 
-function toTitleCase(text = "") {
-  return text
-    .toLowerCase()
-    .replace(/\b\w/g, (char) => char.toUpperCase());
-}
-
-export default function Faq({ faqs, courseName }) {
+export default function Faq({ faqs }) {
   if (!faqs || Array.isArray(faqs) || !faqs.items?.length) return null;
 
 
@@ -99,15 +92,12 @@ export default function Faq({ faqs, courseName }) {
     >
       <Box>
         <Reveal delay={1}>
-          <RichHeading
-            as="h2"
-            parts={[
-              { text: `Corporate ${toTitleCase(courseName ?? "")} Training ` },
-              { text: "FAQs", is_italic: true },
-            ]}
-            className="max-w-[28ch] tracking-[-0.03em]"
-            emphasisClassName="font-normal italic"
-          />
+          <Text as="h2" className="max-w-[28ch] tracking-[-0.03em]">
+            {(typeof faqs.title === "string" ? faqs.title : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+              const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+              return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+            })}
+          </Text>
         </Reveal>
 
         <Reveal delay={1}>
