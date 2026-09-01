@@ -43,11 +43,7 @@ const devopsTraining = {
   },
 
   hero: {
-    heading_parts: [
-      { text: "Corporate " },
-      { text: "DevOps", is_italic: true },
-      { text: " Training" },
-    ],
+    heading: "Corporate <span>DevOps</span> Training",
 
     subhead: "Build the platform team that ships without waiting on tickets.",
 
@@ -198,11 +194,7 @@ const devopsTraining = {
   },
 
   about: {
-    heading_parts: [
-      { text: "What is corporate " },
-      { text: "DevOps training", is_italic: true },
-      { text: "?" },
-    ],
+    heading: "What is corporate <span>DevOps training</span>?",
 
     body: [
       "Corporate DevOps training is instructor-led group training that builds an organisation's ability to design, automate and operate its own delivery pipeline. It spans platform engineering, CI/CD pipeline design, infrastructure as code, container orchestration and site reliability practices. Programs are scoped to an employer's stack and delivered to a closed cohort rather than sold as individual seats.",
@@ -224,13 +216,7 @@ const devopsTraining = {
   },
 
   card: {
-    heading: {
-      parts: [
-        { text: "Capability is an " },
-        { text: "organisational", is_italic: true },
-        { text: " state, not a set of certificates." },
-      ],
-    },
+    heading: "Capability is an <span>organisational</span> state, not a set of certificates.",
 
     description:
       "Individual skills are the input. What a board can actually see is the change in how the organisation ships software. These are the shifts that separate a company that has bought DevOps tooling from one that has built platform capability.",
@@ -317,11 +303,7 @@ const devopsTraining = {
   },
 
   map_section: {
-    heading_parts: [
-      { text: "Why enterprises choose " },
-      { text: "Edstellar ", is_italic: true },
-      { text: "for DevOps." },
-    ],
+    heading: "Why enterprises choose <span>Edstellar </span>for DevOps.",
 
     description:
       "Edstellar is a corporate training provider delivering instructor-led DevOps programs to teams of every size, from a single squad to an entire engineering organisation, on-site, virtual, or blended, with programs built and led by practitioners.",
@@ -360,10 +342,7 @@ const devopsTraining = {
 
   method: {
     lifecycle: {
-      heading: [
-        { text: "How a DevOps capability program, " },
-        { text: "actually runs.", is_italic: true },
-      ],
+      heading: "How a DevOps capability program, <span>actually runs.</span>",
 
       description:
         "Every engagement runs the same five stages, from capability baseline through to the refresh cycle.",
@@ -449,13 +428,7 @@ const devopsTraining = {
   },
 
   faqs: {
-    title: {
-      parts: [
-        { text: "Questions enterprises ask " },
-        { text: "before booking.", is_italic: true },
-        { text: "" },
-      ],
-    },
+    heading: "Questions enterprises ask <span>before booking.</span>",
 
     items: [
       {
@@ -507,13 +480,7 @@ const devopsTraining = {
   },
 
   related_domains: {
-    heading: {
-      parts: [
-        { text: "Explore related " },
-        { text: "training domains", is_italic: true },
-        { text: "." },
-      ],
-    },
+    heading: "Explore related <span>training domains</span>.",
 
     description:
       "DevOps capability rarely sits alone. These categories are the ones enterprises most often build alongside it.",
@@ -562,13 +529,7 @@ const devopsTraining = {
   },
 
   lead_form: {
-    title: {
-      parts: [
-        { text: "Ask us about " },
-        { text: "DevOps training", is_italic: true },
-        { text: " for your teams." },
-      ],
-    },
+    heading: "Ask us about <span>DevOps training</span> for your teams.",
     description:
       "Tell us which teams you are training and what they need to be able to do. Anything you filtered in the catalog comes through with your message.",
     sla_note:

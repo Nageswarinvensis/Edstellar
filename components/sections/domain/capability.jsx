@@ -15,7 +15,7 @@ export default function Capability({ data }) {
         <Reveal>
           <RichHeading
             as="h2"
-            parts={data.heading?.parts}
+            heading={data.heading}
             className="max-w-[20ch] tracking-[-0.03em] text-white"
             emphasisClassName="font-normal italic text-lime"
           />

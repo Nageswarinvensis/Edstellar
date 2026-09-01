@@ -14,7 +14,7 @@ export default function Card({ data, ctaBannerData }) {
         <Reveal>
           <RichHeading
             as="h2"
-            parts={data.heading?.parts}
+            heading={data.heading}
             className="mb-6.5 max-w-[20ch]"
             emphasisClassName="font-normal italic text-olive"
           />

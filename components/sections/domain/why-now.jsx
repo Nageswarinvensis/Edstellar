@@ -72,7 +72,7 @@ export default function WhyNow({ whyNow, ctaBannerData }) {
       <Reveal delay={1}>
         <RichHeading
           as="h2"
-          parts={whyNow.heading?.parts}
+          heading={whyNow.heading}
           className="max-w-[20ch] tracking-[-0.03em]"
           emphasisClassName="font-normal italic text-olive"
         />

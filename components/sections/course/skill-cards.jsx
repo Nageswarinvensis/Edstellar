@@ -30,7 +30,7 @@ function SkillCard({ item }) {
             {item.number}
           </Text>
           <Text
-            as="h4"
+            as="h3"
             className="mt-3 font-display text-[18px] leading-[1.5] font-semibold tracking-[-0.02em] text-ink"
           >
             {item.title}
@@ -50,10 +50,7 @@ function SkillCard({ item }) {
           >
             {item.number}
           </Text>
-          <Text
-            as="p"
-            className="mt-3 text-[13px] leading-[1.55] text-white"
-          >
+          <Text as="p" className="mt-3 text-[13px] leading-[1.55] text-white">
             {item.description}
           </Text>
           <Text

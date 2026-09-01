@@ -3,9 +3,10 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 
 export default function Certificate({ certificate }) {
-  if (!certificate || Array.isArray(certificate) || !certificate.title) return null;
+  if (!certificate || Array.isArray(certificate) || !certificate.heading) return null;
 
   return (
     <Section
@@ -16,17 +17,7 @@ export default function Certificate({ certificate }) {
         {/* Left */}
         <Reveal delay={1}>
           <Box>
-            <Text as="h2" className="max-w-140 tracking-[-0.04em]">
-              {certificate.title?.parts
-                ? certificate.title.parts.map((p, i) =>
-                    (p.is_italic || p.em) ? <em key={i} className="font-serif font-normal italic">{p.text}</em> : p.text
-                  )
-                : (typeof certificate.title === "string" ? certificate.title : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-                    const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-                    return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
-                  })
-              }
-            </Text>
+            <RichHeading heading={certificate.heading} className="max-w-140 tracking-[-0.04em]" />
 
             <Text
               as="p"

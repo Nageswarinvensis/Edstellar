@@ -43,11 +43,7 @@ const softSkillsTraining = {
   },
 
   hero: {
-    heading_parts: [
-      { text: "Corporate " },
-      { text: "Soft Skills", is_italic: true },
-      { text: " Training" },
-    ],
+    heading: "Corporate <span>Soft Skills</span> Training",
 
     subhead: "Build the habits that make every other skill land.",
 
@@ -198,11 +194,7 @@ const softSkillsTraining = {
   },
 
   about: {
-    heading_parts: [
-      { text: "What is corporate " },
-      { text: "soft skills training", is_italic: true },
-      { text: "?" },
-    ],
+    heading: "What is corporate <span>soft skills training</span>?",
 
     body: [
       "Corporate soft skills training is instructor-led group training that builds an organisation's communication, collaboration and workplace professionalism. It covers areas like written and verbal communication, email etiquette, teamwork and cross-functional collaboration. Programs are scoped to an employer's teams and delivered to a closed cohort rather than sold as individual seats.",
@@ -223,13 +215,7 @@ const softSkillsTraining = {
   },
 
   card: {
-    heading: {
-      parts: [
-        { text: "Capability is an " },
-        { text: "organisational", is_italic: true },
-        { text: " state, not a set of certificates." },
-      ],
-    },
+    heading: "Capability is an <span>organisational</span> state, not a set of certificates.",
 
     description:
       "Individual skills are the input. What a board can actually see is the change in how the organisation communicates and works together. These are the shifts that separate a company that has bought soft skills content from one that has built the habit.",
@@ -276,11 +262,7 @@ const softSkillsTraining = {
   },
 
   map_section: {
-    heading_parts: [
-      { text: "Why enterprises choose " },
-      { text: "Edstellar ", is_italic: true },
-      { text: "for soft skills." },
-    ],
+    heading: "Why enterprises choose <span>Edstellar </span>for soft skills.",
 
     description:
       "Edstellar is a corporate training provider delivering instructor-led soft skills programs to teams of every size, from a single squad to an entire organisation, on-site, virtual, or blended, with programs built and led by practitioners.",
@@ -319,10 +301,7 @@ const softSkillsTraining = {
 
   method: {
     lifecycle: {
-      heading: [
-        { text: "How a soft skills capability program, " },
-        { text: "actually runs.", is_italic: true },
-      ],
+      heading: "How a soft skills capability program, <span>actually runs.</span>",
 
       description:
         "Every engagement runs the same five stages, from capability baseline through to the refresh cycle.",
@@ -408,13 +387,7 @@ const softSkillsTraining = {
   },
 
   faqs: {
-    title: {
-      parts: [
-        { text: "Questions enterprises ask " },
-        { text: "before booking.", is_italic: true },
-        { text: "" },
-      ],
-    },
+    heading: "Questions enterprises ask <span>before booking.</span>",
 
     items: [
       {
@@ -461,13 +434,7 @@ const softSkillsTraining = {
   },
 
   related_domains: {
-    heading: {
-      parts: [
-        { text: "Explore related " },
-        { text: "training domains", is_italic: true },
-        { text: "." },
-      ],
-    },
+    heading: "Explore related <span>training domains</span>.",
 
     description:
       "Soft skills rarely sit alone. These categories are the ones enterprises most often build alongside it.",
@@ -508,13 +475,7 @@ const softSkillsTraining = {
   },
 
   lead_form: {
-    title: {
-      parts: [
-        { text: "Ask us about " },
-        { text: "soft skills training", is_italic: true },
-        { text: " for your teams." },
-      ],
-    },
+    heading: "Ask us about <span>soft skills training</span> for your teams.",
     description:
       "Tell us which teams you are training and what they need to be able to do. Anything you filtered in the catalog comes through with your message.",
     sla_note:

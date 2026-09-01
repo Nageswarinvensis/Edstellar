@@ -6,6 +6,7 @@ import HeroActions from "@/components/common/hero-actions";
 import HeroMedia from "@/components/common/hero-media";
 import HeroMeta from "@/components/common/hero-meta";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 
 const HERO_ACTIONS = [
   { href: "#curriculum", label: "View course outline", variant: "primary" },
@@ -16,8 +17,8 @@ const HERO_ACTIONS = [
  * Category hero — shared by the category page and the course page within it.
  *
  * Adds the topic pill rail, the dark proof bar, and the multi-program
- * group-quote prompt. The proof bar tone is driven entirely by content
- * (`proof.tone`), not by a page-level flag.
+ * group-quote prompt. The proof bar tone is always dark on the course page —
+ * hardcoded in `CourseInfo`, not read from CMS's `proof.tone`.
  *
  * Design: `header.hero` on the course page.
  */
@@ -43,12 +44,11 @@ function CategoryHero({ hero, breadcrumbs }) {
           }`}
         >
           <Reveal delay={1}>
-            <Text as="h1" className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]">
-              {(hero.heading || "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-                const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-                return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
-              })}
-            </Text>
+            <RichHeading
+              as="h1"
+              heading={hero.heading}
+              className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
+            />
           </Reveal>
 
           <Reveal delay={1}>

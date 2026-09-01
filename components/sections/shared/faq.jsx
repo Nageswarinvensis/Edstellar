@@ -5,6 +5,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 import SecCta from "@/components/common/sec-cta";
 import {
   Accordion,
@@ -20,8 +21,13 @@ function FaqAnswer({ answer }) {
     const target = document.getElementById(id);
     if (!target) return;
     e.preventDefault();
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    target.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    target.scrollIntoView({
+      behavior: reduced ? "auto" : "smooth",
+      block: "start",
+    });
   }
 
   if (typeof answer === "string" && answer.includes("<")) {
@@ -84,7 +90,6 @@ function FaqTrigger({ children }) {
 export default function Faq({ faqs }) {
   if (!faqs || Array.isArray(faqs) || !faqs.items?.length) return null;
 
-
   return (
     <Section
       id="faqs"
@@ -92,12 +97,7 @@ export default function Faq({ faqs }) {
     >
       <Box>
         <Reveal delay={1}>
-          <Text as="h2" className="max-w-[28ch] tracking-[-0.03em]">
-            {(typeof faqs.title === "string" ? faqs.title : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-              const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-              return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
-            })}
-          </Text>
+          <RichHeading heading={faqs.heading} className="max-w-[28ch]" />
         </Reveal>
 
         <Reveal delay={1}>

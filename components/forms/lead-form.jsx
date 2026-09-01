@@ -8,6 +8,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 import { CtaButton } from "@/components/common/cta-button";
 import { FormField, formInputClasses } from "@/components/common/form-field";
 import { cn } from "@/lib/utils";
@@ -52,17 +53,7 @@ export default function LeadForm({ data, background = "paper-warm" }) {
       )}
     >
       <Reveal>
-        <Text as="h2" className="mb-4 max-w-[20ch] font-display text-[clamp(30px,4vw,50px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink">
-          {data.heading?.parts
-            ? data.heading.parts.map((p, i) =>
-                (p.is_italic || p.em) ? <em key={i} className="font-serif font-normal italic">{p.text}</em> : p.text
-              )
-            : (typeof data.heading === "string" ? data.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-                const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-                return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
-              })
-          }
-        </Text>
+        <RichHeading heading={data.heading} className="mb-4 max-w-[25ch]" />
       </Reveal>
 
       <Reveal delay={1}>
@@ -115,10 +106,7 @@ export default function LeadForm({ data, background = "paper-warm" }) {
                 </Box>
 
                 {data.pricing_href ? (
-                  <CtaButton
-                    arrow
-                    render={<a href={data.pricing_href} />}
-                  >
+                  <CtaButton arrow render={<a href={data.pricing_href} />}>
                     See pricing while you wait
                   </CtaButton>
                 ) : null}

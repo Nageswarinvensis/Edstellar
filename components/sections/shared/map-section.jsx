@@ -68,12 +68,7 @@ export default function MapSection({ data }) {
           <Box className="max-w-[650px]">
             {/* Heading */}
             <Reveal>
-              <Text as="h2" className="mb-6.5 max-w-[20ch]">
-                {(data.heading || "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-                  const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-                  return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
-                })}
-              </Text>
+              <RichHeading heading={data.heading} className="mb-6.5 max-w-[20ch]" />
             </Reveal>
 
             {/* Description */}
@@ -215,20 +210,12 @@ export default function MapSection({ data }) {
         {data.approach?.heading && (
           <Reveal delay={4}>
             <Box className="mt-9 rounded-[18px] bg-navy p-10 max-[600px]:p-6">
-              {data.approach.heading?.parts ? (
-                <RichHeading
-                  as="h3"
-                  parts={data.approach.heading.parts}
-                  emphasisClassName="font-serif font-normal italic text-lime"
-                  className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-[1.25] font-semibold tracking-[-0.02em] text-paper"
-                />
-              ) : (
-                <Text
-                  as="h3"
-                  className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-[1.25] font-semibold tracking-[-0.02em] text-paper [&_span]:font-serif [&_span]:!font-normal [&_span]:italic [&_span]:text-lime"
-                  dangerouslySetInnerHTML={{ __html: data.approach.heading || "" }}
-                />
-              )}
+              <RichHeading
+                as="h3"
+                heading={data.approach.heading}
+                emphasisClassName="font-serif font-normal italic text-lime"
+                className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-[1.25] font-semibold tracking-[-0.02em] text-paper"
+              />
               <Text
                 as="p"
                 className="mt-4 max-w-[66ch] text-base leading-[1.7] text-paper/60"

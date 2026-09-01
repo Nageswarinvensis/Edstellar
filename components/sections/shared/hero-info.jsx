@@ -69,8 +69,9 @@ function CourseInfo({ proof }) {
         ) : null}
 
         <Reveal delay={4}>
+          {/* Always dark on the course page — never CMS's `proof.tone`. */}
           <ProofBar
-            tone={proof?.tone}
+            tone="dark"
             stats={stats}
             trainers={trainers}
             actions={proof?.actions}

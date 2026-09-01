@@ -14,7 +14,7 @@ export default function Method({ data }) {
           <Reveal delay={1}>
           <RichHeading
             as="h2"
-            parts={data.lifecycle.heading}
+            heading={data.lifecycle.heading}
             className="max-w-[20ch] tracking-[-0.03em]"
             emphasisClassName="font-normal italic text-olive"
           />

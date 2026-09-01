@@ -37,11 +37,7 @@ const artificialIntelligence = {
   },
 
   hero: {
-    heading_parts: [
-      { text: "Corporate " },
-      { text: "Artificial Intelligence", is_italic: true },
-      { text: " Training" },
-    ],
+    heading: "Corporate <span>Artificial Intelligence</span> Training",
 
     subhead: "Build the people who will run your AI, not just the models.",
 
@@ -225,11 +221,7 @@ const artificialIntelligence = {
     ],
   },
   about: {
-    heading_parts: [
-      { text: "What is corporate " },
-      { text: "AI training", is_italic: true },
-      { text: "?" },
-    ],
+    heading: "What is corporate <span>AI training</span>?",
 
     body: [
       "Corporate AI training is instructor-led group training that builds an organisation's ability to design, deploy, and govern artificial intelligence systems. It spans two tracks: technical depth for the data, engineering, and MLOps teams who build and run models, and broad enablement for the functions who now use AI tools in daily work. Programs are scoped to an employer's stack and delivered to a closed cohort rather than sold as individual seats.",
@@ -251,13 +243,7 @@ const artificialIntelligence = {
     ],
   },
   why_now: {
-    heading: {
-      parts: [
-        { text: "Adoption moved. Hiring cannot " },
-        { text: "keep up", is_italic: true },
-        { text: ". Waiting compounds." },
-      ],
-    },
+    heading: "Adoption moved. Hiring cannot <span>keep up</span>. Waiting compounds.",
     cta_banner: [
       {
         variant: "light",
@@ -516,13 +502,7 @@ const artificialIntelligence = {
     ],
   },
   card: {
-    heading: {
-      parts: [
-        { text: "Capability is an " },
-        { text: "organisational", is_italic: true },
-        { text: " state, not a set of certificates." },
-      ],
-    },
+    heading: "Capability is an <span>organisational</span> state, not a set of certificates.",
 
     description:
       "Individual skills are the input. What a board can actually see is the change in how the organisation behaves. These are the shifts that separate a company that has bought AI training from one that has built AI capability.",
@@ -615,13 +595,7 @@ const artificialIntelligence = {
       "All names and marks shown are the property of their respective owners. Their appearance here indicates coverage in our training, not partnership, affiliation or endorsement.",
   },
   trainers: {
-    heading: {
-      parts: [
-        { text: "Practitioners who run AI in production, " },
-        { text: "not generalists ", is_italic: true },
-        { text: "working from slides." },
-      ],
-    },
+    heading: "Practitioners who run AI in production, <span>not generalists </span>working from slides.",
 
     description:
       "Every trainer passes a technical domain assessment, a live delivery evaluation by a senior practitioner, and reference checks from past corporate cohorts. Nobody reaches a cohort on a CV alone.",
@@ -670,11 +644,7 @@ const artificialIntelligence = {
     note: "Trainers are matched to your stack and delivery window at scheduling. We confirm your assigned trainer, with a full profile, before the program is booked, and you can sit in on a trial session first.",
   },
   map_section: {
-    heading_parts: [
-      { text: "Why enterprises choose " },
-      { text: "Edstellar ", is_italic: true },
-      { text: "for AI." },
-    ],
+    heading: "Why enterprises choose <span>Edstellar </span>for AI.",
 
     description:
       "Edstellar is a corporate training provider delivering instructor-led AI programs to teams of every size, from a single squad to an entire engineering organisation, on-site, virtual, or blended, with programs built and led by practitioners.",
@@ -711,12 +681,7 @@ const artificialIntelligence = {
     related_services: [],
   },
   capability: {
-    heading: {
-      parts: [
-        { text: "Capability you can point at, " },
-        { text: "after the cohort ended.", is_italic: true },
-      ],
-    },
+    heading: "Capability you can point at, <span>after the cohort ended.</span>",
 
     description:
       "Three engagements, summarised. Each links to the full write-up: what the team could not do, what we ran, and what was measurably different ninety days later.",
@@ -778,10 +743,7 @@ const artificialIntelligence = {
   },
   method : {
     lifecycle: {
-      heading: [
-        { text: "How an AI capability program, " },
-        { text: "actually runs.", is_italic: true },
-      ],
+      heading: "How an AI capability program, <span>actually runs.</span>",
 
       description: "Every engagement runs the same five stages, from capability baseline through to the refresh cycle.",
 
@@ -866,13 +828,7 @@ const artificialIntelligence = {
     },
   },
   faqs: {
-    title: {
-      parts: [
-        { text: "Questions enterprises ask " },
-        { text: "before booking.", is_italic: true },
-        { text: "" },
-      ],
-    },
+    heading: "Questions enterprises ask <span>before booking.</span>",
 
     items: [
       {
@@ -933,13 +889,7 @@ const artificialIntelligence = {
     ],
   },
   related_domains: {
-    heading: {
-      parts: [
-        { text: "Explore related " },
-        { text: "training domains", is_italic: true },
-        { text: "." },
-      ],
-    },
+    heading: "Explore related <span>training domains</span>.",
 
     description:
       "AI capability rarely sits alone. These categories are the ones enterprises most often build alongside it.",
@@ -1004,13 +954,7 @@ const artificialIntelligence = {
     ],
   },
   lead_form: {
-    title: {
-      parts: [
-        { text: "Ask us about " },
-        { text: "AI training", is_italic: true },
-        { text: " for your teams." },
-      ],
-    },
+    heading: "Ask us about <span>AI training</span> for your teams.",
     description:
       "Tell us which teams you are training and what they need to be able to do. Anything you filtered in the catalog comes through with your message.",
     sla_note:

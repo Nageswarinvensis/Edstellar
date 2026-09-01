@@ -1,6 +1,7 @@
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 import SkillCards from "@/components/sections/course/skill-cards";
 
 /**
@@ -17,17 +18,7 @@ export default function Skills({ skills }) {
       className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
     >
       <Reveal delay={1}>
-        <Text as="h2" className="mb-6.5 max-w-[20ch] tracking-[-0.03em]">
-          {skills.heading?.parts
-            ? skills.heading.parts.map((p, i) =>
-                (p.is_italic || p.em) ? <em key={i} className="font-serif font-normal italic">{p.text}</em> : p.text
-              )
-            : (typeof skills.heading === "string" ? skills.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
-                const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-                return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
-              })
-          }
-        </Text>
+        <RichHeading heading={skills.heading} className="mb-6.5 max-w-[20ch] tracking-[-0.03em]" />
       </Reveal>
 
       <Reveal delay={2}>

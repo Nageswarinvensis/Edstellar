@@ -14,7 +14,7 @@ export default function RelatedCategories({ data }) {
         <Reveal>
           <RichHeading
             as="h2"
-            parts={data.heading?.parts}
+            heading={data.heading}
             className="max-w-[22ch] tracking-[-0.03em]"
             emphasisClassName="font-normal italic text-olive"
           />
