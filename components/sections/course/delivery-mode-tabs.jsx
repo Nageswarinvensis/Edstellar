@@ -11,24 +11,39 @@ import { cn } from "@/lib/utils";
  * it. Kept as the smallest client leaf — the section heading/lede stay
  * server-rendered.
  *
- * The panel photo is a static asset per tab `id`, not CMS-driven — the CMS
- * doesn't model delivery-mode imagery, and every course shows the same three
- * modes with the same three photos.
+ * The panel photo is a static asset per delivery mode, not CMS-driven — the
+ * CMS doesn't model delivery-mode imagery, and every course shows the same
+ * three modes with the same three photos.
+ *
+ * **Matched by keyword, not by exact `id`.** Different courses' CMS records
+ * name this tab differently (`id: "virtual"` on one, `id: "online"` on
+ * another, label "In-house" vs "On-site" vs sublabel-only), so an exact-key
+ * lookup silently drops the image on any course that doesn't use the one
+ * id this file happened to be written against. Position (tabs are always
+ * authored virtual/onsite/offsite, in that order) is the final fallback.
  *
  * Design: `#modeTabs`, `.tab`, `#modePanels`, `.tab-panel`, `.mode-art`.
  */
-const TAB_IMAGES = {
-  virtual: { src: "/course/vertual.webp", alt: "Virtual training" },
-  onsite: { src: "/course/on-site.webp", alt: "On-site training" },
-  offsite: { src: "/course/off-site.webp", alt: "Off-site training" },
-};
+const TAB_IMAGE_RULES = [
+  { image: { src: "/course/vertual.webp", alt: "Virtual training" }, match: /virtual|online/i },
+  { image: { src: "/course/on-site.webp", alt: "On-site training" }, match: /on.?site|in.?house/i },
+  { image: { src: "/course/off-site.webp", alt: "Off-site training" }, match: /off.?site|away/i },
+];
+
+function imageForTab(tab, index) {
+  const haystack = `${tab.id ?? ""} ${tab.label ?? ""} ${tab.sublabel ?? ""}`;
+  const byKeyword = TAB_IMAGE_RULES.find((rule) => rule.match.test(haystack));
+  return byKeyword?.image ?? TAB_IMAGE_RULES[index]?.image;
+}
+
 export default function DeliveryModeTabs({ tabs }) {
   const [activeId, setActiveId] = useState(tabs?.[0]?.id);
 
   if (!tabs?.length) return null;
 
-  const active = tabs.find((tab) => tab.id === activeId) || tabs[0];
-  const image = TAB_IMAGES[active.id];
+  const activeIndex = tabs.findIndex((tab) => tab.id === activeId);
+  const active = activeIndex === -1 ? tabs[0] : tabs[activeIndex];
+  const image = imageForTab(active, activeIndex === -1 ? 0 : activeIndex);
 
   return (
     <Box>

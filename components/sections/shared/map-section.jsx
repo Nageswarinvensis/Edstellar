@@ -215,12 +215,20 @@ export default function MapSection({ data }) {
         {data.approach?.heading && (
           <Reveal delay={4}>
             <Box className="mt-9 rounded-[18px] bg-navy p-10 max-[600px]:p-6">
-              <RichHeading
-                as="h3"
-                parts={data.approach.heading.parts}
-                emphasisClassName="font-serif font-normal italic text-lime"
-                className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-[1.25] font-semibold tracking-[-0.02em] text-paper"
-              />
+              {data.approach.heading?.parts ? (
+                <RichHeading
+                  as="h3"
+                  parts={data.approach.heading.parts}
+                  emphasisClassName="font-serif font-normal italic text-lime"
+                  className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-[1.25] font-semibold tracking-[-0.02em] text-paper"
+                />
+              ) : (
+                <Text
+                  as="h3"
+                  className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-[1.25] font-semibold tracking-[-0.02em] text-paper [&_span]:font-serif [&_span]:!font-normal [&_span]:italic [&_span]:text-lime"
+                  dangerouslySetInnerHTML={{ __html: data.approach.heading || "" }}
+                />
+              )}
               <Text
                 as="p"
                 className="mt-4 max-w-[66ch] text-base leading-[1.7] text-paper/60"
