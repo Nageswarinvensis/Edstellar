@@ -4,7 +4,6 @@ import Section from "@/components/ui/Section";
 import ReadMore from "@/components/common/read-more";
 import Reveal from "@/components/common/reveal";
 import CtaBanner from "@/components/common/cta-banner";
-import RichHeading from "@/components/common/rich-heading";
 import CustomizedTraining from "@/components/sections/shared/customized-training";
 
 function CategoryAbout({ about, ctaBannerData }) {
@@ -17,20 +16,12 @@ function CategoryAbout({ about, ctaBannerData }) {
       <Box className="grid grid-cols-1 items-start gap-8 gap-x-12 md:grid-cols-2 md:gap-12">
         <Box>
           <Reveal delay={1}>
-            {(about.heading_parts ?? about.heading?.parts)?.length ? (
-              <RichHeading
-                as="h2"
-                parts={about.heading_parts ?? about.heading.parts}
-                className="max-w-[20ch]"
-                emphasisClassName="font-normal italic text-olive"
-              />
-            ) : (
-              <Text
-                as="h2"
-                className="max-w-[20ch]"
-                dangerouslySetInnerHTML={{ __html: typeof about.heading === "string" ? about.heading : "" }}
-              />
-            )}
+            <Text as="h2" className="max-w-[20ch]">
+              {(typeof about.heading === "string" ? about.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+                const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+                return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+              })}
+            </Text>
           </Reveal>
 
           <Reveal delay={1}>

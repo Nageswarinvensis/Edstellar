@@ -2,7 +2,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
-import RichHeading from "@/components/common/rich-heading";
 
 export default function Outcomes({ outcomes }) {
   if (!outcomes?.items?.length) return null;
@@ -10,20 +9,12 @@ export default function Outcomes({ outcomes }) {
   return (
     <Section id="outcomes" className="border-t border-ink/10 bg-paper-warm">
       <Reveal delay={1}>
-        {outcomes.heading?.parts ? (
-          <RichHeading
-            as="h2"
-            parts={outcomes.heading.parts}
-            className="mb-6.5 max-w-[20ch] tracking-[-0.03em]"
-            emphasisClassName="font-normal italic text-olive"
-          />
-        ) : (
-          <Text
-            as="h2"
-            className="mb-6.5 max-w-[20ch] tracking-[-0.03em]"
-            dangerouslySetInnerHTML={{ __html: outcomes.heading || "" }}
-          />
-        )}
+        <Text as="h2" className="mb-6.5 max-w-[20ch] tracking-[-0.03em]">
+          {(typeof outcomes.heading === "string" ? outcomes.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+            const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+            return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+          })}
+        </Text>
       </Reveal>
 
       <Reveal delay={2}>

@@ -2,7 +2,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
-import RichHeading from "@/components/common/rich-heading";
 import SecCta from "@/components/common/sec-cta";
 import SkillProgression from "@/components/sections/course/skill-progression";
 import { cn } from "@/lib/utils";
@@ -103,20 +102,12 @@ export default function Audience({ audience }) {
       className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
     >
       <Reveal delay={1}>
-        {heading?.parts ? (
-          <RichHeading
-            as="h2"
-            parts={heading.parts}
-            className="mb-6.5 max-w-[24ch] tracking-[-0.03em]"
-            emphasisClassName="font-normal italic text-olive"
-          />
-        ) : (
-          <Text
-            as="h2"
-            className="mb-6.5 max-w-[24ch] tracking-[-0.03em]"
-            dangerouslySetInnerHTML={{ __html: heading || "" }}
-          />
-        )}
+        <Text as="h2" className="mb-6.5 max-w-[24ch] tracking-[-0.03em]">
+          {(typeof heading === "string" ? heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+            const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+            return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+          })}
+        </Text>
       </Reveal>
 
       <Reveal delay={2}>

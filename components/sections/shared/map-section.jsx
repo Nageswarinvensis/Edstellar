@@ -68,20 +68,12 @@ export default function MapSection({ data }) {
           <Box className="max-w-[650px]">
             {/* Heading */}
             <Reveal>
-              {data.heading_parts ? (
-                <RichHeading
-                  as="h2"
-                  parts={data.heading_parts}
-                  className="mb-6.5 max-w-[20ch]"
-                  emphasisClassName="font-normal italic text-olive"
-                />
-              ) : (
-                <Text
-                  as="h2"
-                  className="mb-6.5 max-w-[20ch]"
-                  dangerouslySetInnerHTML={{ __html: data.heading || "" }}
-                />
-              )}
+              <Text as="h2" className="mb-6.5 max-w-[20ch]">
+                {(data.heading || "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+                  const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+                  return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+                })}
+              </Text>
             </Reveal>
 
             {/* Description */}

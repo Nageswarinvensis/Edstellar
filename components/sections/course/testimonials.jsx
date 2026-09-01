@@ -7,7 +7,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
-import RichHeading from "@/components/common/rich-heading";
 import { cn } from "@/lib/utils";
 import {
   Carousel,
@@ -115,20 +114,12 @@ export default function Testimonials({ testimonials }) {
     >
       <Box className="mx-auto max-w-230">
         <Reveal delay={1}>
-          {heading?.parts ? (
-            <RichHeading
-              as="h2"
-              parts={heading.parts}
-              className="mb-9 max-w-[22ch] tracking-[-0.03em]"
-              emphasisClassName="font-normal italic text-olive"
-            />
-          ) : (
-            <Text
-              as="h2"
-              className="mb-9 max-w-[22ch] tracking-[-0.03em]"
-              dangerouslySetInnerHTML={{ __html: heading || "" }}
-            />
-          )}
+          <Text as="h2" className="mb-9 max-w-[22ch] tracking-[-0.03em]">
+            {(typeof heading === "string" ? heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+              const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+              return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+            })}
+          </Text>
         </Reveal>
 
         <Reveal delay={2}>

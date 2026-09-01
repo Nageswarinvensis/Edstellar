@@ -5,7 +5,6 @@ import Breadcrumbs from "@/components/common/breadcrumbs";
 import HeroActions from "@/components/common/hero-actions";
 import HeroMedia from "@/components/common/hero-media";
 import HeroMeta from "@/components/common/hero-meta";
-import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 
 const HERO_ACTIONS = [
@@ -44,23 +43,12 @@ function CategoryHero({ hero, breadcrumbs }) {
           }`}
         >
           <Reveal delay={1}>
-            {/* CMS pages send `heading` as an HTML string (span-wrapped for
-                emphasis); local domain content uses `heading_parts`. Render
-                whichever is present. */}
-            {hero.heading_parts ? (
-              <RichHeading
-                as="h1"
-                parts={hero.heading_parts}
-                className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]"
-                emphasisClassName="font-normal italic text-olive"
-              />
-            ) : (
-              <Text
-                as="h1"
-                className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)] [&_span]:font-serif [&_span]:!font-normal [&_span]:italic"
-                dangerouslySetInnerHTML={{ __html: hero.heading || "" }}
-              />
-            )}
+            <Text as="h1" className="mb-2.5 max-lg:text-[clamp(32px,5vw,50px)]">
+              {(hero.heading || "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+                const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+                return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+              })}
+            </Text>
           </Reveal>
 
           <Reveal delay={1}>

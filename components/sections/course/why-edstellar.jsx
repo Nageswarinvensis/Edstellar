@@ -5,7 +5,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
-import RichHeading from "@/components/common/rich-heading";
 
 function ProgramCard({ program }) {
   return (
@@ -150,20 +149,12 @@ export default function WhyEds({ data }) {
     >
       <Box>
         <Reveal>
-          {(data.heading_parts ?? data.heading?.parts)?.length ? (
-            <RichHeading
-              as="h2"
-              parts={data.heading_parts ?? data.heading.parts}
-              className="mb-4 max-w-[20ch]"
-              emphasisClassName="font-normal italic text-olive"
-            />
-          ) : (
-            <Text
-              as="h2"
-              className="mb-4 max-w-[20ch]"
-              dangerouslySetInnerHTML={{ __html: data.heading || "" }}
-            />
-          )}
+          <Text as="h2" className="mb-4 max-w-[20ch]">
+            {(typeof data.heading === "string" ? data.heading : "").split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, i) => {
+              const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
+              return match ? <em key={i} className="font-serif font-normal italic">{match[1]}</em> : fragment;
+            })}
+          </Text>
         </Reveal>
 
         <Reveal delay={1}>
