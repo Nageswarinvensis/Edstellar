@@ -10,12 +10,6 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 
-/**
- * `AccordionTrigger` in components/ui/accordion.jsx bakes in chevron icons
- * with no way to swap them, and that file is shadcn-owned (never edit it
- * directly — TASTE.md §13). The FAQ design wants a plus that flips to a
- * minus, so this composes the base-ui trigger primitive directly instead.
- */
 function FaqTrigger({ children }) {
   return (
     <AccordionPrimitive.Header className="flex">
@@ -38,7 +32,7 @@ export default function Faq({ faqs }) {
   if (!faqs?.items?.length) return null;
 
   return (
-    <Section id="faq" className="border-t border-ink/10">
+    <Section id="faq" className="border-t border-ink/10 bg-paper-warm">
       <Box className="mx-auto max-w-180">
         <Reveal delay={1}>
           <RichHeading

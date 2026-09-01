@@ -32,20 +32,6 @@ function CategoryAbout({ about, ctaBannerData }) {
               {paragraph}
             </Text>
           ))}
-
-          {about.more?.length ? (
-            <ReadMore showIcon>
-              {about.more.map((paragraph, index) => (
-                <Text
-                  as="p"
-                  key={index}
-                  className="mb-4.5 text-base leading-[1.75]"
-                >
-                  {paragraph}
-                </Text>
-              ))}
-            </ReadMore>
-          ) : null}
         </Reveal>
 
         {contrast ? (
@@ -95,11 +81,27 @@ function CategoryAbout({ about, ctaBannerData }) {
             </Box>
           </Reveal>
         ) : null}
-     </Box>
-     {ctaBannerData?.map((cta, index) => (
+      </Box>
+
+      {about.more?.length ? (
+        <Reveal delay={1}>
+          <ReadMore showIcon>
+            {about.more.map((paragraph, index) => (
+              <Text
+                as="p"
+                key={index}
+                className="mb-4.5 text-base leading-[1.75] text-[#0A1628]"
+              >
+                {paragraph}
+              </Text>
+            ))}
+          </ReadMore>
+        </Reveal>
+      ) : null}
+
+      {ctaBannerData?.map((cta, index) => (
         <CtaBanner key={index} data={cta} />
-      ))
-     }
+      ))}
     </Section>
   );
 }

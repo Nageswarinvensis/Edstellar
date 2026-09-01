@@ -16,9 +16,11 @@ import Section from "@/components/ui/Section";
 
 const COURSES_PER_PAGE = 9;
 
-const paginationButtonBase = "flex h-8 w-8 items-center justify-center rounded-[7px] border transition-all duration-200";
+const paginationButtonBase =
+  "flex h-8 w-8 items-center justify-center rounded-[7px] border transition-all duration-200";
 
-const paginationTextBase = "text-[9px] font-medium uppercase tracking-[1px]";
+const paginationTextBase =
+  "text-[9px] font-medium uppercase tracking-[1px]";
 
 function RichHeading({ parts }) {
   return (
@@ -380,10 +382,13 @@ function Pagination({
 }
 
 export default function Program({ data }) {
-  const [selectedDiscipline, setSelectedDiscipline] = useState(null);
-  const [selectedRole, setSelectedRole] = useState(null);
+  const [selectedDiscipline, setSelectedDiscipline] =
+    useState(null);
+
   const [search, setSearch] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+
+  const [currentPage, setCurrentPage] =
+    useState(1);
 
   /*
    * DISCIPLINE
@@ -404,27 +409,7 @@ export default function Program({ data }) {
   }, [data.catalog.courses]);
 
   /*
-   * ROLE
-   * Generated from course roles.
-   *
-   * No role names are hardcoded here.
-   */
-  const roles = useMemo(() => {
-    const unique = new Set();
-
-    data.catalog.courses.forEach((course) => {
-      course.roles?.forEach((role) => {
-        if (role) {
-          unique.add(role);
-        }
-      });
-    });
-
-    return Array.from(unique);
-  }, [data.catalog.courses]);
-
-  /*
-   * DISCIPLINE + ROLE + SEARCH
+   * DISCIPLINE + SEARCH
    */
   const filteredCourses = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -436,9 +421,7 @@ export default function Program({ data }) {
           selectedDiscipline,
         );
 
-      const matchesRole = !selectedRole || course.roles?.includes(selectedRole);
-
-      if (!matchesDiscipline || !matchesRole) {
+      if (!matchesDiscipline) {
         return false;
       }
 
@@ -451,7 +434,6 @@ export default function Program({ data }) {
         course.description,
         course.discipline,
         ...(course.disciplineTags || []),
-        ...(course.roles || []),
       ]
         .filter(Boolean)
         .join(" ")
@@ -463,13 +445,13 @@ export default function Program({ data }) {
     data.catalog.courses,
     search,
     selectedDiscipline,
-    selectedRole,
   ]);
 
   const totalPages = Math.max(
     1,
     Math.ceil(
-      filteredCourses.length / COURSES_PER_PAGE,
+      filteredCourses.length /
+        COURSES_PER_PAGE,
     ),
   );
 
@@ -480,21 +462,22 @@ export default function Program({ data }) {
 
   const paginatedCourses = useMemo(() => {
     const start =
-      (safeCurrentPage - 1) * COURSES_PER_PAGE;
+      (safeCurrentPage - 1) *
+      COURSES_PER_PAGE;
 
     return filteredCourses.slice(
       start,
       start + COURSES_PER_PAGE,
     );
-  }, [filteredCourses, safeCurrentPage]);
+  }, [
+    filteredCourses,
+    safeCurrentPage,
+  ]);
 
-  const handleDisciplineChange = (discipline) => {
+  const handleDisciplineChange = (
+    discipline,
+  ) => {
     setSelectedDiscipline(discipline);
-    setCurrentPage(1);
-  };
-
-  const handleRoleChange = (role) => {
-    setSelectedRole(role);
     setCurrentPage(1);
   };
 
@@ -514,12 +497,16 @@ export default function Program({ data }) {
     filteredCourses.length === 0
       ? 0
       : Math.min(
-          safeCurrentPage * COURSES_PER_PAGE,
+          safeCurrentPage *
+            COURSES_PER_PAGE,
           filteredCourses.length,
         );
 
   return (
-    <Section id="program-catalog" className="bg-paper">
+    <Section
+      id="program-catalog"
+      className="bg-paper"
+    >
       <Box>
         {/* ================= HEADER ================= */}
         <Box>
@@ -541,7 +528,7 @@ export default function Program({ data }) {
           <Box className="flex flex-col gap-2.5 md:flex-row md:items-center">
             <Text
               as="span"
-              className="w-17 shrink-0 text-[10px] font-medium uppercase tracking-[1.5px] text-[#727984] whitespace-nowrap"
+              className="w-17 shrink-0 whitespace-nowrap text-[10px] font-medium uppercase tracking-[1.5px] text-[#727984]"
             >
               {data.eyebrow.discipline}
             </Text>
@@ -550,58 +537,32 @@ export default function Program({ data }) {
               <FilterButton
                 active={!selectedDiscipline}
                 onClick={() =>
-                  handleDisciplineChange(null)
+                  handleDisciplineChange(
+                    null,
+                  )
                 }
               >
                 {data.filters.allDisciplines}
               </FilterButton>
 
-              {disciplines.map((discipline) => (
-                <FilterButton
-                  key={discipline}
-                  active={
-                    selectedDiscipline === discipline
-                  }
-                  onClick={() =>
-                    handleDisciplineChange(discipline)
-                  }
-                >
-                  {discipline}
-                </FilterButton>
-              ))}
-            </Box>
-          </Box>
-
-          {/* ================= ROLE ================= */}
-          <Box className="mt-2 flex flex-col gap-2 md:flex-row md:items-center">
-            <Text
-              as="span"
-              className="w-17 shrink-0 text-[10px] font-medium uppercase tracking-[1.5px] text-[#727984]"
-            >
-              {data.eyebrow.role}
-            </Text>
-
-            <Box className="flex flex-wrap gap-1.5">
-              <FilterButton
-                active={!selectedRole}
-                onClick={() =>
-                  handleRoleChange(null)
-                }
-              >
-                {data.filters.allRoles}
-              </FilterButton>
-
-              {roles.map((role) => (
-                <FilterButton
-                  key={role}
-                  active={selectedRole === role}
-                  onClick={() =>
-                    handleRoleChange(role)
-                  }
-                >
-                  {role}
-                </FilterButton>
-              ))}
+              {disciplines.map(
+                (discipline) => (
+                  <FilterButton
+                    key={discipline}
+                    active={
+                      selectedDiscipline ===
+                      discipline
+                    }
+                    onClick={() =>
+                      handleDisciplineChange(
+                        discipline,
+                      )
+                    }
+                  >
+                    {discipline}
+                  </FilterButton>
+                ),
+              )}
             </Box>
           </Box>
         </Box>
@@ -619,7 +580,9 @@ export default function Program({ data }) {
             {showingStart}–{showingEnd}{" "}
             {data.catalog.ofLabel}{" "}
             {filteredCourses.length}{" "}
-            <span className="mx-1.25 text-link-muted">-</span>
+            <span className="mx-1.25 text-link-muted">
+              -
+            </span>
             <a
               href="#program-catalog"
               className={[
@@ -649,7 +612,8 @@ export default function Program({ data }) {
               value={search}
               onChange={handleSearchChange}
               placeholder={
-                data.catalog.searchPlaceholder
+                data.catalog
+                  .searchPlaceholder
               }
               className={[
                 "h-8.5 w-full rounded-[8px]",
@@ -696,13 +660,15 @@ export default function Program({ data }) {
         {/* ================= COURSES ================= */}
         {paginatedCourses.length > 0 ? (
           <Box className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {paginatedCourses.map((course) => (
-              <CourseCard
-                key={course.id}
-                course={course}
-                data={data}
-              />
-            ))}
+            {paginatedCourses.map(
+              (course) => (
+                <CourseCard
+                  key={course.id}
+                  course={course}
+                  data={data}
+                />
+              ),
+            )}
           </Box>
         ) : (
           <Box className="flex flex-col items-center justify-center rounded-[12px] border border-dashed border-[#D7DADF] bg-white p-8">
@@ -713,21 +679,26 @@ export default function Program({ data }) {
               {data.catalog.noResults}
             </Text>
 
-            {data.actions?.map((action) => (
-              <CtaButton
-                key={action.label}
-                variant={action.variant}
-                arrow
-                render={<a href={action.href} />}
-              >
-                {action.label}
-              </CtaButton>
-            ))}
+            {data.actions?.map(
+              (action) => (
+                <CtaButton
+                  key={action.label}
+                  variant={action.variant}
+                  arrow
+                  render={
+                    <a href={action.href} />
+                  }
+                >
+                  {action.label}
+                </CtaButton>
+              ),
+            )}
           </Box>
         )}
 
         {/* ================= PAGINATION ================= */}
-        {filteredCourses.length > COURSES_PER_PAGE && (
+        {filteredCourses.length >
+          COURSES_PER_PAGE && (
           <Pagination
             currentPage={safeCurrentPage}
             totalPages={totalPages}

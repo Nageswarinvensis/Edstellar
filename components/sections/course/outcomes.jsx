@@ -36,9 +36,9 @@ export default function Outcomes({ outcomes }) {
             >
               <Box
                 aria-hidden="true"
-                className="mt-2 size-[7px] flex-none rounded-full bg-lime"
+                className="mt-2 size-1.75 flex-none rounded-full bg-lime"
               />
-              <Text as="p" className="text-[15px] leading-[1.5] text-ink">
+              <Text as="p" className="text-[15px] leading-normal text-ink">
                 {item}
               </Text>
             </Box>

@@ -1,140 +1,109 @@
-import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import Section from "@/components/ui/Section";
 import Reveal from "@/components/shared/reveal";
-import RichHeading from "@/components/shared/rich-heading";
 
 export default function Method({ data }) {
-  return (
-    <Section className="bg-[#fafaf8] px-5 py-16 md:px-8 lg:px-10 lg:py-24">
-      <Box className="mx-auto max-w-[1280px]">
+  if (!data) return null;
 
-        {/* LIFECYCLE */}
-        <Box>
-          <Reveal delay={1}>
-          <RichHeading
-            as="h2"
-            parts={data.lifecycle.heading}
-            emphasisClassName="font-serif italic font-normal"
-            className="max-w-[20ch] tracking-[-0.03em]"
-          />
+  return (
+    <Section className="bg-paper">
+      <Box>
+        <Reveal delay={1}>
+          <Box className="max-w-[700px]">
+            <Text
+              as="h2"
+              className="max-w-[600px] text-[30px] font-semibold leading-[1.02] tracking-[-1.8px] text-[#07182C] lg:text-[36px]"
+            >
+              {data.heading.before}{" "}
+              <em className="font-serif font-normal tracking-[-1px]">
+                {data.heading.emphasis}
+              </em>
+              {data.heading.after}
+            </Text>
+
+            <Text
+              as="p"
+              className="mt-5 lg:mt-7 max-w-170 text-[16px] leading-[1.65] text-[#66717F]"
+            >
+              {data.description}
+            </Text>
+          </Box>
         </Reveal>
 
-          <Text
-            as="p"
-            className="mt-6 max-w-[750px] text-[15px] leading-6 text-[#617086] sm:text-[16px] sm:leading-7"
-          >
-            {data.lifecycle.description}
-          </Text>
-
-          {/* STAGES */}
-          <Box className="mt-11 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-5 lg:gap-5">
-            {data.lifecycle.stages.map((stage, index) => (
+        <Reveal delay={2}>
+          <Box className="mt-7 lg:mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
+            {data.stages?.map((stage, index) => (
               <Box
-                key={stage.number}
-                className="group relative flex min-w-0 flex-col"
+                key={stage.id || index}
+                className="relative flex lg:min-h-78 min-h-auto flex-col rounded-[14px] border border-[#D9DDE1] bg-white p-5 shadow-[0_18px_35px_rgba(7,24,44,0.06)]"
               >
-                {/* NUMBER + CONNECTOR */}
-                <Box className="relative flex h-[35px] items-center">
+                <Box className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#071426]">
                   <Text
                     as="span"
-                    className="relative z-10 flex h-[35px] w-[35px] shrink-0 items-center justify-center rounded-full bg-[#07162c] font-mono text-[10px] text-[#b9f21d] transition-colors duration-200 group-hover:bg-[#b9f21d] group-hover:text-[#07162c]"
+                    className="font-mono text-[10px] font-medium tracking-[0.5px] text-[#B8F500]"
                   >
                     {stage.number}
                   </Text>
-
-                  {index < data.lifecycle.stages.length - 1 && (
-                    <Box className="absolute left-[35px] right-[-5px] top-1/2 hidden h-px -translate-y-1/2 bg-[#cbd0d5] lg:block">
-                      <Box className="absolute right-0 top-1/2 h-[6px] w-[6px] -translate-y-1/2 rotate-[-45deg] border-b border-r border-[#b8bdc2]" />
-                    </Box>
-                  )}
-
-                  {index < data.lifecycle.stages.length - 1 && (
-                    <Box className="absolute left-[17px] top-[35px] h-[40px] w-px bg-[#cbd0d5] lg:hidden" />
-                  )}
                 </Box>
 
                 <Text
                   as="h3"
-                  className="mt-5 text-[18px] font-bold leading-[1.2] text-[#07162c] sm:text-[19px]"
+                  className="mt-4 text-[18px] font-semibold leading-[1.1] tracking-[-0.6px] text-[#07182C]"
                 >
                   {stage.title}
                 </Text>
 
                 <Text
                   as="p"
-                  className="mt-3 text-[13px] leading-[1.6] text-[#617086] sm:text-[14px] lg:h-[112px]"
+                  className="mt-3 text-[14px] leading-[1.52] text-[#66717F]"
                 >
                   {stage.description}
                 </Text>
 
-                <Box className="mt-4 border-t border-[#d8dadd] pt-4">
-                  <Text
-                    as="p"
-                    className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#617086]"
-                  >
-                    {stage.timing}
-                  </Text>
+                <Box className="mt-auto pt-5">
+                  <Box className="border-t border-[#D9DDE1] pt-4">
+                    <Text
+                      as="p"
+                      className="font-mono text-[9px] font-normal tracking-[0.13em] text-[#66717F] uppercase"
+                    >
+                      {stage.meta}
+                    </Text>
+                  </Box>
                 </Box>
-              </Box>
-            ))}
-          </Box>
 
-          {/* FOOTER */}
-          <Box className="mt-6 border-t border-[#d8dadd]"></Box>
-
-          <Text
-            as="p"
-            className="mt-6 mb-9 font-mono text-[10px] uppercase tracking-[1.5px] text-[#617086]"
-          >
-            ↻ &nbsp;{data.lifecycle.footer}
-          </Text>
-        </Box>
-
-        <Box className="mt-11 mb-7 border-t border-[#d8dadd]"></Box>
-
-        {/* SERVICES */}
-        <Box className="mt-8">
-          <Text
-            as="p"
-            className="mb-4 font-mono text-[10px] uppercase tracking-[2px] text-[#0a162899]"
-          >
-            {data.services.eyebrow}
-          </Text>
-
-          <Box className="grid overflow-hidden rounded-[16px] border border-[#0a16281f] bg-white md:grid-cols-2 lg:grid-cols-3">
-            {data.services.items.map((item) => (
-              <Box
-                key={item.title}
-                className="group min-h-[90px] border-b border-[#d9dde1] p-5 transition-all duration-300 hover:bg-[#F2F0E8] md:[&:nth-child(odd)]:border-r lg:border-r lg:[&:nth-child(3n)]:border-r-0"
-              >
-                <Box className="flex items-start justify-between gap-5">
-                  <Text
-                    as="h3"
-                    className="text-[14px] text-[#0A1628]"
-                  >
-                    {item.title}
-                  </Text>
-
+                {index < data.stages.length - 1 ? (
                   <Text
                     as="span"
-                    className="text-[13px] text-[#7a838c] transition-transform duration-300 group-hover:translate-x-1"
+                    className="pointer-events-none absolute -right-5 top-9 z-10 hidden text-[14px] font-normal text-[#C5CBD1] lg:block"
                   >
                     →
                   </Text>
-                </Box>
-
-                <Text
-                  as="p"
-                  className="mt-2 max-w-[350px] text-[12px] leading-[1.5] text-[#687586]"
-                >
-                  {item.description}
-                </Text>
+                ) : null}
               </Box>
             ))}
           </Box>
-        </Box>
+        </Reveal>
 
+        {data.note ? (
+          <Reveal delay={3}>
+            <Box className="mt-10 flex items-center gap-3">
+              <Text
+                as="span"
+                className="text-[13px] font-medium text-[#07182C]"
+              >
+                ↻
+              </Text>
+
+              <Text
+                as="p"
+                className="font-mono text-[9px] tracking-[0.13em] text-[#66717F] uppercase"
+              >
+                {data.note}
+              </Text>
+            </Box>
+          </Reveal>
+        ) : null}
       </Box>
     </Section>
   );
