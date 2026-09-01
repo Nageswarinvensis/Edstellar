@@ -18,7 +18,10 @@ export default function Skills({ skills }) {
       className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
     >
       <Reveal delay={1}>
-        <RichHeading heading={skills.heading} className="mb-6.5 max-w-[20ch] tracking-[-0.03em]" />
+        <RichHeading
+          heading={skills.heading}
+          className="mb-6.5 max-w-[20ch] "
+        />
       </Reveal>
 
       <Reveal delay={2}>

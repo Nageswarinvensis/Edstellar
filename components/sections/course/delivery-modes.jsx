@@ -21,7 +21,10 @@ export default function DeliveryModes({ deliveryModes }) {
       className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
     >
       <Reveal delay={1}>
-        <RichHeading heading={deliveryModes.heading} className="mb-6.5 max-w-[24ch] tracking-[-0.03em]" />
+        <RichHeading
+          heading={deliveryModes.heading}
+          className="mb-6.5 max-w-[24ch]"
+        />
       </Reveal>
 
       <Reveal delay={2}>

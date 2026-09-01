@@ -6,7 +6,8 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
 export default function Certificate({ certificate }) {
-  if (!certificate || Array.isArray(certificate) || !certificate.heading) return null;
+  if (!certificate || Array.isArray(certificate) || !certificate.heading)
+    return null;
 
   return (
     <Section
@@ -17,7 +18,7 @@ export default function Certificate({ certificate }) {
         {/* Left */}
         <Reveal delay={1}>
           <Box>
-            <RichHeading heading={certificate.heading} className="max-w-140 tracking-[-0.04em]" />
+            <RichHeading heading={certificate.heading} className="max-w-140" />
 
             <Text
               as="p"

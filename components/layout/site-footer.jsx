@@ -45,7 +45,7 @@ export default function SiteFooter() {
           {FOOTER_NAV.map((column) => (
             <Box key={column.heading}>
               <Text
-                as="h4"
+                as="p"
                 className="mb-4.5 text-[10px] leading-none font-mono tracking-[0.18em] text-paper/50 uppercase"
               >
                 {column.heading}

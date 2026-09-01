@@ -15,7 +15,7 @@ export default function Trainers({ trainers }) {
       <Reveal delay={1}>
         <RichHeading
           heading={trainers.heading}
-          className="mb-6.5 max-w-[20ch] tracking-[-0.03em]"
+          className="mb-6.5 max-w-[20ch] "
         />
       </Reveal>
 

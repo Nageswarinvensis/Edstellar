@@ -10,7 +10,13 @@ import { cn } from "@/lib/utils";
  * Rendering it as a single heading element keeps one accessible name and one
  * <h1>/<h2> per section, rather than splitting the phrase across elements.
  */
-function RichHeading({ as = "h2", heading, className, emphasisClassName, ...props }) {
+function RichHeading({
+  as = "h2",
+  heading,
+  className,
+  emphasisClassName,
+  ...props
+}) {
   const text = typeof heading === "string" ? heading : "";
   if (!text) return null;
 
@@ -21,7 +27,7 @@ function RichHeading({ as = "h2", heading, className, emphasisClassName, ...prop
         return match ? (
           <em
             key={index}
-            className={cn("font-serif font-normal italic", emphasisClassName)}
+            className={cn("font-serif italic", emphasisClassName)}
           >
             {match[1]}
           </em>

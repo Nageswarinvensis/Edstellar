@@ -67,7 +67,7 @@ export default function Curriculum({ curriculum }) {
       className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))]"
     >
       <Reveal delay={1}>
-        <RichHeading heading={heading} className="mb-6.5 max-w-[24ch] tracking-[-0.03em]" />
+        <RichHeading heading={heading} className="mb-6.5 max-w-[24ch]" />
       </Reveal>
 
       <Box className="mb-7">
