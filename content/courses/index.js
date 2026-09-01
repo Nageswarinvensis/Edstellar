@@ -1,5 +1,3 @@
-import mlModelMonitoring from "./ml-model-monitoring.json";
-
 /**
  * Courses to prerender and list in the sitemap.
  *
@@ -33,6 +31,4 @@ export const COURSES_BY_DOMAIN = {};
  * Keys here use the CMS's own names and casing so the merge is a plain
  * overlay with no translation step. Delete an entry once the backend sends it.
  */
-export const COURSE_FALLBACKS = {
-  "ml-model-monitoring": mlModelMonitoring,
-};
+export const COURSE_FALLBACKS = {};
