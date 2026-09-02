@@ -410,7 +410,7 @@ export default function Program({ data }) {
   if (!data?.catalog) return null;
 
   return (
-    <Section id="program-catalog" className="bg-paper">
+    <Section id="by-discipline" className="bg-paper">
       <Box>
         {/* ================= HEADER ================= */}
         <Box>

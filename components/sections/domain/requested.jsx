@@ -20,7 +20,7 @@ export default function Requested({ data }) {
   if (!data) return null;
 
   return (
-    <Section className="bg-[#091527] text-white">
+    <Section id="most-requested" className="bg-[#091527] text-white">
       <Box className="grid gap-12 lg:grid-cols-[1fr_1.25fr] lg:items-center lg:gap-20">
         <Reveal delay={1}>
           <Box>

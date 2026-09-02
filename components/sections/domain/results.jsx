@@ -9,7 +9,7 @@ export default function Results({ data }) {
   if (!data) return null;
 
   return (
-    <Section className="bg-[#071426] text-white">
+    <Section id="proof" className="bg-[#071426] text-white">
       <Box>
         <Reveal delay={1}>
           <Box className="grid grid-cols-1 items-end gap-5 lg:grid-cols-2 lg:gap-16">

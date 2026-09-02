@@ -6,7 +6,7 @@ export default function Delivered({ data }) {
   if (!data) return null;
 
   return (
-    <Section className="bg-paper">
+    <Section id="how-delivered" className="bg-paper">
       <Box>
         <Reveal delay={1}>
           <Box className="max-w-175">

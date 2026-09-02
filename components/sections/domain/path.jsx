@@ -73,9 +73,7 @@ export default function Paths({ data }) {
   const navigationButtonClass =
     "grid h-8 w-8 place-items-center rounded-full border border-[#53647b] text-white transition-all duration-200 hover:bg-[#C8F135] hover:border-[#C8F135] hover:text-[#0A1628] disabled:pointer-events-none disabled:opacity-30";
   return (
-    <Section
-      id="governance"
-      className="relative overflow-hidden bg-[#0b1729] text-white"
+    <Section id="paths" className="relative overflow-hidden bg-[#0b1729] text-white"
     >
       <Box>
         {/* Header */}

@@ -8,7 +8,7 @@ export default function FromEdstellar({ data }) {
   if (!data?.items?.length) return null;
 
   return (
-    <Section className="bg-[#F0EDE3]">
+    <Section id="from-edstellar" className="bg-[#F0EDE3]">
       <Box>
         <Reveal delay={1}>
           <Text

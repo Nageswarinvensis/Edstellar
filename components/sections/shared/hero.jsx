@@ -11,6 +11,7 @@ import RichHeading from "@/components/common/rich-heading";
 const HERO_ACTIONS = [
   { href: "#curriculum", label: "View course outline", variant: "primary" },
   { href: "#apply", label: "Enquire now", variant: "ghost" },
+  { href: "#apply", label: "Download Brochure", variant: "ghost" },
 ];
 
 /**

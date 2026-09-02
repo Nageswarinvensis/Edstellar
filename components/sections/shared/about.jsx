@@ -54,7 +54,7 @@ function CategoryAbout({ about, showCustomizedTraining = true }) {
               <Reveal delay={1}>
                 <Text
                   as="h3"
-                  className="inline-block border-b-[3px] border-lime pb-2.5 font-display text-[22px] leading-[1.25] font-bold tracking-[-0.025em] text-ink"
+                  className="inline-block border-b-[3px] border-lime pb-2.5 font-display text-[22px] leading-tight font-bold tracking-tight text-ink"
                 >
                   {contrast.label}
                 </Text>
@@ -90,7 +90,7 @@ function CategoryAbout({ about, showCustomizedTraining = true }) {
                         <Box
                           as="li"
                           key={item}
-                          className="relative pl-5.5 text-[14.5px] leading-[1.5] font-medium text-ink before:absolute before:top-[0.46em] before:left-0 before:size-1.75 before:rounded-full before:border before:border-ink/22 before:bg-lime"
+                          className="relative pl-5.5 text-[14.5px] leading-normal font-medium text-ink before:absolute before:top-[0.46em] before:left-0 before:size-1.75 before:rounded-full before:border before:border-ink/22 before:bg-lime"
                         >
                           {item}
                         </Box>

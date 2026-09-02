@@ -16,7 +16,7 @@ export default function ByRole({ data, ctaBannerData }) {
   const activeData = data.roles[activeRole];
 
   return (
-    <Section id="roles" className="bg-[#F5F2EA]">
+    <Section id="by-role" className="bg-[#F5F2EA]">
       <Box>
         <Reveal delay={1}>
           <RichHeading

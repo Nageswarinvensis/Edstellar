@@ -8,7 +8,7 @@ export default function RelatedCategories({ data }) {
   if (!data?.items?.length) return null;
 
   return (
-    <Section>
+    <Section id="related-domains">
       <Box className="mx-auto">
         {/* HEADING */}
         <Reveal>
@@ -36,7 +36,7 @@ export default function RelatedCategories({ data }) {
             {data.items.map((item) => (
               <Box
                 key={item.title}
-                className="group flex min-h-[152px] flex-col rounded-[14px] border border-ink/15 bg-white px-5 py-5 transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-ink/20 hover:shadow-[0_16px_30px_-18px_rgba(10,22,40,0.35)]"
+                className="group flex min-h-38 flex-col rounded-[14px] border border-ink/15 bg-white px-5 py-5 transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-ink/20 hover:shadow-[0_16px_30px_-18px_rgba(10,22,40,0.35)]"
               >
                 <Text
                   as="h3"
