@@ -14,23 +14,29 @@ function slugToLabel(slug) {
 }
 
 /**
- * Hero breadcrumb rail — auto-built from the current URL path.
+ * Hero breadcrumb rail.
  * Home > Segment One > Segment Two > Current Page
  *
- * The `items` prop is ignored; breadcrumbs are derived from `usePathname()`.
+ * Renders CMS/local `items` verbatim when provided. Falls back to a trail
+ * auto-built from the current URL path only when no `items` are passed.
  */
-function Breadcrumbs({ className }) {
+function Breadcrumbs({ items: itemsProp, className }) {
   const pathname = usePathname();
 
-  const segments = pathname.split("/").filter((seg) => seg && seg !== "corporate-training");
+  const items =
+    itemsProp && itemsProp.length > 0
+      ? itemsProp
+      : (() => {
+          const segments = pathname.split("/").filter((seg) => seg && seg !== "corporate-training");
 
-  const items = [
-    { label: "Home", href: "/" },
-    ...segments.map((seg, index) => ({
-      label: slugToLabel(seg),
-      href: index < segments.length - 1 ? "/" + segments.slice(0, index + 1).join("/") : null,
-    })),
-  ];
+          return [
+            { label: "Home", href: "/" },
+            ...segments.map((seg, index) => ({
+              label: slugToLabel(seg),
+              href: index < segments.length - 1 ? "/" + segments.slice(0, index + 1).join("/") : null,
+            })),
+          ];
+        })();
 
   if (items.length <= 1) return null;
 

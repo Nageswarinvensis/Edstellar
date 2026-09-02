@@ -43,7 +43,7 @@ export default function CoursePage({ course }) {
         <Curriculum curriculum={course.curriculum} />
         <Skills skills={course.skills} />
         <Audience audience={course.audience} />
-        <Certificate certificate={course.certificate} />
+        <Certificate />
         <DeliveryModes deliveryModes={course.deliveryModes} />
         <Trainers trainers={course.trainers} />
         <Faq faqs={course.faqs ?? course.Faqs} />

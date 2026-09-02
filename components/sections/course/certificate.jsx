@@ -5,9 +5,26 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
-export default function Certificate({ certificate }) {
-  if (!certificate || Array.isArray(certificate) || !certificate.heading)
-    return null;
+/**
+ * Static, not CMS-driven — the certificate is the same for every course, so
+ * there is nothing here for a course record to model.
+ */
+const CONTENT = {
+  heading: "Certificate of <span>Training Completion</span>.",
+  description:
+    "On successful completion, employees receive an Edstellar course completion certificate, recognizing their commitment to ongoing learning and professional development. It validates the skills they have built and motivates them to keep growing and contribute to organizational success.",
+  highlight: {
+    title: "Earned, not attended.",
+    description:
+      "Awarded on completion of all hands-on labs and the capstone project.",
+  },
+  certificate_card: {
+    title: "Edstellar Certificate of Completion",
+  },
+};
+
+export default function Certificate() {
+  const certificate = CONTENT;
 
   return (
     <Section

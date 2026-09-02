@@ -41,7 +41,8 @@ const artificialIntelligence = {
 
     subhead: "Build the people who will run your AI, not just the models.",
 
-    intro_text: "We build AI capability inside enterprises: the people, the standards and the governance that let an organization run AI itself. Instructor-led programs across generative AI, machine learning, MLOps and governance are how we do it, scoped to your stack and delivered wherever your teams are.",
+    intro_text:
+      "We build AI capability inside enterprises: the people, the standards and the governance that let an organization run AI itself. Instructor-led programs across generative AI, machine learning, MLOps and governance are how we do it, scoped to your stack and delivered wherever your teams are.",
 
     meta: DELIVERY_META,
     media: {
@@ -75,7 +76,7 @@ const artificialIntelligence = {
       href: "/",
     },
     {
-      label: "IT & Technical",
+      label: "Corporate Training",
       href: "/corporate-training",
     },
     {
@@ -243,7 +244,8 @@ const artificialIntelligence = {
     ],
   },
   why_now: {
-    heading: "Adoption moved. Hiring cannot <span>keep up</span>. Waiting compounds.",
+    heading:
+      "Adoption moved. Hiring cannot <span>keep up</span>. Waiting compounds.",
     cta_banner: [
       {
         variant: "light",
@@ -267,7 +269,8 @@ const artificialIntelligence = {
             { text: "Production is not.", is_italic: true },
           ],
         },
-        intro_text: "Five things moved in the last eighteen months, and each one changed what a team has to be able to do. The pattern across all five is the same: the technology arrived faster than the capability to run it, and the gap is where budgets are currently being spent without return.",
+        intro_text:
+          "Five things moved in the last eighteen months, and each one changed what a team has to be able to do. The pattern across all five is the same: the technology arrived faster than the capability to run it, and the gap is where budgets are currently being spent without return.",
         note: "Figures are attributed to the analyst or study that published them. Where forecasts differ between sources we have said so rather than picking the most favorable number.",
         shifts: [
           {
@@ -431,7 +434,8 @@ const artificialIntelligence = {
             { text: "." },
           ],
         },
-        intro_text: "Generative AI, machine learning, and MLOps roles compete for the same scarce candidates. Hiring alone cannot close a gap this wide, and the build-versus-buy calculation has moved decisively toward building from the teams you already have.",
+        intro_text:
+          "Generative AI, machine learning, and MLOps roles compete for the same scarce candidates. Hiring alone cannot close a gap this wide, and the build-versus-buy calculation has moved decisively toward building from the teams you already have.",
         stats: [
           {
             value: "39%",
@@ -462,7 +466,8 @@ const artificialIntelligence = {
             { text: " are not standing still." },
           ],
         },
-        intro_text: "Not adopting AI is itself a decision with consequences, and they compound. These four pressures compound quietly, and none of them wait for a budget cycle.",
+        intro_text:
+          "Not adopting AI is itself a decision with consequences, and they compound. These four pressures compound quietly, and none of them wait for a budget cycle.",
         note: "Figures are published research, linked at source. Outcomes vary by sector, model footprint, and governance maturity.",
         pressures: [
           {
@@ -502,7 +507,8 @@ const artificialIntelligence = {
     ],
   },
   card: {
-    heading: "Capability is an <span>organisational</span> state, not a set of certificates.",
+    heading:
+      "Capability is an <span>organisational</span> state, not a set of certificates.",
 
     description:
       "Individual skills are the input. What a board can actually see is the change in how the organisation behaves. These are the shifts that separate a company that has bought AI training from one that has built AI capability.",
@@ -595,7 +601,8 @@ const artificialIntelligence = {
       "All names and marks shown are the property of their respective owners. Their appearance here indicates coverage in our training, not partnership, affiliation or endorsement.",
   },
   trainers: {
-    heading: "Practitioners who run AI in production, <span>not generalists </span>working from slides.",
+    heading:
+      "Practitioners who run AI in production, <span>not generalists </span>working from slides.",
 
     description:
       "Every trainer passes a technical domain assessment, a live delivery evaluation by a senior practitioner, and reference checks from past corporate cohorts. Nobody reaches a cohort on a CV alone.",
@@ -607,7 +614,11 @@ const artificialIntelligence = {
         years: "12+ years in production ML",
         rating: "4.9",
         sessions: "180+",
-        specializations: ["Drift detection", "Observability stack", "Dashboards"],
+        specializations: [
+          "Drift detection",
+          "Observability stack",
+          "Dashboards",
+        ],
       },
       {
         name: "Marco Bianchi",
@@ -681,7 +692,8 @@ const artificialIntelligence = {
     related_services: [],
   },
   capability: {
-    heading: "Capability you can point at, <span>after the cohort ended.</span>",
+    heading:
+      "Capability you can point at, <span>after the cohort ended.</span>",
 
     description:
       "Three engagements, summarised. Each links to the full write-up: what the team could not do, what we ran, and what was measurably different ninety days later.",
@@ -741,11 +753,12 @@ const artificialIntelligence = {
     ],
     note: "Client names are withheld where the engagement is covered by a confidentiality agreement. Named references are available on request during procurement.",
   },
-  method : {
+  method: {
     lifecycle: {
       heading: "How an AI capability program, <span>actually runs.</span>",
 
-      description: "Every engagement runs the same five stages, from capability baseline through to the refresh cycle.",
+      description:
+        "Every engagement runs the same five stages, from capability baseline through to the refresh cycle.",
 
       stages: [
         {
@@ -811,8 +824,7 @@ const artificialIntelligence = {
         },
         {
           title: "OD consulting",
-          description:
-            "Org design, succession planning and cultural change.",
+          description: "Org design, succession planning and cultural change.",
         },
         {
           title: "Managed training services",
@@ -945,8 +957,7 @@ const artificialIntelligence = {
       },
       {
         title: "IT & Technical Training",
-        description:
-          "The wider engineering catalogue this domain sits within.",
+        description: "The wider engineering catalogue this domain sits within.",
         type: "Instructor-led",
         link: "View course",
         href: "#",
