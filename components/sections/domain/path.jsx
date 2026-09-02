@@ -170,7 +170,7 @@ export default function Paths({ data }) {
                             {path.title}
                           </Text>
 
-                          <Text className="mt-1 truncate text-[12px] tracking-[0.12em] text-[#0A162899]">
+                          <Text className="mt-1 truncate text-[12px] tracking-[0.12em] text-ink-muted">
                             {path.subtitle}
                           </Text>
                         </Box>

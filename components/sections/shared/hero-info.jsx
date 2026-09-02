@@ -98,7 +98,7 @@ function CourseInfo({ proof }) {
 
               <span
                 aria-hidden="true"
-                className="ml-1.5 inline-block transition-transform duration-[250ms] group-hover:translate-x-1 motion-reduce:transition-none"
+                className="ml-1.5 inline-block transition-transform duration-250 group-hover:translate-x-1 motion-reduce:transition-none"
               >
                 →
               </span>

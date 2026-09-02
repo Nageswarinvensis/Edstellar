@@ -1,5 +1,12 @@
 import Image from "next/image";
-import { MessageCircle, Route, UserCheck, Wrench, Rocket, Award } from "lucide-react";
+import {
+  MessageCircle,
+  Route,
+  UserCheck,
+  Wrench,
+  Rocket,
+  Award,
+} from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -19,16 +26,51 @@ const STATS = [
   { value: "10,000+", label: "EXPERT TRAINERS" },
   { value: "13+", label: "YEARS DELIVERING" },
   { value: "1,000+", label: "ORGANIZATIONS TRAINED" },
-  { value: "ISO 9001", connector: "&", secondary_value: "27001", label: "CERTIFIED" },
+  {
+    value: "ISO 9001",
+    connector: "&",
+    secondary_value: "27001",
+    label: "CERTIFIED",
+  },
 ];
 
 const APPROACH_STEPS = [
-  { number: "01", title: "Consult", description: "We start with your monitoring reality: what is in production, what broke last quarter, and which teams own the response." },
-  { number: "02", title: "Plan", description: "A scoped roadmap with module sequence, cohort split and the dates that fit around your release calendar." },
-  { number: "03", title: "Align", description: "A practitioner trainer matched to your stack, briefed on your tooling before the first session." },
-  { number: "04", title: "Customize", description: "Exercises rebuilt around your models and your alerting, so the practice transfers on Monday." },
-  { number: "05", title: "Execute", description: "Instructor-led delivery, on-site, virtual or blended, with hands-on labs rather than slideware." },
-  { number: "06", title: "Evaluate", description: "Impact measured against a number you already track, plus competency evidence for every participant." },
+  {
+    number: "01",
+    title: "Consult",
+    description:
+      "We start with your monitoring reality: what is in production, what broke last quarter, and which teams own the response.",
+  },
+  {
+    number: "02",
+    title: "Plan",
+    description:
+      "A scoped roadmap with module sequence, cohort split and the dates that fit around your release calendar.",
+  },
+  {
+    number: "03",
+    title: "Align",
+    description:
+      "A practitioner trainer matched to your stack, briefed on your tooling before the first session.",
+  },
+  {
+    number: "04",
+    title: "Customize",
+    description:
+      "Exercises rebuilt around your models and your alerting, so the practice transfers on Monday.",
+  },
+  {
+    number: "05",
+    title: "Execute",
+    description:
+      "Instructor-led delivery, on-site, virtual or blended, with hands-on labs rather than slideware.",
+  },
+  {
+    number: "06",
+    title: "Evaluate",
+    description:
+      "Impact measured against a number you already track, plus competency evidence for every participant.",
+  },
 ];
 
 function ApproachStep({ step, Icon }) {
@@ -71,10 +113,13 @@ export default function MapSection({ data }) {
         ========================================================== */}
         <Box className="relative grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start lg:gap-12">
           {/* Left content */}
-          <Box className="max-w-[650px]">
+          <Box className="max-w-162.5">
             {/* Heading */}
             <Reveal>
-              <RichHeading heading={data.heading} className="mb-6.5 max-w-[20ch]" />
+              <RichHeading
+                heading={data.heading}
+                className="mb-6.5 max-w-[20ch]"
+              />
             </Reveal>
 
             {/* Description */}
@@ -128,10 +173,7 @@ export default function MapSection({ data }) {
 
                   {stat.connector && (
                     <>
-                      <Text
-                        as="span"
-                        className="text-[11px] text-[#687383]"
-                      >
+                      <Text as="span" className="text-[11px] text-[#687383]">
                         {stat.connector}
                       </Text>
 
@@ -167,7 +209,7 @@ export default function MapSection({ data }) {
                 <Box
                   key={index}
                   className={`
-                    min-h-[195px]
+                    min-h-48.75
                     rounded-[16px]
                     border
                     border-[#D9DDE1]
@@ -191,7 +233,7 @@ export default function MapSection({ data }) {
                   {/* Title */}
                   <Text
                     as="h3"
-                    className="mt-5 text-[18px] font-semibold leading-[1.2] tracking-[-0.025em] text-[#07162C]"
+                    className="mt-5 text-[18px] font-semibold leading-[1.2] tracking-tight text-[#07162C]"
                   >
                     {feature.title}
                   </Text>
@@ -220,7 +262,7 @@ export default function MapSection({ data }) {
                 as="h3"
                 heading={data.approach.heading}
                 emphasisClassName="font-serif font-normal italic text-lime"
-                className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-[1.25] font-semibold tracking-[-0.02em] text-paper"
+                className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-tight font-semibold tracking-[-0.02em] text-paper"
               />
               <Text
                 as="p"
@@ -282,21 +324,9 @@ export default function MapSection({ data }) {
                       py-4
                       transition-colors
                       duration-200
-                      ${
-                        index % 3 !== 2
-                          ? "lg:border-r"
-                          : ""
-                      }
-                      ${
-                        index < 3
-                          ? "lg:border-b"
-                          : ""
-                      }
-                      ${
-                        index % 2 === 0
-                          ? "md:border-r lg:border-r"
-                          : ""
-                      }
+                      ${index % 3 !== 2 ? "lg:border-r" : ""}
+                      ${index < 3 ? "lg:border-b" : ""}
+                      ${index % 2 === 0 ? "md:border-r lg:border-r" : ""}
                       hover:bg-[#F5F3EB]
                     `}
                   >
@@ -311,7 +341,7 @@ export default function MapSection({ data }) {
                     {/* Title */}
                     <Text
                       as="h4"
-                      className="pr-7 text-[14px] font-medium leading-[1.25] text-[#07162C]"
+                      className="pr-7 text-[14px] font-medium leading-tight text-[#07162C]"
                     >
                       {service.title}
                     </Text>
@@ -319,7 +349,7 @@ export default function MapSection({ data }) {
                     {/* Description */}
                     <Text
                       as="p"
-                      className="mt-2 max-w-82.5 text-[11px] leading-[1.25] text-[#6A7587]"
+                      className="mt-2 max-w-82.5 text-[11px] leading-tight text-[#6A7587]"
                     >
                       {service.description}
                     </Text>

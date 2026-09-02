@@ -15,6 +15,12 @@ import { cn } from "@/lib/utils";
  * the design's `left: calc(22% + 56px)` is a percentage of the full hero width.
  * Do not add `relative` to the grid wrapper or these offsets shift.
  *
+ * `top-0`/`bottom-0`, not a negative inset: the hero section needs
+ * `overflow-hidden` (not just `overflow-x-hidden`) so the right-edge bleed
+ * doesn't cause a horizontal scrollbar. A negative top/bottom here would get
+ * clipped by that same `overflow-hidden`, cutting the image at the section
+ * boundary instead of bleeding past it.
+ *
  * `video` wins over `image` when both are supplied. With neither, a tonal
  * placeholder renders so layout and spacing are still reviewable.
  */
@@ -29,7 +35,7 @@ function HeroMedia({ image, video, alt = "", poster, className }) {
       className={cn(
         "hidden",
         "sm:mb-1.5 sm:block sm:h-70 sm:w-full sm:overflow-hidden sm:rounded-[14px] sm:hero-mask-y",
-        "lg:pointer-events-none lg:absolute lg:-top-16 lg:-bottom-6 lg:left-[calc(26%+56px)] lg:right-[calc(50%-50vw-20px)] lg:z-0 lg:mb-0 lg:h-auto lg:w-auto lg:rounded-none lg:hero-mask-x lg:bg-cover",
+        "lg:pointer-events-none lg:absolute lg:top-0 lg:bottom-0 lg:left-[calc(26%+56px)] lg:right-[calc(50%-50vw-20px)] lg:z-0 lg:mb-0 lg:h-auto lg:w-auto lg:rounded-none lg:hero-mask-x lg:bg-cover",
         className,
       )}
     >
@@ -51,7 +57,8 @@ function HeroMedia({ image, video, alt = "", poster, className }) {
           alt={alt}
           fill
           priority
-          sizes="(max-width: 620px) 0px, (max-width: 1140px) 100vw, 60vw"
+          quality={100}
+          sizes="(max-width: 620px) 0px, (max-width: 1140px) 100vw, 80vw"
           className="object-cover object-right"
         />
       ) : (

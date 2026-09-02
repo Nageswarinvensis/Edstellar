@@ -489,7 +489,7 @@ export default function Program({ data }) {
           </Text>
 
           {/* ================= SEARCH ================= */}
-          <Box className="relative w-full sm:w-[238px]">
+          <Box className="relative w-full sm:w-59.5">
             <Search
               size={14}
               strokeWidth={1.5}

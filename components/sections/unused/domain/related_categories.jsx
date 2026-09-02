@@ -47,7 +47,7 @@ export default function RelatedCategories({ data }) {
               <a
                 key={item.title}
                 href={item.href}
-                className={`group flex min-h-[152px] flex-col rounded-[14px] border border-ink/15 bg-white px-5 py-5 transition-[transform,box-shadow,border-color,opacity] duration-700 ease-in-out hover:-translate-y-1 hover:border-ink/20 hover:shadow-[0_16px_30px_-18px_rgba(10,22,40,0.35)] ${
+                className={`group flex min-h-38 flex-col rounded-[14px] border border-ink/15 bg-white px-5 py-5 transition-[transform,box-shadow,border-color,opacity] duration-700 ease-in-out hover:-translate-y-1 hover:border-ink/20 hover:shadow-[0_16px_30px_-18px_rgba(10,22,40,0.35)] ${
                   showAll && index >= 6
                     ? "animate-[fadeIn_0.8s_ease-in-out]"
                     : ""
@@ -92,7 +92,7 @@ export default function RelatedCategories({ data }) {
               <button
                 type="button"
                 onClick={() => setShowAll(true)}
-                className="group flex items-center gap-2 rounded-full border border-navy/20 bg-navy/[0.04] px-5 py-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-navy transition-all duration-300 hover:border-navy/40 hover:bg-navy hover:text-white hover:shadow-[0_8px_20px_-10px_rgba(10,22,40,0.5)]"
+                className="group flex items-center gap-2 rounded-full border border-navy/20 bg-navy/4 px-5 py-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-navy transition-all duration-300 hover:border-navy/40 hover:bg-navy hover:text-white hover:shadow-[0_8px_20px_-10px_rgba(10,22,40,0.5)]"
               >
                 View more
                 <span className="transition-transform duration-300 group-hover:translate-x-1">

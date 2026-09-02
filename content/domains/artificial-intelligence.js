@@ -134,7 +134,11 @@ const artificialIntelligence = {
     ],
   },
   requestedData: {
-    heading: "Most-requested <span>AI training topics.</span>",
+    heading: {
+      before: "Most-requested",
+      emphasis: "AI training topics.",
+      after: "",
+    },
 
     description:
       "A snapshot of where demand is concentrated across the AI training we are asked to run, from broad literacy that reaches every employee to the deep technical and governance work that runs models in production.",
@@ -187,7 +191,11 @@ const artificialIntelligence = {
       discipline: "DISCIPLINEs",
     },
 
-    heading: "Instructor-led <span>AI programs,</span> filtered to your team.",
+    heading: {
+      before: "Instructor-led",
+      emphasis: "AI programs,",
+      after: " filtered to your team.",
+    },
 
     description:
       "A selection from the live catalog. Combine a discipline and a role to narrow it.",
@@ -759,7 +767,11 @@ const artificialIntelligence = {
     },
   },
   byRoleData: {
-    heading: "Find AI training <span>by role.</span>",
+    heading: {
+      before: "Find AI training",
+      emphasis: "by role.",
+      after: "",
+    },
 
     description:
       "The same AI initiative asks different things of different people. Start from the role you are training and work outward.",
@@ -973,8 +985,11 @@ const artificialIntelligence = {
       label: "SEVEN ROLE PATHS",
     },
 
-    heading:
-      "A catalog tells you what exists. A path tells you <span>what comes first.</span>",
+    heading: {
+      before: "A catalog tells you what exists. A path tells you",
+      emphasis: "what comes first.",
+      after: "",
+    },
 
     description:
       "The filters above return a set. They do not tell you the order to take it in, and order is most of the value: monitoring before deployment teaches nothing, and governance before a model exists is theory. Each path below runs from where a role stands today to what it owns at the end, and every stop names the problem it takes off the team.",
@@ -1253,7 +1268,11 @@ const artificialIntelligence = {
     note: "Sequences are indicative, not fixed. Discovery establishes where a team already is, and a path usually starts partway along rather than at step one.",
   },
   outcomeData: {
-    heading: "Capabilities your organization <span>will gain.</span>",
+    heading: {
+      before: "Capabilities your organization",
+      emphasis: "will gain.",
+      after: "",
+    },
 
     description:
       "Domain-level outcomes, not course objectives. These are the capabilities L&D and engineering leaders are usually asked to evidence.",
@@ -1431,7 +1450,11 @@ const artificialIntelligence = {
     note: "Trainers are matched to your stack and delivery window at scheduling. We confirm your assigned trainer, with a full profile, before the program is booked, and you can sit in on a trial session first.",
   },
   ResultsData: {
-    heading: "AI training results from <span>real teams.</span>",
+    heading: {
+      before: "AI training results from",
+      emphasis: "real teams.",
+      after: "",
+    },
 
     description:
       "Three engagements across the portfolio: a literacy rollout, an engineering deep-dive, and a governance build.",
@@ -1604,13 +1627,7 @@ const artificialIntelligence = {
     ],
   },
   relatedCategoriesData: {
-    heading: {
-      parts: [
-        { text: "Explore related " },
-        { text: "training domains", em: true },
-        { text: "." },
-      ],
-    },
+    heading: "Explore related <span>training domains</span>.",
 
     description:
       "AI capability rarely sits alone. These categories are the ones enterprises most often build alongside it.",

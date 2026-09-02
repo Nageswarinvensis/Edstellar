@@ -25,7 +25,7 @@ export default function Results({ data }) {
             <Box>
               <Text
                 as="p"
-                className="max-w-[620px] text-[15px] leading-[1.6] text-[#AEB7C3] md:text-[16px]"
+                className="max-w-155 text-[15px] leading-[1.6] text-[#AEB7C3] md:text-[16px]"
               >
                 {data.description}
               </Text>
