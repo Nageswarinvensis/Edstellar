@@ -7,6 +7,12 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
+/**
+ * Fixed regardless of which domain sends `feature.icon` — the icon on each
+ * of the eight FEATURE CARDS is chosen by position, not by CMS/content data.
+ */
+const FEATURE_ICONS = ["✏️", "⚙️", "🧪", "👤", "👥", "🌐", "🗓️", "📊"];
+
 const APPROACH_ICONS = [MessageCircle, Route, UserCheck, Wrench, Rocket, Award];
 
 const STATS = [
@@ -177,9 +183,9 @@ export default function MapSection({ data }) {
                     }
                   `}
                 >
-                  {/* Icon */}
+                  {/* Icon — static by position, not read from content */}
                   <Box className="flex size-10.5 items-center justify-center rounded-[11px] bg-[#F0F9D3] text-[20px]">
-                    {feature.icon}
+                    {FEATURE_ICONS[index]}
                   </Box>
 
                   {/* Title */}

@@ -4,7 +4,7 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import TrainerCarousel from "@/components/sections/shared/trainer-carousel";
 
-export default function Trainers({ trainers }) {
+export default function Trainers({ trainers, desktopCards }) {
   if (!trainers?.people?.length) return null;
 
   return (
@@ -29,7 +29,7 @@ export default function Trainers({ trainers }) {
       </Reveal>
 
       <Reveal delay={2}>
-        <TrainerCarousel people={trainers.people} />
+        <TrainerCarousel people={trainers.people} desktopCards={desktopCards} />
       </Reveal>
 
       {trainers.note ? (

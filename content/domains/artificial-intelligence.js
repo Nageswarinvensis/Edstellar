@@ -35,7 +35,6 @@ const artificialIntelligence = {
       "Instructor-led corporate AI training across generative AI, machine learning, MLOps and governance. Scoped to your stack, delivered onsite or virtually in 100+ countries.",
     og_image_url: null,
   },
-
   hero: {
     heading: "Corporate <span>Artificial Intelligence</span> Training",
 
@@ -69,7 +68,6 @@ const artificialIntelligence = {
       },
     ],
   },
-
   breadcrumbs: [
     {
       label: "Home",
@@ -83,7 +81,6 @@ const artificialIntelligence = {
       label: "Artificial Intelligence",
     },
   ],
-
   proof: {
     tone: "light",
 
@@ -112,113 +109,55 @@ const artificialIntelligence = {
       ],
     },
   },
-  client_logos: {
-    heading: "Trusted by teams at",
-
-    logos: [
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9c115c2a0faf78d5187_Abb.webp",
-        alt: "ABB",
-        title: "ABB",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aa7c4dc52f902b965f86_Aditya%20Birla%20Group.webp",
-        alt: "Aditya Birla Group",
-        title: "Aditya Birla Group",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b587f256c7ca56ef383708_Adobe.webp",
-        alt: "Adobe",
-        title: "Adobe",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698469c6a91cef644870febe_Amazon%201%20%281%29.webp",
-        alt: "Amazon",
-        title: "Amazon",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aa97d7f1555ba95b5394_AutoDesk.webp",
-        alt: "Autodesk",
-        title: "Autodesk",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9d8e0dd2f35457d1311_Emerson.webp",
-        alt: "Emerson",
-        title: "Emerson",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a94748156eb2b452d94e_godrej.webp",
-        alt: "Godrej",
-        title: "Godrej",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b587b637a6028400026a71_Intel2.webp",
-        alt: "Intel",
-        title: "Intel",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846266b0acf082e648fdb0_Johnson%26Johnson%201.webp",
-        alt: "Johnson & Johnson",
-        title: "Johnson & Johnson",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b588572d0fd67c6424af0a_MediaTek.webp",
-        alt: "MediaTek",
-        title: "MediaTek",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5873a89529b86f470b686_Microsoft.webp",
-        alt: "Microsoft",
-        title: "Microsoft",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9601c7bda326efbe969_nrsc.webp",
-        alt: "NRSC",
-        title: "NRSC",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846830ede4cc2aea05d48a_Sportskeeda%201.webp",
-        alt: "Sportskeeda",
-        title: "Sportskeeda",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5887637a6028400031b44_Tata_Chemicals.webp",
-        alt: "Tata Chemicals",
-        title: "Tata Chemicals",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a98ed7f1555ba95a94c2_Total.webp",
-        alt: "Total",
-        title: "Total",
-      },
-      {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b9218334a6bbb7e0046a57_visa.webp",
-        alt: "Visa",
-        title: "Visa",
-      },
-    ],
-  },
   sticky_nav: {
     logo: {
       src: "/course/Edstellar.svg",
       alt: "Edstellar",
     },
-
     tabs: [
-      { id: "about", label: "About", active: true },
-      { id: "why-now", label: "Why now", active: false },
-      { id: "outcomes", label: "Outcomes", active: false },
-      { id: "transformation", label: "Transformation", active: false },
-      { id: "industries", label: "Industries", active: false },
-      { id: "programs", label: "Programs", active: false },
+      { id: "most-requested", label: "Most requested", active: true },
+      { id: "about", label: "About", active: false },
+      { id: "by-discipline", label: "By discipline", active: false },
+      { id: "by-role", label: "By role", active: false },
       { id: "paths", label: "Paths", active: false },
-      { id: "governance", label: "Governance", active: false },
+      { id: "outcomes", label: "Outcomes", active: false },
+      { id: "delivery", label: "Delivery", active: false },
       { id: "trainers", label: "Trainers", active: false },
       { id: "proof", label: "Proof", active: false },
-      { id: "method", label: "Method", active: false },
+      { id: "why-dstellar", label: "Why Edstellar", active: false },
+      { id: "how-delivered", label: "How it’s delivered", active: false },
+      { id: "from-edstellar", label: "More from Edstellar", active: false },
+      { id: "related-domains", label: "Related domains", active: false },
       { id: "faq", label: "FAQ", active: false },
-      { id: "related", label: "Related", active: false },
+      { id: "scope", label: "Scope an RFP", active: false },
       { id: "ask-a-quation", label: "Ask a Quation", active: false },
+    ],
+  },
+  requestedData: {
+    heading: "Most-requested <span>AI training topics.</span>",
+
+    description:
+      "A snapshot of where demand is concentrated across the AI training we are asked to run, from broad literacy that reaches every employee to the deep technical and governance work that runs models in production.",
+    note: "Most organizations ask for two tracks at once: a broad literacy rollout for every employee, and a deeper technical track for the teams building and operating models. We scope both in a single engagement.",
+    label: "Share of incoming requests",
+
+    items: [
+      {
+        label: "Org-wide AI literacy",
+        value: 38,
+      },
+      {
+        label: "Generative AI & LLMs",
+        value: 27,
+      },
+      {
+        label: "MLOps & engineering",
+        value: 19,
+      },
+      {
+        label: "AI governance",
+        value: 16,
+      },
     ],
   },
   about: {
@@ -243,362 +182,1199 @@ const artificialIntelligence = {
       },
     ],
   },
-  why_now: {
-    heading:
-      "Adoption moved. Hiring cannot <span>keep up</span>. Waiting compounds.",
-    cta_banner: [
-      {
-        variant: "light",
-        eyebrow: "BUILD VERSUS BUY AI TALENT",
-        heading:
-          "Close the AI skills gap with the engineers you already employ.",
-        cta_text: "Upskill Your Teams with AI Training Programs",
-        cta_href: "/corporate-training",
-      },
-    ],
-
-    description:
-      "Three forces are acting on your teams at the same time: what changed in the field, why hiring cannot close the gap, and what standing still costs.",
-
-    accordion: [
-      {
-        id: "shifts",
-        question: {
-          parts: [
-            { text: "Adoption is nearly universal. " },
-            { text: "Production is not.", is_italic: true },
-          ],
-        },
-        intro_text:
-          "Five things moved in the last eighteen months, and each one changed what a team has to be able to do. The pattern across all five is the same: the technology arrived faster than the capability to run it, and the gap is where budgets are currently being spent without return.",
-        note: "Figures are attributed to the analyst or study that published them. Where forecasts differ between sources we have said so rather than picking the most favorable number.",
-        shifts: [
-          {
-            icon: "agents",
-            figure: "~40%",
-            figure_caption:
-              "of enterprise apps embed an agent by end of 2026, from under 5% a year earlier",
-            title: "Assistants became agents",
-            tag: "the agentic shift",
-            quote: {
-              parts: [
-                { text: "Software stopped answering and started " },
-                { text: "pursuing a goal", strong: true },
-                { text: "." },
-              ],
-            },
-            description: {
-              parts: [
-                {
-                  text: "The shift is from software that answers a question to software that pursues a goal: planning steps, calling tools, reading the result and adapting. ",
-                },
-                {
-                  text: "MIT Sloan and BCG put agentic adoption at 35% in two years",
-                  strong: true,
-                },
-                { text: ", a curve that took earlier AI roughly eight." },
-              ],
-            },
-            source: "Gartner; MIT Sloan and BCG",
-            demands: "Agent design, tool access and bounded autonomy",
-            program: { label: "Agentic AI Training", status: "proposed" },
-          },
-          {
-            icon: "gap",
-            figure: "41%",
-            figure_caption: "of agent deployments actually reach production",
-            title: "The gap is capability, not technology",
-            tag: "the production gap",
-            quote: {
-              parts: [
-                { text: "Almost everyone has adopted. " },
-                { text: "Fewer than half", strong: true },
-                { text: " have shipped." },
-              ],
-            },
-            description: {
-              parts: [
-                { text: "Adoption has crossed roughly " },
-                { text: "80% of US enterprises", strong: true },
-                {
-                  text: ", but under half of those deployments reach production. The reasons given are consistent: missing guardrails, weak evaluation harnesses, unclear ownership, and the difficulty of connecting agents safely to real systems.",
-                },
-              ],
-            },
-            source: "2026 industry adoption data",
-            demands: "Evaluation, guardrails and clear ownership",
-            program: {
-              label: "AI Evaluation and Red-Teaming",
-              status: "proposed",
-            },
-          },
-          {
-            icon: "cost",
-            figure: "25x",
-            figure_caption:
-              "more tokens per task, against a 10x fall in unit price",
-            title: "Cheaper models, larger bills",
-            tag: "inference economics",
-            quote: {
-              parts: [
-                { text: "Unit prices fell. " },
-                { text: "Bills went up", strong: true },
-                { text: " anyway." },
-              ],
-            },
-            description: {
-              parts: [
-                {
-                  text: "A 2024 chatbot exchange consumed around 2,000 tokens. A 2026 agentic workflow that plans, calls tools, retries and self-verifies can consume ",
-                },
-                {
-                  text: "50,000 or more for a single transaction",
-                  strong: true,
-                },
-                {
-                  text: ". Gartner expects inference costs to fall over 90% by 2030 and warns enterprises will not feel it, because agentic workloads burn far more tokens than the generative use cases that came before.",
-                },
-              ],
-            },
-            source: "Gartner",
-            demands: "Cost-aware architecture and model routing",
-            program: {
-              label: "AI Inference Economics and Model Routing",
-              status: "gap",
-            },
-          },
-          {
-            icon: "small",
-            figure: "Smallest",
-            figure_caption: "model that provably clears your accuracy bar",
-            title: "Small models took the routine work",
-            tag: "model routing",
-            quote: {
-              parts: [
-                { text: "The win is not smaller models. It is " },
-                { text: "knowing which to call", strong: true },
-                { text: "." },
-              ],
-            },
-            description: {
-              parts: [
-                {
-                  text: "The winning pattern is not small instead of large. It is orchestration: route each step to the smallest model that clears the bar, with a calibrated escalation path to a frontier model for the steps that genuinely need one. Purpose-built models trained on domain data now beat general-purpose ones on specialized tasks.",
-                },
-              ],
-            },
-            source: "Gartner; AT&T 2026 outlook",
-            demands: "Knowing when small is sufficient, and proving it",
-            program: {
-              label: "AI Inference Economics and Model Routing",
-              status: "gap",
-            },
-          },
-          {
-            icon: "proto",
-            figure: "Standard",
-            figure_caption: "tool interfaces replaced bespoke integrations",
-            title: "Tool access got a protocol",
-            tag: "integration",
-            quote: {
-              parts: [
-                {
-                  text: "Giving an agent real capability got cheap. So did ",
-                },
-                { text: "giving it the wrong one", strong: true },
-                { text: "." },
-              ],
-            },
-            description: {
-              parts: [
-                {
-                  text: "Connecting a model to real systems used to be bespoke work per integration. A shared protocol layer has changed that, which lowers the cost of giving an agent real capability and correspondingly raises the cost of giving it the wrong capability.",
-                },
-              ],
-            },
-            source: "Model Context Protocol adoption, 2026",
-            demands: "Safe, standardized system integration",
-            program: {
-              label: "Agent Tooling and Integration Safety",
-              status: "gap",
-            },
-          },
-        ],
-      },
-      {
-        id: "demand",
-        question: {
-          parts: [
-            { text: "AI demand is outpacing the talent " },
-            { text: "you can hire", is_italic: true },
-            { text: "." },
-          ],
-        },
-        intro_text:
-          "Generative AI, machine learning, and MLOps roles compete for the same scarce candidates. Hiring alone cannot close a gap this wide, and the build-versus-buy calculation has moved decisively toward building from the teams you already have.",
-        stats: [
-          {
-            value: "39%",
-            description:
-              "of workers' core skills are expected to change by 2030, driven by AI and automation, faster than most hiring pipelines can refill.",
-            source: "WEF Future of Jobs Report, 2025",
-          },
-          {
-            value: "78%",
-            description:
-              "of organizations now use AI in at least one business function, which intensifies demand for teams who can build and run it safely.",
-            source: "McKinsey State of AI, 2024",
-          },
-          {
-            value: "$4.4T",
-            description:
-              "in potential annual value from generative AI, value that stays locked unless employees are trained to capture it.",
-            source: "McKinsey, 2023",
-          },
-        ],
-      },
-      {
-        id: "pressures",
-        question: {
-          parts: [
-            { text: "The organizations that " },
-            { text: "do nothing", is_italic: true },
-            { text: " are not standing still." },
-          ],
-        },
-        intro_text:
-          "Not adopting AI is itself a decision with consequences, and they compound. These four pressures compound quietly, and none of them wait for a budget cycle.",
-        note: "Figures are published research, linked at source. Outcomes vary by sector, model footprint, and governance maturity.",
-        pressures: [
-          {
-            kicker: "Regulatory exposure",
-            figure: "7%",
-            unit: "of global annual turnover",
-            description:
-              "The EU AI Act sets its own penalty ceilings: up to 7% of worldwide annual turnover or 35 million euros for prohibited practices, and 3% or 15 million for other breaches. Obligations attach to the deploying organization, not the model vendor.",
-            source: "EU AI Act, penalty provisions",
-          },
-          {
-            kicker: "Lead time",
-            figure: "Months",
-            unit: "to build capability, not weeks",
-            description:
-              "Obligation dates do not move, but capability takes discovery, delivery and assessment cycles to build. Organizations that start when the deadline is already visible are starting late, and no amount of budget compresses a learning curve.",
-            source: "Pattern, not a published statistic",
-          },
-          {
-            kicker: "Key-person risk",
-            figure: "2-3",
-            unit: "people hold the capability",
-            description:
-              "In most organizations the working knowledge of the models sits with a handful of individuals. Their departure is an outage, and it is a risk that grows quietly while nothing appears to be wrong.",
-            source: "Observed in discovery engagements",
-          },
-          {
-            kicker: "Stalled pilots",
-            figure: "Demo",
-            unit: "is where most AI stops",
-            description:
-              "Pilots clear a demo and then stall, because reaching production needs deployment, monitoring and governance skills that no proof of concept required. The spend is already made; the return is not.",
-            source: "Pattern, not a published statistic",
-          },
-        ],
-      },
-    ],
-  },
-  card: {
-    heading:
-      "Capability is an <span>organisational</span> state, not a set of certificates.",
-
-    description:
-      "Individual skills are the input. What a board can actually see is the change in how the organisation behaves. These are the shifts that separate a company that has bought AI training from one that has built AI capability.",
-    before_label: "Before",
-    after_label: "After capability is built",
-
-    rows: [
-      {
-        before:
-          "AI use is invisible. Staff paste company data into personal accounts because no sanctioned path exists.",
-        after:
-          "Adoption runs on approved tools with agreed data-handling rules, and the organisation can see what is being used.",
-      },
-      {
-        before:
-          "Two or three people understand the models. Everything queues behind them, and their leaving is an outage.",
-        after:
-          "Capability is distributed across the team. Work continues when any one person is unavailable.",
-      },
-      {
-        before:
-          "Whether a model is good enough is a matter of individual judgment, argued case by case.",
-        after:
-          "Shared evaluation standards decide it, and the same bar applies to every release.",
-      },
-      {
-        before:
-          "Governance is discovered during an audit, then reconstructed backwards under time pressure.",
-        after:
-          "Documentation, risk classification and evidence are produced as the work happens.",
-      },
-      {
-        before:
-          "Every change to a model or pipeline needs a vendor, a statement of work and a wait.",
-        after:
-          "The team makes its own changes, and brings in help for scale rather than for basics.",
-      },
-      {
-        before:
-          "AI is a set of pilots that impress in a demo and stall before production.",
-        after:
-          "Systems reach production because someone in-house can deploy, monitor and retrain them.",
-      },
-    ],
-
-    note: "These are observable states, not projected metrics. Where a shift is achieved, and how quickly, depends on the starting baseline established in discovery.",
-    cta_banner: [
-      {
-        variant: "light",
-        eyebrow: "An AI operating model covers the whole organization",
-        heading:
-          "Organizational AI capability needs every function, not just engineering.",
-        cta_text: "Browse AI Training Programs",
-        cta_href: "/corporate-training",
-      },
-    ],
-  },
-  marquee: {
-    eyebrow: "BUILT AGAINST YOUR STACK",
-
-    heading: {
-      highlight:
-        "Programs are designed around what you already run, not a reference architecture we prefer.",
+  programData: {
+    eyebrow: {
+      discipline: "DISCIPLINEs",
     },
+
+    heading: "Instructor-led <span>AI programs,</span> filtered to your team.",
+
     description:
-      "If your stack is not listed, it is almost certainly still covered.",
+      "A selection from the live catalog. Combine a discipline and a role to narrow it.",
+
+    filters: {
+      allDisciplines: "All disciplines",
+    },
+
+    catalog: {
+      showingLabel: "SHOWING",
+      ofLabel: "OF",
+      liveCatalogLabel: "IN THE LIVE CATALOG",
+      searchPlaceholder: "Search programs",
+      noResults:
+        "No program matches that combination in this selection. The live catalog holds 130 AI programs, and we build custom programs where nothing fits.",
+
+      actions: [
+        {
+          label: "Ask for a Match",
+          href: "#catalog",
+          variant: "primary",
+        },
+      ],
+
+      courseCount: 130,
+
+      deliveryBadge: {
+        instructorLed: "INSTRUCTOR-LED",
+        separator: "·",
+        onSite: "ON-SITE",
+        virtual: "VIRTUAL",
+      },
+
+      card: {
+        viewProgram: "VIEW PROGRAM",
+        requestProgram: "REQUEST PROGRAM",
+        durationOnRequest: "DURATION ON REQUEST",
+        hoursSuffix: "HRS",
+        proposedLabel: "PROPOSED",
+        proposedProgramLabel: "PROPOSED PROGRAM",
+      },
+
+      pagination: {
+        previous: "PREVIOUS",
+        next: "NEXT",
+        allProgramsSuffix: "ALL",
+      },
+
+      courses: [
+        {
+          id: "genai-training",
+
+          title: "Generative AI (GenAI) Training",
+
+          description:
+            "Build and deploy generative models including LLMs, diffusion models and transformer architectures.",
+
+          discipline: "Generative AI",
+
+          disciplineTags: ["Generative AI"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/667d2c13668e8cd560984f05_Generative%20AI%20with%20Large%20Language%20Models%20Training%201200x600.webp",
+            alt: "Generative AI Training",
+            title: "Generative AI (GenAI) Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 24,
+            max: 32,
+          },
+
+          proposed: false,
+
+          href: "/course/generative-ai-training",
+        },
+
+        {
+          id: "rag-training",
+
+          title: "Retrieval Augmented Generation (RAG) Training",
+
+          description:
+            "Build RAG pipelines combining vector databases with LLMs for grounded answers from enterprise knowledge.",
+
+          discipline: "Generative AI",
+
+          disciplineTags: ["Generative AI"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6984353e51bbb54859fb2679_1200%20x%20600%20-%20Retrieval%20Augmented%20Generation%20(RAG)%20Training.webp",
+            alt: "Retrieval Augmented Generation Training",
+            title: "Retrieval Augmented Generation (RAG) Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 12,
+            max: 24,
+          },
+
+          proposed: false,
+
+          href: "/course/retrieval-augmented-generation-training",
+        },
+
+        {
+          id: "agentic-ai-training",
+
+          title: "Agentic AI Training",
+
+          description:
+            "Design autonomous agents that reason, plan and execute multi-step tasks with tool integration and memory.",
+
+          discipline: "Generative AI",
+
+          disciplineTags: ["Generative AI"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/683823f3003ba05730fd3c65_1200_x_600_-__Agentic_AI.webp",
+            alt: "Agentic AI Training",
+            title: "Agentic AI Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 20,
+            max: 40,
+          },
+
+          proposed: false,
+
+          href: "/course/agentic-ai-training",
+        },
+
+        {
+          id: "llm-observability",
+
+          title: "LLM Observability Training",
+
+          description:
+            "Monitor and optimize LLM behavior with observability practices that improve reliability.",
+
+          discipline: "Generative AI",
+
+          disciplineTags: ["Generative AI"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6a1ea20f3b763cd90d946319_1200%20x%20600%20-%20LLM%20Observability.webp",
+            alt: "LLM Observability Training",
+            title: "LLM Observability Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 16,
+            max: 24,
+          },
+
+          proposed: false,
+
+          href: "/course/llm-observability-training",
+        },
+
+        {
+          id: "mlops-llms",
+
+          title: "MLOps for LLMs Training",
+
+          description:
+            "Operate LLM systems in production: versioning, rollout, cost control and incident response.",
+
+          discipline: "Generative AI",
+
+          disciplineTags: ["Generative AI", "MLOps"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6a16e58144ce089fe9c52414_1200%20x%20600%20-MLOps%20for%20LLMs%20Training.webp",
+            alt: "MLOps for LLMs Training",
+            title: "MLOps for LLMs Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "request",
+          },
+
+          proposed: false,
+
+          href: "/course/mlops-for-llms-training",
+        },
+
+        {
+          id: "ai-evaluation",
+
+          title: "AI Evaluation and Red-Teaming",
+
+          description:
+            "Adversarial testing for LLM systems: jailbreaks, prompt injection, grounding failures and refusal behavior.",
+
+          discipline: "Generative AI",
+
+          disciplineTags: ["Generative AI", "Governance"],
+
+          image: {
+            src: "",
+            alt: "",
+            title: "",
+          },
+
+          delivery: {
+            instructorLed: false,
+            onSite: false,
+            virtual: false,
+          },
+
+          duration: {
+            type: "range",
+            min: 16,
+            max: 24,
+          },
+
+          proposed: true,
+
+          href: "/course/ai-evaluation-red-teaming",
+        },
+
+        {
+          id: "machine-learning",
+
+          title: "Introduction to Machine Learning Training",
+
+          description:
+            "Foundations of supervised and unsupervised learning for teams new to modeling.",
+
+          discipline: "Machine Learning",
+
+          disciplineTags: ["Machine Learning"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/667d11099e1e44f675d148df_Introduction%20to%20Machine%20Learning%20Training%201200x600.webp",
+            alt: "Introduction to Machine Learning Training",
+            title: "Introduction to Machine Learning Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "request",
+          },
+
+          proposed: false,
+
+          href: "/course/introduction-to-machine-learning-training",
+        },
+
+        {
+          id: "machine-learning-python",
+
+          title: "Machine Learning with Python Training",
+
+          description:
+            "Implement ML pipelines in Python for classification, regression and clustering, through to deployment.",
+
+          discipline: "Machine Learning",
+
+          disciplineTags: ["Machine Learning"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/667d5582cb3e5b7a1bd0d241_Machine%20Learning%20with%20Python%20Training%201200x600.webp",
+            alt: "Machine Learning with Python Training",
+            title: "Machine Learning with Python Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 40,
+            max: 48,
+          },
+
+          proposed: false,
+
+          href: "/course/machine-learning-with-python-training",
+        },
+
+        {
+          id: "machine-learning-scikit",
+
+          title: "Machine Learning with Scikit-Learn Training",
+
+          description:
+            "Predictive modeling and evaluation workflows using the scikit-learn ecosystem.",
+
+          discipline: "Machine Learning",
+
+          disciplineTags: ["Machine Learning"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/662f3c8cbd1f828c697c3968_Machine_Learning_with_Scikit-Learn_Course.webp",
+            alt: "Machine Learning with Scikit-Learn Training",
+            title: "Machine Learning with Scikit-Learn Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "request",
+          },
+
+          proposed: false,
+
+          href: "/course/machine-learning-with-scikit-learn-training",
+        },
+
+        {
+          id: "deep-learning-training",
+
+          title: "Deep Learning Training",
+
+          description:
+            "Build deep learning solutions using neural networks, optimization techniques and modern architectures.",
+
+          discipline: "Machine Learning",
+
+          disciplineTags: ["Machine Learning"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/667d5582cb3e5b7a1bd0d241_Machine%20Learning%20with%20Python%20Training%201200x600.webp",
+            alt: "Deep Learning Training",
+            title: "Deep Learning Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 24,
+            max: 40,
+          },
+
+          proposed: false,
+
+          href: "/course/deep-learning-training",
+        },
+
+        {
+          id: "generative-ai-python",
+
+          title: "Generative AI with Python Training",
+
+          description:
+            "Learn practical generative AI development using Python, LLMs, prompting and model integration.",
+
+          discipline: "Generative AI",
+
+          disciplineTags: ["Generative AI"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/667d2c13668e8cd560984f05_Generative%20AI%20with%20Large%20Language%20Models%20Training%201200x600.webp",
+            alt: "Generative AI with Python Training",
+            title: "Generative AI with Python Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 24,
+            max: 32,
+          },
+
+          proposed: false,
+
+          href: "/course/generative-ai-with-python-training",
+        },
+
+        {
+          id: "llm-engineering",
+
+          title: "LLM Engineering Training",
+
+          description:
+            "Develop production-ready LLM applications with prompting, retrieval, evaluation and deployment workflows.",
+
+          discipline: "Generative AI",
+
+          disciplineTags: ["Generative AI"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6a16e58144ce089fe9c52414_1200%20x%20600%20-MLOps%20for%20LLMs%20Training.webp",
+            alt: "LLM Engineering Training",
+            title: "LLM Engineering Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 20,
+            max: 32,
+          },
+
+          proposed: false,
+
+          href: "/course/llm-engineering-training",
+        },
+
+        {
+          id: "mlops-training",
+
+          title: "MLOps Training",
+
+          description:
+            "Build reliable machine learning operations workflows covering deployment, monitoring, versioning and governance.",
+
+          discipline: "MLOps",
+
+          disciplineTags: ["MLOps"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6a16e58144ce089fe9c52414_1200%20x%20600%20-MLOps%20for%20LLMs%20Training.webp",
+            alt: "MLOps Training",
+            title: "MLOps Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 16,
+            max: 24,
+          },
+
+          proposed: false,
+
+          href: "/course/mlops-training",
+        },
+
+        {
+          id: "ai-governance",
+
+          title: "AI Governance Training",
+
+          description:
+            "Build practical AI governance frameworks for responsible development, deployment, monitoring and risk management.",
+
+          discipline: "Governance",
+
+          disciplineTags: ["Governance"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/662f3c8cbd1f828c697c3968_Machine_Learning_with_Scikit-Learn_Course.webp",
+            alt: "AI Governance Training",
+            title: "AI Governance Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 16,
+            max: 24,
+          },
+
+          proposed: false,
+
+          href: "/course/ai-governance-training",
+        },
+
+        {
+          id: "ai-product-management",
+
+          title: "AI Product Management Training",
+
+          description:
+            "Learn how to scope, evaluate and operationalize AI products from discovery through production.",
+
+          discipline: "Applied AI",
+
+          disciplineTags: ["Applied AI"],
+
+          image: {
+            src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/683823f3003ba05730fd3c65_1200_x_600_-__Agentic_AI.webp",
+            alt: "AI Product Management Training",
+            title: "AI Product Management Training",
+          },
+
+          delivery: {
+            instructorLed: true,
+            onSite: true,
+            virtual: true,
+          },
+
+          duration: {
+            type: "range",
+            min: 16,
+            max: 24,
+          },
+
+          proposed: false,
+
+          href: "/course/ai-product-management-training",
+        },
+      ],
+    },
+  },
+  byRoleData: {
+    heading: "Find AI training <span>by role.</span>",
+
+    description:
+      "The same AI initiative asks different things of different people. Start from the role you are training and work outward.",
+
+    roles: [
+      {
+        id: "executives-sponsors",
+        number: "R01",
+        title: "Executives & sponsors",
+
+        description:
+          "Enough fluency to fund, scope and challenge AI work, and to know what good evidence of control looks like.",
+
+        programs: [
+          {
+            label: "AI for Managers",
+            href: "#",
+          },
+          {
+            label: "AI Governance",
+            href: "#",
+          },
+          {
+            label: "Responsible Generative AI",
+            href: "#",
+          },
+        ],
+      },
+
+      {
+        id: "business-operations",
+        number: "R02",
+        title: "Business & operations",
+
+        description:
+          "Practical AI fluency for teams shaping processes, workflows and operational decisions.",
+
+        programs: [
+          {
+            label: "AI for Business",
+            href: "#",
+          },
+          {
+            label: "AI Workflow Automation",
+            href: "#",
+          },
+          {
+            label: "Generative AI for Productivity",
+            href: "#",
+          },
+        ],
+      },
+
+      {
+        id: "analysts-data-teams",
+        number: "R03",
+        title: "Analysts & data teams",
+
+        description:
+          "Build the practical skills needed to work with AI, data and analytical workflows across the organization.",
+
+        programs: [
+          {
+            label: "AI for Data Analysis",
+            href: "#",
+          },
+          {
+            label: "Machine Learning Fundamentals",
+            href: "#",
+          },
+          {
+            label: "Generative AI for Data Teams",
+            href: "#",
+          },
+        ],
+      },
+
+      {
+        id: "data-scientists-ml-engineers",
+        number: "R04",
+        title: "Data scientists & ML engineers",
+
+        description:
+          "Advance model development, evaluation and production practices for modern machine learning systems.",
+
+        programs: [
+          {
+            label: "Machine Learning",
+            href: "#",
+          },
+          {
+            label: "Deep Learning",
+            href: "#",
+          },
+          {
+            label: "MLOps",
+            href: "#",
+          },
+        ],
+      },
+
+      {
+        id: "software-engineers",
+        number: "R05",
+        title: "Software engineers",
+
+        description:
+          "Develop the engineering skills required to build, integrate and operate AI-powered applications.",
+
+        programs: [
+          {
+            label: "Generative AI Engineering",
+            href: "#",
+          },
+          {
+            label: "LLM Engineering",
+            href: "#",
+          },
+          {
+            label: "Agentic AI",
+            href: "#",
+          },
+        ],
+      },
+
+      {
+        id: "mlops-platform-engineers",
+        number: "R06",
+        title: "MLOps & platform engineers",
+
+        description:
+          "Operate reliable AI systems with strong deployment, monitoring, observability and governance practices.",
+
+        programs: [
+          {
+            label: "MLOps for LLMs",
+            href: "#",
+          },
+          {
+            label: "LLM Observability",
+            href: "#",
+          },
+          {
+            label: "AI Infrastructure",
+            href: "#",
+          },
+        ],
+      },
+
+      {
+        id: "risk-legal-compliance",
+        number: "R07",
+        title: "Risk, legal & compliance",
+
+        description:
+          "Understand AI risk, governance and compliance requirements across the AI lifecycle.",
+
+        programs: [
+          {
+            label: "AI Governance",
+            href: "#",
+          },
+          {
+            label: "Responsible AI",
+            href: "#",
+          },
+          {
+            label: "AI Risk Management",
+            href: "#",
+          },
+        ],
+      },
+
+      {
+        id: "hr-ld",
+        number: "R08",
+        title: "HR & L&D",
+
+        description:
+          "Build the capability to plan, deploy and measure AI learning programs across the workforce.",
+
+        programs: [
+          {
+            label: "AI Skills Strategy",
+            href: "#",
+          },
+          {
+            label: "AI Literacy for Employees",
+            href: "#",
+          },
+          {
+            label: "AI Learning Programs",
+            href: "#",
+          },
+        ],
+      },
+    ],
+    ctaBannerData: [
+      {
+        variant: "light",
+        eyebrow: "",
+        heading:
+          "Training a role that is not listed, or a mix of them? Tell us who you are training and what they need to do, and we build the shortlist.",
+        ctaText: "Request a tailored quote",
+        ctaHref: "/corporate-training",
+      },
+    ],
+  },
+  pathsData: {
+    mark: {
+      label: "SEVEN ROLE PATHS",
+    },
+
+    heading:
+      "A catalog tells you what exists. A path tells you <span>what comes first.</span>",
+
+    description:
+      "The filters above return a set. They do not tell you the order to take it in, and order is most of the value: monitoring before deployment teaches nothing, and governance before a model exists is theory. Each path below runs from where a role stands today to what it owns at the end, and every stop names the problem it takes off the team.",
+
+    paths: [
+      {
+        id: "ml-engineer",
+        icon: "brain",
+        title: "ML engineer",
+        subtitle: "STARTS Builds models in notebooks",
+        meta: "4 STEPS · 80–104 HRS TOTAL",
+
+        items: [
+          {
+            title: "Introduction to Machine Learning",
+            description:
+              "The team can identify which business problems are suitable for machine learning.",
+          },
+          {
+            title: "Machine Learning with Python",
+            description:
+              "Models and pipelines are built in-house instead of depending entirely on external vendors.",
+          },
+          {
+            title: "ML Model Monitoring",
+            description:
+              "Model drift and performance degradation are detected before they affect customers.",
+          },
+          {
+            title: "MLOps Foundations",
+            tag: "PROPOSED",
+            description:
+              "Production models can be deployed, monitored and rolled back through a repeatable process.",
+          },
+        ],
+
+        outcome: "Owns models in production",
+
+        footer:
+          "Models reach production and stay there without requiring a vendor for every change or incident.",
+        button: "VIEW ALL AI TRAINING PROGRAMS →",
+        href: "#",
+      },
+
+      {
+        id: "genai-engineer",
+        icon: "sparkles",
+        title: "GenAI engineer",
+        subtitle: "STARTS Prototypes against an API key",
+        meta: "4 STEPS · 72–120 HRS TOTAL",
+
+        items: [
+          {
+            title: "Generative AI Foundations",
+            description:
+              "The team understands the capabilities, limitations and practical use cases of modern generative AI.",
+          },
+          {
+            title: "Retrieval Augmented Generation",
+            description:
+              "LLM responses are grounded in trusted company knowledge instead of relying only on model memory.",
+          },
+          {
+            title: "AI Evaluation & Red-Teaming",
+            tag: "PROPOSED",
+            description:
+              "Prompt injection, hallucination and other failure modes are discovered before production.",
+          },
+          {
+            title: "Agentic AI",
+            description:
+              "AI agents can use tools within defined boundaries while knowing when to hand control back to a human.",
+          },
+        ],
+
+        outcome: "Ships grounded LLM systems",
+
+        footer:
+          "LLM features move from promising prototypes to controlled production systems with measurable quality.",
+        button: "VIEW ALL AI TRAINING PROGRAMS →",
+        href: "#",
+      },
+
+      {
+        id: "mlops-engineer",
+        icon: "workflow",
+        title: "MLOps engineer",
+        subtitle: "STARTS Deploys models by hand",
+        meta: "4 STEPS · 56–80 HRS TOTAL",
+
+        items: [
+          {
+            title: "MLOps Foundations",
+            tag: "PROPOSED",
+            description:
+              "Model deployment becomes a documented and repeatable engineering process.",
+          },
+          {
+            title: "ML Model Monitoring",
+            description:
+              "Teams can monitor model health, data drift and performance after deployment.",
+          },
+          {
+            title: "LLM Observability",
+            description:
+              "LLM quality, latency, usage and cost can be tracked across production workloads.",
+          },
+          {
+            title: "MLOps for LLMs",
+            description:
+              "LLM releases, rollbacks and incidents are managed using production-ready operating practices.",
+          },
+        ],
+
+        outcome: "Runs the deployment layer",
+
+        footer:
+          "Releases, rollbacks and incidents follow a repeatable procedure that the whole engineering team can run.",
+        button: "VIEW ALL AI TRAINING PROGRAMS →",
+        href: "#",
+      },
+
+      {
+        id: "ai-product-engineer",
+        icon: "package",
+        title: "AI product engineer",
+        subtitle: "STARTS Ships features without AI ownership",
+        meta: "4 STEPS · 64–88 HRS TOTAL",
+
+        items: [
+          {
+            title: "AI Product Foundations",
+            description:
+              "Product teams learn where AI can create measurable value instead of adding technology without purpose.",
+          },
+          {
+            title: "LLM Application Design",
+            description:
+              "AI experiences are designed around user outcomes, workflows and reliable product behavior.",
+          },
+          {
+            title: "AI Evaluation & Quality",
+            tag: "PROPOSED",
+            description:
+              "AI features are tested against defined quality standards before customers discover failures.",
+          },
+          {
+            title: "Production AI Delivery",
+            description:
+              "AI capabilities move from experimentation into reliable, maintainable product experiences.",
+          },
+        ],
+
+        outcome: "Owns AI product delivery",
+
+        footer:
+          "AI features ship with clear ownership, measurable quality and a defined path from prototype to production.",
+        button: "VIEW ALL AI TRAINING PROGRAMS →",
+      },
+
+      {
+        id: "ai-governance-lead",
+        icon: "shield",
+        title: "AI governance lead",
+        subtitle: "STARTS Defines policy without technical context",
+        meta: "4 STEPS · 48–72 HRS TOTAL",
+
+        items: [
+          {
+            title: "AI Risk Foundations",
+            description:
+              "Teams learn how to identify and prioritize the risks introduced by AI systems.",
+          },
+          {
+            title: "Responsible AI",
+            description:
+              "Governance principles are connected to real models, data, workflows and business decisions.",
+          },
+          {
+            title: "AI Evaluation Frameworks",
+            tag: "PROPOSED",
+            description:
+              "AI systems are assessed against defined business, quality, safety and compliance expectations.",
+          },
+          {
+            title: "AI Governance Operations",
+            description:
+              "Governance becomes an operational process with clear controls, owners and evidence.",
+          },
+        ],
+
+        outcome: "Runs practical AI governance",
+
+        footer:
+          "AI decisions have traceable controls, accountable owners and documented evidence throughout the lifecycle.",
+        button: "VIEW ALL AI TRAINING PROGRAMS →",
+      },
+
+      {
+        id: "ai-security-engineer",
+        icon: "lock",
+        title: "AI security engineer",
+        subtitle: "STARTS Secures conventional applications",
+        meta: "4 STEPS · 56–80 HRS TOTAL",
+
+        items: [
+          {
+            title: "AI Security Foundations",
+            description:
+              "Security teams understand the new attack surfaces introduced by models, agents and AI applications.",
+          },
+          {
+            title: "Prompt Injection & Abuse",
+            description:
+              "Adversarial prompts and unsafe model behavior are tested before they become production incidents.",
+          },
+          {
+            title: "Model & Data Security",
+            tag: "PROPOSED",
+            description:
+              "Sensitive data, model access and AI workflows are protected across the application stack.",
+          },
+          {
+            title: "AI Security Operations",
+            description:
+              "AI security controls become part of deployment, monitoring and incident response workflows.",
+          },
+        ],
+
+        outcome: "Secures AI systems in production",
+
+        footer:
+          "AI attack surfaces are identified, monitored and controlled as part of the normal security operating model.",
+        button: "VIEW ALL AI TRAINING PROGRAMS →",
+      },
+
+      {
+        id: "ai-platform-engineer",
+        icon: "server",
+        title: "AI platform engineer",
+        subtitle: "STARTS Builds shared infrastructure",
+        meta: "4 STEPS · 72–96 HRS TOTAL",
+
+        items: [
+          {
+            title: "AI Platform Foundations",
+            description:
+              "Engineering teams establish the infrastructure patterns required to build and operate AI systems.",
+          },
+          {
+            title: "Model Serving",
+            description:
+              "Models can be deployed consistently without creating bespoke infrastructure for every workload.",
+          },
+          {
+            title: "AI Observability",
+            tag: "PROPOSED",
+            description:
+              "Platform teams gain visibility into reliability, latency, usage and cost across AI workloads.",
+          },
+          {
+            title: "Production AI Platforms",
+            description:
+              "Teams operate a repeatable platform that allows AI workloads to scale without multiplying complexity.",
+          },
+        ],
+
+        outcome: "Runs the AI platform layer",
+
+        footer:
+          "AI teams ship faster because infrastructure, deployment and observability are standardized across workloads.",
+        button: "VIEW ALL AI TRAINING PROGRAMS →",
+      },
+    ],
+
+    note: "Sequences are indicative, not fixed. Discovery establishes where a team already is, and a path usually starts partway along rather than at step one.",
+  },
+  outcomeData: {
+    heading: "Capabilities your organization <span>will gain.</span>",
+
+    description:
+      "Domain-level outcomes, not course objectives. These are the capabilities L&D and engineering leaders are usually asked to evidence.",
 
     items: [
-      "LlamaIndex",
-      "Hugging Face",
-      "Vector databases",
-      "Feature stores",
-      "Your data warehouse",
-      "Copilot",
-      "ChatGPT Enterprise",
-      "Your own fine-tunes",
-      "GPT",
-      "Claude",
-      "Gemini",
-      "Llama",
-      "Mistral",
-      "Copilot",
-      "ChatGPT Enterprise",
-      "Your own fine-tunes",
-      "GPT",
-      "Claude",
-    ],
+      {
+        id: "safe-everyday-ai-use",
+        number: "C01",
+        title: "Safe everyday AI use",
+        description:
+          "Staff who know what to put into a model, what not to, and when a human has to decide.",
+      },
 
-    disclaimer:
-      "All names and marks shown are the property of their respective owners. Their appearance here indicates coverage in our training, not partnership, affiliation or endorsement.",
+      {
+        id: "build-and-ship-models",
+        number: "C02",
+        title: "Build and ship models",
+        description:
+          "End-to-end delivery from problem framing and features through training, packaging, and release.",
+      },
+
+      {
+        id: "evaluate-before-deploying",
+        number: "C03",
+        title: "Evaluate before deploying",
+        description:
+          "Offline and online evaluation, benchmark design, red teaming, and honest reporting of limits.",
+      },
+
+      {
+        id: "operate-models-production",
+        number: "C04",
+        title: "Operate models in production",
+        description:
+          "Drift detection, performance tracking, alerting, incident response, and retraining pipelines.",
+      },
+
+      {
+        id: "engineer-ai-products",
+        number: "C05",
+        title: "Engineer AI into products",
+        description:
+          "Retrieval, agents, tool use, latency and cost control, and graceful degradation in real applications.",
+      },
+
+      {
+        id: "govern-ai-risk",
+        number: "C06",
+        title: "Govern AI risk",
+        description:
+          "Model inventory, risk classification, documented controls, and audit-ready evidence.",
+      },
+
+      {
+        id: "meet-regulatory-obligations",
+        number: "C07",
+        title: "Meet regulatory obligations",
+        description:
+          "ISO/IEC 42001 alignment, EU AI Act readiness, sector rules, and privacy-by-design for AI systems.",
+      },
+
+      {
+        id: "scale-the-practice",
+        number: "C08",
+        title: "Scale the practice",
+        description:
+          "Platform standards, reusable components, cost management, and an internal capability ladder.",
+      },
+    ],
+  },
+  DeliveryModesdata: {
+    tabs: [
+      {
+        id: "virtual",
+        label: "Online / Virtual",
+        title:
+          "Expert-led live sessions delivered anywhere, with consistency and easy scheduling.",
+        points: [
+          "Delivered anywhere worldwide",
+          "Standardized content for consistent outcomes",
+          "Join from your own workspace, no travel",
+          "Scales to large groups across sites",
+          "Interactive tools keep remote learners engaged",
+        ],
+        sublabel: "",
+        description: "",
+      },
+      {
+        id: "onsite",
+        label: "In-house / On-site",
+        title:
+          "A trainer comes to your office and works with your team in the room, using your tools and your examples.",
+        points: [
+          "Delivered at your own premises",
+          "Tailored to your stack, data and use cases",
+          "Hands-on, high-interaction sessions",
+          "Team builds shared context together",
+          "Schedule set around your operations",
+        ],
+        sublabel: "",
+        description: "",
+      },
+      {
+        id: "offsite",
+        label: "Away day / Off-site",
+        title:
+          "An immersive session at an external venue, away from day-to-day distractions, for focused learning and team momentum.",
+        points: [
+          "Dedicated venue away from the office",
+          "Full focus with no daily interruptions",
+          "Blends training with team building",
+          "Ideal for kickoffs and intensive upskilling",
+          "Logistics and location arranged with you",
+        ],
+        sublabel: "",
+        description: "",
+      },
+    ],
+    heading: "AI training delivery formats.",
+    description:
+      "On-site, live virtual, or blended, in 10+ languages, through a vetted global trainer network. Cohort size, schedule and locations are set with you and confirmed in the proposal.",
   },
   trainers: {
     heading:
@@ -654,6 +1430,41 @@ const artificialIntelligence = {
     ],
     note: "Trainers are matched to your stack and delivery window at scheduling. We confirm your assigned trainer, with a full profile, before the program is booked, and you can sit in on a trial session first.",
   },
+  ResultsData: {
+    heading: "AI training results from <span>real teams.</span>",
+
+    description:
+      "Three engagements across the portfolio: a literacy rollout, an engineering deep-dive, and a governance build.",
+
+    items: [
+      {
+        id: "literacy-rollout",
+        stat: "2,400",
+        description:
+          "Every employee went through AI awareness before we opened up the tools. Support tickets about “can I put this in the chatbot” basically stopped.",
+        person: "HEAD OF L&D",
+        meta: "GLOBAL INSURER · LITERACY ROLLOUT, 11 WEEKS",
+      },
+
+      {
+        id: "engineering-track",
+        stat: "6 → 1",
+        description:
+          "Deployment used to take six weeks of hand-offs. After the MLOps and monitoring programs the team rebuilt the pipeline themselves and it takes one.",
+        person: "DIRECTOR OF DATA SCIENCE",
+        meta: "PAYMENTS PLATFORM · ENGINEERING TRACK, 150 HRS",
+      },
+
+      {
+        id: "governance-track",
+        stat: "42",
+        description:
+          "We came in with a spreadsheet of models nobody trusted. We left with a real inventory, risk tiers, and a control set our auditors accepted.",
+        person: "CHIEF RISK OFFICER",
+        meta: "RETAIL BANK · GOVERNANCE TRACK, 72 HRS",
+      },
+    ],
+  },
   map_section: {
     heading: "Why enterprises choose <span>Edstellar </span>for AI.",
 
@@ -691,153 +1502,176 @@ const artificialIntelligence = {
 
     related_services: [],
   },
-  capability: {
-    heading:
-      "Capability you can point at, <span>after the cohort ended.</span>",
+  deliveredData: {
+    heading: {
+      before: "How an AI training program",
+      emphasis: "is delivered.",
+      after: "",
+    },
 
     description:
-      "Three engagements, summarised. Each links to the full write-up: what the team could not do, what we ran, and what was measurably different ninety days later.",
-    items: [
-      {
-        eyebrow: "Financial services",
-        title: "Global payments company, San Francisco",
-        problem_label: "The problem",
-        problem:
-          "Models were shipping weekly, but nobody could evidence drift to the risk committee. Reviews stalled on questions the team could not answer from its own tooling.",
-        work_label: "What we ran",
-        work: "24 engineers, 2 parallel cohorts, monitoring and governance, 6 weeks",
-        result: "4 days",
-        result_description:
-          "Median time to detect model drift, down from three weeks",
-        result_note: "Client-reported, 90 days after delivery",
-        case_study_label: "Read the case study",
-        case_study_href: "#",
-        training_label: "Discover AI training programs",
-        training_href: "/corporate-training",
-      },
+      "Every engagement runs the same five stages, from capability baseline through to the refresh cycle.",
 
+    stages: [
       {
-        eyebrow: "Specialty chemicals",
-        title: "Manufacturer, EMEA",
-        problem_label: "The problem",
-        problem:
-          "The data science team could build models but could not hand them to operations. Work stopped at the notebook and the plant kept running on spreadsheets.",
-        work_label: "What we ran",
-        work: "40 staff across 4 cohorts, MLOps and deployment, 8 weeks",
-        result: "9 of 11",
-        result_description:
-          "Models moved from notebook to production within two quarters",
-        result_note: "Client-reported, Q2 review",
-        case_study_label: "Read the case study",
-        case_study_href: "#",
-        training_label: "Discover AI training programs",
-        training_href: "/corporate-training",
+        id: "discover",
+        number: "01",
+        title: "Discover",
+        description:
+          "We meet your CTO and L&D team to baseline what your data, engineering and product people can actually do today, against the roles you need them to fill.",
+        meta: "Week 1–2",
       },
-
       {
-        eyebrow: "Professional services",
-        title: "Top-3 consulting firm, Boston",
-        problem_label: "The problem",
-        problem:
-          "Consultants were using AI daily with no shared standard for what was safe to put in front of a client. Risk and delivery disagreed on where the line was.",
-        work_label: "What we ran",
-        work: "60 staff across 4 cohorts, applied AI and governance, 5 weeks",
-        result: "+41 pts",
-        result_description: "Average gain, pre to post technical assessment",
-        result_note: "Edstellar pre and post assessment, n=60",
-        case_study_label: "Read the case study",
-        case_study_href: "#",
-        training_label: "Discover AI training programs",
-        training_href: "/corporate-training",
+        id: "design",
+        number: "02",
+        title: "Design",
+        description:
+          "Programs are assembled against your model stack, your data, and the governance regime you operate under, then trainers are shortlisted from the vetted bench.",
+        meta: "Week 2–4",
+      },
+      {
+        id: "deliver",
+        number: "03",
+        title: "Deliver",
+        description:
+          "Closed-cohort instructor-led sessions in your language and timezone, with GPU sandboxes, notebooks and retrieval or agent environments shipped alongside.",
+        meta: "Scheduled to your calendar",
+      },
+      {
+        id: "assess",
+        number: "04",
+        title: "Assess",
+        description:
+          "Pre and post technical assessments establish a measurable change in capability, benchmarked against role frameworks.",
+        meta: "Immediately after delivery",
+      },
+      {
+        id: "sustain",
+        number: "05",
+        title: "Sustain",
+        description:
+          "Retrospectives, refresher modules and skill-refresh tracking keep the investment from decaying, and the measured gaps feed the next cycle.",
+        meta: "Quarterly",
       },
     ],
-    note: "Client names are withheld where the engagement is covered by a confidentiality agreement. Named references are available on request during procurement.",
+
+    note: "Stage 05 feeds the next cycle: the gaps it measures become the next Discover.",
   },
-  method: {
-    lifecycle: {
-      heading: "How an AI capability program, <span>actually runs.</span>",
+  fromedstellarData: {
+    label: "Also from Edstellar",
 
-      description:
-        "Every engagement runs the same five stages, from capability baseline through to the refresh cycle.",
-
-      stages: [
-        {
-          number: "01",
-          title: "Discover",
-          description:
-            "We meet your CTO and L&D team to baseline what your data, engineering and product people can actually do today, against the roles you need them to fill.",
-          timing: "WEEK 1–2",
-        },
-        {
-          number: "02",
-          title: "Design",
-          description:
-            "Programs are assembled against your model stack, your data, and the governance regime you operate under, then trainers are shortlisted from the vetted bench.",
-          timing: "WEEK 2–4",
-        },
-        {
-          number: "03",
-          title: "Deliver",
-          description:
-            "Closed-cohort instructor-led sessions in your language and timezone, with GPU sandboxes, notebooks and retrieval or agent environments shipped alongside.",
-          timing: "SCHEDULED TO YOUR CALENDAR",
-          active: true,
-        },
-        {
-          number: "04",
-          title: "Assess",
-          description:
-            "Pre and post technical assessments establish a measurable change in capability, benchmarked against role frameworks.",
-          timing: "IMMEDIATELY AFTER DELIVERY",
-        },
-        {
-          number: "05",
-          title: "Sustain",
-          description:
-            "Retrospectives, refresher modules and skill-refresh tracking keep the investment from decaying, and the measured gaps feed the next cycle.",
-          timing: "QUARTERLY",
-        },
-      ],
-
-      footer:
-        "STAGE 05 FEEDS THE NEXT CYCLE: THE GAPS IT MEASURES BECOME THE NEXT DISCOVER",
-    },
-
-    services: {
-      eyebrow: "ALSO FROM EDSTELLAR",
-
-      items: [
-        {
-          title: "Talent assessments",
-          description:
-            "Psychometric, behavioral, leadership and 360-degree assessment.",
-        },
-        {
-          title: "Training needs analysis",
-          description:
-            "Needs analysis, gap identification, and a training roadmap.",
-        },
-        {
-          title: "L&D consulting",
-          description:
-            "Learning strategy, content, technology and ROI measurement.",
-        },
-        {
-          title: "OD consulting",
-          description: "Org design, succession planning and cultural change.",
-        },
-        {
-          title: "Managed training services",
-          description:
-            "Training outsourcing, vendor management, logistics and administration.",
-        },
-        {
-          title: "Coaching solutions",
-          description:
-            "Executive and manager coaching that keeps skills in use.",
-        },
+    items: [
+      {
+        id: "talent-assessments",
+        title: "Talent assessments",
+        description:
+          "Psychometric, behavioral, leadership and 360-degree assessment.",
+        href: "#",
+      },
+      {
+        id: "training-needs-analysis",
+        title: "Training needs analysis",
+        description:
+          "Needs analysis, gap identification, and a training roadmap.",
+        href: "#",
+      },
+      {
+        id: "ld-consulting",
+        title: "L&D consulting",
+        description:
+          "Learning strategy, content, technology and ROI measurement.",
+        href: "#",
+      },
+      {
+        id: "od-consulting",
+        title: "OD consulting",
+        description: "Org design, succession planning and cultural change.",
+        href: "#",
+      },
+      {
+        id: "managed-training-services",
+        title: "Managed training services",
+        description:
+          "Training outsourcing, vendor management, logistics and administration.",
+        href: "#",
+      },
+      {
+        id: "coaching-solutions",
+        title: "Coaching solutions",
+        description: "Executive and manager coaching that keeps skills in use.",
+        href: "#",
+      },
+    ],
+  },
+  relatedCategoriesData: {
+    heading: {
+      parts: [
+        { text: "Explore related " },
+        { text: "training domains", em: true },
+        { text: "." },
       ],
     },
+
+    description:
+      "AI capability rarely sits alone. These categories are the ones enterprises most often build alongside it.",
+
+    items: [
+      {
+        title: "Machine Learning Training",
+        description:
+          "Model development from data preparation through validation and deployment.",
+        type: "Instructor-led",
+        link: "View course",
+        href: "#",
+      },
+      {
+        title: "Deep Learning Training",
+        description:
+          "Neural network architectures, from convolutional and recurrent models to transformers.",
+        type: "Instructor-led",
+        link: "View course",
+        href: "#",
+      },
+      {
+        title: "Natural Language Processing Training",
+        description:
+          "Language models, text pipelines and conversational systems for enterprise use.",
+        type: "Instructor-led",
+        link: "View course",
+        href: "#",
+      },
+      {
+        title: "Computer Vision Training",
+        description:
+          "Image processing, detection and inspection systems for industrial and product use.",
+        type: "Instructor-led",
+        link: "View course",
+        href: "#",
+      },
+      {
+        title: "ChatGPT Training",
+        description:
+          "Prompting, assistants and safe day-to-day use of general-purpose AI tools.",
+        type: "Instructor-led",
+        link: "View course",
+        href: "#",
+      },
+      {
+        title: "Cybersecurity Training",
+        description:
+          "Security programs for teams defending the systems AI now runs inside.",
+        type: "Instructor-led",
+        link: "View course",
+        href: "#",
+      },
+      {
+        title: "IT & Technical Training",
+        description: "The wider engineering catalogue this domain sits within.",
+        type: "Instructor-led",
+        link: "View course",
+        href: "#",
+      },
+    ],
   },
   faqs: {
     heading: "Questions enterprises ask <span>before booking.</span>",
@@ -900,67 +1734,116 @@ const artificialIntelligence = {
       },
     ],
   },
-  related_domains: {
-    heading: "Explore related <span>training domains</span>.",
+  scopeData: {
+    heading: {
+      before: "Start an RFP shaped to",
+      emphasis: " your needs.",
+      after: "",
+    },
 
     description:
-      "AI capability rarely sits alone. These categories are the ones enterprises most often build alongside it.",
+      "Tell us roughly how many people need training and we'll show you the package this usually maps to. Nothing is fixed until we've scoped it with you.",
+    tabLabel: "HOW MANY TEAM MEMBERS NEED AI TRAINING?",
 
-    items: [
+    tabs: [
       {
-        title: "Machine Learning Training",
+        id: "1-25",
+        label: "1–25",
+        participants: "1–25 PARTICIPANTS",
+        title: "Single cohort",
         description:
-          "Model development from data preparation through validation and deployment.",
-        type: "Instructor-led",
-        link: "View course",
-        href: "#",
+          "One or two programs for a single team, delivered as a closed cohort. The usual entry point for a first AI engagement.",
+        items: [
+          "One cohort of up to 25 participants",
+          "Curriculum customized to your stack",
+          "Onsite, virtual, or offsite delivery",
+          "Certificates and completion report",
+        ],
+        actions: [
+          {
+            label: "Request this quote",
+            href: "#apply",
+          },
+          {
+            label: "Adjust programs",
+            href: "#apply",
+          },
+        ],
       },
+
       {
-        title: "Deep Learning Training",
+        id: "26-150",
+        label: "26–150",
+        participants: "26–150 PARTICIPANTS",
+        title: "Scaled cohort",
         description:
-          "Neural network architectures, from convolutional and recurrent models to transformers.",
-        type: "Instructor-led",
-        link: "View course",
-        href: "#",
+          "Multiple cohorts or programs for larger teams, with delivery structured around your workforce and training requirements.",
+        items: [
+          "Multiple cohorts across teams",
+          "Curriculum customized to your stack",
+          "Onsite, virtual, or offsite delivery",
+          "Certificates and completion reporting",
+        ],
+        actions: [
+          {
+            label: "Request this quote",
+            href: "#apply",
+          },
+          {
+            label: "Adjust programs",
+            href: "#apply",
+          },
+        ],
       },
+
       {
-        title: "Natural Language Processing Training",
+        id: "151-1000",
+        label: "151–1,000",
+        participants: "151–1,000 PARTICIPANTS",
+        title: "Enterprise rollout",
         description:
-          "Language models, text pipelines and conversational systems for enterprise use.",
-        type: "Instructor-led",
-        link: "View course",
-        href: "#",
+          "A broader training rollout designed for multiple teams, functions, and locations with a coordinated delivery approach.",
+        items: [
+          "Enterprise-wide cohort planning",
+          "Role-specific curriculum options",
+          "Flexible delivery across locations",
+          "Completion and impact reporting",
+        ],
+        actions: [
+          {
+            label: "Request this quote",
+            href: "#apply",
+          },
+          {
+            label: "Adjust programs",
+            href: "#apply",
+          },
+        ],
       },
+
       {
-        title: "Computer Vision Training",
+        id: "1000-plus",
+        label: "1,000+",
+        participants: "1,000+ PARTICIPANTS",
+        title: "Organization-wide",
         description:
-          "Image processing, detection and inspection systems for industrial and product use.",
-        type: "Instructor-led",
-        link: "View course",
-        href: "#",
-      },
-      {
-        title: "ChatGPT Training",
-        description:
-          "Prompting, assistants and safe day-to-day use of general-purpose AI tools.",
-        type: "Instructor-led",
-        link: "View course",
-        href: "#",
-      },
-      {
-        title: "Cybersecurity Training",
-        description:
-          "Security programs for teams defending the systems AI now runs inside.",
-        type: "Instructor-led",
-        link: "View course",
-        href: "#",
-      },
-      {
-        title: "IT & Technical Training",
-        description: "The wider engineering catalogue this domain sits within.",
-        type: "Instructor-led",
-        link: "View course",
-        href: "#",
+          "A large-scale AI capability program designed around your organization, operating model, teams, and rollout priorities.",
+        items: [
+          "Organization-wide rollout planning",
+          "Customized learning architecture",
+          "Flexible global delivery",
+          "Measurement and completion reporting",
+        ],
+        actions: [
+          {
+            label: "Request this quote",
+            href: "#apply",
+          },
+          {
+            label: "Adjust programs",
+            href: "#apply",
+          },
+        ],
       },
     ],
   },

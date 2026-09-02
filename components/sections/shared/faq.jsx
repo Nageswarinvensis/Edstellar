@@ -87,13 +87,14 @@ function FaqTrigger({ children }) {
   );
 }
 
-export default function Faq({ faqs }) {
+export default function Faq({ faqs, innerClassName, showCta = true }) {
   if (!faqs || Array.isArray(faqs) || !faqs.items?.length) return null;
 
   return (
     <Section
       id="faqs"
       className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
+      innerClassName={innerClassName}
     >
       <Box>
         <Reveal delay={1}>
@@ -118,7 +119,7 @@ export default function Faq({ faqs }) {
           </Accordion>
         </Reveal>
 
-        <SecCta {...SECTION_CTA} />
+        {showCta ? <SecCta {...SECTION_CTA} /> : null}
       </Box>
     </Section>
   );

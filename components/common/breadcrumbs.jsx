@@ -45,7 +45,7 @@ function Breadcrumbs({ items: itemsProp, className }) {
       as="nav"
       aria-label="Breadcrumb"
       className={cn(
-        "mt-6 flex flex-wrap items-center gap-1.5 font-mono text-[9.5px] tracking-[0.1em] color-ink-muted uppercase",
+        "mt-6 flex flex-wrap items-center gap-1.5 font-mono text-[9.5px] tracking-[0.1em] text-ink-muted uppercase",
         className,
       )}
     >
@@ -67,7 +67,7 @@ function Breadcrumbs({ items: itemsProp, className }) {
             ) : (
               <Link
                 href={item.href}
-                className="transition-colors hover:color-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+                className="transition-colors hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
               >
                 {item.label}
               </Link>

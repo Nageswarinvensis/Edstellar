@@ -8,18 +8,22 @@ import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/common/cta-button";
 import { cn } from "@/lib/utils";
 
-const AUTO_COLS =
+const AUTO_COLS_3 =
   "auto-cols-[max(214px,calc((100%-40px)/3))] max-lg:auto-cols-[max(214px,calc((100%-20px)/2))] max-sm:auto-cols-[100%]";
+const AUTO_COLS_4 =
+  "auto-cols-[max(214px,calc((100%-60px)/4))] max-lg:auto-cols-[max(214px,calc((100%-20px)/2))] max-sm:auto-cols-[100%]";
 
 /**
- * Instructors carousel: three cards visible at once (two below `lg`, one
- * below `sm`), scrolling one card at a time via the prev/next arrows. The
- * nav hides itself once the whole roster already fits without scrolling —
- * a short roster shouldn't show dead controls.
+ * Instructors carousel: `desktopCards` cards visible at once above `lg`
+ * (default 3), two below `lg`, one below `sm` — scrolling one card at a
+ * time via the prev/next arrows. The nav hides itself once the whole
+ * roster already fits without scrolling — a short roster shouldn't show
+ * dead controls.
  *
  * Design: `.tr-grid` (grid-auto-flow: column, scroll-snap-x) + `.tr-car-nav`.
  */
-export default function TrainerCarousel({ people }) {
+export default function TrainerCarousel({ people, desktopCards = 3 }) {
+  const AUTO_COLS = desktopCards === 4 ? AUTO_COLS_4 : AUTO_COLS_3;
   const trackRef = useRef(null);
   const [canScroll, setCanScroll] = useState(false);
   const [canPrev, setCanPrev] = useState(false);

@@ -4,10 +4,9 @@ import Section from "@/components/ui/Section";
 import ReadMore from "@/components/common/read-more";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-import CtaBanner from "@/components/common/cta-banner";
 import CustomizedTraining from "@/components/sections/shared/customized-training";
 
-function CategoryAbout({ about, ctaBannerData }) {
+function CategoryAbout({ about, showCustomizedTraining = true }) {
   if (!about) return null;
 
   const contrast = about.inclusions;
@@ -78,7 +77,9 @@ function CategoryAbout({ about, ctaBannerData }) {
                       as="p"
                       className={[
                         "mb-3.5 font-mono text-[10px] font-normal tracking-[0.14em] uppercase",
-                        index === 0 ? "text-ink/60" : "rounded bg-lime/10 px-2 py-1 text-ink",
+                        index === 0
+                          ? "text-ink/60"
+                          : "rounded bg-lime/10 px-2 py-1 text-ink",
                       ].join(" ")}
                     >
                       {column.heading}
@@ -102,11 +103,8 @@ function CategoryAbout({ about, ctaBannerData }) {
           </Box>
         ) : null}
       </Box>
-      {ctaBannerData?.map((cta, index) => (
-        <CtaBanner key={index} data={cta} />
-      ))}
 
-      <CustomizedTraining />
+      {showCustomizedTraining ? <CustomizedTraining /> : null}
     </Section>
   );
 }
