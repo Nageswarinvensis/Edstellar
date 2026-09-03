@@ -37,7 +37,7 @@ function CategoryAbout({ about, showCustomizedTraining = true }) {
                     <Text
                       as="p"
                       key={index}
-                      className="mb-4.5 text-base leading-[1.75]"
+                      className="mb-4.5 text-base leading-[1.75] text-[#0A1628]"
                     >
                       {paragraph}
                     </Text>

@@ -22,7 +22,7 @@ export default function ByRole({ data, ctaBannerData }) {
           <RichHeading
             as="h2"
             heading={data.heading}
-            className="max-w-175 text-[34px] font-semibold leading-none tracking-[-1.8px] text-[#07182C] md:text-[40px]"
+            className="max-w-175 text-[34px] font-semibold leading-none tracking-[-1.8px] text-ink md:text-[40px]"
             emphasisClassName="font-serif font-normal tracking-[-1px]"
           />
         </Reveal>
@@ -30,14 +30,14 @@ export default function ByRole({ data, ctaBannerData }) {
         <Reveal delay={1}>
           <Text
             as="p"
-            className="mt-6 max-w-175 text-[15px] leading-[1.65] text-[#66717F] md:text-[16px]"
+            className="mt-6 max-w-175 text-[15px] leading-[1.65] text-ink-muted md:text-[16px]"
           >
             {data.description}
           </Text>
         </Reveal>
 
         <Reveal delay={2}>
-          <Box className="mt-10 overflow-hidden rounded-[16px] border border-[#D9DDE1] bg-white md:mt-11">
+          <Box className="mt-10 overflow-hidden rounded-[16px] border border-[#D9DDE1] bg-white">
             <Box className="grid grid-cols-1 min-[787px]:grid-cols-[300px_1fr]">
               <Box className="border-b border-[#D9DDE1] min-[787px]:border-b-0 min-[787px]:border-r">
                 {data.roles.map((role, index) => {
@@ -61,7 +61,7 @@ export default function ByRole({ data, ctaBannerData }) {
                           "shrink-0 font-mono text-[9px] tracking-[1.2px] transition-colors duration-200",
                           isActive
                             ? "text-[#07182C]"
-                            : "text-[#7C858F] group-hover:text-[#07182C]",
+                            : "text-[#7C858F] group-hover:text-ink",
                         ].join(" ")}
                       >
                         {role.number}
@@ -73,7 +73,7 @@ export default function ByRole({ data, ctaBannerData }) {
                           "text-[16px] font-bold leading-[1.15] transition-colors duration-200",
                           isActive
                             ? "text-[#07182C]"
-                            : "text-[#66717F] group-hover:text-[#07182C]",
+                            : "text-[#66717F] group-hover:text-ink",
                         ].join(" ")}
                       >
                         {role.title}
@@ -83,24 +83,24 @@ export default function ByRole({ data, ctaBannerData }) {
                 })}
               </Box>
 
-              <Box className="min-h-0 bg-white p-5 min-[769px]:min-h-[430px] min-[769px]:px-10 min-[769px]:py-10">
+              <Box className="min-h-0 bg-white p-5 min-[769px]:min-h-100 min-[769px]:px-10 min-[769px]:py-10">
                 <Text
                   as="span"
-                  className="font-mono text-[9px] tracking-[1.2px] text-[#8A929B]"
+                  className="font-mono text-[12px] tracking-[1.2px] text-ink-muted"
                 >
                   {activeData.number}
                 </Text>
 
                 <Text
                   as="h3"
-                  className="mt-3 text-[23px] font-semibold leading-[1.05] tracking-[-1px] text-[#07182C] md:text-[25px]"
+                  className="mt-3 text-[23px] font-semibold leading-[1.05] tracking-[-1px] text-ink md:text-[25px]"
                 >
                   {activeData.title}
                 </Text>
 
                 <Text
                   as="p"
-                  className="mt-3 max-w-162 text-[14px] leading-[1.6] text-[#66717F] md:text-[15px]"
+                  className="mt-3 max-w-162 text-[14px] leading-[1.6] text-ink-muted"
                 >
                   {activeData.description}
                 </Text>
@@ -110,7 +110,7 @@ export default function ByRole({ data, ctaBannerData }) {
                     <a
                       key={program.label}
                       href={program.href}
-                      className="group flex min-h-12 items-center justify-between border-t border-[#D9DDE1] text-[#07182C] transition-colors duration-200 last:border-b hover:text-[#4D5D00]"
+                      className="group flex min-h-12 items-center justify-between border-t border-[#D9DDE1] text-ink transition-colors duration-200 last:border-b hover:text-[#4D5D00]"
                     >
                       <Text as="span" className="text-[14px] leading-[1.3]">
                         {program.label}
@@ -118,7 +118,7 @@ export default function ByRole({ data, ctaBannerData }) {
 
                       <Text
                         as="span"
-                        className="text-[12px] text-[#89919A] transition-transform duration-200 group-hover:translate-x-1"
+                        className="text-[12px] text-ink-muted transition-transform duration-200 group-hover:translate-x-1"
                       >
                         →
                       </Text>

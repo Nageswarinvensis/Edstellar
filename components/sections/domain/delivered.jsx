@@ -12,7 +12,7 @@ export default function Delivered({ data }) {
           <Box className="max-w-175">
             <Text
               as="h2"
-              className="max-w-150 text-[30px] font-semibold leading-[1.02] tracking-[-1.8px] text-[#07182C] lg:text-[36px]"
+              className="max-w-150 text-[30px] font-semibold leading-[1.02] tracking-[-1.8px] text-ink lg:text-[36px]"
             >
               {data.heading.before}{" "}
               <em className="font-serif font-normal tracking-[-1px]">
@@ -23,7 +23,7 @@ export default function Delivered({ data }) {
 
             <Text
               as="p"
-              className="mt-5 lg:mt-7 max-w-170 text-[16px] leading-[1.65] text-[#66717F]"
+              className="mt-5 lg:mt-7 max-w-170 text-[16px] leading-[1.65] text-ink-muted"
             >
               {data.description}
             </Text>
@@ -31,13 +31,13 @@ export default function Delivered({ data }) {
         </Reveal>
 
         <Reveal delay={2}>
-          <Box className="mt-7 lg:mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
+          <Box className="mt-7 lg:mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
             {data.stages?.map((stage, index) => (
               <Box
                 key={stage.id || index}
                 className="relative flex lg:min-h-78 min-h-auto flex-col rounded-[14px] border border-[#D9DDE1] bg-white p-5 shadow-[0_18px_35px_rgba(7,24,44,0.06)]"
               >
-                <Box className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#071426]">
+                <Box className="flex size-8 shrink-0 items-center justify-center rounded-full bg-ink">
                   <Text
                     as="span"
                     className="font-mono text-[10px] font-medium tracking-[0.5px] text-[#B8F500]"
@@ -48,14 +48,14 @@ export default function Delivered({ data }) {
 
                 <Text
                   as="h3"
-                  className="mt-4 text-[18px] font-semibold leading-[1.1] tracking-[-0.6px] text-[#07182C]"
+                  className="mt-4 text-[18px] font-semibold leading-[1.1] tracking-[-0.6px] text-ink"
                 >
                   {stage.title}
                 </Text>
 
                 <Text
                   as="p"
-                  className="mt-3 text-[14px] leading-[1.52] text-[#66717F]"
+                  className="mt-3 text-[14px] leading-[1.52] text-ink-muted"
                 >
                   {stage.description}
                 </Text>
@@ -64,7 +64,7 @@ export default function Delivered({ data }) {
                   <Box className="border-t border-[#D9DDE1] pt-4">
                     <Text
                       as="p"
-                      className="font-mono text-[9px] font-normal tracking-[0.13em] text-[#66717F] uppercase"
+                      className="font-mono text-[10px] font-normal tracking-[0.13em] text-ink-muted uppercase"
                     >
                       {stage.meta}
                     </Text>
@@ -74,7 +74,7 @@ export default function Delivered({ data }) {
                 {index < data.stages.length - 1 ? (
                   <Text
                     as="span"
-                    className="pointer-events-none absolute -right-5 top-9 z-10 hidden text-[14px] font-normal text-[#C5CBD1] lg:block"
+                    className="pointer-events-none absolute -right-5 top-9 z-10 hidden text-[14px] font-normal text-ink-muted lg:block"
                   >
                     →
                   </Text>
@@ -86,17 +86,17 @@ export default function Delivered({ data }) {
 
         {data.note ? (
           <Reveal delay={3}>
-            <Box className="mt-10 flex items-center gap-3">
+            <Box className="mt-8 flex items-center gap-3">
               <Text
                 as="span"
-                className="text-[13px] font-medium text-[#07182C]"
+                className="text-[14px] font-medium text-ink"
               >
                 ↻
               </Text>
 
               <Text
                 as="p"
-                className="font-mono text-[9px] tracking-[0.13em] text-[#66717F] uppercase"
+                className="font-mono text-[10px] tracking-[0.13em] text-ink-muted uppercase"
               >
                 {data.note}
               </Text>
