@@ -86,16 +86,16 @@ const artificialIntelligence = {
 
     stats: [
       {
-        value: "130",
-        label: "AI programs",
+        value: "1000+",
+        label: "Organizations trained",
       },
       {
-        value: "6",
-        label: "Disciplines",
+        value: "13+",
+        label: "Years delivering",
       },
       {
-        value: "7",
-        label: "Role paths",
+        value: "ISO 9001 & 27001",
+        label: "Certified",
       },
     ],
 

@@ -52,11 +52,15 @@ export default function LeadForm({ data, background = "paper-warm" }) {
         BACKGROUND_CLASSES[background] ?? BACKGROUND_CLASSES["paper-warm"],
       )}
     >
-      <Reveal>
-        <RichHeading heading={data.heading} className="mb-4 max-w-[25ch]" />
-      </Reveal>
-
       <Reveal delay={1}>
+      <RichHeading
+        as="h2"
+        heading={data.heading}
+        className="max-w-[22ch] tracking-[-0.03em] text-ink"
+        emphasisClassName="font-normal italic"
+      />
+
+      
         <Text
           as="p"
           className="mb-10 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink/60"
