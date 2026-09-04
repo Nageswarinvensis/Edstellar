@@ -1,3 +1,4 @@
+import TickerBar from "@/components/layout/ticker-bar";
 import Hero from "@/components/sections/shared/hero";
 import HeroInfo from "@/components/sections/shared/hero-info";
 import Requested from "@/components/sections/domain/requested";
@@ -31,6 +32,7 @@ import Outcome from "@/components/sections/domain/outcome";
 export default function DomainPage({ domain }) {
   return (
     <>
+      <TickerBar />
       <Hero hero={domain.hero} breadcrumbs={domain.breadcrumbs} />
       <HeroInfo
         topics={domain.hero?.topics}
