@@ -10,12 +10,12 @@ export default function Outcomes({ data }) {
     <Section id="outcomes" className="bg-[#FAFAF8]">
       <Box>
         <Reveal delay={1}>
-          <Box className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+          <Box className="mb-10 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
             <Box>
               <RichHeading
                 as="h2"
                 heading={data.heading}
-                className="max-w-155 text-[30px] font-semibold leading-[0.98] tracking-[-1.8px] text-[#07182C] lg:text-[36px]"
+                className="max-w-155 text-[30px] font-semibold leading-[0.98] tracking-[-1.8px] text-ink lg:text-[36px]"
                 emphasisClassName="font-serif font-normal tracking-[-1px]"
               />
             </Box>
@@ -23,7 +23,7 @@ export default function Outcomes({ data }) {
             <Box className="flex items-end">
               <Text
                 as="p"
-                className="max-w-155 text-[16px] leading-[1.55] text-[#66717F]"
+                className="max-w-155 text-[16px] leading-[1.55] text-ink-muted"
               >
                 {data.description}
               </Text>
@@ -32,7 +32,7 @@ export default function Outcomes({ data }) {
         </Reveal>
 
         <Reveal delay={2}>
-          <Box className="mt-10 grid grid-cols-1 border-l border-t border-[#D9DDE1] sm:grid-cols-2 lg:mt-11 lg:grid-cols-4">
+          <Box className="grid grid-cols-1 border-l border-t border-[#D9DDE1] sm:grid-cols-2 lg:grid-cols-4">
             {data.items?.map((item, index) => (
               <Box
                 key={item.id || index}
@@ -44,21 +44,21 @@ export default function Outcomes({ data }) {
               >
                 <Text
                   as="span"
-                  className="block font-mono text-[9px] tracking-[0.18em] text-[#66717F]"
+                  className="block font-mono text-[10px] tracking-[0.18em] text-ink-muted"
                 >
                   {item.number}
                 </Text>
 
                 <Text
                   as="h3"
-                  className="mt-3.5 text-[16px] font-semibold leading-[1.15] tracking-[-0.45px] text-[#07182C]"
+                  className="mt-3.5 text-[16px] font-semibold leading-[1.15] tracking-[-0.45px] text-ink"
                 >
                   {item.title}
                 </Text>
 
                 <Text
                   as="p"
-                  className="mt-2.5 max-w-67.5 text-[14px] leading-[1.6] text-[#66717F]"
+                  className="mt-2.5 max-w-67.5 text-[14px] leading-[1.6] text-ink-muted"
                 >
                   {item.description}
                 </Text>

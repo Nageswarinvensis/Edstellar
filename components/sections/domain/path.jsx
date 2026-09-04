@@ -73,9 +73,7 @@ export default function Paths({ data }) {
   const navigationButtonClass =
     "grid h-8 w-8 place-items-center rounded-full border border-[#53647b] text-white transition-all duration-200 hover:bg-[#C8F135] hover:border-[#C8F135] hover:text-[#0A1628] disabled:pointer-events-none disabled:opacity-30";
   return (
-    <Section
-      id="governance"
-      className="relative overflow-hidden bg-[#0b1729] text-white"
+    <Section id="paths" className="relative overflow-hidden bg-ink text-white"
     >
       <Box>
         {/* Header */}
@@ -84,13 +82,13 @@ export default function Paths({ data }) {
             <RichHeading
               as="h2"
               heading={data.heading}
-              className="max-w-135 mb-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.035em] text-white lg:text-[36px]"
+              className="max-w-135 mb-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.035em] text-paper lg:text-[36px]"
               emphasisClassName="font-serif font-normal italic"
             />
           </Reveal>
 
           <Reveal delay={1}>
-            <Text className="max-w-187.5 mb-9 text-[12px] leading-[1.8] text-[#fafaf7c7] md:text-[16px]">
+            <Text className="max-w-187.5 text-[16px] leading-[1.8] text-paper">
               {data.description}
             </Text>
           </Reveal>
@@ -99,7 +97,7 @@ export default function Paths({ data }) {
         {/* Controls */}
         <Reveal delay={1}>
           <Box className="mb-3 flex items-center justify-between">
-            <Text className="text-[10px] tracking-[0.2em] text-[#fafaf799]">
+            <Text className="text-[10px] tracking-[0.2em] text-ink-muted">
               {data.mark.label}
             </Text>
 
@@ -124,7 +122,7 @@ export default function Paths({ data }) {
                 <ArrowRight size={11} strokeWidth={1.3} />
               </button>
 
-              <Text className="ml-1 text-[10px] tracking-[0.2em] text-[#8996a8]">
+              <Text className="ml-1 text-[10px] tracking-[0.2em] text-ink-muted">
                 {page + 1} / {maxPage + 1}
               </Text>
             </Box>
@@ -151,12 +149,12 @@ export default function Paths({ data }) {
                   onMouseLeave={() => setHoveredCard(null)}
                 >
                   <Reveal delay={2}>
-                    <Box className="flex h-140 flex-col rounded-[12px] bg-white p-4.5 text-[#0b1729]">
+                    <Box className="flex h-140 flex-col rounded-[12px] bg-white p-4.5 text-ink">
                       {/* Card Header */}
                       <Box className="flex items-start gap-3">
                         <Box
-                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-[8px] bg-[#0A1628] text-[#c8ef32] transition-colors duration-300 ${
-                            isHovered ? "bg-[#c8ef32] text-[#0b1729]" : ""
+                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-[8px] bg-ink text-[#c8ef32] transition-colors duration-300 ${
+                            isHovered ? "bg-[#c8ef32] text-ink" : ""
                           }`}
                         >
                           <Icon size={18} strokeWidth={1.5} />
@@ -165,7 +163,7 @@ export default function Paths({ data }) {
                         <Box className="min-w-0">
                           <Text
                             as="h3"
-                            className="text-[16px] font-semibold leading-none text-[#0A1628]"
+                            className="text-[16px] font-semibold leading-none text-ink"
                           >
                             {path.title}
                           </Text>
@@ -177,7 +175,7 @@ export default function Paths({ data }) {
                       </Box>
 
                       {/* Meta */}
-                      <Text className="mt-3 text-[10px] tracking-[0.14em] text-[#84909e]">
+                      <Text className="mt-3 text-[10px] tracking-[0.14em] text-ink-muted">
                         {path.meta}
                       </Text>
 
@@ -206,7 +204,7 @@ export default function Paths({ data }) {
                             <span
                               className={`absolute left-0 top-0.5 z-10 h-4 w-4 rounded-full border-[1.5px] ${
                                 isHovered
-                                  ? "border-[#0b1729] bg-[#c8ef32] transition-colors duration-200"
+                                  ? "border-ink bg-[#c8ef32] transition-colors duration-200"
                                   : "border-[#c8ced5] bg-white transition-none"
                               }`}
                               style={{
@@ -218,13 +216,13 @@ export default function Paths({ data }) {
 
                             <Text
                               as="h4"
-                              className="text-[14px] font-medium leading-[1.3] text-[#0b1729]"
+                              className="text-[14px] font-medium leading-[1.3] text-ink"
                             >
                               {item.title}
                             </Text>
 
                             {item.tag && (
-                              <Text className="mt-0.5 block text-[10px] tracking-[0.12em] text-[#8e98a3]">
+                              <Text className="mt-0.5 block text-[10px] tracking-[0.12em] text-ink-muted">
                                 {item.tag}
                               </Text>
                             )}
@@ -239,9 +237,9 @@ export default function Paths({ data }) {
                         <Box className="relative pl-5">
                           {/* Diamond */}
                           <span
-                            className={`absolute left-0.5 top-1.25 h-3 w-3 rotate-45 border border-[#0b1729] ${
+                            className={`absolute left-0.5 top-1.25 h-3 w-3 rotate-45 border border-ink ${
                               isHovered
-                                ? "bg-[#c8ef32] transition-colors duration-200"
+                                ? "bg-lime transition-colors duration-200"
                                 : "bg-white transition-none"
                             }`}
                             style={{
@@ -251,10 +249,10 @@ export default function Paths({ data }) {
 
                           {/* Outcome Badge */}
                           <Text
-                            className={`inline-flex rounded-[6px] ml-1.5 px-2 py-1.5 text-[9px] font-semibold ${
+                            className={`inline-flex rounded-[6px] ml-1.5 px-2 py-1 text-[14px] text-ink font-bold ${
                               isHovered
-                                ? "bg-[#e7f3ad] transition-colors duration-200"
-                                : "bg-[#f1efe9] transition-none"
+                                ? "bg-lime transition-colors duration-200"
+                                : "bg-paper-warm transition-none"
                             }`}
                             style={{
                               transitionDelay: isHovered ? "1200ms" : "0ms",
@@ -266,15 +264,15 @@ export default function Paths({ data }) {
                       </Box>
 
                       {/* Footer */}
-                      <Box className="mt-auto border-t border-[#dfe2e4] pt-3">
-                        <Text className="text-[12px] leading-[1.45] text-[#7b8490]">
+                      <Box className="mt-auto border-t border-[#dfe2e4]">
+                        <Text className="text-[12px] py-3 leading-[1.45] text-ink-muted">
                           {path.footer}
                         </Text>
 
                         {/* CTA */}
                         <a
                           href={path.href}
-                          className="mt-2 flex h-6.5 w-full cursor-pointer items-center justify-center rounded-full border border-[#cbd0d5] bg-white text-[10px] font-medium tracking-[0.13em] text-[#0b1729] transition-colors duration-200 hover:border-[#0b1729] hover:bg-[#0b1729] hover:text-white"
+                          className="flex h-6.5 w-full cursor-pointer items-center justify-center rounded-full border border-[#cbd0d5] bg-white text-[10px] font-medium tracking-[0.13em] text-ink transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-white"
                         >
                           {path.button}
                         </a>
@@ -289,7 +287,7 @@ export default function Paths({ data }) {
 
         {/* Note */}
         <Reveal delay={3}>
-          <Text className="mt-7 max-w-175 text-[12px] leading-normal text-[#FAFAF799]">
+          <Text className="mt-7 max-w-175 text-[12px] leading-normal text-ink-muted">
             {data.note}
           </Text>
         </Reveal>

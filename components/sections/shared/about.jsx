@@ -37,7 +37,7 @@ function CategoryAbout({ about, showCustomizedTraining = true }) {
                     <Text
                       as="p"
                       key={index}
-                      className="mb-4.5 text-base leading-[1.75]"
+                      className="mb-4.5 text-base leading-[1.75] text-[#0A1628]"
                     >
                       {paragraph}
                     </Text>
@@ -54,7 +54,7 @@ function CategoryAbout({ about, showCustomizedTraining = true }) {
               <Reveal delay={1}>
                 <Text
                   as="h3"
-                  className="inline-block border-b-[3px] border-lime pb-2.5 font-display text-[22px] leading-1.25 font-bold tracking-tight text-ink"
+                  className="inline-block border-b-[3px] border-lime pb-2.5 font-display text-[22px] leading-tight font-bold tracking-tight text-ink"
                 >
                   {contrast.label}
                 </Text>

@@ -9,7 +9,7 @@ export default function Results({ data }) {
   if (!data) return null;
 
   return (
-    <Section className="bg-[#071426] text-white">
+    <Section id="proof" className="bg-[#071426] text-paper">
       <Box>
         <Reveal delay={1}>
           <Box className="grid grid-cols-1 items-end gap-5 lg:grid-cols-2 lg:gap-16">
@@ -17,7 +17,7 @@ export default function Results({ data }) {
               <RichHeading
                 as="h2"
                 heading={data.heading}
-                className="max-w-162.5 text-[36px] font-semibold leading-[0.98] tracking-[-1.8px] text-white md:text-[42px]"
+                className="max-w-162.5 text-[30px] font-semibold leading-[0.98] tracking-[-1.8px] text-paper md:text-[36px]"
                 emphasisClassName="font-serif font-normal tracking-[-1px] text-[#B8F500]"
               />
             </Box>
@@ -25,7 +25,7 @@ export default function Results({ data }) {
             <Box>
               <Text
                 as="p"
-                className="max-w-155 text-[15px] leading-[1.6] text-[#AEB7C3] md:text-[16px]"
+                className="max-w-155 text-[16px] leading-[1.6] text-[#FAFAF7BF]"
               >
                 {data.description}
               </Text>
@@ -39,8 +39,8 @@ export default function Results({ data }) {
               <Box
                 key={item.id || index}
                 className={[
-                  "flex flex-col lg:px-5 lg:py-8 pt-5 pl-0 pb-0",
-                  "min-[769px]:min-h-[258px] min-[769px]:px-8 min-[769px]:pt-9 min-[769px]:pb-7",
+                  "flex flex-col lg:px-6 lg:pt-8 lg:pb-0 pt-5 pl-0 pb-0",
+                  "min-[769px]:min-h-64 min-[769px]:px-8 min-[769px]:pt-9 min-[769px]:pb-7",
                   index === 0
                     ? "min-[769px]:pl-0"
                     : "min-[769px]:border-l min-[769px]:border-[#344052]",
@@ -53,14 +53,14 @@ export default function Results({ data }) {
               >
                 <Text
                   as="p"
-                  className="font-serif text-[31px] font-normal leading-none tracking-[-1.5px] text-[#B8F500] italic md:text-[32px]"
+                  className="mb-4.5 font-serif text-[30px] font-bold leading-none tracking-[-1.5px] text-[#B8F500] italic lg:text-[42px]"
                 >
                   {item.stat}
                 </Text>
 
                 <Text
                   as="p"
-                  className="mt-5 text-[15px] leading-[1.65] text-white md:text-[15px]"
+                  className="text-[14px] leading-[1.65] text-paper"
                 >
                   {item.description}
                 </Text>
@@ -68,7 +68,7 @@ export default function Results({ data }) {
                 <Box className="mt-auto pt-6">
                   <Text
                     as="p"
-                    className="font-mono text-[9px] font-semibold tracking-[0.14em] text-white uppercase"
+                    className="font-mono text-[10px] font-semibold tracking-[0.14em] text-paper uppercase"
                   >
                     {item.person}
                   </Text>

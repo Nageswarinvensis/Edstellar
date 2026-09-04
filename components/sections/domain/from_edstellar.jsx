@@ -8,12 +8,12 @@ export default function FromEdstellar({ data }) {
   if (!data?.items?.length) return null;
 
   return (
-    <Section className="bg-[#F0EDE3]">
+    <Section id="from-edstellar" className="bg-[#F0EDE3]">
       <Box>
         <Reveal delay={1}>
           <Text
             as="p"
-            className="font-mono text-[10px] font-normal tracking-[0.25em] text-[#66717F] uppercase"
+            className="font-mono text-[10px] font-normal tracking-[0.25em] text-ink-muted uppercase"
           >
             {data.label}
           </Text>
@@ -30,14 +30,14 @@ export default function FromEdstellar({ data }) {
                 <Box className="flex items-start justify-between gap-5">
                   <Text
                     as="h3"
-                    className="text-[16px] font-semibold leading-[1.2] tracking-[-0.35px] text-[#07182C]"
+                    className="text-[16px] font-semibold leading-[1.2] tracking-[-0.35px] text-ink"
                   >
                     {item.title}
                   </Text>
 
                   <Text
                     as="span"
-                    className="shrink-0 pt-px text-[12px] font-normal text-[#66717F] transition-transform duration-500 ease-out group-hover:translate-x-1.5"
+                    className="shrink-0 pt-px text-[12px] font-normal text-ink-muted transition-transform duration-500 ease-out group-hover:translate-x-1.5"
                   >
                     →
                   </Text>
@@ -45,7 +45,7 @@ export default function FromEdstellar({ data }) {
 
                 <Text
                   as="p"
-                  className="mt-3 text-[14px] leading-[1.55] text-[#66717F]"
+                  className="mt-3 text-[14px] leading-[1.55] text-ink-muted"
                 >
                   {item.description}
                 </Text>

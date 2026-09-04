@@ -410,20 +410,20 @@ export default function Program({ data }) {
   if (!data?.catalog) return null;
 
   return (
-    <Section id="program-catalog" className="bg-paper">
+    <Section id="by-discipline" className="bg-paper">
       <Box>
         {/* ================= HEADER ================= */}
         <Box>
           <RichHeading
             as="h2"
             heading={data.heading}
-            className="max-w-110 text-[30px] font-semibold leading-[0.98] tracking-[-1.8px] text-[#07182C] lg:text-[36px]"
+            className="max-w-110 text-[30px] font-semibold leading-[0.98] tracking-[-1.8px] text-ink lg:text-[36px]"
             emphasisClassName="font-serif font-normal tracking-[-1px]"
           />
 
           <Text
             as="p"
-            className="mt-3 max-w-125 text-[12px] leading-[1.45] text-[#727984]"
+            className="mt-3 max-w-125 text-[12px] leading-[1.45] text-ink-muted"
           >
             {data.description}
           </Text>
@@ -435,7 +435,7 @@ export default function Program({ data }) {
           <Box className="flex flex-col gap-2.5 md:flex-row md:items-center">
             <Text
               as="span"
-              className="w-17 shrink-0 whitespace-nowrap text-[10px] font-medium uppercase tracking-[1.5px] text-[#727984]"
+              className="w-17 shrink-0 whitespace-nowrap text-[10px] font-medium uppercase tracking-[1.5px] text-ink-muted]"
             >
               {data.eyebrow.discipline}
             </Text>
@@ -489,11 +489,11 @@ export default function Program({ data }) {
           </Text>
 
           {/* ================= SEARCH ================= */}
-          <Box className="relative w-full sm:w-59.5">
+          <Box className="relative w-full sm:w-59">
             <Search
               size={14}
               strokeWidth={1.5}
-              className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#7A818A]"
+              className="absolute left-2.5 top-1/2 -translate-y-1/2 text-ink-muted"
             />
 
             <input
@@ -505,10 +505,10 @@ export default function Program({ data }) {
                 "h-8.5 w-full rounded-[8px]",
                 "border border-[#BFC4CA]",
                 "bg-white pl-7.5 pr-8",
-                "text-[11px] text-[#07182C]",
+                "text-[11px] text-ink",
                 "outline-none",
                 "placeholder:text-[#89909A]",
-                "focus:border-[#07182C]",
+                "focus:border-ink",
                 "[&::-webkit-search-cancel-button]:appearance-none",
                 "[&::-webkit-search-decoration]:appearance-none",
               ].join(" ")}
@@ -530,7 +530,7 @@ export default function Program({ data }) {
                   "bg-paper-warm",
                   "text-[#727984]",
                   "transition-all duration-200",
-                  "hover:bg-[#07182C]",
+                  "hover:bg-ink",
                   "hover:text-[#B8F500]",
                   "hover:cursor-pointer",
                 ].join(" ")}
@@ -552,7 +552,7 @@ export default function Program({ data }) {
           <Box className="flex flex-col items-center justify-center rounded-[12px] border border-dashed border-[#D7DADF] bg-white p-8">
             <Text
               as="p"
-              className="mb-4.5 max-w-137.5 text-center text-[12px] text-[#727984]"
+              className="mb-4.5 max-w-137.5 text-center text-[12px] text-ink-muted"
             >
               {data.catalog.noResults}
             </Text>

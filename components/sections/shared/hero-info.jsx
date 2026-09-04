@@ -52,7 +52,7 @@ function CourseInfo({ proof }) {
                   <Box
                     as="span"
                     aria-hidden="true"
-                    className="grid size-5 flex-none place-items-center rounded-full bg-lime text-navy"
+                    className="grid size-5 flex-none place-items-center rounded-full bg-lime text-ink"
                   >
                     ✓
                   </Box>

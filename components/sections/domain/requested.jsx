@@ -20,7 +20,7 @@ export default function Requested({ data }) {
   if (!data) return null;
 
   return (
-    <Section className="bg-[#091527] text-white">
+    <Section id="most-requested" className="bg-ink text-white">
       <Box className="grid gap-12 lg:grid-cols-[1fr_1.25fr] lg:items-center lg:gap-20">
         <Reveal delay={1}>
           <Box>
@@ -64,7 +64,7 @@ export default function Requested({ data }) {
 
                   <Box className="h-1.5 overflow-hidden rounded-full bg-white/15">
                     <Box
-                      className="h-full rounded-full bg-[#C5E826] transition-[width] duration-[1200ms] ease-out"
+                      className="h-full rounded-full bg-lime transition-[width] duration-1200 ease-out"
                       style={{
                         width: visible ? `${item.value}%` : "0%",
                       }}

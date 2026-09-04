@@ -113,7 +113,7 @@ export default function MapSection({ data }) {
         ========================================================== */}
         <Box className="relative grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start lg:gap-12">
           {/* Left content */}
-          <Box className="max-w-162.5">
+          <Box className="max-w-162">
             {/* Heading */}
             <Reveal>
               <RichHeading
@@ -126,7 +126,7 @@ export default function MapSection({ data }) {
             <Reveal delay={1}>
               <Text
                 as="p"
-                className="mt-7 text-[16px] leading-[1.75] text-[#617087] sm:text-[17px]"
+                className="mt-7 text-[16px] leading-[1.75] text-ink-muted"
               >
                 {data.description}
               </Text>
@@ -161,25 +161,28 @@ export default function MapSection({ data }) {
             {STATS.map((stat, index) => (
               <Box
                 key={index}
-                className="min-h-22.5 border-[#D9DCE0] px-5 py-5 sm:px-6 lg:border-r lg:last:border-r-0"
+                className="min-h-22.5 border-[#D9DCE0] p-5 sm:px-6 lg:border-r lg:last:border-r-0"
               >
                 <Box className="flex items-baseline gap-2">
                   <Text
                     as="span"
-                    className="text-[25px] font-bold leading-none tracking-[-0.035em] text-[#07162C]"
+                    className="text-[24px] font-bold leading-none tracking-[-0.035em] text-[#0A1628]"
                   >
                     {stat.value}
                   </Text>
 
                   {stat.connector && (
                     <>
-                      <Text as="span" className="text-[11px] text-[#687383]">
+                      <Text
+                        as="span"
+                        className="text-[12px] text-ink-muted"
+                      >
                         {stat.connector}
                       </Text>
 
                       <Text
                         as="span"
-                        className="text-[25px] font-bold leading-none tracking-[-0.035em] text-[#07162C]"
+                        className="text-[24px] font-bold leading-none tracking-[-0.035em] text-[#0A1628]"
                       >
                         {stat.secondary_value}
                       </Text>
@@ -189,7 +192,7 @@ export default function MapSection({ data }) {
 
                 <Text
                   as="p"
-                  className="mt-3 font-mono text-[9px] uppercase tracking-[0.15em] text-[#697487]"
+                  className="mt-3 font-mono text-[10px] uppercase tracking-[0.15em] text-ink-muted"
                 >
                   {stat.label}
                 </Text>
@@ -208,16 +211,7 @@ export default function MapSection({ data }) {
               {data.features.map((feature, index) => (
                 <Box
                   key={index}
-                  className={`
-                    min-h-48.75
-                    rounded-[16px]
-                    border
-                    border-[#D9DDE1]
-                    bg-white
-                    p-7
-                    transition-all
-                    duration-300
-                    ease-out
+                  className={`min-h-48 rounded-[16px] border border-[#D9DDE1] bg-white p-7 transition-all duration-300 ease-out
                     ${
                       feature.hover
                         ? "hover:-translate-y-0.5 hover:shadow-[0_18px_35px_rgba(10,22,40,0.16)]"
@@ -233,7 +227,7 @@ export default function MapSection({ data }) {
                   {/* Title */}
                   <Text
                     as="h3"
-                    className="mt-5 text-[18px] font-semibold leading-[1.2] tracking-tight text-[#07162C]"
+                    className="mt-5 text-[18px] font-semibold leading-[1.2] tracking-tight text-ink"
                   >
                     {feature.title}
                   </Text>
@@ -257,7 +251,7 @@ export default function MapSection({ data }) {
         ========================================================== */}
         {data.approach?.heading && (
           <Reveal delay={4}>
-            <Box className="mt-9 rounded-[18px] bg-navy p-10 max-[600px]:p-6">
+            <Box className="mt-9 rounded-[18px] bg-ink p-10 max-[600px]:p-6">
               <RichHeading
                 as="h3"
                 heading={data.approach.heading}
@@ -303,7 +297,7 @@ export default function MapSection({ data }) {
               {data.related_label && (
                 <Text
                   as="p"
-                  className="mb-5 font-mono text-[9px] uppercase tracking-[0.18em] text-[#667084]"
+                  className="mb-5 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted"
                 >
                   {data.related_label}
                 </Text>
@@ -341,7 +335,7 @@ export default function MapSection({ data }) {
                     {/* Title */}
                     <Text
                       as="h4"
-                      className="pr-7 text-[14px] font-medium leading-tight text-[#07162C]"
+                      className="pr-7 text-[14px] font-medium leading-tight text-ink"
                     >
                       {service.title}
                     </Text>
@@ -349,7 +343,7 @@ export default function MapSection({ data }) {
                     {/* Description */}
                     <Text
                       as="p"
-                      className="mt-2 max-w-82.5 text-[11px] leading-tight text-[#6A7587]"
+                      className="mt-2 max-w-82.5 text-[11px] leading-tight text-ink-muted"
                     >
                       {service.description}
                     </Text>
