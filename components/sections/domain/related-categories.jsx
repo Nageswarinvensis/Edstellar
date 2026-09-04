@@ -11,17 +11,15 @@ export default function RelatedCategories({ data }) {
     <Section id="related-domains">
       <Box className="mx-auto">
         {/* HEADING */}
-        <Reveal>
+        <Reveal delay={1}>
           <RichHeading
             as="h2"
             heading={data.heading}
-            className="max-w-[22ch] tracking-[-0.03em]"
-            emphasisClassName="font-normal italic text-olive"
+            className="max-w-[22ch] tracking-[-0.03em] text-ink"
+            emphasisClassName="font-normal italic"
           />
-        </Reveal>
 
         {/* DESCRIPTION */}
-        <Reveal delay={1}>
           <Text
             as="p"
             className="mt-5 max-w-[65ch] text-[15px] leading-[1.7] text-ink/60"

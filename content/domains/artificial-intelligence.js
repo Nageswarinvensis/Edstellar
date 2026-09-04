@@ -31,7 +31,7 @@ const artificialIntelligence = {
 
   seo: {
     meta_title: "Corporate Artificial Intelligence Training",
-    Meta_description:
+    meta_description:
       "Instructor-led corporate AI training across generative AI, machine learning, MLOps and governance. Scoped to your stack, delivered onsite or virtually in 100+ countries.",
     og_image_url: null,
   },
@@ -1503,11 +1503,7 @@ const artificialIntelligence = {
     related_services: [],
   },
   deliveredData: {
-    heading: {
-      before: "How an AI training program",
-      emphasis: "is delivered.",
-      after: "",
-    },
+    heading: "How an AI training program <span>is delivered.</span>",
 
     description:
       "Every engagement runs the same five stages, from capability baseline through to the refresh cycle.",
@@ -1604,13 +1600,7 @@ const artificialIntelligence = {
     ],
   },
   relatedCategoriesData: {
-    heading: {
-      parts: [
-        { text: "Explore related " },
-        { text: "training domains", em: true },
-        { text: "." },
-      ],
-    },
+    heading: "Explore related <span>training domains.</span>",
 
     description:
       "AI capability rarely sits alone. These categories are the ones enterprises most often build alongside it.",
@@ -1735,12 +1725,7 @@ const artificialIntelligence = {
     ],
   },
   scopeData: {
-    heading: {
-      before: "Start an RFP shaped to",
-      emphasis: " your needs.",
-      after: "",
-    },
-
+  heading: "Start an RFP shaped to <span>your needs.</span>",
     description:
       "Tell us roughly how many people need training and we'll show you the package this usually maps to. Nothing is fixed until we've scoped it with you.",
     tabLabel: "HOW MANY TEAM MEMBERS NEED AI TRAINING?",
