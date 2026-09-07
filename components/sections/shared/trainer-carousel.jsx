@@ -13,15 +13,6 @@ const AUTO_COLS_3 =
 const AUTO_COLS_4 =
   "auto-cols-[max(214px,calc((100%-60px)/4))] max-lg:auto-cols-[max(214px,calc((100%-20px)/2))] max-sm:auto-cols-[100%]";
 
-/**
- * Instructors carousel: `desktopCards` cards visible at once above `lg`
- * (default 3), two below `lg`, one below `sm` — scrolling one card at a
- * time via the prev/next arrows. The nav hides itself once the whole
- * roster already fits without scrolling — a short roster shouldn't show
- * dead controls.
- *
- * Design: `.tr-grid` (grid-auto-flow: column, scroll-snap-x) + `.tr-car-nav`.
- */
 export default function TrainerCarousel({ people, desktopCards = 3 }) {
   const AUTO_COLS = desktopCards === 4 ? AUTO_COLS_4 : AUTO_COLS_3;
   const trackRef = useRef(null);
@@ -46,7 +37,7 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function scrollByCards(direction) {
+  const scrollByCards = (direction) => {
     const track = trackRef.current;
     if (!track) return;
 
@@ -61,47 +52,41 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
       left: direction * step,
       behavior: reduceMotion ? "auto" : "smooth",
     });
-  }
+  };
 
   if (!people?.length) return null;
+
+  const navButton = (direction) => {
+    const previous = direction < 0;
+    const enabled = previous ? canPrev : canNext;
+    const Icon = previous ? ChevronLeft : ChevronRight;
+
+    return (
+      <button
+        type="button"
+        onClick={() => scrollByCards(direction)}
+        disabled={!enabled}
+        title={`Click Here to View ${previous ? "Previous" : "Next"} instructors`}
+        aria-label={`${previous ? "Previous" : "Next"} instructors`}
+        aria-controls="trainer-grid"
+        className={cn(
+          "grid size-9 place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",
+          enabled
+            ? "hover:border-navy hover:bg-navy hover:text-lime"
+            : "opacity-30",
+        )}
+      >
+        <Icon size={16} aria-hidden="true" />
+      </button>
+    );
+  };
 
   return (
     <Box>
       {canScroll ? (
         <Box className="mb-3.75 flex justify-end gap-2">
-          <button
-            type="button"
-            onClick={() => scrollByCards(-1)}
-            disabled={!canPrev}
-            title="Click Here to View Previous instructors"
-            aria-label="Previous instructors"
-            aria-controls="trainer-grid"
-            className={cn(
-              "grid size-9.5 place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",
-              canPrev
-                ? "hover:border-navy hover:bg-navy hover:text-lime"
-                : "opacity-30",
-            )}
-          >
-            <ChevronLeft size={16} aria-hidden="true" />
-          </button>
-
-          <button
-            type="button"
-            onClick={() => scrollByCards(1)}
-            disabled={!canNext}
-            title="Click Here to View Next instructors"
-            aria-label="Next instructors"
-            aria-controls="trainer-grid"
-            className={cn(
-              "grid size-9.5 place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",
-              canNext
-                ? "hover:border-navy hover:bg-navy hover:text-lime"
-                : "opacity-30",
-            )}
-          >
-            <ChevronRight size={16} aria-hidden="true" />
-          </button>
+          {navButton(-1)}
+          {navButton(1)}
         </Box>
       ) : null}
 
@@ -112,30 +97,17 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
         role="group"
         aria-label="Instructors"
         className={cn(
-          "grid grid-flow-col gap-5 overflow-x-auto pt-1.5 pb-3 [scroll-snap-type:x_mandatory] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+          "grid grid-flow-col gap-5 overflow-x-auto pt-1.5 pb-3 [scroll-snap-type:x_mandatory] scrollbar-none [&::-webkit-scrollbar]:hidden",
           AUTO_COLS,
         )}
       >
-        {people.map((trainer, index) => {
-          // Two shapes land here: hand-authored fallback content (`image`,
-          // `role`, `years`, `specializations`) and the CMS's real trainer
-          // records (`profile_image_url`, `profile_title`, `training_since`,
-          // `skills`) — read verbatim, not renamed, since both are real
-          // field names from their own source.
-          const image = trainer.image ?? trainer.profile_image_url;
-          const role = trainer.role ?? trainer.profile_title;
-          const years = trainer.years ?? trainer.training_since;
-          const specializations = trainer.specializations ?? trainer.skills;
-
-          return (
-            <Box
-              key={trainer.slug ?? trainer.name ?? index}
-              className="group flex h-full flex-col rounded-2xl border border-ink/10 bg-white px-5.5 py-6 [scroll-snap-align:start] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1.25 hover:border-ink/20 hover:shadow-[0_28px_58px_-34px_rgba(10,22,40,0.5)]"
-            >
+        {people.map((trainer, index) => (
+          <Box key={trainer.name ?? index} className="group h-full snap-start">
+            <Box className="flex h-full flex-col rounded-2xl border border-ink/10 bg-white p-5 transition-[transform,box-shadow,border-color] duration-500 group-hover:-translate-y-1.25 group-hover:border-ink/20 group-hover:shadow-[0_28px_58px_-34px_rgba(10,22,40,0.5)]">
               <Box className="mb-4 flex size-16 flex-none items-center justify-center overflow-hidden rounded-full bg-navy text-lime transition-transform duration-500 group-hover:scale-[1.06]">
-                {image ? (
+                {trainer.image ? (
                   <img
-                    src={image}
+                    src={trainer.image}
                     alt={trainer.name || ""}
                     className="size-full object-cover"
                   />
@@ -151,32 +123,29 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                 {trainer.name}
               </Text>
 
-              {role ? (
-                <Text
-                  as="p"
-                  className="mb-2.75 text-[13px] leading-[1.45] text-ink/60"
-                >
-                  {role}
+              {trainer.role ? (
+                <Text as="p" className="mb-2.5 text-[13px] leading-[1.45] text-ink/60">
+                  {trainer.role}
                 </Text>
               ) : null}
 
-              {years ? (
+              {trainer.years ? (
                 <Text
                   as="p"
                   className="mb-3.5 font-mono text-[10px] tracking-[0.13em] text-ink/60 uppercase"
                 >
-                  {years}
+                  {trainer.years}
                 </Text>
               ) : null}
 
               {trainer.rating ? (
-                <Box className="mt-0.5 mb-4 flex items-center gap-2.5 rounded-[9px] bg-paper-warm px-2.75 py-2.25">
+                <Box className="mt-0.5 mb-4 flex items-center gap-2.5 rounded-[8px] bg-paper-warm p-3">
                   <Box className="inline-flex items-center gap-1.25 font-display text-sm font-bold tracking-[-0.01em] text-ink">
                     <Star size={13} strokeWidth={0} fill="currentColor" />
                     {trainer.rating}
                   </Box>
 
-                  <Box className="h-3.25 w-px flex-none bg-ink/20" />
+                  <Box className="h-3 w-px flex-none bg-ink/20" />
 
                   <Text
                     as="span"
@@ -187,13 +156,13 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                 </Box>
               ) : null}
 
-              {specializations?.length ? (
+              {trainer.specializations?.length ? (
                 <Box className="mt-auto flex flex-wrap gap-1.5">
-                  {specializations.slice(0, 4).map((topic) => (
+                  {trainer.specializations.map((topic) => (
                     <Text
                       key={topic}
                       as="span"
-                      className="rounded-[7px] bg-paper-warm px-2.5 py-1.25 text-[11.5px] font-medium text-ink"
+                      className="rounded-[8px] bg-paper-warm px-2.5 py-1 text-[12px] font-medium text-ink"
                     >
                       {topic}
                     </Text>
@@ -205,13 +174,13 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                 variant="ghost"
                 arrow
                 render={<a href="#apply" />}
-                className="mt-4 w-full justify-center border-ink/22 px-4 py-2.5 text-[12.5px] hover:border-navy hover:bg-navy hover:text-lime"
+                className="mt-4 w-full justify-center border-ink/22 px-4 py-2.5 text-[12px] hover:border-navy hover:bg-navy hover:text-lime"
               >
                 View trainer profile
               </CtaButton>
             </Box>
-          );
-        })}
+          </Box>
+        ))}
       </Box>
     </Box>
   );

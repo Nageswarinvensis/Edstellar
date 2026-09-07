@@ -16,10 +16,9 @@ import RichHeading from "@/components/common/rich-heading";
 
 const COURSES_PER_PAGE = 9;
 
-const paginationButtonBase =
-  "flex h-8 w-8 items-center justify-center rounded-[7px] border transition-all duration-200";
+const paginationButtonBase = "flex h-8 w-8 items-center justify-center rounded-[8px] border transition-all duration-200";
 
-const paginationTextBase = "text-[9px] font-medium uppercase tracking-[1px]";
+const paginationTextBase = "text-[10px] font-medium uppercase tracking-[1px]";
 
 function FilterButton({ active, children, onClick }) {
   return (
@@ -31,8 +30,8 @@ function FilterButton({ active, children, onClick }) {
         "text-[11px] font-medium leading-none",
         "transition-all duration-200",
         active
-          ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
-          : "border-[#B9BEC5] bg-white text-[#07182C] hover:border-[#07182C]",
+          ? "border-ink bg-ink text-lime"
+          : "border-ink-muted bg-white text-ink hover:border-ink",
       ].join(" ")}
     >
       {children}
@@ -63,13 +62,13 @@ function DeliveryBadge({ delivery, data }) {
   }
 
   return (
-    <div className="absolute bottom-2.25 left-2.5 z-10">
-      <div className="flex items-center gap-1.25 rounded-[5px] bg-[#B8F500] px-1.25 py-1.25px">
-        <span className="h-1.25 w-1.25 shrink-0 rounded-full bg-[#07182C]" />
+    <div className="absolute bottom-2 left-2.5 z-10">
+      <div className="flex items-center gap-1.25 rounded-[5px] bg-lime p-1.5">
+        <span className="h-1.25 w-1.25 shrink-0 rounded-full bg-ink" />
 
         <Text
           as="span"
-          className="text-[8px] font-semibold uppercase tracking-[1px] text-[#07182C]"
+          className="text-[8px] font-semibold uppercase tracking-[1px] text-ink"
         >
           {items.map((item, index) => (
             <span key={`${item}-${index}`}>
@@ -95,7 +94,7 @@ function CourseImage({ course, data }) {
         <div className="relative flex h-full items-center justify-center">
           <Text
             as="span"
-            className="text-[9px] font-medium uppercase tracking-[2px] text-[#B8F500]"
+            className="text-[10px] font-medium uppercase tracking-[2px] text-lime"
           >
             {cardData.proposedProgramLabel}
           </Text>
@@ -142,11 +141,11 @@ function Duration({ duration, data }) {
 
   return (
     <div className="flex items-center gap-1.75">
-      <Clock3 size={12} strokeWidth={1.5} className="text-[#7A818A]" />
+      <Clock3 size={12} strokeWidth={1.5} className="text-ink-muted" />
 
       <Text
         as="span"
-        className="text-[10px] font-medium uppercase tracking-[1.3px] text-[#727984]"
+        className="text-[10px] font-medium uppercase tracking-[1.3px] text-ink-muted"
       >
         {durationText}
       </Text>
@@ -160,7 +159,7 @@ function CourseCard({ course, data }) {
   const cardClasses = [
     "group block overflow-hidden rounded-[12px]",
     course.proposed
-      ? "border border-dashed border-[#D7DADF] hover:border-[#0A1628]"
+      ? "border border-dashed border-[#D7DADF] hover:border-ink"
       : "border border-solid border-[#D7DADF]",
     course.proposed ? "bg-paper-warm" : "bg-white",
     "transition-all duration-300",
@@ -176,7 +175,7 @@ function CourseCard({ course, data }) {
         <div className="mb-1.25 flex min-h-3 items-center gap-2.5">
           <Text
             as="span"
-            className="text-[9px] font-medium uppercase tracking-[1.4px] text-[#4F5863]"
+            className="text-[10px] font-medium uppercase tracking-[1.4px] text-ink-muted"
           >
             {course.discipline}
           </Text>
@@ -184,7 +183,7 @@ function CourseCard({ course, data }) {
           {course.proposed && (
             <Text
               as="span"
-              className="rounded-lg bg-lime px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.5px] text-[#0A1628]"
+              className="rounded-lg bg-lime px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.5px] text-ink"
             >
               {cardData.proposedLabel}
             </Text>
@@ -193,14 +192,14 @@ function CourseCard({ course, data }) {
 
         <Text
           as="h3"
-          className="text-[15px] font-semibold leading-[1.2] tracking-[-0.25px] text-[#07182C]"
+          className="text-[15px] font-semibold leading-[1.2] tracking-[-0.25px] text-ink"
         >
           {course.title}
         </Text>
 
         <Text
           as="p"
-          className="mt-1.25 line-clamp-2 text-[11px] leading-[1.45] text-[#727984]"
+          className="mt-1.25 line-clamp-2 text-[11px] leading-[1.45] text-ink-muted"
         >
           {course.description}
         </Text>
@@ -211,15 +210,16 @@ function CourseCard({ course, data }) {
           <div className="flex shrink-0 items-center gap-1">
             <Text
               as="span"
-              className="text-[9px] font-semibold uppercase tracking-[0.5px] text-[#07182C]"
+              className="text-[10px] font-semibold uppercase tracking-[0.5px] text-ink"
             >
               {course.proposed ? cardData.requestProgram : cardData.viewProgram}
             </Text>
 
             <ArrowRight
               size={13}
+
               strokeWidth={1.8}
-              className="text-[#07182C] transition-transform duration-200 group-hover:translate-x-0.75"
+              className="text-ink transition-transform duration-200 group-hover:translate-x-0.75"
             />
           </div>
         </div>
@@ -238,11 +238,11 @@ function PaginationButton({ disabled, active, onClick, children, ariaLabel }) {
       className={[
         paginationButtonBase,
         active
-          ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
-          : "border-[#D7DADF] bg-white text-[#07182C]",
+          ? "border-ink bg-ink text-lime"
+          : "border-[#D7DADF] bg-white text-ink",
         disabled
           ? "cursor-not-allowed opacity-40"
-          : "hover:border-[#07182C] cursor-pointer",
+          : "hover:border-ink cursor-pointer",
       ].join(" ")}
     >
       {children}
@@ -303,10 +303,10 @@ function Pagination({ currentPage, totalPages, onPageChange, data }) {
         className={[
           "ml-1.5",
           paginationTextBase,
-          "text-[#727984]",
+          "text-ink-muted",
           "underline underline-offset-[3px]",
           "transition-colors duration-200",
-          "hover:text-[#07182C]",
+          "hover:text-ink",
           "hover:cursor-pointer",
         ].join(" ")}
       >
@@ -417,8 +417,8 @@ export default function Program({ data }) {
           <RichHeading
             as="h2"
             heading={data.heading}
-            className="max-w-110 text-[30px] font-semibold leading-[0.98] tracking-[-1.8px] text-ink lg:text-[36px]"
-            emphasisClassName="font-serif font-normal tracking-[-1px]"
+            className="max-w-[22ch] tracking-[-0.03em] text-ink"
+            emphasisClassName="font-normal italic"
           />
 
           <Text
@@ -468,7 +468,7 @@ export default function Program({ data }) {
         <Box className="mb-2.5 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
           <Text
             as="p"
-            className="text-[10px] font-medium uppercase tracking-[1.4px] text-[#727984]"
+            className="text-[10px] font-medium uppercase tracking-[1.4px] text-ink-muted"
           >
             {data.catalog.showingLabel} {showingStart}–{showingEnd}{" "}
             {data.catalog.ofLabel} {filteredCourses.length}{" "}
@@ -480,7 +480,7 @@ export default function Program({ data }) {
                 "tracking-[1px]",
                 "underline underline-offset-[3px]",
                 "transition-colors duration-200",
-                "hover:text-[#07182C]",
+                "hover:text-ink",
                 "hover:cursor-pointer",
               ].join(" ")}
             >
@@ -503,7 +503,7 @@ export default function Program({ data }) {
               placeholder={data.catalog.searchPlaceholder}
               className={[
                 "h-8.5 w-full rounded-[8px]",
-                "border border-[#BFC4CA]",
+                "border border-ink-muted",
                 "bg-white pl-7.5 pr-8",
                 "text-[11px] text-ink",
                 "outline-none",
@@ -528,10 +528,10 @@ export default function Program({ data }) {
                   "items-center justify-center",
                   "rounded-full",
                   "bg-paper-warm",
-                  "text-[#727984]",
+                  "text-ink-muted",
                   "transition-all duration-200",
                   "hover:bg-ink",
-                  "hover:text-[#B8F500]",
+                  "hover:text-pale",
                   "hover:cursor-pointer",
                 ].join(" ")}
               >
