@@ -53,9 +53,14 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
     const card = track.children[0];
     const gap = parseFloat(getComputedStyle(track).columnGap) || 20;
     const step = card ? card.getBoundingClientRect().width + gap : 0;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
-    track.scrollBy({ left: direction * step, behavior: reduceMotion ? "auto" : "smooth" });
+    track.scrollBy({
+      left: direction * step,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
   }
 
   if (!people?.length) return null;
@@ -73,7 +78,9 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
             aria-controls="trainer-grid"
             className={cn(
               "grid size-9.5 place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",
-              canPrev ? "hover:border-navy hover:bg-navy hover:text-lime" : "opacity-30",
+              canPrev
+                ? "hover:border-navy hover:bg-navy hover:text-lime"
+                : "opacity-30",
             )}
           >
             <ChevronLeft size={16} aria-hidden="true" />
@@ -88,7 +95,9 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
             aria-controls="trainer-grid"
             className={cn(
               "grid size-9.5 place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",
-              canNext ? "hover:border-navy hover:bg-navy hover:text-lime" : "opacity-30",
+              canNext
+                ? "hover:border-navy hover:bg-navy hover:text-lime"
+                : "opacity-30",
             )}
           >
             <ChevronRight size={16} aria-hidden="true" />
@@ -107,87 +116,102 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
           AUTO_COLS,
         )}
       >
-        {people.map((trainer, index) => (
-          <Box
-            key={trainer.name ?? index}
-            className="group flex h-full flex-col rounded-2xl border border-ink/10 bg-white px-5.5 py-6 [scroll-snap-align:start] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1.25 hover:border-ink/20 hover:shadow-[0_28px_58px_-34px_rgba(10,22,40,0.5)]"
-          >
-            <Box className="mb-4 flex size-16 flex-none items-center justify-center overflow-hidden rounded-full bg-navy text-lime transition-transform duration-500 group-hover:scale-[1.06]">
-              {trainer.image ? (
-                <img
-                  src={trainer.image}
-                  alt={trainer.name || ""}
-                  className="size-full object-cover"
-                />
-              ) : (
-                <User size={26} strokeWidth={1.75} aria-hidden="true" />
-              )}
-            </Box>
+        {people.map((trainer, index) => {
+          // Two shapes land here: hand-authored fallback content (`image`,
+          // `role`, `years`, `specializations`) and the CMS's real trainer
+          // records (`profile_image_url`, `profile_title`, `training_since`,
+          // `skills`) — read verbatim, not renamed, since both are real
+          // field names from their own source.
+          const image = trainer.image ?? trainer.profile_image_url;
+          const role = trainer.role ?? trainer.profile_title;
+          const years = trainer.years ?? trainer.training_since;
+          const specializations = trainer.specializations ?? trainer.skills;
 
-            <Text
-              as="h4"
-              className="mb-1 font-display text-base leading-tight font-semibold tracking-[-0.02em] text-ink"
+          return (
+            <Box
+              key={trainer.slug ?? trainer.name ?? index}
+              className="group flex h-full flex-col rounded-2xl border border-ink/10 bg-white px-5.5 py-6 [scroll-snap-align:start] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1.25 hover:border-ink/20 hover:shadow-[0_28px_58px_-34px_rgba(10,22,40,0.5)]"
             >
-              {trainer.name}
-            </Text>
+              <Box className="mb-4 flex size-16 flex-none items-center justify-center overflow-hidden rounded-full bg-navy text-lime transition-transform duration-500 group-hover:scale-[1.06]">
+                {image ? (
+                  <img
+                    src={image}
+                    alt={trainer.name || ""}
+                    className="size-full object-cover"
+                  />
+                ) : (
+                  <User size={26} strokeWidth={1.75} aria-hidden="true" />
+                )}
+              </Box>
 
-            {trainer.role ? (
-              <Text as="p" className="mb-2.75 text-[13px] leading-[1.45] text-ink/60">
-                {trainer.role}
-              </Text>
-            ) : null}
-
-            {trainer.years ? (
               <Text
-                as="p"
-                className="mb-3.5 font-mono text-[10px] tracking-[0.13em] text-ink/60 uppercase"
+                as="h4"
+                className="mb-1 font-display text-base leading-tight font-semibold tracking-[-0.02em] text-ink"
               >
-                {trainer.years}
+                {trainer.name}
               </Text>
-            ) : null}
 
-            {trainer.rating ? (
-              <Box className="mt-0.5 mb-4 flex items-center gap-2.5 rounded-[9px] bg-paper-warm px-2.75 py-2.25">
-                <Box className="inline-flex items-center gap-1.25 font-display text-sm font-bold tracking-[-0.01em] text-ink">
-                  <Star size={13} strokeWidth={0} fill="currentColor" />
-                  {trainer.rating}
-                </Box>
-
-                <Box className="h-3.25 w-px flex-none bg-ink/20" />
-
+              {role ? (
                 <Text
-                  as="span"
-                  className="font-mono text-[10px] leading-[1.3] tracking-[0.07em] text-ink/60 uppercase"
+                  as="p"
+                  className="mb-2.75 text-[13px] leading-[1.45] text-ink/60"
                 >
-                  {trainer.sessions} sessions delivered
+                  {role}
                 </Text>
-              </Box>
-            ) : null}
+              ) : null}
 
-            {trainer.specializations?.length ? (
-              <Box className="mt-auto flex flex-wrap gap-1.5">
-                {trainer.specializations.map((topic) => (
+              {years ? (
+                <Text
+                  as="p"
+                  className="mb-3.5 font-mono text-[10px] tracking-[0.13em] text-ink/60 uppercase"
+                >
+                  {years}
+                </Text>
+              ) : null}
+
+              {trainer.rating ? (
+                <Box className="mt-0.5 mb-4 flex items-center gap-2.5 rounded-[9px] bg-paper-warm px-2.75 py-2.25">
+                  <Box className="inline-flex items-center gap-1.25 font-display text-sm font-bold tracking-[-0.01em] text-ink">
+                    <Star size={13} strokeWidth={0} fill="currentColor" />
+                    {trainer.rating}
+                  </Box>
+
+                  <Box className="h-3.25 w-px flex-none bg-ink/20" />
+
                   <Text
-                    key={topic}
                     as="span"
-                    className="rounded-[7px] bg-paper-warm px-2.5 py-1.25 text-[11.5px] font-medium text-ink"
+                    className="font-mono text-[10px] leading-[1.3] tracking-[0.07em] text-ink/60 uppercase"
                   >
-                    {topic}
+                    {trainer.sessions} sessions delivered
                   </Text>
-                ))}
-              </Box>
-            ) : null}
+                </Box>
+              ) : null}
 
-            <CtaButton
-              variant="ghost"
-              arrow
-              render={<a href="#apply" />}
-              className="mt-4 w-full justify-center border-ink/22 px-4 py-2.5 text-[12.5px] hover:border-navy hover:bg-navy hover:text-lime"
-            >
-              View trainer profile
-            </CtaButton>
-          </Box>
-        ))}
+              {specializations?.length ? (
+                <Box className="mt-auto flex flex-wrap gap-1.5">
+                  {specializations.slice(0, 4).map((topic) => (
+                    <Text
+                      key={topic}
+                      as="span"
+                      className="rounded-[7px] bg-paper-warm px-2.5 py-1.25 text-[11.5px] font-medium text-ink"
+                    >
+                      {topic}
+                    </Text>
+                  ))}
+                </Box>
+              ) : null}
+
+              <CtaButton
+                variant="ghost"
+                arrow
+                render={<a href="#apply" />}
+                className="mt-4 w-full justify-center border-ink/22 px-4 py-2.5 text-[12.5px] hover:border-navy hover:bg-navy hover:text-lime"
+              >
+                View trainer profile
+              </CtaButton>
+            </Box>
+          );
+        })}
       </Box>
     </Box>
   );

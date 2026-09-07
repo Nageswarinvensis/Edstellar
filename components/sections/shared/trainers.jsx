@@ -5,7 +5,11 @@ import RichHeading from "@/components/common/rich-heading";
 import TrainerCarousel from "@/components/sections/shared/trainer-carousel";
 
 export default function Trainers({ trainers, desktopCards }) {
-  if (!trainers?.people?.length) return null;
+  // `dynamic_data` is the CMS's real trainer roster for this page;
+  // `people` is hand-authored fallback content for pages the CMS hasn't
+  // modeled yet. The CMS wins when it has sent one.
+  const people = trainers?.dynamic_data ?? trainers?.people;
+  if (!people?.length) return null;
 
   return (
     <Section
@@ -29,7 +33,7 @@ export default function Trainers({ trainers, desktopCards }) {
       </Reveal>
 
       <Reveal delay={2}>
-        <TrainerCarousel people={trainers.people} desktopCards={desktopCards} />
+        <TrainerCarousel people={people} desktopCards={desktopCards} />
       </Reveal>
 
       {trainers.note ? (
