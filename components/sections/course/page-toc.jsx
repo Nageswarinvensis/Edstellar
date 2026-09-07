@@ -39,8 +39,15 @@ const TOC_CTA = {
   note: "A specialist replies within one business day.",
 };
 
-export default function PageToc({ toc, modules, children }) {
-  const items = toc?.items;
+export default function PageToc({ toc, modules, hasTrainers, children }) {
+  // The CMS sends a "Trainers"/"Industry Experts" entry in `toc.items`
+  // whenever the course template *can* show one, but `Trainers` itself
+  // renders nothing once its own roster is empty (see trainers.jsx) — so
+  // without this filter the nav item stays and points at a `#trainers`
+  // anchor that no longer exists on the page.
+  const items = toc?.items?.filter(
+    (item) => item.id !== "trainers" || hasTrainers,
+  );
   const [activeId, setActiveId] = useState(null);
   const [activeModule, setActiveModule] = useState(null);
   const navRef = useRef(null);

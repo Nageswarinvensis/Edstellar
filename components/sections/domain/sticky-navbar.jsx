@@ -27,8 +27,13 @@ function scrollToHash(event) {
   target.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
 }
 
-export default function StickyTabs({ data }) {
-  const tabs = data?.tabs;
+export default function StickyTabs({ data, hasTrainers }) {
+  // `data.tabs` is a hand-authored, per-domain list (content/domains/*.js) —
+  // it always includes a "Trainers" entry regardless of whether that
+  // domain actually has any trainers to show, so it's filtered here against
+  // the same data `<Trainers>` itself checks, or its `#trainers` anchor
+  // points at a section that was never rendered.
+  const tabs = data?.tabs?.filter((tab) => tab.id !== "trainers" || hasTrainers);
 
   const [activeId, setActiveId] = useState(
     () => tabs?.find((tab) => tab.active)?.id ?? tabs?.[0]?.id

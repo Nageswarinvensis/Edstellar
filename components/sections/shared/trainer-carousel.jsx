@@ -6,12 +6,66 @@ import { ChevronLeft, ChevronRight, Star, User } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/common/cta-button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 const AUTO_COLS_3 =
   "auto-cols-[max(214px,calc((100%-40px)/3))] max-lg:auto-cols-[max(214px,calc((100%-20px)/2))] max-sm:auto-cols-[100%]";
 const AUTO_COLS_4 =
   "auto-cols-[max(214px,calc((100%-60px)/4))] max-lg:auto-cols-[max(214px,calc((100%-20px)/2))] max-sm:auto-cols-[100%]";
+
+const MONTH_ABBREVIATIONS = [
+  "jan",
+  "feb",
+  "mar",
+  "apr",
+  "may",
+  "jun",
+  "jul",
+  "aug",
+  "sep",
+  "oct",
+  "nov",
+  "dec",
+];
+
+// The CMS sends `training_since` as a "<Month> <Year>" string (e.g. "Jan
+// 2014"), not an ISO date, so it can't be parsed with `new Date(value)`
+// directly in every browser.
+function parseTrainingSince(value) {
+  const match = /^([a-z]+)\s+(\d{4})$/i.exec(value.trim());
+  const monthIndex = match
+    ? MONTH_ABBREVIATIONS.indexOf(match[1].slice(0, 3).toLowerCase())
+    : -1;
+  if (match && monthIndex !== -1) {
+    return new Date(Number(match[2]), monthIndex, 1);
+  }
+
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+// Turns the CMS's start date into a rounded-down "N+ years of Experience"
+// so a trainer at 5 years 11 months reads as "5+", not "6+".
+function formatExperience(trainingSince) {
+  if (!trainingSince) return null;
+
+  const start = parseTrainingSince(trainingSince);
+  if (!start) return trainingSince;
+
+  const now = new Date();
+  let years = now.getFullYear() - start.getFullYear();
+  const monthDiff = now.getMonth() - start.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < start.getDate())) {
+    years -= 1;
+  }
+
+  return `${Math.max(years, 0)}+ years of Experience`;
+}
 
 /**
  * Instructors carousel: `desktopCards` cards visible at once above `lg`
@@ -73,7 +127,7 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
             type="button"
             onClick={() => scrollByCards(-1)}
             disabled={!canPrev}
-            title="Click Here to View Previous instructors"
+            title="View previous instructors"
             aria-label="Previous instructors"
             aria-controls="trainer-grid"
             className={cn(
@@ -90,7 +144,7 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
             type="button"
             onClick={() => scrollByCards(1)}
             disabled={!canNext}
-            title="Click Here to View Next instructors"
+            title="View next instructors"
             aria-label="Next instructors"
             aria-controls="trainer-grid"
             className={cn(
@@ -124,56 +178,57 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
           // field names from their own source.
           const image = trainer.image ?? trainer.profile_image_url;
           const role = trainer.role ?? trainer.profile_title;
-          const years = trainer.years ?? trainer.training_since;
+          const years =
+            trainer.years ?? formatExperience(trainer.training_since);
           const specializations = trainer.specializations ?? trainer.skills;
 
           return (
             <Box
-              key={trainer.slug ?? trainer.name ?? index}
-              className="group flex h-full flex-col rounded-2xl border border-ink/10 bg-white px-5.5 py-6 [scroll-snap-align:start] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1.25 hover:border-ink/20 hover:shadow-[0_28px_58px_-34px_rgba(10,22,40,0.5)]"
+              key={trainer.name ?? index}
+              className="group h-full snap-start"
             >
-              <Box className="mb-4 flex size-16 flex-none items-center justify-center overflow-hidden rounded-full bg-navy text-lime transition-transform duration-500 group-hover:scale-[1.06]">
-                {image ? (
-                  <img
-                    src={image}
-                    alt={trainer.name || ""}
-                    className="size-full object-cover"
-                  />
-                ) : (
-                  <User size={26} strokeWidth={1.75} aria-hidden="true" />
-                )}
-              </Box>
+              <Box className="flex h-full flex-col rounded-2xl border border-ink/10 bg-white p-5 transition-[transform,box-shadow,border-color] duration-500 group-hover:-translate-y-1.25 group-hover:border-ink/20 group-hover:shadow-[0_28px_58px_-34px_rgba(10,22,40,0.5)]">
+                <Box className="mb-4 flex size-16 flex-none items-center justify-center overflow-hidden rounded-full bg-navy text-lime transition-transform duration-500 group-hover:scale-[1.06]">
+                  {image ? (
+                    <img
+                      src={image}
+                      alt={trainer.name || ""}
+                      className="size-full object-cover"
+                    />
+                  ) : (
+                    <User size={26} strokeWidth={1.75} aria-hidden="true" />
+                  )}
+                </Box>
 
-              <Text
-                as="h4"
-                className="mb-1 font-display text-base leading-tight font-semibold tracking-[-0.02em] text-ink"
-              >
-                {trainer.name}
-              </Text>
-
-              {role ? (
                 <Text
-                  as="p"
-                  className="mb-2.75 text-[13px] leading-[1.45] text-ink/60"
+                  as="h4"
+                  className="mb-1 font-display text-base leading-tight font-semibold tracking-[-0.02em] text-ink"
                 >
-                  {role}
+                  {trainer.name}
                 </Text>
-              ) : null}
 
-              {years ? (
-                <Text
-                  as="p"
-                  className="mb-3.5 font-mono text-[10px] tracking-[0.13em] text-ink/60 uppercase"
-                >
-                  {years}
-                </Text>
-              ) : null}
+                {role ? (
+                  <Text
+                    as="p"
+                    className="mb-2.75 text-[13px] leading-[1.45] text-ink/60"
+                  >
+                    {role}
+                  </Text>
+                ) : null}
 
-              {trainer.rating ? (
+                {years ? (
+                  <Text
+                    as="p"
+                    className="mb-3.5 font-mono text-[10px] tracking-[0.13em] text-ink/60 uppercase"
+                  >
+                    {years}
+                  </Text>
+                ) : null}
+
                 <Box className="mt-0.5 mb-4 flex items-center gap-2.5 rounded-[9px] bg-paper-warm px-2.75 py-2.25">
                   <Box className="inline-flex items-center gap-1.25 font-display text-sm font-bold tracking-[-0.01em] text-ink">
                     <Star size={13} strokeWidth={0} fill="currentColor" />
-                    {trainer.rating}
+                    {trainer.rating ?? "4.9"}
                   </Box>
 
                   <Box className="h-3.25 w-px flex-none bg-ink/20" />
@@ -182,33 +237,52 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                     as="span"
                     className="font-mono text-[10px] leading-[1.3] tracking-[0.07em] text-ink/60 uppercase"
                   >
-                    {trainer.sessions} sessions delivered
+                    {trainer.sessions ?? "180+"} sessions delivered
                   </Text>
                 </Box>
-              ) : null}
 
-              {specializations?.length ? (
-                <Box className="mt-auto flex flex-wrap gap-1.5">
-                  {specializations.slice(0, 4).map((topic) => (
-                    <Text
-                      key={topic}
-                      as="span"
-                      className="rounded-[7px] bg-paper-warm px-2.5 py-1.25 text-[11.5px] font-medium text-ink"
-                    >
-                      {topic}
-                    </Text>
-                  ))}
-                </Box>
-              ) : null}
+                {specializations?.length ? (
+                  <Box className="mt-auto flex flex-wrap gap-1.5">
+                    {specializations.slice(0, 4).map((topic) => (
+                      <Text
+                        key={topic}
+                        as="span"
+                        className="rounded-[7px] bg-paper-warm px-2.5 py-1.25 text-[11.5px] font-medium text-ink"
+                      >
+                        {topic}
+                      </Text>
+                    ))}
 
-              <CtaButton
-                variant="ghost"
-                arrow
-                render={<a href="#apply" />}
-                className="mt-4 w-full justify-center border-ink/22 px-4 py-2.5 text-[12.5px] hover:border-navy hover:bg-navy hover:text-lime"
-              >
-                View trainer profile
-              </CtaButton>
+                    {specializations.length > 4 ? (
+                      <Tooltip>
+                        <TooltipTrigger className="rounded-[7px] bg-paper-warm px-2.5 py-1.25 text-[11.5px] font-medium text-ink">
+                          +{specializations.length - 4} more
+                        </TooltipTrigger>
+                        <TooltipContent className="flex max-w-[min(12rem,calc(100vw-2rem))] flex-wrap gap-1.25">
+                          {specializations.slice(4).map((topic) => (
+                            <Text
+                              key={topic}
+                              as="span"
+                              className="rounded-[7px] bg-white/10 px-2 py-1 text-[11px] font-medium text-background"
+                            >
+                              {topic}
+                            </Text>
+                          ))}
+                        </TooltipContent>
+                      </Tooltip>
+                    ) : null}
+                  </Box>
+                ) : null}
+
+                <CtaButton
+                  variant="ghost"
+                  arrow
+                  render={<a href="#apply" />}
+                  className="mt-4 w-full justify-center border-ink/22 px-4 py-2.5 text-[12.5px] hover:border-navy hover:bg-navy hover:text-lime"
+                >
+                  View trainer profile
+                </CtaButton>
+              </Box>
             </Box>
           );
         })}
