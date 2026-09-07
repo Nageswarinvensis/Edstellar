@@ -8,58 +8,85 @@ import { CtaButton } from "@/components/common/cta-button";
 import { cn } from "@/lib/utils";
 
 /**
- * Left-hand "on this page" rail beside the Curriculum/Audience/Delivery/FAQ
- * run — sticky at `xl` and up only, matching the source design's `.spine`
- * (it hides below the source's 1000px breakpoint entirely — there is no
- * mobile fallback nav on this page, matching its `.spine-m` chip bar not
- * being ported either).
+ * Static TOC configuration.
  *
- * `top-17` matches `SiteHeader`'s own height (`h-17`, always sticky and
- * visible on this page — there is no secondary nav bar above this one to
- * additionally clear).
+ * This was previously coming from the API through:
+ * toc.items
  *
- * The nav is a real grid column, not an absolute overlay: the wrapper is
- * `xl:grid xl:grid-cols-[nav_1fr]` with exactly two grid items — the nav and
- * a single Box wrapping every section — so there is only one implicit row
- * and no row-spanning trick is needed. The nav stays visually pinned via
- * `xl:sticky` against that row's height (the combined height of every
- * section). This is safe because every section in this run shares the same
- * background — there is no full-bleed color difference between them that a
- * shared column width would clip.
- *
- * Active-state tracking is scroll-position-based (which section's top has
- * been crossed), not IntersectionObserver, matching the source design — a
- * thin observer band can sit fully inside one of these (very tall) sections
- * without ever re-firing, and the same scroll calc is what lets the
- * curriculum item nest its own active module underneath it.
+ * The TOC structure is now maintained directly in the component.
  */
+const TOC_ITEMS = [
+  {
+    id: "curriculum",
+    label: "Course syllabus",
+    number: "01",
+    has_modules: true,
+  },
+  {
+    id: "skills",
+    label: "What You'll Learn",
+    number: "02",
+    has_modules: false,
+  },
+  {
+    id: "audience",
+    label: "Who is it for",
+    number: "03",
+    has_modules: false,
+  },
+  {
+    id: "certificate",
+    label: "Certificate",
+    number: "04",
+    has_modules: false,
+  },
+  {
+    id: "delivery",
+    label: "Delivery format",
+    number: "05",
+    has_modules: false,
+  },
+  {
+    id: "trainers",
+    label: "Industry experts",
+    number: "06",
+    has_modules: false,
+  },
+  {
+    id: "faqs",
+    label: "FAQs",
+    number: "07",
+    has_modules: false,
+  },
+];
+
 const TOC_CTA = {
   label: "Request a Proposal",
   href: "#apply",
   note: "A specialist replies within one business day.",
 };
 
-export default function PageToc({ toc, modules, hasTrainers, children }) {
-  // The CMS sends a "Trainers"/"Industry Experts" entry in `toc.items`
-  // whenever the course template *can* show one, but `Trainers` itself
-  // renders nothing once its own roster is empty (see trainers.jsx) — so
-  // without this filter the nav item stays and points at a `#trainers`
-  // anchor that no longer exists on the page.
-  const items = toc?.items?.filter(
+export default function PageToc({ modules, hasTrainers, children }) {
+  /**
+   * Keep the static TOC, but hide Trainers when there are
+   * no trainers available on the course.
+   */
+  const items = TOC_ITEMS.filter(
     (item) => item.id !== "trainers" || hasTrainers,
   );
+
   const [activeId, setActiveId] = useState(null);
   const [activeModule, setActiveModule] = useState(null);
+
   const navRef = useRef(null);
   const mobileNavRef = useRef(null);
 
-  // Publishes the mobile chip bar's real height as a CSS var so anything
-  // else that needs to stick below it (e.g. CurriculumModules' own filter
-  // bar) can offset off `var(--mobile-toc-h)` instead of a guessed pixel
-  // value. Resolves to 0 automatically once `xl:hidden` takes the bar out
-  // of layout, so downstream consumers don't need a breakpoint of their own.
+  /**
+   * Publish the mobile TOC height as a CSS variable.
+   */
   useEffect(() => {
     const nav = mobileNavRef.current;
+
     if (!nav || typeof ResizeObserver === "undefined") return;
 
     const setHeight = () => {
@@ -70,24 +97,31 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
     };
 
     const observer = new ResizeObserver(setHeight);
+
     observer.observe(nav);
     setHeight();
 
     return () => {
       observer.disconnect();
+
       document.documentElement.style.removeProperty("--mobile-toc-h");
     };
   }, [items]);
 
+  /**
+   * Track the currently visible section.
+   */
   useEffect(() => {
     if (!items?.length || typeof window === "undefined") return;
 
     const sections = items
       .map((item) => document.getElementById(item.id))
       .filter(Boolean);
+
     if (!sections.length) return;
 
     const moduleSectionId = items.find((item) => item.has_modules)?.id;
+
     const moduleEls = modules?.length
       ? modules
           .map((module) => document.getElementById(`mod-${module.number}`))
@@ -100,16 +134,27 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
       const y = window.scrollY + window.innerHeight * 0.3;
 
       let current = null;
+
       sections.forEach((section) => {
-        if (topOf(section) <= y) current = section.id;
+        if (topOf(section) <= y) {
+          current = section.id;
+        }
       });
+
       setActiveId(current);
 
+      /**
+       * Track the active curriculum module.
+       */
       if (current === moduleSectionId && moduleEls.length) {
         let index = -1;
+
         moduleEls.forEach((el, i) => {
-          if (topOf(el) <= y) index = i;
+          if (topOf(el) <= y) {
+            index = i;
+          }
         });
+
         setActiveModule(index >= 0 ? modules[index].number : null);
       } else {
         setActiveModule(null);
@@ -117,38 +162,55 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
     }
 
     let raf = 0;
+
     function onScroll() {
       if (raf) return;
+
       raf = requestAnimationFrame(() => {
         raf = 0;
         update();
       });
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", update, { passive: true });
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+    });
+
+    window.addEventListener("resize", update, {
+      passive: true,
+    });
+
     update();
 
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", update);
+
+      if (raf) {
+        cancelAnimationFrame(raf);
+      }
     };
   }, [items, modules]);
 
-  // Keep the active module link inside the nav's own scroll container —
-  // the module sub-list can run longer than the viewport.
+  /**
+   * Keep the active module visible inside the desktop TOC.
+   */
   useEffect(() => {
     if (!activeModule || !navRef.current) return;
+
     navRef.current
       .querySelector(`[data-mod="${activeModule}"]`)
-      ?.scrollIntoView({ block: "nearest" });
+      ?.scrollIntoView({
+        block: "nearest",
+      });
   }, [activeModule]);
 
-  // Center the active chip in the mobile scrolling bar as the section
-  // changes underneath, so the highlighted item never sits clipped at the
-  // scroller's edge.
+  /**
+   * Center the active item inside the mobile TOC.
+   */
   useEffect(() => {
     if (!activeId || !mobileNavRef.current) return;
+
     mobileNavRef.current
       .querySelector(`[data-section="${activeId}"]`)
       ?.scrollIntoView({
@@ -158,25 +220,35 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
       });
   }, [activeId]);
 
+  /**
+   * Smooth scroll to a section.
+   */
   function scrollToId(id, block) {
     return (event) => {
       const target = document.getElementById(id);
+
       if (!target) return;
+
       event.preventDefault();
+
       const reduced = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
-      target.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block });
+
+      target.scrollIntoView({
+        behavior: reduced ? "auto" : "smooth",
+        block,
+      });
     };
   }
 
-  if (!items?.length) return <>{children}</>;
+  if (!items?.length) {
+    return <>{children}</>;
+  }
 
   return (
     <Box className="relative lg:px-10">
-      {/* Mobile/tablet fallback: the sticky rail becomes a scrolling chip
-          bar below `xl` — matching the source design's `.spine-m`. No
-          module sub-list here, only the top-level sections. */}
+      {/* Mobile / Tablet TOC */}
       <nav
         ref={mobileNavRef}
         aria-label="Sections"
@@ -205,7 +277,9 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
         })}
       </nav>
 
-      <Box className="xl:mx-auto xl:grid xl:max-w-7xl xl:grid-cols-[15.25rem_1fr] xl:items-start xl:gap-x-10 ">
+      {/* Desktop TOC + Content */}
+      <Box className="xl:mx-auto xl:grid xl:max-w-7xl xl:grid-cols-[15.25rem_1fr] xl:items-start xl:gap-x-10">
+        {/* Desktop TOC */}
         <nav
           ref={navRef}
           aria-label="On this page"
@@ -214,11 +288,13 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
           <Box as="ol" className="space-y-1">
             {items.map((item) => {
               const isActive = item.id === activeId;
+
               const showModules =
                 item.has_modules && isActive && modules?.length;
 
               return (
                 <Box as="li" key={item.id}>
+                  {/* Main TOC Item */}
                   <Box
                     as="a"
                     href={`#${item.id}`}
@@ -239,6 +315,7 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
                     >
                       {item.number}
                     </Text>
+
                     <Text
                       as="span"
                       className={cn(
@@ -250,6 +327,7 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
                     </Text>
                   </Box>
 
+                  {/* Curriculum Modules */}
                   {showModules ? (
                     <Box
                       as="ol"
@@ -286,6 +364,7 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
                               >
                                 {module.number}
                               </Text>
+
                               <Text
                                 as="span"
                                 className={cn(
@@ -306,10 +385,12 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
             })}
           </Box>
 
+          {/* CTA */}
           <Box className="mt-5.5 border-t border-ink/12 pt-5">
             <CtaButton block arrow render={<a href={TOC_CTA.href} />}>
               {TOC_CTA.label}
             </CtaButton>
+
             <Text
               as="p"
               className="mt-2.25 text-[11.5px] leading-normal text-ink/45"
@@ -319,6 +400,7 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
           </Box>
         </nav>
 
+        {/* Page Content */}
         <Box className="min-w-0 lg:[&>section]:px-0">{children}</Box>
       </Box>
     </Box>

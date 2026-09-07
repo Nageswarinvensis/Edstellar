@@ -8,12 +8,6 @@ import HeroMeta from "@/components/common/hero-meta";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
-const HERO_ACTIONS = [
-  { href: "#curriculum", label: "View course outline", variant: "primary" },
-  { href: "#apply", label: "Enquire now", variant: "ghost" },
-  { href: "#apply", label: "Download Brochure", variant: "ghost" },
-];
-
 /**
  * Category hero — shared by the category page and the course page within it.
  *
@@ -37,7 +31,7 @@ function CategoryHero({ hero, breadcrumbs }) {
 
         <Box
           className={`relative z-1 max-w-full ${
-            HERO_ACTIONS.some(
+            hero.actions?.some(
               (action) => action.label?.toLowerCase() === "download brochure",
             )
               ? "lg:max-w-[50%]"
@@ -75,7 +69,7 @@ function CategoryHero({ hero, breadcrumbs }) {
           </Reveal>
 
           <Reveal delay={3}>
-            <HeroActions actions={HERO_ACTIONS} />
+            <HeroActions actions={hero.actions} />
           </Reveal>
 
           <Reveal>
