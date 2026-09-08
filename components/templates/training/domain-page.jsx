@@ -30,6 +30,12 @@ import Outcome from "@/components/sections/domain/outcome";
  * a section, it moves to `sections/shared/`.
  */
 export default function DomainPage({ domain }) {
+  // Mirrors trainers.jsx's own `dynamic_data ?? people` precedence, so this
+  // agrees with whether `<Trainers>` below actually renders anything.
+  const hasTrainers = Boolean(
+    (domain.trainers?.dynamic_data ?? domain.trainers?.people)?.length,
+  );
+
   return (
     <>
       <TickerBar />
@@ -40,7 +46,7 @@ export default function DomainPage({ domain }) {
         proof={domain.proof}
       />
       <Requested data={domain.requestedData} />
-      <StickyNavbar data={domain.sticky_nav} />
+      <StickyNavbar data={domain.sticky_nav} hasTrainers={hasTrainers} />
       <About
         about={domain.about}
         ctaBannerData={domain.about?.cta_banner}

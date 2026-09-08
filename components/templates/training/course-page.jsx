@@ -32,6 +32,12 @@ import LeadForm from "@/components/forms/lead-form";
  * visual treatment of the same data, and which one ships is a design call.
  */
 export default function CoursePage({ course }) {
+  // Mirrors trainers.jsx's own `dynamic_data ?? people` precedence, so this
+  // agrees with whether `<Trainers>` below actually renders anything.
+  const hasTrainers = Boolean(
+    (course.trainers?.dynamic_data ?? course.trainers?.people)?.length,
+  );
+
   return (
     <>
       <Hero hero={course.hero} breadcrumbs={course.breadcrumbs?.items} />
@@ -39,7 +45,11 @@ export default function CoursePage({ course }) {
       <ClientLogos data={course.ClientsLogosData} />
       <About about={course.about} />
 
-      <PageToc toc={course.pageToc} modules={course.curriculum?.modules}>
+      <PageToc
+        toc={course.pageToc}
+        modules={course.curriculum?.modules}
+        hasTrainers={hasTrainers}
+      >
         <Curriculum curriculum={course.curriculum} />
         <Skills skills={course.skills} />
         <Audience audience={course.audience} />

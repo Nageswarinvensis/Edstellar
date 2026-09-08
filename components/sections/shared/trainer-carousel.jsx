@@ -6,6 +6,11 @@ import { ChevronLeft, ChevronRight, Star, User } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/common/cta-button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 const AUTO_COLS_3 =
@@ -13,6 +18,64 @@ const AUTO_COLS_3 =
 const AUTO_COLS_4 =
   "auto-cols-[max(214px,calc((100%-60px)/4))] max-lg:auto-cols-[max(214px,calc((100%-20px)/2))] max-sm:auto-cols-[100%]";
 
+const MONTH_ABBREVIATIONS = [
+  "jan",
+  "feb",
+  "mar",
+  "apr",
+  "may",
+  "jun",
+  "jul",
+  "aug",
+  "sep",
+  "oct",
+  "nov",
+  "dec",
+];
+
+// The CMS sends `training_since` as a "<Month> <Year>" string (e.g. "Jan
+// 2014"), not an ISO date, so it can't be parsed with `new Date(value)`
+// directly in every browser.
+function parseTrainingSince(value) {
+  const match = /^([a-z]+)\s+(\d{4})$/i.exec(value.trim());
+  const monthIndex = match
+    ? MONTH_ABBREVIATIONS.indexOf(match[1].slice(0, 3).toLowerCase())
+    : -1;
+  if (match && monthIndex !== -1) {
+    return new Date(Number(match[2]), monthIndex, 1);
+  }
+
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+// Turns the CMS's start date into a rounded-down "N+ years of Experience"
+// so a trainer at 5 years 11 months reads as "5+", not "6+".
+function formatExperience(trainingSince) {
+  if (!trainingSince) return null;
+
+  const start = parseTrainingSince(trainingSince);
+  if (!start) return trainingSince;
+
+  const now = new Date();
+  let years = now.getFullYear() - start.getFullYear();
+  const monthDiff = now.getMonth() - start.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < start.getDate())) {
+    years -= 1;
+  }
+
+  return `${Math.max(years, 0)}+ years of Experience`;
+}
+
+/**
+ * Instructors carousel: `desktopCards` cards visible at once above `lg`
+ * (default 3), two below `lg`, one below `sm` — scrolling one card at a
+ * time via the prev/next arrows. The nav hides itself once the whole
+ * roster already fits without scrolling — a short roster shouldn't show
+ * dead controls.
+ *
+ * Design: `.tr-grid` (grid-auto-flow: column, scroll-snap-x) + `.tr-car-nav`.
+ */
 export default function TrainerCarousel({ people, desktopCards = 3 }) {
   const AUTO_COLS = desktopCards === 4 ? AUTO_COLS_4 : AUTO_COLS_3;
   const trackRef = useRef(null);
@@ -87,6 +150,39 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
         <Box className="mb-3.75 flex justify-end gap-2">
           {navButton(-1)}
           {navButton(1)}
+          <button
+            type="button"
+            onClick={() => scrollByCards(-1)}
+            disabled={!canPrev}
+            title="View previous instructors"
+            aria-label="Previous instructors"
+            aria-controls="trainer-grid"
+            className={cn(
+              "grid size-9.5 place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",
+              canPrev
+                ? "hover:border-navy hover:bg-navy hover:text-lime"
+                : "opacity-30",
+            )}
+          >
+            <ChevronLeft size={16} aria-hidden="true" />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => scrollByCards(1)}
+            disabled={!canNext}
+            title="View next instructors"
+            aria-label="Next instructors"
+            aria-controls="trainer-grid"
+            className={cn(
+              "grid size-9.5 place-items-center rounded-full border border-ink/20 bg-white text-ink transition-colors duration-200",
+              canNext
+                ? "hover:border-navy hover:bg-navy hover:text-lime"
+                : "opacity-30",
+            )}
+          >
+            <ChevronRight size={16} aria-hidden="true" />
+          </button>
         </Box>
       ) : null}
 
@@ -129,6 +225,14 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                 </Text>
               ) : null}
 
+                {years ? (
+                  <Text
+                    as="p"
+                    className="mb-3.5 font-mono text-[10px] tracking-[0.13em] text-ink/60 uppercase"
+                  >
+                    {years}
+                  </Text>
+                ) : null}
               {trainer.years ? (
                 <Text
                   as="p"
@@ -142,7 +246,7 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                 <Box className="mt-0.5 mb-4 flex items-center gap-2.5 rounded-[8px] bg-paper-warm p-3">
                   <Box className="inline-flex items-center gap-1.25 font-display text-sm font-bold tracking-[-0.01em] text-ink">
                     <Star size={13} strokeWidth={0} fill="currentColor" />
-                    {trainer.rating}
+                    {trainer.rating ?? "4.9"}
                   </Box>
 
                   <Box className="h-3 w-px flex-none bg-ink/20" />
@@ -151,10 +255,9 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                     as="span"
                     className="font-mono text-[10px] leading-[1.3] tracking-[0.07em] text-ink/60 uppercase"
                   >
-                    {trainer.sessions} sessions delivered
+                    {trainer.sessions ?? "180+"} sessions delivered
                   </Text>
                 </Box>
-              ) : null}
 
               {trainer.specializations?.length ? (
                 <Box className="mt-auto flex flex-wrap gap-1.5">

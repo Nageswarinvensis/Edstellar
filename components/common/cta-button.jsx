@@ -17,6 +17,19 @@ function labelFromChildren(children) {
   return label.trim() || undefined;
 }
 
+function titleCase(str) {
+  return str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+/** "View trainer profile" -> "Click Here to View Trainer Profile" — the
+ * label already carries its own "View", so it's stripped before re-adding
+ * the fixed lead-in instead of doubling it up. */
+function deriveTitle(label) {
+  if (!label) return undefined;
+  const subject = label.replace(/^view\s+/i, "");
+  return `Click Here to View ${titleCase(subject)}`;
+}
+
 /**
  * The pill button from the designs.
  *
@@ -91,7 +104,7 @@ function CtaButton({
   ...props
 }) {
   const label = labelFromChildren(children) || props["aria-label"];
-  const derivedTitle = title ?? (label ? `Click Here to View ${label}` : undefined);
+  const derivedTitle = title ?? deriveTitle(label);
 
   return (
     <ButtonPrimitive
