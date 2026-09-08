@@ -1,119 +1,110 @@
-.faq {
-  background-color: white;
-  padding: 1rem;
-  margin: 10px 0;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+body {
+  --navy: #0a1628;
+  --navy-soft: #14233d;
+  --navy-deep: #050d1a;
+  --lime: #c8f135;
+  --lime-soft: #e4f89a;
+  --lime-ink: #6f8c0f;
+  --lime-quote: #7c9c10;
+  --paper: #fafaf7;
+  --paper-warm: #f2f0e8;
+  --paper-cream: #ede9dd;
+  --white: #fff;
+  --ink: #0a1628;
+  --muted: rgba(10, 22, 40, 0.6);
+  --muted-soft: rgba(10, 22, 40, 0.45);
+  --rule: rgba(10, 22, 40, 0.12);
+  --rule-strong: rgba(10, 22, 40, 0.22);
+  --paper-on-dark: rgba(250, 250, 247, 0.78);
+  --label-on-dark: rgba(250, 250, 247, 0.55);
+  --rule-on-dark: rgba(250, 250, 247, 0.12);
+
+  --display: "Sora", sans-serif;
+  --serif: "Cormorant Garamond", serif;
+  --body: "DM Sans", sans-serif;
+  --mono: "DM Mono", monospace;
+
+  font-family: var(--body);
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
 
+.faq {
+  display: block;
+  border-top: 1px solid var(--rule-strong);
+  margin: 40px 0;
+}
 .faq-item {
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--rule);
 }
 
 .faq-question {
-  cursor: pointer;
-  padding: 12px;
   display: flex;
-  column-gap: 10px;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: color 0.2s;
 }
-
-.faq-question h3,
 .faq-question p {
   margin: 0;
+  font-family: var(--display);
   font-weight: 600;
-  font-size: 18px;
-  line-height: 28px;
-  word-wrap: break-word;
-  transition: color 0.3s ease;
+  font-size: 16.5px;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
-
-.faq-item.active > .faq-question h3,
-.faq-question:hover h3 {
-  color: #264cbe;
-}
-.faq-item.active > .faq-question p,
 .faq-question:hover p {
-  color: #264cbe;
+  color: var(--lime-ink);
 }
 
-.faq-item.active .toggle-icon,
-.faq-question:hover .toggle-icon {
-  border-color: #264cbe;
+/* Plus → minus morph, per the brand accordion spec. */
+.faq-question .toggle-icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
 }
-
-.faq-item.active .toggle-icon::before,
-.faq-item.active .toggle-icon::after,
-.faq-question:hover .toggle-icon::before,
-.faq-question:hover .toggle-icon::after {
-  background-color: #264cbe;
+.faq-question .toggle-icon::before,
+.faq-question .toggle-icon::after {
+  content: "";
+  position: absolute;
+  background: var(--ink);
+  transition: transform 0.3s;
 }
-
-@media (max-width: 568px) {
-  .faq-question h3 {
-    font-size: 18px;
-    line-height: 24px;
-  }
-  .faq-question p {
-    font-size: 18px;
-    line-height: 24px;
-  }
-  .faq {
-    padding: 0;
-  }
+.faq-question .toggle-icon::before {
+  top: 9px;
+  left: 2px;
+  width: 16px;
+  height: 2px;
+}
+.faq-question .toggle-icon::after {
+  top: 2px;
+  left: 9px;
+  width: 2px;
+  height: 16px;
+}
+.faq-item.active .toggle-icon::after {
+  transform: scaleY(0);
 }
 
 .faq-answer {
-  padding: 0 16px;
   max-height: 0;
   overflow: hidden;
-  transition:
-    max-height 0.4s ease,
-    padding 0.4s ease;
+  transition: max-height 0.4s ease;
 }
-
 .faq-item.active .faq-answer {
-  max-height: 500px; /* Adjust based on content */
-  padding: 10px 16px;
+  max-height: 1200px;
 }
-
-.toggle-icon {
-  min-width: 20px;
-  min-height: 20px;
-  border: 2px solid black;
-  border-radius: 50%;
-  position: relative;
-  transition: border-color 0.3s ease;
-}
-
-.toggle-icon::before,
-.toggle-icon::after {
-  content: "";
-  position: absolute;
-  background-color: black;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.toggle-icon::before {
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 2px;
-  transform: translate(-50%, -50%);
-}
-
-.toggle-icon::after {
-  top: 50%;
-  left: 50%;
-  width: 2px;
-  height: 10px;
-  transform: translate(-50%, -50%);
-}
-
-.faq-item.active .toggle-icon::after {
-  transform: translate(-50%, -50%) rotate(90deg);
+.faq-answer p {
+  margin: 0;
+  padding: 0 44px 22px 0;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--muted);
 }

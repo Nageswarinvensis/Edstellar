@@ -257,7 +257,7 @@ function Pagination({ currentPage, totalPages, onPageChange, data }) {
     onPageChange(page);
 
     requestAnimationFrame(() => {
-      document.getElementById("program-catalog")?.scrollIntoView({
+      document.getElementById("by-discipline")?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -474,7 +474,7 @@ export default function Program({ data }) {
             {data.catalog.ofLabel} {filteredCourses.length}{" "}
             <span className="mx-1.25 text-link-muted">-</span>
             <a
-              href="#program-catalog"
+              href="#by-discipline"
               className={[
                 "text-link-muted",
                 "tracking-[1px]",

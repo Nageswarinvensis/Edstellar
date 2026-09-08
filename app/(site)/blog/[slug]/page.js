@@ -17,7 +17,8 @@ import AccordionInteractivity from "@/components/blog/accordion-interactivity";
 // per content-type would require giving each type its own route segment
 // (e.g. `/blog/{type}/{slug}`), which is a routing-contract change, not a
 // styling one — flagged separately rather than done silently here.
-import "@/app/styles/blog-content/BlogContent.css";
+
+import "@/app/styles/blog-content/BlogContent1.css";
 import "@/app/styles/blog-content/Faq.css";
 import "@/app/styles/blog-content/InDemandSkills.css";
 import "@/app/styles/blog-content/CoporateCompanies.css";
