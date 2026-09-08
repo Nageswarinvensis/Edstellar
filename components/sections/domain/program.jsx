@@ -27,7 +27,7 @@ function FilterButton({ active, children, onClick }) {
       onClick={onClick}
       className={[
         "shrink-0 cursor-pointer rounded-[6px] border px-3 py-1.5",
-        "text-[11px] font-medium leading-none",
+        "text-[12px] font-medium leading-none",
         "transition-all duration-200",
         active
           ? "border-ink bg-ink text-lime"
@@ -192,14 +192,14 @@ function CourseCard({ course, data }) {
 
         <Text
           as="h3"
-          className="text-[15px] font-semibold leading-[1.2] tracking-[-0.25px] text-ink"
+          className="text-[16px] font-semibold leading-[1.2] tracking-[-0.25px] text-ink"
         >
           {course.title}
         </Text>
 
         <Text
           as="p"
-          className="mt-1.25 line-clamp-2 text-[11px] leading-[1.45] text-ink-muted"
+          className="mt-1.25 line-clamp-2 text-[12px] leading-[1.45] text-ink-muted"
         >
           {course.description}
         </Text>
@@ -257,7 +257,7 @@ function Pagination({ currentPage, totalPages, onPageChange, data }) {
     onPageChange(page);
 
     requestAnimationFrame(() => {
-      document.getElementById("program-catalog")?.scrollIntoView({
+      document.getElementById("by-discipline")?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -505,7 +505,7 @@ export default function Program({ data }) {
                 "h-8.5 w-full rounded-[8px]",
                 "border border-ink-muted",
                 "bg-white pl-7.5 pr-8",
-                "text-[11px] text-ink",
+                "text-[12px] text-ink",
                 "outline-none",
                 "placeholder:text-[#89909A]",
                 "focus:border-ink",
