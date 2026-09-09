@@ -7,6 +7,8 @@ import { blogPostingJsonLd } from "@/lib/seo/json-ld";
 
 import Text from "@/components/ui/Text";
 import AccordionInteractivity from "@/components/blog/accordion-interactivity";
+import WhatsNewInteractivity from "@/components/blog/whats-new-interactivity";
+import HighlightReveal from "@/components/blog/highlight-reveal";
 
 // `/blog/{slug}` is one flat route template (TASTE.md route contract), so
 // Next.js's static CSS extraction merges everything reachable from this file
@@ -103,6 +105,8 @@ export default async function BlogPostPage({ params }) {
       {post.styleBlocks.some((block) => INTERACTIVE_BLOCKS.includes(block)) && (
         <AccordionInteractivity />
       )}
+      {post.styleBlocks.includes("whatsNew") && <WhatsNewInteractivity />}
+      {post.styleBlocks.includes("highlight") && <HighlightReveal />}
     </>
   );
 }
