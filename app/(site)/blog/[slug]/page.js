@@ -23,6 +23,7 @@ import "@/app/styles/blog-content/Faq.css";
 import "@/app/styles/blog-content/InDemandSkills.css";
 import "@/app/styles/blog-content/CoporateCompanies.css";
 import "@/app/styles/blog-content/Games.css";
+import "@/app/styles/blog-content/whats-new.css";
 
 export const revalidate = 300;
 

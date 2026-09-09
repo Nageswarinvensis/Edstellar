@@ -7,6 +7,13 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
+function formatDuration(duration) {
+  if (!duration) return null;
+  const range = String(duration).match(/^(\d+)\s*-\s*(\d+)$/);
+  if (range) return `${range[1]} - ${range[2]} hrs`;
+  return /^\d+$/.test(String(duration).trim()) ? `${duration} hrs` : duration;
+}
+
 function ProgramCard({ program }) {
   return (
     <Box
@@ -101,17 +108,19 @@ function ProgramConnector() {
 }
 
 function RelatedCourseCard({ course }) {
+  const duration = formatDuration(course.duration);
+
   return (
     <Box
       as="a"
-      href={course.href}
+      href={`/corporate-training/${course.slug}`}
       className="group relative flex h-full min-h-27.5 flex-col rounded-[12px] border border-ink/12 bg-white px-4 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#0a162838] hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.5)]"
     >
       <Text
         as="h3"
-        className="pr-4 text-[14px] font-semibold --tw-leading: 1.25 tracking-[-0.02em] text-ink transition-colors duration-200"
+        className="pr-4 text-[14px] font-semibold leading-[1.25] tracking-[-0.02em] text-ink transition-colors duration-200"
       >
-        {course.title}
+        {course.name}
       </Text>
 
       <Box className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -119,29 +128,31 @@ function RelatedCourseCard({ course }) {
           as="span"
           className="font-mono text-[8px] uppercase tracking-[0.14em] text-ink/60"
         >
-          {course.meta}
+          Instructor-led
         </Text>
 
-        <Text
-          as="span"
-          className="font-mono text-[8px] uppercase tracking-[0.14em] text-ink/60"
-        >
-          {course.type}
-        </Text>
+        {duration && (
+          <Box className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-[0.14em] text-ink/60">
+            <Clock3 size={10} strokeWidth={1.5} className="shrink-0" />
+            <span>{duration}</span>
+          </Box>
+        )}
       </Box>
 
       <Text
         as="span"
         className="mt-auto pt-4 font-mono text-[8px] uppercase tracking-[0.14em] text-ink/60"
       >
-        {course.cta}
+        View course
       </Text>
     </Box>
   );
 }
 
-export default function WhyEds({ data }) {
+export default function WhyEds({ data, relatedCourses }) {
   if (!data) return null;
+
+  const relatedCourseItems = relatedCourses?.dynamic_data;
 
   return (
     <Section
@@ -174,22 +185,23 @@ export default function WhyEds({ data }) {
           ))}
         </Box>
 
-        <Box className="mt-12 sm:mt-14 lg:mt-16">
-          <Text
-            as="h3"
-            className="mb-5 text-[16px] font-semibold tracking-[-0.02em]"
-          >
-            {data.related_label}
-          </Text>
+        {relatedCourseItems?.length > 0 && (
+          <Box className="mt-12 sm:mt-14 lg:mt-16">
+            <RichHeading
+              as="h3"
+              heading={relatedCourses.heading}
+              className="mb-5 text-[16px] font-semibold tracking-[-0.02em]"
+            />
 
-          <Box className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
-            {data.related_courses?.map((course, index) => (
-              <Reveal key={course.title} delay={3}>
-                <RelatedCourseCard course={course} />
-              </Reveal>
-            ))}
+            <Box className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedCourseItems.map((course) => (
+                <Reveal key={course.slug} delay={3}>
+                  <RelatedCourseCard course={course} />
+                </Reveal>
+              ))}
+            </Box>
           </Box>
-        </Box>
+        )}
       </Box>
     </Section>
   );

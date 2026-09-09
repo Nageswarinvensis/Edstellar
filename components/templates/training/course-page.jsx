@@ -59,7 +59,7 @@ export default function CoursePage({ course }) {
         <Faq faqs={course.faqs ?? course.Faqs} />
       </PageToc>
 
-      <WhyEdstellar data={course.WhyEds} />
+      <WhyEdstellar data={course.WhyEds} relatedCourses={course.related_courses} />
       <MapSection data={course.mapsectionData} />
       <GroupQuote />
       <LeadForm data={course.leadForm} />
