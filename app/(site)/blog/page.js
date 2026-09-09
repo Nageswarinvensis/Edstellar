@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import Section from "@/components/ui/Section";
 import Text from "@/components/ui/Text";
 
-export const revalidate = 300;
+export const revalidate = 86400;
 
 export function generateMetadata() {
   return buildMetadata({

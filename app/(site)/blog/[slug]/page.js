@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-import { getBlogPost, getBlogSlugs } from "@/lib/content/blog";
+import { getBlogPost } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { blogPostingJsonLd } from "@/lib/seo/json-ld";
 
@@ -25,14 +25,12 @@ import "@/app/styles/blog-content/CoporateCompanies.css";
 import "@/app/styles/blog-content/Games.css";
 import "@/app/styles/blog-content/whats-new.css";
 
-export const revalidate = 300;
+// No generateStaticParams: ~470 posts prerendering concurrently at build
+// time is what was fanning out into a rate-limit storm against the blog
+// API. Posts render on first request instead and are cached for a day.
+export const revalidate = 86400;
 
 const INTERACTIVE_BLOCKS = ["faq", "companies"];
-
-export async function generateStaticParams() {
-  const slugs = await getBlogSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
