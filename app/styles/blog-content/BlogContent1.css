@@ -980,6 +980,8 @@ h3 {
   overflow-x: auto;
   margin: 28px 0;
   -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--rule-strong);
+  border-radius: 14px;
 }
 
 /*
@@ -993,8 +995,7 @@ h3 {
 .blog-content table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid var(--rule);
-  border-radius: 14px;
+
   overflow: hidden;
   margin: 28px 0;
   font-family: var(--body);
@@ -1008,6 +1009,9 @@ h3 {
 .blog-content .scrollable-table table,
 .blog-content .table-scroll table {
   margin: 0;
+  border-radius: 14px;
+  border: 1px solid red;
+  border-radius: 14px;
 }
 .blog-content th {
   font-family: var(--mono);
