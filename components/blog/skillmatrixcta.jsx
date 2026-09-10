@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -7,27 +8,23 @@ import Text from "@/components/ui/Text";
 export default function SkillMatrixCTA() {
   return (
     <Box>
-      <Box
-        className="relative mt-4 flex flex-col items-center overflow-hidden rounded-[10px] border border-[#ACC8FF] px-5 py-6"
-        style={{
-          background:
-            "linear-gradient(180deg, #EBF1F9 0%, #1B40A9 60%)",
-        }}
-      >
+      <Box className="relative mt-4 flex flex-col items-center overflow-hidden rounded-[10px] border border-[#ACC8FF] bg-[linear-gradient(180deg,#EBF1F9_0%,#1B40A9_0%)] px-5 py-6 lg:bg-[linear-gradient(180deg,#EBF1F9_0%,#1B40A9_60%)]">
         {/* Background Shape */}
-        <Box
-          as="img"
+        <Image
           src="https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6655839314c7d45134aefd3b_Mask%20group.svg"
           alt=""
-          className="absolute top-0 left-0 w-full"
+          width={400}
+          height={200}
+          className="absolute top-0 left-0 hidden w-full lg:block"
         />
 
         {/* Laptop Image */}
-        <Box
-          as="img"
+        <Image
           src="https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/66aa1ed5aad60946c5bcd759_Skill%20matrix.webp"
           alt="Skill Matrix Tool Dashboard"
-          className="relative z-10 mb-6 w-61"
+          width={244}
+          height={160}
+          className="relative z-10 mb-6 hidden w-61 lg:block"
         />
 
         {/* Content */}

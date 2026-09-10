@@ -79,9 +79,9 @@ export default async function BlogPostPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BlogHero />
+      <BlogHero title={post.title} description={post.description} />
       <Section className="bg-white py-12">
-        <Box className="mx-auto grid max-w-7xl grid-cols-[200px_minmax(0,1fr)_270px] gap-4">
+        <Box className="mx-auto grid max-w-7xl grid-cols-1 gap-4 lg:grid-cols-[200px_minmax(0,1fr)_270px]">
           {/* LEFT - Table of Contents */}
           <Box className="hidden lg:block">
             <TableOfContents />
@@ -106,41 +106,14 @@ export default async function BlogPostPage({ params }) {
           </Box>
 
           {/* RIGHT - CTA Cards */}
-          <Box className="relative hidden h-full lg:block">
-            <Box className="mb-4 h-[16.6%]">
-              <Box className="sticky top-20">
-                <TrainingCard />
-              </Box>
-            </Box>
-
-            <Box className="mb-4 h-[16.6%]">
-              <Box className="sticky top-20">
-                <TrainingCatalogCTA />
-              </Box>
-            </Box>
-
-            <Box className="mb-4 h-[16.6%]">
-              <Box className="sticky top-20">
-                <CoachingCTA />
-              </Box>
-            </Box>
-
-           <Box className="mb-4 h-[16.6%]">
-              <Box className="sticky top-20">
-                <SkillMatrixCTA />
-              </Box>
-            </Box>
-
-            <Box className="mb-4 h-[16.6%]">
-              <Box className="sticky top-20">
-                <BlogTrainingCTA />
-              </Box>
-            </Box>
-
-            <Box className="mb-4 h-[16.6%]">
-              <Box className="sticky top-20">
-                <RelatedPosts />
-              </Box>
+          <Box className="relative h-full">
+            <Box className="flex flex-col gap-4 lg:sticky lg:top-20">
+              <TrainingCard />
+              <TrainingCatalogCTA />
+              <CoachingCTA />
+              <SkillMatrixCTA />
+              <BlogTrainingCTA />
+              <RelatedPosts />
             </Box>
           </Box>
         </Box>

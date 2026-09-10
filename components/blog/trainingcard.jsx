@@ -47,7 +47,7 @@ const courses = [
 
 export default function TrainingCard() {
   return (
-    <Box className="w-full max-w-67.5 rounded-2xl border border-blue-300 bg-[#eef5ff] p-5">
+    <Box className="w-full rounded-2xl border border-blue-300 bg-[#eef5ff] p-5 lg:max-w-67.5">
       <Reveal>
         <Box>
           <Text

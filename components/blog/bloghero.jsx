@@ -1,7 +1,7 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 
-export default function BlogHero({ category, title }) {
+export default function BlogHero({ category, title, description }) {
   return (
     <section className="relative overflow-hidden bg-linear-to-r from-[#284bb3] via-[#3f48c9] to-[#5145e8] px-5 py-20 text-white">
       <Box className="pointer-events-none absolute inset-0">
@@ -13,29 +13,29 @@ export default function BlogHero({ category, title }) {
       </Box>
 
       <Box className="relative mx-auto max-w-4xl text-center">
-        <Box className="mb-6 inline-flex rounded-full bg-white/10 px-3 py-1.5">
-          <Text
-            as="span"
-            className="text-[12px] font-semibold leading-none text-white"
-          >
-            {category}
-          </Text>
-        </Box>
-
-            <Text as="h1" className="mb-6 text-white">
-            12 Must-have Skills for a Site Reliability Engineer (SRE) in 2026
+        {category && (
+          <Box className="mb-6 inline-flex rounded-full bg-white/10 px-3 py-1.5">
+            <Text
+              as="span"
+              className="text-[12px] font-semibold leading-none text-white"
+            >
+              {category}
             </Text>
+          </Box>
+        )}
 
-
-        <Text
-          as="p"
-          className="mx-auto mt-6 max-w-3xl text-[16px] font-normal leading-[1.7] text-white/90"
-        >
-          A comprehensive list of the top in-demand skills in Mauritius,
-          evaluated by a business development professional with 34 years of
-          success across public and private sectors, specializing in stakeholder
-          engagement and cross border cooperation.
+        <Text as="h1" className="mb-6 text-white">
+          {title}
         </Text>
+
+        {description && (
+          <Text
+            as="p"
+            className="mx-auto mt-6 max-w-3xl text-[16px] font-normal leading-[1.7] text-white/90"
+          >
+            {description}
+          </Text>
+        )}
 
         <Box className="mx-auto mt-6 h-px max-w-2xl bg-white/20" />
 

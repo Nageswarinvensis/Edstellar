@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -7,13 +8,13 @@ import Text from "@/components/ui/Text";
 export default function BlogTrainingCTA() {
   return (
     <Box>
-      <Box className="relative flex flex-col items-center justify-center overflow-hidden rounded-[5px] border border-[#ACC8FF] px-5 pt-6 pb-[240px]">
+      <Box className="relative flex flex-col items-center justify-center overflow-hidden rounded-[5px] border border-[#ACC8FF] px-5 pt-6 pb-6 lg:pb-[240px]">
         {/* Background Image */}
-        <Box
-          as="img"
+        <Image
           src="https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6655839414c7d45134aefdb3_Group%201000005623.webp"
           alt="Have a Training Requirement?"
-          className="absolute inset-0 -z-10 h-full w-full rounded-[5px] object-cover"
+          fill
+          className="-z-10 hidden rounded-[5px] object-cover lg:block"
         />
 
         {/* Content */}
@@ -24,6 +25,13 @@ export default function BlogTrainingCTA() {
           >
             Have a Training Requirement?
           </Text>
+
+          <Link
+            href="/enquiry-now"
+            className="mb-4 inline-flex items-center justify-center rounded-lg border-2 border-[#264CBE] px-6 py-3 text-sm font-medium text-[#264CBE] transition-colors hover:bg-[#264CBE] hover:text-white"
+          >
+            Get a Quote now
+          </Link>
 
           <Link
             href="/corporate-training-pricing"
