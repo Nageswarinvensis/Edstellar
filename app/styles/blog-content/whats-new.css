@@ -10,6 +10,9 @@
   border-radius: 22px;
   padding: 28px 32px;
   margin: 36px 0;
+  /* Clears the sticky site header (h-17, ~68px) plus breathing room so the
+     "What's New" hero link doesn't scroll this flush under the header. */
+  scroll-margin-top: 96px;
 }
 .whats-new .wats-image-abs {
   position: absolute;

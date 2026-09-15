@@ -91,6 +91,7 @@ html {
   color: var(--ink);
   text-decoration: none;
   position: relative;
+  cursor: pointer;
   transition: color 0.2s;
 }
 .blog-content a::after {

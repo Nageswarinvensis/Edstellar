@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { format } from "date-fns";
 
 /**
  * Progressive enhancement for the `.whats-new` box the CMS body HTML ships as
@@ -12,20 +13,20 @@ import { useEffect } from "react";
  *   scrolls straight to the heading `lib/content/blog.js` generates that same
  *   id for (`addHeadingIds`) instead of hunting for a TOC link that doesn't
  *   exist here.
- * - `#last-revised-date` is filled in from `#update-date`, a hidden CMS field
- *   elsewhere in the post body carrying the raw "Updated On {date}" text.
+ * - `#last-revised-date` is filled in from `lastRevisedDate` (`blog.meta.site_published_at`),
+ *   the same field `BlogHero`'s "Updated On" label reads, rather than parsed
+ *   out of a hidden CMS body field — one source of truth for that date.
  */
-export default function WhatsNewInteractivity() {
+export default function WhatsNewInteractivity({ lastRevisedDate }) {
   useEffect(() => {
     const hub = document.querySelector(".whats-new-hub");
     if (hub) {
       hub.style.display = document.querySelector(".whats-new") ? "flex" : "none";
     }
 
-    const updateDateEl = document.getElementById("update-date");
     const revisedDateEl = document.getElementById("last-revised-date");
-    if (updateDateEl && revisedDateEl) {
-      revisedDateEl.innerHTML = `<b>${updateDateEl.innerText.replace("Updated On", "").trim()}</b>`;
+    if (revisedDateEl && lastRevisedDate) {
+      revisedDateEl.innerHTML = `<b>${format(new Date(lastRevisedDate), "MMM d, yyyy")}</b>`;
     }
 
     function handleClick(e) {
@@ -39,7 +40,7 @@ export default function WhatsNewInteractivity() {
 
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
-  }, []);
+  }, [lastRevisedDate]);
 
   return null;
 }

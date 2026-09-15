@@ -49,7 +49,8 @@ export default function SkillMatrixCTA() {
           <Link
             href="/skill-matrix"
             target="_blank"
-            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-[8px] bg-[#C8E130] px-6 text-[16px] font-semibold text-[#1C1C1C] transition hover:opacity-90"
+            title="Click Here to View Free Skill Matrix Tool"
+            className="inline-flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-[8px] bg-[#C8E130] px-6 text-[16px] font-semibold text-[#1C1C1C] transition hover:opacity-90"
           >
             <Text as="span">Get Started</Text>
 

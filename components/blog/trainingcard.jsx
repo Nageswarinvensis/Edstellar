@@ -74,7 +74,7 @@ export default function TrainingCard() {
                   key={course.name}
                   href={course.href}
                   title={`Click Here to View ${course.name}`}
-                  className="group flex items-center justify-between rounded-md bg-white px-2 py-1.5 text-[#215aff] transition"
+                  className="group flex cursor-pointer items-center justify-between rounded-md bg-white px-2 py-1.5 text-[#215aff] transition"
                 >
                   <Box className="flex min-w-0 items-center gap-2">
                     <Box className="flex h-8 w-8 shrink-0 items-center justify-center">

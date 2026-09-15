@@ -198,10 +198,9 @@ tr:nth-child(even) {
 }
 
 .co-card ul {
-  padding-left: 20px;
+  padding-left: 0px;
   margin-bottom: 12px;
   margin-top: 10px;
-  list-style: disc;
 }
 
 .co-card li {

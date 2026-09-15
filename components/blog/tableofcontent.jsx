@@ -86,7 +86,7 @@ export default function TableOfContents() {
           <a
             key={item.id}
             href={`#${item.id}`}
-            className={`block border-l-2 px-2 py-1.25 text-[12px] leading-4 transition-all ${
+            className={`block cursor-pointer border-l-2 px-2 py-1.25 text-[12px] leading-4 transition-all ${
               item.level === "h3" ? "ml-3" : ""
             } ${
               activeId === item.id

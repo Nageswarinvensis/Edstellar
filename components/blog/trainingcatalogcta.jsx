@@ -16,7 +16,8 @@ export default function TrainingCatalogCTA() {
 
       <a
         href="/corporate-training-catalog"
-        className="mt-5 inline-flex rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#1557ff]"
+        title="Click Here to View Training Catalog"
+        className="mt-5 inline-flex cursor-pointer rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#1557ff]"
       >
         View Training Catalog
       </a>

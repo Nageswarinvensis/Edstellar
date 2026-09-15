@@ -28,7 +28,8 @@ export default function BlogTrainingCTA() {
           <Link
             href="/corporate-training-pricing"
             target="_blank"
-            className="flex items-center gap-2.5 text-black"
+            title="Click Here to View Training Pricing Packages"
+            className="flex cursor-pointer items-center gap-2.5 text-black"
           >
             <Text as="span">View Training Pricing Packages</Text>
 

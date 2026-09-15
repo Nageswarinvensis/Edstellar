@@ -33,7 +33,8 @@ export default function CoachingCTA() {
           <Link
             href="/coaching-solutions"
             target="_blank"
-            className="flex items-center gap-2.5 text-[#FCD635] transition-opacity hover:opacity-80"
+            title="Click Here to View 50+ Coaching Programs"
+            className="flex cursor-pointer items-center gap-2.5 text-[#FCD635] transition-opacity hover:opacity-80"
           >
             <Text className="text-white" as="span">Explore 50+ Coaching Programs</Text>
 

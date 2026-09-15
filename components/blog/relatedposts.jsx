@@ -32,7 +32,11 @@ export default function RelatedPosts() {
                 In-Demand Skills
               </Text>
 
-              <Link href="">
+              <Link
+                href=""
+                title={`Click Here to View ${post}`}
+                className="cursor-pointer"
+              >
                 <Text
                   as="h3"
                   className="text-[16px] font-semibold leading-[1.35] text-[#202020] transition-colors duration-300 hover:text-blue-600"
