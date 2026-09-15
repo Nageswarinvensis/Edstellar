@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 
-export default function BlogTrainingCTA() {
+export default function BlogDetailTrainingCta() {
   return (
     <Box>
       <Box className="relative flex flex-col items-center justify-center overflow-hidden rounded-[5px] border border-[#ACC8FF] px-5 pt-6 pb-[240px]">

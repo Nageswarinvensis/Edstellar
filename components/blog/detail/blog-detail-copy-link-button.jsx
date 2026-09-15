@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 
-export default function CopyLinkButton({ url, label = "Copy author link" }) {
+export default function BlogDetailCopyLinkButton({ url, label = "Copy author link" }) {
   const [copied, setCopied] = useState(false);
 
   async function handleCopy() {

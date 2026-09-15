@@ -1,10 +1,9 @@
-import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
 
-import { getBlogPosts } from "@/lib/content/blog";
+import { getBlogMain } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-import Section from "@/components/ui/Section";
-import Text from "@/components/ui/Text";
+import BlogMain from "@/components/blog/blog-main";
 
 export const revalidate = 86400;
 
@@ -16,27 +15,18 @@ export function generateMetadata() {
   });
 }
 
-export default async function BlogIndexPage() {
-  const posts = await getBlogPosts();
+export default async function BlogIndexPage({ searchParams }) {
+  const { page: pageParam } = await searchParams;
 
-  return (
-    <Section>
-      <Text as="h1" className="mb-8">
-        Blog
-      </Text>
+  // Same as the author/category hero pages: pagination swaps posts in place
+  // on the client, so the URL never carries a page number.
+  if (pageParam !== undefined) {
+    redirect("/blog");
+  }
 
-      <ul className="flex flex-col gap-6">
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`} className="group">
-              <Text as="h3" className="group-hover:text-olive">
-                {post.title}
-              </Text>
-              <Text as="p">{post.description}</Text>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </Section>
-  );
+  const payload = await getBlogMain(1);
+
+  if (!payload?.blogs) notFound();
+
+  return <BlogMain posts={payload.blogs} categories={payload.categories} />;
 }

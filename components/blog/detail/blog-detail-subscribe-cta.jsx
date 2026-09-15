@@ -4,7 +4,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import CtaButton from "@/components/common/cta-button";
 
-export default function BlogSubscribeCta() {
+export default function BlogDetailSubscribeCta() {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2">
       <Box className="relative h-64 lg:h-auto">

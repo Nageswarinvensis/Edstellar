@@ -72,7 +72,7 @@ function splitIntoLines(el) {
   });
 }
 
-export default function HighlightReveal() {
+export default function BlogDetailHighlightReveal() {
   useEffect(() => {
     const originals = document.querySelectorAll(".highlet");
     if (!originals.length) return;

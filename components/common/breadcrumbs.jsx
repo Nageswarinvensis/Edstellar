@@ -20,7 +20,7 @@ function slugToLabel(slug) {
  * Renders CMS/local `items` verbatim when provided. Falls back to a trail
  * auto-built from the current URL path only when no `items` are passed.
  */
-function Breadcrumbs({ items: itemsProp, className }) {
+function Breadcrumbs({ items: itemsProp, className, tone = "light" }) {
   const pathname = usePathname();
 
   const items =
@@ -40,12 +40,15 @@ function Breadcrumbs({ items: itemsProp, className }) {
 
   if (items.length <= 1) return null;
 
+  const isDark = tone === "dark";
+
   return (
     <Box
       as="nav"
       aria-label="Breadcrumb"
       className={cn(
-        "mt-6 flex flex-wrap items-center gap-1.5 font-mono text-[9.5px] tracking-[0.1em] text-ink-muted uppercase",
+        "mt-6 flex flex-wrap items-center gap-1.5 font-mono text-[9.5px] tracking-[0.1em] uppercase",
+        isDark ? "text-paper/60" : "text-ink-muted",
         className,
       )}
     >
@@ -60,14 +63,19 @@ function Breadcrumbs({ items: itemsProp, className }) {
             {isLast || !item.href ? (
               <span
                 aria-current={isLast ? "page" : undefined}
-                className={isLast ? "font-semibold" : undefined}
+                className={cn(isLast && "font-semibold", isDark && isLast && "text-paper")}
               >
                 {item.label}
               </span>
             ) : (
               <Link
                 href={item.href}
-                className="transition-colors hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+                className={cn(
+                  "transition-colors focus-visible:outline-2 focus-visible:outline-offset-2",
+                  isDark
+                    ? "hover:text-paper focus-visible:outline-paper"
+                    : "hover:text-navy focus-visible:outline-navy",
+                )}
               >
                 {item.label}
               </Link>

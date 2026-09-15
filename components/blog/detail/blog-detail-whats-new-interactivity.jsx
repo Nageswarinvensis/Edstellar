@@ -17,7 +17,7 @@ import { format } from "date-fns";
  *   the same field `BlogHero`'s "Updated On" label reads, rather than parsed
  *   out of a hidden CMS body field — one source of truth for that date.
  */
-export default function WhatsNewInteractivity({ lastRevisedDate }) {
+export default function BlogDetailWhatsNewInteractivity({ lastRevisedDate }) {
   useEffect(() => {
     const hub = document.querySelector(".whats-new-hub");
     if (hub) {

@@ -93,6 +93,12 @@ html {
   position: relative;
   cursor: pointer;
   transition: color 0.2s;
+  /* Some per-post embedded CMS styles (e.g. `.source-tile-link`) put an <a>
+     inside a column flexbox with no `align-items` set, so it defaults to
+     `stretch` and the anchor's box fills the card's full width. The hover
+     underline below is sized to that box (`width: 100%`), so without this it
+     draws end-to-end across the card instead of under the link text. */
+  align-self: flex-start;
 }
 .blog-content a::after {
   content: "";

@@ -1,37 +1,53 @@
+import { notFound, redirect } from "next/navigation";
+
+import { getBlogCategory, getBlogMain } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { titleFromSlug } from "@/lib/slug";
+
+import CategoryHero from "@/components/blog/category-hero";
+
+export const revalidate = 300;
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const name = titleFromSlug(slug);
+  const category = await getBlogCategory(slug);
+
+  if (!category) return {};
+
+  const meta = category.meta || {};
 
   return buildMetadata({
-    title: `{name} | Category`,
-    description: `Articles, insights and resources about ${name}.`,
-    path: `/blog/category/${slug}`,
+    title: meta.meta_title || `${category.name} | Category`,
+    description:
+      meta.meta_description ||
+      category.description ||
+      `Articles, insights and resources about ${category.name}.`,
+    path: `/blog/category/${category.slug}`,
   });
 }
 
-export default async function CategoryPage({ params }) {
+export default async function CategoryPage({ params, searchParams }) {
   const { slug } = await params;
+  const { page: pageParam } = await searchParams;
 
-  const heading = slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+  // Same as the author hero: pagination swaps posts in place on the client
+  // (components/blog/common/blog-posts.jsx), so the URL never carries a page
+  // number — a stray `?page=` is stripped back to the canonical URL.
+  if (pageParam !== undefined) {
+    redirect(`/blog/category/${slug}`);
+  }
+
+  const [category, blogMain] = await Promise.all([
+    getBlogCategory(slug, 1),
+    getBlogMain(1),
+  ]);
+
+  if (!category) notFound();
 
   return (
-<section>
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500">
-          Category
-        </p>
-
-        <h1 className="text-4xl font-bold md:text-5xl">{heading}</h1>
-
-        <p className="mt-4 max-w-3xl text-lg text-gray-600">
-          Explore the latest insights, articles, and resources related to{" "}
-          {heading}.
-        </p>
-      </section>
+    <CategoryHero
+      category={category}
+      slug={slug}
+      categories={blogMain?.categories}
+    />
   );
 }

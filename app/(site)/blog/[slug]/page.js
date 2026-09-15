@@ -3,37 +3,31 @@ import path from "node:path";
 
 import { notFound } from "next/navigation";
 
-import { getBlogPost } from "@/lib/content/blog";
+import { getBlogPost, getBlogMain } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { blogPostingJsonLd } from "@/lib/seo/json-ld";
 
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
+import Breadcrumbs from "@/components/common/breadcrumbs";
 
-import AccordionInteractivity from "@/components/blog/accordion-interactivity";
-import WhatsNewInteractivity from "@/components/blog/whats-new-interactivity";
-import HighlightReveal from "@/components/blog/highlight-reveal";
+import BlogDetailAccordionInteractivity from "@/components/blog/detail/blog-detail-accordion-interactivity";
+import BlogDetailWhatsNewInteractivity from "@/components/blog/detail/blog-detail-whats-new-interactivity";
+import BlogDetailHighlightReveal from "@/components/blog/detail/blog-detail-highlight-reveal";
 
-import BlogHero from "@/components/blog/bloghero";
-import AuthorCard from "@/components/blog/author-card";
-import BlogSubscribeCta from "@/components/blog/blog-subscribe-cta";
-import TableOfContents from "@/components/blog/tableofcontent";
-import TrainingCard from "@/components/blog/trainingcard";
-import TrainingCatalogCTA from "@/components/blog/trainingcatalogcta";
-import CoachingCTA from "@/components/blog/coachingcta";
-import SkillMatrixCTA from "@/components/blog/skillmatrixcta";
-import BlogTrainingCTA from "@/components/blog/blogtrainingcta";
-import RelatedPosts from "@/components/blog/relatedposts";
+import BlogDetailHero from "@/components/blog/detail/blog-detail-hero";
+import BlogDetailAuthorCard from "@/components/blog/detail/blog-detail-author-card";
+import BlogDetailSubscribeCta from "@/components/blog/detail/blog-detail-subscribe-cta";
+import BlogDetailToc from "@/components/blog/detail/blog-detail-toc";
+import BlogDetailTrainingCard from "@/components/blog/detail/blog-detail-training-card";
+import BlogDetailTrainingCatalogCta from "@/components/blog/detail/blog-detail-training-catalog-cta";
+import BlogDetailCoachingCta from "@/components/blog/detail/blog-detail-coaching-cta";
+import BlogDetailSkillMatrixCta from "@/components/blog/detail/blog-detail-skill-matrix-cta";
+import BlogDetailTrainingCta from "@/components/blog/detail/blog-detail-training-cta";
+import BlogDetailRelated from "@/components/blog/detail/blog-detail-related";
+import BlogDetailCategories from "@/components/blog/detail/blog-detail-categories";
 
-// Keep your existing imports for these components
-// import TableOfContents from "...";
-// import TrainingCatalogCTA from "...";
-// import CoachingCTA from "...";
-// import SkillMatrixCTA from "...";
-// import BlogTrainingCTA from "...";
-// import RelatedPost from "...";
-
-import "@/app/styles/blog-content/BlogContent.css";
+import "@/components/blog/detail/blog-content/Global.css";
 
 export const revalidate = 86400;
 
@@ -41,7 +35,7 @@ const INTERACTIVE_BLOCKS = ["faq", "companies"];
 
 function readBlogContentCss(filename) {
   return fs.readFileSync(
-    path.join(process.cwd(), "app/styles/blog-content", filename),
+    path.join(process.cwd(), "components/blog/detail/blog-content", filename),
     "utf8",
   );
 }
@@ -88,13 +82,27 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
-  const post = await getBlogPost(slug);
+  const [post, blogMain] = await Promise.all([getBlogPost(slug), getBlogMain(1)]);
 
   if (!post) {
     notFound();
   }
 
   const { blog, author, category } = post;
+
+  const breadcrumb = [
+    { label: "Home", href: "/" },
+    { label: "Blog", href: "/blog" },
+    ...(category
+      ? [
+          {
+            label: category.name,
+            href: category.slug ? `/blog/category/${category.slug}` : undefined,
+          },
+        ]
+      : []),
+    { label: blog.title },
+  ];
 
   const jsonLd = blogPostingJsonLd({
     title: blog.title,
@@ -112,7 +120,7 @@ export default async function BlogPostPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BlogHero
+      <BlogDetailHero
         title={blog.title}
         excerpt={blog.excerpt}
         category={category?.name}
@@ -120,15 +128,23 @@ export default async function BlogPostPage({ params }) {
         authorName={author?.name}
         authorSlug={author?.slug}
         authorAvatar={author?.avatar}
+        authorLinkedin={author?.linkedin}
+        authorDesignation={author?.designation}
+        authorVerifiedExpert={author?.verified_expert}
         publishedAt={blog.meta?.site_published_at}
         readMinutes={post.readMinutes}
         showsWhatsNew={blog.meta?.shows_whats_new}
       />
-      <Section className="bg-white py-12">
+
+      <Section className="bg-white lg:py-5">
+        <Breadcrumbs items={breadcrumb} className="mt-0" />
+      </Section>
+
+      <Section className="bg-white pt-0 lg:pt-0">
         <Box className="mx-auto grid max-w-7xl grid-cols-1 gap-4 lg:grid-cols-[200px_minmax(0,1fr)_270px]">
           {/* LEFT - Table of Contents */}
           <Box className="hidden lg:block">
-            <TableOfContents />
+            <BlogDetailToc />
           </Box>
 
           {/* MIDDLE - Existing Blog Content */}
@@ -165,11 +181,15 @@ export default async function BlogPostPage({ params }) {
             />
 
             <Box className="mt-8">
-              <AuthorCard
+              <BlogDetailAuthorCard
                 name={author?.name}
                 slug={author?.slug}
                 avatar={author?.avatar}
                 shortDescription={author?.short_description}
+                linkedin={author?.linkedin}
+                twitter={author?.twitter}
+                facebook={author?.facebook}
+                medium={author?.medium}
               />
             </Box>
           </Box>
@@ -178,55 +198,61 @@ export default async function BlogPostPage({ params }) {
           <Box className="relative hidden h-full lg:block">
             <Box className="mb-4 h-[16.6%]">
               <Box className="sticky top-20">
-                <TrainingCard />
+                <BlogDetailTrainingCard />
               </Box>
             </Box>
 
             <Box className="mb-4 h-[16.6%]">
               <Box className="sticky top-20">
-                <TrainingCatalogCTA />
+                <BlogDetailTrainingCatalogCta />
               </Box>
             </Box>
 
             <Box className="mb-4 h-[16.6%]">
               <Box className="sticky top-20">
-                <CoachingCTA />
+                <BlogDetailCoachingCta />
               </Box>
             </Box>
 
             <Box className="mb-4 h-[16.6%]">
               <Box className="sticky top-20">
-                <SkillMatrixCTA />
+                <BlogDetailSkillMatrixCta />
               </Box>
             </Box>
 
             <Box className="mb-4 h-[16.6%]">
               <Box className="sticky top-20">
-                <BlogTrainingCTA />
+                <BlogDetailTrainingCta />
               </Box>
             </Box>
 
             <Box className="mb-4 h-[16.6%]">
               <Box className="sticky top-20">
-                <RelatedPosts />
+                <BlogDetailRelated
+                  categoryName={post.relatedBlogs?.category_name}
+                  blogs={post.relatedBlogs?.blogs}
+                />
               </Box>
             </Box>
           </Box>
         </Box>
       </Section>
 
-      <BlogSubscribeCta />
+      <BlogDetailSubscribeCta />
 
-      {/* Existing interactive functionality */}
+      <BlogDetailCategories categories={blogMain?.categories} />
+
       {post.styleBlocks.some((block) => INTERACTIVE_BLOCKS.includes(block)) && (
-        <AccordionInteractivity />
+        <BlogDetailAccordionInteractivity />
       )}
 
       {blog.meta?.shows_whats_new && (
-        <WhatsNewInteractivity lastRevisedDate={blog.meta?.site_published_at} />
+        <BlogDetailWhatsNewInteractivity
+          lastRevisedDate={blog.meta?.site_published_at}
+        />
       )}
 
-      {post.styleBlocks.includes("highlight") && <HighlightReveal />}
+      {post.styleBlocks.includes("highlight") && <BlogDetailHighlightReveal />}
     </>
   );
 }

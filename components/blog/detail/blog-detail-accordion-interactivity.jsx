@@ -17,7 +17,7 @@ const PATTERNS = [
   { trigger: ".nz-header", item: ".nz-item", toggleClass: "open" },
 ];
 
-export default function AccordionInteractivity() {
+export default function BlogDetailAccordionInteractivity() {
   useEffect(() => {
     const cleanups = PATTERNS.map(({ trigger, item, toggleClass }) => {
       const triggers = document.querySelectorAll(trigger);

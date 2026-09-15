@@ -5,7 +5,7 @@ import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 
-export default function CoachingCTA() {
+export default function BlogDetailCoachingCta() {
   return (
     <Box>
       <Box

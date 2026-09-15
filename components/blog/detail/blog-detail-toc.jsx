@@ -2,7 +2,7 @@
 
 import { startTransition, useEffect, useState } from "react";
 
-export default function TableOfContents() {
+export default function BlogDetailToc() {
   const [headings, setHeadings] = useState([]);
   const [activeId, setActiveId] = useState("");
 

@@ -1,7 +1,7 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 
-export default function TrainingCatalogCTA() {
+export default function BlogDetailTrainingCatalogCta() {
   return (
     <Box
       className="flex flex-col items-start justify-end rounded-[10px] bg-cover bg-center px-5 pb-6 pt-55"

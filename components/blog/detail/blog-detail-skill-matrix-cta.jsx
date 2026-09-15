@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import { CtaButton } from "@/components/common/cta-button";
 
-export default function SkillMatrixCTA() {
+export default function BlogDetailSkillMatrixCta() {
   return (
     <Box>
       <Box
@@ -46,16 +46,15 @@ export default function SkillMatrixCTA() {
             </span>
           </Text>
 
-          <Link
-            href="/skill-matrix"
-            target="_blank"
+          <CtaButton
+            color="lime"
+            arrow
+            block
             title="Click Here to View Free Skill Matrix Tool"
-            className="inline-flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-[8px] bg-[#C8E130] px-6 text-[16px] font-semibold text-[#1C1C1C] transition hover:opacity-90"
+            render={<Link href="/skill-matrix" target="_blank" />}
           >
-            <Text as="span">Get Started</Text>
-
-            <ArrowUpRight size={12} strokeWidth={2} />
-          </Link>
+            Get Started
+          </CtaButton>
         </Box>
       </Box>
     </Box>

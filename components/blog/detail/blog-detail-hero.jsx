@@ -1,10 +1,12 @@
 import { format } from "date-fns";
 import Link from "next/link";
+import { Check } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import { SocialIcon } from "@/components/blog/common/social-icon";
 
-export default function BlogHero({
+export default function BlogDetailHero({
   category,
   categorySlug,
   title,
@@ -12,6 +14,9 @@ export default function BlogHero({
   authorName,
   authorSlug,
   authorAvatar,
+  authorLinkedin,
+  authorDesignation,
+  authorVerifiedExpert,
   publishedAt,
   readMinutes,
   showsWhatsNew,
@@ -90,7 +95,7 @@ export default function BlogHero({
                 {authorName && (
                   <Text
                     as="p"
-                    className="text-[14px] font-medium leading-[1.3] text-white"
+                    className="flex items-center gap-1.5 text-[14px] font-medium leading-[1.3] text-white"
                   >
                     by{" "}
                     {authorSlug ? (
@@ -103,6 +108,21 @@ export default function BlogHero({
                       </Link>
                     ) : (
                       authorName
+                    )}
+                    {authorLinkedin && (
+                      <Link
+                        href={authorLinkedin}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                        title={`${authorName} on LinkedIn`}
+                        aria-label={`${authorName} on LinkedIn`}
+                        className="inline-flex flex-none cursor-pointer items-center text-white/70 transition-colors hover:text-white"
+                      >
+                        <SocialIcon
+                          platform="linkedin"
+                          className="size-[18px]"
+                        />
+                      </Link>
                     )}
                   </Text>
                 )}
@@ -118,6 +138,28 @@ export default function BlogHero({
               </Box>
             </Box>
           </>
+        )}
+
+        {authorVerifiedExpert && (
+          <Box className="mx-auto mt-3 max-w-2xl text-center">
+            {authorDesignation && (
+              <Text as="p" className="text-[13px] font-medium text-white/80">
+                {authorDesignation}
+              </Text>
+            )}
+
+            <Box className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-emerald-700 px-2 py-1">
+              <Check
+                size={13}
+                strokeWidth={2.5}
+                className="text-white"
+                aria-hidden="true"
+              />
+              <Text as="span" className="text-[10px] font-semibold text-white">
+                Edstellar Verified SME
+              </Text>
+            </Box>
+          </Box>
         )}
 
         {readMinutes && (
@@ -144,7 +186,10 @@ export default function BlogHero({
                 title="Click Here to Check Whats New"
                 className="inline-flex cursor-pointer items-center gap-1.5 text-[12px] font-normal text-white/90 transition-colors hover:text-white"
               >
-                <Text as="span" className="text-[12px] leading-none text-inherit">
+                <Text
+                  as="span"
+                  className="text-[12px] leading-none text-inherit"
+                >
                   What&apos;s New
                 </Text>
 
