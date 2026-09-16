@@ -1,35 +1,66 @@
-import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
-import Reveal from "@/components/common/reveal";
-import { buildMetadata } from "@/lib/seo/metadata";
-import { titleFromSlug } from "@/lib/slug";
+import { notFound } from "next/navigation";
+
+import { TRAINERS_DATA } from "@/content/trainers/trainersdata";
+import TrainerProfile from "@/components/sections/trainers details/trainerprofile";
+import StickyTabs from "@/components/sections/domain/sticky-navbar";
+import TrainerAbout from "@/components/sections/trainers details/trainerabout";
+import OurReach from "@/components/sections/trainers details/ourreach";
+
+async function getTrainer(slug) {
+  const response = await fetch(
+    `https://devcms.edstellar.com/api/v2/trainer/${slug}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!response.ok) {
+    return null;
+  }
+
+  const data = await response.json();
+
+  return data?.trainer || null;
+}
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const name = titleFromSlug(slug);
+  const trainer = await getTrainer(slug);
 
-  return buildMetadata({
-    title: `{name} | Trainer`,
-    description: `${name} — background, specializations and programs delivered.`,
-    path: `/trainers/${slug}`,
-  });
+  if (!trainer) {
+    return {
+      title: "Trainer | Edstellar",
+    };
+  }
+
+  return {
+    title: trainer?.meta?.meta_title || trainer?.name || "Trainer",
+    description:
+      trainer?.meta?.meta_description ||
+      trainer?.meta?.about ||
+      trainer?.profile_title ||
+      "",
+  };
 }
-function page() {
+
+export default async function TrainerPage({ params }) {
+  const { slug } = await params;
+  const trainer = await getTrainer(slug);
+
+  if (!trainer) {
+    notFound();
+  }
+
+  // 1. Extract stickyNavbarData from TRAINERS_DATA
+  const stickyNavbarData = TRAINERS_DATA.stickyNavbarData;
+
+  // 2. Add the missing 'return' keyword
   return (
-    <Section>
-      <Reveal delay={1} className="flex justify-center items-center">
-        <RichHeading
-          as="h1"
-          parts={[
-            { text: "Trainers Details" },
-            { text: " Page", highlighted: true },
-          ]}
-          emphasisClassName="color-ink"
-          className="mb-2.5 text-center max-lg:text-[clamp(32px,5vw,50px)]"
-        />
-      </Reveal>
-    </Section>
+    <>
+      <TrainerProfile trainer={trainer} />
+      <StickyTabs data={stickyNavbarData} />
+      <TrainerAbout trainer={trainer} />
+      <OurReach trainer={trainer} />
+    </>
   );
 }
-
-export default page;
