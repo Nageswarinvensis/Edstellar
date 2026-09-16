@@ -4,6 +4,7 @@ import { Check } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import Reveal from "@/components/common/reveal";
 import { SocialIcon } from "@/components/blog/common/social-icon";
 
 export default function BlogDetailHero({
@@ -37,7 +38,7 @@ export default function BlogDetailHero({
 
       <Box className="relative mx-auto max-w-4xl text-center">
         {category && (
-          <Box className="mb-6 inline-flex rounded-full bg-white/10 px-5 py-1 transition-colors hover:bg-white/20">
+          <Reveal className="mb-6 inline-flex rounded-full bg-white/10 px-5 py-1 transition-colors hover:bg-white/20">
             {categorySlug ? (
               <Link
                 href={`/blog/category/${categorySlug}`}
@@ -59,24 +60,28 @@ export default function BlogDetailHero({
                 {category}
               </Text>
             )}
-          </Box>
+          </Reveal>
         )}
 
-        <Text as="h1" className="mb-6 text-white">
-          {title}
-        </Text>
+        <Reveal delay={1}>
+          <Text as="h1" className="mb-6 text-white">
+            {title}
+          </Text>
+        </Reveal>
 
         {excerpt && (
-          <Text
-            as="p"
-            className="mx-auto mt-6 max-w-3xl text-[16px] font-normal leading-[1.7] text-white/90"
-          >
-            {excerpt}
-          </Text>
+          <Reveal delay={2}>
+            <Text
+              as="p"
+              className="mx-auto mt-6 max-w-3xl text-[16px] font-normal leading-[1.7] text-white/90"
+            >
+              {excerpt}
+            </Text>
+          </Reveal>
         )}
 
         {(authorName || publishedLabel) && (
-          <>
+          <Reveal delay={2}>
             <Box className="mx-auto mt-6 h-px max-w-2xl bg-white/20" />
 
             <Box className="mx-auto mt-5 flex max-w-2xl items-center justify-center gap-4">
@@ -137,11 +142,11 @@ export default function BlogDetailHero({
                 )}
               </Box>
             </Box>
-          </>
+          </Reveal>
         )}
 
         {authorVerifiedExpert && (
-          <Box className="mx-auto mt-3 max-w-2xl text-center">
+          <Reveal delay={3} className="mx-auto mt-3 max-w-2xl text-center">
             {authorDesignation && (
               <Text as="p" className="text-[13px] font-medium text-white/80">
                 {authorDesignation}
@@ -159,21 +164,21 @@ export default function BlogDetailHero({
                 Edstellar Verified SME
               </Text>
             </Box>
-          </Box>
+          </Reveal>
         )}
 
         {readMinutes && (
-          <>
+          <Reveal delay={3}>
             <Box className="mx-auto mt-5 h-px max-w-2xl bg-white/20" />
 
             <Text as="p" className="mt-4 text-[12px] font-normal text-white/90">
               {readMinutes} mins read
             </Text>
-          </>
+          </Reveal>
         )}
 
         {showsWhatsNew && (
-          <Box className="what-new-content-block mt-4 flex justify-center">
+          <Reveal delay={4} className="what-new-content-block mt-4 flex justify-center">
             <Box className="whats-new-hub flex items-center gap-2">
               <img
                 src="https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/677ce8a12145f61e722f6d46_Ripple%401x-2.5s-200px-200px%20(3).svg"
@@ -208,7 +213,7 @@ export default function BlogDetailHero({
                 </svg>
               </a>
             </Box>
-          </Box>
+          </Reveal>
         )}
       </Box>
     </section>

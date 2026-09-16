@@ -1017,7 +1017,7 @@ h3 {
 .blog-content .table-scroll table {
   margin: 0;
   border-radius: 14px;
-  border: 1px solid red;
+  border: 1px solid (var(--navy-soft));
   border-radius: 14px;
 }
 .blog-content th {
@@ -1317,7 +1317,7 @@ blockquote a {
 .cta-btn {
   display: inline-block;
   background: #fff;
-  color: #2563eb;
+  color: var(--ink) !important;
   font-weight: 700;
   padding: 12px 32px;
   border-radius: 8px;
@@ -1329,7 +1329,7 @@ blockquote a {
 }
 
 .cta-btn:hover {
-  color: #1d1d1d;
+  color: var(--ink);
   background-color: #c8e130;
 }
 

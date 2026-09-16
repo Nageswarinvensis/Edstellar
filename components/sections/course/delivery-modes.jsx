@@ -4,6 +4,7 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import SecCta from "@/components/common/sec-cta";
 import DeliveryModeTabs from "@/components/sections/course/delivery-mode-tabs";
+import { cn } from "@/lib/utils";
 
 const SECTION_CTA = {
   title: "Need a training format that works for your team?",
@@ -12,13 +13,16 @@ const SECTION_CTA = {
   cta: { label: "Plan Your Training", href: "#apply" },
 };
 
-export default function DeliveryModes({ deliveryModes }) {
+export default function DeliveryModes({ deliveryModes, className }) {
   if (!deliveryModes?.tabs?.length) return null;
 
   return (
     <Section
       id="delivery"
-      className="scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10"
+      className={cn(
+        "scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10",
+        className,
+      )}
     >
       <Reveal delay={1}>
         <RichHeading

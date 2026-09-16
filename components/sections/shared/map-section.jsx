@@ -13,6 +13,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import { cn } from "@/lib/utils";
 
 /**
  * Fixed regardless of which domain sends `feature.icon` — the icon on each
@@ -98,14 +99,17 @@ function ApproachStep({ step, Icon }) {
   );
 }
 
-export default function MapSection({ data }) {
+export default function MapSection({ data, className }) {
   if (!data) return null;
 
   return (
     <Section
       as="section"
       id="why-edstellar"
-      className="w-full bg-[#F3F1E8] px-5 py-10 lg:px-10 lg:py-20"
+      className={cn(
+        "w-full bg-[#F3F1E8] px-5 py-10 lg:px-10 lg:py-20",
+        className,
+      )}
     >
       <Box>
         {/* =========================================================

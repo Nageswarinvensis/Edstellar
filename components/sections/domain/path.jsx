@@ -73,8 +73,7 @@ export default function Paths({ data }) {
   const navigationButtonClass =
     "grid h-8 w-8 place-items-center rounded-full border border-[#53647b] text-white transition-all duration-200 hover:bg-[#C8F135] hover:border-[#C8F135] hover:text-[#0A1628] disabled:pointer-events-none disabled:opacity-30";
   return (
-    <Section id="paths" className="relative overflow-hidden bg-ink text-white"
-    >
+    <Section id="paths" className="relative overflow-hidden bg-ink text-white">
       <Box>
         {/* Header */}
         <Box>
@@ -82,13 +81,13 @@ export default function Paths({ data }) {
             <RichHeading
               as="h2"
               heading={data.heading}
-              className="max-w-135 mb-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.035em] text-paper lg:text-[36px]"
+              className="max-w-135 mb-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.035em] text-paper/78 lg:text-[36px]"
               emphasisClassName="font-serif font-normal italic"
             />
           </Reveal>
 
           <Reveal delay={1}>
-            <Text className="max-w-187.5 text-[16px] leading-[1.8] text-paper">
+            <Text className="max-w-187.5 text-[15px] leading-[1.7] text-paper/78 ">
               {data.description}
             </Text>
           </Reveal>
@@ -107,7 +106,7 @@ export default function Paths({ data }) {
                 onClick={previousPage}
                 disabled={page === 0}
                 aria-label="Previous"
-                className={navigationButtonClass}
+                className={`${navigationButtonClass} cursor-pointer disabled:cursor-not-allowed`}
               >
                 <ArrowLeft size={11} strokeWidth={1.3} />
               </button>
@@ -117,7 +116,7 @@ export default function Paths({ data }) {
                 onClick={nextPage}
                 disabled={page === maxPage}
                 aria-label="Next"
-                className={navigationButtonClass}
+                className={`${navigationButtonClass} cursor-pointer disabled:cursor-not-allowed`}
               >
                 <ArrowRight size={11} strokeWidth={1.3} />
               </button>
@@ -149,7 +148,7 @@ export default function Paths({ data }) {
                   onMouseLeave={() => setHoveredCard(null)}
                 >
                   <Reveal delay={2}>
-                    <Box className="flex h-140 flex-col rounded-[12px] bg-white p-4.5 text-ink">
+                    <Box className="flex h-full flex-col rounded-[12px] bg-white p-4.5 text-ink">
                       {/* Card Header */}
                       <Box className="flex items-start gap-3">
                         <Box
@@ -168,7 +167,7 @@ export default function Paths({ data }) {
                             {path.title}
                           </Text>
 
-                          <Text className="mt-1 truncate text-[12px] tracking-[0.12em] text-ink-muted">
+                          <Text className="mt-1 truncate text-[10px] tracking-[0.12em] text-ink-muted">
                             {path.subtitle}
                           </Text>
                         </Box>
@@ -214,12 +213,23 @@ export default function Paths({ data }) {
                               }}
                             />
 
-                            <Text
-                              as="h4"
-                              className="text-[14px] font-medium leading-[1.3] text-ink"
-                            >
-                              {item.title}
-                            </Text>
+                            {item.href ? (
+                              <a href={item.href} className="hover:underline">
+                                <Text
+                                  as="h4"
+                                  className="text-[14px] font-medium leading-[1.3] text-ink"
+                                >
+                                  {item.title}
+                                </Text>
+                              </a>
+                            ) : (
+                              <Text
+                                as="h4"
+                                className="text-[14px] font-medium leading-[1.3] text-ink"
+                              >
+                                {item.title}
+                              </Text>
+                            )}
 
                             {item.tag && (
                               <Text className="mt-0.5 block text-[10px] tracking-[0.12em] text-ink-muted">
@@ -234,7 +244,7 @@ export default function Paths({ data }) {
                         ))}
 
                         {/* Outcome */}
-                        <Box className="relative pl-5">
+                        <Box className="relative mb-3 pl-5">
                           {/* Diamond */}
                           <span
                             className={`absolute left-0.5 top-1.25 h-3 w-3 rotate-45 border border-ink ${

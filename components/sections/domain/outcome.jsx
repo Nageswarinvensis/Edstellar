@@ -7,7 +7,7 @@ export default function Outcomes({ data }) {
   if (!data) return null;
 
   return (
-    <Section id="outcomes" className="bg-[#FAFAF8]">
+    <Section id="outcomes" className="bg-paper">
       <Box>
         <Reveal delay={1}>
           <Box className="mb-10 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
@@ -23,7 +23,7 @@ export default function Outcomes({ data }) {
             <Box className="flex items-end">
               <Text
                 as="p"
-                className="max-w-155 text-[16px] leading-[1.55] text-ink-muted"
+                className="max-w-155 text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink-muted"
               >
                 {data.description}
               </Text>

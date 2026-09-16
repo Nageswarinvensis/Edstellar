@@ -64,7 +64,7 @@ function DeliveryBadge({ delivery, data }) {
 
   return (
     <div className="absolute bottom-2.25 left-2.5 z-10">
-      <div className="flex items-center gap-1.25 rounded-[5px] bg-[#B8F500] px-1.25 py-1.25px">
+      <div className="flex items-center gap-1.25 rounded-[5px] bg-[#B8F500] px-1.25 py-1">
         <span className="h-1.25 w-1.25 shrink-0 rounded-full bg-[#07182C]" />
 
         <Text
@@ -169,7 +169,7 @@ function CourseCard({ course, data }) {
   ].join(" ");
 
   return (
-    <a href={course.href} className={cardClasses}>
+    <Box className={cardClasses}>
       <CourseImage course={course} data={data} />
 
       <Box className="flex min-h-35 flex-col px-4 py-3">
@@ -191,16 +191,18 @@ function CourseCard({ course, data }) {
           )}
         </div>
 
-        <Text
-          as="h3"
-          className="text-[15px] font-semibold leading-[1.2] tracking-[-0.25px] text-[#07182C]"
-        >
-          {course.title}
-        </Text>
+        <a href={course.href}>
+          <Text
+            as="h3"
+            className="text-[15px] font-semibold leading-[1.2] tracking-[-0.25px] text-[#07182C] hover:underline"
+          >
+            {course.title}
+          </Text>
+        </a>
 
         <Text
           as="p"
-          className="mt-1.25 line-clamp-2 text-[11px] leading-[1.45] text-[#727984]"
+          className="mt-1.25 mb-1.25 line-clamp-2 text-[11px] leading-[1.45] text-[#727984]"
         >
           {course.description}
         </Text>
@@ -208,7 +210,10 @@ function CourseCard({ course, data }) {
         <div className="mt-auto flex items-end justify-between gap-3 border-t border-[#E0E2E5] pt-3">
           <Duration duration={course.duration} data={data} />
 
-          <div className="flex shrink-0 items-center gap-1">
+          <a
+            href={course.href}
+            className="group flex shrink-0 items-center gap-1"
+          >
             <Text
               as="span"
               className="text-[9px] font-semibold uppercase tracking-[0.5px] text-[#07182C]"
@@ -221,10 +226,10 @@ function CourseCard({ course, data }) {
               strokeWidth={1.8}
               className="text-[#07182C] transition-transform duration-200 group-hover:translate-x-0.75"
             />
-          </div>
+          </a>
         </div>
       </Box>
-    </a>
+    </Box>
   );
 }
 
@@ -543,7 +548,7 @@ export default function Program({ data }) {
 
         {/* ================= COURSES ================= */}
         {paginatedCourses.length > 0 ? (
-          <Box className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {paginatedCourses.map((course) => (
               <CourseCard key={course.id} course={course} data={data} />
             ))}

@@ -21,7 +21,7 @@ function CategoryHero({ hero, breadcrumbs }) {
   if (!hero) return null;
 
   return (
-    <Section id="top" className="relative overflow-hidden">
+    <Section id="top" className="relative overflow-hidden py-[40px] lg:py-[40px]">
       <Box className="grid grid-cols-1 items-center gap-6.5 lg:gap-8.5">
         <HeroMedia
           image={hero.media?.image}

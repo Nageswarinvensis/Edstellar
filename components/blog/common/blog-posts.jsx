@@ -8,6 +8,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Eye } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import Reveal from "@/components/common/reveal";
 import { Spinner } from "@/components/ui/spinner";
 import {
   Pagination,
@@ -112,7 +113,7 @@ export default function BlogPosts({
           No published articles yet.
         </Text>
       ) : (
-        <Box className="relative">
+        <Reveal as="div" delay={1} className="relative">
           {isPending && (
             <Box className="absolute inset-0 z-10 flex items-start justify-center bg-paper/60 pt-24">
               <Spinner className="size-8 text-olive" />
@@ -195,7 +196,7 @@ export default function BlogPosts({
               </Box>
             ))}
           </Box>
-        </Box>
+        </Reveal>
       )}
 
       {pagination && pagination.last_page > 1 && (

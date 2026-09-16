@@ -2,14 +2,18 @@ import Image from "next/image";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
+import { cn } from "@/lib/utils";
 
-function ClientLogos({ data }) {
+function ClientLogos({ data, className }) {
   if (!data) return null;
 
   return (
     <Box
       as="section"
-      className="px-5 lg:px-10 overflow-hidden bg-[#F5F3EB] py-12"
+      className={cn(
+        "px-5 lg:px-10 overflow-hidden bg-[#F5F3EB] py-12",
+        className,
+      )}
     >
       {/* Content container */}
       <Box className="mx-auto max-w-7xl">

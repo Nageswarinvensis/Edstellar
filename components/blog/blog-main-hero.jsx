@@ -2,6 +2,7 @@ import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Breadcrumbs from "@/components/common/breadcrumbs";
+import Reveal from "@/components/common/reveal";
 
 const BREADCRUMB_ITEMS = [{ label: "Home", href: "/" }, { label: "Blog" }];
 
@@ -31,28 +32,35 @@ export default function BlogMainHero() {
       <DecorativeRings />
 
       <Box className="relative max-w-3xl">
-        <Breadcrumbs
-          items={BREADCRUMB_ITEMS}
-          tone="dark"
-          className="mt-0 mb-4"
-        />
+        <Reveal>
+          <Breadcrumbs
+            items={BREADCRUMB_ITEMS}
+            tone="dark"
+            className="mt-0 mb-4"
+          />
+        </Reveal>
 
-        <Text as="h1" className="text-paper">
-          Discover the Latest Topics on Training, L&amp;D, Talent &amp; Skill
-          Development
-        </Text>
+        <Reveal delay={1}>
+          <Text as="h1" className="text-paper">
+            Discover the Latest Topics on Training, L&amp;D, Talent &amp; Skill
+            Development
+          </Text>
+        </Reveal>
 
-        <Text as="p" className="mt-6 text-paper/70">
-          Welcome to Edstellar, where the future of corporate training, learning
-          and development takes center stage. Dive into our latest collection of
-          articles, news, and featured content tailored for organizations, HR
-          and L&amp;D teams keen on advancing their talent, leadership and
-          employee development strategies. From innovative skill-building
-          techniques to transformative learning experiences, Edstellar is your
-          premier source for insights and trends that empower your team to excel
-          in today&apos;s fast-paced world. Join us in shaping the next
-          generation of industry leaders.
-        </Text>
+        <Reveal delay={2}>
+          <Text as="p" className="mt-6 text-paper/70">
+            Welcome to Edstellar, where the future of corporate training,
+            learning and development takes center stage. Dive into our latest
+            collection of articles, news, and featured content tailored for
+            organizations, HR and L&amp;D teams keen on advancing their
+            talent, leadership and employee development strategies. From
+            innovative skill-building techniques to transformative learning
+            experiences, Edstellar is your premier source for insights and
+            trends that empower your team to excel in today&apos;s
+            fast-paced world. Join us in shaping the next generation of
+            industry leaders.
+          </Text>
+        </Reveal>
       </Box>
     </Section>
   );

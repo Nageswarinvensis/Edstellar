@@ -1,23 +1,19 @@
 import fs from "node:fs";
 import path from "node:path";
-
 import { notFound } from "next/navigation";
-
 import { getBlogPost } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { blogPostingJsonLd } from "@/lib/seo/json-ld";
-
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Breadcrumbs from "@/components/common/breadcrumbs";
-
 import BlogDetailAccordionInteractivity from "@/components/blog/detail/blog-detail-accordion-interactivity";
 import BlogDetailWhatsNewInteractivity from "@/components/blog/detail/blog-detail-whats-new-interactivity";
 import BlogDetailHighlightReveal from "@/components/blog/detail/blog-detail-highlight-reveal";
 import BlogDetailGamesModal from "@/components/blog/detail/blog-detail-games-modal";
-
 import BlogDetailHero from "@/components/blog/detail/blog-detail-hero";
 import BlogDetailAuthorCard from "@/components/blog/detail/blog-detail-author-card";
+import BlogDetailContinueReading from "@/components/blog/detail/blog-detail-continue-reading";
 import BlogDetailSubscribeCta from "@/components/blog/detail/blog-detail-subscribe-cta";
 import BlogDetailToc from "@/components/blog/detail/blog-detail-toc";
 import BlogDetailTrainingCard from "@/components/blog/detail/blog-detail-training-card";
@@ -48,8 +44,34 @@ function readBlogContentCss(filename) {
  * post regardless. Read once at module load and inlined per-post instead,
  * gated on those flags.
  */
-const FAQ_CSS = readBlogContentCss("Faq.css");
-const WHATS_NEW_CSS = readBlogContentCss("whats-new.css");
+/**
+ * These files are authored as standalone-page stylesheets — Faq.css opens
+ * with a bare `body { font-size: 16px; ... }` rule, CoporateCompanies.css has
+ * bare `tr:nth-child(even)` rules, and so on. Inlined as a raw `<style>` tag,
+ * any of those reach past `blog.body`'s own wrapper and restyle the whole
+ * page. `@scope` confines every selector in the block to descendants of
+ * `.blog-content.blog-content-richtext` — the exact element `blog.body` is
+ * rendered into below — so a bare `body {}` rule simply matches nothing
+ * instead of overwriting the real one.
+ *
+ * `@keyframes` can't live inside `@scope` (it has no selector to scope — an
+ * animation name is looked up globally regardless), so any are pulled out
+ * and kept as top-level rules alongside the scoped block.
+ */
+function scopeToBlogContent(css) {
+  const keyframes = [];
+  const rest = css.replace(
+    /@keyframes\s+[\w-]+\s*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}/g,
+    (match) => {
+      keyframes.push(match);
+      return "";
+    },
+  );
+  return `${keyframes.join("\n")}\n@scope (.blog-content.blog-content-richtext) {\n${rest}\n}`;
+}
+
+const FAQ_CSS = scopeToBlogContent(readBlogContentCss("Faq.css"));
+const WHATS_NEW_CSS = scopeToBlogContent(readBlogContentCss("whats-new.css"));
 
 /**
  * A post has at most one of these three layout treatments, picked by the
@@ -57,9 +79,13 @@ const WHATS_NEW_CSS = readBlogContentCss("whats-new.css");
  * never all three.
  */
 const LAYOUT_VARIANT_CSS = {
-  "Corporate Companies": readBlogContentCss("CoporateCompanies.css"),
-  "In-demand Skills": readBlogContentCss("InDemandSkills.css"),
-  Games: readBlogContentCss("Games.css"),
+  "Corporate Companies": scopeToBlogContent(
+    readBlogContentCss("CoporateCompanies.css"),
+  ),
+  "In-demand Skills": scopeToBlogContent(
+    readBlogContentCss("InDemandSkills.css"),
+  ),
+  Games: scopeToBlogContent(readBlogContentCss("Games.css")),
 };
 
 export async function generateMetadata({ params }) {
@@ -181,6 +207,8 @@ export default async function BlogPostPage({ params }) {
               }}
             />
 
+            <BlogDetailContinueReading orphanLinks={blog.orphan_links} />
+
             <Box className="mt-8">
               <BlogDetailAuthorCard
                 name={author?.name}
@@ -197,37 +225,37 @@ export default async function BlogPostPage({ params }) {
 
           {/* RIGHT - CTA Cards */}
           <Box className="relative hidden h-full lg:block">
-            <Box className="mb-4 h-[16.6%]">
+            <Box className="mb-4 h-[16.58%]">
               <Box className="sticky top-20">
                 <BlogDetailTrainingCard />
               </Box>
             </Box>
 
-            <Box className="mb-4 h-[16.6%]">
+            <Box className="mb-4 h-[16.58%]">
               <Box className="sticky top-20">
                 <BlogDetailTrainingCatalogCta />
               </Box>
             </Box>
 
-            <Box className="mb-4 h-[16.6%]">
+            <Box className="mb-4 h-[16.58%]">
               <Box className="sticky top-20">
                 <BlogDetailCoachingCta />
               </Box>
             </Box>
 
-            <Box className="mb-4 h-[16.6%]">
+            <Box className="mb-4 h-[16.58%]">
               <Box className="sticky top-20">
                 <BlogDetailSkillMatrixCta />
               </Box>
             </Box>
 
-            <Box className="mb-4 h-[16.6%]">
+            <Box className="mb-4 h-[16.58%]">
               <Box className="sticky top-20">
                 <BlogDetailTrainingCta />
               </Box>
             </Box>
 
-            <Box className="mb-4 h-[16.6%]">
+            <Box className="mb-4 h-[16.58%]">
               <Box className="sticky top-20">
                 <BlogDetailRelated
                   categoryName={post.relatedBlogs?.category_name}

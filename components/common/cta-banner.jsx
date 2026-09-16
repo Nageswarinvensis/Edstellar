@@ -1,5 +1,6 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import { cn } from "@/lib/utils";
 
 const VARIANTS = {
   light: {
@@ -26,6 +27,7 @@ export default function CtaBanner({
   data,
   onCtaClick,
   className = "",
+  headingClassName,
 }) {
   if (!data) return null;
 
@@ -54,7 +56,11 @@ export default function CtaBanner({
 
         <Text
           as="p"
-          className={`max-w-[48ch] text-[16.5px] font-semibold leading-[1.35] tracking-[-0.01em] ${styles.heading}`}
+          className={cn(
+            "max-w-[48ch] text-[16.5px] font-semibold leading-[1.35] tracking-[-0.01em]",
+            styles.heading,
+            headingClassName,
+          )}
         >
           {heading}
         </Text>

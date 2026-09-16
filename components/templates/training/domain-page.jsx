@@ -1,7 +1,8 @@
 import TickerBar from "@/components/layout/ticker-bar";
+
 import Hero from "@/components/sections/shared/hero";
-import HeroInfo from "@/components/sections/shared/hero-info";
-import Requested from "@/components/sections/domain/requested";
+import DomainInfo from "@/components/sections/domain/domain-info";
+import ClientLogos from "@/components/sections/shared/client-logos";
 import StickyNavbar from "@/components/sections/domain/sticky-navbar";
 import About from "@/components/sections/shared/about";
 import Program from "@/components/sections/domain/program";
@@ -19,7 +20,6 @@ import Scope from "@/components/sections/domain/scope";
 import LeadForm from "@/components/forms/lead-form";
 import Results from "@/components/sections/domain/results";
 import Outcome from "@/components/sections/domain/outcome";
-
 
 /**
  * Domain page design — a training category such as Artificial Intelligence.
@@ -40,12 +40,12 @@ export default function DomainPage({ domain }) {
     <>
       <TickerBar />
       <Hero hero={domain.hero} breadcrumbs={domain.breadcrumbs} />
-      <HeroInfo
-        topics={domain.hero?.topics}
-        groupQuote={domain.hero?.group_quote}
-        proof={domain.proof}
+      <DomainInfo groupQuote={domain.hero?.group_quote} proof={domain.proof} />
+      <ClientLogos
+        data={domain.ClientsLogosData}
+        className="bg-paper-warm"
       />
-      <Requested data={domain.requestedData} />
+
       <StickyNavbar data={domain.sticky_nav} hasTrainers={hasTrainers} />
       <About
         about={domain.about}
@@ -56,10 +56,13 @@ export default function DomainPage({ domain }) {
       <ByRole data={domain.byRoleData} />
       <Paths data={domain.pathsData} />
       <Outcome data={domain.outcomeData} />
-      <DeliveryModes deliveryModes={domain.DeliveryModesdata} />
+      <DeliveryModes
+        deliveryModes={domain.DeliveryModesdata}
+        className="bg-paper-cream"
+      />
       <Trainers trainers={domain.trainers} desktopCards={4} />
       <Results data={domain.ResultsData} />
-      <MapSection data={domain.map_section} />
+      <MapSection data={domain.map_section} className="bg-paper-warm" />
       <Delivered data={domain.deliveredData} />
       <FromEdstellar data={domain.fromedstellarData} />
       <RelatedCategories data={domain.relatedCategoriesData} />
@@ -67,6 +70,7 @@ export default function DomainPage({ domain }) {
         faqs={domain.faqs}
         innerClassName="max-w-[920px] mx-auto"
         showCta={false}
+        className="bg-paper-warm"
       />
       <Scope data={domain.scopeData} />
       <LeadForm data={domain.lead_form} background="paper-warm" />

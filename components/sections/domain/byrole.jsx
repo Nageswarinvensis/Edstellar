@@ -8,7 +8,7 @@ import Section from "@/components/ui/Section";
 import CtaBanner from "@/components/common/cta-banner";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-export default function ByRole({ data, ctaBannerData }) {
+export default function ByRole({ data }) {
   const [activeRole, setActiveRole] = useState(0);
 
   if (!data?.roles?.length) return null;
@@ -16,7 +16,7 @@ export default function ByRole({ data, ctaBannerData }) {
   const activeData = data.roles[activeRole];
 
   return (
-    <Section id="by-role" className="bg-[#F5F2EA]">
+    <Section id="by-role" className="bg-paper-warm">
       <Box>
         <Reveal delay={1}>
           <RichHeading
@@ -132,8 +132,12 @@ export default function ByRole({ data, ctaBannerData }) {
       </Box>
 
       <Reveal delay={5}>
-        {ctaBannerData?.map((cta, index) => (
-          <CtaBanner key={index} data={cta} />
+        {data.ctaBannerData?.map((cta, index) => (
+          <CtaBanner
+            key={index}
+            data={cta}
+            headingClassName="text-sm font-normal"
+          />
         ))}
       </Reveal>
     </Section>

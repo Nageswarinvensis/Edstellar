@@ -22,7 +22,7 @@ export default function BlogDetailSubscribeCta() {
           src="https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6655839314c7d45134aefd9d_Mask%20group%20(1).svg"
           alt=""
           loading="lazy"
-          className="pointer-events-none absolute -bottom-10 -right-10 h-64 w-64"
+          className="pointer-events-none absolute bottom-0 right-0 h-[272px] w-[426px]"
         />
 
         <Box className="relative max-w-120">
@@ -31,9 +31,9 @@ export default function BlogDetailSubscribeCta() {
           </Text>
 
           <Text as="p" className="mb-5 text-ink-muted">
-            Unlock premium resources, tools, and frameworks designed for HR
-            and learning professionals. Our L&amp;D Hub gives you everything
-            needed to elevate your organization&apos;s training approach.
+            Unlock premium resources, tools, and frameworks designed for HR and
+            learning professionals. Our L&amp;D Hub gives you everything needed
+            to elevate your organization&apos;s training approach.
           </Text>
 
           <CtaButton
@@ -46,6 +46,7 @@ export default function BlogDetailSubscribeCta() {
             }
             color="lime"
             title="Click Here to Access L&D Hub Resources"
+            arrow
           >
             Access L&amp;D Hub Resources
           </CtaButton>

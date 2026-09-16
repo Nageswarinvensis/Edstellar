@@ -1,5 +1,5 @@
 import Hero from "@/components/sections/shared/hero";
-import HeroInfo from "@/components/sections/shared/hero-info";
+import CourseInfo from "@/components/sections/course/course-info";
 import ClientLogos from "@/components/sections/shared/client-logos";
 import About from "@/components/sections/shared/about";
 import Trainers from "@/components/sections/shared/trainers";
@@ -41,7 +41,7 @@ export default function CoursePage({ course }) {
   return (
     <>
       <Hero hero={course.hero} breadcrumbs={course.breadcrumbs?.items} />
-      <HeroInfo topics={course.hero?.topics} proof={course.proof} />
+      <CourseInfo topics={course.hero?.topics} proof={course.proof} />
       <ClientLogos data={course.ClientsLogosData} />
       <About about={course.about} />
 

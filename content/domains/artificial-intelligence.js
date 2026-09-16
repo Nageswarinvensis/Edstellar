@@ -11,8 +11,8 @@ const COUNTRY_TOOLTIP = {
 };
 
 const DELIVERY_META = [
-  "Instructor-led group training",
-  "Virtual / on-site / off-site",
+  "Instructor-led workshops and programs",
+  "In-house, virtual or blended",
   { label: "10 languages", tooltip: LANGUAGE_TOOLTIP },
   { label: "100+ countries", tooltip: COUNTRY_TOOLTIP },
 ];
@@ -38,7 +38,7 @@ const artificialIntelligence = {
   hero: {
     heading: "Corporate <span>Artificial Intelligence</span> Training",
 
-    subhead: "Build the people who will run your AI, not just the models.",
+    subhead: "Build the employees who will run your AI, not just the models.",
 
     intro_text:
       "We build AI capability inside enterprises: the people, the standards and the governance that let an organization run AI itself. Instructor-led programs across generative AI, machine learning, MLOps and governance are how we do it, scoped to your stack and delivered wherever your teams are.",
@@ -86,7 +86,7 @@ const artificialIntelligence = {
 
     stats: [
       {
-        value: "1000+",
+        value: "1,000+",
         label: "Organizations trained",
       },
       {
@@ -109,6 +109,7 @@ const artificialIntelligence = {
       ],
     },
   },
+
   sticky_nav: {
     logo: {
       src: "/course/Edstellar.svg",
@@ -133,37 +134,7 @@ const artificialIntelligence = {
       { id: "apply", label: "Ask a Quation", active: false },
     ],
   },
-  requestedData: {
-    heading: {
-      before: "Most-requested",
-      emphasis: "AI training topics.",
-      after: "",
-    },
 
-    description:
-      "A snapshot of where demand is concentrated across the AI training we are asked to run, from broad literacy that reaches every employee to the deep technical and governance work that runs models in production.",
-    note: "Most organizations ask for two tracks at once: a broad literacy rollout for every employee, and a deeper technical track for the teams building and operating models. We scope both in a single engagement.",
-    label: "Share of incoming requests",
-
-    items: [
-      {
-        label: "Org-wide AI literacy",
-        value: 38,
-      },
-      {
-        label: "Generative AI & LLMs",
-        value: 27,
-      },
-      {
-        label: "MLOps & engineering",
-        value: 19,
-      },
-      {
-        label: "AI governance",
-        value: 16,
-      },
-    ],
-  },
   about: {
     heading: "What is corporate <span>AI training</span>?",
 
@@ -188,17 +159,17 @@ const artificialIntelligence = {
   },
   programData: {
     eyebrow: {
-      discipline: "DISCIPLINEs",
+      discipline: "DISCIPLINE",
     },
 
     heading: {
       before: "Instructor-led",
-      emphasis: "AI programs,",
-      after: " filtered to your team.",
+      emphasis: "AI programs",
+      after: " by topic.",
     },
 
     description:
-      "A selection from the live catalog. Combine a discipline and a role to narrow it.",
+      "Pick a topic to see the instructor-led programs in that area of the live catalog.",
 
     filters: {
       allDisciplines: "All disciplines",
@@ -975,8 +946,8 @@ const artificialIntelligence = {
         eyebrow: "",
         heading:
           "Training a role that is not listed, or a mix of them? Tell us who you are training and what they need to do, and we build the shortlist.",
-        ctaText: "Request a tailored quote",
-        ctaHref: "/corporate-training",
+        cta_text: "Request a tailored quote",
+        cta_href: "/corporate-training",
       },
     ],
   },
@@ -1005,16 +976,19 @@ const artificialIntelligence = {
         items: [
           {
             title: "Introduction to Machine Learning",
+            href: "/corporate-training/artificial-intelligence/introduction-to-machine-learning-training",
             description:
               "The team can identify which business problems are suitable for machine learning.",
           },
           {
             title: "Machine Learning with Python",
+            href: "/corporate-training/artificial-intelligence/machine-learning-with-python-training",
             description:
               "Models and pipelines are built in-house instead of depending entirely on external vendors.",
           },
           {
             title: "ML Model Monitoring",
+            href: "/corporate-training/artificial-intelligence/ml-model-monitoring-training",
             description:
               "Model drift and performance degradation are detected before they affect customers.",
           },
@@ -1044,11 +1018,13 @@ const artificialIntelligence = {
         items: [
           {
             title: "Generative AI Foundations",
+            href: "/corporate-training/artificial-intelligence/generative-ai-training",
             description:
               "The team understands the capabilities, limitations and practical use cases of modern generative AI.",
           },
           {
             title: "Retrieval Augmented Generation",
+            href: "/corporate-training/artificial-intelligence/retrieval-augmented-generation-rag-training",
             description:
               "LLM responses are grounded in trusted company knowledge instead of relying only on model memory.",
           },
@@ -1060,6 +1036,7 @@ const artificialIntelligence = {
           },
           {
             title: "Agentic AI",
+            href: "/corporate-training/artificial-intelligence/agentic-ai-training",
             description:
               "AI agents can use tools within defined boundaries while knowing when to hand control back to a human.",
           },
@@ -1089,16 +1066,19 @@ const artificialIntelligence = {
           },
           {
             title: "ML Model Monitoring",
+            href: "/corporate-training/artificial-intelligence/ml-model-monitoring-training",
             description:
               "Teams can monitor model health, data drift and performance after deployment.",
           },
           {
             title: "LLM Observability",
+            href: "/corporate-training/artificial-intelligence/llm-observability-training",
             description:
               "LLM quality, latency, usage and cost can be tracked across production workloads.",
           },
           {
             title: "MLOps for LLMs",
+            href: "/corporate-training/artificial-intelligence/mlops-for-llms-training",
             description:
               "LLM releases, rollbacks and incidents are managed using production-ready operating practices.",
           },
@@ -1344,6 +1324,12 @@ const artificialIntelligence = {
     ],
   },
   DeliveryModesdata: {
+    heading: {
+      before: "You pick the",
+      emphasis: "format.",
+      after: "",
+    },
+
     tabs: [
       {
         id: "virtual",
@@ -1489,10 +1475,11 @@ const artificialIntelligence = {
     ],
   },
   map_section: {
-    heading: "Why enterprises choose <span>Edstellar </span>for AI.",
+    heading:
+      "Why enterprises choose <span>Edstellar </span>as their AI training provider.",
 
     description:
-      "Edstellar is a corporate training provider delivering instructor-led AI programs to teams of every size, from a single squad to an entire engineering organisation, on-site, virtual, or blended, with programs built and led by practitioners.",
+      "Edstellar is a corporate training provider delivering instructor-led AI programs to teams of every size, from a single squad to an entire engineering organisation, on-site, virtual, or blended, with programs built and led by practitioners. As your AI training provider, we own that end to end: sourcing the trainer, tailoring the program, and standing behind the result.",
     image: {
       src: "/course/map1.png",
       alt: "Global delivery map",
@@ -1526,7 +1513,7 @@ const artificialIntelligence = {
     related_services: [],
   },
   deliveredData: {
-    heading: "How an AI training program <span>is delivered.</span>",
+    heading: "How an AI capability program <span>actually runs.</span>",
 
     description:
       "Every engagement runs the same five stages, from capability baseline through to the refresh cycle.",
@@ -1626,7 +1613,7 @@ const artificialIntelligence = {
     heading: "Explore related <span>training domains.</span>",
 
     description:
-      "AI capability rarely sits alone. These categories are the ones enterprises most often build alongside it.",
+      "AI capability rarely sits alone. These domains are the ones enterprises most often build alongside it.",
 
     items: [
       {
@@ -1748,7 +1735,8 @@ const artificialIntelligence = {
     ],
   },
   scopeData: {
-  heading: "Start an RFP shaped to <span>your needs.</span>",
+    heading:
+      "Start a Request for Proposal (RFP) shaped to <span>your needs.</span>",
     description:
       "Tell us roughly how many people need training and we'll show you the package this usually maps to. Nothing is fixed until we've scoped it with you.",
     tabLabel: "HOW MANY TEAM MEMBERS NEED AI TRAINING?",

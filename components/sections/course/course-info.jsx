@@ -69,13 +69,13 @@ function CourseInfo({ proof }) {
         ) : null}
 
         <Reveal delay={4}>
-  <ProofBar
-    tone={proof?.tone || "dark"}
-    stats={stats}
-    trainers={trainers}
-    actions={proof?.actions}
-  />
-</Reveal>
+          <ProofBar
+            tone={proof?.tone || "dark"}
+            stats={stats}
+            trainers={trainers}
+            actions={proof?.actions}
+          />
+        </Reveal>
 
         <Reveal delay={4}>
           <Box
