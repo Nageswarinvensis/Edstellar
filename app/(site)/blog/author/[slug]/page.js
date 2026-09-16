@@ -1,6 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 
-import { getBlogAuthor, getBlogMain } from "@/lib/content/blog";
+import { getBlogAuthor } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
 
@@ -16,7 +16,7 @@ function stripSiteSuffix(title) {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const author = await getBlogAuthor(slug);
+  const { author } = await getBlogAuthor(slug);
 
   if (!author) return {};
 
@@ -44,14 +44,9 @@ export default async function AuthorPage({ params, searchParams }) {
     redirect(`/blog/author/${slug}`);
   }
 
-  const [author, blogMain] = await Promise.all([
-    getBlogAuthor(slug, 1),
-    getBlogMain(1),
-  ]);
+  const { author, categories } = await getBlogAuthor(slug, 1);
 
   if (!author) notFound();
 
-  return (
-    <AuthorHero author={author} slug={slug} categories={blogMain?.categories} />
-  );
+  return <AuthorHero author={author} slug={slug} categories={categories} />;
 }

@@ -12,7 +12,11 @@ import Text from "@/components/ui/Text";
  * The search input is visual only for now — there's no search endpoint yet
  * to wire it to.
  */
-export default function BlogSidebar({ categories = [] }) {
+export default function BlogSidebar({ categories }) {
+  // Default params only cover `undefined` — the content layer can also send
+  // an explicit `null` when the API omits `categories` on a given response.
+  const categoryList = categories || [];
+
   return (
     <Box className="rounded-2xl border border-ink/10 bg-white p-5 shadow-[0_12px_30px_-18px_rgba(10,22,40,0.15)]">
       <Box className="relative">
@@ -28,14 +32,14 @@ export default function BlogSidebar({ categories = [] }) {
         />
       </Box>
 
-      {categories.length > 0 && (
+      {categoryList.length > 0 && (
         <Box className="mt-5 border-t border-ink/10 pt-5">
           <Text as="h3" className="mb-4">
             Blog Categories
           </Text>
 
           <Box as="ul" className="flex flex-col gap-3">
-            {categories.map((category) => (
+            {categoryList.map((category) => (
               <li key={category.id}>
                 <Link
                   href={`/blog/category/${category.slug}`}
@@ -46,6 +50,12 @@ export default function BlogSidebar({ categories = [] }) {
                   className="text-ink transition-colors hover:text-olive"
                 >
                   {category.name}
+                  {typeof category.blogs_count === "number" && (
+                    <Text as="span" className="text-ink/50">
+                      {" "}
+                      ({category.blogs_count})
+                    </Text>
+                  )}
                 </Link>
               </li>
             ))}

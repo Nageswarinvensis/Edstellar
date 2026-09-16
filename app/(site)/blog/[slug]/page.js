@@ -3,7 +3,7 @@ import path from "node:path";
 
 import { notFound } from "next/navigation";
 
-import { getBlogPost, getBlogMain } from "@/lib/content/blog";
+import { getBlogPost } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { blogPostingJsonLd } from "@/lib/seo/json-ld";
 
@@ -14,6 +14,7 @@ import Breadcrumbs from "@/components/common/breadcrumbs";
 import BlogDetailAccordionInteractivity from "@/components/blog/detail/blog-detail-accordion-interactivity";
 import BlogDetailWhatsNewInteractivity from "@/components/blog/detail/blog-detail-whats-new-interactivity";
 import BlogDetailHighlightReveal from "@/components/blog/detail/blog-detail-highlight-reveal";
+import BlogDetailGamesModal from "@/components/blog/detail/blog-detail-games-modal";
 
 import BlogDetailHero from "@/components/blog/detail/blog-detail-hero";
 import BlogDetailAuthorCard from "@/components/blog/detail/blog-detail-author-card";
@@ -82,7 +83,7 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
-  const [post, blogMain] = await Promise.all([getBlogPost(slug), getBlogMain(1)]);
+  const post = await getBlogPost(slug);
 
   if (!post) {
     notFound();
@@ -240,7 +241,7 @@ export default async function BlogPostPage({ params }) {
 
       <BlogDetailSubscribeCta />
 
-      <BlogDetailCategories categories={blogMain?.categories} />
+      <BlogDetailCategories categories={post.categories} />
 
       {post.styleBlocks.some((block) => INTERACTIVE_BLOCKS.includes(block)) && (
         <BlogDetailAccordionInteractivity />
@@ -253,6 +254,8 @@ export default async function BlogPostPage({ params }) {
       )}
 
       {post.styleBlocks.includes("highlight") && <BlogDetailHighlightReveal />}
+
+      {blog.meta?.layout_variant === "Games" && <BlogDetailGamesModal />}
     </>
   );
 }

@@ -289,52 +289,7 @@ tr:nth-child(even) {
   border: 1px solid #1b40a9;
 }
 
-/* CTA cards styles */
-.cta {
-  background: linear-gradient(135deg, #1e40af, #7c3aed);
-  border-radius: 8px;
-  padding: 30px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-}
-.cta h3 {
-  color: black;
-}
-.cta.bg-green {
-  background: linear-gradient(0, #22295a, #264cbe);
-}
 
-.cta P {
-  max-width: 600px;
-}
-
-.cta-btn {
-  display: inline-block;
-  background: #fff;
-  color: #2563eb;
-  font-weight: 700;
-  padding: 12px 32px;
-  border-radius: 8px;
-  text-decoration: none !important;
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
-  cursor: pointer;
-}
-
-.cta-btn:hover {
-  color: #1d1d1d;
-  background-color: #c8e130;
-}
-
-@media (max-width: 478px) {
-  .cta {
-    padding: 16px;
-  }
-}
 .nz-accordion {
   display: flex;
   flex-direction: column;

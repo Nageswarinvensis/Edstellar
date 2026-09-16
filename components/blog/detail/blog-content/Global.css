@@ -1292,7 +1292,61 @@ blockquote a {
     transition-duration: 0.01ms !important;
   }
 }
+/* CTA cards styles */
+.cta {
+  background: linear-gradient(135deg, #1e40af, #7c3aed);
+  border-radius: 8px;
+  padding: 30px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.cta h3 {
+  color: white;
+}
+.cta.bg-green {
+  background: linear-gradient(0, #22295a, #264cbe);
+}
 
+.cta P {
+  max-width: 600px;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #fff;
+  color: #2563eb;
+  font-weight: 700;
+  padding: 12px 32px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  color: #1d1d1d;
+  background-color: #c8e130;
+}
+
+/* `.blog-content a` (line ~90) sets `align-self: flex-start` on every link so
+   `.source-tile-link`'s hover underline sizes correctly — but that beats
+   `.cta`'s own `align-items: center` by specificity for any other <a> inside
+   it, including this button. Re-centered here with a more specific selector
+   rather than loosening the general rule. */
+.cta .cta-btn {
+  align-self: center;
+}
+
+@media (max-width: 478px) {
+  .cta {
+    padding: 16px;
+  }
+}
 /* --------------------------------------------------------------------------
    Appendix · .toc-wrapper scrollbar — currently unused
        No `.toc-wrapper` element ships in any live blog post's CMS content

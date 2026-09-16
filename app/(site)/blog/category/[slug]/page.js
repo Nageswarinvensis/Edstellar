@@ -1,6 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 
-import { getBlogCategory, getBlogMain } from "@/lib/content/blog";
+import { getBlogCategory } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 import CategoryHero from "@/components/blog/category-hero";
@@ -9,7 +9,7 @@ export const revalidate = 300;
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const category = await getBlogCategory(slug);
+  const { category } = await getBlogCategory(slug);
 
   if (!category) return {};
 
@@ -36,18 +36,11 @@ export default async function CategoryPage({ params, searchParams }) {
     redirect(`/blog/category/${slug}`);
   }
 
-  const [category, blogMain] = await Promise.all([
-    getBlogCategory(slug, 1),
-    getBlogMain(1),
-  ]);
+  const { category, categories } = await getBlogCategory(slug, 1);
 
   if (!category) notFound();
 
   return (
-    <CategoryHero
-      category={category}
-      slug={slug}
-      categories={blogMain?.categories}
-    />
+    <CategoryHero category={category} slug={slug} categories={categories} />
   );
 }
