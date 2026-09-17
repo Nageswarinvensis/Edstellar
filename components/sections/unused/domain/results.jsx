@@ -17,7 +17,7 @@ export default function Results({ data }) {
               <RichHeading
                 as="h2"
                 heading={data.heading}
-                className="max-w-162.5 text-[30px] font-semibold leading-[0.98] tracking-[-1.8px] text-paper md:text-[36px]"
+                className="max-w-162.5 font-semibold tracking-[-1.8px] text-paper"
                 emphasisClassName="font-serif font-normal tracking-[-1px] text-[#B8F500]"
               />
             </Box>

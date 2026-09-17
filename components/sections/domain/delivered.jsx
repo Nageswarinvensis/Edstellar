@@ -2,6 +2,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 export default function Delivered({ data }) {
   if (!data) return null;
 
@@ -10,16 +11,12 @@ export default function Delivered({ data }) {
       <Box>
         <Reveal delay={1}>
           <Box className="max-w-175">
-            <Text
+            <RichHeading
               as="h2"
-              className="max-w-150 text-[30px] font-semibold leading-[1.02] tracking-[-1.8px] text-ink lg:text-[36px]"
-            >
-              {data.heading.before}{" "}
-              <em className="font-serif font-normal tracking-[-1px]">
-                {data.heading.emphasis}
-              </em>
-              {data.heading.after}
-            </Text>
+              heading={data.heading}
+              className="max-w-150 font-semibold tracking-[-1.8px] text-ink"
+              emphasisClassName="font-normal tracking-[-1px]"
+            />
 
             <Text
               as="p"

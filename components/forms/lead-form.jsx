@@ -53,17 +53,16 @@ export default function LeadForm({ data, background = "paper-warm" }) {
       )}
     >
       <Reveal delay={1}>
-      <RichHeading
-        as="h2"
-        heading={data.heading}
-        className="max-w-[22ch] tracking-[-0.03em] text-ink"
-        emphasisClassName="font-normal italic"
-      />
+        <RichHeading
+          as="h2"
+          heading={data.heading}
+          className="max-w-[22ch] tracking-[-0.03em] text-ink"
+          emphasisClassName="font-normal italic"
+        />
 
-      
         <Text
           as="p"
-          className="mb-10 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink/60"
+          className="mt-4 mb-10 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink/60"
         >
           {data.description}
         </Text>

@@ -18,7 +18,7 @@ import RelatedCategories from "@/components/sections/domain/related-categories";
 import Faq from "@/components/sections/shared/faq";
 import Scope from "@/components/sections/domain/scope";
 import LeadForm from "@/components/forms/lead-form";
-import Results from "@/components/sections/domain/results";
+
 import Outcome from "@/components/sections/domain/outcome";
 
 /**
@@ -41,10 +41,7 @@ export default function DomainPage({ domain }) {
       <TickerBar />
       <Hero hero={domain.hero} breadcrumbs={domain.breadcrumbs} />
       <DomainInfo groupQuote={domain.hero?.group_quote} proof={domain.proof} />
-      <ClientLogos
-        data={domain.ClientsLogosData}
-        className="bg-paper-warm"
-      />
+      <ClientLogos data={domain.ClientsLogosData} className="bg-paper-warm" />
 
       <StickyNavbar data={domain.sticky_nav} hasTrainers={hasTrainers} />
       <About
@@ -61,7 +58,7 @@ export default function DomainPage({ domain }) {
         className="bg-paper-cream"
       />
       <Trainers trainers={domain.trainers} desktopCards={4} />
-      <Results data={domain.ResultsData} />
+
       <MapSection data={domain.map_section} className="bg-paper-warm" />
       <Delivered data={domain.deliveredData} />
       <FromEdstellar data={domain.fromedstellarData} />

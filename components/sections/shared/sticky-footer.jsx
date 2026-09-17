@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { X } from "lucide-react";
+import { X, Mail, Download } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -10,6 +10,9 @@ import { CtaButton } from "@/components/common/cta-button";
 const ROTATE_MS = 5200;
 
 const STICKY_CTA = { label: "Request a Training Quote", href: "#apply" };
+
+const PILL_CLASS =
+  "inline-flex shrink-0 items-center gap-1.75 rounded-full border border-paper/22 px-3.5 py-2 font-mono text-[10px] tracking-[0.13em] text-paper/62 uppercase transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_22px_-12px_rgba(10,22,40,0.6)] max-lg:hidden";
 
 /**
  * Fixed enquiry bar that appears once the hero has scrolled away and retreats
@@ -146,9 +149,40 @@ export default function StickyFooter({ data }) {
         </Box>
 
         <Box className="flex flex-none items-center gap-3 max-lg:w-full max-lg:justify-center">
+          {data?.email ? (
+            <a
+              href={`mailto:${data.email}`}
+              aria-label={`Email Edstellar at ${data.email}`}
+              className={PILL_CLASS}
+            >
+              <Mail size={13} strokeWidth={1.8} aria-hidden="true" />
+              {data.email}
+            </a>
+          ) : null}
+
+          {data?.catalog ? (
+            <a
+              href={data.catalog.href}
+              aria-label={data.catalog.label}
+              className={PILL_CLASS}
+            >
+              {data.catalog.label}
+            </a>
+          ) : null}
+
+          {data?.brochure ? (
+            <a
+              href={data.brochure.href}
+              aria-label={data.brochure.label}
+              className={PILL_CLASS}
+            >
+              <Download size={13} strokeWidth={1.8} aria-hidden="true" />
+              {data.brochure.label}
+            </a>
+          ) : null}
+
           <CtaButton
             color="lime"
-            size="sm"
             arrow
             className="max-lg:w-full"
             render={<a href={STICKY_CTA.href} />}

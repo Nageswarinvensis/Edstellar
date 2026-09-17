@@ -60,7 +60,7 @@ const ctaButtonVariants = cva(
         lime: "",
       },
       size: {
-        default: "px-7 py-4 text-sm",
+        default: "px-[22px] py-3 text-sm",
         sm: "px-[22px] py-3 text-[14px]",
       },
       block: {

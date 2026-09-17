@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import Reveal from "@/components/common/reveal";
 import { cn } from "@/lib/utils";
 
 /**
@@ -116,10 +117,11 @@ export default function DeliveryModeTabs({ tabs }) {
             as="ul"
             className="flex flex-col divide-y divide-ink/12"
           >
-            {active.points?.map((point) => (
-              <Box
+            {active.points?.map((point, index) => (
+              <Reveal
                 as="li"
                 key={point}
+                delay={Math.min(index + 1, 4)}
                 className="flex gap-3 py-2.25 text-[14.5px] --tw-leading: 1.5 text-ink/60"
               >
                 <Text
@@ -130,7 +132,7 @@ export default function DeliveryModeTabs({ tabs }) {
                   →
                 </Text>
                 {point}
-              </Box>
+              </Reveal>
             ))}
           </Box>
         </Box>

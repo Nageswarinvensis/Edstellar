@@ -11,6 +11,9 @@ import {
   ShieldCheck,
   LockKeyhole,
   ServerCog,
+  ChartNoAxesCombined,
+  Briefcase,
+  Users,
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -18,6 +21,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import CtaButton from "@/components/common/cta-button";
 const icons = {
   brain: BrainCircuit,
   sparkles: Sparkles,
@@ -26,6 +30,9 @@ const icons = {
   shield: ShieldCheck,
   lock: LockKeyhole,
   server: ServerCog,
+  chart: ChartNoAxesCombined,
+  briefcase: Briefcase,
+  users: Users,
 };
 
 export default function Paths({ data }) {
@@ -81,7 +88,7 @@ export default function Paths({ data }) {
             <RichHeading
               as="h2"
               heading={data.heading}
-              className="max-w-135 mb-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.035em] text-paper/78 lg:text-[36px]"
+              className="max-w-135 mb-4 font-semibold tracking-[-0.035em] text-paper/78"
               emphasisClassName="font-serif font-normal italic"
             />
           </Reveal>
@@ -96,7 +103,7 @@ export default function Paths({ data }) {
         {/* Controls */}
         <Reveal delay={1}>
           <Box className="mb-3 flex items-center justify-between">
-            <Text className="text-[10px] tracking-[0.2em] text-ink-muted">
+            <Text className="text-[10px] tracking-[0.2em] text-paper/55">
               {data.mark.label}
             </Text>
 
@@ -121,7 +128,7 @@ export default function Paths({ data }) {
                 <ArrowRight size={11} strokeWidth={1.3} />
               </button>
 
-              <Text className="ml-1 text-[10px] tracking-[0.2em] text-ink-muted">
+              <Text className="ml-1 text-[10px] tracking-[0.2em] text-paper/55">
                 {page + 1} / {maxPage + 1}
               </Text>
             </Box>
@@ -147,7 +154,7 @@ export default function Paths({ data }) {
                   onMouseEnter={() => setHoveredCard(path.id)}
                   onMouseLeave={() => setHoveredCard(null)}
                 >
-                  <Reveal delay={2}>
+                  <Reveal delay={2} className="block h-full">
                     <Box className="flex h-full flex-col rounded-[12px] bg-white p-4.5 text-ink">
                       {/* Card Header */}
                       <Box className="flex items-start gap-3">
@@ -195,8 +202,10 @@ export default function Paths({ data }) {
                         />
 
                         {path.items.map((item, index) => (
-                          <Box
+                          <Reveal
+                            as="div"
                             key={item.title}
+                            delay={Math.min(index + 1, 4)}
                             className="relative mb-3 min-h-11 pl-6.5"
                           >
                             {/* Timeline Point */}
@@ -240,7 +249,7 @@ export default function Paths({ data }) {
                             <Text className="mt-0.75 text-[12px] leading-[1.4] text-[#7b8490]">
                               {item.description}
                             </Text>
-                          </Box>
+                          </Reveal>
                         ))}
 
                         {/* Outcome */}
@@ -280,12 +289,15 @@ export default function Paths({ data }) {
                         </Text>
 
                         {/* CTA */}
-                        <a
-                          href={path.href}
-                          className="flex h-6.5 w-full cursor-pointer items-center justify-center rounded-full border border-[#cbd0d5] bg-white text-[10px] font-medium tracking-[0.13em] text-ink transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-white"
+                        <CtaButton
+                          render={<a href={path.href} />}
+                          variant="ghost"
+                          arrow
+                          block
+                          className="border-[#cbd0d5] text-[10px] font-medium tracking-[0.13em] hover:border-ink hover:bg-ink hover:text-white"
                         >
                           {path.button}
-                        </a>
+                        </CtaButton>
                       </Box>
                     </Box>
                   </Reveal>
@@ -297,7 +309,7 @@ export default function Paths({ data }) {
 
         {/* Note */}
         <Reveal delay={3}>
-          <Text className="mt-7 max-w-175 text-[12px] leading-normal text-ink-muted">
+          <Text className="mt-7 max-w-175 text-[12px] leading-normal text-paper/55">
             {data.note}
           </Text>
         </Reveal>

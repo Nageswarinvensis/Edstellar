@@ -26,14 +26,30 @@ const DELIVERY_META = [
  */
 const artificialIntelligence = {
   slug: "artificial-intelligence",
-
   name: "Artificial Intelligence",
 
   seo: {
-    meta_title: "Corporate Artificial Intelligence Training",
-    meta_description:
-      "Instructor-led corporate AI training across generative AI, machine learning, MLOps and governance. Scoped to your stack, delivered onsite or virtually in 100+ countries.",
-    og_image_url: null,
+    is_dynamic: false,
+    config: {
+      og_image: null,
+      og_title: "Artificial Intelligence Corporate Training | Edstellar",
+      meta_title: "Artificial Intelligence Corporate Training | Edstellar",
+      og_image_url: null,
+      twitter_card: "summary_large_image",
+      twitter_site: "@edstellar",
+      canonical_url:
+        "https://www.edstellar.com/corporate-training/artificial-intelligence/",
+      meta_keywords: null,
+      twitter_title: "Artificial Intelligence Corporate Training | Edstellar",
+      og_description:
+        "Explore Edstellar's Artificial Intelligence training programs covering generative AI, machine learning, deep learning, NLP, and computer vision. Instructor-led courses delivered onsite or virtually in 100+ countries.",
+      twitter_creator: null,
+      Meta_description:
+        "Explore Edstellar's Artificial Intelligence training programs covering generative AI, machine learning, deep learning, NLP, and computer vision. Instructor-led courses delivered onsite or virtually in 100+ countries.",
+      twitter_image_url: null,
+      twitter_description:
+        "Explore Edstellar's Artificial Intelligence training programs covering generative AI, machine learning, deep learning, NLP, and computer vision. Instructor-led courses delivered onsite or virtually in 100+ countries.",
+    },
   },
   hero: {
     heading: "Corporate <span>Artificial Intelligence</span> Training",
@@ -49,24 +65,6 @@ const artificialIntelligence = {
       video: "/category/Home-Animation.mp4",
       alt: "An enterprise team reviewing AI systems on a shared display",
     },
-
-    actions: [
-      {
-        label: "Browse AI programs",
-        href: "#catalog",
-        variant: "primary",
-      },
-      {
-        label: "Ask a question",
-        href: "#apply",
-        variant: "ghost",
-      },
-      {
-        label: "Download Brochure",
-        href: "#apply",
-        variant: "ghost",
-      },
-    ],
   },
   breadcrumbs: [
     {
@@ -109,40 +107,30 @@ const artificialIntelligence = {
       ],
     },
   },
-
   sticky_nav: {
     logo: {
       src: "/course/Edstellar.svg",
       alt: "Edstellar",
     },
     tabs: [
-      { id: "most-requested", label: "Most requested", active: true },
-      { id: "about", label: "About", active: false },
-      { id: "by-discipline", label: "By discipline", active: false },
+      { id: "about", label: "About", active: true },
+      { id: "by-topic", label: "By topic", active: false },
       { id: "by-role", label: "By role", active: false },
       { id: "paths", label: "Paths", active: false },
-      { id: "outcomes", label: "Outcomes", active: false },
       { id: "delivery", label: "Delivery", active: false },
       { id: "trainers", label: "Trainers", active: false },
-      { id: "proof", label: "Proof", active: false },
       { id: "why-edstellar", label: "Why Edstellar", active: false },
-      { id: "how-delivered", label: "How it’s delivered", active: false },
-      { id: "from-edstellar", label: "More from Edstellar", active: false },
-      { id: "related-domains", label: "Related domains", active: false },
       { id: "faqs", label: "FAQ", active: false },
-      { id: "scope", label: "Scope an RFP", active: false },
-      { id: "apply", label: "Ask a Quation", active: false },
     ],
   },
-
   about: {
     heading: "What is corporate <span>AI training</span>?",
 
     body: [
-      "Corporate AI training is instructor-led group training that builds an organisation's ability to design, deploy, and govern artificial intelligence systems. It spans two tracks: technical depth for the data, engineering, and MLOps teams who build and run models, and broad enablement for the functions who now use AI tools in daily work. Programs are scoped to an employer's stack and delivered to a closed cohort rather than sold as individual seats.",
+      "Corporate AI training is instructor-led group training that builds an organization's ability to design, deploy, and govern artificial intelligence systems. It spans two tracks: technical depth for the data, engineering, and MLOps teams who build and run models, and broad enablement for the functions who now use AI tools in daily work. Programs are scoped to an employer's stack and delivered to a closed cohort rather than sold as individual seats.",
     ],
     expanded_body: [
-      "The distinction that matters commercially is between capability and access. Individual licences give people tools; group training gives a team a shared baseline: the same patterns, the same evaluation habits, and the same rules for handling data. For enterprises deploying AI under regulatory obligation, that shared baseline is what an auditor can be shown.",
+      "The distinction that matters commercially is between capability and access. Individual licenses give people tools; group training gives a team a shared baseline: the same patterns, the same evaluation habits, and the same rules for handling data. For enterprises deploying AI under regulatory obligation, that shared baseline is what an auditor can be shown.",
       "Programs split across two tracks. Technical depth for the data, engineering and MLOps teams who build and run models. Broad enablement for finance, marketing, HR and operations, who now use AI tools daily and are the larger source of ungoverned adoption.",
     ],
     // cta-bannerdata.js
@@ -162,11 +150,7 @@ const artificialIntelligence = {
       discipline: "DISCIPLINE",
     },
 
-    heading: {
-      before: "Instructor-led",
-      emphasis: "AI programs",
-      after: " by topic.",
-    },
+    heading: "Instructor-led <span>AI programs</span> by topic.",
 
     description:
       "Pick a topic to see the instructor-led programs in that area of the live catalog.",
@@ -738,11 +722,7 @@ const artificialIntelligence = {
     },
   },
   byRoleData: {
-    heading: {
-      before: "Find AI training",
-      emphasis: "by role.",
-      after: "",
-    },
+    heading: "Find AI training <span>by role.</span>",
 
     description:
       "The same AI initiative asks different things of different people. Start from the role you are training and work outward.",
@@ -759,15 +739,15 @@ const artificialIntelligence = {
         programs: [
           {
             label: "AI for Managers",
-            href: "#",
+            href: "/corporate-training/artificial-intelligence/ai-for-managers-training",
           },
           {
             label: "AI Governance",
-            href: "#",
+            href: "/corporate-training/artificial-intelligence/artificial-intelligence-ai-governance-training",
           },
           {
             label: "Responsible Generative AI",
-            href: "#",
+            href: "/corporate-training/artificial-intelligence/responsible-generative-ai-training",
           },
         ],
       },
@@ -778,20 +758,20 @@ const artificialIntelligence = {
         title: "Business & operations",
 
         description:
-          "Practical AI fluency for teams shaping processes, workflows and operational decisions.",
+          "Non-technical staff using AI tools daily. The focus is safe, effective use and knowing where the limits are.",
 
         programs: [
           {
-            label: "AI for Business",
-            href: "#",
+            label: "ChatGPT Prompt Engineering",
+            href: "/corporate-training/artificial-intelligence/chatgpt-prompt-engineering-training",
           },
           {
-            label: "AI Workflow Automation",
-            href: "#",
+            label: "AI for HR",
+            href: "/corporate-training/artificial-intelligence/artificial-intelligence-for-human-resource-training",
           },
           {
-            label: "Generative AI for Productivity",
-            href: "#",
+            label: "AI for Accountants",
+            href: "/corporate-training/artificial-intelligence/ai-for-accountants-training",
           },
         ],
       },
@@ -802,20 +782,20 @@ const artificialIntelligence = {
         title: "Analysts & data teams",
 
         description:
-          "Build the practical skills needed to work with AI, data and analytical workflows across the organization.",
+          "Moving from reporting to modelling: the Python, statistics and feature work that precedes any model.",
 
         programs: [
           {
-            label: "AI for Data Analysis",
-            href: "#",
+            label: "Introduction to Machine Learning",
+            href: "/corporate-training/artificial-intelligence/introduction-to-machine-learning-training",
           },
           {
-            label: "Machine Learning Fundamentals",
-            href: "#",
+            label: "Machine Learning with Python",
+            href: "/corporate-training/artificial-intelligence/machine-learning-with-python-training",
           },
           {
-            label: "Generative AI for Data Teams",
-            href: "#",
+            label: "Text Classification with ML",
+            href: "/corporate-training/artificial-intelligence/text-classification-with-machine-learning-training",
           },
         ],
       },
@@ -826,20 +806,20 @@ const artificialIntelligence = {
         title: "Data scientists & ML engineers",
 
         description:
-          "Advance model development, evaluation and production practices for modern machine learning systems.",
+          "Build, fine-tune and evaluate models properly, including the evaluation work most teams skip.",
 
         programs: [
           {
-            label: "Machine Learning",
-            href: "#",
+            label: "Machine Learning with TensorFlow",
+            href: "/corporate-training/artificial-intelligence/machine-learning-with-tensorflow-training",
           },
           {
-            label: "Deep Learning",
-            href: "#",
+            label: "ML Model Monitoring",
+            href: "/corporate-training/artificial-intelligence/ml-model-monitoring-training",
           },
           {
-            label: "MLOps",
-            href: "#",
+            label: "MLOps for LLMs",
+            href: "/corporate-training/artificial-intelligence/mlops-for-llms-training",
           },
         ],
       },
@@ -850,20 +830,20 @@ const artificialIntelligence = {
         title: "Software engineers",
 
         description:
-          "Develop the engineering skills required to build, integrate and operate AI-powered applications.",
+          "Ship AI features into real products: APIs, retrieval, agents, and the failure modes that come with them.",
 
         programs: [
           {
-            label: "Generative AI Engineering",
-            href: "#",
+            label: "Building Applications with LangChain",
+            href: "/corporate-training/artificial-intelligence/building-applications-with-langchain-training",
           },
           {
-            label: "LLM Engineering",
-            href: "#",
+            label: "Retrieval-Augmented Generation (RAG) Systems",
+            href: "/corporate-training/artificial-intelligence/retrieval-augmented-generation-rag-training",
           },
           {
-            label: "Agentic AI",
-            href: "#",
+            label: "Agentic AI Systems",
+            href: "/corporate-training/artificial-intelligence/agentic-ai-training",
           },
         ],
       },
@@ -874,20 +854,20 @@ const artificialIntelligence = {
         title: "MLOps & platform engineers",
 
         description:
-          "Operate reliable AI systems with strong deployment, monitoring, observability and governance practices.",
+          "Run models in production: deployment, monitoring, retraining, cost, and the infrastructure underneath.",
 
         programs: [
           {
-            label: "MLOps for LLMs",
-            href: "#",
+            label: "MLOps Foundations",
+            href: "/corporate-training/artificial-intelligence/mlops-foundations-training",
           },
           {
-            label: "LLM Observability",
-            href: "#",
+            label: "ML Model Monitoring",
+            href: "/corporate-training/artificial-intelligence/ml-model-monitoring-training",
           },
           {
-            label: "AI Infrastructure",
-            href: "#",
+            label: "Kubernetes for Machine Learning",
+            href: "/corporate-training/artificial-intelligence/kubernetes-for-machine-learning-training",
           },
         ],
       },
@@ -898,20 +878,20 @@ const artificialIntelligence = {
         title: "Risk, legal & compliance",
 
         description:
-          "Understand AI risk, governance and compliance requirements across the AI lifecycle.",
+          "Govern AI without having to build it: inventories, risk classification, controls, audit, and regulation.",
 
         programs: [
           {
-            label: "AI Governance",
-            href: "#",
+            label: "AI Security and Risk Management",
+            href: "/corporate-training/artificial-intelligence/ai-security-and-risk-management-training",
           },
           {
-            label: "Responsible AI",
-            href: "#",
+            label: "EU AI Act Readiness",
+            href: "/corporate-training/artificial-intelligence/eu-ai-act-readiness-training",
           },
           {
-            label: "AI Risk Management",
-            href: "#",
+            label: "AI Audit and Assurance",
+            href: "/corporate-training/artificial-intelligence/ai-audit-and-assurance-training",
           },
         ],
       },
@@ -922,20 +902,20 @@ const artificialIntelligence = {
         title: "HR & L&D",
 
         description:
-          "Build the capability to plan, deploy and measure AI learning programs across the workforce.",
+          "Assess AI skills across the organization, sequence the rollout, and use AI responsibly inside HR itself.",
 
         programs: [
           {
-            label: "AI Skills Strategy",
-            href: "#",
+            label: "AI for HR and Talent",
+            href: "/corporate-training/artificial-intelligence/artificial-intelligence-for-human-resource-training",
           },
           {
-            label: "AI Literacy for Employees",
-            href: "#",
+            label: "AI Awareness for Employees",
+            href: "/corporate-training/artificial-intelligence/chatgpt-prompt-engineering-training",
           },
           {
-            label: "AI Learning Programs",
-            href: "#",
+            label: "Training needs analysis",
+            href: "/corporate-training/artificial-intelligence/training-needs-analysis-training",
           },
         ],
       },
@@ -956,11 +936,8 @@ const artificialIntelligence = {
       label: "SEVEN ROLE PATHS",
     },
 
-    heading: {
-      before: "A catalog tells you what exists. A path tells you",
-      emphasis: "what comes first.",
-      after: "",
-    },
+    heading:
+      "A catalog tells you what exists. A path tells you <span>what comes first.</span>",
 
     description:
       "The filters above return a set. They do not tell you the order to take it in, and order is most of the value: monitoring before deployment teaches nothing, and governance before a model exists is theory. Each path below runs from where a role stands today to what it owns at the end, and every stop names the problem it takes off the team.",
@@ -978,34 +955,33 @@ const artificialIntelligence = {
             title: "Introduction to Machine Learning",
             href: "/corporate-training/artificial-intelligence/introduction-to-machine-learning-training",
             description:
-              "The team can identify which business problems are suitable for machine learning.",
+              "The team can tell which problems are modeling problems and which are not.",
           },
           {
             title: "Machine Learning with Python",
             href: "/corporate-training/artificial-intelligence/machine-learning-with-python-training",
             description:
-              "Models and pipelines are built in-house instead of depending entirely on external vendors.",
+              "Pipelines are written in-house instead of specified out to a vendor.",
           },
           {
             title: "ML Model Monitoring",
             href: "/corporate-training/artificial-intelligence/ml-model-monitoring-training",
             description:
-              "Model drift and performance degradation are detected before they affect customers.",
+              "Drift is caught by the team, not reported by the customer.",
           },
           {
             title: "MLOps Foundations",
             tag: "PROPOSED",
-            description:
-              "Production models can be deployed, monitored and rolled back through a repeatable process.",
+            description: "A bad release can be rolled back the day it ships.",
           },
         ],
 
         outcome: "Owns models in production",
 
         footer:
-          "Models reach production and stay there without requiring a vendor for every change or incident.",
-        button: "VIEW ALL AI TRAINING PROGRAMS →",
-        href: "#",
+          "Models reach production and stay there, without a vendor on retainer for every change.",
+        button: "VIEW ALL AI TRAINING PROGRAMS",
+        href: "#by-topic",
       },
 
       {
@@ -1017,37 +993,37 @@ const artificialIntelligence = {
 
         items: [
           {
-            title: "Generative AI Foundations",
+            title: "Generative AI (GenAI)",
             href: "/corporate-training/artificial-intelligence/generative-ai-training",
             description:
-              "The team understands the capabilities, limitations and practical use cases of modern generative AI.",
+              "Model choice becomes a decision with reasons behind it, not a default.",
           },
           {
-            title: "Retrieval Augmented Generation",
+            title: "Retrieval Augmented Generation (RAG)",
             href: "/corporate-training/artificial-intelligence/retrieval-augmented-generation-rag-training",
             description:
-              "LLM responses are grounded in trusted company knowledge instead of relying only on model memory.",
+              "Answers are grounded in your own knowledge base instead of invented.",
           },
           {
-            title: "AI Evaluation & Red-Teaming",
+            title: "AI Evaluation and Red-Teaming",
             tag: "PROPOSED",
             description:
-              "Prompt injection, hallucination and other failure modes are discovered before production.",
+              "Jailbreaks and prompt injection surface in testing, not in production.",
           },
           {
             title: "Agentic AI",
             href: "/corporate-training/artificial-intelligence/agentic-ai-training",
             description:
-              "AI agents can use tools within defined boundaries while knowing when to hand control back to a human.",
+              "An agent gets tool access with a boundary, and a handover when it reaches one.",
           },
         ],
 
         outcome: "Ships grounded LLM systems",
 
         footer:
-          "LLM features move from promising prototypes to controlled production systems with measurable quality.",
-        button: "VIEW ALL AI TRAINING PROGRAMS →",
-        href: "#",
+          "LLM features go live with a known failure mode rather than a demo and a hope.",
+        button: "VIEW ALL AI TRAINING PROGRAMS",
+        href: "#by-topic",
       },
 
       {
@@ -1062,197 +1038,202 @@ const artificialIntelligence = {
             title: "MLOps Foundations",
             tag: "PROPOSED",
             description:
-              "Model deployment becomes a documented and repeatable engineering process.",
+              "Deployment stops being one person's undocumented routine.",
           },
           {
             title: "ML Model Monitoring",
             href: "/corporate-training/artificial-intelligence/ml-model-monitoring-training",
             description:
-              "Teams can monitor model health, data drift and performance after deployment.",
+              "Performance decay shows up on a dashboard rather than in a complaint.",
           },
           {
             title: "LLM Observability",
             href: "/corporate-training/artificial-intelligence/llm-observability-training",
             description:
-              "LLM quality, latency, usage and cost can be tracked across production workloads.",
+              "An LLM regression can be traced back to the change that caused it.",
           },
           {
             title: "MLOps for LLMs",
             href: "/corporate-training/artificial-intelligence/mlops-for-llms-training",
             description:
-              "LLM releases, rollbacks and incidents are managed using production-ready operating practices.",
+              "Cost, rollout and incident response are governed like any other service.",
           },
         ],
 
         outcome: "Runs the deployment layer",
 
         footer:
-          "Releases, rollbacks and incidents follow a repeatable procedure that the whole engineering team can run.",
-        button: "VIEW ALL AI TRAINING PROGRAMS →",
-        href: "#",
+          "Releases, rollbacks and incidents follow a procedure the whole team can run.",
+        button: "VIEW ALL AI TRAINING PROGRAMS",
+        href: "#by-topic",
       },
 
       {
-        id: "ai-product-engineer",
-        icon: "package",
-        title: "AI product engineer",
-        subtitle: "STARTS Ships features without AI ownership",
-        meta: "4 STEPS · 64–88 HRS TOTAL",
+        id: "data-scientist",
+        icon: "chart",
+        title: "Data scientist",
+        subtitle: "STARTS Answers analysis requests",
+        meta: "4 STEPS · 56–72 HRS TOTAL",
 
         items: [
           {
-            title: "AI Product Foundations",
+            title: "Introduction to Machine Learning",
+            href: "/corporate-training/artificial-intelligence/introduction-to-machine-learning-training",
             description:
-              "Product teams learn where AI can create measurable value instead of adding technology without purpose.",
+              "Method choice is justified before the modeling starts.",
           },
           {
-            title: "LLM Application Design",
+            title: "Machine Learning with Python",
+            href: "/corporate-training/artificial-intelligence/machine-learning-with-python-training",
             description:
-              "AI experiences are designed around user outcomes, workflows and reliable product behavior.",
+              "Work moves out of a spreadsheet and into a reproducible pipeline.",
           },
           {
-            title: "AI Evaluation & Quality",
-            tag: "PROPOSED",
+            title: "Text Classification with Machine Learning",
+            href: "/corporate-training/artificial-intelligence/text-classification-with-machine-learning-training",
             description:
-              "AI features are tested against defined quality standards before customers discover failures.",
+              "Routing, tagging and document triage stop consuming analyst hours.",
           },
           {
-            title: "Production AI Delivery",
+            title: "AI Decision Support Systems",
+            href: "/corporate-training/artificial-intelligence/ai-decision-support-systems-training",
             description:
-              "AI capabilities move from experimentation into reliable, maintainable product experiences.",
+              "Output reaches the decision-maker with its uncertainty attached.",
           },
         ],
 
-        outcome: "Owns AI product delivery",
+        outcome: "Turns analysis into decisions",
 
         footer:
-          "AI features ship with clear ownership, measurable quality and a defined path from prototype to production.",
-        button: "VIEW ALL AI TRAINING PROGRAMS →",
+          "Findings arrive as something a decision-maker can act on, with the uncertainty stated.",
+        button: "VIEW ALL AI TRAINING PROGRAMS",
+        href: "#by-topic",
       },
 
       {
         id: "ai-governance-lead",
         icon: "shield",
         title: "AI governance lead",
-        subtitle: "STARTS Defines policy without technical context",
-        meta: "4 STEPS · 48–72 HRS TOTAL",
+        subtitle: "STARTS Reconstructs evidence at audit",
+        meta: "4 STEPS · 48–84 HRS TOTAL",
 
         items: [
           {
-            title: "AI Risk Foundations",
+            title: "Artificial Intelligence (AI) Governance",
+            href: "/corporate-training/artificial-intelligence/artificial-intelligence-ai-governance-training",
             description:
-              "Teams learn how to identify and prioritize the risks introduced by AI systems.",
+              "Every model gets a risk classification first time, not in hindsight.",
           },
           {
-            title: "Responsible AI",
+            title: "Responsible Generative AI",
+            href: "/corporate-training/artificial-intelligence/responsible-generative-ai-training",
             description:
-              "Governance principles are connected to real models, data, workflows and business decisions.",
+              "Guardrails and bias checks are built into the release, not bolted on after.",
           },
           {
-            title: "AI Evaluation Frameworks",
+            title: "EU AI Act Implementation",
             tag: "PROPOSED",
             description:
-              "AI systems are assessed against defined business, quality, safety and compliance expectations.",
+              "Obligations are mapped article by article, with an owner against each.",
           },
           {
-            title: "AI Governance Operations",
+            title: "AI Security and Risk Management",
+            href: "/corporate-training/artificial-intelligence/ai-security-and-risk-management-training",
             description:
-              "Governance becomes an operational process with clear controls, owners and evidence.",
+              "A deployed system has a threat model and controls standing behind it.",
           },
         ],
 
-        outcome: "Runs practical AI governance",
+        outcome: "Signs off releases with evidence",
 
         footer:
-          "AI decisions have traceable controls, accountable owners and documented evidence throughout the lifecycle.",
-        button: "VIEW ALL AI TRAINING PROGRAMS →",
+          "Risk tier, documentation and evidence exist before the auditor asks, not after.",
+        button: "VIEW ALL AI TRAINING PROGRAMS",
+        href: "#by-topic",
       },
 
       {
-        id: "ai-security-engineer",
-        icon: "lock",
-        title: "AI security engineer",
-        subtitle: "STARTS Secures conventional applications",
-        meta: "4 STEPS · 56–80 HRS TOTAL",
+        id: "ai-product-manager",
+        icon: "briefcase",
+        title: "AI product manager",
+        subtitle: "STARTS Scopes AI from vendor decks",
+        meta: "3 STEPS · 32–48 HRS TOTAL",
 
         items: [
           {
-            title: "AI Security Foundations",
+            title: "AI for Managers",
+            href: "/corporate-training/artificial-intelligence/ai-for-managers-training",
             description:
-              "Security teams understand the new attack surfaces introduced by models, agents and AI applications.",
+              "Build or buy is argued from evidence rather than from a demo.",
           },
           {
-            title: "Prompt Injection & Abuse",
+            title: "AI Decision Support Systems",
+            href: "/corporate-training/artificial-intelligence/ai-decision-support-systems-training",
             description:
-              "Adversarial prompts and unsafe model behavior are tested before they become production incidents.",
+              "A feature is specified by the decision it supports, not the model it uses.",
           },
           {
-            title: "Model & Data Security",
-            tag: "PROPOSED",
+            title: "Artificial Intelligence (AI) Governance",
+            href: "/corporate-training/artificial-intelligence/artificial-intelligence-ai-governance-training",
             description:
-              "Sensitive data, model access and AI workflows are protected across the application stack.",
-          },
-          {
-            title: "AI Security Operations",
-            description:
-              "AI security controls become part of deployment, monitoring and incident response workflows.",
+              "Sequencing accounts for the approval a release will need to clear.",
           },
         ],
 
-        outcome: "Secures AI systems in production",
+        outcome: "Scopes AI that ships",
 
-        footer:
-          "AI attack surfaces are identified, monitored and controlled as part of the normal security operating model.",
-        button: "VIEW ALL AI TRAINING PROGRAMS →",
+        footer: "Feasibility is settled before a roadmap commits to it.",
+        button: "VIEW ALL AI TRAINING PROGRAMS",
+        href: "#by-topic",
       },
 
       {
-        id: "ai-platform-engineer",
-        icon: "server",
-        title: "AI platform engineer",
-        subtitle: "STARTS Builds shared infrastructure",
-        meta: "4 STEPS · 72–96 HRS TOTAL",
+        id: "every-function",
+        icon: "users",
+        title: "Every function",
+        subtitle: "STARTS Pastes company data into personal accounts",
+        meta: "4 STEPS · 16–24 HRS TOTAL",
 
         items: [
           {
-            title: "AI Platform Foundations",
+            title: "ChatGPT Prompt Engineering",
+            href: "/corporate-training/artificial-intelligence/chatgpt-prompt-engineering-training",
             description:
-              "Engineering teams establish the infrastructure patterns required to build and operate AI systems.",
+              "Output quality stops depending on who happened to write the prompt.",
           },
           {
-            title: "Model Serving",
+            title: "AI for Managers",
+            href: "/corporate-training/artificial-intelligence/ai-for-managers-training",
             description:
-              "Models can be deployed consistently without creating bespoke infrastructure for every workload.",
+              "Managers can separate a real use case from an expensive one.",
           },
           {
-            title: "AI Observability",
-            tag: "PROPOSED",
+            title: "AI for HR",
+            href: "/corporate-training/artificial-intelligence/artificial-intelligence-for-human-resource-training",
             description:
-              "Platform teams gain visibility into reliability, latency, usage and cost across AI workloads.",
+              "Screening support is used without importing bias into hiring.",
           },
           {
-            title: "Production AI Platforms",
+            title: "AI for Accountants",
+            href: "/corporate-training/artificial-intelligence/ai-for-accountants-training",
             description:
-              "Teams operate a repeatable platform that allows AI workloads to scale without multiplying complexity.",
+              "Reconciliation and anomaly work speed up without losing the audit trail.",
           },
         ],
 
-        outcome: "Runs the AI platform layer",
+        outcome: "Uses AI inside guardrails",
 
         footer:
-          "AI teams ship faster because infrastructure, deployment and observability are standardized across workloads.",
-        button: "VIEW ALL AI TRAINING PROGRAMS →",
+          "Daily AI use runs on sanctioned tools, under rules the team can actually recite.",
+        button: "VIEW ALL AI TRAINING PROGRAMS",
+        href: "#by-topic",
       },
     ],
 
     note: "Sequences are indicative, not fixed. Discovery establishes where a team already is, and a path usually starts partway along rather than at step one.",
   },
   outcomeData: {
-    heading: {
-      before: "Capabilities your organization",
-      emphasis: "will gain.",
-      after: "",
-    },
+    heading: "Capabilities your organization <span>will gain.</span>",
 
     description:
       "Domain-level outcomes, not course objectives. These are the capabilities L&D and engineering leaders are usually asked to evidence.",
@@ -1324,17 +1305,13 @@ const artificialIntelligence = {
     ],
   },
   DeliveryModesdata: {
-    heading: {
-      before: "You pick the",
-      emphasis: "format.",
-      after: "",
-    },
-
     tabs: [
       {
         id: "virtual",
-        label: "Online / Virtual",
-        title:
+        label: "Virtual",
+        sublabel: "Online",
+        title: "Virtual / online",
+        description:
           "Expert-led live sessions delivered anywhere, with consistency and easy scheduling.",
         points: [
           "Delivered anywhere worldwide",
@@ -1343,13 +1320,13 @@ const artificialIntelligence = {
           "Scales to large groups across sites",
           "Interactive tools keep remote learners engaged",
         ],
-        sublabel: "",
-        description: "",
       },
       {
         id: "onsite",
-        label: "In-house / On-site",
-        title:
+        label: "On-site",
+        sublabel: "In-house",
+        title: "In-house / on-site",
+        description:
           "A trainer comes to your office and works with your team in the room, using your tools and your examples.",
         points: [
           "Delivered at your own premises",
@@ -1358,13 +1335,13 @@ const artificialIntelligence = {
           "Team builds shared context together",
           "Schedule set around your operations",
         ],
-        sublabel: "",
-        description: "",
       },
       {
         id: "offsite",
-        label: "Away day / Off-site",
-        title:
+        label: "Off-site",
+        sublabel: "Away day",
+        title: "Away day / off-site",
+        description:
           "An immersive session at an external venue, away from day-to-day distractions, for focused learning and team momentum.",
         points: [
           "Dedicated venue away from the office",
@@ -1373,11 +1350,9 @@ const artificialIntelligence = {
           "Ideal for kickoffs and intensive upskilling",
           "Logistics and location arranged with you",
         ],
-        sublabel: "",
-        description: "",
       },
     ],
-    heading: "AI training delivery formats.",
+    heading: "You pick the <span>format</span>.",
     description:
       "On-site, live virtual, or blended, in 10+ languages, through a vetted global trainer network. Cohort size, schedule and locations are set with you and confirmed in the proposal.",
   },
@@ -1435,51 +1410,12 @@ const artificialIntelligence = {
     ],
     note: "Trainers are matched to your stack and delivery window at scheduling. We confirm your assigned trainer, with a full profile, before the program is booked, and you can sit in on a trial session first.",
   },
-  ResultsData: {
-    heading: {
-      before: "AI training results from",
-      emphasis: "real teams.",
-      after: "",
-    },
-
-    description:
-      "Three engagements across the portfolio: a literacy rollout, an engineering deep-dive, and a governance build.",
-
-    items: [
-      {
-        id: "literacy-rollout",
-        stat: "2,400",
-        description:
-          "Every employee went through AI awareness before we opened up the tools. Support tickets about “can I put this in the chatbot” basically stopped.",
-        person: "HEAD OF L&D",
-        meta: "GLOBAL INSURER · LITERACY ROLLOUT, 11 WEEKS",
-      },
-
-      {
-        id: "engineering-track",
-        stat: "6 → 1",
-        description:
-          "Deployment used to take six weeks of hand-offs. After the MLOps and monitoring programs the team rebuilt the pipeline themselves and it takes one.",
-        person: "DIRECTOR OF DATA SCIENCE",
-        meta: "PAYMENTS PLATFORM · ENGINEERING TRACK, 150 HRS",
-      },
-
-      {
-        id: "governance-track",
-        stat: "42",
-        description:
-          "We came in with a spreadsheet of models nobody trusted. We left with a real inventory, risk tiers, and a control set our auditors accepted.",
-        person: "CHIEF RISK OFFICER",
-        meta: "RETAIL BANK · GOVERNANCE TRACK, 72 HRS",
-      },
-    ],
-  },
   map_section: {
     heading:
       "Why enterprises choose <span>Edstellar </span>as their AI training provider.",
 
     description:
-      "Edstellar is a corporate training provider delivering instructor-led AI programs to teams of every size, from a single squad to an entire engineering organisation, on-site, virtual, or blended, with programs built and led by practitioners. As your AI training provider, we own that end to end: sourcing the trainer, tailoring the program, and standing behind the result.",
+      "Edstellar is a corporate training provider delivering instructor-led AI programs to teams of every size, from a single squad to an entire engineering organization, on-site, virtual, or blended, with programs built and led by practitioners. As your AI training provider, we own that end to end: sourcing the trainer, tailoring the program, and standing behind the result.",
     image: {
       src: "/course/map1.png",
       alt: "Global delivery map",
@@ -1513,7 +1449,7 @@ const artificialIntelligence = {
     related_services: [],
   },
   deliveredData: {
-    heading: "How an AI capability program <span>actually runs.</span>",
+    heading: "How an AI capability program <span>actually runs</span>.",
 
     description:
       "Every engagement runs the same five stages, from capability baseline through to the refresh cycle.",
@@ -1666,7 +1602,7 @@ const artificialIntelligence = {
       },
       {
         title: "IT & Technical Training",
-        description: "The wider engineering catalogue this domain sits within.",
+        description: "The wider engineering catalog this domain sits within.",
         type: "Instructor-led",
         link: "View course",
         href: "#",
@@ -1696,7 +1632,7 @@ const artificialIntelligence = {
       },
 
       {
-        question: "Can programs be customised to our stack?",
+        question: "Can programs be customized to our stack?",
         answer:
           "Yes. Each program is designed around your model stack, your data, your team's current level and your governance obligations. Engagements begin with a discovery call to map roles and gaps before a trainer is shortlisted.",
       },
@@ -1704,7 +1640,7 @@ const artificialIntelligence = {
       {
         question: "How many people can attend one cohort?",
         answer:
-          "Cohorts are sized to keep instructor-led sessions workable, typically from 5 trainees for a specialist team upwards. Large organisations run parallel cohorts across multiple locations rather than one oversized session.",
+          "Cohorts are sized to keep instructor-led sessions workable, typically from 5 trainees for a specialist team upwards. Large organizations run parallel cohorts across multiple locations rather than one oversized session.",
       },
 
       {
@@ -1725,12 +1661,32 @@ const artificialIntelligence = {
       {
         question: "How do we choose an AI training provider?",
         answer:
-          "Useful criteria are whether programs are designed around your stack rather than pulled from a catalogue, whether delivery is live and instructor-led, whether trainers are practitioners you can trial before committing, and whether outcomes are measured rather than assumed. Ask to see what the post-program report actually contains.",
+          "Useful criteria are whether programs are designed around your stack rather than pulled from a catalog, whether delivery is live and instructor-led, whether trainers are practitioners you can trial before committing, and whether outcomes are measured rather than assumed. Ask to see what the post-program report actually contains.",
       },
       {
-        question: "Why group training rather than individual licences?",
+        question: "Why group training rather than individual licenses?",
         answer:
-          "Group training aligns a whole team on the same patterns, tooling and governance rules. Individual licences produce uneven baselines and ungoverned adoption. A shared baseline is also what an auditor can be shown.",
+          "Group training aligns a whole team on the same patterns, tooling and governance rules. Individual licenses produce uneven baselines and ungoverned adoption. A shared baseline is also what an auditor can be shown.",
+      },
+      {
+        question: "Can this AI training be delivered in-house at our offices?",
+        answer:
+          "Yes. Programs run on-site at your premises, virtually, or blended. In-house delivery keeps a team together, uses your own tools and examples, and is the most common format for groups. Share your location and dates and we confirm trainer availability.",
+      },
+      {
+        question: "Do you train end users when we roll out a new AI system?",
+        answer:
+          "Yes. End-user training is timed to your go-live, so the people who will use the system are ready on day one. We map who touches the system, agree a training plan against your rollout dates, and follow up after launch to hold adoption.",
+      },
+      {
+        question: "Which languages and countries do you deliver in?",
+        answer:
+          "We deliver in more than 100 countries and in multiple languages, matching the trainer and materials to each team's location. Sessions are scheduled to your regions and time zones rather than a single head-office time.",
+      },
+      {
+        question: "Is there a minimum group size for a corporate AI program?",
+        answer:
+          "Programs are built for teams rather than individuals. Cohorts typically start from a small team, and we tailor pacing and price to the group size. Tell us how many people you are training and we recommend the right format.",
       },
     ],
   },
@@ -1850,6 +1806,26 @@ const artificialIntelligence = {
     sla_note:
       "We reply within one business day with a tailored proposal, no automated sales sequence.",
     pricing_href: "https://www.edstellar.com/corporate-training-pricing#table",
+  },
+  sticky_footer: {
+    messages: [
+      {
+        highlight: "Instructor-led corporate training",
+        suffix: "· One partner, every team",
+      },
+      {
+        highlight: "130 AI programs",
+        suffix: ", Across every enterprise AI topic",
+      },
+      {
+        highlight: "6 disciplines",
+        suffix: ", Generative AI to governance",
+      },
+      {
+        highlight: "Delivered where your teams are",
+        suffix: ", On-site or virtual",
+      },
+    ],
   },
 };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -10,10 +10,24 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 export default function ByRole({ data }) {
   const [activeRole, setActiveRole] = useState(0);
+  const tabRefs = useRef({});
 
   if (!data?.roles?.length) return null;
 
   const activeData = data.roles[activeRole];
+
+  // Below the 787px breakpoint the role list scrolls horizontally instead of
+  // stacking, so picking a tab that's partly off-screen should bring it to
+  // the left edge — `scrollIntoView` is a no-op on the desktop stacked list
+  // since there's no horizontal overflow there.
+  function handleSelectRole(index, id) {
+    setActiveRole(index);
+    tabRefs.current[id]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "start",
+      block: "nearest",
+    });
+  }
 
   return (
     <Section id="by-role" className="bg-paper-warm">
@@ -22,7 +36,7 @@ export default function ByRole({ data }) {
           <RichHeading
             as="h2"
             heading={data.heading}
-            className="max-w-175 text-[34px] font-semibold leading-none tracking-[-1.8px] text-ink md:text-[40px]"
+            className="max-w-175 font-semibold tracking-[-1.8px] text-ink"
             emphasisClassName="font-serif font-normal tracking-[-1px]"
           />
         </Reveal>
@@ -39,20 +53,23 @@ export default function ByRole({ data }) {
         <Reveal delay={2}>
           <Box className="mt-10 overflow-hidden rounded-[16px] border border-[#D9DDE1] bg-white">
             <Box className="grid grid-cols-1 min-[787px]:grid-cols-[300px_1fr]">
-              <Box className="border-b border-[#D9DDE1] min-[787px]:border-b-0 min-[787px]:border-r">
+              <Box className="flex overflow-x-auto border-b border-[#D9DDE1] min-[787px]:block min-[787px]:overflow-visible min-[787px]:border-b-0 min-[787px]:border-r">
                 {data.roles.map((role, index) => {
                   const isActive = activeRole === index;
 
                   return (
                     <button
                       key={role.id}
+                      ref={(el) => {
+                        tabRefs.current[role.id] = el;
+                      }}
                       type="button"
-                      onClick={() => setActiveRole(index)}
+                      onClick={() => handleSelectRole(index, role.id)}
                       className={[
-                        "group flex min-h-13 w-full cursor-pointer items-center gap-3 border-b border-[#D9DDE1] px-2.5 text-left transition-all duration-200 last:border-b-0 min-[787px]:px-5",
+                        "group flex min-h-13 shrink-0 cursor-pointer items-center gap-3 whitespace-nowrap border-r border-[#D9DDE1] px-2.5 text-left transition-all duration-200 min-[787px]:w-full min-[787px]:shrink min-[787px]:border-r-0 min-[787px]:border-b min-[787px]:whitespace-normal min-[787px]:px-5 min-[787px]:last:border-b-0",
                         isActive
-                          ? "border-b border-b-[#B8F500] bg-white"
-                          : "border-b border-b-[#D9DDE1] bg-[#FAFAF8]",
+                          ? "bg-white shadow-[inset_0_-3px_0_#B8F500] min-[787px]:shadow-[inset_3px_0_0_#B8F500]"
+                          : "bg-[#FAFAF8]",
                       ].join(" ")}
                     >
                       <Text
@@ -107,9 +124,11 @@ export default function ByRole({ data }) {
 
                 <Box className="mt-6">
                   {activeData.programs?.map((program, index) => (
-                    <a
+                    <Reveal
+                      as="a"
                       key={program.label}
                       href={program.href}
+                      delay={Math.min(index + 1, 4)}
                       className="group flex min-h-12 items-center justify-between border-t border-[#D9DDE1] text-ink transition-colors duration-200 last:border-b hover:text-[#4D5D00]"
                     >
                       <Text as="span" className="text-[14px] leading-[1.3]">
@@ -122,7 +141,7 @@ export default function ByRole({ data }) {
                       >
                         →
                       </Text>
-                    </a>
+                    </Reveal>
                   ))}
                 </Box>
               </Box>

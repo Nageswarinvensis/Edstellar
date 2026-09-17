@@ -21,9 +21,7 @@ function scrollToHash(event) {
   const target = id && document.getElementById(id);
   if (!target) return;
   event.preventDefault();
-  const reduced = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   target.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
 }
 
@@ -33,10 +31,12 @@ export default function StickyTabs({ data, hasTrainers }) {
   // domain actually has any trainers to show, so it's filtered here against
   // the same data `<Trainers>` itself checks, or its `#trainers` anchor
   // points at a section that was never rendered.
-  const tabs = data?.tabs?.filter((tab) => tab.id !== "trainers" || hasTrainers);
+  const tabs = data?.tabs?.filter(
+    (tab) => tab.id !== "trainers" || hasTrainers,
+  );
 
   const [activeId, setActiveId] = useState(
-    () => tabs?.find((tab) => tab.active)?.id ?? tabs?.[0]?.id
+    () => tabs?.find((tab) => tab.active)?.id ?? tabs?.[0]?.id,
   );
 
   const sentinelRef = useRef(null);
@@ -60,7 +60,7 @@ export default function StickyTabs({ data, hasTrainers }) {
         // those two apart.
         setHeaderHidden(entry.boundingClientRect.top < 0);
       },
-      { threshold: 0 }
+      { threshold: 0 },
     );
     observer.observe(sentinel);
 
@@ -104,7 +104,7 @@ export default function StickyTabs({ data, hasTrainers }) {
         // flipping at a section's exact top edge.
         rootMargin: `-${HEADER_OFFSET + 60}px 0px -65% 0px`,
         threshold: 0,
-      }
+      },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -136,10 +136,11 @@ export default function StickyTabs({ data, hasTrainers }) {
     <>
       <div ref={sentinelRef} aria-hidden="true" className="h-px w-full" />
       <Box
-      as="nav"
-      aria-label="Course navigation"
-      className="
+        as="nav"
+        aria-label="Course navigation"
+        className="
         sticky top-0 z-40
+        px-5 lg:px-10
         w-full
         border-y
         border-[rgba(10,22,40,0.12)]
@@ -147,38 +148,37 @@ export default function StickyTabs({ data, hasTrainers }) {
         backdrop-blur-[14px]
         shadow-[0_10px_24px_-22px_rgba(10,22,40,0.5)]
       "
-    >
-      <Box
-        className="
+      >
+        <Box
+          className="
           mx-auto
           flex
           h-13
           w-full
-          max-w-[1800px]
-          items-center
-          px-5
-          lg:px-12.5
+          max-w-[1280px]
+    justify-between
+         
         "
-      >
-        {/* Logo */}
-        <Box
-          as="a"
-          href="#about"
-          onClick={scrollToHash}
-          className="flex shrink-0 items-center"
         >
-          <img
-            src={data?.logo?.src}
-            alt={data?.logo?.alt || "Edstellar"}
-            className="h-7 w-auto object-contain"
-          />
-        </Box>
+          <Box
+            as="a"
+            href="#about"
+            onClick={scrollToHash}
+            className="flex shrink-0 items-center"
+          >
+            <img
+              src={data?.logo?.src}
+              alt={data?.logo?.alt || "Edstellar"}
+              className="h-7 w-auto object-contain"
+            />
+          </Box>
 
-        {/* Navigation */}
-        <ul
-          ref={listRef}
-          className="
-            ml-8
+          {/* Navigation */}
+          <ul
+            ref={listRef}
+            className="
+            ml-10
+            lg:ml-16
             flex
             h-full
             flex-1
@@ -188,23 +188,23 @@ export default function StickyTabs({ data, hasTrainers }) {
             overflow-x-auto
             no-scrollbar
           "
-        >
-          {tabs.map((tab) => {
-            const isActive = tab.id === activeId;
+          >
+            {tabs.map((tab) => {
+              const isActive = tab.id === activeId;
 
-            return (
-              <li
-                key={tab.id}
-                ref={(el) => {
-                  tabRefs.current[tab.id] = el;
-                }}
-                className="flex h-full shrink-0 items-center"
-              >
-                <Box
-                  as="a"
-                  href={`#${tab.id}`}
-                  onClick={scrollToHash}
-                  className={`
+              return (
+                <li
+                  key={tab.id}
+                  ref={(el) => {
+                    tabRefs.current[tab.id] = el;
+                  }}
+                  className="flex h-full shrink-0 items-center"
+                >
+                  <Box
+                    as="a"
+                    href={`#${tab.id}`}
+                    onClick={scrollToHash}
+                    className={`
                     flex
                     h-8.75
                     items-center
@@ -219,25 +219,25 @@ export default function StickyTabs({ data, hasTrainers }) {
                         : "bg-transparent hover:bg-[#F1F1EC]"
                     }
                   `}
-                >
-                  <Text
-                    as="span"
-                    className={`
+                  >
+                    <Text
+                      as="span"
+                      className={`
                       whitespace-nowrap
                       text-[13px]
                       font-normal
                       leading-none
                       ${isActive ? "text-[#0A1628]" : "text-[#626875]"}
                     `}
-                  >
-                    {tab.label}
-                  </Text>
-                </Box>
-              </li>
-            );
-          })}
-        </ul>
-      </Box>
+                    >
+                      {tab.label}
+                    </Text>
+                  </Box>
+                </li>
+              );
+            })}
+          </ul>
+        </Box>
       </Box>
     </>
   );

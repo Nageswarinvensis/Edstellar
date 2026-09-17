@@ -7,6 +7,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
+import CtaButton from "@/components/common/cta-button";
 export default function Scope({ data }) {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -95,31 +96,30 @@ export default function Scope({ data }) {
               </Text>
 
               <Box as="ul" className="mt-6 flex flex-col gap-4">
-                {activeData.items?.map((item) => (
-                  <Box
+                {activeData.items?.map((item, index) => (
+                  <Reveal
                     as="li"
                     key={item}
+                    delay={Math.min(index + 1, 4)}
                     className="relative pl-6 text-[14px] leading-normal text-ink before:absolute before:top-[0.52em] before:left-0 before:size-1.75 before:bg-ink"
                   >
                     {item}
-                  </Box>
+                  </Reveal>
                 ))}
               </Box>
 
               <Box className="mt-7 flex flex-wrap gap-3">
                 {activeData.actions?.map((action, index) => (
-                  <a
+                  <CtaButton
                     key={action.label}
-                    href={action.href}
-                    className={[
-                      "inline-flex h-11 items-center justify-center rounded-full px-5 text-[12px] font-semibold transition-all duration-200",
-                      index === 0
-                        ? "bg-ink text-[#B8F500] hover:bg-ink"
-                        : "border border-[#C7CDD3] bg-white text-ink hover:border-ink",
-                    ].join(" ")}
+                    render={<a href={action.href} />}
+                    variant={index === 0 ? "primary" : "ghost"}
+                    color="navy"
+                    arrow
+                    className="text-[12px] font-semibold"
                   >
                     {action.label}
-                  </a>
+                  </CtaButton>
                 ))}
               </Box>
             </Box>

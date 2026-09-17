@@ -415,14 +415,14 @@ export default function Program({ data }) {
   if (!data?.catalog) return null;
 
   return (
-    <Section id="by-discipline" className="bg-paper">
+    <Section id="by-topic" className="bg-paper">
       <Box>
         {/* ================= HEADER ================= */}
         <Box>
           <RichHeading
             as="h2"
             heading={data.heading}
-            className="max-w-110 text-[30px] font-semibold leading-[0.98] tracking-[-1.8px] text-ink lg:text-[36px]"
+            className="max-w-110 font-semibold tracking-[-1.8px] text-ink"
             emphasisClassName="font-serif font-normal tracking-[-1px]"
           />
 

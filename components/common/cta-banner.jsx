@@ -1,5 +1,6 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import CtaButton from "@/components/common/cta-button";
 import { cn } from "@/lib/utils";
 
 const VARIANTS = {
@@ -67,17 +68,18 @@ export default function CtaBanner({
       </Box>
 
       {/* CTA Button */}
-      <a
-        href={cta_href}
-        onClick={onCtaClick}
-        className={`inline-flex flex-none items-center gap-2 self-start whitespace-nowrap rounded-full px-5 py-3 text-[13.5px] font-medium transition-all duration-200 ease-out sm:self-auto ${styles.button}`}
+      <CtaButton
+        render={<a href={cta_href} onClick={onCtaClick} />}
+        arrow
+        className={cn(
+          "flex-none self-start whitespace-nowrap text-[13.5px] font-medium sm:self-auto",
+          styles.button,
+        )}
       >
         <span className="max-w-[42ch] truncate sm:max-w-none sm:whitespace-normal">
           {cta_text}
         </span>
-
-        <span aria-hidden="true">→</span>
-      </a>
+      </CtaButton>
     </Box>
   );
 }
