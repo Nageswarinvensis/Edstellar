@@ -161,6 +161,7 @@ export default async function BlogPostPage({ params }) {
         publishedAt={blog.meta?.site_published_at}
         readMinutes={post.readMinutes}
         showsWhatsNew={blog.meta?.shows_whats_new}
+        layoutVariant={blog.meta?.layout_variant}
       />
 
       <Section className="bg-white lg:py-5">

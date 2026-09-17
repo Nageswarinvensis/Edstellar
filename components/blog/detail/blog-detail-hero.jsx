@@ -21,6 +21,7 @@ export default function BlogDetailHero({
   publishedAt,
   readMinutes,
   showsWhatsNew,
+  layoutVariant,
 }) {
   const publishedLabel = publishedAt
     ? format(new Date(publishedAt), "MMM d, yyyy")
@@ -69,7 +70,7 @@ export default function BlogDetailHero({
           </Text>
         </Reveal>
 
-        {excerpt && (
+        {excerpt && layoutVariant && (
           <Reveal delay={2}>
             <Text
               as="p"
