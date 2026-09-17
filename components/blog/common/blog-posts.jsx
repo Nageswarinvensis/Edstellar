@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useTransition } from "react";
 import Link from "next/link";
 import { format } from "date-fns";
 import { ArrowRight, ChevronLeft, ChevronRight, Eye } from "lucide-react";
@@ -67,51 +66,44 @@ function PaginationButton({
 }
 
 /**
- * Post grid + pagination shared by every blog listing page (author, category,
- * main — components/blog/author-hero.jsx, components/blog/category-hero.jsx,
- * components/blog/blog-main.jsx). `fetchAction` is a Server Action
- * (lib/actions/blog-author.js, lib/actions/blog-category.js) called as
- * `fetchAction(identifier, page)`; every one returns the same
- * `{ data, pagination }` shape (CLAUDE.md #10), so this component never needs
- * to know which page it's paginating.
- *
- * Pagination never touches the URL — clicking a page swaps `posts` in place
- * and scrolls `#${scrollTargetId}` into view, it doesn't navigate.
+ * Post grid + pagination — purely presentational. `BlogPostsPanel` (the
+ * state owner, since the search box next to it needs the same
+ * `posts`/`pagination` state) passes everything in and reacts to
+ * `onPageChange`.
  */
 export default function BlogPosts({
-  identifier,
-  initialPosts,
-  initialPagination,
-  fetchAction,
-  scrollTargetId = "blogs",
+  posts,
+  pagination,
+  isPending,
+  onPageChange,
   paginationLabel = "Blog articles pagination",
+  searchQuery = "",
+  onClearSearch,
 }) {
-  const [posts, setPosts] = useState(initialPosts);
-  const [pagination, setPagination] = useState(initialPagination);
-  const [isPending, startTransition] = useTransition();
-
-  function goToPage(n) {
-    if (isPending || n === pagination?.current_page) return;
-
-    document.getElementById(scrollTargetId)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-
-    startTransition(async () => {
-      const blogs = await fetchAction(identifier, n);
-      if (!blogs) return;
-      setPosts(blogs.data || []);
-      setPagination(blogs.pagination);
-    });
-  }
+  const trimmedQuery = searchQuery.trim();
 
   return (
     <Box>
       {posts.length === 0 ? (
-        <Text as="p" className="text-center text-ink/60">
-          No published articles yet.
-        </Text>
+        trimmedQuery ? (
+          <Box className="flex flex-col items-center justify-center rounded-[12px] border border-dashed border-ink/15 bg-white p-8">
+            <Text as="p" className="text-center text-ink/60">
+              No articles match &quot;{trimmedQuery}&quot;.
+            </Text>
+
+            <button
+              type="button"
+              onClick={onClearSearch}
+              className="mt-3 cursor-pointer text-[13px] font-medium text-olive underline underline-offset-2 hover:text-olive/80"
+            >
+              Clear search
+            </button>
+          </Box>
+        ) : (
+          <Text as="p" className="text-center text-ink/60">
+            No published articles yet.
+          </Text>
+        )
       ) : (
         <Reveal as="div" delay={1} className="relative">
           {isPending && (
@@ -205,7 +197,7 @@ export default function BlogPosts({
             <PaginationItem>
               <PaginationButton
                 disabled={isPending || pagination.current_page === 1}
-                onClick={() => goToPage(pagination.current_page - 1)}
+                onClick={() => onPageChange(pagination.current_page - 1)}
                 title="Click Here to View Previous Page"
                 ariaLabel="Go to previous page"
               >
@@ -222,7 +214,7 @@ export default function BlogPosts({
                   <PaginationButton
                     active={n === pagination.current_page}
                     disabled={isPending}
-                    onClick={() => goToPage(n)}
+                    onClick={() => onPageChange(n)}
                     title={`Click Here to View Page ${n}`}
                   >
                     {n}
@@ -240,7 +232,7 @@ export default function BlogPosts({
                 disabled={
                   isPending || pagination.current_page === pagination.last_page
                 }
-                onClick={() => goToPage(pagination.current_page + 1)}
+                onClick={() => onPageChange(pagination.current_page + 1)}
                 title="Click Here to View Next Page"
                 ariaLabel="Go to next page"
               >

@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { getBlogCategory } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-import CategoryHero from "@/components/blog/category-hero";
+import CategoryPageContent from "@/components/blog/category-page-content";
 
 export const revalidate = 300;
 
@@ -41,6 +41,10 @@ export default async function CategoryPage({ params, searchParams }) {
   if (!category) notFound();
 
   return (
-    <CategoryHero category={category} slug={slug} categories={categories} />
+    <CategoryPageContent
+      category={category}
+      slug={slug}
+      categories={categories}
+    />
   );
 }

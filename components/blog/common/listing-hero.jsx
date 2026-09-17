@@ -8,11 +8,16 @@ import Reveal from "@/components/common/reveal";
 import { SocialIcon } from "@/components/blog/common/social-icon";
 
 /**
- * Hero shared by the author and category listing pages —
- * components/blog/author-hero.jsx, components/blog/category-hero.jsx:
- * heading + description on the left, an optional square image on the right.
- * A category has no `image` or `socialLinks`, so those sections simply don't
- * render — same component, no author-only fields required.
+ * Hero banner shared by the author and category pages —
+ * components/blog/author-page-content.jsx,
+ * components/blog/category-page-content.jsx: heading + description on the
+ * left, an optional square image on the right. A category has no `image` or
+ * `socialLinks`, so those sections simply don't render — same component, no
+ * author-only fields required.
+ *
+ * Not to be confused with `components/blog/common/blog-posts-panel.jsx` —
+ * that's the search/post-grid/sidebar panel below this hero, a different
+ * component with a similarly-generic name.
  */
 export default function ListingHero({
   heading,

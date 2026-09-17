@@ -1,14 +1,12 @@
 import { BadgeCheck } from "lucide-react";
 
 import Section from "@/components/ui/Section";
-import Box from "@/components/ui/Box";
 import ListingHero from "@/components/blog/common/listing-hero";
-import BlogPosts from "@/components/blog/common/blog-posts";
-import BlogSidebar from "@/components/blog/common/blog-sidebar";
+import BlogPostsPanel from "@/components/blog/common/blog-posts-panel";
 import { SOCIAL_LINKS } from "@/components/blog/common/social-icon";
 import { fetchAuthorPosts } from "@/lib/actions/blog-author";
 
-export default function AuthorHero({ author, slug, categories }) {
+export default function AuthorPageContent({ author, slug, categories }) {
   const meta = author.meta || {};
 
   const socialLinks = SOCIAL_LINKS.filter(({ key }) => meta[key]).map(
@@ -40,21 +38,14 @@ export default function AuthorHero({ author, slug, categories }) {
       />
 
       <Section className="scroll-mt-24 pt-0 lg:pt-0" id="blogs">
-        <Box className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_0.45fr]">
-          <BlogPosts
-            identifier={slug}
-            initialPosts={author.blogs?.data || []}
-            initialPagination={author.blogs?.pagination}
-            fetchAction={fetchAuthorPosts}
-            paginationLabel="Author articles pagination"
-          />
-
-          <Box className="hidden lg:block">
-            <Box className="sticky top-20">
-              <BlogSidebar categories={categories} />
-            </Box>
-          </Box>
-        </Box>
+        <BlogPostsPanel
+          identifier={slug}
+          initialPosts={author.blogs?.data || []}
+          initialPagination={author.blogs?.pagination}
+          fetchAction={fetchAuthorPosts}
+          categories={categories}
+          paginationLabel="Author articles pagination"
+        />
       </Section>
     </>
   );

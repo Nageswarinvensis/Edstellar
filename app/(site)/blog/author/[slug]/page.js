@@ -4,7 +4,7 @@ import { getBlogAuthor } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
 
-import AuthorHero from "@/components/blog/author-hero";
+import AuthorPageContent from "@/components/blog/author-page-content";
 
 export const revalidate = 300;
 
@@ -48,5 +48,7 @@ export default async function AuthorPage({ params, searchParams }) {
 
   if (!author) notFound();
 
-  return <AuthorHero author={author} slug={slug} categories={categories} />;
+  return (
+    <AuthorPageContent author={author} slug={slug} categories={categories} />
+  );
 }

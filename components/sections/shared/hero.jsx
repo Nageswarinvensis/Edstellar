@@ -9,7 +9,9 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
 /**
- * Category hero — shared by the category page and the course page within it.
+ * Training category hero — shared by the domain page and the course page
+ * within it (unrelated to the blog's category/author pages, which have
+ * their own hero — components/blog/common/listing-hero.jsx).
  *
  * Adds the topic pill rail, the dark proof bar, and the multi-program
  * group-quote prompt. The proof bar tone is always dark on the course page —
@@ -17,7 +19,7 @@ import RichHeading from "@/components/common/rich-heading";
  *
  * Design: `header.hero` on the course page.
  */
-function CategoryHero({ hero, breadcrumbs }) {
+function Hero({ hero, breadcrumbs }) {
   if (!hero) return null;
 
   return (
@@ -81,4 +83,4 @@ function CategoryHero({ hero, breadcrumbs }) {
   );
 }
 
-export default CategoryHero;
+export default Hero;

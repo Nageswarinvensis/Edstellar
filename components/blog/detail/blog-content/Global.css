@@ -88,30 +88,28 @@ html {
   color: var(--lime-ink);
 }
 .blog-content a {
-  color: var(--ink);
-  text-decoration: none;
-  position: relative;
+  color: var(--lime-quote);
+  font-weight: 500;
   cursor: pointer;
-  transition: color 0.2s;
-  /* Some per-post embedded CMS styles (e.g. `.source-tile-link`) put an <a>
-     inside a column flexbox with no `align-items` set, so it defaults to
-     `stretch` and the anchor's box fills the card's full width. The hover
-     underline below is sized to that box (`width: 100%`), so without this it
-     draws end-to-end across the card instead of under the link text. */
-  align-self: flex-start;
+  /* A hover-reveal underline used to be a `::after` pseudo-element sized by
+     `width`, positioned `absolute` against the anchor's own box. That breaks
+     the moment a link's text wraps across two lines: an inline element that
+     wraps has no single box to anchor an absolutely-positioned child to, so
+     the pseudo-element only tracked one line fragment and the underline
+     either vanished on the wrapped line or covered the wrong width.
+     `text-decoration` doesn't have this problem — the browser draws it per
+     line natively — so the reveal is animated via `text-decoration-color`
+     (transparent → the link color) instead. */
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition:
+    color 0.2s,
+    text-decoration-color 0.4s;
 }
-.blog-content a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1.5px;
-  background: var(--lime);
-  transition: width 0.7s;
-}
-.blog-content a:hover::after {
-  width: 100%;
+.blog-content a:hover {
+  text-decoration-color: var(--lime-quote);
 }
 
 .blog-content ul {
@@ -203,8 +201,8 @@ html {
   letter-spacing: -0.01em;
   color: var(--ink);
 }
-.testimonial .name-flex a::after {
-  display: none;
+.testimonial .name-flex a {
+  text-decoration-line: none;
 }
 .testimonial .linked-in {
   width: 20px !important;
@@ -724,10 +722,10 @@ html {
   background: var(--paper-warm);
   border-radius: 18px;
   padding: 30px 32px;
-  margin: 36px 0;
+  margin-bottom: 36px;
 }
 .takeaways-card h2 {
-  margin-top: 20px !important;
+  margin-top: 0px !important;
 }
 .takeaways-title {
   margin: 0;
@@ -986,8 +984,6 @@ h3 {
   width: 100%;
   overflow-x: auto;
   margin: 28px 0;
-  -webkit-overflow-scrolling: touch;
-  border: 1px solid var(--rule-strong);
   border-radius: 14px;
 }
 
@@ -1001,14 +997,23 @@ h3 {
  */
 .blog-content table {
   width: 100%;
-  border-collapse: collapse;
-
+  /* `border-collapse: collapse` is what was silently defeating the border
+     and border-radius below on bare tables (no recognized wrapper div) —
+     browsers don't apply border-radius to a collapsed table, and the
+     collapsed-border conflict resolution can drop the table's own outer
+     border in favor of (or absence of) a cell's border on a given edge.
+     `separate` with zero spacing keeps cell borders looking identical while
+     letting the table's own border/radius render reliably. */
+  border-collapse: separate;
+  border-spacing: 0;
   overflow: hidden;
   margin: 28px 0;
   font-family: var(--body);
   font-size: 14px;
   line-height: 1.6;
   background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--rule-strong);
 }
 /* A wrapper already carries its own margin — don't double it up on the table inside. */
 .blog-content .table-container table,
@@ -1016,8 +1021,6 @@ h3 {
 .blog-content .scrollable-table table,
 .blog-content .table-scroll table {
   margin: 0;
-  border-radius: 14px;
-  border: 1px solid (var(--navy-soft));
   border-radius: 14px;
 }
 .blog-content th {
@@ -1027,7 +1030,7 @@ h3 {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   text-align: left;
-  color: var(--muted-soft);
+  color: var(--color-ink);
   background: var(--paper-warm);
   padding: 14px 16px;
   border-bottom: 1px solid var(--rule-strong);
@@ -1035,13 +1038,16 @@ h3 {
 }
 .blog-content td {
   padding: 14px 16px;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule-strong);
   vertical-align: top;
-  color: var(--muted);
+  color: var(--color-ink);
 }
-.blog-content tr:last-child td {
+
+.blog-content tbody tr:last-child th,
+.blog-content tbody tr:last-child td {
   border-bottom: none;
 }
+
 .blog-content td:first-child {
   color: var(--ink);
   font-weight: 500;
@@ -1119,8 +1125,6 @@ h3 {
 .w-richtext-figure-type-image img {
   width: 100%;
   height: auto;
-  border-radius: 16px;
-  border: 1px solid var(--rule);
   display: block;
 }
 .w-richtext-figure-type-image figcaption {
@@ -1154,92 +1158,6 @@ h3 {
   width: 100%;
   height: 100%;
   border: 0;
-}
-
-.eds-video-poster {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  background: var(--navy);
-  cursor: pointer;
-  overflow: hidden;
-  transition:
-    transform 0.25s,
-    box-shadow 0.25s;
-}
-.eds-video-poster img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition:
-    transform 0.5s,
-    opacity 0.25s;
-}
-.eds-video-poster::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 22, 40, 0.1) 0%,
-    rgba(10, 22, 40, 0.55) 100%
-  );
-}
-.eds-video-poster:hover {
-  box-shadow: 0 22px 46px -28px var(--muted);
-}
-.eds-video-poster:hover img {
-  transform: scale(1.04);
-  opacity: 0.9;
-}
-.eds-video-poster:focus-visible {
-  outline: 2px solid var(--lime);
-  outline-offset: 3px;
-}
-
-.eds-video-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  background: var(--navy);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    transform 0.25s,
-    box-shadow 0.25s;
-}
-.eds-video-poster:hover .eds-video-play {
-  transform: translate(-50%, -50%) scale(1.08);
-  box-shadow: 0 14px 30px -12px rgba(5, 13, 26, 0.8);
-}
-.eds-video-play svg {
-  width: 26px;
-  height: 26px;
-  fill: var(--lime);
-  margin-left: 4px;
-}
-.eds-video-label {
-  position: absolute;
-  left: 20px;
-  bottom: 18px;
-  z-index: 2;
-  font-family: "DM Mono", monospace;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--lime);
 }
 
 blockquote {
@@ -1306,6 +1224,13 @@ blockquote a {
 .cta h3 {
   color: white;
 }
+.cta p:first-of-type {
+  color: white;
+  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
 .cta.bg-green {
   background: linear-gradient(0, #22295a, #264cbe);
 }
@@ -1331,15 +1256,6 @@ blockquote a {
 .cta-btn:hover {
   color: var(--ink);
   background-color: #c8e130;
-}
-
-/* `.blog-content a` (line ~90) sets `align-self: flex-start` on every link so
-   `.source-tile-link`'s hover underline sizes correctly — but that beats
-   `.cta`'s own `align-items: center` by specificity for any other <a> inside
-   it, including this button. Re-centered here with a more specific selector
-   rather than loosening the general rule. */
-.cta .cta-btn {
-  align-self: center;
 }
 
 @media (max-width: 478px) {

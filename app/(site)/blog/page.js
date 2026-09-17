@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { getBlogMain } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-import BlogMain from "@/components/blog/blog-main";
+import BlogMainPageContent from "@/components/blog/blog-main-page-content";
 
 export const revalidate = 86400;
 
@@ -28,5 +28,10 @@ export default async function BlogIndexPage({ searchParams }) {
 
   if (!payload?.blogs) notFound();
 
-  return <BlogMain posts={payload.blogs} categories={payload.categories} />;
+  return (
+    <BlogMainPageContent
+      posts={payload.blogs}
+      categories={payload.categories}
+    />
+  );
 }
