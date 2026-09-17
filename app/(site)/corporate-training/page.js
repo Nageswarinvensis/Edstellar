@@ -11,7 +11,7 @@ export const metadata = buildMetadata({
 function page() {
   return (
     <div className="">
-      <Reveal delay={1} className="flex justify-center items-center h-[100vh]">
+      <Reveal delay={1} className="flex justify-center items-center h-screen">
         <RichHeading
           as="h1"
           parts={[
