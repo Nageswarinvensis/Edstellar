@@ -13,7 +13,11 @@ const SECTION_CTA = {
   cta: { label: "Plan Your Training", href: "#apply" },
 };
 
-export default function DeliveryModes({ deliveryModes, className }) {
+export default function DeliveryModes({
+  deliveryModes,
+  className,
+  showSectionCta = true,
+}) {
   if (!deliveryModes?.tabs?.length) return null;
 
   return (
@@ -44,7 +48,7 @@ export default function DeliveryModes({ deliveryModes, className }) {
         <DeliveryModeTabs tabs={deliveryModes.tabs} />
       </Reveal>
 
-      <SecCta {...SECTION_CTA} />
+      {showSectionCta ? <SecCta {...SECTION_CTA} /> : null}
     </Section>
   );
 }

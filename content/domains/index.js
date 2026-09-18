@@ -1,6 +1,4 @@
 import artificialIntelligence from "./artificial-intelligence";
-import devopsTraining from "./devops-training";
-import softSkillsTraining from "./soft-skills-training";
 
 /**
  * The domain registry. One entry per domain, keyed by URL slug.
@@ -10,6 +8,4 @@ import softSkillsTraining from "./soft-skills-training";
  */
 export const DOMAINS = {
   "artificial-intelligence": artificialIntelligence,
-  "devops-training": devopsTraining,
-  "soft-skills-training": softSkillsTraining,
 };

@@ -18,14 +18,6 @@ export default function RelatedCategories({ data }) {
             className="max-w-[22ch] tracking-[-0.03em] text-ink"
             emphasisClassName="font-normal italic"
           />
-
-        {/* DESCRIPTION */}
-          <Text
-            as="p"
-            className="mt-5 max-w-[65ch] text-[15px] leading-[1.7] text-ink/60"
-          >
-            {data.description}
-          </Text>
         </Reveal>
 
         {/* CATEGORY CARDS */}

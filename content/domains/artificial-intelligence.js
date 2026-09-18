@@ -170,7 +170,7 @@ const artificialIntelligence = {
       actions: [
         {
           label: "Ask for a Match",
-          href: "#catalog",
+          href: "#apply",
           variant: "primary",
         },
       ],
@@ -936,9 +936,7 @@ const artificialIntelligence = {
       label: "SEVEN ROLE PATHS",
     },
 
-    heading:
-      "A catalog tells you what exists. A path tells you <span>what comes first.</span>",
-
+    heading: "Role-based learning Paths <span>for AI teams</span>.",
     description:
       "The filters above return a set. They do not tell you the order to take it in, and order is most of the value: monitoring before deployment teaches nothing, and governance before a model exists is theory. Each path below runs from where a role stands today to what it owns at the end, and every stop names the problem it takes off the team.",
 
@@ -1357,9 +1355,7 @@ const artificialIntelligence = {
       "On-site, live virtual, or blended, in 10+ languages, through a vetted global trainer network. Cohort size, schedule and locations are set with you and confirmed in the proposal.",
   },
   trainers: {
-    heading:
-      "Practitioners who run AI in production, <span>not generalists </span>working from slides.",
-
+    heading: "Meet Your <span>Instructors</span>.",
     description:
       "Every trainer passes a technical domain assessment, a live delivery evaluation by a senior practitioner, and reference checks from past corporate cohorts. Nobody reaches a cohort on a CV alone.",
     people: [
@@ -1547,10 +1543,6 @@ const artificialIntelligence = {
   },
   relatedCategoriesData: {
     heading: "Explore related <span>training domains.</span>",
-
-    description:
-      "AI capability rarely sits alone. These domains are the ones enterprises most often build alongside it.",
-
     items: [
       {
         title: "Machine Learning Training",
@@ -1610,7 +1602,7 @@ const artificialIntelligence = {
     ],
   },
   faqs: {
-    heading: "Questions enterprises ask <span>before booking.</span>",
+    heading: "Frequently Asked <span>Questions</span>",
 
     items: [
       {

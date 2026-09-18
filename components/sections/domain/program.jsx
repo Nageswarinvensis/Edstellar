@@ -13,6 +13,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
+import CtaButton from "@/components/common/cta-button";
 
 const COURSES_PER_PAGE = 9;
 
@@ -216,7 +217,7 @@ function CourseCard({ course, data }) {
           >
             <Text
               as="span"
-              className="text-[9px] font-semibold uppercase tracking-[0.5px] text-[#07182C]"
+              className="font-mono text-[9px] font-semibold uppercase tracking-[0.5px] text-[#07182C]"
             >
               {course.proposed ? cardData.requestProgram : cardData.viewProgram}
             </Text>
@@ -475,22 +476,31 @@ export default function Program({ data }) {
             as="p"
             className="text-[10px] font-medium uppercase tracking-[1.4px] text-[#727984]"
           >
-            {data.catalog.showingLabel} {showingStart}–{showingEnd}{" "}
-            {data.catalog.ofLabel} {filteredCourses.length}{" "}
-            <span className="mx-1.25 text-link-muted">-</span>
-            <a
-              href="#by-discipline"
-              className={[
-                "text-link-muted",
-                "tracking-[1px]",
-                "underline underline-offset-[3px]",
-                "transition-colors duration-200",
-                "hover:text-[#07182C]",
-                "hover:cursor-pointer",
-              ].join(" ")}
-            >
-              {data.catalog.courseCount} {data.catalog.liveCatalogLabel}
-            </a>
+            {search.trim() && filteredCourses.length === 0 ? (
+              <>No Programs matched &quot;{search.trim()}&quot; in this Selection</>
+            ) : (
+              <>
+                {data.catalog.showingLabel} {showingStart}–{showingEnd}{" "}
+                {data.catalog.ofLabel} {filteredCourses.length}
+                {search.trim() ? (
+                  <> matching for &quot;{search.trim()}&quot;</>
+                ) : null}{" "}
+                <span className="mx-1.25 text-link-muted">·</span>{" "}
+                <a
+                  href="#by-discipline"
+                  className={[
+                    "text-link-muted",
+                    "tracking-[1px]",
+                    "underline underline-offset-[3px]",
+                    "transition-colors duration-200",
+                    "hover:text-[#07182C]",
+                    "hover:cursor-pointer",
+                  ].join(" ")}
+                >
+                  {data.catalog.courseCount} {data.catalog.liveCatalogLabel}
+                </a>
+              </>
+            )}
           </Text>
 
           {/* ================= SEARCH ================= */}
@@ -561,6 +571,17 @@ export default function Program({ data }) {
             >
               {data.catalog.noResults}
             </Text>
+
+            {data.catalog.actions?.map((action) => (
+              <CtaButton
+                key={action.label}
+                variant={action.variant}
+                arrow
+                render={<a href={action.href} />}
+              >
+                {action.label}
+              </CtaButton>
+            ))}
           </Box>
         )}
 

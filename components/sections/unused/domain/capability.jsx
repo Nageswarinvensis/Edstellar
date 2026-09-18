@@ -24,7 +24,7 @@ export default function Capability({ data }) {
         <Reveal delay={1}>
           <Text
             as="p"
-            className="mt-6 max-w-[700px] text-[15px] leading-[1.7] text-white/70"
+            className="mt-6 max-w-175 text-[15px] leading-[1.7] text-white/70"
           >
             {data.description}
           </Text>

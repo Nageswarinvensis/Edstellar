@@ -226,7 +226,7 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                 ) : null}
 
                 <Box className="mt-0.5 mb-4 flex items-center gap-2.5 rounded-[9px] bg-paper-warm px-2.75 py-2.25">
-                  <Box className="inline-flex items-center gap-1.25 font-display text-sm font-bold tracking-[-0.01em] text-ink">
+                  <Box className="inline-flex items-center gap-1.25 font-display text-sm font-semibold tracking-[-0.01em] text-ink">
                     <Star size={13} strokeWidth={0} fill="currentColor" />
                     {trainer.rating ?? "4.9"}
                   </Box>

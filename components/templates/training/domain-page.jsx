@@ -56,6 +56,7 @@ export default function DomainPage({ domain }) {
       <DeliveryModes
         deliveryModes={domain.DeliveryModesdata}
         className="bg-paper-cream"
+        showSectionCta={false}
       />
       <Trainers trainers={domain.trainers} desktopCards={4} />
 

@@ -210,10 +210,10 @@ export default function Paths({ data }) {
                           >
                             {/* Timeline Point */}
                             <span
-                              className={`absolute left-0 top-0.5 z-10 h-4 w-4 rounded-full border-[1.5px] ${
+                              className={`absolute left-0 top-0.5 z-10 h-4 w-4 rounded-full ${
                                 isHovered
-                                  ? "border-ink bg-[#c8ef32] transition-colors duration-200"
-                                  : "border-[#c8ced5] bg-white transition-none"
+                                  ? "border-2 border-black bg-[#c8ef32] transition-colors duration-200"
+                                  : "border-[1.5px] border-[#c8ced5] bg-white transition-none"
                               }`}
                               style={{
                                 transitionDelay: isHovered
@@ -234,7 +234,7 @@ export default function Paths({ data }) {
                             ) : (
                               <Text
                                 as="h4"
-                                className="text-[14px] font-medium leading-[1.3] text-ink"
+                                className="text-[14px] font-normal leading-[1.3] text-ink"
                               >
                                 {item.title}
                               </Text>
@@ -256,7 +256,7 @@ export default function Paths({ data }) {
                         <Box className="relative mb-3 pl-5">
                           {/* Diamond */}
                           <span
-                            className={`absolute left-0.5 top-1.25 h-3 w-3 rotate-45 border border-ink ${
+                            className={`absolute left-0.5 top-1.25 h-3 w-3 rotate-45 border-2 border-ink ${
                               isHovered
                                 ? "bg-lime transition-colors duration-200"
                                 : "bg-white transition-none"

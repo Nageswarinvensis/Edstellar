@@ -10,17 +10,15 @@ export default function Outcomes({ data }) {
     <Section id="outcomes" className="bg-paper">
       <Box>
         <Reveal delay={1}>
-          <Box className="mb-10 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+          <Box className="mb-10">
             <Box>
               <RichHeading
                 as="h2"
                 heading={data.heading}
-                className="max-w-155 font-semibold tracking-[-1.8px] text-ink"
+                className="max-w-155 mb-10 font-semibold tracking-[-1.8px] text-ink"
                 emphasisClassName="font-serif font-normal tracking-[-1px]"
               />
-            </Box>
 
-            <Box className="flex items-end">
               <Text
                 as="p"
                 className="max-w-155 text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink-muted"
