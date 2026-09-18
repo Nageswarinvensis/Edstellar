@@ -82,7 +82,7 @@ export default function TrainerHero({ trainer }) {
             )}
 
             {location && (
-              <Text as="p" className="mt-4 text-[16px] leading-6 text-[#c4ccd8]">
+              <Text as="p" className="mt-4 text-[16px] leading-6 text-paper-cream">
                 Based in {location}
               </Text>
             )}
@@ -93,7 +93,7 @@ export default function TrainerHero({ trainer }) {
                   <Text
                     as="span"
                     key={skill}
-                    className="rounded-full border border-[#52632c] bg-ink px-4 py-2 text-[13px] font-medium text-lime"
+                    className="rounded-full border border-[#c8f13547] bg-[#c8f1351f] px-3 py-1.5 text-[12px] font-medium text-lime"
                   >
                     {skill}
                   </Text>
@@ -102,7 +102,7 @@ export default function TrainerHero({ trainer }) {
                 {remainingSkills > 0 && (
                   <Text
                     as="span"
-                    className="rounded-full border border-[#475569] px-4 py-2 text-[13px] font-medium text-white"
+                    className="rounded-full border border-[#FAFAF738] px-3 py-1.5 text-[12px] font-medium text-white"
                   >
                     +{remainingSkills} more
                   </Text>

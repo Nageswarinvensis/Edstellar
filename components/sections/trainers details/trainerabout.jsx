@@ -5,7 +5,6 @@ import Text from "@/components/ui/Text";
 export default function TrainerAbout({ trainer }) {
   const trainerFirstName = trainer?.name?.split(" ")[0] || "Trainer";
 
-  // API Property Mappings based on your backend payload
   const baseLocation =
     [trainer?.city, trainer?.country].filter(Boolean).join(", ") ||
     trainer?.city ||
@@ -25,12 +24,21 @@ export default function TrainerAbout({ trainer }) {
 
   const deliveryMode = trainer?.delivery_mode || "Onsite & Virtual";
 
-  const travelsForOnsite = trainer?.travels_onsite !== undefined
-    ? (trainer.travels_onsite ? "Yes" : "No")
-    : "Yes";
+  const travelsForOnsite =
+    trainer?.travels_onsite !== undefined
+      ? trainer.travels_onsite
+        ? "Yes"
+        : "No"
+      : "Yes";
 
-  // About text mapped directly from API meta / about fields
-  const aboutText = trainer?.meta?.about || trainer?.about;
+  const rawAboutText = trainer?.meta?.about || trainer?.about || "";
+
+  const paragraphs = rawAboutText
+    ? rawAboutText
+        .split(/\s*\|\|\s*/)
+        .map((p) => p.trim())
+        .filter(Boolean)
+    : [];
 
   const glanceDetails = [
     { label: "Base", value: baseLocation },
@@ -54,21 +62,29 @@ export default function TrainerAbout({ trainer }) {
               About{" "}
               <Text
                 as="span"
-                className="text-[18px] font-Cormorant Garamond italic font-normal text-text-ink lg:text-[24px]"
+                className="font-Cormorant Garamond text-[18px] font-normal italic text-ink lg:text-[24px]"
               >
                 {trainerFirstName}.
               </Text>
             </Text>
 
-            {aboutText && (
-              <Text as="p" className="text-[16px] leading-[1.7] text-[#334155]">
-                {aboutText}
-              </Text>
+            {paragraphs.length > 0 && (
+              <Box className="flex flex-col space-y-5">
+                {paragraphs.map((paragraph, index) => (
+                  <Text
+                    key={index}
+                    as="p"
+                    className="text-[16px] leading-[1.75] text-[#334155]"
+                  >
+                    {paragraph}
+                  </Text>
+                ))}
+              </Box>
             )}
           </Box>
 
-          {/* Right Side: At a glance Card */}
-          <Box className="h-fit rounded-[16px] border border-[#e2e8f0] bg-white p-5 shadow-sm sm:p-6">
+          {/* Right Side: Sticky "At a glance" Card */}
+          <Box className="sticky top-16 self-start h-fit rounded-[16px] border border-[#e2e8f0] bg-white p-5 shadow-sm sm:p-6">
             <Text
               as="h3"
               className="text-[20px] font-bold tracking-tight text-ink"
@@ -95,9 +111,10 @@ export default function TrainerAbout({ trainer }) {
             <Box className="mt-4">
               <Link
                 href="#contact"
-                className="inline-flex w-full items-center justify-center rounded-full bg-ink py-3.5 px-7 text-[14px] font-semibold text-lime transition-colors hover:bg-[#1e293b]"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text.sm font-semibold text-lime transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-12px_rgba(10,22,40,0.5)]"
               >
-                Talk to Edstellar Consultant
+                <span>Talk to Edstellar Consultant</span>
+                <span className="text-base leading-none">→</span>
               </Link>
             </Box>
           </Box>

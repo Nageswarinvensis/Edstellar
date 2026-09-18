@@ -5,7 +5,10 @@ import TrainerProfile from "@/components/sections/trainers details/trainerprofil
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import TrainerAbout from "@/components/sections/trainers details/trainerabout";
 import OurReach from "@/components/sections/trainers details/ourreach";
-
+import TrainerLocation from "@/components/sections/trainers details/trainerlocation";
+import TrainerExpertise from "@/components/sections/trainers details/trainerexperties";
+import TrainerExperience from "@/components/sections/trainers details/trainerexperience";
+import CtaTrainer from "@/components/sections/trainers details/ctatrainer";
 async function getTrainer(slug) {
   const response = await fetch(
     `https://devcms.edstellar.com/api/v2/trainer/${slug}`,
@@ -51,16 +54,19 @@ export default async function TrainerPage({ params }) {
     notFound();
   }
 
-  // 1. Extract stickyNavbarData from TRAINERS_DATA
   const stickyNavbarData = TRAINERS_DATA.stickyNavbarData;
+  const experienceData = TRAINERS_DATA.experienceData;
 
-  // 2. Add the missing 'return' keyword
   return (
     <>
       <TrainerProfile trainer={trainer} />
       <StickyTabs data={stickyNavbarData} />
       <TrainerAbout trainer={trainer} />
       <OurReach trainer={trainer} />
+      <TrainerLocation trainer={trainer} />
+      <TrainerExpertise trainer={trainer} />
+      <TrainerExperience trainer={trainer} experienceData={experienceData} />
+      <CtaTrainer trainer={trainer}/>
     </>
   );
 }
