@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import Section from "@/components/ui/Section";
 
 export default function TrainerExpertise({ trainer }) {
   const [showAll, setShowAll] = useState(false);
@@ -29,8 +30,8 @@ export default function TrainerExpertise({ trainer }) {
   const displayedSkills = showAll ? skillsList : skillsList.slice(0, 6);
 
   return (
-    <Box id="expertise" className="bg-paper-cream py-16 text-ink">
-      <Box className="mx-auto max-w-7xl px-5 lg:px-8">
+    <Section id="expertise" className="bg-paper-cream">
+      <Box>
         {/* Section Header */}
         <Box className="max-w-2xl">
           <Text as="h2" className="text-[30px] font-bold tracking-tight lg:text-[36px]">
@@ -91,6 +92,6 @@ export default function TrainerExpertise({ trainer }) {
           </Box>
         )}
       </Box>
-    </Box>
+    </Section>
   );
 }

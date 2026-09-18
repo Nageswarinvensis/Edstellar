@@ -1,4 +1,5 @@
 import Box from "@/components/ui/Box";
+import Section from "@/components/ui/Section";
 import Text from "@/components/ui/Text";
 
 export default function OurReach({ trainer }) {
@@ -65,8 +66,8 @@ export default function OurReach({ trainer }) {
   const cardHeaderClass = "mb-4.5 flex items-center gap-2.5";
 
   return (
-    <Box id="reach & languages" className="bg-[#f9fafb] py-16 text-ink">
-      <Box className="mx-auto max-w-7xl px-5 lg:px-8">
+    <Section id="reach & languages" className="bg-[#f9fafb]">
+      <Box>
         <Box className="mb-10 max-w-2xl">
           <Text
             as="h2"
@@ -236,6 +237,6 @@ export default function OurReach({ trainer }) {
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Section>
   );
 }

@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import Section from "@/components/ui/Section";
 
 export default function TrainerHero({ trainer }) {
   const skills = trainer?.skills || [];
@@ -13,15 +14,19 @@ export default function TrainerHero({ trainer }) {
     .filter(Boolean)
     .join(", ");
 
-  // Map API fields with static fallbacks matching image details
+  const reach = trainer?.delivery_reach || trainer?.meta?.delivery_reach;
+  const deliveryReachText = location
+    ? `Based in ${location}${reach ? ` · Delivering across ${reach}` : ""}`
+    : reach || "Based in Lagos, Nigeria · Delivering across West Africa & EMEA";
+
   const statsData = [
     {
       label: "BASE LOCATION",
-      value: location || "Delhi, India",
+      value: location || "Lagos, Nigeria",
     },
     {
       label: "TRAINER SINCE",
-      value: trainer?.training_since || "May 201",
+      value: trainer?.training_since || "March 2013",
     },
     {
       label: "LANGUAGES",
@@ -36,19 +41,20 @@ export default function TrainerHero({ trainer }) {
   ];
 
   return (
-    <Box className="bg-ink text-white">
-      {/* Hero Content Section */}
-      <Box className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-14">
-        <Box className="grid items-center gap-10 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-12">
-          <Box className="relative mx-auto w-full max-w-70">
-            <Box className="relative aspect-square overflow-hidden rounded-[12px]">
+    <Section className="w-full bg-ink pb-0!">
+      {/* Upper Hero Block */}
+      <Box>
+        <Box className="grid items-center gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10">
+          {/* Trainer Image & Status Badge */}
+          <Box className="relative mx-auto w-full max-w-55 lg:mx-0">
+            <Box className="relative aspect-square overflow-hidden rounded-[16px]">
               {trainer?.profile_image_url ? (
                 <Image
                   src={trainer.profile_image_url}
                   alt={trainer?.name || "Trainer"}
                   fill
                   priority
-                  sizes="280px"
+                  sizes="220px"
                   className="object-cover"
                 />
               ) : (
@@ -58,42 +64,48 @@ export default function TrainerHero({ trainer }) {
               )}
             </Box>
 
-            <Box className="absolute left-3 top-3 flex items-center gap-2 rounded-full bg-lime px-4 py-2 text-[12px] font-semibold text-ink">
-              <Box className="h-2 w-2 rounded-full bg-[#081528]" />
+            {/* "Available to book" Badge */}
+            <Box className="absolute left-2.5 top-2.5 flex items-center gap-1.5 rounded-full bg-lime px-3 py-1 text-[11px] font-bold text-ink shadow-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-ink" />
               Available to book
             </Box>
           </Box>
 
+          {/* Details & Action Buttons */}
           <Box className="min-w-0">
+            {/* Trainer Name */}
             <Text
               as="h1"
-              className="text-[42px] font-bold leading-[1.05] tracking-[-0.035em] text-white sm:text-[48px] lg:text-[50px]"
+              className="text-[32px] font-bold leading-tight tracking-tight text-white lg:text-[40px]"
             >
-              {trainer?.name}
+              {trainer?.name || "Amara Okonkwo"}
             </Text>
 
+            {/* Profile Title */}
             {trainer?.profile_title && (
               <Text
                 as="p"
-                className="mt-5 font-serif text-[20px] italic leading-[1.3] text-lime sm:text-[22px]"
+                className="mt-2 font-serif text-[18px] italic text-lime sm:text-[24px]"
               >
                 {trainer.profile_title}
               </Text>
             )}
 
-            {location && (
-              <Text as="p" className="mt-4 text-[16px] leading-6 text-paper-cream">
-                Based in {location}
+            {/* Subtitle / Delivery Reach */}
+            {deliveryReachText && (
+              <Text as="p" className="mt-2 text-[14px] text-white/70">
+                {deliveryReachText}
               </Text>
             )}
 
+            {/* Skill Tags */}
             {visibleSkills.length > 0 && (
-              <Box className="mt-6 flex flex-wrap gap-2">
+              <Box className="mt-5 flex flex-wrap items-center gap-2">
                 {visibleSkills.map((skill) => (
                   <Text
                     as="span"
                     key={skill}
-                    className="rounded-full border border-[#c8f13547] bg-[#c8f1351f] px-3 py-1.5 text-[12px] font-medium text-lime"
+                    className="rounded-full border border-[#ccf244]/30 bg-[#ccf244]/10 px-3.5 py-1.5 text-[12px] font-medium text-lime"
                   >
                     {skill}
                   </Text>
@@ -102,7 +114,7 @@ export default function TrainerHero({ trainer }) {
                 {remainingSkills > 0 && (
                   <Text
                     as="span"
-                    className="rounded-full border border-[#FAFAF738] px-3 py-1.5 text-[12px] font-medium text-white"
+                    className="rounded-full border border-white/20 px-3 py-1.5 text-[12px] font-medium text-white/80"
                   >
                     +{remainingSkills} more
                   </Text>
@@ -110,48 +122,47 @@ export default function TrainerHero({ trainer }) {
               </Box>
             )}
 
-            <Box className="mt-7 flex flex-wrap gap-3">
+            {/* Buttons */}
+            <Box className="mt-6 flex flex-wrap items-center gap-3">
               <Link
                 href="#contact"
-                className="inline-flex min-h-12.5 items-center justify-center rounded-full bg-lime px-7 text-[14px] font-semibold text-ink transition-opacity hover:opacity-90"
+                className="inline-flex h-10 items-center justify-center rounded-full bg-lime px-6 text-[13px] font-bold text-black transition-all hover:bg-lime"
               >
                 Talk to Edstellar Consultant
               </Link>
 
               <a
                 href="#trainer-details"
-                className="inline-flex min-h-12.5 items-center justify-center rounded-full border border-[#697589] px-7 text-[14px] font-semibold text-white transition-colors hover:border-white"
+                className="inline-flex h-10 items-center justify-center rounded-full border border-white/25 px-6 text-[13px] font-semibold text-white transition-colors hover:border-white"
               >
-                See trainer details
+                See delivery reach
               </a>
             </Box>
           </Box>
         </Box>
       </Box>
 
-      {/* Stats/Details Bar Section */}
-      <Box className="border-t border-b border-[#263246] bg-[#070e1b] py-6">
-        <Box className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Box className="grid grid-cols-2 gap-y-6 gap-x-4 sm:grid-cols-4 md:gap-8">
-            {statsData.map((stat, index) => (
-              <Box key={index} className="flex flex-col gap-1">
-                <Text
-                  as="span"
-                  className="text-[12px] font-semibold uppercase tracking-wider text-[#8fa0b5]"
-                >
-                  {stat.label}
-                </Text>
-                <Text
-                  as="span"
-                  className="text-[16px] font-bold text-white sm:text-[16px]"
-                >
-                  {stat.value}
-                </Text>
-              </Box>
-            ))}
-          </Box>
+      {/* End-to-End Bottom Stats Bar */}
+      <Box className="relative left-1/2 mt-10 w-screen -translate-x-1/2 border-t border-white/10 bg-[#050d1a66] py-5">
+        <Box className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4 lg:gap-8">
+          {statsData.map((stat, index) => (
+            <Box key={index} className="flex flex-col gap-1">
+              <Text
+                as="span"
+                className="text-[11px] font-bold uppercase tracking-wider text-white/40"
+              >
+                {stat.label}
+              </Text>
+              <Text
+                as="span"
+                className="text-[16px] font-bold text-white"
+              >
+                {stat.value}
+              </Text>
+            </Box>
+          ))}
         </Box>
       </Box>
-    </Box>
+    </Section>
   );
 }
