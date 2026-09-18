@@ -223,7 +223,7 @@ export default function CurriculumModules({ filters, modules }) {
         </Box>
       ) : null}
 
-      <Accordion multiple className="w-full gap-3">
+      <Accordion multiple hiddenUntilFound className="w-full gap-3">
         {modules.map((module) => {
           const visible =
             activeFilter === "all" || module.tags?.includes(activeFilter);

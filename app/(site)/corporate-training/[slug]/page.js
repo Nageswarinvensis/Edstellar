@@ -5,7 +5,15 @@ import {
   resolveTrainingSlug,
 } from "@/lib/content/taxonomy";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { SITE } from "@/lib/constants";
 import DomainPage from "@/components/templates/training/domain-page";
+
+/** Same fix as the blog author page: the CMS's `meta_title` already ends in
+ * "| Edstellar" — the root layout's title template (`%s | Edstellar`) would
+ * otherwise double it up. */
+function stripSiteSuffix(title) {
+  return title?.replace(new RegExp(`\\s*\\|\\s*${SITE.name}\\s*$`, "i"), "");
+}
 
 /**
  * `/corporate-training/{slug}` — industry, vendor, or domain.
@@ -45,7 +53,7 @@ export async function generateMetadata({ params }) {
   if (!entry) return {};
 
   return buildMetadata({
-    title: entry.data.seo.meta_title,
+    title: stripSiteSuffix(entry.data.seo.meta_title),
     description: entry.data.seo.Meta_description,
     path: `/corporate-training/${slug}`,
     image: entry.data.seo.og_image_url,

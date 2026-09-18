@@ -1,4 +1,5 @@
 import { DELIVERY_COUNTRIES, DELIVERY_LANGUAGES } from "@/lib/constants";
+import { BREADCRUMB_PREFIX } from "./default";
 
 const LANGUAGE_TOOLTIP = {
   heading: "Delivered in",
@@ -29,27 +30,24 @@ const artificialIntelligence = {
   name: "Artificial Intelligence",
 
   seo: {
-    is_dynamic: false,
-    config: {
-      og_image: null,
-      og_title: "Artificial Intelligence Corporate Training | Edstellar",
-      meta_title: "Artificial Intelligence Corporate Training | Edstellar",
-      og_image_url: null,
-      twitter_card: "summary_large_image",
-      twitter_site: "@edstellar",
-      canonical_url:
-        "https://www.edstellar.com/corporate-training/artificial-intelligence/",
-      meta_keywords: null,
-      twitter_title: "Artificial Intelligence Corporate Training | Edstellar",
-      og_description:
-        "Explore Edstellar's Artificial Intelligence training programs covering generative AI, machine learning, deep learning, NLP, and computer vision. Instructor-led courses delivered onsite or virtually in 100+ countries.",
-      twitter_creator: null,
-      Meta_description:
-        "Explore Edstellar's Artificial Intelligence training programs covering generative AI, machine learning, deep learning, NLP, and computer vision. Instructor-led courses delivered onsite or virtually in 100+ countries.",
-      twitter_image_url: null,
-      twitter_description:
-        "Explore Edstellar's Artificial Intelligence training programs covering generative AI, machine learning, deep learning, NLP, and computer vision. Instructor-led courses delivered onsite or virtually in 100+ countries.",
-    },
+    og_image: null,
+    og_title: "Artificial Intelligence Corporate Training | Edstellar",
+    meta_title: "Artificial Intelligence Corporate Training | Edstellar",
+    og_image_url: null,
+    twitter_card: "summary_large_image",
+    twitter_site: "@edstellar",
+    canonical_url:
+      "https://www.edstellar.com/corporate-training/artificial-intelligence/",
+    meta_keywords: null,
+    twitter_title: "Artificial Intelligence Corporate Training | Edstellar",
+    og_description:
+      "Explore Edstellar's Artificial Intelligence training programs covering generative AI, machine learning, deep learning, NLP, and computer vision. Instructor-led courses delivered onsite or virtually in 100+ countries.",
+    twitter_creator: null,
+    Meta_description:
+      "Explore Edstellar's Artificial Intelligence training programs covering generative AI, machine learning, deep learning, NLP, and computer vision. Instructor-led courses delivered onsite or virtually in 100+ countries.",
+    twitter_image_url: null,
+    twitter_description:
+      "Explore Edstellar's Artificial Intelligence training programs covering generative AI, machine learning, deep learning, NLP, and computer vision. Instructor-led courses delivered onsite or virtually in 100+ countries.",
   },
   hero: {
     heading: "Corporate <span>Artificial Intelligence</span> Training",
@@ -65,20 +63,31 @@ const artificialIntelligence = {
       video: "/category/Home-Animation.mp4",
       alt: "An enterprise team reviewing AI systems on a shared display",
     },
+
+    // `variant` mapped to CtaButton's only two supported variants —
+    // "secondary"/"outline" from the CMS config don't exist on CtaButton and
+    // would render unstyled if passed through as-is. `href: "#brochure"`
+    // also had no matching element on the page, so it points at the lead
+    // form (`#apply`) instead, same as every other "Download Brochure" CTA.
+    actions: [
+      {
+        label: "Browse AI Programs",
+        href: "#by-topic",
+        variant: "primary",
+      },
+      {
+        label: "Ask a Question",
+        href: "#apply",
+        variant: "ghost",
+      },
+      {
+        label: "Download Brochure",
+        href: "#apply",
+        variant: "ghost",
+      },
+    ],
   },
-  breadcrumbs: [
-    {
-      label: "Home",
-      href: "/",
-    },
-    {
-      label: "Corporate Training",
-      href: "/corporate-training",
-    },
-    {
-      label: "Artificial Intelligence",
-    },
-  ],
+  breadcrumbs: [...BREADCRUMB_PREFIX, { label: "Artificial Intelligence" }],
   proof: {
     tone: "light",
 
@@ -106,22 +115,6 @@ const artificialIntelligence = {
         },
       ],
     },
-  },
-  sticky_nav: {
-    logo: {
-      src: "/course/Edstellar.svg",
-      alt: "Edstellar",
-    },
-    tabs: [
-      { id: "about", label: "About", active: true },
-      { id: "by-topic", label: "By topic", active: false },
-      { id: "by-role", label: "By role", active: false },
-      { id: "paths", label: "Paths", active: false },
-      { id: "delivery", label: "Delivery", active: false },
-      { id: "trainers", label: "Trainers", active: false },
-      { id: "why-edstellar", label: "Why Edstellar", active: false },
-      { id: "faqs", label: "FAQ", active: false },
-    ],
   },
   about: {
     heading: "What is corporate <span>AI training</span>?",
@@ -218,12 +211,6 @@ const artificialIntelligence = {
             title: "Generative AI (GenAI) Training",
           },
 
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
-          },
-
           duration: {
             type: "range",
             min: 24,
@@ -251,12 +238,6 @@ const artificialIntelligence = {
             src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6984353e51bbb54859fb2679_1200%20x%20600%20-%20Retrieval%20Augmented%20Generation%20(RAG)%20Training.webp",
             alt: "Retrieval Augmented Generation Training",
             title: "Retrieval Augmented Generation (RAG) Training",
-          },
-
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
           },
 
           duration: {
@@ -288,12 +269,6 @@ const artificialIntelligence = {
             title: "Agentic AI Training",
           },
 
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
-          },
-
           duration: {
             type: "range",
             min: 20,
@@ -323,12 +298,6 @@ const artificialIntelligence = {
             title: "LLM Observability Training",
           },
 
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
-          },
-
           duration: {
             type: "range",
             min: 16,
@@ -356,12 +325,6 @@ const artificialIntelligence = {
             src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6a16e58144ce089fe9c52414_1200%20x%20600%20-MLOps%20for%20LLMs%20Training.webp",
             alt: "MLOps for LLMs Training",
             title: "MLOps for LLMs Training",
-          },
-
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
           },
 
           duration: {
@@ -426,12 +389,6 @@ const artificialIntelligence = {
             title: "Introduction to Machine Learning Training",
           },
 
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
-          },
-
           duration: {
             type: "request",
           },
@@ -457,12 +414,6 @@ const artificialIntelligence = {
             src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/667d5582cb3e5b7a1bd0d241_Machine%20Learning%20with%20Python%20Training%201200x600.webp",
             alt: "Machine Learning with Python Training",
             title: "Machine Learning with Python Training",
-          },
-
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
           },
 
           duration: {
@@ -494,12 +445,6 @@ const artificialIntelligence = {
             title: "Machine Learning with Scikit-Learn Training",
           },
 
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
-          },
-
           duration: {
             type: "request",
           },
@@ -525,12 +470,6 @@ const artificialIntelligence = {
             src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/667d5582cb3e5b7a1bd0d241_Machine%20Learning%20with%20Python%20Training%201200x600.webp",
             alt: "Deep Learning Training",
             title: "Deep Learning Training",
-          },
-
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
           },
 
           duration: {
@@ -562,12 +501,6 @@ const artificialIntelligence = {
             title: "Generative AI with Python Training",
           },
 
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
-          },
-
           duration: {
             type: "range",
             min: 24,
@@ -595,12 +528,6 @@ const artificialIntelligence = {
             src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6a16e58144ce089fe9c52414_1200%20x%20600%20-MLOps%20for%20LLMs%20Training.webp",
             alt: "LLM Engineering Training",
             title: "LLM Engineering Training",
-          },
-
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
           },
 
           duration: {
@@ -632,12 +559,6 @@ const artificialIntelligence = {
             title: "MLOps Training",
           },
 
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
-          },
-
           duration: {
             type: "range",
             min: 16,
@@ -667,12 +588,6 @@ const artificialIntelligence = {
             title: "AI Governance Training",
           },
 
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
-          },
-
           duration: {
             type: "range",
             min: 16,
@@ -700,12 +615,6 @@ const artificialIntelligence = {
             src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/683823f3003ba05730fd3c65_1200_x_600_-__Agentic_AI.webp",
             alt: "AI Product Management Training",
             title: "AI Product Management Training",
-          },
-
-          delivery: {
-            instructorLed: true,
-            onSite: true,
-            virtual: true,
           },
 
           duration: {
@@ -1302,7 +1211,7 @@ const artificialIntelligence = {
       },
     ],
   },
-  DeliveryModesdata: {
+  deliveryModes: {
     tabs: [
       {
         id: "virtual",
@@ -1406,7 +1315,7 @@ const artificialIntelligence = {
     ],
     note: "Trainers are matched to your stack and delivery window at scheduling. We confirm your assigned trainer, with a full profile, before the program is booked, and you can sit in on a trial session first.",
   },
-  map_section: {
+  mapsectionData: {
     heading:
       "Why enterprises choose <span>Edstellar </span>as their AI training provider.",
 
@@ -1791,7 +1700,7 @@ const artificialIntelligence = {
       },
     ],
   },
-  lead_form: {
+  leadForm: {
     heading: "Ask us about <span>AI training</span> for your teams.",
     description:
       "Tell us which teams you are training and what they need to be able to do. Anything you filtered in the catalog comes through with your message.",
@@ -1799,7 +1708,7 @@ const artificialIntelligence = {
       "We reply within one business day with a tailored proposal, no automated sales sequence.",
     pricing_href: "https://www.edstellar.com/corporate-training-pricing#table",
   },
-  sticky_footer: {
+  stickyFooter: {
     messages: [
       {
         highlight: "Instructor-led corporate training",

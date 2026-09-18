@@ -49,18 +49,20 @@ export default function DomainPage({ domain }) {
         ctaBannerData={domain.about?.cta_banner}
         showCustomizedTraining={false}
       />
-      <Program data={domain.programData} />
+      <Program
+        data={{ ...domain.programData, defaultDelivery: domain.delivery }}
+      />
       <ByRole data={domain.byRoleData} />
       <Paths data={domain.pathsData} />
       <Outcome data={domain.outcomeData} />
       <DeliveryModes
-        deliveryModes={domain.DeliveryModesdata}
+        deliveryModes={domain.deliveryModes}
         className="bg-paper-cream"
         showSectionCta={false}
       />
       <Trainers trainers={domain.trainers} desktopCards={4} />
 
-      <MapSection data={domain.map_section} className="bg-paper-warm" />
+      <MapSection data={domain.mapsectionData} className="bg-paper-warm" />
       <Delivered data={domain.deliveredData} />
       <FromEdstellar data={domain.fromedstellarData} />
       <RelatedCategories data={domain.relatedCategoriesData} />
@@ -71,8 +73,8 @@ export default function DomainPage({ domain }) {
         className="bg-paper-warm"
       />
       <Scope data={domain.scopeData} />
-      <LeadForm data={domain.lead_form} background="paper-warm" />
-      <StickyFooter data={domain.sticky_footer} />
+      <LeadForm data={domain.leadForm} background="paper-warm" />
+      <StickyFooter data={domain.stickyFooter} />
     </>
   );
 }

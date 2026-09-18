@@ -43,8 +43,7 @@ export default function DeliveryModeTabs({ tabs }) {
   if (!tabs?.length) return null;
 
   const activeIndex = tabs.findIndex((tab) => tab.id === activeId);
-  const active = activeIndex === -1 ? tabs[0] : tabs[activeIndex];
-  const image = imageForTab(active, activeIndex === -1 ? 0 : activeIndex);
+  const activeTabId = activeIndex === -1 ? tabs[0].id : activeId;
 
   return (
     <Box>
@@ -53,15 +52,17 @@ export default function DeliveryModeTabs({ tabs }) {
         className="mb-8 flex flex-wrap border-b border-ink/12"
       >
         {tabs.map((tab) => {
-          const isActive = tab.id === active.id;
+          const isActive = tab.id === activeTabId;
 
           return (
             <button
               key={tab.id}
+              id={`mode-tab-${tab.id}`}
               type="button"
               role="tab"
               title={`Click Here to View ${tab.label}`}
               aria-selected={isActive}
+              aria-controls={`mode-panel-${tab.id}`}
               onClick={() => setActiveId(tab.id)}
               className="relative mr-5.5 cursor-pointer border-none bg-transparent px-1.5 py-3.5 text-left transition-colors duration-200"
             >
@@ -94,65 +95,73 @@ export default function DeliveryModeTabs({ tabs }) {
         })}
       </Box>
 
-      <Box
-        role="tabpanel"
-        className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10"
-      >
-        <Box>
-          <Text
-            as="h3"
-            className="mb-3 font-display text-2xl font-semibold tracking-[-0.02em] text-ink"
-          >
-            {active.title}
-          </Text>
+      {tabs.map((tab, index) => {
+        const isActive = tab.id === activeTabId;
+        const image = imageForTab(tab, index);
 
-          <Text
-            as="p"
-            className="mb-4.5 text-[15px] leading-[1.6] text-ink/60"
-          >
-            {active.description}
-          </Text>
-
+        return (
           <Box
-            as="ul"
-            className="flex flex-col divide-y divide-ink/12"
+            key={tab.id}
+            id={`mode-panel-${tab.id}`}
+            role="tabpanel"
+            aria-labelledby={`mode-tab-${tab.id}`}
+            hidden={!isActive}
+            className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10"
           >
-            {active.points?.map((point, index) => (
-              <Reveal
-                as="li"
-                key={point}
-                delay={Math.min(index + 1, 4)}
-                className="flex gap-3 py-2.25 text-[14.5px] --tw-leading: 1.5 text-ink/60"
+            <Box>
+              <Text
+                as="h3"
+                className="mb-3 font-display text-2xl font-semibold tracking-[-0.02em] text-ink"
               >
-                <Text
-                  as="span"
-                  aria-hidden="true"
-                  className="font-bold text-ink/60"
-                >
-                  →
-                </Text>
-                {point}
-              </Reveal>
-            ))}
-          </Box>
-        </Box>
+                {tab.title}
+              </Text>
 
-        <Box
-          aria-hidden="true"
-          className="relative flex h-70 items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
-        >
-          {image ? (
-            <Image
-              src={image.src}
-              alt={image.alt}
-              title={active.title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
-          ) : null}
-        </Box>
-      </Box>
+              <Text
+                as="p"
+                className="mb-4.5 text-[15px] leading-[1.6] text-ink/60"
+              >
+                {tab.description}
+              </Text>
+
+              <Box as="ul" className="flex flex-col divide-y divide-ink/12">
+                {tab.points?.map((point, pointIndex) => (
+                  <Reveal
+                    as="li"
+                    key={point}
+                    delay={Math.min(pointIndex + 1, 4)}
+                    className="flex gap-3 py-2.25 text-[14.5px] --tw-leading: 1.5 text-ink/60"
+                  >
+                    <Text
+                      as="span"
+                      aria-hidden="true"
+                      className="font-bold text-ink/60"
+                    >
+                      →
+                    </Text>
+                    {point}
+                  </Reveal>
+                ))}
+              </Box>
+            </Box>
+
+            <Box
+              aria-hidden="true"
+              className="relative flex h-70 items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
+            >
+              {image ? (
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  title={tab.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              ) : null}
+            </Box>
+          </Box>
+        );
+      })}
     </Box>
   );
 }

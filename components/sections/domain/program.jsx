@@ -116,7 +116,10 @@ function CourseImage({ course, data }) {
 
       <div className="absolute inset-0 bg-black/5" />
 
-      <DeliveryBadge delivery={course.delivery} data={data} />
+      <DeliveryBadge
+        delivery={course.delivery ?? data.defaultDelivery}
+        data={data}
+      />
     </Box>
   );
 }

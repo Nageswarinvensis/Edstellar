@@ -106,7 +106,7 @@ export default function Faq({ faqs, innerClassName, showCta = true, className })
         </Reveal>
 
         <Reveal delay={1}>
-          <Accordion multiple className="mt-4.5 w-full">
+          <Accordion multiple hiddenUntilFound className="mt-4.5 w-full">
             {faqs.items.map((faq, index) => (
               <AccordionItem
                 key={faq.question}
