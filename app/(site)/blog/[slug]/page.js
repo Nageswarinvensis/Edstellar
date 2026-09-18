@@ -7,24 +7,24 @@ import { blogPostingJsonLd } from "@/lib/seo/json-ld";
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Breadcrumbs from "@/components/common/breadcrumbs";
-import BlogDetailAccordionInteractivity from "@/components/blog/detail/blog-detail-accordion-interactivity";
-import BlogDetailWhatsNewInteractivity from "@/components/blog/detail/blog-detail-whats-new-interactivity";
-import BlogDetailHighlightReveal from "@/components/blog/detail/blog-detail-highlight-reveal";
-import BlogDetailGamesModal from "@/components/blog/detail/blog-detail-games-modal";
-import BlogDetailHero from "@/components/blog/detail/blog-detail-hero";
-import BlogDetailAuthorCard from "@/components/blog/detail/blog-detail-author-card";
-import BlogDetailContinueReading from "@/components/blog/detail/blog-detail-continue-reading";
-import BlogDetailSubscribeCta from "@/components/blog/detail/blog-detail-subscribe-cta";
-import BlogDetailToc from "@/components/blog/detail/blog-detail-toc";
-import BlogDetailTrainingCard from "@/components/blog/detail/blog-detail-training-card";
-import BlogDetailTrainingCatalogCta from "@/components/blog/detail/blog-detail-training-catalog-cta";
-import BlogDetailCoachingCta from "@/components/blog/detail/blog-detail-coaching-cta";
-import BlogDetailSkillMatrixCta from "@/components/blog/detail/blog-detail-skill-matrix-cta";
-import BlogDetailTrainingCta from "@/components/blog/detail/blog-detail-training-cta";
-import BlogDetailRelated from "@/components/blog/detail/blog-detail-related";
-import BlogDetailCategories from "@/components/blog/detail/blog-detail-categories";
+import BlogDetailAccordionInteractivity from "@/components/sections/blog/detail/blog-detail-accordion-interactivity";
+import BlogDetailWhatsNewInteractivity from "@/components/sections/blog/detail/blog-detail-whats-new-interactivity";
+import BlogDetailHighlightReveal from "@/components/sections/blog/detail/blog-detail-highlight-reveal";
+import BlogDetailGamesModal from "@/components/sections/blog/detail/blog-detail-games-modal";
+import BlogDetailHero from "@/components/sections/blog/detail/blog-detail-hero";
+import BlogDetailAuthorCard from "@/components/sections/blog/detail/blog-detail-author-card";
+import BlogDetailContinueReading from "@/components/sections/blog/detail/blog-detail-continue-reading";
+import BlogDetailSubscribeCta from "@/components/sections/blog/detail/blog-detail-subscribe-cta";
+import BlogDetailToc from "@/components/sections/blog/detail/blog-detail-toc";
+import BlogDetailTrainingCard from "@/components/sections/blog/detail/blog-detail-training-card";
+import BlogDetailTrainingCatalogCta from "@/components/sections/blog/detail/blog-detail-training-catalog-cta";
+import BlogDetailCoachingCta from "@/components/sections/blog/detail/blog-detail-coaching-cta";
+import BlogDetailSkillMatrixCta from "@/components/sections/blog/detail/blog-detail-skill-matrix-cta";
+import BlogDetailTrainingCta from "@/components/sections/blog/detail/blog-detail-training-cta";
+import BlogDetailRelated from "@/components/sections/blog/detail/blog-detail-related";
+import BlogDetailCategories from "@/components/sections/blog/detail/blog-detail-categories";
 
-import "@/components/blog/detail/blog-content/Global.css";
+import "@/components/sections/blog/detail/blog-content/Global.css";
 
 export const revalidate = 86400;
 
@@ -32,7 +32,11 @@ const INTERACTIVE_BLOCKS = ["faq", "companies"];
 
 function readBlogContentCss(filename) {
   return fs.readFileSync(
-    path.join(process.cwd(), "components/blog/detail/blog-content", filename),
+    path.join(
+      process.cwd(),
+      "components/sections/blog/detail/blog-content",
+      filename,
+    ),
     "utf8",
   );
 }

@@ -3,22 +3,22 @@
 import { useEffect, useRef, useState, useTransition } from "react";
 
 import Box from "@/components/ui/Box";
-import BlogPosts from "@/components/blog/common/blog-posts";
-import BlogSidebar from "@/components/blog/common/blog-sidebar";
+import BlogPosts from "@/components/sections/blog/common/blog-posts";
+import BlogSidebar from "@/components/sections/blog/common/blog-sidebar";
 
 const SEARCH_DEBOUNCE_MS = 400;
 
 /**
  * Two-column blog listing panel shared by every listing page (main,
- * category, author — components/blog/blog-main.jsx,
- * components/blog/category-page-content.jsx,
- * components/blog/author-page-content.jsx):
+ * category, author — components/sections/blog/blog-main.jsx,
+ * components/sections/blog/category-page-content.jsx,
+ * components/sections/blog/author-page-content.jsx):
  * post grid + pagination on one side, search box + category list (inside
  * `BlogSidebar`) on the other. This is the state owner for both search and
  * pagination — `BlogPosts` and `BlogSidebar` are siblings in the layout, so
  * the state has to live here rather than in either of them.
  *
- * Not to be confused with `components/blog/common/listing-hero.jsx` — that's
+ * Not to be confused with `components/sections/blog/common/listing-hero.jsx` — that's
  * the heading/description banner above this panel on the author/category
  * pages, a different component with a similarly-generic name.
  *

@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
-import { SocialIcon } from "@/components/blog/common/social-icon";
+import { SocialIcon } from "@/components/sections/blog/common/social-icon";
 
 export default function BlogDetailHero({
   category,

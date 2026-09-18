@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import BlogSearch from "@/components/blog/common/blog-search";
+import BlogSearch from "@/components/sections/blog/common/blog-search";
 import {
   Collapsible,
   CollapsibleTrigger,

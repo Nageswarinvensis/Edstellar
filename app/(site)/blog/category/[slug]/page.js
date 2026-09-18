@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { getBlogCategory } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-import CategoryPageContent from "@/components/blog/category-page-content";
+import CategoryPageContent from "@/components/sections/blog/category-page-content";
 
 export const revalidate = 300;
 
@@ -30,7 +30,7 @@ export default async function CategoryPage({ params, searchParams }) {
   const { page: pageParam } = await searchParams;
 
   // Same as the author hero: pagination swaps posts in place on the client
-  // (components/blog/common/blog-posts.jsx), so the URL never carries a page
+  // (components/sections/blog/common/blog-posts.jsx), so the URL never carries a page
   // number — a stray `?page=` is stripped back to the canonical URL.
   if (pageParam !== undefined) {
     redirect(`/blog/category/${slug}`);

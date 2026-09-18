@@ -1,9 +1,9 @@
 import Section from "@/components/ui/Section";
-import ListingHero from "@/components/blog/common/listing-hero";
-import BlogPostsPanel from "@/components/blog/common/blog-posts-panel";
+import ListingHero from "@/components/sections/blog/common/listing-hero";
+import BlogPostsPanel from "@/components/sections/blog/common/blog-posts-panel";
 import { fetchCategoryPosts } from "@/lib/actions/blog-category";
 
-/** Same layout as the author page (components/blog/author-page.jsx) — hero +
+/** Same layout as the author page (components/sections/blog/author-page.jsx) — hero +
  * paginated, searchable post grid — minus the author-only image and social
  * links, since a category has neither. */
 export default function CategoryPageContent({ category, slug, categories }) {

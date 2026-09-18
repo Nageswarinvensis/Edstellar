@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { getBlogMain } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-import BlogMainPageContent from "@/components/blog/blog-main-page-content";
+import BlogMainPageContent from "@/components/sections/blog/blog-main-page-content";
 
 export const revalidate = 86400;
 

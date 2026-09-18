@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Search box shared by every blog listing page (main, category, author —
- * rendered inside components/blog/common/blog-posts.jsx, so all three get it
+ * rendered inside components/sections/blog/common/blog-posts.jsx, so all three get it
  * for free). Purely controlled: `BlogPosts` owns the query string and the
  * debounce, this component only renders the input.
  *

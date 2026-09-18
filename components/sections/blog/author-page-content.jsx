@@ -1,9 +1,9 @@
 import { BadgeCheck } from "lucide-react";
 
 import Section from "@/components/ui/Section";
-import ListingHero from "@/components/blog/common/listing-hero";
-import BlogPostsPanel from "@/components/blog/common/blog-posts-panel";
-import { SOCIAL_LINKS } from "@/components/blog/common/social-icon";
+import ListingHero from "@/components/sections/blog/common/listing-hero";
+import BlogPostsPanel from "@/components/sections/blog/common/blog-posts-panel";
+import { SOCIAL_LINKS } from "@/components/sections/blog/common/social-icon";
 import { fetchAuthorPosts } from "@/lib/actions/blog-author";
 
 export default function AuthorPageContent({ author, slug, categories }) {

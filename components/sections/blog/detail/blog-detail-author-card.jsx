@@ -3,8 +3,8 @@ import { ArrowUpRight, User } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import BlogDetailCopyLinkButton from "@/components/blog/detail/blog-detail-copy-link-button";
-import { SOCIAL_LINKS, SocialIcon } from "@/components/blog/common/social-icon";
+import BlogDetailCopyLinkButton from "@/components/sections/blog/detail/blog-detail-copy-link-button";
+import { SOCIAL_LINKS, SocialIcon } from "@/components/sections/blog/common/social-icon";
 import { SITE } from "@/lib/constants";
 
 export default function BlogDetailAuthorCard({

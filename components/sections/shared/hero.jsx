@@ -11,7 +11,7 @@ import RichHeading from "@/components/common/rich-heading";
 /**
  * Training category hero — shared by the domain page and the course page
  * within it (unrelated to the blog's category/author pages, which have
- * their own hero — components/blog/common/listing-hero.jsx).
+ * their own hero — components/sections/blog/common/listing-hero.jsx).
  *
  * Adds the topic pill rail, the dark proof bar, and the multi-program
  * group-quote prompt. The proof bar tone is always dark on the course page —
