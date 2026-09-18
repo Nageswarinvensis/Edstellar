@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import Section from "@/components/ui/Section";
 
 export default function TrainerAbout({ trainer }) {
   const trainerFirstName = trainer?.name?.split(" ")[0] || "Trainer";
@@ -50,8 +51,8 @@ export default function TrainerAbout({ trainer }) {
   ];
 
   return (
-    <Box id="about" className="bg-[#f9fafb] py-16 text-ink">
-      <Box className="mx-auto max-w-7xl px-5 lg:px-8">
+    <Section id="about" className="bg-[#f9fafb] py-16 text-ink">
+      <Box>
         <Box className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_380px] lg:gap-16">
           {/* Left Side: About Bio Text */}
           <Box className="flex flex-col space-y-6">
@@ -120,6 +121,6 @@ export default function TrainerAbout({ trainer }) {
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Section>
   );
 }

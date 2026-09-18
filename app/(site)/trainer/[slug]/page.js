@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { TRAINERS_DATA } from "@/content/trainers/trainersdata";
+
 import TrainerProfile from "@/components/sections/trainers details/trainerprofile";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import TrainerAbout from "@/components/sections/trainers details/trainerabout";
@@ -8,6 +9,8 @@ import OurReach from "@/components/sections/trainers details/ourreach";
 import TrainerLocation from "@/components/sections/trainers details/trainerlocation";
 import TrainerExpertise from "@/components/sections/trainers details/trainerexperties";
 import TrainerExperience from "@/components/sections/trainers details/trainerexperience";
+import TrainerRatings from "@/components/sections/trainers details/trainerratings";
+import TrainerAccreditations from "@/components/sections/trainers details/traineraccreditations";
 import CtaTrainer from "@/components/sections/trainers details/ctatrainer";
 async function getTrainer(slug) {
   const response = await fetch(
@@ -55,7 +58,6 @@ export default async function TrainerPage({ params }) {
   }
 
   const stickyNavbarData = TRAINERS_DATA.stickyNavbarData;
-  const experienceData = TRAINERS_DATA.experienceData;
 
   return (
     <>
@@ -65,7 +67,9 @@ export default async function TrainerPage({ params }) {
       <OurReach trainer={trainer} />
       <TrainerLocation trainer={trainer} />
       <TrainerExpertise trainer={trainer} />
-      <TrainerExperience trainer={trainer} experienceData={experienceData} />
+      <TrainerExperience trainer={trainer} />
+      <TrainerRatings trainer={trainer}/>
+      <TrainerAccreditations trainer={trainer}/>
       <CtaTrainer trainer={trainer}/>
     </>
   );

@@ -1,4 +1,5 @@
 import Box from "@/components/ui/Box";
+import Section from "@/components/ui/Section";
 import Text from "@/components/ui/Text";
 
 export default function TrainerLocation({ trainer }) {
@@ -25,8 +26,8 @@ export default function TrainerLocation({ trainer }) {
   ];
 
   return (
-    <Box id="location" className="bg-[#f9fafb] py-16 text-ink">
-      <Box className="mx-auto max-w-7xl px-5 lg:px-8">
+    <Section id="location" className="bg-[#f9fafb]">
+      <Box>
         {/* Section Heading */}
         <Text as="h2" className="text-[30px] font-bold tracking-tight lg:text-[36px]">
           Based in {city},{" "}
@@ -83,6 +84,6 @@ export default function TrainerLocation({ trainer }) {
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Section>
   );
 }
