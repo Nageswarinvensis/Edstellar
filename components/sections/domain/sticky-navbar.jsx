@@ -155,9 +155,8 @@ export default function StickyTabs({ data, hasTrainers }) {
           flex
           h-13
           w-full
-          max-w-[1280px]
+          max-w-7xl
     justify-between
-         
         "
         >
           <Box
