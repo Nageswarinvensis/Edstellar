@@ -4,7 +4,7 @@ import { getBlogAuthor } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
 
-import AuthorPageContent from "@/components/blog/author-page-content";
+import AuthorPageContent from "@/components/sections/blog/author-page-content";
 
 export const revalidate = 300;
 
@@ -38,7 +38,7 @@ export default async function AuthorPage({ params, searchParams }) {
   const { page: pageParam } = await searchParams;
 
   // The URL never carries the page number — pagination swaps posts in place
-  // on the client (components/blog/common/blog-posts.jsx) — so a stray
+  // on the client (components/sections/blog/common/blog-posts.jsx) — so a stray
   // `?page=` (an old link, a stale bookmark) is stripped back to the canonical URL.
   if (pageParam !== undefined) {
     redirect(`/blog/author/${slug}`);

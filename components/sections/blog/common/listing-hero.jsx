@@ -5,17 +5,17 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Breadcrumbs from "@/components/common/breadcrumbs";
 import Reveal from "@/components/common/reveal";
-import { SocialIcon } from "@/components/blog/common/social-icon";
+import { SocialIcon } from "@/components/sections/blog/common/social-icon";
 
 /**
  * Hero banner shared by the author and category pages —
- * components/blog/author-page-content.jsx,
- * components/blog/category-page-content.jsx: heading + description on the
+ * components/sections/blog/author-page-content.jsx,
+ * components/sections/blog/category-page-content.jsx: heading + description on the
  * left, an optional square image on the right. A category has no `image` or
  * `socialLinks`, so those sections simply don't render — same component, no
  * author-only fields required.
  *
- * Not to be confused with `components/blog/common/blog-posts-panel.jsx` —
+ * Not to be confused with `components/sections/blog/common/blog-posts-panel.jsx` —
  * that's the search/post-grid/sidebar panel below this hero, a different
  * component with a similarly-generic name.
  */

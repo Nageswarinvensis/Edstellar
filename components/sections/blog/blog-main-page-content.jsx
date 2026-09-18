@@ -1,6 +1,6 @@
 import Section from "@/components/ui/Section";
-import BlogMainHero from "@/components/blog/blog-main-hero";
-import BlogPostsPanel from "@/components/blog/common/blog-posts-panel";
+import BlogMainHero from "@/components/sections/blog/blog-main-hero";
+import BlogPostsPanel from "@/components/sections/blog/common/blog-posts-panel";
 import { fetchMainPosts } from "@/lib/actions/blog-main";
 
 /** Same layout as author-page-content.jsx/category-page-content.jsx — hero +
