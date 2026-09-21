@@ -1,31 +1,10 @@
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-
-const ratingMetrics = [
-  { label: "Content quality", score: "4.9", percentage: 98 },
-  { label: "Facilitation", score: "5.0", percentage: 100 },
-  { label: "Practical relevance", score: "4.8", percentage: 96 },
-  { label: "Would recommend", score: "4.9", percentage: 98 },
-];
-
-const testimonials = [
-  {
-    quote:
-      "She did not hand us a change model and leave. She sat with our managers through the objections they were actually getting and rebuilt their approach in the room. Three months on, adoption is holding.",
-    initial: "D",
-    title: "Director of Transformation, [Sector]",
-  },
-  {
-    quote:
-      "We run teams across four countries and needed one facilitator who could hold a room in English and French without losing nuance. Amara did, and the feedback was the most consistent we have had from any program.",
-    initial: "H",
-    title: "Head of L&D, [Company]",
-  },
-];
+import trainerContent from "@/content/trainer.json";
 
 export default function TrainerRatings({ trainer }) {
-  const trainerFirstName = trainer?.name?.split(" ")[0] || "Amara";
+  const trainerFirstName = trainer.name.split(" ")[0];
 
   return (
     <Section id="ratings" className="bg-ink">
@@ -33,7 +12,7 @@ export default function TrainerRatings({ trainer }) {
         {/* Section Header */}
         <Text
           as="h2"
-          className="text-[30px] font-bold tracking-tight text-white lg:text-[36px]"
+          className="tracking-tight text-white"
         >
           Ratings &{" "}
           <Text
@@ -54,7 +33,10 @@ export default function TrainerRatings({ trainer }) {
           <Box className="flex flex-col gap-8 md:flex-row md:items-center">
             {/* Left Score Box */}
             <Box className="flex flex-col items-center justify-center border-b border-white/10 pb-6 md:w-48 md:border-b-0 md:border-r md:pb-0 md:pr-8">
-              <Text as="span" className="text-[42px] text-white font-bold leading-none">
+              <Text
+                as="span"
+                className="text-[42px] text-white font-bold leading-none"
+              >
                 4.9
               </Text>
               <Box className="mt-3 flex gap-1 text-lime">
@@ -71,7 +53,7 @@ export default function TrainerRatings({ trainer }) {
 
             {/* Right Metric Bars */}
             <Box className="flex-1 space-y-3.5">
-              {ratingMetrics.map((metric) => (
+              {trainerContent.ratingMetrics.map((metric) => (
                 <Box
                   key={metric.label}
                   className="grid grid-cols-[130px_1fr_32px] items-center gap-4 text-[12spx]"
@@ -85,7 +67,10 @@ export default function TrainerRatings({ trainer }) {
                       style={{ width: `${metric.percentage}%` }}
                     />
                   </Box>
-                  <Text as="span" className="text-right font-medium text-white/90">
+                  <Text
+                    as="span"
+                    className="text-right font-medium text-white/90"
+                  >
                     {metric.score}
                   </Text>
                 </Box>
@@ -96,7 +81,7 @@ export default function TrainerRatings({ trainer }) {
 
         {/* Testimonials Grid */}
         <Box className="mt-6 grid gap-6 md:grid-cols-2">
-          {testimonials.map((item, index) => (
+          {trainerContent.testimonials.map((item, index) => (
             <Box
               key={index}
               className="flex flex-col justify-between rounded-2xl border border-white/10 bg-ink p-5 lg:p-6"
@@ -135,7 +120,10 @@ export default function TrainerRatings({ trainer }) {
         <Box className="mt-6 flex items-start gap-2.5 rounded-xl border border-dashed border-white/20 bg-[#081220] p-4 text-[12px]">
           <span className="mt-0.5 text-[14px]">🛡️</span>
           <Text as="p" className="text-white/60">
-            Ratings, evaluation counts and quotes are illustrative placeholders in this template. Per brand guidelines §23.1 / §23.2, they publish only when populated from real, consented client evaluations with attribution on record.
+            Ratings, evaluation counts and quotes are illustrative placeholders
+            in this template. Per brand guidelines §23.1 / §23.2, they publish
+            only when populated from real, consented client evaluations with
+            attribution on record.
           </Text>
         </Box>
       </Box>

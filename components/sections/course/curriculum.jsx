@@ -1,5 +1,18 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  Calendar,
+  ClipboardList,
+  Clock,
+  FileText,
+  FlaskConical,
+  Layers,
+  Lightbulb,
+  Settings,
+  Target,
+  Users,
+} from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
@@ -7,18 +20,72 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import SecCta from "@/components/common/sec-cta";
 import CurriculumModules from "@/components/sections/course/curriculum-modules";
+import { cn } from "@/lib/utils";
+
+// One semantic color per learning phase, used consistently across the step
+// icons, the split bar and its legend — the source design actually swaps
+// "learn" and "practice" between its method box and its module badges
+// (`CurriculumModules`'s own `BAND_CLASSES`), so rather than reproduce that
+// inconsistency this picks one mapping and applies it everywhere.
+const STEP_ICONS = {
+  assess: ClipboardList,
+  learn: BookOpen,
+  practice: Settings,
+  apply: Target,
+};
+
+const STEP_ICON_CLASSES = {
+  assess: "bg-slate-100 text-slate-500",
+  learn: "bg-blue-50 text-blue-600",
+  practice: "bg-green-50 text-green-600",
+  apply: "bg-violet-50 text-violet-600",
+};
 
 const SEGMENT_CLASSES = {
-  learn: "bg-lime-soft",
+  assess: "bg-slate-400",
+  learn: "bg-blue-300",
   practice: "bg-lime",
-  apply: "bg-navy",
+  apply: "bg-indigo-800",
 };
 
 const LEGEND_DOT_CLASSES = {
-  learn: "border border-ink/22 bg-lime-soft",
+  assess: "bg-slate-400",
+  learn: "bg-blue-300",
   practice: "bg-lime",
-  apply: "bg-navy",
+  apply: "bg-indigo-800",
 };
+
+// Chip icon + tint pairs, assigned by position like `about.jsx`'s
+// `CHIP_ICONS` — `method.formats`/`summary_pills` are plain string arrays
+// with no per-item metadata. Colors are the source's own (no matching
+// token), same rationale as `skill-progression.jsx`'s arbitrary hex.
+const FORMAT_CHIP_META = [
+  { icon: Users, bg: "bg-[#edf3fe]", iconColor: "text-[#2563eb]" },
+  { icon: Calendar, bg: "bg-[#eaf7ee]", iconColor: "text-[#16a34a]" },
+  { icon: Layers, bg: "bg-[#f1ebfd]", iconColor: "text-[#7c3aed]" },
+];
+
+const SUMMARY_PILL_META = [
+  { icon: FlaskConical, bg: "bg-[#f1f3f6]", iconColor: "text-[#64748b]" },
+  { icon: FileText, bg: "bg-[#e9f6f1]", iconColor: "text-[#0e9f6e]" },
+  { icon: Clock, bg: "bg-[#fdf2e3]", iconColor: "text-[#d97706]" },
+];
+
+function MethodChip({ meta, children }) {
+  const { icon: Icon, bg, iconColor } = meta;
+  return (
+    <Text
+      as="span"
+      className={cn(
+        "inline-flex items-center gap-1.25 rounded-full px-2.75 py-1.5 text-[11px] font-medium text-ink",
+        bg,
+      )}
+    >
+      <Icon size={12} strokeWidth={2} className={iconColor} aria-hidden="true" />
+      {children}
+    </Text>
+  );
+}
 
 const SECTION_CTA = {
   title: "Want this syllabus re-weighted to your gaps?",
@@ -37,6 +104,28 @@ function MethodStepText({ parts = [] }) {
       <span key={index}>{part.text}</span>
     ),
   );
+}
+
+/**
+ * Plain string with the lead phrase wrapped in `<b>...</b>` — same
+ * convention as `RichHeading`'s `<span>` for its italic phrase. Used for
+ * the tip note and the "Delivered as" summary note, both of which bold
+ * only their opening clause in the design (`.eds-mtr-tip p b`,
+ * `.eds-mtr-note b`).
+ */
+function BoldLead({ text }) {
+  if (typeof text !== "string" || !text) return null;
+
+  return text.split(/(<b>[\s\S]*?<\/b>)/g).map((fragment, index) => {
+    const match = fragment.match(/^<b>([\s\S]*?)<\/b>$/);
+    return match ? (
+      <b key={index} className="font-semibold text-ink">
+        {match[1]}
+      </b>
+    ) : (
+      fragment
+    );
+  });
 }
 
 /**
@@ -121,37 +210,71 @@ export default function Curriculum({ curriculum }) {
 
       {method ? (
         <Reveal delay={2}>
-          <Box className="mt-1.5 mb-7.5 rounded-2xl border border-ink/12 bg-white px-7 py-6.5 max-sm:px-5">
-            <Box className="flex flex-wrap items-start gap-5 max-md:flex-col">
-              {method.steps?.map((step, index) => (
-                <Box
-                  key={step.label}
-                  className="flex flex-1 items-start gap-3.5 max-md:w-full"
-                >
-                  <Box className="min-w-0 flex-1">
-                    <Text
-                      as="span"
-                      className="mb-1.5 block font-display text-[15px] font-bold tracking-[-0.02em] text-ink"
-                    >
-                      {step.label}
-                    </Text>
-                    <Text
-                      as="p"
-                      className="text-[12.5px] leading-[1.55] text-ink/60"
-                    >
-                      <MethodStepText parts={step.parts} />
-                    </Text>
-                  </Box>
+          <Box
+            className={[
+              "mt-1.5 mb-7.5 grid grid-cols-1 gap-6 rounded-2xl border border-ink/12 bg-white p-6.5 max-sm:p-5",
+              method.media ? "lg:grid-cols-[1fr_0.46fr] lg:items-stretch" : "",
+            ].join(" ")}
+          >
+          <Box>
+            <Box className="flex flex-wrap items-start gap-3.5 max-md:flex-col md:gap-5">
+              {method.steps?.map((step, index) => {
+                const phaseKey = step.label?.toLowerCase();
+                const StepIcon = STEP_ICONS[phaseKey];
 
-                  {index < method.steps.length - 1 ? (
-                    <ArrowRight
-                      size={18}
-                      className="mt-1 flex-none text-ink/22 max-md:hidden"
-                      aria-hidden="true"
-                    />
-                  ) : null}
-                </Box>
-              ))}
+                return (
+                  <Box
+                    key={step.label}
+                    className="flex flex-1 items-start gap-3.5 max-md:w-full"
+                  >
+                    <Box className="flex w-full items-start gap-3 text-left md:flex-col md:items-center md:text-center">
+                      {StepIcon ? (
+                        <Box
+                          className={[
+                            "grid size-9 flex-none place-items-center rounded-full md:mb-2.25 md:size-11",
+                            STEP_ICON_CLASSES[phaseKey] || "bg-paper-warm text-ink/60",
+                          ].join(" ")}
+                        >
+                          <StepIcon
+                            size={17}
+                            strokeWidth={1.9}
+                            className="md:hidden"
+                            aria-hidden="true"
+                          />
+                          <StepIcon
+                            size={20}
+                            strokeWidth={1.9}
+                            className="hidden md:block"
+                            aria-hidden="true"
+                          />
+                        </Box>
+                      ) : null}
+                      <Box className="min-w-0 flex-1">
+                        <Text
+                          as="span"
+                          className="mb-0.5 block font-display text-[15px] font-bold tracking-[-0.02em] text-ink md:mb-1.5"
+                        >
+                          {step.label}
+                        </Text>
+                        <Text
+                          as="p"
+                          className="text-[12.5px] leading-[1.5] text-ink/60 md:leading-[1.55]"
+                        >
+                          <MethodStepText parts={step.parts} />
+                        </Text>
+                      </Box>
+                    </Box>
+
+                    {index < method.steps.length - 1 ? (
+                      <ArrowRight
+                        size={18}
+                        className="mt-6 flex-none text-ink/22 max-md:hidden"
+                        aria-hidden="true"
+                      />
+                    ) : null}
+                  </Box>
+                );
+              })}
             </Box>
 
             {method.split?.length ? (
@@ -196,47 +319,56 @@ export default function Curriculum({ curriculum }) {
                 </Box>
 
                 {method.note ? (
-                  <Text
-                    as="p"
-                    className="mt-3.25 max-w-[76ch] text-[12px] leading-[1.6] text-ink/60"
-                  >
-                    {method.note}
-                  </Text>
+                  <Box className="mt-4.5 flex items-center gap-3.25 rounded-xl bg-[#f2f6fb] px-4 py-3.5">
+                    <Lightbulb
+                      size={20}
+                      strokeWidth={1.9}
+                      className="flex-none text-[#2563eb]"
+                      aria-hidden="true"
+                    />
+                    <Text
+                      as="p"
+                      className="text-[13px] leading-[1.55] text-ink/80"
+                    >
+                      <BoldLead text={method.note} />
+                    </Text>
+                  </Box>
                 ) : null}
               </Box>
             ) : null}
 
             {method.formats?.length ? (
-              <Box className="mt-5 flex flex-wrap items-center gap-2.25 border-t border-ink/12 pt-4.5">
+              <Box className="mt-5.5 border-t border-ink/12 pt-4.5">
                 <Text
-                  as="span"
-                  className="font-mono text-[10px] tracking-[0.14em] text-ink/60 uppercase"
+                  as="p"
+                  className="mb-2.75 font-mono text-[10.5px] tracking-[0.16em] text-ink/60 uppercase"
                 >
                   Delivered as
                 </Text>
-                {method.formats.map((format) => (
-                  <Text
-                    key={format}
-                    as="span"
-                    className="rounded-full bg-paper-warm px-3.5 py-1.5 text-[12.5px] font-medium text-ink"
-                  >
-                    {format}
-                  </Text>
-                ))}
 
-                {method.summary_pills?.map((item) => (
-                  <Text
-                    key={item}
-                    as="span"
-                    className="rounded-full border border-ink/22 bg-white px-3.5 py-1.5 font-mono text-[11px] font-medium tracking-[0.03em] text-ink"
-                  >
-                    {item}
-                  </Text>
-                ))}
+                <Box className="flex flex-wrap gap-1">
+                  {method.formats.map((format, index) => (
+                    <MethodChip
+                      key={format}
+                      meta={FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0]}
+                    >
+                      {format}
+                    </MethodChip>
+                  ))}
+
+                  {method.summary_pills?.map((item, index) => (
+                    <MethodChip
+                      key={item}
+                      meta={SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]}
+                    >
+                      {item}
+                    </MethodChip>
+                  ))}
+                </Box>
 
                 {method.summary_note ? (
-                  <Text as="span" className="ml-auto text-[12px] text-ink/60">
-                    {method.summary_note}
+                  <Text as="p" className="mt-3 text-[12.5px] text-ink/60">
+                    <BoldLead text={method.summary_note} />
                   </Text>
                 ) : null}
               </Box>
@@ -264,6 +396,19 @@ export default function Curriculum({ curriculum }) {
                 </Box>
               </Box>
             ) : null}
+          </Box>
+
+          {method.media ? (
+            <Box className="relative hidden overflow-hidden rounded-[18px] bg-paper-cream lg:block">
+              <Image
+                src={method.media.src}
+                alt={method.media.alt || ""}
+                fill
+                sizes="280px"
+                className="object-cover"
+              />
+            </Box>
+          ) : null}
           </Box>
         </Reveal>
       ) : null}

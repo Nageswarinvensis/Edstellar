@@ -66,7 +66,7 @@ html {
   font-weight: 700;
   font-size: clamp(26px, 3vw, 34px);
   letter-spacing: -0.03em;
-  margin: 56px 0 16px;
+  margin: 40px 0 16px;
 }
 
 .blog-content h3 {
@@ -663,9 +663,9 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background: transparent;
-  color: var(--lime);
-  border: 1px solid var(--lime);
+  background: transparent !important;
+  color: var(--lime) !important;
+  border: 1px solid var(--lime) !important;
   font-family: "DM Sans", sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -721,7 +721,7 @@ html {
   background: var(--paper-warm);
   border-radius: 18px;
   padding: 30px 32px;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 .takeaways-card h2 {
   margin-top: 0px !important;
@@ -916,7 +916,6 @@ html {
        The legacy markup carries inline background colours, so the neutral
        paper tone has to win with !important. Everything else is class-level.
    -------------------------------------------------------------------------- */
-
 .benifits-block,
 .benefits-block {
   display: block;
@@ -925,10 +924,9 @@ html {
   border-radius: 0 14px 14px 0;
   padding: 22px 26px;
   margin: 28px 0;
+  padding: 20px;
 }
 .benifits-block h2,
-h3,
-.benefits-block h2,
 h3 {
   margin-top: 20px !important;
 }
@@ -941,17 +939,17 @@ h3 {
   margin: 28px 0;
 }
 .card-bg-soft-light-blue,
+.card-bg-soft-light-orange,
 .card-bg-soft-blue1,
 .card-bg-soft-blue2,
+.card-bg-soft-light-green,
 .bg-color-e6e6ff {
+  border-left: 3px solid var(--lime-ink) !important;
   background: var(--paper-warm) !important;
   border-radius: 16px;
   padding: 26px 28px;
 }
-.card-bg-soft-blue2,
-.bg-color-e6e6ff {
-  background: var(--paper-cream) !important;
-}
+
 .padding-top-80 {
   padding-top: 26px !important;
 }
@@ -963,13 +961,6 @@ h3 {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--lime-ink);
-}
-.blockquote-attractive {
-  border-left: 3px solid var(--lime-ink);
-  padding-left: 20px;
-}
-.blockquote-attractive p:last-child {
-  margin-bottom: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -986,23 +977,8 @@ h3 {
   border-radius: 14px;
 }
 
-/*
- * The border/radius live on the `table` element itself rather than on a
- * wrapper class: about half of the CMS's tables ship with no recognized
- * wrapper at all — Webflow emits a bare `<div data-rt-embed-type="true">`
- * around them (an attribute the sanitizer strips, leaving no class to hook)
- * — so a wrapper-only border silently never rendered for those posts.
- * Verified against every post's raw CMS content directly.
- */
 .blog-content table {
   width: 100%;
-  /* `border-collapse: collapse` is what was silently defeating the border
-     and border-radius below on bare tables (no recognized wrapper div) —
-     browsers don't apply border-radius to a collapsed table, and the
-     collapsed-border conflict resolution can drop the table's own outer
-     border in favor of (or absence of) a cell's border on a given edge.
-     `separate` with zero spacing keeps cell borders looking identical while
-     letting the table's own border/radius render reliably. */
   border-collapse: separate;
   border-spacing: 0;
   overflow: hidden;
@@ -1014,7 +990,6 @@ h3 {
   border-radius: 14px;
   border: 1px solid var(--rule-strong);
 }
-/* A wrapper already carries its own margin — don't double it up on the table inside. */
 .blog-content .table-container table,
 .blog-content .table-container1 table,
 .blog-content .scrollable-table table,
@@ -1028,7 +1003,7 @@ h3 {
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  text-align: left;
+  text-align: center;
   color: var(--color-ink);
   background: var(--paper-warm);
   padding: 14px 16px;
@@ -1050,6 +1025,9 @@ h3 {
 .blog-content td:first-child {
   color: var(--ink);
   font-weight: 500;
+}
+.blog-content table td p:last-child {
+  margin-bottom: 0;
 }
 .blog-content td b,
 .blog-content td strong {
@@ -1084,7 +1062,6 @@ h3 {
   }
 }
 
-/* Influencer / two-up grid tables that a few posts use. */
 .blog-content .grid-table {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1135,10 +1112,6 @@ h3 {
   color: var(--muted-soft);
 }
 
-/* YouTube — poster + play button, player opens in a lightbox.
-   edstellar-blog-components.js swaps the source iframe for the poster button
-   below, so no YouTube player loads until the reader asks for it. The figure
-   and its inner div keep their original classes and inline aspect ratio. */
 .w-richtext-figure-type-video {
   position: relative;
   height: 0;
@@ -1223,7 +1196,7 @@ blockquote a {
 .cta h3 {
   color: white;
 }
-.cta p:first-of-type {
+.cta p:first-child {
   color: white;
   font-weight: 600;
   font-size: 22px;

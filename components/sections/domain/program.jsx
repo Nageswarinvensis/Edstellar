@@ -266,7 +266,7 @@ function Pagination({ currentPage, totalPages, onPageChange, data }) {
     onPageChange(page);
 
     requestAnimationFrame(() => {
-      document.getElementById("by-discipline")?.scrollIntoView({
+      document.getElementById("by-topic")?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -490,7 +490,7 @@ export default function Program({ data }) {
                 ) : null}{" "}
                 <span className="mx-1.25 text-link-muted">·</span>{" "}
                 <a
-                  href="#by-discipline"
+                  href="#by-topic"
                   className={[
                     "text-link-muted",
                     "tracking-[1px]",

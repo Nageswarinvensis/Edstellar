@@ -2,27 +2,20 @@ import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
+import RichHeading from "@/components/common/rich-heading";
 
 export default function CtaTrainer({ trainer }) {
-  const trainerFirstName = trainer?.name?.split(" ")[0] || "Amara";
+  const trainerFirstName = trainer.name.split(" ")[0];
 
   return (
     <Section id="contact" className="bg-[#070e1b]">
       <Box className="flex flex-col items-center text-center">
         {/* Section Heading */}
-        <Text
-          as="h2"
-          className="text-[30px] font-bold tracking-tight text-white lg:text-[36px]"
-        >
-          Want {trainerFirstName} for your{" "}
-          <Text
-            as="span"
-            className="font-Cormorant Garamond text-[18px] font-normal text-lime lg:text-[24px]"
-          >
-            next program
-          </Text>
-          ?
-        </Text>
+        <RichHeading
+          heading={`Want ${trainerFirstName} for your <span>next program</span>?`}
+          className="tracking-tight text-white"
+          emphasisClassName="text-[18px] font-normal text-lime lg:text-[24px]"
+        />
 
         {/* Subtitle */}
         <Text

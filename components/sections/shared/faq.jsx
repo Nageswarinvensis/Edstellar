@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
+import { ChevronDown } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
@@ -13,6 +15,10 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
+
+/** Questions shown before the "Load more" toggle — matches the design's
+ * own cutoff (5 of 15 for this course's FAQ list). */
+const INITIAL_VISIBLE_COUNT = 5;
 
 function FaqAnswer({ answer }) {
   function handleClick(e) {
@@ -54,7 +60,7 @@ const SECTION_CTA = {
   title: "Question not answered here?",
   description:
     "Put it in the request. A training specialist answers it directly, within one business day.",
-  cta: { label: "Talk to our Expert", href: "#apply" },
+  cta: { label: "Talk to a Training Advisor", href: "#apply" },
 };
 
 /**
@@ -89,7 +95,13 @@ function FaqTrigger({ children }) {
 }
 
 export default function Faq({ faqs, innerClassName, showCta = true, className }) {
+  // All items still render (hidden via a class, not left out of the DOM),
+  // so the full FAQ list stays crawlable and searchable even collapsed.
+  const [expanded, setExpanded] = useState(false);
+
   if (!faqs || Array.isArray(faqs) || !faqs.items?.length) return null;
+
+  const hiddenCount = Math.max(faqs.items.length - INITIAL_VISIBLE_COUNT, 0);
 
   return (
     <Section
@@ -111,7 +123,10 @@ export default function Faq({ faqs, innerClassName, showCta = true, className })
               <AccordionItem
                 key={faq.question}
                 value={`faq-${index}`}
-                className="border-ink/10"
+                className={cn(
+                  "border-ink/10",
+                  !expanded && index >= INITIAL_VISIBLE_COUNT && "hidden",
+                )}
               >
                 <FaqTrigger>{faq.question}</FaqTrigger>
 
@@ -122,6 +137,25 @@ export default function Faq({ faqs, innerClassName, showCta = true, className })
             ))}
           </Accordion>
         </Reveal>
+
+        {!expanded && hiddenCount > 0 ? (
+          <Reveal delay={2}>
+            <Box className="mt-6 flex justify-center">
+              <button
+                type="button"
+                title="Click Here to View Load more questions"
+                onClick={() => setExpanded(true)}
+                className="inline-flex cursor-pointer items-center gap-2.25 rounded-full border border-ink/14 bg-white px-5.5 py-2.75 font-body text-[13.5px] font-semibold text-ink transition-[border-color,box-shadow] duration-200 hover:border-ink hover:shadow-[0_10px_24px_-16px_rgba(10,22,40,0.6)]"
+              >
+                Load more questions
+                <Text as="span" className="font-mono text-[11px] text-ink/60">
+                  {hiddenCount} more
+                </Text>
+                <ChevronDown size={15} strokeWidth={2} aria-hidden="true" />
+              </button>
+            </Box>
+          </Reveal>
+        ) : null}
 
         {showCta ? <SecCta {...SECTION_CTA} /> : null}
       </Box>

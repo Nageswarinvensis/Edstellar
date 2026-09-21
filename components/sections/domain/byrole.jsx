@@ -146,7 +146,7 @@ export default function ByRole({ data }) {
                           key={program.label}
                           href={program.href}
                           delay={Math.min(programIndex + 1, 4)}
-                          className="group flex min-h-12 items-center justify-between border-t border-[#D9DDE1] text-ink transition-colors duration-200 last:border-b hover:text-[#4D5D00]"
+                          className="group flex min-h-12 items-center justify-between border-t border-[#D9DDE1] px-2 text-ink transition-colors duration-200 last:border-b hover:bg-[#FAFAF8] hover:text-[#4D5D00]"
                         >
                           <Text as="span" className="text-[14px] leading-[1.3]">
                             {program.label}

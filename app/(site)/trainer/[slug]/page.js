@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 
-import { TRAINERS_DATA } from "@/content/trainers/trainersdata";
+import { getTrainer } from "@/lib/content/trainers";
+import trainerContent from "@/content/trainer.json";
 
-import TrainerProfile from "@/components/sections/trainers details/trainerprofile";
+import TrainerHero from "@/components/sections/trainers details/trainerhero";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import TrainerAbout from "@/components/sections/trainers details/trainerabout";
 import OurReach from "@/components/sections/trainers details/ourreach";
@@ -12,22 +13,8 @@ import TrainerExperience from "@/components/sections/trainers details/trainerexp
 import TrainerRatings from "@/components/sections/trainers details/trainerratings";
 import TrainerAccreditations from "@/components/sections/trainers details/traineraccreditations";
 import CtaTrainer from "@/components/sections/trainers details/ctatrainer";
-async function getTrainer(slug) {
-  const response = await fetch(
-    `https://devcms.edstellar.com/api/v2/trainer/${slug}`,
-    {
-      cache: "no-store",
-    }
-  );
-
-  if (!response.ok) {
-    return null;
-  }
-
-  const data = await response.json();
-
-  return data?.trainer || null;
-}
+import OtherTrainers from "@/components/sections/trainers details/othertrainers";
+import Faq from "@/components/sections/shared/faq";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -57,20 +44,25 @@ export default async function TrainerPage({ params }) {
     notFound();
   }
 
-  const stickyNavbarData = TRAINERS_DATA.stickyNavbarData;
-
   return (
     <>
-      <TrainerProfile trainer={trainer} />
-      <StickyTabs data={stickyNavbarData} />
+      <TrainerHero trainer={trainer} />
+      <StickyTabs data={trainerContent.stickyNav} />
       <TrainerAbout trainer={trainer} />
       <OurReach trainer={trainer} />
       <TrainerLocation trainer={trainer} />
       <TrainerExpertise trainer={trainer} />
       <TrainerExperience trainer={trainer} />
-      <TrainerRatings trainer={trainer}/>
-      <TrainerAccreditations trainer={trainer}/>
-      <CtaTrainer trainer={trainer}/>
+      <TrainerRatings trainer={trainer} />
+      <TrainerAccreditations trainer={trainer} />
+      <CtaTrainer trainer={trainer} />
+      <OtherTrainers trainer={trainer} />
+      <Faq
+        faqs={trainerContent.faq}
+        innerClassName="max-w-[920px] mx-0"
+        showCta={false}
+        className="bg-paper-cream"
+      />
     </>
   );
 }

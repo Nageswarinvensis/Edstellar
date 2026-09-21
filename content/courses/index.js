@@ -18,8 +18,15 @@
  *
  * When the backend grows a list endpoint, delete this and derive it there;
  * `lib/content/courses.js` is the only file that changes.
+ *
+ * `ml-model-monitoring-training` is not in the CMS at all yet — it renders
+ * entirely from `COURSE_FALLBACKS` below, via `lib/content/courses.js`'s
+ * `toLocalCourse`. Listed here so it still prerenders and appears in the
+ * sitemap despite having no CMS record to enumerate it.
  */
-export const COURSES_BY_DOMAIN = {};
+export const COURSES_BY_DOMAIN = {
+  "artificial-intelligence": ["ml-model-monitoring-training"],
+};
 
 /**
  * Per-course fallback content, deep-merged *under* the CMS response by
@@ -30,5 +37,19 @@ export const COURSES_BY_DOMAIN = {};
  *
  * Keys here use the CMS's own names and casing so the merge is a plain
  * overlay with no translation step. Delete an entry once the backend sends it.
+ *
+ * `"artificial-intelligence/ml-model-monitoring-training"` has no CMS record
+ * at all, so `toLocalCourse` renders this entry alone (deep-merged only with
+ * `COURSE_DEFAULTS`). It has no entries of its own right now — `about` and
+ * `curriculum`, the two sections this course originally carried here, moved
+ * to `content/courses/defaults.js`'s `COURSE_DEFAULTS` because they are the
+ * same on every course by product decision, not this course's own content
+ * (see that file's doc comment). This entry stays only for its required
+ * `name`, which is what keeps this slug resolving instead of 404ing — see
+ * `toLocalCourse`'s doc comment in `lib/content/courses.js`.
  */
-export const COURSE_FALLBACKS = {};
+export const COURSE_FALLBACKS = {
+  "artificial-intelligence/ml-model-monitoring-training": {
+    name: "ML Model Monitoring",
+  },
+};

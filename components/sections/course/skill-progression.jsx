@@ -1,177 +1,203 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
+import { Info } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import { cn } from "@/lib/utils";
 
-const LEVEL_CODE = {
-  None: "N",
-  Basic: "B",
-  Intermediate: "I",
-  Advanced: "A",
-  "Very Advanced": "VA",
+// The design's dot/band greens are a muted, olive-leaning green with no
+// equivalent design token (`--color-olive` is a different, more yellow
+// shade) — arbitrary hex here matches the source exactly rather than
+// approximating with Tailwind's more saturated default green scale, which
+// reads visibly "off" next to the source at this size.
+const BAND_CLASSES = {
+  pre: "bg-[#f1f8ec] text-[#3f7d27]",
+  taught: "bg-blue-50 text-blue-600",
 };
 
-function ProgressionRow({ item, index, filled }) {
-  return (
-    <Box className="mb-3.75 last:mb-0">
-      <Box className="mb-1.75 flex items-baseline justify-between gap-3">
-        <Text
-          as="span"
-          className="font-display text-[13px] font-semibold tracking-[-0.01em] text-ink"
-        >
-          {item.skill}
-        </Text>
-        <Text
-          as="span"
-          className="flex-none font-mono text-[10px] tracking-[0.06em] text-ink/60 uppercase"
-        >
-          {LEVEL_CODE[item.entry_level]} <span aria-hidden="true">→</span>{" "}
-          <b className="font-semibold text-ink">{LEVEL_CODE[item.exit_level]}</b>
-        </Text>
-      </Box>
+const PILL_CLASSES = {
+  true: "bg-[#eaf6e3] text-[#3f7d27]",
+  false: "bg-[#f1f3f6] text-ink/65",
+};
 
+const DOT_BASE = "block size-3.25 rounded-full";
+const DOT_OFF = "border border-[#d5dae1] bg-[#eaedf1]";
+const DOT_ENTRY = "border-2 border-[#4a9e2b] bg-white";
+const DOT_MID = "border border-[#a3d283] bg-[#a3d283]";
+const DOT_EXIT = "border border-[#3f8f22] bg-[#3f8f22]";
+const LINE_ON = "bg-[#6cb84c]";
+const LINE_OFF = "bg-[#dfe4ea]";
+
+/**
+ * One continuous rail across every level (grey), with a green segment
+ * overlaid from the entry dot's center to the exit dot's center. Every dot
+ * after the first sits on the rail — including the "not covered" ones past
+ * exit — matching the source, which colors every connecting segment either
+ * on or off but never removes one. Dot centers are at each cell's midpoint,
+ * so the overlay's offsets are computed as percentages of the rail width;
+ * this is genuine geometry, not a design value, so it's the one legitimate
+ * use of inline `style` here (`curriculum.jsx`'s split bar does the same
+ * for its per-segment widths).
+ */
+function Rail({ levels, entry, exit }) {
+  const count = levels.length;
+  const centerPct = (index) => ((index + 0.5) / count) * 100;
+
+  return (
+    <Box className="relative flex h-7.5 items-center">
       <Box
-        role="img"
-        aria-label={`${item.skill}: ${item.entry_level} on entry, ${item.exit_level} on completion`}
-        className="relative h-2 overflow-visible rounded-full bg-paper-warm"
-      >
-        <Box
-          className="absolute top-0 left-0 h-full rounded-full bg-[linear-gradient(90deg,var(--color-navy-deep),var(--color-lime))] transition-[width] duration-700 ease-out"
-          style={{
-            width: filled ? `${item.exit_percent}%` : "0%",
-            transitionDelay: `${index * 90}ms`,
-          }}
-        />
-        {item.entry_percent > 0 ? (
-          <Box
-            aria-hidden="true"
-            className="absolute top-1/2 h-2 w-0.5 -translate-y-1/2 rounded-xs bg-paper/85 transition-opacity duration-300"
-            style={{
-              left: `${item.entry_percent}%`,
-              opacity: filled ? 1 : 0,
-              transitionDelay: `${index * 90 + 500}ms`,
-            }}
-          />
-        ) : null}
-        <Box
-          aria-hidden="true"
-          className="absolute top-1/2 h-3.75 w-0.5 -translate-y-1/2 rounded-xs bg-ink/60 transition-opacity duration-300"
-          style={{
-            left: `${item.exit_percent}%`,
-            opacity: filled ? 1 : 0,
-            transitionDelay: `${index * 90 + 500}ms`,
-          }}
-        />
-      </Box>
-    </Box>
-  );
-}
+        aria-hidden="true"
+        className={cn("absolute top-1/2 h-0.5 -translate-y-1/2", LINE_OFF)}
+        style={{
+          left: `${centerPct(0)}%`,
+          right: `${100 - centerPct(count - 1)}%`,
+        }}
+      />
+      <Box
+        aria-hidden="true"
+        className={cn("absolute top-1/2 h-0.5 -translate-y-1/2", LINE_ON)}
+        style={{
+          left: `${centerPct(entry)}%`,
+          right: `${100 - centerPct(exit)}%`,
+        }}
+      />
 
-function ProgressionDivider({ label, first }) {
-  return (
-    <Box
-      className={
-        first
-          ? "mb-4 flex items-center gap-3"
-          : "mt-5 mb-4 flex items-center gap-3"
-      }
-    >
-      <Box aria-hidden="true" className="h-px w-5.5 flex-none bg-ink/22" />
-      <Text
-        as="span"
-        className="font-mono text-[10px] tracking-[0.13em] text-ink/60 uppercase"
-      >
-        {label}
-      </Text>
-      <Box aria-hidden="true" className="h-px flex-1 bg-ink/12" />
+      {levels.map((_, index) => {
+        const dotClass =
+          index === entry ? DOT_ENTRY : index === exit ? DOT_EXIT : index > entry && index < exit ? DOT_MID : DOT_OFF;
+
+        return (
+          <Box
+            key={index}
+            className="relative z-[1] flex flex-1 items-center justify-center"
+          >
+            <Box aria-hidden="true" className={cn(DOT_BASE, dotClass)} />
+          </Box>
+        );
+      })}
     </Box>
   );
 }
 
 /**
- * Skill-progression panel — bars fill from 0 to their exit level once the
- * panel scrolls into view, rather than rendering already-filled. Client-only
- * for the `IntersectionObserver`; `progression` still arrives as a prop from
- * the server-rendered `Audience`, so the text content is unaffected.
+ * Skill-levels matrix — where a typical participant starts and finishes on
+ * each topic, grouped into prerequisite / taught-here bands. A static
+ * table, not a filled-on-scroll bar chart: that read better as a design but
+ * this is what the approved design actually shows.
+ *
+ * Design: `.eds-path`, `.eds-path-table`, `.eds-path-row`, `.eds-path-dot`.
  */
-export default function SkillProgression({
-  progression,
-  firstPrerequisiteIndex,
-  lastPrerequisiteIndex,
-}) {
-  const ref = useRef(null);
-  const [filled, setFilled] = useState(false);
+export default function SkillProgression({ progression }) {
+  if (!progression?.bands?.length) return null;
 
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
-    if (
-      typeof window === "undefined" ||
-      !("IntersectionObserver" in window) ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      setFilled(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setFilled(true);
-            observer.unobserve(entry.target);
-          }
-        }
-      },
-      { rootMargin: "0px 0px -15% 0px", threshold: 0.2 },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  const { title, description, levels, bands, note } = progression;
 
   return (
-    <Box
-      ref={ref}
-      className="mt-7 rounded-2xl border border-ink/12 bg-white px-6 pt-6 pb-5.5 max-sm:px-5 max-sm:pt-5 max-sm:pb-4.5"
-    >
-      <Text
-        as="h3"
-        className="font-display text-[16.5px] font-semibold tracking-[-0.02em] text-ink"
-      >
-        {progression.title}
-      </Text>
-      <Text as="p" className="mt-2 mb-5 text-[12.5px] leading-[1.6] text-ink/60">
-        {progression.description}
-      </Text>
-
-      {progression.items.map((item, index) => (
-        <Box key={item.skill}>
-          {index === firstPrerequisiteIndex ? (
-            <ProgressionDivider label="Prerequisites" first />
-          ) : null}
-          <ProgressionRow item={item} index={index} filled={filled} />
-          {index === lastPrerequisiteIndex &&
-          lastPrerequisiteIndex < progression.items.length - 1 ? (
-            <ProgressionDivider label="Taught from the ground up" />
+    <Box className="mt-6.5 overflow-hidden rounded-2xl border border-ink/12 bg-white">
+      <Box className="flex flex-wrap items-start justify-between gap-6 px-6 pt-5.5 pb-4.5">
+        <Box>
+          <Text
+            as="h3"
+            className="font-body text-[18px] font-bold tracking-[-0.02em] text-ink"
+          >
+            {title}
+          </Text>
+          {description ? (
+            <Text as="p" className="mt-1.25 text-[12.5px] leading-[1.55] text-ink/60">
+              {description}
+            </Text>
           ) : null}
         </Box>
-      ))}
 
-      <Box className="mt-5 flex flex-wrap gap-x-4 gap-y-1.75 border-t border-ink/12 pt-3.75">
-        {Object.entries(LEVEL_CODE).map(([label, code]) => (
+        <Box className="flex items-center gap-2.25 font-mono text-[10px] tracking-[0.06em] text-ink/60 uppercase">
+          <span className="inline-flex items-center gap-1.5">
+            <Box aria-hidden="true" className={cn(DOT_BASE, DOT_ENTRY)} />
+            Entry
+          </span>
+          <Box aria-hidden="true" className={cn("h-0.5 w-6.5 flex-none rounded-full", LINE_ON)} />
+          <span className="inline-flex items-center gap-1.5">
+            <Box aria-hidden="true" className={cn(DOT_BASE, DOT_EXIT)} />
+            Exit
+          </span>
+          <span className="ml-2 inline-flex items-center gap-1.5">
+            <Box aria-hidden="true" className={cn(DOT_BASE, DOT_OFF)} />
+            Not covered
+          </span>
+        </Box>
+      </Box>
+
+      <Box className="grid grid-cols-[minmax(0,1fr)_84px] border-t border-ink/12 min-[901px]:grid-cols-[minmax(0,1.5fr)_104px_repeat(4,minmax(0,1fr))]">
+        <Text
+          as="span"
+          className="border-b border-ink/12 bg-slate-50 py-2.75 pl-6 text-[11.5px] font-semibold text-ink/70"
+        >
+          Skill / Topic
+        </Text>
+        <Text
+          as="span"
+          className="border-b border-ink/12 bg-slate-50 py-2.75 pr-3 text-[11.5px] font-semibold text-ink/70"
+        >
+          Prerequisite?
+        </Text>
+        {levels.map((level) => (
           <Text
-            key={code}
+            key={level}
             as="span"
-            className="font-mono text-[10px] tracking-[0.04em] text-ink/60"
+            className="hidden border-b border-ink/12 bg-slate-50 py-2.75 text-center text-[11.5px] font-semibold text-ink/70 min-[901px]:block"
           >
-            <b className="font-semibold text-ink">{code}</b> {label}
+            {level}
           </Text>
         ))}
+
+        {bands.map((band) => (
+          <Box key={band.label} className="contents">
+            <Text
+              as="span"
+              className={cn(
+                "col-span-full border-b border-ink/12 px-6 py-2.25 text-[12.5px] font-bold tracking-[-0.01em]",
+                BAND_CLASSES[band.variant],
+              )}
+            >
+              {band.label}
+            </Text>
+
+            {band.rows.map((row) => (
+              <Box key={row.skill} className="contents">
+                <Text
+                  as="span"
+                  className="border-b border-ink/8 py-3.25 pl-6 text-[13px] leading-[1.35] text-ink"
+                >
+                  {row.skill}
+                </Text>
+                <Box className="border-b border-ink/8 py-3.25">
+                  <Text
+                    as="span"
+                    className={cn(
+                      "inline-block rounded-[6px] px-3.25 py-1 text-[11.5px] font-semibold",
+                      PILL_CLASSES[String(Boolean(row.prerequisite))],
+                    )}
+                  >
+                    {row.prerequisite ? "Yes" : "No"}
+                  </Text>
+                </Box>
+                <Box className="col-span-full border-b border-ink/8 px-6 pb-3 min-[901px]:col-span-4 min-[901px]:col-start-3 min-[901px]:px-0 min-[901px]:pb-0">
+                  <Rail levels={levels} entry={row.entry} exit={row.exit} />
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        ))}
       </Box>
+
+      {note ? (
+        <Box className="flex items-center gap-4.5 border-t border-ink/12 bg-paper px-6 py-4">
+          <Box className="grid size-9 flex-none place-items-center rounded-full bg-[#e6f4dd] text-[#3f7d27]">
+            <Info size={18} strokeWidth={2} aria-hidden="true" />
+          </Box>
+          <Text as="p" className="text-[12.5px] leading-[1.6] text-ink/65">
+            {note}
+          </Text>
+        </Box>
+      ) : null}
     </Box>
   );
 }

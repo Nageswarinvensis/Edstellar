@@ -37,13 +37,22 @@ function imageForTab(tab, index) {
   return byKeyword?.image ?? TAB_IMAGE_RULES[index]?.image;
 }
 
+/** Some CMS records (the domain page's `deliveryModes`, unlike a course's)
+ * send no `id` per tab at all — every tab would otherwise collide on
+ * `undefined`, both as a React key and as the active-tab match. `label` is
+ * always present and unique across a tab strip, so it's the fallback; the
+ * index is the last resort. */
+function tabKey(tab, index) {
+  return tab.id ?? tab.label ?? String(index);
+}
+
 export default function DeliveryModeTabs({ tabs }) {
-  const [activeId, setActiveId] = useState(tabs?.[0]?.id);
+  const [activeKey, setActiveKey] = useState(tabs?.[0] && tabKey(tabs[0], 0));
 
   if (!tabs?.length) return null;
 
-  const activeIndex = tabs.findIndex((tab) => tab.id === activeId);
-  const activeTabId = activeIndex === -1 ? tabs[0].id : activeId;
+  const activeIndex = tabs.findIndex((tab, index) => tabKey(tab, index) === activeKey);
+  const activeTabKey = activeIndex === -1 ? tabKey(tabs[0], 0) : activeKey;
 
   return (
     <Box>
@@ -51,19 +60,20 @@ export default function DeliveryModeTabs({ tabs }) {
         role="tablist"
         className="mb-8 flex flex-wrap border-b border-ink/12"
       >
-        {tabs.map((tab) => {
-          const isActive = tab.id === activeTabId;
+        {tabs.map((tab, index) => {
+          const key = tabKey(tab, index);
+          const isActive = key === activeTabKey;
 
           return (
             <button
-              key={tab.id}
-              id={`mode-tab-${tab.id}`}
+              key={key}
+              id={`mode-tab-${key}`}
               type="button"
               role="tab"
               title={`Click Here to View ${tab.label}`}
               aria-selected={isActive}
-              aria-controls={`mode-panel-${tab.id}`}
-              onClick={() => setActiveId(tab.id)}
+              aria-controls={`mode-panel-${key}`}
+              onClick={() => setActiveKey(key)}
               className="relative mr-5.5 cursor-pointer border-none bg-transparent px-1.5 py-3.5 text-left transition-colors duration-200"
             >
               <Text
@@ -96,15 +106,16 @@ export default function DeliveryModeTabs({ tabs }) {
       </Box>
 
       {tabs.map((tab, index) => {
-        const isActive = tab.id === activeTabId;
+        const key = tabKey(tab, index);
+        const isActive = key === activeTabKey;
         const image = imageForTab(tab, index);
 
         return (
           <Box
-            key={tab.id}
-            id={`mode-panel-${tab.id}`}
+            key={key}
+            id={`mode-panel-${key}`}
             role="tabpanel"
-            aria-labelledby={`mode-tab-${tab.id}`}
+            aria-labelledby={`mode-tab-${key}`}
             hidden={!isActive}
             className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10"
           >

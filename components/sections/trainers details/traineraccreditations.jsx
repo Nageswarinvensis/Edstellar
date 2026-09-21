@@ -1,33 +1,7 @@
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-
-const certificationsList = [
-  {
-    title: "Prosci Certified",
-    subtitle: "Change Practitioner",
-    issuer: "Prosci",
-    year: "2016",
-  },
-  {
-    title: "ICF Accredited",
-    subtitle: "Associate Certified Coach",
-    issuer: "ICF",
-    year: "2018",
-  },
-  {
-    title: "SHRM-SCP",
-    subtitle: "Senior Certified Professional",
-    issuer: "SHRM",
-    year: "2015",
-  },
-  {
-    title: "Edstellar Verified",
-    subtitle: "Trainer credentials reviewed",
-    issuer: "Edstellar",
-    year: "2023",
-  },
-];
+import trainerContent from "@/content/trainer.json";
 
 const parseEducationData = (educationRaw) => {
   if (!educationRaw) return [];
@@ -54,7 +28,7 @@ const parseEducationData = (educationRaw) => {
 };
 
 export default function CertificationsAndEducation({ trainer }) {
-  const educationString = trainer?.meta?.education;
+  const educationString = trainer.meta?.education;
   const educationList = parseEducationData(educationString);
 
   return (
@@ -65,7 +39,7 @@ export default function CertificationsAndEducation({ trainer }) {
           {/* Section Heading */}
           <Text
             as="h2"
-            className="mb-3 text-[30px] font-bold tracking-tight text-ink lg:text-[36px]"
+            className="mb-3 tracking-tight text-ink"
           >
             Certifications &{" "}
             <Text
@@ -83,7 +57,7 @@ export default function CertificationsAndEducation({ trainer }) {
 
           {/* Certifications Cards Grid */}
           <Box className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {certificationsList.map((item, index) => (
+            {trainerContent.certifications.map((item, index) => (
               <Box
                 key={index}
                 className="flex flex-col justify-between rounded-2xl border border-black/5 bg-white p-5 lg:p-6 shadow-sm transition-all hover:shadow-md"
@@ -145,7 +119,7 @@ export default function CertificationsAndEducation({ trainer }) {
           <Box id="education">
             <Text
               as="h2"
-              className="text-[30px] font-bold tracking-tight text-ink lg:text-[36px]"
+              className="tracking-tight text-ink"
             >
               Education.
             </Text>

@@ -1,11 +1,13 @@
 import Box from "@/components/ui/Box";
 import Section from "@/components/ui/Section";
 import Text from "@/components/ui/Text";
+import RichHeading from "@/components/common/rich-heading";
+import trainerContent from "@/content/trainer.json";
 
 export default function OurReach({ trainer }) {
-  const firstName = trainer?.name?.split(" ")[0] || "Amara";
+  const firstName = trainer.name.split(" ")[0];
 
-  const languages = trainer?.languages?.length
+  const languages = trainer.languages?.length
     ? trainer.languages.map((lang, idx) => ({
         name: typeof lang === "string" ? lang : lang.name,
         proc:
@@ -21,67 +23,27 @@ export default function OurReach({ trainer }) {
               ? "100%"
               : "85%",
       }))
-    : [
-        {
-          name: "English",
-          proc: "Native / full delivery",
-          width: "100%",
-        },
-        {
-          name: "French",
-          proc: "Professional / full delivery",
-          width: "85%",
-        },
-      ];
+    : trainerContent.languages.map((lang) => ({
+        name: lang.name,
+        proc: lang.proficiency,
+        width: lang.level,
+      }));
 
-  const coverage = trainer?.regional_coverage || [
-    {
-      badge: "ONSITE",
-      isLime: true,
-      title: "West Africa",
-      desc: "Nigeria, Ghana, Côte d'Ivoire, Senegal",
-    },
-    {
-      badge: "VIRTUAL",
-      isLime: false,
-      title: "EMEA",
-      desc: "Live instructor-led across European & Middle East timezones",
-    },
-    {
-      badge: "VIRTUAL",
-      isLime: false,
-      title: "Americas & APAC",
-      desc: "Scheduled to the team's working hours",
-    },
-    {
-      badge: "TRAVEL",
-      isLime: true,
-      title: "Onsite elsewhere on request",
-      desc: "For multi-day or enterprise engagements",
-    },
-  ];
+  const coverage = trainer.regional_coverage || trainerContent.regionalCoverage;
 
   const cardClass = "flex flex-col justify-between rounded-2xl border border-[rgba(10,22,40,.12)] bg-white p-5 shadow-sm lg:p-6";
 
   const cardHeaderClass = "mb-4.5 flex items-center gap-2.5";
 
   return (
-    <Section id="reach & languages" className="bg-[#f9fafb]">
+    <Section id="reach-languages" className="bg-[#f9fafb]">
       <Box>
         <Box className="mb-10 max-w-2xl">
-          <Text
-            as="h2"
-            className="mb-3 text-[30px] font-bold tracking-tight lg:text-[36px]"
-          >
-            Delivery{" "}
-            <Text
-              as="span"
-              className="font-Cormorant Garamond text-[18px] font-normal text-ink lg:text-[24px]"
-            >
-              reach,
-            </Text>{" "}
-            in detail.
-          </Text>
+          <RichHeading
+            heading="Delivery <span>reach,</span> in detail."
+            className="mb-3 tracking-tight"
+            emphasisClassName="text-[18px] font-normal text-ink lg:text-[24px]"
+          />
 
           <Text as="p" className="text-[16px] text-in">
             Which languages {firstName} trains in, and how each region is
@@ -227,7 +189,7 @@ export default function OurReach({ trainer }) {
                 <Text as="p">
                   Home timezone{" "}
                   <Text as="span" className="font-bold text-ink">
-                    {trainer?.timezone || "WAT (UTC+1)"}
+                    {trainer.timezone || trainerContent.timezone}
                   </Text>
                   . Virtual cohorts are scheduled to overlap the team's hours,
                   not the trainer's.

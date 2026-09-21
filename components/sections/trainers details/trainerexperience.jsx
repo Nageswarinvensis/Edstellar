@@ -51,33 +51,16 @@ function parseWorkHistory(workHistory) {
   });
 }
 
-export default function TrainerExperience({ trainer, experienceData }) {
-  // Safe extraction across all API payload nesting structures
-  const rawWorkHistory =
-    trainer?.meta?.work_history ||
-    trainer?.work_history ||
-    trainer?.data?.meta?.work_history ||
-    trainer?.data?.work_history ||
-    (typeof experienceData === "string" ? experienceData : null);
-
-  // Dynamic computation during Server Side Rendering (SSR)
-  let parsedExperience = parseWorkHistory(rawWorkHistory);
-
-  if (!parsedExperience.length && Array.isArray(experienceData) && experienceData.length > 0) {
-    parsedExperience = experienceData;
-  }
-
-  const firstName = trainer?.name?.split(" ")[0] || "the trainer";
+export default function TrainerExperience({ trainer }) {
+  const parsedExperience = parseWorkHistory(trainer.meta?.work_history);
+  const firstName = trainer.name.split(" ")[0];
 
   return (
     <Section id="experience" className="bg-white">
       <Box>
         {/* Section Header */}
         <Box className="mb-10 max-w-2xl">
-          <Text
-            as="h2"
-            className="text-[30px] font-bold tracking-tight text-ink lg:text-[36px]"
-          >
+          <Text as="h2" className="tracking-tight text-ink">
             Professional{" "}
             <Text
               as="span"
@@ -90,7 +73,8 @@ export default function TrainerExperience({ trainer, experienceData }) {
             as="p"
             className="mt-3 text-[16px] leading-relaxed text-[#64748b]"
           >
-            The operating background that informs how {firstName} trains change and leadership.
+            The operating background that informs how {firstName} trains change
+            and leadership.
           </Text>
         </Box>
 

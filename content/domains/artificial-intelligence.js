@@ -27,6 +27,11 @@ const DELIVERY_META = [
  */
 const artificialIntelligence = {
   slug: "artificial-intelligence",
+  // The CMS's own domain record uses the short code "ai" (`/api/v2/domains/ai`),
+  // not this route slug — its course links (byRoleData/pathsData) and its own
+  // `seo.canonical_url` still say "artificial-intelligence", so the route stays
+  // that, and `cmsSlug` is what `lib/content/domains.js` calls the CMS with.
+  cmsSlug: "ai",
   name: "Artificial Intelligence",
 
   seo: {

@@ -1,0 +1,171 @@
+{
+  "stickyNav": {
+    "logo": { "src": "/course/Edstellar.svg", "alt": "Edstellar" },
+    "tabs": [
+      { "id": "about", "label": "About", "active": true },
+      { "id": "reach-languages", "label": "Reach & Languages", "active": false },
+      { "id": "location", "label": "Location", "active": false },
+      { "id": "expertise", "label": "Expertise", "active": false },
+      { "id": "experience", "label": "Experience", "active": false },
+      { "id": "ratings", "label": "Ratings", "active": false },
+      { "id": "accreditations", "label": "Accreditations", "active": false },
+      { "id": "education", "label": "Education", "active": false },
+      { "id": "faqs", "label": "FAQ", "active": false }
+    ]
+  },
+
+  "deliveryMode": "Onsite & Virtual",
+  "travelsOnsite": "Yes",
+  "primaryDomain": "Corporate Training",
+
+  "languages": [
+    { "name": "English", "proficiency": "Native / full delivery", "level": "100%" },
+    { "name": "French", "proficiency": "Professional / full delivery", "level": "88%" }
+  ],
+
+  "timezone": "Timezone on file",
+
+  "regionalCoverage": [
+    {
+      "badge": "ONSITE",
+      "isLime": true,
+      "title": "Home region",
+      "desc": "Onsite delivery within the trainer's home country and neighboring markets"
+    },
+    {
+      "badge": "VIRTUAL",
+      "isLime": false,
+      "title": "EMEA",
+      "desc": "Live instructor-led across European & Middle East timezones"
+    },
+    {
+      "badge": "VIRTUAL",
+      "isLime": false,
+      "title": "Americas & APAC",
+      "desc": "Scheduled to the team's working hours"
+    },
+    {
+      "badge": "TRAVEL",
+      "isLime": true,
+      "title": "Onsite elsewhere on request",
+      "desc": "For multi-day or enterprise engagements"
+    }
+  ],
+
+  "locationDetail": {
+    "metroRegion": "Metro area on file",
+    "timezone": "Timezone on file",
+    "onsiteRadius": "Regional",
+    "willingToTravel": "Yes, for multi-day & enterprise",
+    "virtualDelivery": "Global, timezone-matched"
+  },
+
+  "nearbyCities": [],
+
+  "skills": [
+    { "title": "Leadership Development", "type": "Flagship", "years": "11 years delivering", "since": "Since 2013", "level": "95%" },
+    { "title": "Change Management", "type": "Core", "years": "10 years delivering", "since": "Since 2014", "level": "90%" },
+    { "title": "Team Effectiveness", "type": "Core", "years": "9 years delivering", "since": "Since 2015", "level": "85%" },
+    { "title": "Emotional Intelligence", "type": "Established", "years": "7 years delivering", "since": "Since 2017", "level": "75%" },
+    { "title": "Coaching Skills for Managers", "type": "Established", "years": "6 years delivering", "since": "Since 2018", "level": "65%" },
+    { "title": "Difficult Conversations", "type": "Active", "years": "5 years delivering", "since": "Since 2019", "level": "55%" }
+  ],
+
+  "skillTiers": [
+    { "type": "Flagship", "level": "95%" },
+    { "type": "Core", "level": "88%" },
+    { "type": "Core", "level": "82%" },
+    { "type": "Established", "level": "74%" },
+    { "type": "Established", "level": "66%" },
+    { "type": "Active", "level": "58%" }
+  ],
+  "skillTierDefault": { "type": "Active", "level": "50%" },
+
+  "ratingMetrics": [
+    { "label": "Content quality", "score": "4.9", "percentage": 98 },
+    { "label": "Facilitation", "score": "5.0", "percentage": 100 },
+    { "label": "Practical relevance", "score": "4.8", "percentage": 96 },
+    { "label": "Would recommend", "score": "4.9", "percentage": 98 }
+  ],
+
+  "testimonials": [
+    {
+      "quote": "She did not hand us a change model and leave. She sat with our managers through the objections they were actually getting and rebuilt their approach in the room. Three months on, adoption is holding.",
+      "initial": "D",
+      "title": "Director of Transformation, [Sector]"
+    },
+    {
+      "quote": "We run teams across four countries and needed one facilitator who could hold a room without losing nuance. The feedback was the most consistent we have had from any program.",
+      "initial": "H",
+      "title": "Head of L&D, [Company]"
+    }
+  ],
+
+  "certifications": [
+    { "title": "Prosci Certified", "subtitle": "Change Practitioner", "issuer": "Prosci", "year": "2016" },
+    { "title": "ICF Accredited", "subtitle": "Associate Certified Coach", "issuer": "ICF", "year": "2018" },
+    { "title": "SHRM-SCP", "subtitle": "Senior Certified Professional", "issuer": "SHRM", "year": "2015" },
+    { "title": "Edstellar Verified", "subtitle": "Trainer credentials reviewed", "issuer": "Edstellar", "year": "2023" }
+  ],
+
+  "faq": {
+    "heading": "Working with our <span>trainers</span>.",
+    "items": [
+      {
+        "question": "Where are Edstellar trainers based and where can they deliver training?",
+        "answer": "Trainers are based worldwide. Onsite and virtual delivery is confirmed with an Edstellar consultant based on your team's location."
+      },
+      {
+        "question": "What topics do Edstellar trainers cover?",
+        "answer": "Each trainer's profile lists their core delivery areas, covering leadership, technical, and functional skill tracks."
+      },
+      {
+        "question": "Do Edstellar trainers deliver virtual as well as onsite training?",
+        "answer": "Yes. Edstellar trainers deliver both onsite and live virtual instructor-led programs, with the delivery mode agreed to fit your team's location and timezone."
+      },
+      {
+        "question": "How do I book a trainer for my team?",
+        "answer": "Talk to an Edstellar consultant. They confirm availability, delivery mode, and timezone before scheduling."
+      }
+    ]
+  },
+
+  "otherTrainers": [
+    {
+      "slug": "mehak-bangalore-india",
+      "name": "Mehak",
+      "city": "Bangalore",
+      "country": "India",
+      "flag": "🇮🇳",
+      "image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/67ac91699076214823e466a9_mehak-bangalore-india.webp",
+      "skills": ["Design Thinking", "Emotional Intelligence"]
+    },
+    {
+      "slug": "ravi-bangalore-india",
+      "name": "Ravi",
+      "city": "Bangalore",
+      "country": "India",
+      "flag": "🇮🇳",
+      "image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/67a49be2bc6d7e4c6f48aae3_ravi-bangalore-india.webp",
+      "skills": ["Change Management", "Problem Solving"]
+    },
+    {
+      "slug": "roberta-al-wajba-qatar",
+      "name": "Roberta",
+      "city": "Al Wajba",
+      "country": "Qatar",
+      "flag": "🇶🇦",
+      "image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/67972d6201dc4ed11e276a82_roberta-al-wajba-qatar.webp",
+      "skills": ["Team Building", "People Management"]
+    },
+    {
+      "slug": "simon-ubud-indonesia",
+      "name": "Simon",
+      "city": "Ubud",
+      "country": "Indonesia",
+      "flag": "🇮🇩",
+      "image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/678e3990ca24b08c35ec2239_simon-ubud-indonesia.webp",
+      "skills": ["Team Management", "Public Speaking"]
+    }
+  ]
+}

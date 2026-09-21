@@ -4,64 +4,59 @@ import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
+import Breadcrumbs from "@/components/common/breadcrumbs";
+import trainerContent from "@/content/trainer.json";
 
 export default function TrainerHero({ trainer }) {
-  const skills = trainer?.skills || [];
-  const visibleSkills = skills.slice(0, 3);
-  const remainingSkills = Math.max(skills.length - visibleSkills.length, 0);
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Trainers", href: "/trainer" },
+    { label: trainer.name },
+  ];
 
-  const location = [trainer?.city, trainer?.country]
-    .filter(Boolean)
-    .join(", ");
+  const visibleSkills = trainer.skills.slice(0, 3);
+  const remainingSkills = Math.max(
+    trainer.skills.length - visibleSkills.length,
+    0,
+  );
 
-  const reach = trainer?.delivery_reach || trainer?.meta?.delivery_reach;
-  const deliveryReachText = location
-    ? `Based in ${location}${reach ? ` · Delivering across ${reach}` : ""}`
-    : reach || "Based in Lagos, Nigeria · Delivering across West Africa & EMEA";
+  const location = [trainer.city, trainer.country].join(", ");
+
+  const reach = trainer.delivery_reach || trainer.meta?.delivery_reach;
+  const deliveryReachText = `Based in ${location}${reach ? ` · Delivering across ${reach}` : ""}`;
 
   const statsData = [
-    {
-      label: "BASE LOCATION",
-      value: location || "Lagos, Nigeria",
-    },
-    {
-      label: "TRAINER SINCE",
-      value: trainer?.training_since || "March 2013",
-    },
+    { label: "BASE LOCATION", value: location },
+    { label: "TRAINER SINCE", value: trainer.training_since },
     {
       label: "LANGUAGES",
-      value: trainer?.languages
+      value: trainer.languages
         ? trainer.languages.join(" • ")
-        : "English • French",
+        : trainerContent.languages.map((lang) => lang.name).join(" • "),
     },
     {
       label: "DELIVERY",
-      value: trainer?.delivery_mode || "Onsite & Virtual",
+      value: trainer.delivery_mode || trainerContent.deliveryMode,
     },
   ];
 
   return (
-    <Section className="w-full bg-ink pb-0!">
-      {/* Upper Hero Block */}
-      <Box>
+    <>
+      <Section className="pt-0! pb-5!">
+        <Breadcrumbs items={breadcrumbItems} tone="white" />
+      </Section>
+      <Section id="top" className="w-full bg-ink pb-0!">
         <Box className="grid items-center gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10">
-          {/* Trainer Image & Status Badge */}
           <Box className="relative mx-auto w-full max-w-55 lg:mx-0">
             <Box className="relative aspect-square overflow-hidden rounded-[16px]">
-              {trainer?.profile_image_url ? (
-                <Image
-                  src={trainer.profile_image_url}
-                  alt={trainer?.name || "Trainer"}
-                  fill
-                  priority
-                  sizes="220px"
-                  className="object-cover"
-                />
-              ) : (
-                <Box className="flex h-full w-full items-center justify-center bg-ink text-sm text-white/60">
-                  No image
-                </Box>
-              )}
+              <Image
+                src={trainer.profile_image_url}
+                alt={trainer.name}
+                fill
+                priority
+                sizes="220px"
+                className="object-cover"
+              />
             </Box>
 
             {/* "Available to book" Badge */}
@@ -74,29 +69,22 @@ export default function TrainerHero({ trainer }) {
           {/* Details & Action Buttons */}
           <Box className="min-w-0">
             {/* Trainer Name */}
-            <Text
-              as="h1"
-              className="text-[32px] font-bold leading-tight tracking-tight text-white lg:text-[40px]"
-            >
-              {trainer?.name || "Amara Okonkwo"}
+            <Text as="h1" className="tracking-tight text-white">
+              {trainer.name}
             </Text>
 
             {/* Profile Title */}
-            {trainer?.profile_title && (
-              <Text
-                as="p"
-                className="mt-2 font-serif text-[18px] italic text-lime sm:text-[24px]"
-              >
-                {trainer.profile_title}
-              </Text>
-            )}
+            <Text
+              as="p"
+              className="mt-2 font-serif text-[18px] italic text-lime sm:text-[24px]"
+            >
+              {trainer.profile_title}
+            </Text>
 
             {/* Subtitle / Delivery Reach */}
-            {deliveryReachText && (
-              <Text as="p" className="mt-2 text-[14px] text-white/70">
-                {deliveryReachText}
-              </Text>
-            )}
+            <Text as="p" className="mt-2 text-[14px] text-white/70">
+              {deliveryReachText}
+            </Text>
 
             {/* Skill Tags */}
             {visibleSkills.length > 0 && (
@@ -140,29 +128,25 @@ export default function TrainerHero({ trainer }) {
             </Box>
           </Box>
         </Box>
-      </Box>
 
-      {/* End-to-End Bottom Stats Bar */}
-      <Box className="relative left-1/2 mt-10 w-screen -translate-x-1/2 border-t border-white/10 bg-[#050d1a66] py-5">
-        <Box className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4 lg:gap-8">
-          {statsData.map((stat, index) => (
-            <Box key={index} className="flex flex-col gap-1">
-              <Text
-                as="span"
-                className="text-[11px] font-bold uppercase tracking-wider text-white/40"
-              >
-                {stat.label}
-              </Text>
-              <Text
-                as="span"
-                className="text-[16px] font-bold text-white"
-              >
-                {stat.value}
-              </Text>
-            </Box>
-          ))}
+        <Box className="left-1/2 mt-10 w-screen -translate-x-1/2 border-t border-white/10 bg-[#050d1a66] py-5">
+          <Box className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4 lg:gap-8">
+            {statsData.map((stat, index) => (
+              <Box key={index} className="flex flex-col gap-1">
+                <Text
+                  as="span"
+                  className="text-[11px] font-bold uppercase tracking-wider text-white/40"
+                >
+                  {stat.label}
+                </Text>
+                <Text as="span" className="text-[16px] font-bold text-white">
+                  {stat.value}
+                </Text>
+              </Box>
+            ))}
+          </Box>
         </Box>
-      </Box>
-    </Section>
+      </Section>
+    </>
   );
 }

@@ -4,28 +4,35 @@ import { useState } from "react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
+import RichHeading from "@/components/common/rich-heading";
+import trainerContent from "@/content/trainer.json";
 
 export default function TrainerExpertise({ trainer }) {
   const [showAll, setShowAll] = useState(false);
-  const firstName = trainer?.name?.split(" ")[0] || "Amara";
+  const firstName = trainer.name.split(" ")[0];
 
-  // Normalize API skills or fall back to image data
-  const skillsList = trainer?.skills?.length
-    ? trainer.skills.map((item) => ({
-        title: typeof item === "string" ? item : item.title || item.name,
-        type: item.type || "Core",
-        years: item.years || "5 years delivering",
-        since: item.since || "Since 2018",
-        level: item.level || "70%",
-      }))
-    : [
-        { title: "Leadership Development", type: "Flagship", years: "11 years delivering", since: "Since 2013", level: "95%" },
-        { title: "Change Management", type: "Core", years: "10 years delivering", since: "Since 2014", level: "90%" },
-        { title: "Team Effectiveness", type: "Core", years: "9 years delivering", since: "Since 2015", level: "85%" },
-        { title: "Emotional Intelligence", type: "Established", years: "7 years delivering", since: "Since 2017", level: "75%" },
-        { title: "Coaching Skills for Managers", type: "Established", years: "6 years delivering", since: "Since 2018", level: "65%" },
-        { title: "Difficult Conversations", type: "Active", years: "5 years delivering", since: "Since 2019", level: "55%" },
-      ];
+  // The API's `skills` is a flat array of names with no per-skill metadata —
+  // only the first (the trainer's primary domain) can honestly carry a real
+  // "since"/"years" fact, from `training_since`/`meta.years_experience`.
+  // The rest get a tier label + bar level by position (`skillTiers`), not a
+  // fabricated specific year repeated identically across every skill.
+  const skillsList = trainer.skills.length
+    ? trainer.skills.map((title, index) => {
+        const tier = trainerContent.skillTiers[index] || trainerContent.skillTierDefault;
+        const isPrimary = index === 0;
+
+        return {
+          title,
+          type: tier.type,
+          years:
+            isPrimary && trainer.meta?.years_experience
+              ? `${trainer.meta.years_experience} years delivering`
+              : "Active in curriculum",
+          since: isPrimary ? trainer.training_since : null,
+          level: tier.level,
+        };
+      })
+    : trainerContent.skills;
 
   const displayedSkills = showAll ? skillsList : skillsList.slice(0, 6);
 
@@ -34,12 +41,11 @@ export default function TrainerExpertise({ trainer }) {
       <Box>
         {/* Section Header */}
         <Box className="max-w-2xl">
-          <Text as="h2" className="text-[30px] font-bold tracking-tight lg:text-[36px]">
-            Areas of{" "}
-            <Text as="span" className="font-Cormorant Garamond text-[18px] font-normal text-ink lg:text-[24px]">
-              expertise.
-            </Text>
-          </Text>
+          <RichHeading
+            heading="Areas of <span>expertise.</span>"
+            className="tracking-tight"
+            emphasisClassName="text-[18px] font-normal text-ink lg:text-[24px]"
+          />
           <Text as="p" className="mt-3 text-[16px] text-ink">
             Topics {firstName} delivers as a corporate trainer, with depth shown by years of active delivery rather than self-rated stars.
           </Text>
@@ -57,9 +63,11 @@ export default function TrainerExpertise({ trainer }) {
                   <Text as="h3" className="text-lg font-bold text-ink">
                     {skill.title}
                   </Text>
-                  <Text as="span" className="font-mono text-xs text-[#64748b]">
-                    {skill.since}
-                  </Text>
+                  {skill.since && (
+                    <Text as="span" className="font-mono text-xs text-[#64748b]">
+                      {skill.since}
+                    </Text>
+                  )}
                 </Box>
                 <Text as="p" className="mt-1 text-xs text-[#64748b]">
                   {skill.type} · {skill.years}

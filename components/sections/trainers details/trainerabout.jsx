@@ -2,37 +2,35 @@ import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
+import RichHeading from "@/components/common/rich-heading";
+import trainerContent from "@/content/trainer.json";
 
 export default function TrainerAbout({ trainer }) {
-  const trainerFirstName = trainer?.name?.split(" ")[0] || "Trainer";
+  const trainerFirstName = trainer.name.split(" ")[0];
+  const baseLocation = [trainer.city, trainer.country].join(", ");
 
-  const baseLocation =
-    [trainer?.city, trainer?.country].filter(Boolean).join(", ") ||
-    trainer?.city ||
-    trainer?.country ||
-    "Delhi, India";
-
-  const trainerSince = trainer?.training_since || "May 2013";
-
+  // `trainer_category` doesn't exist on the API record — the real field is
+  // `meta.primary_training_type`, with `meta.current_job_title` next.
   const primaryDomain =
-    trainer?.trainer_category ||
-    trainer?.current_job_title ||
-    "Technical Training";
+    trainer.meta?.primary_training_type ||
+    trainer.meta?.current_job_title ||
+    trainerContent.primaryDomain;
 
-  const languages = Array.isArray(trainer?.languages)
+  const languages = Array.isArray(trainer.languages)
     ? trainer.languages.join(", ")
-    : trainer?.languages || "English";
+    : trainer.languages ||
+      trainerContent.languages.map((lang) => lang.name).join(", ");
 
-  const deliveryMode = trainer?.delivery_mode || "Onsite & Virtual";
+  const deliveryMode = trainer.delivery_mode || trainerContent.deliveryMode;
 
   const travelsForOnsite =
-    trainer?.travels_onsite !== undefined
+    trainer.travels_onsite !== undefined
       ? trainer.travels_onsite
         ? "Yes"
         : "No"
-      : "Yes";
+      : trainerContent.travelsOnsite;
 
-  const rawAboutText = trainer?.meta?.about || trainer?.about || "";
+  const rawAboutText = trainer.meta?.about || "";
 
   const paragraphs = rawAboutText
     ? rawAboutText
@@ -43,7 +41,7 @@ export default function TrainerAbout({ trainer }) {
 
   const glanceDetails = [
     { label: "Base", value: baseLocation },
-    { label: "Trainer since", value: trainerSince },
+    { label: "Trainer since", value: trainer.training_since },
     { label: "Primary domain", value: primaryDomain },
     { label: "Languages", value: languages },
     { label: "Delivery", value: deliveryMode },
@@ -56,18 +54,11 @@ export default function TrainerAbout({ trainer }) {
         <Box className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_380px] lg:gap-16">
           {/* Left Side: About Bio Text */}
           <Box className="flex flex-col space-y-6">
-            <Text
-              as="h2"
-              className="text-[30px] font-bold tracking-tight text-ink lg:text-[36px]"
-            >
-              About{" "}
-              <Text
-                as="span"
-                className="font-Cormorant Garamond text-[18px] font-normal italic text-ink lg:text-[24px]"
-              >
-                {trainerFirstName}.
-              </Text>
-            </Text>
+            <RichHeading
+              heading={`About <span>${trainerFirstName}.</span>`}
+              className="tracking-tight text-ink"
+              emphasisClassName="text-[18px] font-normal text-ink lg:text-[24px]"
+            />
 
             {paragraphs.length > 0 && (
               <Box className="flex flex-col space-y-5">

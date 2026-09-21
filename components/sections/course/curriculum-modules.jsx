@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
-import { Zap } from "lucide-react";
+import { Clock, FlaskConical, List, Zap } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -14,9 +14,9 @@ import {
 } from "@/components/ui/accordion";
 
 const BAND_CLASSES = {
-  learn: "bg-lime-soft text-ink",
-  practice: "bg-lime/22 text-ink",
-  apply: "bg-navy/10 text-navy",
+  learn: "bg-green-50 text-green-700",
+  practice: "bg-blue-50 text-blue-600",
+  apply: "bg-violet-50 text-violet-600",
 };
 
 const LAB_KIND_LABEL = {
@@ -39,82 +39,105 @@ function formatHours(hours) {
     : `${wholeHours} h`;
 }
 
-function ModuleTrigger({ module }) {
-  const band = module.learning_phase?.toLowerCase();
+function ModuleStat({ icon: Icon, iconClassName, children }) {
+  return (
+    <Text
+      as="span"
+      className="inline-flex items-center gap-1.5 font-mono text-[11.5px] whitespace-nowrap text-ink/70"
+    >
+      <Icon size={14} className={cn("flex-none", iconClassName)} aria-hidden="true" />
+      {children}
+    </Text>
+  );
+}
 
+function ModuleMeta({ module }) {
+  const hasLab = module.lab?.kind && module.lab.kind !== "intro";
+
+  return (
+    <Box className="flex items-center gap-2.5">
+      <ModuleStat icon={List} iconClassName="text-blue-600">
+        {module.topics} topics
+      </ModuleStat>
+      <Box className="h-4.25 w-px flex-none bg-ink/12" aria-hidden="true" />
+      <ModuleStat icon={Clock} iconClassName="text-amber-600">
+        ~{formatHours(module.hours)}
+      </ModuleStat>
+      {hasLab ? (
+        <>
+          <Box className="h-4.25 w-px flex-none bg-ink/12" aria-hidden="true" />
+          <ModuleStat icon={FlaskConical} iconClassName="text-violet-600">
+            {module.lab.kind === "capstone" ? "Capstone" : "1 lab"}
+          </ModuleStat>
+        </>
+      ) : null}
+    </Box>
+  );
+}
+
+function ModuleExpandIcon({ className }) {
+  return (
+    <Box
+      aria-hidden="true"
+      className={cn(
+        "relative flex size-7.5 flex-none items-center justify-center rounded-full border border-ink/22 transition-[transform,background-color,border-color,color] duration-300 group-aria-expanded/mod-trigger:rotate-[135deg] group-aria-expanded/mod-trigger:border-navy group-aria-expanded/mod-trigger:bg-navy group-aria-expanded/mod-trigger:text-lime",
+        className,
+      )}
+    >
+      <span className="absolute h-px w-3.5 bg-current" />
+      <span className="absolute h-3.5 w-px bg-current" />
+    </Box>
+  );
+}
+
+/**
+ * One line at `sm+` — number, title, meta stats, expand toggle — matching
+ * the design's compact `.eds-mod-row`. Below `sm` the meta stats drop to
+ * their own line under the title rather than force the row to wrap, since
+ * the design's own mobile breakpoint (1023px) does the same.
+ */
+function ModuleTrigger({ module }) {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
         title={`Click Here to View ${module.title}`}
-        className="group/mod-trigger flex flex-1 items-center gap-4.5 px-5 py-5 text-left outline-none cursor-pointer"
+        className="group/mod-trigger flex flex-1 flex-col gap-2 px-4 py-3.5 text-left outline-none cursor-pointer sm:flex-row sm:items-center sm:gap-3.5 sm:px-5"
       >
-        <Text
-          as="span"
-          className="flex-none font-mono text-xs tracking-[0.1em] text-ink/60"
-        >
-          {module.number}
-        </Text>
+        <Box className="flex items-start gap-3 sm:contents">
+          <Text
+            as="span"
+            className="flex-none pt-0.5 font-mono text-[11.5px] tracking-[0.06em] text-ink/40 sm:pt-0"
+          >
+            {module.number}
+          </Text>
 
-        <Box className="min-w-0 flex-1">
           <Text
             as="p"
-            className="font-display text-[17px] font-semibold tracking-[-0.02em] text-ink"
+            className="min-w-0 flex-1 font-display text-[15px] font-bold tracking-[-0.015em] text-ink sm:truncate"
           >
             {module.title}
           </Text>
-          <Text
-            as="p"
-            className="mt-0.75 text-[12.5px] leading-[1.5] text-ink/60"
-          >
-            {module.subtitle}
-          </Text>
 
-          <Box className="mt-2.25 flex flex-wrap items-center gap-2.25">
-            {band ? (
-              <Text
-                as="span"
-                className={cn(
-                  "rounded-[5px] px-2.25 py-0.75 font-mono text-[10px] font-semibold tracking-[0.1em] uppercase",
-                  BAND_CLASSES[band],
-                )}
-              >
-                {module.learning_phase}
-              </Text>
-            ) : null}
-            <Text as="span" className="font-mono text-[10px] text-ink/45">
-              {module.topics} topics
-            </Text>
-            <Text as="span" className="font-mono text-[10px] text-ink/45">
-              ~{formatHours(module.hours)}
-            </Text>
-            {module.lab?.kind && module.lab.kind !== "intro" ? (
-              <Text as="span" className="font-mono text-[10px] text-ink/45">
-                {module.lab.kind === "capstone" ? "Capstone" : "1 lab"}
-              </Text>
-            ) : null}
-          </Box>
+          <ModuleExpandIcon className="sm:order-last" />
         </Box>
 
-        <Box
-          aria-hidden="true"
-          className="relative flex size-7.5 flex-none items-center justify-center rounded-full border border-ink/22 transition-[transform,background-color,border-color,color] duration-300 group-aria-expanded/mod-trigger:rotate-[135deg] group-aria-expanded/mod-trigger:border-navy group-aria-expanded/mod-trigger:bg-navy group-aria-expanded/mod-trigger:text-lime"
-        >
-          <span className="absolute h-px w-3.5 bg-current" />
-          <span className="absolute h-3.5 w-px bg-current" />
+        <Box className="pl-[34px] sm:pl-0">
+          <ModuleMeta module={module} />
         </Box>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
 }
 
-function ModuleLab({ lab }) {
+function ModuleLab({ lab, className }) {
   if (!lab) return null;
 
   return (
     <Box
       className={cn(
-        "mt-4.5 flex gap-3.5 rounded-xl border p-4.25",
+        "flex gap-3.5 rounded-xl border p-4.25",
         LAB_KIND_CLASSES[lab.kind],
+        className,
       )}
     >
       <Zap
@@ -211,19 +234,36 @@ export default function CurriculumModules({ filters, modules }) {
               data-filter={filter.id}
               onClick={() => selectFilter(filter.id)}
               className={cn(
-                "flex-none cursor-pointer rounded-full border px-3.25 py-1.75 font-mono text-[10.5px] tracking-[0.08em] whitespace-nowrap uppercase transition-colors duration-200",
+                "flex flex-none cursor-pointer items-center gap-1.75 rounded-full border px-3.25 py-1.75 font-mono text-[10.5px] tracking-[0.08em] whitespace-nowrap uppercase transition-colors duration-200",
                 activeFilter === filter.id
                   ? "border-navy bg-navy text-lime"
                   : "border-ink/22 text-ink/60 hover:border-navy hover:text-ink",
               )}
             >
               {filter.label}
+              {filter.id === "all" ? (
+                <Text
+                  as="span"
+                  className={cn(
+                    "grid size-4.5 place-items-center rounded-full font-mono text-[9px] normal-case",
+                    activeFilter === "all"
+                      ? "bg-white/20 text-lime"
+                      : "bg-ink/8 text-ink/60",
+                  )}
+                >
+                  {modules.length}
+                </Text>
+              ) : null}
             </button>
           ))}
         </Box>
       ) : null}
 
-      <Accordion multiple hiddenUntilFound className="w-full gap-3">
+      <Accordion
+        multiple
+        hiddenUntilFound
+        className="w-full overflow-hidden rounded-2xl border border-ink/12 bg-white"
+      >
         {modules.map((module) => {
           const visible =
             activeFilter === "all" || module.tags?.includes(activeFilter);
@@ -234,41 +274,58 @@ export default function CurriculumModules({ filters, modules }) {
               id={`mod-${module.number}`}
               value={module.number}
               className={cn(
-                "scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_var(--module-filter-h,0px)_+_16px)] overflow-hidden rounded-2xl border border-ink/12 bg-white",
+                "scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_var(--module-filter-h,0px)_+_16px)] border-b border-ink/10 last:border-b-0",
                 !visible && "hidden",
               )}
             >
               <ModuleTrigger module={module} />
 
-              <AccordionContent className="pt-1 pr-6 pb-5.5 pl-14.5">
-                {module.groups?.map((group) => (
-                  <Box key={group.title} className="mt-3.5 first:mt-0">
-                    <Text
-                      as="h5"
-                      className="mb-1.5 font-display text-sm font-semibold text-ink"
-                    >
-                      {group.title}
-                    </Text>
-                    <Box as="ul" className="flex flex-col">
-                      {group.items.map((item) => (
-                        <Box
-                          as="li"
-                          key={item}
-                          className="flex gap-2.5 py-1 text-[13.5px] leading-[1.5] text-ink/60"
-                        >
-                          <Box
-                            as="span"
-                            aria-hidden="true"
-                            className="mt-2 size-1.5 flex-none rounded-full bg-lime"
-                          />
-                          {item}
-                        </Box>
-                      ))}
-                    </Box>
-                  </Box>
-                ))}
+              <AccordionContent className="pt-3 pr-6 pb-5.5 pl-11 sm:pl-14.5">
+                {module.learning_phase ? (
+                  <Text
+                    as="span"
+                    className={cn(
+                      "mb-3.5 inline-block rounded-[5px] px-2.25 py-1 font-mono text-[9.5px] font-semibold tracking-[0.1em] uppercase",
+                      BAND_CLASSES[module.learning_phase.toLowerCase()],
+                    )}
+                  >
+                    {module.learning_phase}
+                  </Text>
+                ) : null}
 
-                <ModuleLab lab={module.lab} />
+                <Box className="grid grid-cols-1 gap-x-10 gap-y-4.5 sm:grid-cols-2">
+                  {module.groups?.map((group, groupIndex) => (
+                    <Box key={group.title}>
+                      <Text
+                        as="h5"
+                        className="mb-1.5 font-display text-sm font-semibold text-ink"
+                      >
+                        <span className="mr-1 font-semibold text-ink/50">
+                          {String.fromCharCode(97 + groupIndex)})
+                        </span>
+                        {group.title}
+                      </Text>
+                      <Box as="ul" className="flex flex-col">
+                        {group.items.map((item) => (
+                          <Box
+                            as="li"
+                            key={item}
+                            className="flex gap-2.5 py-1 text-[13.5px] leading-[1.5] text-ink/60"
+                          >
+                            <Box
+                              as="span"
+                              aria-hidden="true"
+                              className="mt-2 size-1.5 flex-none rounded-full bg-lime"
+                            />
+                            {item}
+                          </Box>
+                        ))}
+                      </Box>
+                    </Box>
+                  ))}
+
+                  <ModuleLab lab={module.lab} className="sm:col-span-2" />
+                </Box>
               </AccordionContent>
             </AccordionItem>
           );
