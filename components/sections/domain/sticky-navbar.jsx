@@ -6,16 +6,8 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { setHeaderHidden } from "@/lib/client/header-visibility";
 
-// SiteHeader is h-17 (68px) tall — this bar's scroll-spy offset accounts for
-// that plus its own height, even though the bar itself now sticks at top-0
-// (the header hides itself once this bar is pinned, see below).
 const HEADER_OFFSET = 68;
 
-// Plain `<a href="#id">` anchors let the browser natively navigate to that
-// hash on click, which then sticks in the URL — a later hard refresh jumps
-// straight to that section instead of starting at the top. Intercepting the
-// click and scrolling manually keeps the URL clean (same pattern as
-// page-toc.jsx's scrollToId).
 function scrollToHash(event) {
   const id = event.currentTarget.getAttribute("href")?.slice(1);
   const target = id && document.getElementById(id);
@@ -26,11 +18,6 @@ function scrollToHash(event) {
 }
 
 export default function StickyTabs({ data, hasTrainers }) {
-  // `data.tabs` is a hand-authored, per-domain list (content/domains/*.js) —
-  // it always includes a "Trainers" entry regardless of whether that
-  // domain actually has any trainers to show, so it's filtered here against
-  // the same data `<Trainers>` itself checks, or its `#trainers` anchor
-  // points at a section that was never rendered.
   const tabs = data?.tabs?.filter(
     (tab) => tab.id !== "trainers" || hasTrainers,
   );
@@ -43,21 +30,12 @@ export default function StickyTabs({ data, hasTrainers }) {
   const listRef = useRef(null);
   const tabRefs = useRef({});
 
-  // Once this bar reaches the top of the viewport it takes over the header's
-  // slot, so the header should hide rather than sit underneath it. A zero-
-  // height sentinel placed right before the bar flips out of view at exactly
-  // the moment the bar becomes pinned — the standard sticky-detection trick.
   useEffect(() => {
     const sentinel = sentinelRef.current;
     if (!sentinel || typeof window === "undefined") return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // `!isIntersecting` is true both once the sentinel has scrolled
-        // above the viewport (past it — hide the header) AND before it's
-        // ever been reached at all (still in the hero, below the fold —
-        // header must stay visible). Only the sign of its top edge tells
-        // those two apart.
         setHeaderHidden(entry.boundingClientRect.top < 0);
       },
       { threshold: 0 },
@@ -70,8 +48,6 @@ export default function StickyTabs({ data, hasTrainers }) {
     };
   }, []);
 
-  // Scroll-spy: track which section is currently under the sticky bars and
-  // keep the matching tab highlighted as the user scrolls.
   useEffect(() => {
     if (!tabs?.length || typeof window === "undefined") return;
 
@@ -92,16 +68,10 @@ export default function StickyTabs({ data, hasTrainers }) {
 
         if (!visibleIds.size) return;
 
-        // Sections are observed in document order, so the first one that's
-        // currently visible is the one nearest the top of the viewport.
         const current = sections.find((section) => visibleIds.has(section.id));
         if (current) setActiveId(current.id);
       },
       {
-        // A section counts as "current" once it has cleared the sticky
-        // header + this bar, and before it's mostly scrolled past — that's
-        // what makes the highlight track scroll position instead of only
-        // flipping at a section's exact top edge.
         rootMargin: `-${HEADER_OFFSET + 60}px 0px -65% 0px`,
         threshold: 0,
       },
@@ -112,8 +82,6 @@ export default function StickyTabs({ data, hasTrainers }) {
     return () => observer.disconnect();
   }, [tabs]);
 
-  // Keep the active tab centered in the scrollable strip so it's always in
-  // view on tablet/mobile without the user having to scroll the bar by hand.
   useEffect(() => {
     const activeEl = tabRefs.current[activeId];
     const container = listRef.current;
@@ -138,27 +106,14 @@ export default function StickyTabs({ data, hasTrainers }) {
       <Box
         as="nav"
         aria-label="Course navigation"
-        className="
-        sticky top-0 z-40
-        px-5 lg:px-10
-        w-full
-        border-y
-        border-[rgba(10,22,40,0.12)]
-        bg-[rgba(250,250,247,0.94)]
-        backdrop-blur-[14px]
-        shadow-[0_10px_24px_-22px_rgba(10,22,40,0.5)]
+        className="sticky top-0 z-40 px-5 lg:px-10 w-full border-y border-[rgba(10,22,40,0.12)] bg-[rgba(250,250,247,0.94)] backdrop-blur-[14px] shadow-[0_10px_24px_-22px_rgba(10,22,40,0.5)]
       "
       >
         <Box
-          className="
-          mx-auto
-          flex
-          h-13
-          w-full
-          max-w-7xl
-    justify-between
+          className="mx-auto flex h-13 w-full max-w-7xl items-center justify-between gap-8
         "
         >
+          {/* Logo */}
           <Box
             as="a"
             href="#about"
@@ -172,70 +127,64 @@ export default function StickyTabs({ data, hasTrainers }) {
             />
           </Box>
 
-          {/* Navigation */}
-          <ul
-            ref={listRef}
-            className="
-            ml-10
-            lg:ml-16
-            flex
-            h-full
-            flex-1
-            items-center
-            justify-between
-            gap-2
-            overflow-x-auto
-            no-scrollbar
-          "
-          >
-            {tabs.map((tab) => {
-              const isActive = tab.id === activeId;
+          {/* Navigation Container - takes remaining space and stretches tabs end-to-end */}
+          <Box className="flex flex-1 items-center overflow-x-auto no-scrollbar">
+            <ul
+              ref={listRef}
+              className="flex h-full w-full items-center justify-between gap-2
+              "
+            >
+              {tabs.map((tab) => {
+                const isActive = tab.id === activeId;
 
-              return (
-                <li
-                  key={tab.id}
-                  ref={(el) => {
-                    tabRefs.current[tab.id] = el;
-                  }}
-                  className="flex h-full shrink-0 items-center"
-                >
-                  <Box
-                    as="a"
-                    href={`#${tab.id}`}
-                    onClick={scrollToHash}
-                    className={`
-                    flex
-                    h-8.75
-                    items-center
-                    justify-center
-                    rounded-[10px]
-                    px-3.25
-                    transition-colors
-                    duration-200
-                    ${
-                      isActive
-                        ? "bg-[#E8F6B4]"
-                        : "bg-transparent hover:bg-[#F1F1EC]"
-                    }
-                  `}
+                return (
+                  <li
+                    key={tab.id}
+                    ref={(el) => {
+                      tabRefs.current[tab.id] = el;
+                    }}
+                    className="flex h-full shrink-0 items-center"
                   >
-                    <Text
-                      as="span"
-                      className={`
-                      whitespace-nowrap
-                      text-[13px]
-                      font-normal
-                      leading-none
-                      ${isActive ? "text-[#0A1628]" : "text-[#626875]"}
+                    <Box
+                      as="a"
+                      href={`#${tab.id}`}
+                      onClick={scrollToHash}
+                      className={`flex h-8.75 items-center justify-center rounded-[10px] px-3.25 transition-colors duration-200
+                      ${
+                        isActive
+                          ? "bg-lime"
+                          : "bg-transparent hover:bg-[#F1F1EC]"
+                      }
                     `}
                     >
-                      {tab.label}
-                    </Text>
-                  </Box>
-                </li>
-              );
-            })}
-          </ul>
+                      <Text
+                        as="span"
+                        className={`whitespace-nowrap text-[12px] font-medium leading-none
+                        ${isActive ? "text-ink" : "text-ink-muted"}
+                      `}
+                      >
+                        {tab.label}
+                      </Text>
+                    </Box>
+                  </li>
+                );
+              })}
+            </ul>
+          </Box>
+
+          {/* Conditional CTA Button */}
+          {data?.cta?.text && (
+            <Box className="flex shrink-0 items-center">
+              <a
+                href={`#${data.cta.targetId || "form"}`}
+                title={data.cta.title || data.cta.text}
+                onClick={scrollToHash}
+                className="flex h-9 items-center justify-center rounded-full bg-ink px-5 text-[12px] font-semibold text-lime transition-opacity hover:opacity-90 whitespace-nowrap"
+              >
+                {data.cta.text}
+              </a>
+            </Box>
+          )}
         </Box>
       </Box>
     </>

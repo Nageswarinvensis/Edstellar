@@ -16,4 +16,18 @@ export const TRAINERS_DATA = {
         { id: "faq", label: "FAQ", active: false },
       ],
     },
+  "ctaTrainerData": {
+    "sectionId": "contact",
+    "heading": {
+      "prefix": "Want",
+      "highlightText": "next program",
+      "suffix": "?"
+    },
+    "subtitle": "Talk to an Edstellar consultant and we will confirm availability, delivery mode, and timezone for your team.",
+    "button": {
+      "text": "Talk to Edstellar Consultant",
+      "href": "#contact",
+      "showArrow": true
+    }
+  }
 };
