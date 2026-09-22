@@ -66,7 +66,6 @@ export default function TrainerHero({ trainer }) {
             </Box>
           </Box>
 
-          {/* Details & Action Buttons */}
           <Box className="min-w-0">
             {/* Trainer Name */}
             <Text as="h1" className="tracking-tight text-white">

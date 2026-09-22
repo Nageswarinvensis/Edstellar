@@ -4,9 +4,8 @@ import Section from "@/components/ui/Section";
 import ReadMore from "@/components/common/read-more";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-import CustomizedTraining from "@/components/sections/shared/customized-training";
 
-function CategoryAbout({ about, showCustomizedTraining = true }) {
+function CategoryAbout({ about }) {
   if (!about) return null;
 
   const contrast = about.inclusions;
@@ -103,8 +102,6 @@ function CategoryAbout({ about, showCustomizedTraining = true }) {
           </Box>
         ) : null}
       </Box>
-
-      {showCustomizedTraining ? <CustomizedTraining /> : null}
     </Section>
   );
 }

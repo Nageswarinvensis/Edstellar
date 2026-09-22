@@ -3,10 +3,12 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/common/cta-button";
 import Reveal from "@/components/common/reveal";
+import RichHeading from "@/components/common/rich-heading";
 import Image from "next/image";
 
 const CONTENT = {
-  title: "Get Customized Expert-led Training for Your Teams",
+  title:
+    "Enterprise <span>Training Solutions</span> Customized for Your Company",
   description:
     "One partner for instructor-led corporate training, delivered the way your teams work.",
   cta: {
@@ -46,12 +48,7 @@ export default function CustomizedTraining() {
         </Box>
         <Reveal>
           <Box>
-            <Text
-              as="h2"
-              className="mb-3.5 font-display text-[clamp(26px,2.6vw,34px)] leading-[1.18] font-bold tracking-[-0.03em] text-paper"
-            >
-              {data.title}
-            </Text>
+            <RichHeading heading={data.title} className="mb-3.5 text-paper" />
 
             <Text
               as="p"

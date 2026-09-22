@@ -2,7 +2,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-import TrainerCarousel from "@/components/sections/shared/trainer-carousel";
+import TrainerCarousel from "@/components/common/trainer-carousel";
 
 export default function Trainers({ trainers, desktopCards }) {
   // `dynamic_data` is the CMS's real trainer roster for this page;

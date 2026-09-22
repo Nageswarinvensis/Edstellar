@@ -11,8 +11,8 @@ const SEARCH_DEBOUNCE_MS = 400;
 /**
  * Two-column blog listing panel shared by every listing page (main,
  * category, author — components/sections/blog/blog-main.jsx,
- * components/sections/blog/category-page-content.jsx,
- * components/sections/blog/author-page-content.jsx):
+ * components/sections/blog/category/category-page-content.jsx,
+ * components/sections/blog/author/author-page-content.jsx):
  * post grid + pagination on one side, search box + category list (inside
  * `BlogSidebar`) on the other. This is the state owner for both search and
  * pagination — `BlogPosts` and `BlogSidebar` are siblings in the layout, so

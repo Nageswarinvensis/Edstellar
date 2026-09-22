@@ -14,7 +14,7 @@ import TrainerRatings from "@/components/sections/trainers details/trainerrating
 import TrainerAccreditations from "@/components/sections/trainers details/traineraccreditations";
 import CtaTrainer from "@/components/sections/trainers details/ctatrainer";
 import OtherTrainers from "@/components/sections/trainers details/othertrainers";
-import Faq from "@/components/sections/shared/faq";
+import Faq from "@/components/common/faq";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;

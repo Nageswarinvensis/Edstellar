@@ -478,19 +478,19 @@ components/
 ├── ui/                 Design system primitives — shadcn + Text + Box. No business logic.
 ├── templates/          One file per page design. See §6.3.
 ├── sections/
-│   ├── shared/         hero · client-logos · faq · trainers · testimonials · map
-│   │                   cta-banner · sticky-footer · proof-bar · lead-band
 │   ├── catalog/        course-catalog · catalog-filters · course-card
-│   ├── course/         curriculum · certificate · audience · delivery-modes · outcomes
+│   ├── course/         curriculum · certificate · audience · delivery-mode-tabs
 │   ├── domain/         why-now · capability · method · related-categories
 │   ├── industry/  vendor/  consulting/  resources/
 ├── forms/              lead-form · group-quote · contact-form · newsletter-form
 ├── layout/             site-header · site-footer · mobile-nav
 ├── seo/                json-ld.jsx
-└── shared/             breadcrumbs · reveal · rich-heading · read-more
+└── common/             breadcrumbs · reveal · rich-heading · read-more
+                         hero · client-logos · faq · trainers · map-section
+                         sticky-footer · delivery-modes · proof-bar
 ```
 
-**The one rule that keeps these folders honest: a section moves to `sections/shared/` the moment a second template imports it.** This is mechanical and not a judgement call. A section folder named after a page type must contain only sections used by *that* page type — otherwise the folder name is a lie and nobody can tell what is safe to change.
+**The one rule that keeps these folders honest: anything a second template imports moves to `components/common/`.** This is mechanical and not a judgement call. A section folder named after a page type must contain only sections used by *that* page type — otherwise the folder name is a lie and nobody can tell what is safe to change. There is no separate `sections/shared/` — `components/common/` is the one folder for everything reused beyond its own template, whether it's a small primitive (`reveal.jsx`) or a full page section (`hero.jsx`); splitting "shared primitive" from "shared section" into two folders never bought anything once both answer to the same rule.
 
 Templates own layout and order. Sections own presentation. `forms/` owns the interactive leaves.
 
@@ -687,7 +687,7 @@ Industry, vendor and domain pages each have their own visual treatment while sha
 [data-theme="vendor"]   { --color-page-accent: …; --color-page-surface: …; }
 ```
 
-Sections then use `bg-page-surface` and `text-page-accent`, and render correctly under all three designs with no changes. This is what makes a shared `sections/shared/hero.jsx` possible at all.
+Sections then use `bg-page-surface` and `text-page-accent`, and render correctly under all three designs with no changes. This is what makes a shared `components/common/hero.jsx` possible at all.
 
 > **`@theme` vs `@theme inline` — this will bite you.** `globals.css` has both blocks. Utilities generated from the **plain `@theme`** block compile to `var(--color-*)`, so redefining `--color-page-accent` in a `[data-theme]` scope works. The **`@theme inline`** block inlines values past that indirection, so overriding one of its `--color-*` names silently does nothing — you would have to override the underlying variable it points at. **Put new themeable tokens in the plain `@theme` block only**, and leave the inline shadcn set alone.
 
@@ -714,7 +714,7 @@ Sections then use `bg-page-surface` and `text-page-accent`, and render correctly
 | Route files       | Next.js reserved names   | `page.js`, `layout.js`, `loading.js`, `error.js`, `route.js` |
 | Dynamic segments  | camelCase in brackets    | `[courseSlug]`, `[slug]`, `[category]`                       |
 | Route groups      | parenthesised, lowercase | `(site)`, `(bare)`, `(consulting)`                           |
-| Components        | `kebab-case.jsx`         | `components/sections/shared/hero.jsx`                        |
+| Components        | `kebab-case.jsx`         | `components/common/hero.jsx`                                 |
 | Design primitives | `PascalCase.jsx`         | `components/ui/Text.jsx`, `components/ui/Box.jsx`            |
 | Utilities         | `kebab-case.js`          | `lib/seo/metadata.js`                                        |
 | Hooks             | `use-*.js`               | `hooks/use-media-query.js`                                   |
@@ -757,7 +757,7 @@ Components & Data
 - [ ] Do all content reads go through `lib/content/`?
 - [ ] Am I using `<Text>` and `<Box>` instead of raw tags?
 - [ ] Does the page hand off to a template rather than composing sections itself?
-- [ ] Is every section it uses in the right folder — moved to `sections/shared/` if a second template now imports it?
+- [ ] Is every section it uses in the right folder — moved to `components/common/` if a second template now imports it?
 - [ ] Are page-type colours coming from `data-theme` tokens rather than hex literals?
 
 Performance & A11y

@@ -1,18 +1,18 @@
-import Hero from "@/components/sections/shared/hero";
+import Hero from "@/components/common/hero";
 import CourseInfo from "@/components/sections/course/course-info";
-import ClientLogos from "@/components/sections/shared/client-logos";
+import ClientLogos from "@/components/common/client-logos";
 import About from "@/components/sections/course/about";
-import Trainers from "@/components/sections/shared/trainers";
-import Faq from "@/components/sections/shared/faq";
-import MapSection from "@/components/sections/shared/map-section";
-import StickyFooter from "@/components/sections/shared/sticky-footer";
+import Trainers from "@/components/common/trainers";
+import Faq from "@/components/common/faq";
+import MapSection from "@/components/common/map-section";
+import StickyFooter from "@/components/common/sticky-footer";
 
 import PageToc from "@/components/sections/course/page-toc";
 import Curriculum from "@/components/sections/course/curriculum";
 import Skills from "@/components/sections/course/skills";
 import Audience from "@/components/sections/course/audience";
 import Certificate from "@/components/sections/course/certificate";
-import DeliveryModes from "@/components/sections/course/delivery-modes";
+import DeliveryModes from "@/components/common/delivery-modes";
 
 import WhyEdstellar from "@/components/sections/course/why-edstellar";
 

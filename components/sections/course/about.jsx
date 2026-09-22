@@ -7,39 +7,60 @@ import Section from "@/components/ui/Section";
 import ReadMore from "@/components/common/read-more";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-import CustomizedTraining from "@/components/sections/shared/customized-training";
+import CustomizedTraining from "@/components/sections/course/customized-training";
 
 /**
  * Course "about" section — richer than the domain page's `shared/about.jsx`:
  * a two-column "what's included" card (numbered program steps + a ticked
- * logistics checklist with a callout banner), a full-width photo below both
- * columns, and a closing chip row. Kept as its own component rather than
- * folded into the shared one, since the domain page's simple prose/contrast
- * layout has real callers today and this design does not.
+ * logistics checklist with a callout banner), a photo, and a closing chip
+ * row. Kept as its own component rather than folded into the shared one,
+ * since the domain page's simple prose/contrast layout has real callers
+ * today and this design does not.
+ *
+ * `heading`, `body`, `expanded_body` and `inclusions.{label,left_columns,
+ * columns}` are CMS-connected (`lib/content/courses.js` merges a real
+ * `about` component's response over `COURSE_DEFAULTS.about`) — but
+ * `media`, `chips` and `inclusions.banner` are fixed regardless of what
+ * that component sends, stripped there before the merge.
  *
  * Design: `#about.eds-rich-sec`, `.eds-rich-grid`, `.eds-rich-incl-card`,
  * `.eds-rich-chips`.
  */
 
 /** Icons are chosen by position, not read from content — same convention as
- * `map-section.jsx`'s `FEATURE_ICONS`. `inclusions.columns` is always
- * authored as [program, logistics], and `chips` always as [scope, delivery
- * format, reach], so two short fixed arrays cover every real case. */
+ * `map-section.jsx`'s `FEATURE_ICONS`. `chips` is always authored as
+ * [scope, delivery format, reach], so one short fixed array covers every
+ * real case; `left_columns`+`columns` together are always [program,
+ * logistics] the same way. */
 const INCLUSIONS_COLUMN_ICONS = [BookOpen, Truck];
 const CHIP_ICONS = [BarChart3, Users, Globe];
 
+/**
+ * The CMS's real `about` component splits this card across two independent
+ * arrays — `left_columns` (numbered steps, "In the program") and `columns`
+ * (a ticked list, "Delivery & Logistics") — rather than one `columns` array
+ * with two entries. Flattened back into one ordered list for rendering,
+ * `left_columns` first, so the two-column grid layout doesn't need to know
+ * about the split. `inclusions.banner` is a sibling of both arrays (not a
+ * field on a column entry) and always renders inside the *last* rendered
+ * column, matching where the design places it.
+ */
 function InclusionsCard({ inclusions }) {
-  if (!inclusions?.columns?.length) return null;
+  const columns = [
+    ...(inclusions?.left_columns || []),
+    ...(inclusions?.columns || []),
+  ];
+  if (!columns.length) return null;
 
   return (
     <Box>
-      {inclusions.heading ? (
+      {inclusions.label ? (
         <Reveal delay={1}>
           <Text
             as="h3"
             className="inline-block border-b-[3px] border-lime pb-2.5 font-display text-[19px] leading-tight font-bold tracking-tight text-ink"
           >
-            {inclusions.heading}
+            {inclusions.label}
           </Text>
         </Reveal>
       ) : null}
@@ -47,8 +68,9 @@ function InclusionsCard({ inclusions }) {
       <Reveal delay={2}>
         <Box className="mt-6 rounded-[20px] border border-ink/8 bg-white p-5.5 shadow-[0_30px_70px_-56px_rgba(10,22,40,0.6)]">
           <Box className="grid grid-cols-1 gap-5.5 sm:grid-cols-[1.06fr_0.94fr]">
-            {inclusions.columns.map((column, index) => {
+            {columns.map((column, index) => {
               const Icon = INCLUSIONS_COLUMN_ICONS[index] || BookOpen;
+              const isLast = index === columns.length - 1;
 
               return (
                 <Box
@@ -117,7 +139,7 @@ function InclusionsCard({ inclusions }) {
                     </Box>
                   ) : null}
 
-                  {column.banner ? (
+                  {isLast && inclusions.banner ? (
                     <Box className="mt-4.5 flex items-center gap-2.5 rounded-xl bg-lime-soft px-3.25 py-2.75">
                       <Globe
                         size={18}
@@ -129,7 +151,7 @@ function InclusionsCard({ inclusions }) {
                         as="p"
                         className="text-[12.5px] leading-[1.35] font-medium text-ink"
                       >
-                        {column.banner.text}
+                        {inclusions.banner.text}
                       </Text>
                     </Box>
                   ) : null}

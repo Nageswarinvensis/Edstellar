@@ -1,9 +1,10 @@
 import Section from "@/components/ui/Section";
-import BlogMainHero from "@/components/sections/blog/blog-main-hero";
+import BlogMainHero from "@/components/sections/blog/main/blog-main-hero";
 import BlogPostsPanel from "@/components/sections/blog/common/blog-posts-panel";
 import { fetchMainPosts } from "@/lib/actions/blog-main";
 
-/** Same layout as author-page-content.jsx/category-page-content.jsx — hero +
+/** Same layout as blog/author/author-page-content.jsx and
+ * blog/category/category-page-content.jsx — hero +
  * paginated, searchable post grid, backed by the real blog index API
  * (lib/content/blog.js#getBlogMain, `/api/v2/blog`). */
 export default function BlogMainPageContent({ posts, categories }) {

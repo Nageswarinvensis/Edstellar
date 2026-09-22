@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { getBlogCategory } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-import CategoryPageContent from "@/components/sections/blog/category-page-content";
+import CategoryPageContent from "@/components/sections/blog/category/category-page-content";
 
 export const revalidate = 300;
 

@@ -31,22 +31,31 @@ export const COURSES_BY_DOMAIN = {
 /**
  * Per-course fallback content, deep-merged *under* the CMS response by
  * `lib/content/courses.js`. It covers whole sections the CMS does not model
- * (`ClientsLogosData`, `SlideData`, `customizedTraining`, `groupQuote`,
- * `whyNow`, `lifecycle`, `outcomes`) and individual fields missing from ones
- * it does (`hero.actions`, `hero.meta`, `pageToc.cta`, `section_cta`).
+ * and individual fields missing from ones it does.
  *
  * Keys here use the CMS's own names and casing so the merge is a plain
  * overlay with no translation step. Delete an entry once the backend sends it.
  *
  * `"artificial-intelligence/ml-model-monitoring-training"` has no CMS record
  * at all, so `toLocalCourse` renders this entry alone (deep-merged only with
- * `COURSE_DEFAULTS`). It has no entries of its own right now — `about` and
- * `curriculum`, the two sections this course originally carried here, moved
- * to `content/courses/defaults.js`'s `COURSE_DEFAULTS` because they are the
- * same on every course by product decision, not this course's own content
- * (see that file's doc comment). This entry stays only for its required
- * `name`, which is what keeps this slug resolving instead of 404ing — see
- * `toLocalCourse`'s doc comment in `lib/content/courses.js`.
+ * `COURSE_DEFAULTS`). It has no `about`/`curriculum`/`audience`/`skills`
+ * content of its own here — every field those sections carry (verified
+ * against the real, published CMS components for this same course at
+ * `data-science/ml-model-monitoring-course`) is CMS-sourced, so duplicating
+ * it locally would just be a second copy to keep in sync for no reason.
+ * The handful of fields those real components *don't* send yet (most of
+ * `curriculum.method`; see `content/courses/defaults.js`'s doc comment)
+ * live in `COURSE_DEFAULTS` instead, since that's where "static until the
+ * CMS sends it" content already lives.
+ *
+ * The practical result: on this slug, until it has its own CMS record,
+ * `about`/`curriculum`/`audience`/`skills` render only whatever
+ * `COURSE_DEFAULTS` still supplies for them — which for `curriculum` is
+ * just the method box's non-API fields (not enough on its own: `Curriculum`
+ * still needs `modules` to render at all) and for the others is nothing,
+ * same as `faqs` already renders nothing. This entry stays only for its
+ * required `name`, which is what keeps this slug resolving instead of
+ * 404ing — see `toLocalCourse`'s doc comment in `lib/content/courses.js`.
  */
 export const COURSE_FALLBACKS = {
   "artificial-intelligence/ml-model-monitoring-training": {

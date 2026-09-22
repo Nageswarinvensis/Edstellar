@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import CtaBanner from "@/components/common/cta-banner";
+import CtaBanner from "@/components/sections/domain/cta-banner";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 export default function ByRole({ data }) {

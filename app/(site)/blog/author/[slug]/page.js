@@ -4,7 +4,7 @@ import { getBlogAuthor } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
 
-import AuthorPageContent from "@/components/sections/blog/author-page-content";
+import AuthorPageContent from "@/components/sections/blog/author/author-page-content";
 
 export const revalidate = 300;
 

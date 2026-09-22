@@ -9,8 +9,8 @@ import { SocialIcon } from "@/components/sections/blog/common/social-icon";
 
 /**
  * Hero banner shared by the author and category pages —
- * components/sections/blog/author-page-content.jsx,
- * components/sections/blog/category-page-content.jsx: heading + description on the
+ * components/sections/blog/author/author-page-content.jsx,
+ * components/sections/blog/category/category-page-content.jsx: heading + description on the
  * left, an optional square image on the right. A category has no `image` or
  * `socialLinks`, so those sections simply don't render — same component, no
  * author-only fields required.

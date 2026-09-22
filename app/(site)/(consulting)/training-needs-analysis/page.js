@@ -1,6 +1,6 @@
 import TNAHero from "@/components/sections/training needs analysis/tnahero";
 import DomainInfo from "@/components/sections/domain/domain-info";
-import ClientLogos from "@/components/sections/shared/client-logos";
+import ClientLogos from "@/components/common/client-logos";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import CtaTrainer from "@/components/sections/trainers details/ctatrainer";
 
