@@ -58,7 +58,7 @@ function CourseInfo({ proof }) {
                   </Box>
                   <Text
                     as="span"
-                    className="text-sm leading-none font-medium text-ink"
+                    className="text-[0.75rem] leading-none font-medium text-ink"
                   >
                     {badge}
                   </Text>

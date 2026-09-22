@@ -22,9 +22,10 @@ const BACKGROUND_CLASSES = {
   "paper-warm": "bg-paper-warm",
   paper: "bg-paper",
   white: "bg-white",
+  navy: "bg-navy",
 };
 
-export default function LeadForm({ data, background = "paper-warm" }) {
+export default function LeadForm({ data, background = "paper-warm", id = "apply" }) {
   const {
     register,
     handleSubmit,
@@ -39,13 +40,15 @@ export default function LeadForm({ data, background = "paper-warm" }) {
 
   if (!data) return null;
 
+  const dark = background === "navy";
+
   function onSubmit(values) {
     setSubmitted(values);
   }
 
   return (
     <Section
-      id="apply"
+      id={id}
       aria-label="Request training"
       className={cn(
         "border-t border-ink/10",
@@ -56,13 +59,19 @@ export default function LeadForm({ data, background = "paper-warm" }) {
         <RichHeading
           as="h2"
           heading={data.heading}
-          className="max-w-[22ch] tracking-[-0.03em] text-ink"
-          emphasisClassName="font-normal italic"
+          className={cn(
+            "max-w-[22ch] tracking-[-0.03em]",
+            dark ? "mx-auto text-center text-white" : "text-ink",
+          )}
+          emphasisClassName={cn("font-normal italic", dark && "text-lime")}
         />
 
         <Text
           as="p"
-          className="mt-4 mb-10 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink/60"
+          className={cn(
+            "mt-4 mb-10 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7]",
+            dark ? "mx-auto text-center text-white/70" : "text-ink/60",
+          )}
         >
           {data.description}
         </Text>
@@ -80,14 +89,14 @@ export default function LeadForm({ data, background = "paper-warm" }) {
                   as="h3"
                   className="mb-2 font-display text-xl font-bold text-ink"
                 >
-                  Request received.
+                  {data.thanks_heading || "Request received."}
                 </Text>
                 <Text
                   as="p"
                   className="mx-auto mb-6 max-w-[46ch] text-[14.5px] leading-[1.6] text-ink/60"
                 >
-                  Thanks, a training specialist will reply within one business
-                  day with a tailored proposal.
+                  {data.thanks_body ||
+                    "Thanks, a training specialist will reply within one business day with a tailored proposal."}
                 </Text>
 
                 <Box className="mx-auto mb-7 max-w-[36ch] rounded-[14px] bg-paper-warm p-4.5 text-left text-[13.5px] leading-[1.7] text-ink">
@@ -219,13 +228,16 @@ export default function LeadForm({ data, background = "paper-warm" }) {
                   </FormField>
 
                   <FormField
-                    label="Your training requirements"
+                    label={data.requirements_label || "Your training requirements"}
                     className="sm:col-span-2"
                   >
                     <textarea
                       {...register("requirements")}
                       rows={4}
-                      placeholder="Tell us about your training requirements: team size, delivery format, your production stack, and preferred timing."
+                      placeholder={
+                        data.requirements_placeholder ||
+                        "Tell us about your training requirements: team size, delivery format, your production stack, and preferred timing."
+                      }
                       className={cn(formInputClasses, "resize-none")}
                     />
                   </FormField>
@@ -280,7 +292,7 @@ export default function LeadForm({ data, background = "paper-warm" }) {
                     disabled={isSubmitting}
                     className="w-full sm:w-auto"
                   >
-                    Request my quote
+                    {data.submit_label || "Request my quote"}
                   </CtaButton>
                 </Box>
               </Box>

@@ -139,30 +139,58 @@
     "cta": {
       "text": "Request training needs analysis",
       "title": "Request training needs analysis",
-      "targetId": "request-form"
+      "targetId": "contact"
     },
     "tabs": [
-      { "id": "engine", "label": "The Engine", "active": true },
-      { "id": "benefits", "label": "Benefits", "active": false },
-      { "id": "process", "label": "Process", "active": false },
-      { "id": "steps", "label": "Steps", "active": false },
-      { "id": "deliverable", "label": "Deliverable", "active": false },
-      { "id": "why us", "label": "Why us", "active": false },
-      { "id": "faq", "label": "FAQ", "active": false }
+      {
+        "id": "engine",
+        "label": "The Engine",
+        "active": true
+      },
+      {
+        "id": "benefits",
+        "label": "Benefits",
+        "active": false
+      },
+      {
+        "id": "process",
+        "label": "Process",
+        "active": false
+      },
+      {
+        "id": "steps",
+        "label": "Steps",
+        "active": false
+      },
+      {
+        "id": "deliverables",
+        "label": "Deliverables",
+        "active": false
+      },
+      {
+        "id": "why-edstellar",
+        "label": "Why us",
+        "active": false
+      },
+      {
+        "id": "faq",
+        "label": "FAQ",
+        "active": false
+      }
     ]
   },
   "ctaTrainerData": {
-    "sectionId": "contact",
-    "heading": "Still running Training Needs Analysis <span>manually </span>?",
+    "sectionId": "still",
+    "heading": "Still running Training Needs Analysis <span>manually?</span>",
     "subtitle": "Spreadsheets stitched together by hand. One survey standing in for a whole workforce. Weeks of chasing managers, then a skills gap picture that is already stale the day it lands. If that is still how training needs analysis works for your teams, there is a faster, sharper way."
   },
   "tnaEngineData": {
-    "sectionId": "contact",
+    "sectionId": "engine",
     "heading": "The automated <span>TNA/TNI Engine.</span>",
     "subtitle": "Edstellar's TNA/TNI Engine, powered by Stellar AI, runs the entire training needs analysis for you. It ingests your framework, surveys, interviews and assessments, builds the skill matrix, separates real training gaps from data noise, and hands back a ranked, finance-ready roadmap. Months of manual work, delivered in days, and kept live as your people and roles change.",
     "button": {
       "text": "See how it works",
-      "href": "#contact",
+      "href": "#steps",
       "title": "Click Here to See how it works",
       "showArrow": true
     }
@@ -228,5 +256,203 @@
         "description": "The metrics set before delivery, so impact is provable after."
       }
     ]
+  },
+  "processData": {
+    "sectionId": "process",
+    "heading": "The training needs analysis <span>process.</span>",
+    "subtitle": "From onboarding to an LMS-synced calendar, one automated pipeline, with gap analysis at the center.",
+    "setup": "Organization setup",
+    "inputs": {
+      "label": "Inputs",
+      "items": [
+        "Skills & competency framework",
+        "Job descriptions",
+        "Assessments",
+        "Interviews",
+        "Surveys",
+        "Focus groups"
+      ]
+    },
+    "hub": "Gap analysis",
+    "outputs": [
+      {
+        "title": "TNA/TNI report"
+      },
+      {
+        "title": "Training roadmap"
+      },
+      {
+        "title": "Training calendar",
+        "note": "Synced with your LMS"
+      }
+    ]
+  },
+  "stepsData": {
+    "sectionId": "steps",
+    "heading": "What the engine does at each <span>stage.</span>",
+    "subtitle": "What happens at each stage of the flow above.",
+    "items": [
+      {
+        "title": "Organization setup",
+        "description": "A guided setup seeds the engine to your world. Pick the industry and structure, and it seeds the competency fields, governing standards and strategy to match."
+      },
+      {
+        "title": "Inputs",
+        "description": "Everything that describes required and current capability, gathered into one layer and triangulated, so no single source decides a gap on its own."
+      },
+      {
+        "title": "Gap analysis",
+        "description": "This is where it all comes together. The engine builds the skill matrix and separates the proficiency gap, the real training need, from the perception gap, a data-quality signal, then ranks everything by business impact.",
+        "emphasis": true
+      },
+      {
+        "title": "TNA/TNI report",
+        "description": "It compiles the report: the key findings, the top-priority programs and the evidence behind them, ready to share and defend to finance."
+      },
+      {
+        "title": "Training roadmap",
+        "description": "It matches programs to the priority gaps and auto-sequences a one-year roadmap by dependency, constrained by real dates and team capacity."
+      },
+      {
+        "title": "Training calendar",
+        "description": "The locked roadmap becomes a scheduled calendar and syncs with your LMS, so programs are booked, assigned and tracked without re-keying anything."
+      }
+    ]
+  },
+  "whyEdstellarData": {
+    "sectionId": "why-edstellar",
+    "heading": "Why Edstellar for <span>training needs analysis.</span>",
+    "subtitle": "Most firms diagnose and leave. Edstellar closes the loop, from the gap we find to the trainer who closes it.",
+    "items": [
+      {
+        "icon": "merge",
+        "title": "Diagnosis and delivery, together",
+        "description": "The team that finds the gap staffs the program that closes it, so the roadmap never stalls at handover."
+      },
+      {
+        "icon": "grid",
+        "title": "Run on the TNA/TNI Engine",
+        "description": "Automated, live and yours to keep, so the next cycle is a refresh, not a rebuild. Powered by Stellar AI."
+      },
+      {
+        "icon": "shield",
+        "title": "Accredited and global",
+        "description": "A PMI, PeopleCert, EXIN, IASSC and Scrum Alliance partner, delivering across 100+ countries and 2,000+ programs."
+      }
+    ]
+  },
+  "whenData": {
+    "heading": "When to run a <span>training needs analysis.</span>",
+    "description": "A needs analysis earns its keep at the moments capability and strategy are most likely to drift apart.",
+    "items": [
+      {
+        "title": "Before the training budget",
+        "description": "Direct the spend with evidence, not last year's requests."
+      },
+      {
+        "title": "After a restructure",
+        "description": "New roles and reporting lines change what good looks like."
+      },
+      {
+        "title": "Through a merger",
+        "description": "Two workforces, one standard, and the gaps in between."
+      },
+      {
+        "title": "During a transformation",
+        "description": "Digital or AI shifts move the skills the business needs next."
+      },
+      {
+        "title": "When regulations change",
+        "description": "New compliance requirements create mandatory capability."
+      },
+      {
+        "title": "When performance slips",
+        "description": "Separate a real skill gap from a problem training cannot fix."
+      }
+    ]
+  },
+  "integrationsData": {
+    "heading": "Integrates with your <span>LMS and HRIS.</span>",
+    "description": "The engine fits the systems you already run, so the analysis and the plan flow to where your teams work.",
+    "items": [
+      {
+        "title": "Your LMS",
+        "description": "Push the roadmap and calendar, so programs are booked, assigned and tracked."
+      },
+      {
+        "title": "Your HRIS",
+        "description": "Pull employee, role and org data to seed the framework and the survey."
+      },
+      {
+        "title": "Single sign-on",
+        "description": "Your people sign in with the credentials they already use."
+      },
+      {
+        "title": "Import and API",
+        "description": "Bring data in via Excel, CSV or API, and export the outputs the same way."
+      }
+    ]
+  },
+  "relatedData": {
+    "heading": "Related <span>consulting services.</span>",
+    "items": [
+      {
+        "title": "L&D Consulting",
+        "description": "Turn the roadmap into a learning strategy your function can run for years.",
+        "link": "Explore L&D Consulting",
+        "href": "/learning-development-consulting-services"
+      },
+      {
+        "title": "OD Consulting",
+        "description": "When the gap is structural, not just skills, redesign how the organization works.",
+        "link": "Explore OD Consulting",
+        "href": "/organizational-development-consulting"
+      },
+      {
+        "title": "Assessments",
+        "description": "Measure individuals against the competency model with 360s, psychometrics and centers.",
+        "link": "Explore Assessments",
+        "href": "/talent-assessment-services"
+      }
+    ]
+  },
+  "faqData": {
+    "heading": "Training needs analysis <span>FAQs.</span>",
+    "items": [
+      {
+        "question": "How is a training needs analysis different from just running a survey?",
+        "answer": "A survey tells you what people say they want. A needs analysis triangulates that against performance data, role requirements and business goals, then separates real skill gaps from problems training cannot fix. The output is a ranked plan, not a wish list."
+      },
+      {
+        "question": "How long does an engagement take?",
+        "answer": "A focused analysis typically runs four to eight weeks, depending on the number of roles and functions in scope. Enterprise-wide diagnostics tied to a transformation can run longer. You get a clear timeline in the proposal."
+      },
+      {
+        "question": "What do we actually receive at the end?",
+        "answer": "A skill-gap heatmap, a competency map, a risk-ranked roadmap, a finance-ready business case, and a measurement baseline. Working artifacts your team can act on and reuse, not a one-off presentation."
+      },
+      {
+        "question": "Can you analyze needs without selling us the training afterward?",
+        "answer": "Yes. The analysis is a standalone service. If a gap is best closed another way, or not by training at all, that is what the roadmap will say. Edstellar can deliver the programs if you want, but the diagnosis stands on its own."
+      },
+      {
+        "question": "How do you prove the training worked once it runs?",
+        "answer": "Measurement is designed in at the start. We set the baseline and the metrics before delivery, so impact is compared against a known starting point rather than argued about later."
+      },
+      {
+        "question": "We already have a competency framework. Does that change things?",
+        "answer": "It helps. We work with your existing framework where one exists, calibrate it against role requirements, and only rebuild what is missing or out of date, so you are not paying to reinvent what already works."
+      }
+    ]
+  },
+  "leadFormData": {
+    "heading": "Request a training needs analysis <span>for your team.</span>",
+    "description": "Tell us what your team needs. We reply within one business day, with a scoped response and no automated sales sequence.",
+    "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+    "submit_label": "Request a needs analysis",
+    "requirements_label": "Your requirements",
+    "requirements_placeholder": "Tell us about your team: size, roles in scope, timing, and the outcomes you are trying to move.",
+    "thanks_heading": "Request received.",
+    "thanks_body": "Thanks. A specialist will reply within one business day with a scoped response."
   }
 }

@@ -4,11 +4,11 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
-export default function RelatedCategories({ data }) {
+export default function RelatedCategories({ data, id = "related-domains" }) {
   if (!data?.items?.length) return null;
 
   return (
-    <Section id="related-domains">
+    <Section id={id}>
       <Box className="mx-auto">
         {/* HEADING */}
         <Reveal delay={1}>
@@ -42,12 +42,14 @@ export default function RelatedCategories({ data }) {
                   {item.description}
                 </Text>
 
-                <Text
-                  as="p"
-                  className="mt-3 font-mono text-[9px] uppercase tracking-[0.12em] text-ink/60"
-                >
-                  {item.type}
-                </Text>
+                {item.type && (
+                  <Text
+                    as="p"
+                    className="mt-3 font-mono text-[9px] uppercase tracking-[0.12em] text-ink/60"
+                  >
+                    {item.type}
+                  </Text>
+                )}
 
                 <a
                   href={item.href}

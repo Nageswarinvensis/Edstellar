@@ -94,7 +94,13 @@ function FaqTrigger({ children }) {
   );
 }
 
-export default function Faq({ faqs, innerClassName, showCta = true, className }) {
+export default function Faq({
+  faqs,
+  innerClassName,
+  showCta = true,
+  className,
+  id = "faqs",
+}) {
   // All items still render (hidden via a class, not left out of the DOM),
   // so the full FAQ list stays crawlable and searchable even collapsed.
   const [expanded, setExpanded] = useState(false);
@@ -105,7 +111,7 @@ export default function Faq({ faqs, innerClassName, showCta = true, className })
 
   return (
     <Section
-      id="faqs"
+      id={id}
       className={cn(
         "scroll-mt-[calc(44px_+_var(--mobile-toc-h,0px))] lg:scroll-mt-[calc(4px_+_var(--mobile-toc-h,0px))] border-t border-ink/10",
         className,

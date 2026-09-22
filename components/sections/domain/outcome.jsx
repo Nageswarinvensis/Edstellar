@@ -3,11 +3,16 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-export default function Outcomes({ data }) {
+const GRID_COLUMNS = {
+  3: "sm:grid-cols-2 lg:grid-cols-3",
+  4: "sm:grid-cols-2 lg:grid-cols-4",
+};
+
+export default function Outcomes({ data, id = "outcomes", columns = 4 }) {
   if (!data) return null;
 
   return (
-    <Section id="outcomes" className="bg-paper">
+    <Section id={id} className="bg-paper">
       <Box>
         <Reveal delay={1}>
           <Box className="mb-10">
@@ -30,7 +35,12 @@ export default function Outcomes({ data }) {
         </Reveal>
 
         <Reveal delay={2}>
-          <Box className="grid grid-cols-1 border-l border-t border-[#D9DDE1] sm:grid-cols-2 lg:grid-cols-4">
+          <Box
+            className={[
+              "grid grid-cols-1 border-l border-t border-[#D9DDE1]",
+              GRID_COLUMNS[columns] || GRID_COLUMNS[4],
+            ].join(" ")}
+          >
             {data.items?.map((item, index) => (
               <Box
                 key={item.id || index}
@@ -40,12 +50,14 @@ export default function Outcomes({ data }) {
                   "lg:min-h-45 lg:p-6",
                 ].join(" ")}
               >
-                <Text
-                  as="span"
-                  className="block font-mono text-[10px] tracking-[0.18em] text-ink-muted"
-                >
-                  {item.number}
-                </Text>
+                {item.number && (
+                  <Text
+                    as="span"
+                    className="block font-mono text-[10px] tracking-[0.18em] text-ink-muted"
+                  >
+                    {item.number}
+                  </Text>
+                )}
 
                 <Text
                   as="h3"
