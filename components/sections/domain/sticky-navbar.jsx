@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import CtaButton from "@/components/common/cta-button";
 import { setHeaderHidden } from "@/lib/client/header-visibility";
 
 const HEADER_OFFSET = 68;
@@ -175,14 +176,17 @@ export default function StickyTabs({ data, hasTrainers }) {
           {/* Conditional CTA Button */}
           {data?.cta?.text && (
             <Box className="flex shrink-0 items-center">
-              <a
-                href={`#${data.cta.targetId || "form"}`}
-                title={data.cta.title || data.cta.text}
-                onClick={scrollToHash}
-                className="flex h-9 items-center justify-center rounded-full bg-ink px-5 text-[12px] font-semibold text-lime transition-opacity hover:opacity-90 whitespace-nowrap"
+              <CtaButton
+                render={
+                  <a
+                    href={`#${data.cta.targetId || "form"}`}
+                    onClick={scrollToHash}
+                  />
+                }
+                title={data.cta.title}
               >
                 {data.cta.text}
-              </a>
+              </CtaButton>
             </Box>
           )}
         </Box>

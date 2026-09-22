@@ -229,7 +229,11 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
       >
         <Box>
           <Reveal delay={1}>
-            <RichHeading heading={about.heading} className="max-w-[16ch]" />
+            <RichHeading
+              heading={about.heading}
+              className="max-w-[16ch]"
+              plain
+            />
           </Reveal>
 
           <Reveal delay={1}>

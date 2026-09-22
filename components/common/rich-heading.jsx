@@ -9,12 +9,19 @@ import { cn } from "@/lib/utils";
  *
  * Rendering it as a single heading element keeps one accessible name and one
  * <h1>/<h2> per section, rather than splitting the phrase across elements.
+ *
+ * `plain` drops the `<span>` markers instead of emphasizing them — for a
+ * heading whose source (CMS or otherwise) authors that convention but the
+ * design calls for no accent here. It still has to go through this same
+ * split, not a raw render of `heading`: a literal `<span>` in a string
+ * dumped straight into `<Text>` shows as visible escaped text, not markup.
  */
 function RichHeading({
   as = "h2",
   heading,
   className,
   emphasisClassName,
+  plain = false,
   ...props
 }) {
   const text = typeof heading === "string" ? heading : "";
@@ -24,15 +31,15 @@ function RichHeading({
     <Text as={as} className={className} {...props}>
       {text.split(/(<span>[\s\S]*?<\/span>)/g).map((fragment, index) => {
         const match = fragment.match(/^<span>([\s\S]*?)<\/span>$/);
-        return match ? (
+        if (!match) return fragment;
+        if (plain) return match[1];
+        return (
           <em
             key={index}
             className={cn("font-serif italic", emphasisClassName)}
           >
             {match[1]}
           </em>
-        ) : (
-          fragment
         );
       })}
     </Text>

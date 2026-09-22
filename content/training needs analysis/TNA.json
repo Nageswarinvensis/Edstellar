@@ -9,7 +9,7 @@
   },
   "BreadcrumbData": [
     {
-      "href": "https://edstellar-two.vercel.app/corporate-training/artificial-intelligence",
+      "href": "https://edstellar-two.vercel.app/",
       "label": "Home"
     },
     {
@@ -133,55 +133,43 @@
   },
   "stickyNavbarData": {
     "logo": {
-        "src": "/course/Edstellar.svg",
-        "alt": "Edstellar"
+      "src": "/course/Edstellar.svg",
+      "alt": "Edstellar"
     },
     "cta": {
-        "text": "Request training needs analysis",
-        "title": "Request training needs analysis",
-        "targetId": "request-form"
+      "text": "Request training needs analysis",
+      "title": "Request training needs analysis",
+      "targetId": "request-form"
     },
     "tabs": [
-        { "id": "engine", "label": "The Engine", "active": true },
-        { "id": "benefits", "label": "Benefits", "active": false },
-        { "id": "process", "label": "Process", "active": false },
-        { "id": "steps", "label": "Steps", "active": false },
-        { "id": "deliverable", "label": "Deliverable", "active": false },
-        { "id": "why us", "label": "Why us", "active": false },
-        { "id": "faq", "label": "FAQ", "active": false }
+      { "id": "engine", "label": "The Engine", "active": true },
+      { "id": "benefits", "label": "Benefits", "active": false },
+      { "id": "process", "label": "Process", "active": false },
+      { "id": "steps", "label": "Steps", "active": false },
+      { "id": "deliverable", "label": "Deliverable", "active": false },
+      { "id": "why us", "label": "Why us", "active": false },
+      { "id": "faq", "label": "FAQ", "active": false }
     ]
   },
   "ctaTrainerData": {
     "sectionId": "contact",
-    "heading": {
-      "prefix": "Still running Training Needs Analysis",
-      "highlightText": "manually ",
-      "suffix": "?"
-    },
+    "heading": "Still running Training Needs Analysis <span>manually </span>?",
     "subtitle": "Spreadsheets stitched together by hand. One survey standing in for a whole workforce. Weeks of chasing managers, then a skills gap picture that is already stale the day it lands. If that is still how training needs analysis works for your teams, there is a faster, sharper way."
   },
   "tnaEngineData": {
     "sectionId": "contact",
-    "heading": {
-        "prefix": "The automated",
-        "highlightText": "TNA/TNI Engine.",
-        "suffix": ""
-    },
+    "heading": "The automated <span>TNA/TNI Engine.</span>",
     "subtitle": "Edstellar's TNA/TNI Engine, powered by Stellar AI, runs the entire training needs analysis for you. It ingests your framework, surveys, interviews and assessments, builds the skill matrix, separates real training gaps from data noise, and hands back a ranked, finance-ready roadmap. Months of manual work, delivered in days, and kept live as your people and roles change.",
     "button": {
-        "text": "See how it works",
-        "href": "#contact",
-        "title": "Click Here to See how it works",
-        "showArrow": true
+      "text": "See how it works",
+      "href": "#contact",
+      "title": "Click Here to See how it works",
+      "showArrow": true
     }
   },
   "benefitsData": {
     "sectionId": "benefits",
-    "heading": {
-      "prefix": "Why",
-      "highlightText": "automate",
-      "suffix": "your TNA?"
-    },
+    "heading": "Why <span>automate</span> your TNA?",
     "subtitle": "The same analysis, run a completely different way.",
     "columns": {
       "traditional": {
@@ -212,11 +200,7 @@
   },
   "tnadeliverableData": {
     "sectionId": "deliverables",
-    "heading": {
-      "prefix": "Your TNA",
-      "highlightText": "deliverables.",
-      "suffix": ""
-    },
+    "heading": "Your TNA <span>deliverables.</span>",
     "subtitle": "Not a slide of good intentions. Working artifacts your team can act on and reuse.",
     "items": [
       {

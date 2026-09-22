@@ -7,7 +7,7 @@ import TnaEngine from "@/components/sections/training needs analysis/tnaengine";
 import Benefits from "@/components/sections/training needs analysis/tnabenifits";
 import TnaDeliverable from "@/components/sections/training needs analysis/tnadeliverable";
 
-import heroData from "@/content/training needs analysis/trainingneedsanalysisdata.json";
+import heroData from "@/content/training needs analysis/TNA.json";
 
 export default function TrainingNeedsAnalysisPage() {
   return (

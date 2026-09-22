@@ -1,9 +1,9 @@
-import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import CtaButton from "@/components/common/cta-button";
 
 export default function CtaTrainer({ trainer, data }) {
   // Support passing either data directly OR data.ctaTrainerData wrapper
@@ -13,7 +13,6 @@ export default function CtaTrainer({ trainer, data }) {
   const trainerFirstName = trainer?.name ? trainer.name.split(" ")[0] : null;
 
   const sectionId = ctaData.sectionId || "contact";
-  const heading = ctaData.heading || {};
 
   // Default subtitle and button for trainer pages if missing in JSON object
   const subtitle =
@@ -32,64 +31,52 @@ export default function CtaTrainer({ trainer, data }) {
         }
       : null);
 
-  // Construct heading text
-  const prefixText = trainerFirstName
-    ? `${heading.prefix || "Want"} ${trainerFirstName} for your`
-    : heading.prefix || "";
-
-  const highlightText =
-    heading.highlightText || (trainerFirstName ? "next program" : "");
-  const suffixText = heading.suffix ?? (trainerFirstName ? "?" : "");
+  // `ctaData.heading` is content-authored (TNA page): a plain string with
+  // the emphasis phrase already marked with `<span>`. On a trainer page no
+  // `data` is passed at all, so this falls back to a heading built around
+  // the trainer's own name instead.
+  const heading =
+    ctaData.heading ||
+    (trainerFirstName
+      ? `Want ${trainerFirstName} for your <span>next program</span>?`
+      : "");
 
   return (
     <Section id={sectionId} className="bg-ink py-16 lg:py-20">
       <Box className="mx-auto max-w-4xl flex flex-col items-center text-center px-4">
-        {/* Heading */}
         <Reveal>
-        <Text
-          as="h2"
-          className="text-[30px] font-bold tracking-tight text-white lg:text-[36px]"
-        >
-          {prefixText}{" "}
-          {highlightText && (
-            <Text
-              as="span"
-              className="font-Cormorant Garamond italic text-[18px] font-normal text-lime lg:text-[24px]"
-            >
-              {highlightText}
-            </Text>
-          )}
-          {suffixText}
-        </Text>
+          <RichHeading
+            heading={heading}
+            className="text-white"
+            emphasisClassName="text-lime"
+          />
         </Reveal>
 
-        {/* Subtitle */}
         {subtitle && (
           <Reveal delay={1}>
-          <Text
-            as="p"
-            className="mx-auto mt-4 max-w-2xl text-[18px] leading-relaxed text-paper/80"
-          >
-            {subtitle}
-          </Text>
+            <Text
+              as="p"
+              className="mx-auto mt-4 max-w-2xl text-[18px] leading-relaxed text-paper/80"
+            >
+              {subtitle}
+            </Text>
           </Reveal>
         )}
 
         {/* CTA Button */}
         <Reveal delay={2}>
-        {button && (
-          <Box className="mt-8 flex justify-center">
-            <Link
-              href={button.href || "#contact"}
-              className="inline-flex items-center gap-2 rounded-full bg-lime px-7 py-3.5 text-sm font-semibold text-ink transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-12px_rgba(217,249,157,0.3)]"
-            >
-              <span>{button.text || "Talk to Edstellar Consultant"}</span>
-              {(button.showArrow ?? true) && (
-                <span className="text-base leading-none">→</span>
-              )}
-            </Link>
-          </Box>
-        )}
+          {button && (
+            <Box className="mt-8 flex justify-center">
+              <CtaButton
+                render={<a href={button.href || "#contact"} />}
+                arrow={button.showArrow ?? true}
+                color="lime"
+                className="px-7 py-3.5 text-sm"
+              >
+                {button.text || "Talk to Edstellar Consultant"}
+              </CtaButton>
+            </Box>
+          )}
         </Reveal>
       </Box>
     </Section>

@@ -1,6 +1,7 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
+import RichHeading from "@/components/common/rich-heading";
 
 export default function TnaDeliverable({ data }) {
   if (!data) return null;
@@ -8,26 +9,20 @@ export default function TnaDeliverable({ data }) {
   // Handles both <TnaDeliverable data={pageData} /> and <TnaDeliverable data={pageData.tnaDeliverablesData} />
   const content = data.tnaDeliverablesData || data;
   const { sectionId, heading, subtitle, items } = content;
+  const headingText =
+    typeof heading === "string"
+      ? heading
+      : "Your TNA <span>deliverables.</span>";
 
   return (
     <Section id={sectionId} className="bg-ink">
       <Box>
         <Box>
-          <Text
-            as="h2"
-            className="text-[30px] font-bold leading-[1.15] tracking-[-0.02em] text-white lg:text-[36px]"
-          >
-            {heading?.prefix}{" "}
-            {heading?.highlightText && (
-              <Text
-                as="span"
-                className="font-serif font-normal italic text-lime"
-              >
-                {heading.highlightText}
-              </Text>
-            )}
-            {heading?.suffix && ` ${heading.suffix}`}
-          </Text>
+          <RichHeading
+            heading={headingText}
+            className="text-white"
+            emphasisClassName="text-lime"
+          />
 
           {subtitle && (
             <Text className="mt-4 text-[16px] leading-6 text-[#B8C0CF]">
