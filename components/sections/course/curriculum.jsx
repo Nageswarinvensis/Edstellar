@@ -71,6 +71,20 @@ const SUMMARY_PILL_META = [
   { icon: Clock, bg: "bg-[#fdf2e3]", iconColor: "text-[#d97706]" },
 ];
 
+/**
+ * The trailing three "Delivered as" pills (flask/file/clock) are the
+ * `curriculum.meta` stats reworded as chips — `modules` is excluded, it's
+ * already shown in the meta row above. Sourced from `meta` rather than the
+ * CMS's own free-text `method.summary_pills`, which isn't consistently
+ * shaped course to course (sometimes delivery-format text, sometimes these
+ * same stats again).
+ */
+const META_PILL_FIELDS = [
+  { label: "hands-on labs", format: (value) => `${value} labs` },
+  { label: "capstone", format: (value) => `${value} capstone` },
+  { label: "hours", format: (value) => `${value} hours` },
+];
+
 function MethodChip({ meta, children }) {
   const { icon: Icon, bg, iconColor } = meta;
   return (
@@ -347,23 +361,33 @@ export default function Curriculum({ curriculum }) {
                   </Text>
 
                   <Box className="flex flex-wrap gap-1">
-                    {method.formats.map((format, index) => (
-                      <MethodChip
-                        key={format}
-                        meta={FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0]}
-                      >
-                        {format}
-                      </MethodChip>
-                    ))}
-
-                    {method.summary_pills?.map((item, index) => (
+                    {/* `formats` is the static, local set of delivery-shape
+                        pills; the lab/capstone/hours pills that follow are
+                        `meta` reworded as chips (see `META_PILL_FIELDS`). */}
+                    {method.formats.map((item, index) => (
                       <MethodChip
                         key={item}
-                        meta={SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]}
+                        meta={FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0]}
                       >
                         {item}
                       </MethodChip>
                     ))}
+
+                    {META_PILL_FIELDS.map((field, index) => {
+                      const metaItem = meta?.find(
+                        (item) => item.label === field.label,
+                      );
+                      if (!metaItem) return null;
+
+                      return (
+                        <MethodChip
+                          key={field.label}
+                          meta={SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]}
+                        >
+                          {field.format(metaItem.value)}
+                        </MethodChip>
+                      );
+                    })}
                   </Box>
 
                   {method.summary_note ? (

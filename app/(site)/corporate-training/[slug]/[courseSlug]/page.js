@@ -16,7 +16,7 @@ import CoursePage, {
  * never host one (TASTE.md §1.2).
  */
 
-export const revalidate = 3600;
+export const revalidate = 20;
 
 /**
  * Top N only — the long tail renders on first request and is cached from then
