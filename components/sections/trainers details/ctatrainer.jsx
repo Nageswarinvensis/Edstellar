@@ -2,6 +2,7 @@ import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
+import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
 export default function CtaTrainer({ trainer, data }) {
@@ -44,6 +45,7 @@ export default function CtaTrainer({ trainer, data }) {
     <Section id={sectionId} className="bg-ink py-16 lg:py-20">
       <Box className="mx-auto max-w-4xl flex flex-col items-center text-center px-4">
         {/* Heading */}
+        <Reveal>
         <Text
           as="h2"
           className="text-[30px] font-bold tracking-tight text-white lg:text-[36px]"
@@ -59,18 +61,22 @@ export default function CtaTrainer({ trainer, data }) {
           )}
           {suffixText}
         </Text>
+        </Reveal>
 
         {/* Subtitle */}
         {subtitle && (
+          <Reveal delay={1}>
           <Text
             as="p"
             className="mx-auto mt-4 max-w-2xl text-[18px] leading-relaxed text-paper/80"
           >
             {subtitle}
           </Text>
+          </Reveal>
         )}
 
         {/* CTA Button */}
+        <Reveal delay={2}>
         {button && (
           <Box className="mt-8 flex justify-center">
             <Link
@@ -84,6 +90,7 @@ export default function CtaTrainer({ trainer, data }) {
             </Link>
           </Box>
         )}
+        </Reveal>
       </Box>
     </Section>
   );

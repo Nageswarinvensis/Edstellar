@@ -110,7 +110,7 @@ export default function StickyTabs({ data, hasTrainers }) {
       "
       >
         <Box
-          className="mx-auto flex h-13 w-full max-w-7xl items-center justify-between gap-8
+          className="mx-auto flex h-15 w-full max-w-7xl items-center justify-between gap-8
         "
         >
           {/* Logo */}

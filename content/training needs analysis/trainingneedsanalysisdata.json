@@ -159,5 +159,90 @@
       "suffix": "?"
     },
     "subtitle": "Spreadsheets stitched together by hand. One survey standing in for a whole workforce. Weeks of chasing managers, then a skills gap picture that is already stale the day it lands. If that is still how training needs analysis works for your teams, there is a faster, sharper way."
+  },
+  "tnaEngineData": {
+    "sectionId": "contact",
+    "heading": {
+        "prefix": "The automated",
+        "highlightText": "TNA/TNI Engine.",
+        "suffix": ""
+    },
+    "subtitle": "Edstellar's TNA/TNI Engine, powered by Stellar AI, runs the entire training needs analysis for you. It ingests your framework, surveys, interviews and assessments, builds the skill matrix, separates real training gaps from data noise, and hands back a ranked, finance-ready roadmap. Months of manual work, delivered in days, and kept live as your people and roles change.",
+    "button": {
+        "text": "See how it works",
+        "href": "#contact",
+        "title": "Click Here to See how it works",
+        "showArrow": true
+    }
+  },
+  "benefitsData": {
+    "sectionId": "benefits",
+    "heading": {
+      "prefix": "Why",
+      "highlightText": "automate",
+      "suffix": "your TNA?"
+    },
+    "subtitle": "The same analysis, run a completely different way.",
+    "columns": {
+      "traditional": {
+        "title": "Traditional TNA",
+        "badge": null,
+        "items": [
+          "Months of manual consolidation",
+          "Data scattered across spreadsheets",
+          "Stale the day it is finished",
+          "One survey, the loudest voice wins",
+          "A real gap can look like a data glitch",
+          "Different every cycle, hard to defend"
+        ]
+      },
+      "automated": {
+        "title": "Automated TNA",
+        "badge": "TNA/TNI Engine",
+        "items": [
+          "A full cycle in days",
+          "Framework, matrix and roadmap in one place",
+          "Regenerates whenever an input changes",
+          "Five sources, triangulated",
+          "Proficiency gap split from perception gap",
+          "The same method every time, finance-ready"
+        ]
+      }
+    }
+  },
+  "tnadeliverableData": {
+    "sectionId": "deliverables",
+    "heading": {
+      "prefix": "Your TNA",
+      "highlightText": "deliverables.",
+      "suffix": ""
+    },
+    "subtitle": "Not a slide of good intentions. Working artifacts your team can act on and reuse.",
+    "items": [
+      {
+        "title": "Skill-gap heatmap",
+        "description": "Every priority gap by team and skill, so the picture is visible at a glance."
+      },
+      {
+        "title": "Competency map",
+        "description": "Roles scored against the competencies each one actually requires."
+      },
+      {
+        "title": "TNA/TNI report",
+        "description": "The key findings and the top-priority programs, ready to share and defend."
+      },
+      {
+        "title": "Risk-ranked roadmap",
+        "description": "What to run, for whom, in what order, at what expected return."
+      },
+      {
+        "title": "Finance-ready business case",
+        "description": "The argument for the spend, tied to the outcomes agreed up front."
+      },
+      {
+        "title": "Measurement baseline",
+        "description": "The metrics set before delivery, so impact is provable after."
+      }
+    ]
   }
 }
