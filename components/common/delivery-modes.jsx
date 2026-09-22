@@ -6,13 +6,6 @@ import SecCta from "@/components/common/sec-cta";
 import DeliveryModeTabs from "@/components/sections/course/delivery-mode-tabs";
 import { cn } from "@/lib/utils";
 
-const SECTION_CTA = {
-  title: "Which delivery format suits your team?",
-  description:
-    "Full days, half days across weeks, or split by module. Virtual, onsite or hybrid at any of your offices. Tell us your preferred dates and we schedule the cohort around them.",
-  cta: { label: "Check Available Dates", href: "#apply" },
-};
-
 export default function DeliveryModes({
   deliveryModes,
   className,
@@ -48,7 +41,7 @@ export default function DeliveryModes({
         <DeliveryModeTabs tabs={deliveryModes.tabs} />
       </Reveal>
 
-      {showSectionCta ? <SecCta {...SECTION_CTA} /> : null}
+      {showSectionCta ? <SecCta {...deliveryModes.section_cta} /> : null}
     </Section>
   );
 }

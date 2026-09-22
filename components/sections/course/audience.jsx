@@ -8,13 +8,6 @@ import RichHeading from "@/components/common/rich-heading";
 import SecCta from "@/components/common/sec-cta";
 import SkillProgression from "@/components/sections/course/skill-progression";
 
-const SECTION_CTA = {
-  title: "Not sure where your team should start?",
-  description:
-    "Send us the roles and what they run in production today. We’ll tell you which modules to keep, which prerequisites to close first, and whether to run one program or a pilot batch.",
-  cta: { label: "Get a Recommendation", href: "#apply" },
-};
-
 /**
  * The role list — one white card, up to three plain bulleted columns
  * divided by rule lines. No per-column heading in the design: the roles
@@ -63,7 +56,7 @@ function RolesCard({ columns }) {
 export default function Audience({ audience }) {
   if (!audience?.roles?.length) return null;
 
-  const { heading, description, roles, prerequisites, progression } =
+  const { heading, description, roles, prerequisites, progression, section_cta } =
     audience;
 
   return (
@@ -109,7 +102,7 @@ export default function Audience({ audience }) {
         </Reveal>
       ) : null}
 
-      <SecCta {...SECTION_CTA} />
+      <SecCta {...section_cta} />
     </Section>
   );
 }

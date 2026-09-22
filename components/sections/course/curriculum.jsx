@@ -92,13 +92,6 @@ function MethodChip({ meta, children }) {
   );
 }
 
-const SECTION_CTA = {
-  title: "Want this program tailored to your team?",
-  description:
-    "Tell us your training needs: what your team already works with, the level they’re at, and the topics you want them to focus on. We’ll adjust the modules, duration and hands-on labs, and send you a customized outline for your group.",
-  cta: { label: "Get a Tailored Outline", href: "#apply" },
-};
-
 function MethodStepText({ parts = [] }) {
   return parts.map((part, index) =>
     part.strong ? (
@@ -153,6 +146,7 @@ export default function Curriculum({ curriculum }) {
     method,
     filters,
     modules,
+    section_cta,
   } = curriculum;
 
   return (
@@ -425,7 +419,7 @@ export default function Curriculum({ curriculum }) {
         </Box>
       </Reveal>
 
-      <SecCta {...SECTION_CTA} />
+      <SecCta {...section_cta} />
     </Section>
   );
 }
