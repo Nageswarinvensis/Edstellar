@@ -23,7 +23,10 @@ function Hero({ hero, breadcrumbs }) {
   if (!hero) return null;
 
   return (
-    <Section id="top" className="relative overflow-hidden py-[40px] lg:py-[40px]">
+    <Section
+      id="top"
+      className="relative overflow-hidden py-[40px] lg:py-[40px]"
+    >
       <Box className="grid grid-cols-1 items-center gap-6.5 lg:gap-8.5">
         <HeroMedia
           image={hero.media?.image}
@@ -36,8 +39,8 @@ function Hero({ hero, breadcrumbs }) {
             hero.actions?.some(
               (action) => action.label?.toLowerCase() === "download brochure",
             )
-              ? "lg:max-w-[50%]"
-              : "lg:max-w-[46%]"
+              ? "lg:max-w-[55%]"
+              : "lg:max-w-[55%]"
           }`}
         >
           <Reveal delay={1}>

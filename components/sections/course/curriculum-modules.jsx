@@ -53,19 +53,36 @@ function ModuleStat({ icon: Icon, iconClassName, children }) {
 
 function ModuleMeta({ module }) {
   const hasLab = module.lab?.kind && module.lab.kind !== "intro";
+  const hasHours = Number.isFinite(module.hours);
 
   return (
     <Box className="flex items-center gap-2.5">
-      <ModuleStat icon={List} iconClassName="text-blue-600">
-        {module.topics} topics
-      </ModuleStat>
-      <Box className="h-4.25 w-px flex-none bg-ink/12" aria-hidden="true" />
-      <ModuleStat icon={Clock} iconClassName="text-amber-600">
-        ~{formatHours(module.hours)}
-      </ModuleStat>
+      {module.topics ? (
+        <>
+          <ModuleStat icon={List} iconClassName="text-blue-600">
+            {module.topics} topics
+          </ModuleStat>
+          {hasHours ? (
+            <Box
+              className="h-4.25 w-px flex-none bg-ink/12"
+              aria-hidden="true"
+            />
+          ) : null}
+        </>
+      ) : null}
+      {hasHours ? (
+        <ModuleStat icon={Clock} iconClassName="text-amber-600">
+          ~{formatHours(module.hours)}
+        </ModuleStat>
+      ) : null}
       {hasLab ? (
         <>
-          <Box className="h-4.25 w-px flex-none bg-ink/12" aria-hidden="true" />
+          {(module.topics || hasHours) ? (
+            <Box
+              className="h-4.25 w-px flex-none bg-ink/12"
+              aria-hidden="true"
+            />
+          ) : null}
           <ModuleStat icon={FlaskConical} iconClassName="text-violet-600">
             {module.lab.kind === "capstone" ? "Capstone" : "1 lab"}
           </ModuleStat>

@@ -183,6 +183,24 @@ function AboutChips({ chips }) {
   );
 }
 
+function ExpandedBody({ paragraphs }) {
+  if (!paragraphs?.length) return null;
+
+  return (
+    <ReadMore showIcon>
+      {paragraphs.map((paragraph, index) => (
+        <Text
+          as="p"
+          key={index}
+          className="mb-4.5 text-base leading-[1.75] text-[#0A1628]"
+        >
+          {paragraph}
+        </Text>
+      ))}
+    </ReadMore>
+  );
+}
+
 export default function CourseAbout({ about, showCustomizedTraining = true }) {
   if (!about) return null;
 
@@ -200,24 +218,35 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
       <Box
         className={[
           "grid grid-cols-1 items-start gap-y-8.5",
-          threeCol
-            ? "md:grid-cols-[0.8fr_1fr] md:gap-x-12 lg:grid-cols-[0.6fr_0.42fr_0.84fr] lg:items-start lg:gap-x-9"
-            : inclusions
-              ? "md:grid-cols-[0.8fr_1fr] md:gap-x-12 lg:gap-x-18"
-              : "",
+          inclusions
+            ? "md:grid-cols-[0.8fr_1fr] md:gap-x-10 lg:grid-cols-[1.02fr_0.84fr] lg:gap-x-10"
+            : "",
         ].join(" ")}
       >
         <Box>
           <Reveal delay={1}>
-            <RichHeading
-              heading={about.heading}
-              className="max-w-[16ch]"
-              plain
-            />
+            <RichHeading heading={about.heading} />
           </Reveal>
 
           <Reveal delay={1}>
-            <Box className="pt-6">
+            {/* `flow-root` gives this block its own block-formatting
+                context, so its height includes the floated photo — without
+                it, a container with only floated + inline children collapses
+                to zero height and everything after it (the inclusions card,
+                the section below) rides up underneath the photo. */}
+            <Box className={threeCol ? "mt-6 flow-root" : "pt-6"}>
+              {threeCol ? (
+                <Box className="relative mb-4 ml-9 hidden aspect-[3/4] w-full max-w-65 overflow-hidden lg:float-right lg:block">
+                  <Image
+                    src={media.src}
+                    alt={media.alt || ""}
+                    fill
+                    sizes="260px"
+                    className="object-cover [mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)]"
+                  />
+                </Box>
+              ) : null}
+
               {about.body?.map((paragraph, index) => (
                 <Text
                   as="p"
@@ -228,36 +257,10 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
                 </Text>
               ))}
 
-              {about.expanded_body?.length ? (
-                <ReadMore showIcon>
-                  {about.expanded_body.map((paragraph, index) => (
-                    <Text
-                      as="p"
-                      key={index}
-                      className="mb-4.5 text-base leading-[1.75] text-[#0A1628]"
-                    >
-                      {paragraph}
-                    </Text>
-                  ))}
-                </ReadMore>
-              ) : null}
+              <ExpandedBody paragraphs={about.expanded_body} />
             </Box>
           </Reveal>
         </Box>
-
-        {threeCol ? (
-          <Reveal delay={2} className="hidden lg:block">
-            <Box className="relative mx-auto aspect-[3/4] w-full max-w-65 overflow-hidden rounded-[28px] shadow-[0_30px_70px_-40px_rgba(10,22,40,0.45)]">
-              <Image
-                src={media.src}
-                alt={media.alt || ""}
-                fill
-                sizes="260px"
-                className="object-cover"
-              />
-            </Box>
-          </Reveal>
-        ) : null}
 
         {inclusions ? (
           <Box>
@@ -280,7 +283,7 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
               alt={media.alt || ""}
               fill
               sizes="(max-width: 767px) 100vw, 620px"
-              className="object-cover"
+              className="object-cover [mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)]"
             />
           </Box>
         </Reveal>

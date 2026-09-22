@@ -133,7 +133,7 @@ function ProofBar({ tone, stats = [], trainers, actions = [], className }) {
         "mt-5.5 rounded-[20px] px-5 py-4",
         "bg-navy",
         "shadow-[0_34px_70px_-46px_rgba(10,22,40,0.75)]",
-        "min-[1025px]:flex min-[1025px]:flex-nowrap min-[1025px]:items-center",
+        "min-[1025px]:flex min-[1025px]:flex-nowrap min-[1025px]:items-center min-[1025px]:justify-around",
         "max-[1024px]:flex max-[1024px]:flex-wrap",
         "max-md:px-4 max-md:py-3.5",
         "max-sm:gap-y-4",
@@ -143,9 +143,7 @@ function ProofBar({ tone, stats = [], trainers, actions = [], className }) {
       <Box
         className={cn(
           "flex min-w-0 items-center",
-          "min-[1025px]:flex-1 min-[1025px]:flex-nowrap",
-          !actions.length && "min-[1025px]:justify-between",
-          actions.length && "min-[1025px]:justify-start",
+          "min-[1025px]:flex-nowrap",
           "max-[1024px]:w-full max-[1024px]:flex-wrap",
           "max-[1024px]:gap-x-6 max-[1024px]:gap-y-4",
           "max-sm:gap-x-5 max-sm:gap-y-4",
@@ -282,7 +280,6 @@ function ProofBar({ tone, stats = [], trainers, actions = [], className }) {
         <Box
           className={cn(
             "flex flex-none items-center gap-3",
-            "min-[1025px]:ml-auto",
             "max-[1024px]:w-full max-[1024px]:justify-center",
             "max-sm:w-full max-sm:justify-end max-sm:gap-2",
             "max-[430px]:flex-wrap max-[430px]:justify-center",
