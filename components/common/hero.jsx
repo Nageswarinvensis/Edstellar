@@ -54,7 +54,7 @@ function Hero({ hero, breadcrumbs }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mb-3.5 max-w-[38ch] font-serif text-[clamp(17px,1.6vw,21px)] leading-[1.3] text-ink italic"
+              className="mb-3.5 font-serif text-[clamp(17px,1.6vw,21px)] leading-[1.3] text-ink italic"
             >
               {hero.subhead}
             </Text>

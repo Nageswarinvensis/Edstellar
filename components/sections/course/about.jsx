@@ -229,11 +229,6 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
           </Reveal>
 
           <Reveal delay={1}>
-            {/* `flow-root` gives this block its own block-formatting
-                context, so its height includes the floated photo — without
-                it, a container with only floated + inline children collapses
-                to zero height and everything after it (the inclusions card,
-                the section below) rides up underneath the photo. */}
             <Box className={threeCol ? "mt-6 flow-root" : "pt-6"}>
               {threeCol ? (
                 <Box className="relative mb-4 ml-9 hidden aspect-[3/4] w-full max-w-65 overflow-hidden lg:float-right lg:block">
