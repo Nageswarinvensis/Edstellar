@@ -7,10 +7,10 @@ import DeliveryModeTabs from "@/components/sections/course/delivery-mode-tabs";
 import { cn } from "@/lib/utils";
 
 const SECTION_CTA = {
-  title: "Need a training format that works for your team?",
+  title: "Which delivery format suits your team?",
   description:
-    "Full days, half days across weeks, or split by module. Tell us the delivery window and we schedule the cohort around it.",
-  cta: { label: "Plan Your Training", href: "#apply" },
+    "Full days, half days across weeks, or split by module. Virtual, onsite or hybrid at any of your offices. Tell us your preferred dates and we schedule the cohort around them.",
+  cta: { label: "Check Available Dates", href: "#apply" },
 };
 
 export default function DeliveryModes({

@@ -81,17 +81,22 @@ function MethodChip({ meta, children }) {
         bg,
       )}
     >
-      <Icon size={12} strokeWidth={2} className={iconColor} aria-hidden="true" />
+      <Icon
+        size={12}
+        strokeWidth={2}
+        className={iconColor}
+        aria-hidden="true"
+      />
       {children}
     </Text>
   );
 }
 
 const SECTION_CTA = {
-  title: "Want this syllabus re-weighted to your gaps?",
+  title: "Want this program tailored to your team?",
   description:
-    "The modules can be adapted to your needs. Tell us what your team already knows, and we’ll customize the training curriculum around it.",
-  cta: { label: "Customize Your Training Today", href: "#apply" },
+    "Tell us your training needs: what your team already works with, the level they’re at, and the topics you want them to focus on. We’ll adjust the modules, duration and hands-on labs, and send you a customized outline for your group.",
+  cta: { label: "Get a Tailored Outline", href: "#apply" },
 };
 
 function MethodStepText({ parts = [] }) {
@@ -216,199 +221,200 @@ export default function Curriculum({ curriculum }) {
               method.media ? "lg:grid-cols-[1fr_0.46fr] lg:items-stretch" : "",
             ].join(" ")}
           >
-          <Box>
-            <Box className="flex flex-wrap items-start gap-3.5 max-md:flex-col md:gap-5">
-              {method.steps?.map((step, index) => {
-                const phaseKey = step.label?.toLowerCase();
-                const StepIcon = STEP_ICONS[phaseKey];
+            <Box>
+              <Box className="flex flex-wrap items-start gap-3.5 max-md:flex-col md:gap-5">
+                {method.steps?.map((step, index) => {
+                  const phaseKey = step.label?.toLowerCase();
+                  const StepIcon = STEP_ICONS[phaseKey];
 
-                return (
-                  <Box
-                    key={step.label}
-                    className="flex flex-1 items-start gap-3.5 max-md:w-full"
-                  >
-                    <Box className="flex w-full items-start gap-3 text-left md:flex-col md:items-center md:text-center">
-                      {StepIcon ? (
-                        <Box
-                          className={[
-                            "grid size-9 flex-none place-items-center rounded-full md:mb-2.25 md:size-11",
-                            STEP_ICON_CLASSES[phaseKey] || "bg-paper-warm text-ink/60",
-                          ].join(" ")}
-                        >
-                          <StepIcon
-                            size={17}
-                            strokeWidth={1.9}
-                            className="md:hidden"
-                            aria-hidden="true"
-                          />
-                          <StepIcon
-                            size={20}
-                            strokeWidth={1.9}
-                            className="hidden md:block"
-                            aria-hidden="true"
-                          />
+                  return (
+                    <Box
+                      key={step.label}
+                      className="flex flex-1 items-start gap-3.5 max-md:w-full"
+                    >
+                      <Box className="flex w-full items-start gap-3 text-left md:flex-col md:items-center md:text-center">
+                        {StepIcon ? (
+                          <Box
+                            className={[
+                              "grid size-9 flex-none place-items-center rounded-full md:mb-2.25 md:size-11",
+                              STEP_ICON_CLASSES[phaseKey] ||
+                                "bg-paper-warm text-ink/60",
+                            ].join(" ")}
+                          >
+                            <StepIcon
+                              size={17}
+                              strokeWidth={1.9}
+                              className="md:hidden"
+                              aria-hidden="true"
+                            />
+                            <StepIcon
+                              size={20}
+                              strokeWidth={1.9}
+                              className="hidden md:block"
+                              aria-hidden="true"
+                            />
+                          </Box>
+                        ) : null}
+                        <Box className="min-w-0 flex-1">
+                          <Text
+                            as="span"
+                            className="mb-0.5 block font-display text-[15px] font-bold tracking-[-0.02em] text-ink md:mb-1.5"
+                          >
+                            {step.label}
+                          </Text>
+                          <Text
+                            as="p"
+                            className="text-[12.5px] leading-[1.5] text-ink/60 md:leading-[1.55]"
+                          >
+                            <MethodStepText parts={step.parts} />
+                          </Text>
                         </Box>
+                      </Box>
+
+                      {index < method.steps.length - 1 ? (
+                        <ArrowRight
+                          size={18}
+                          className="mt-6 flex-none text-ink/22 max-md:hidden"
+                          aria-hidden="true"
+                        />
                       ) : null}
-                      <Box className="min-w-0 flex-1">
+                    </Box>
+                  );
+                })}
+              </Box>
+
+              {method.split?.length ? (
+                <Box className="mt-6 border-t border-ink/12 pt-5.5">
+                  <Box
+                    role="img"
+                    aria-label={method.split
+                      .map(
+                        (segment) =>
+                          `${segment.label} ${segment.percent} percent`,
+                      )
+                      .join(", ")}
+                    className="flex h-2.5 overflow-hidden rounded-full bg-paper-warm"
+                  >
+                    {method.split.map((segment) => (
+                      <Box
+                        key={segment.phase_key}
+                        className={`${SEGMENT_CLASSES[segment.phase_key]} not-first:border-l not-first:border-navy`}
+                        style={{ width: `${segment.percent}%` }}
+                      />
+                    ))}
+                  </Box>
+
+                  <Box className="mt-3 flex flex-wrap gap-5">
+                    {method.split.map((segment) => (
+                      <Box
+                        key={segment.phase_key}
+                        className="flex items-center gap-1.75"
+                      >
+                        <Box
+                          aria-hidden="true"
+                          className={`size-2.25 flex-none rounded-[3px] ${LEGEND_DOT_CLASSES[segment.phase_key]}`}
+                        />
                         <Text
                           as="span"
-                          className="mb-0.5 block font-display text-[15px] font-bold tracking-[-0.02em] text-ink md:mb-1.5"
+                          className="font-mono text-[10.5px] tracking-[0.08em] text-ink/60 uppercase"
                         >
-                          {step.label}
-                        </Text>
-                        <Text
-                          as="p"
-                          className="text-[12.5px] leading-[1.5] text-ink/60 md:leading-[1.55]"
-                        >
-                          <MethodStepText parts={step.parts} />
+                          {segment.label} {segment.percent}%
                         </Text>
                       </Box>
-                    </Box>
-
-                    {index < method.steps.length - 1 ? (
-                      <ArrowRight
-                        size={18}
-                        className="mt-6 flex-none text-ink/22 max-md:hidden"
-                        aria-hidden="true"
-                      />
-                    ) : null}
+                    ))}
                   </Box>
-                );
-              })}
-            </Box>
 
-            {method.split?.length ? (
-              <Box className="mt-6 border-t border-ink/12 pt-5.5">
-                <Box
-                  role="img"
-                  aria-label={method.split
-                    .map(
-                      (segment) =>
-                        `${segment.label} ${segment.percent} percent`,
-                    )
-                    .join(", ")}
-                  className="flex h-2.5 overflow-hidden rounded-full bg-paper-warm"
-                >
-                  {method.split.map((segment) => (
-                    <Box
-                      key={segment.phase_key}
-                      className={`${SEGMENT_CLASSES[segment.phase_key]} not-first:border-l not-first:border-navy`}
-                      style={{ width: `${segment.percent}%` }}
-                    />
-                  ))}
-                </Box>
-
-                <Box className="mt-3 flex flex-wrap gap-5">
-                  {method.split.map((segment) => (
-                    <Box
-                      key={segment.phase_key}
-                      className="flex items-center gap-1.75"
-                    >
-                      <Box
+                  {method.note ? (
+                    <Box className="mt-4.5 flex items-center gap-3.25 rounded-xl bg-[#f2f6fb] px-4 py-3.5">
+                      <Lightbulb
+                        size={20}
+                        strokeWidth={1.9}
+                        className="flex-none text-[#2563eb]"
                         aria-hidden="true"
-                        className={`size-2.25 flex-none rounded-[3px] ${LEGEND_DOT_CLASSES[segment.phase_key]}`}
                       />
                       <Text
-                        as="span"
-                        className="font-mono text-[10.5px] tracking-[0.08em] text-ink/60 uppercase"
+                        as="p"
+                        className="text-[13px] leading-[1.55] text-ink/80"
                       >
-                        {segment.label} {segment.percent}%
+                        <BoldLead text={method.note} />
                       </Text>
                     </Box>
-                  ))}
+                  ) : null}
                 </Box>
+              ) : null}
 
-                {method.note ? (
-                  <Box className="mt-4.5 flex items-center gap-3.25 rounded-xl bg-[#f2f6fb] px-4 py-3.5">
-                    <Lightbulb
-                      size={20}
-                      strokeWidth={1.9}
-                      className="flex-none text-[#2563eb]"
-                      aria-hidden="true"
-                    />
-                    <Text
-                      as="p"
-                      className="text-[13px] leading-[1.55] text-ink/80"
-                    >
-                      <BoldLead text={method.note} />
-                    </Text>
-                  </Box>
-                ) : null}
-              </Box>
-            ) : null}
-
-            {method.formats?.length ? (
-              <Box className="mt-5.5 border-t border-ink/12 pt-4.5">
-                <Text
-                  as="p"
-                  className="mb-2.75 font-mono text-[10.5px] tracking-[0.16em] text-ink/60 uppercase"
-                >
-                  Delivered as
-                </Text>
-
-                <Box className="flex flex-wrap gap-1">
-                  {method.formats.map((format, index) => (
-                    <MethodChip
-                      key={format}
-                      meta={FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0]}
-                    >
-                      {format}
-                    </MethodChip>
-                  ))}
-
-                  {method.summary_pills?.map((item, index) => (
-                    <MethodChip
-                      key={item}
-                      meta={SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]}
-                    >
-                      {item}
-                    </MethodChip>
-                  ))}
-                </Box>
-
-                {method.summary_note ? (
-                  <Text as="p" className="mt-3 text-[12.5px] text-ink/60">
-                    <BoldLead text={method.summary_note} />
+              {method.formats?.length ? (
+                <Box className="mt-5.5 border-t border-ink/12 pt-4.5">
+                  <Text
+                    as="p"
+                    className="mb-2.75 font-mono text-[10.5px] tracking-[0.16em] text-ink/60 uppercase"
+                  >
+                    Delivered as
                   </Text>
-                ) : null}
-              </Box>
-            ) : null}
 
-            {method.tools?.length ? (
-              <Box className="mt-5.5 border-t border-ink/12 pt-5">
-                <Text
-                  as="p"
-                  className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink"
-                >
-                  {method.tools_label}
-                </Text>
+                  <Box className="flex flex-wrap gap-1">
+                    {method.formats.map((format, index) => (
+                      <MethodChip
+                        key={format}
+                        meta={FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0]}
+                      >
+                        {format}
+                      </MethodChip>
+                    ))}
 
-                <Box className="mt-3 flex flex-wrap gap-2">
-                  {method.tools.map((tool) => (
-                    <Text
-                      key={tool}
-                      as="span"
-                      className="rounded-full bg-paper-warm px-3.5 py-1.5 text-[12.5px] font-medium text-ink"
-                    >
-                      {tool}
+                    {method.summary_pills?.map((item, index) => (
+                      <MethodChip
+                        key={item}
+                        meta={SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]}
+                      >
+                        {item}
+                      </MethodChip>
+                    ))}
+                  </Box>
+
+                  {method.summary_note ? (
+                    <Text as="p" className="mt-3 text-[12.5px] text-ink/60">
+                      <BoldLead text={method.summary_note} />
                     </Text>
-                  ))}
+                  ) : null}
                 </Box>
+              ) : null}
+
+              {method.tools?.length ? (
+                <Box className="mt-5.5 border-t border-ink/12 pt-5">
+                  <Text
+                    as="p"
+                    className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink"
+                  >
+                    {method.tools_label}
+                  </Text>
+
+                  <Box className="mt-3 flex flex-wrap gap-2">
+                    {method.tools.map((tool) => (
+                      <Text
+                        key={tool}
+                        as="span"
+                        className="rounded-full bg-paper-warm px-3.5 py-1.5 text-[12.5px] font-medium text-ink"
+                      >
+                        {tool}
+                      </Text>
+                    ))}
+                  </Box>
+                </Box>
+              ) : null}
+            </Box>
+
+            {method.media ? (
+              <Box className="relative hidden overflow-hidden rounded-[18px] bg-paper-cream lg:block">
+                <Image
+                  src={method.media.src}
+                  alt={method.media.alt || ""}
+                  fill
+                  sizes="280px"
+                  className="object-cover"
+                />
               </Box>
             ) : null}
-          </Box>
-
-          {method.media ? (
-            <Box className="relative hidden overflow-hidden rounded-[18px] bg-paper-cream lg:block">
-              <Image
-                src={method.media.src}
-                alt={method.media.alt || ""}
-                fill
-                sizes="280px"
-                className="object-cover"
-              />
-            </Box>
-          ) : null}
           </Box>
         </Reveal>
       ) : null}

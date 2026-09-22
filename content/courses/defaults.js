@@ -74,13 +74,6 @@ export const COURSE_DEFAULTS = {
       cta: { label: "Get a Tailored Outline", href: APPLY_ANCHOR },
     },
 
-    // The real `curriculum` component (verified against
-    // `data-science/ml-model-monitoring-course`) sends `meta`, `filters`,
-    // `heading`, `modules`, `description`, `author_credit` and
-    // `method.summary_pills` — so none of those are authored here. These
-    // six `method` fields are the ones it does *not* send, so they're what
-    // stays static; a real CMS record starting to send any of them would
-    // simply override it, same as any other field.
     method: {
       steps: [
         {

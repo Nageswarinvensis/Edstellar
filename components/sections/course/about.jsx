@@ -9,29 +9,6 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import CustomizedTraining from "@/components/sections/course/customized-training";
 
-/**
- * Course "about" section — richer than the domain page's `shared/about.jsx`:
- * a two-column "what's included" card (numbered program steps + a ticked
- * logistics checklist with a callout banner), a photo, and a closing chip
- * row. Kept as its own component rather than folded into the shared one,
- * since the domain page's simple prose/contrast layout has real callers
- * today and this design does not.
- *
- * `heading`, `body`, `expanded_body` and `inclusions.{label,left_columns,
- * columns}` are CMS-connected (`lib/content/courses.js` merges a real
- * `about` component's response over `COURSE_DEFAULTS.about`) — but
- * `media`, `chips` and `inclusions.banner` are fixed regardless of what
- * that component sends, stripped there before the merge.
- *
- * Design: `#about.eds-rich-sec`, `.eds-rich-grid`, `.eds-rich-incl-card`,
- * `.eds-rich-chips`.
- */
-
-/** Icons are chosen by position, not read from content — same convention as
- * `map-section.jsx`'s `FEATURE_ICONS`. `chips` is always authored as
- * [scope, delivery format, reach], so one short fixed array covers every
- * real case; `left_columns`+`columns` together are always [program,
- * logistics] the same way. */
 const INCLUSIONS_COLUMN_ICONS = [BookOpen, Truck];
 const CHIP_ICONS = [BarChart3, Users, Globe];
 
@@ -131,7 +108,11 @@ function InclusionsCard({ inclusions }) {
                           className="flex items-start gap-2.5 text-[13.5px] leading-normal font-medium text-ink"
                         >
                           <Box className="mt-0.5 grid size-3.75 flex-none place-items-center rounded-[5px] bg-lime-soft text-[#4d6208]">
-                            <Check size={10} strokeWidth={3} aria-hidden="true" />
+                            <Check
+                              size={10}
+                              strokeWidth={3}
+                              aria-hidden="true"
+                            />
                           </Box>
                           {item}
                         </Box>
@@ -219,9 +200,9 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
     <Section id="about" className="relative border-b border-ink/12 ">
       <Box
         className={[
-          "grid grid-cols-1 items-center gap-y-8.5",
+          "grid grid-cols-1 items-start gap-y-8.5",
           threeCol
-            ? "md:grid-cols-[0.8fr_1fr] md:gap-x-12 lg:grid-cols-[0.6fr_0.42fr_0.84fr] lg:items-center lg:gap-x-9"
+            ? "md:grid-cols-[0.8fr_1fr] md:gap-x-12 lg:grid-cols-[0.6fr_0.42fr_0.84fr] lg:items-start lg:gap-x-9"
             : inclusions
               ? "md:grid-cols-[0.8fr_1fr] md:gap-x-12 lg:gap-x-18"
               : "",
