@@ -7,6 +7,7 @@ import Section from "@/components/ui/Section";
 function DomainInfo({ proof }) {
   const topic_tags = proof?.topic_tags ?? [];
   const stats = proof?.stats ?? [];
+  const isDark = proof?.tone === "dark";
 
   return (
     <Section className="pt-0 pb-10 lg:pt-0 lg:pb-10">
@@ -26,7 +27,7 @@ function DomainInfo({ proof }) {
                 <Box
                   as="span"
                   aria-hidden="true"
-                  className="grid size-5 flex-none place-items-center rounded-full bg-lime text-ink"
+                  className="grid size-6 flex-none place-items-center rounded-full bg-lime text-ink"
                 >
                   ✓
                 </Box>
@@ -48,7 +49,9 @@ function DomainInfo({ proof }) {
           stats={stats}
           trainers={proof?.trainers}
           actions={proof?.actions}
-          className="mt-0 lg:mt-0"
+          className={`mt-0 lg:mt-0 ${
+            isDark ? "py-6 px-8 items-center" : ""
+          }`}
         />
       </Reveal>
     </Section>

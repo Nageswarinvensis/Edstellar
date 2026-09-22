@@ -47,7 +47,7 @@ function Breadcrumbs({ items: itemsProp, className, tone = "light" }) {
       as="nav"
       aria-label="Breadcrumb"
       className={cn(
-        "mt-6 flex flex-wrap items-center gap-1.5 font-mono text-[9.5px] tracking-[0.1em] uppercase",
+        "mt-6 flex flex-wrap items-center gap-1.5 font-mono text-[9.5px] tracking-widest uppercase",
         isDark ? "text-paper/60" : "text-ink-muted",
         className,
       )}
