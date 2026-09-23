@@ -1,5 +1,5 @@
 {
-  "trainingNeedsAnalysis": {
+  "l&dheroData": {
     "title": "Training Needs Analysis Services",
     "tagline": "Know what to train, and what to skip.",
     "description": "Most training budgets fund courses nobody needed. Edstellar's needs analysis finds the skill gaps that actually hold your teams back, ranks them by business impact, and hands you a roadmap you can defend to finance.",
@@ -17,7 +17,8 @@
       "label": "Consulting"
     },
     {
-      "label": "Training Needs Analysis"
+      "href": "/corporate-training",
+      "label": "Corporate Training"
     }
   ],
   "proof": {
