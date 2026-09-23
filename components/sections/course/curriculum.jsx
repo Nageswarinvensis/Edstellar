@@ -183,7 +183,7 @@ export default function Curriculum({ curriculum }) {
 
         {author_credit ? (
           <Reveal delay={2}>
-            <Box className="w-full max-w-82.5 rounded-[14px] border border-ink/12 bg-white p-3.75 transition-[border-color,box-shadow] duration-300 hover:border-ink/20 hover:shadow-[0_16px_36px_-28px_rgba(10,22,40,0.45)]">
+            <Box className="w-full max-w-100 rounded-[14px] border border-ink/12 bg-white p-3.75 transition-[border-color,box-shadow] duration-300 hover:border-ink/20 hover:shadow-[0_16px_36px_-28px_rgba(10,22,40,0.45)]">
               <Box className="mb-2 flex items-center gap-2.5">
                 <Image
                   src="/course/Avatar.webp"

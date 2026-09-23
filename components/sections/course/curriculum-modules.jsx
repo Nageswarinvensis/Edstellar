@@ -256,7 +256,7 @@ export default function CurriculumModules({ modules }) {
               id={`mod-${module.number}`}
               value={module.number}
               className={cn(
-                "scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_var(--module-filter-h,0px)_+_16px)] border-b border-ink/10 last:border-b-0",
+                "scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_var(--module-filter-h,0px)_+_16px)] border-b border-ink/10 transition-colors duration-300 last:border-b-0 data-open:bg-paper-warm/50",
                 !visible && "hidden",
               )}
             >
