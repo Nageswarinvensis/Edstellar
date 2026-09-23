@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import { Clock, List } from "lucide-react";
 
@@ -120,6 +120,29 @@ function ModuleTrigger({ module }) {
   );
 }
 
+function phaseId(phase) {
+  return typeof phase === "string" ? phase.trim().toLowerCase() : "";
+}
+
+/**
+ * "All modules" plus one chip per distinct `learning_phase`, in the order
+ * the phases first appear. No chip bar when the modules don't span at least
+ * two phases — a single-phase filter would hide nothing.
+ */
+function buildPhaseFilters(modules = []) {
+  const phases = new Map();
+  for (const module of modules) {
+    const id = phaseId(module.learning_phase);
+    if (id && !phases.has(id)) phases.set(id, module.learning_phase.trim());
+  }
+  if (phases.size < 2) return [];
+
+  return [
+    { id: "all", label: "All modules" },
+    ...[...phases].map(([id, label]) => ({ id, label })),
+  ];
+}
+
 /**
  * Curriculum's interactive body: a focus-area filter and the module
  * accordion. Kept as the smallest client leaf — the section heading, lede,
@@ -127,8 +150,9 @@ function ModuleTrigger({ module }) {
  *
  * Design: `.focus-bar`, `#modList`, `.mod`, `.mod-head`, `.mod-body`.
  */
-export default function CurriculumModules({ filters, modules }) {
+export default function CurriculumModules({ modules }) {
   const [activeFilter, setActiveFilter] = useState("all");
+  const filters = useMemo(() => buildPhaseFilters(modules), [modules]);
   const filtersRef = useRef(null);
 
   // Center the active filter chip in its scroll container — matches the
@@ -223,7 +247,8 @@ export default function CurriculumModules({ filters, modules }) {
       >
         {modules.map((module) => {
           const visible =
-            activeFilter === "all" || module.tags?.includes(activeFilter);
+            activeFilter === "all" ||
+            phaseId(module.learning_phase) === activeFilter;
 
           return (
             <AccordionItem
@@ -238,6 +263,15 @@ export default function CurriculumModules({ filters, modules }) {
               <ModuleTrigger module={module} />
 
               <AccordionContent className="pt-3 pr-6 pb-5.5 pl-11 sm:pl-14.5">
+                {module.lab?.description ? (
+                  <Text
+                    as="p"
+                    className="mb-3.5 max-w-3xl text-[13.5px] leading-[1.6] text-ink/60"
+                  >
+                    {module.lab.description}
+                  </Text>
+                ) : null}
+
                 {module.learning_phase ? (
                   <Text
                     as="span"

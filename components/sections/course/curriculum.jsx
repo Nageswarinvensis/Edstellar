@@ -158,7 +158,6 @@ export default function Curriculum({ curriculum }) {
     meta,
     author_credit,
     method,
-    filters,
     modules,
     section_cta,
   } = curriculum;
@@ -439,7 +438,7 @@ export default function Curriculum({ curriculum }) {
 
       <Reveal delay={3}>
         <Box>
-          <CurriculumModules filters={filters} modules={modules} />
+          <CurriculumModules modules={modules} />
         </Box>
       </Reveal>
 
