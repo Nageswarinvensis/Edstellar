@@ -1,10 +1,29 @@
 {
   "trainingNeedsAnalysis": {
-    "title": "Training Needs Analysis Services",
-    "tagline": "Know what to train, and what to skip.",
-    "description": "Most training budgets fund courses nobody needed. Edstellar's training needs analysis (also called learning needs analysis, or LNA/LNI) finds the skill gaps that actually hold your teams back, ranks them by business impact, and hands you a roadmap you can defend to finance.",
-    "primaryBtnText": "Request training needs analysis",
-    "secondaryBtnText": "Take the 3-minute TNA diagnostic",
+  "title": "Training Needs Analysis Services",
+  "tagline": "Know what to train, and what to skip.",
+  "description": "Most training budgets fund courses nobody needed. Edstellar's training needs analysis (also called learning needs analysis, or LNA/LNI) finds the skill gaps that actually hold your teams back, ranks them by business impact, and hands you a roadmap you can defend to finance.",
+  "showMeta": false,
+  "meta": [
+    "Instructor-led group training",
+    "Virtual / on-site / off-site",
+    {
+      "label": "10 languages",
+      "tooltip": {
+        "heading": "Delivered in",
+        "body": "English, Spanish, Mandarin, German, Arabic, Portuguese, Hindi, French, Japanese, Italian"
+      }
+    },
+    {
+      "label": "100+ countries",
+      "tooltip": {
+        "heading": "We have delivered in",
+        "body": "United States, United Kingdom, India, Canada, Germany, France, Netherlands, UAE, Saudi Arabia, Singapore, Australia, Japan, Brazil, South Africa and 90+ more countries"
+      }
+    }
+  ],
+  "primaryBtnText": "Request training needs analysis",
+  "secondaryBtnText": "Take the 3-minute TNA diagnostic",
     "skill_matrix": {
       "label": "Skill matrix",
       "aria_label": "Skill matrix, illustrative",
