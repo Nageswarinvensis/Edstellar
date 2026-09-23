@@ -75,7 +75,7 @@ function ClientLogos({ data, className }) {
                 key={`${logo.alt}-${index}`}
                 aria-hidden={duplicate || undefined}
                 className={cn(
-                  "flex h-13.5 flex-none items-center justify-center rounded-[8px] bg-white py-2",
+                  "flex h-13.5 flex-none items-center justify-center rounded-[8px] py-2",
                   size ? "min-w-35 px-5" : "w-35 px-4",
                   duplicate && "motion-reduce:hidden",
                 )}
