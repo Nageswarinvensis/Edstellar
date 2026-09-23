@@ -161,7 +161,7 @@ function AboutChips({ chips }) {
             <Box
               as="li"
               key={chip.title}
-              className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-2.75"
+              className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-2.75 self-baseline"
             >
               <Box className="row-span-2 grid size-8.5 flex-none place-items-center rounded-[10px] bg-lime-soft text-ink">
                 <Icon size={17} strokeWidth={1.9} aria-hidden="true" />
