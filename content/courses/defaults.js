@@ -90,7 +90,7 @@ export const COURSE_DEFAULTS = {
         },
         {
           label: "Practice",
-          parts: [{ text: "Reinforce skills through hands-on labs" }],
+          parts: [{ text: "Reinforce skills through role plays" }],
         },
         {
           label: "Apply",
@@ -105,7 +105,7 @@ export const COURSE_DEFAULTS = {
         { phase_key: "practice", label: "Practice", percent: 65 },
         { phase_key: "apply", label: "Apply", percent: 18 },
       ],
-      note: "A short <b>pre-training assessment sets each participant’s entry level</b>, so the program starts where your team actually is. The rest is weighted toward hands-on practice: labs run against a live monitoring stack with injected drift, not slides.",
+      note: "A short <b>pre-training assessment sets each participant's entry level</b>, so the program starts where your team actually is. The rest is weighted toward hands-on practice: role plays and realistic scenarios drawn from your team's work, not slides.",
       formats: ["Multi-day program", "Weekly sessions", "Split into batches"],
       summary_note:
         "<b>Entry level set by the assessment.</b> Depth and schedule customized to your team.",
