@@ -30,9 +30,6 @@ function logoSize(logo) {
 }
 
 /**
- * Every logo renders monochrome, so no single brand's colours dominate the
- * strip.
- *
  * The list is rendered twice so the -50% marquee loops seamlessly; the second
  * copy is aria-hidden so screen readers announce each client once. With
  * reduced motion the strip stops, drops the copy and wraps as a static row.
@@ -89,10 +86,7 @@ function ClientLogos({ data, className }) {
                   title={logo.title || logo.alt || ""}
                   width={size?.width ?? 140}
                   height={size?.height ?? 48}
-                  className={cn(
-                    "object-contain grayscale",
-                    !size && "max-h-10.5 w-auto max-w-30",
-                  )}
+                  className={cn(!size && "max-h-10.5 w-auto max-w-30 object-contain")}
                 />
               </Box>
             );

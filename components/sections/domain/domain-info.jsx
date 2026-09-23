@@ -46,6 +46,7 @@ function DomainInfo({ proof }) {
       <Reveal delay={4}>
         <ProofBar
           tone={proof?.tone || "dark"}
+          layout={proof?.layout}
           stats={stats}
           trainers={proof?.trainers}
           actions={proof?.actions}

@@ -45,7 +45,14 @@ function Avatars({ people = [] }) {
   );
 }
 
-function ProofBar({ tone, stats = [], trainers, actions = [], className }) {
+function ProofBar({
+  tone,
+  layout,
+  stats = [],
+  trainers,
+  actions = [],
+  className,
+}) {
   /* tone is the ONLY design switch. */
   const isLight = tone === "light";
 
@@ -127,11 +134,13 @@ function ProofBar({ tone, stats = [], trainers, actions = [], className }) {
     );
   }
 
-  /* DARK, STATS ONLY (e.g. TNA) — no trainers or actions to balance against,
-     so each stat takes an equal share of the bar and they spread edge to
-     edge, split by dividers. On phones they pair up two per row. */
+  /* DARK, SPREAD (e.g. TNA) — opted into by the content's `layout: "spread"`.
+     Stats only: each takes an equal share of the bar and they spread edge to
+     edge, split by dividers. On phones they pair up two per row. Explicit
+     rather than inferred from "no trainers", so a course whose CMS record
+     lacks trainers keeps its own layout. */
 
-  if (!trainers && !actions.length) {
+  if (layout === "spread") {
     return (
       <Box
         className={cn(
