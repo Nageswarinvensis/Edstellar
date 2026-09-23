@@ -41,7 +41,7 @@ export default function CoursePage({ course }) {
   return (
     <>
       <Hero hero={course.hero} breadcrumbs={course.breadcrumbs?.items} />
-      <CourseInfo topics={course.hero?.topics} proof={course.proof} />
+      <CourseInfo proof={course.proof} capabilityModel={course.CapabilityModel} />
       <ClientLogos data={course.ClientsLogosData} />
       <About about={course.about} />
 

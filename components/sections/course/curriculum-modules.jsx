@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
-import { Clock, FlaskConical, List, Zap } from "lucide-react";
+import { Clock, List } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -17,18 +17,6 @@ const BAND_CLASSES = {
   learn: "bg-green-50 text-green-700",
   practice: "bg-blue-50 text-blue-600",
   apply: "bg-violet-50 text-violet-600",
-};
-
-const LAB_KIND_LABEL = {
-  intro: "Guided walkthrough",
-  lab: "Hands-on lab",
-  capstone: "Capstone",
-};
-
-const LAB_KIND_CLASSES = {
-  intro: "bg-paper-warm border-ink/12",
-  lab: "bg-lime/9 border-lime/40",
-  capstone: "bg-navy/5 border-ink/20",
 };
 
 function formatHours(hours) {
@@ -52,7 +40,6 @@ function ModuleStat({ icon: Icon, iconClassName, children }) {
 }
 
 function ModuleMeta({ module }) {
-  const hasLab = module.lab?.kind && module.lab.kind !== "intro";
   const hasHours = Number.isFinite(module.hours);
 
   return (
@@ -74,19 +61,6 @@ function ModuleMeta({ module }) {
         <ModuleStat icon={Clock} iconClassName="text-amber-600">
           ~{formatHours(module.hours)}
         </ModuleStat>
-      ) : null}
-      {hasLab ? (
-        <>
-          {(module.topics || hasHours) ? (
-            <Box
-              className="h-4.25 w-px flex-none bg-ink/12"
-              aria-hidden="true"
-            />
-          ) : null}
-          <ModuleStat icon={FlaskConical} iconClassName="text-violet-600">
-            {module.lab.kind === "capstone" ? "Capstone" : "1 lab"}
-          </ModuleStat>
-        </>
       ) : null}
     </Box>
   );
@@ -143,40 +117,6 @@ function ModuleTrigger({ module }) {
         </Box>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
-  );
-}
-
-function ModuleLab({ lab, className }) {
-  if (!lab) return null;
-
-  return (
-    <Box
-      className={cn(
-        "flex gap-3.5 rounded-xl border p-4.25",
-        LAB_KIND_CLASSES[lab.kind],
-        className,
-      )}
-    >
-      <Zap
-        size={16}
-        className="mt-0.5 flex-none text-lime"
-        aria-hidden="true"
-      />
-      <Box>
-        <Text
-          as="p"
-          className="mb-1 font-mono text-[10px] tracking-[0.1em] text-ink/50 uppercase"
-        >
-          {LAB_KIND_LABEL[lab.kind]}
-        </Text>
-        <Text as="p" className="font-display text-sm font-semibold text-ink">
-          {lab.title}
-        </Text>
-        <Text as="p" className="mt-1 text-[13.5px] leading-[1.55] text-ink/60">
-          {lab.description}
-        </Text>
-      </Box>
-    </Box>
   );
 }
 
@@ -340,8 +280,6 @@ export default function CurriculumModules({ filters, modules }) {
                       </Box>
                     </Box>
                   ))}
-
-                  <ModuleLab lab={module.lab} className="sm:col-span-2" />
                 </Box>
               </AccordionContent>
             </AccordionItem>

@@ -185,7 +185,7 @@ function ProofBar({
     >
       <Box
         className={cn(
-          "flex min-w-0 items-center",
+          "flex min-w-0 items-center justify-center",
           "min-[1025px]:flex-nowrap",
           "max-[1024px]:w-full max-[1024px]:flex-wrap",
           "max-[1024px]:gap-x-6 max-[1024px]:gap-y-4",
@@ -197,7 +197,7 @@ function ProofBar({
             key={`stat-group-${stat.label}-${index}`}
             className="flex flex-none items-center"
           >
-            <Box className="flex flex-col gap-1 text-left">
+            <Box className="flex flex-col gap-1 text-left max-sm:items-center max-sm:text-center">
               <b
                 className={cn(
                   "font-display text-[20px] leading-none font-bold",

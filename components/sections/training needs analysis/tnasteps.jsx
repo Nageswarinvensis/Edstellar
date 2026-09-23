@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
  */
 
 const STEP_CLASS = `
+  mb-5 min-[900px]:mb-0
   min-[900px]:col-start-2 min-[900px]:flex min-[900px]:min-h-screen min-[900px]:flex-col min-[900px]:justify-center
   min-[900px]:opacity-24 min-[900px]:transition-opacity min-[900px]:duration-400 min-[900px]:ease-[ease]
   min-[900px]:data-on:opacity-100

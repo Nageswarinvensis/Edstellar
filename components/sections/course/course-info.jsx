@@ -1,7 +1,7 @@
 import Box from "@/components/ui/Box";
-import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import ProofBar from "@/components/common/proof-bar";
+import CapabilityModel from "@/components/sections/course/capability-model";
 
 const DELIVERY_STAT = {
   value: "Delivery",
@@ -20,7 +20,7 @@ const TRAINERS_STATIC = {
   meet_label: "Meet them",
 };
 
-function CourseInfo({ proof }) {
+function CourseInfo({ proof, capabilityModel }) {
   const topic_tags = proof?.topic_tags ?? [];
   const stats = proof
     ? [
@@ -36,37 +36,7 @@ function CourseInfo({ proof }) {
   return (
     <Box as="section" className="px-5 py-5 lg:px-10">
       <Box as="div" className="max-w-7xl m-auto">
-        {topic_tags.length ? (
-          <Reveal delay={4}>
-            <Box
-              as="ul"
-              aria-label="Included with this course"
-              className="mt-4 flex flex-wrap gap-3 max-md:mt-0"
-            >
-              {topic_tags.map((badge) => (
-                <Box
-                  as="li"
-                  key={badge}
-                  className="flex items-center gap-2 rounded-full border border-ink/12 bg-white px-4 py-2 shadow-[0_12px_26px_-18px_rgba(10,22,40,0.35)] transition-all duration-300 ease-out hover:-translate-y-0.5"
-                >
-                  <Box
-                    as="span"
-                    aria-hidden="true"
-                    className="grid size-5 flex-none place-items-center rounded-full bg-lime text-ink"
-                  >
-                    ✓
-                  </Box>
-                  <Text
-                    as="span"
-                    className="text-[0.75rem] leading-none font-medium text-ink"
-                  >
-                    {badge}
-                  </Text>
-                </Box>
-              ))}
-            </Box>
-          </Reveal>
-        ) : null}
+        <CapabilityModel data={capabilityModel} />
 
         <Reveal delay={4}>
           <ProofBar

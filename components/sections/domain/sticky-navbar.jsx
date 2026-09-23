@@ -9,6 +9,14 @@ import { setHeaderHidden } from "@/lib/client/header-visibility";
 
 const HEADER_OFFSET = 68;
 
+/**
+ * A section becomes active once its top rises above this line: 35% of the
+ * way down the viewport, and never closer to the top than just below the
+ * bar. A section whose heading is plainly in view is the one being read.
+ */
+const ACTIVE_LINE_RATIO = 0.35;
+const ACTIVE_LINE_MIN = HEADER_OFFSET + 60;
+
 function scrollToHash(event) {
   const id = event.currentTarget.getAttribute("href")?.slice(1);
   const target = id && document.getElementById(id);
@@ -31,57 +39,72 @@ export default function StickyTabs({ data, hasTrainers }) {
   const listRef = useRef(null);
   const tabRefs = useRef({});
 
+  // Stable key so the scroll effect below doesn't re-subscribe on every
+  // render — `tabs` is a freshly filtered array each time.
+  const tabKey = tabs?.map((tab) => tab.id).join(",") ?? "";
+
+  /*
+   * One scroll handler drives both jobs, measured from positions rather than
+   * from intersection changes. IntersectionObserver only reports *crossings*,
+   * so a jump that skips over the sentinel (an in-page link, a reload
+   * mid-page, a fast mobile fling, scroll restoration) never fired and left
+   * the site header covering this bar.
+   *
+   * - The site header hides whenever the sentinel above this bar has passed
+   *   the top of the viewport, i.e. whenever this bar is pinned.
+   * - The active tab is the last section whose top has crossed the active
+   *   line (see ACTIVE_LINE_RATIO). (Picking the first section still inside a band, as
+   *   before, lagged one section behind while scrolling.) At the very bottom
+   *   of the page the last tab wins, since a short final section may never
+   *   reach the line.
+   */
   useEffect(() => {
     const sentinel = sentinelRef.current;
-    if (!sentinel || typeof window === "undefined") return;
+    if (!sentinel) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setHeaderHidden(entry.boundingClientRect.top < 0);
-      },
-      { threshold: 0 },
-    );
-    observer.observe(sentinel);
+    const ids = tabKey ? tabKey.split(",") : [];
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      setHeaderHidden(sentinel.getBoundingClientRect().top < 0);
+
+      const sections = ids
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+      if (!sections.length) return;
+
+      const line = Math.max(
+        ACTIVE_LINE_MIN,
+        window.innerHeight * ACTIVE_LINE_RATIO,
+      );
+      let current = sections[0].id;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= line) current = section.id;
+      }
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      if (atBottom) current = sections[sections.length - 1].id;
+
+      setActiveId(current);
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
       setHeaderHidden(false);
     };
-  }, []);
-
-  useEffect(() => {
-    if (!tabs?.length || typeof window === "undefined") return;
-
-    const sections = tabs
-      .map((tab) => document.getElementById(tab.id))
-      .filter(Boolean);
-
-    if (!sections.length) return;
-
-    const visibleIds = new Set();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) visibleIds.add(entry.target.id);
-          else visibleIds.delete(entry.target.id);
-        });
-
-        if (!visibleIds.size) return;
-
-        const current = sections.find((section) => visibleIds.has(section.id));
-        if (current) setActiveId(current.id);
-      },
-      {
-        rootMargin: `-${HEADER_OFFSET + 60}px 0px -65% 0px`,
-        threshold: 0,
-      },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, [tabs]);
+  }, [tabKey]);
 
   useEffect(() => {
     const activeEl = tabRefs.current[activeId];
@@ -171,24 +194,24 @@ export default function StickyTabs({ data, hasTrainers }) {
                 );
               })}
             </ul>
+            {/* Conditional CTA Button */}
+            {data?.cta?.text && (
+              <Box className="ml-6 flex shrink-0 items-center">
+                <CtaButton
+                  arrow
+                  render={
+                    <a
+                      href={`#${data.cta.targetId || "form"}`}
+                      onClick={scrollToHash}
+                    />
+                  }
+                  title={data.cta.title}
+                >
+                  {data.cta.text}
+                </CtaButton>
+              </Box>
+            )}
           </Box>
-
-          {/* Conditional CTA Button */}
-          {data?.cta?.text && (
-            <Box className="flex shrink-0 items-center">
-              <CtaButton
-                render={
-                  <a
-                    href={`#${data.cta.targetId || "form"}`}
-                    onClick={scrollToHash}
-                  />
-                }
-                title={data.cta.title}
-              >
-                {data.cta.text}
-              </CtaButton>
-            </Box>
-          )}
         </Box>
       </Box>
     </>

@@ -68,7 +68,7 @@ export const COURSE_DEFAULTS = {
 
   curriculum: {
     section_cta: {
-      title: "Want this program tailored to your team?",
+      title: "Customize this program tailored to your team?",
       description:
         "Tell us your training needs: what your team already works with, the level they’re at, and the topics you want them to focus on. We’ll adjust the modules, duration and hands-on labs, and send you a customized outline for your group.",
       cta: { label: "Get a Tailored Outline", href: APPLY_ANCHOR },
