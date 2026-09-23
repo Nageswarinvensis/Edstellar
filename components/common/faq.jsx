@@ -16,8 +16,9 @@ import {
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 
-/** Questions shown before the "Load more" toggle — matches the design's
- * own cutoff (5 of 15 for this course's FAQ list). */
+/** Questions shown before the "Load more" toggle — matches the course
+ * design's own cutoff (5 of 15 for its FAQ list). Only applies when the
+ * section is `collapsible`; every other page lists all its questions. */
 const INITIAL_VISIBLE_COUNT = 5;
 
 function FaqAnswer({ answer }) {
@@ -97,6 +98,8 @@ function FaqTrigger({ children }) {
 export default function Faq({
   faqs,
   innerClassName,
+  headingClassName,
+  collapsible = false,
   showCta = true,
   className,
   id = "faqs",
@@ -107,7 +110,10 @@ export default function Faq({
 
   if (!faqs || Array.isArray(faqs) || !faqs.items?.length) return null;
 
-  const hiddenCount = Math.max(faqs.items.length - INITIAL_VISIBLE_COUNT, 0);
+  const hiddenCount = collapsible
+    ? Math.max(faqs.items.length - INITIAL_VISIBLE_COUNT, 0)
+    : 0;
+  const collapsed = hiddenCount > 0 && !expanded;
 
   return (
     <Section
@@ -120,7 +126,10 @@ export default function Faq({
     >
       <Box>
         <Reveal delay={1}>
-          <RichHeading heading={faqs.heading} className="max-w-[28ch]" />
+          <RichHeading
+            heading={faqs.heading}
+            className={cn("max-w-[28ch]", headingClassName)}
+          />
         </Reveal>
 
         <Reveal delay={1}>
@@ -131,7 +140,7 @@ export default function Faq({
                 value={`faq-${index}`}
                 className={cn(
                   "border-ink/10",
-                  !expanded && index >= INITIAL_VISIBLE_COUNT && "hidden",
+                  collapsed && index >= INITIAL_VISIBLE_COUNT && "hidden",
                 )}
               >
                 <FaqTrigger>{faq.question}</FaqTrigger>
@@ -144,7 +153,7 @@ export default function Faq({
           </Accordion>
         </Reveal>
 
-        {!expanded && hiddenCount > 0 ? (
+        {collapsed ? (
           <Reveal delay={2}>
             <Box className="mt-6 flex justify-center">
               <button

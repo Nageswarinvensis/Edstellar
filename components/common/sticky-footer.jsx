@@ -100,6 +100,7 @@ export default function StickyFooter({ data }) {
   if (!data || !messages?.length) return null;
 
   const message = messages[index % messages.length];
+  const cta = data.cta ?? STICKY_CTA;
 
   return (
     <Box
@@ -185,9 +186,9 @@ export default function StickyFooter({ data }) {
             color="lime"
             arrow
             className="max-lg:w-full"
-            render={<a href={STICKY_CTA.href} />}
+            render={<a href={cta.href} />}
           >
-            {STICKY_CTA.label}
+            {cta.label}
           </CtaButton>
 
           <Box

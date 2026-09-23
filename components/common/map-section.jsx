@@ -112,9 +112,6 @@ export default function MapSection({ data, className }) {
       )}
     >
       <Box>
-        {/* =========================================================
-            TOP / HERO
-        ========================================================== */}
         <Box className="relative grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start lg:gap-12">
           {/* Left content */}
           <Box className="max-w-162">
@@ -177,10 +174,7 @@ export default function MapSection({ data, className }) {
 
                   {stat.connector && (
                     <>
-                      <Text
-                        as="span"
-                        className="text-[12px] text-ink-muted"
-                      >
+                      <Text as="span" className="text-[12px] text-ink-muted">
                         {stat.connector}
                       </Text>
 

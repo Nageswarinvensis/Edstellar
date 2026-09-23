@@ -17,7 +17,7 @@ export default function TnaEngine({ data }) {
 
   return (
     <Section id={sectionId} className="bg-white border-b border-t-[#0a16281f]">
-      <Box className="mx-auto max-w-3xl flex flex-col items-center text-center px-4">
+      <Box className="mx-auto flex max-w-[920px] flex-col items-center text-center">
         {/* Heading */}
         <Reveal>
           <RichHeading heading={heading} />
@@ -27,7 +27,7 @@ export default function TnaEngine({ data }) {
           {subtitle && (
             <Text
               as="p"
-              className="mt-6 text-[18px] leading-relaxed text-ink/70"
+              className="mx-auto mt-6 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/70"
             >
               {subtitle}
             </Text>

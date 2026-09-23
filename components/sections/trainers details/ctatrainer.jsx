@@ -4,8 +4,9 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
+import { cn } from "@/lib/utils";
 
-export default function CtaTrainer({ trainer, data }) {
+export default function CtaTrainer({ trainer, data, emphasisClassName }) {
   // Support passing either data directly OR data.ctaTrainerData wrapper
   const ctaData = data?.ctaTrainerData || data || {};
 
@@ -48,7 +49,7 @@ export default function CtaTrainer({ trainer, data }) {
           <RichHeading
             heading={heading}
             className="text-white"
-            emphasisClassName="text-lime"
+            emphasisClassName={cn("text-lime", emphasisClassName)}
           />
         </Reveal>
 

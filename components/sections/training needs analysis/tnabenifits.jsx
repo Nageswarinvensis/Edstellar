@@ -20,14 +20,14 @@ export default function Benefits({ data }) {
     <Section id={sectionId} className="bg-white border-b border-t-[#0a16281f]">
       <Box>
         {/* Header Section */}
-        <Box className="mb-12 text-center">
+        <Box className="mx-auto mb-12 max-w-[62ch] text-center">
           <Reveal>
             <RichHeading heading={heading} />
           </Reveal>
 
           <Reveal delay={1}>
             {subtitle && (
-              <Text as="p" className="mt-3 text-[16px] text-ink/70">
+              <Text as="p" className="mx-auto mt-3 max-w-[60ch] text-[16px] text-ink/70">
                 {subtitle}
               </Text>
             )}

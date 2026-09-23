@@ -127,6 +127,40 @@ function ProofBar({ tone, stats = [], trainers, actions = [], className }) {
     );
   }
 
+  /* DARK, STATS ONLY (e.g. TNA) — no trainers or actions to balance against,
+     so each stat takes an equal share of the bar and they spread edge to
+     edge, split by dividers. On phones they pair up two per row. */
+
+  if (!trainers && !actions.length) {
+    return (
+      <Box
+        className={cn(
+          className,
+          "flex flex-wrap items-center gap-2 rounded-[20px] bg-navy px-[34px] py-[22px] shadow-lift",
+          "max-[601px]:gap-[18px] max-[601px]:px-[22px] max-[601px]:py-[18px]",
+        )}
+      >
+        {stats.map((stat, index) => (
+          <Box
+            key={`${stat.label}-${index}`}
+            className={cn(
+              "flex min-w-[140px] flex-[1_1_0] flex-col gap-1.5",
+              index > 0 && "border-l border-paper/15 pl-[34px]",
+              "max-[601px]:flex-[1_1_45%] max-[601px]:border-l-0 max-[601px]:pl-0",
+            )}
+          >
+            <b className="font-display text-[26px] leading-none font-bold tracking-[-0.03em] text-lime">
+              {stat.value}
+            </b>
+            <span className="font-mono text-[10px] leading-[1.7] tracking-[0.14em] text-paper/55 uppercase">
+              {stat.label}
+            </span>
+          </Box>
+        ))}
+      </Box>
+    );
+  }
+
   return (
     <Box
       className={cn(

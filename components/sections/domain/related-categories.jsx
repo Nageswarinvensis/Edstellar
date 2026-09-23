@@ -45,7 +45,7 @@ export default function RelatedCategories({ data, id = "related-domains" }) {
                 {item.type && (
                   <Text
                     as="p"
-                    className="mt-3 font-mono text-[9px] uppercase tracking-[0.12em] text-ink/60"
+                    className="mt-3 text-[10px] uppercase tracking-[0.12em] text-ink/60"
                   >
                     {item.type}
                   </Text>

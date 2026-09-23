@@ -1,37 +1,50 @@
-import { ArrowRight } from "lucide-react";
-
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import TnaProcessFlow from "./tna-process-flow";
+import { cn } from "@/lib/utils";
 
-function Connector() {
-  return (
-    <Box
-      aria-hidden="true"
-      className="flex items-center justify-center py-1 lg:px-2 lg:py-0"
-    >
-      <ArrowRight
-        size={16}
-        strokeWidth={2}
-        className="rotate-90 text-ink/30 lg:rotate-0"
-      />
-    </Box>
-  );
+/*
+ * Converging-hub flowchart: setup → inputs → gap analysis → three outputs,
+ * one row. `TnaProcessFlow` draws the animated connectors between the boxes
+ * tagged with `data-hd`. At 1140px and below the chart stacks, the connectors
+ * are hidden, and a ↓ between columns carries the flow instead.
+ */
+
+const COL_CLASS = "relative z-2 flex flex-none flex-col";
+
+const ARROW_CLASS =
+  "max-[1141px]:before:my-0.5 max-[1141px]:before:block max-[1141px]:before:text-center max-[1141px]:before:text-[20px] max-[1141px]:before:leading-[1.7] max-[1141px]:before:text-ink/22 max-[1141px]:before:content-['↓']";
+
+const NODE_CLASS =
+  "flex items-center justify-center rounded-[12px] border text-center transition-[translate,box-shadow] duration-200 hover:-translate-y-[3px] hover:shadow-lift motion-reduce:hover:translate-y-0 max-[1141px]:w-auto";
+
+const LABEL_CLASS =
+  "font-display text-[13.5px] leading-[1.22] font-bold tracking-[-0.01em] text-ink";
+
+function Column({ first = false, children }) {
+  return <Box className={cn(COL_CLASS, !first && ARROW_CLASS)}>{children}</Box>;
 }
 
-function Node({ label, note }) {
+function Node({ label, note, ...props }) {
   return (
-    <Box className="flex min-h-24 w-full flex-col items-center justify-center rounded-2xl border border-ink/12 bg-white px-5 py-4 text-center lg:w-45">
-      <Text as="span" className="text-[13.5px] font-semibold text-ink">
+    <Box
+      {...props}
+      className={cn(NODE_CLASS, "min-h-[104px] w-[128px] border-ink/12 bg-white p-3.5")}
+    >
+      <Text as="span" className={LABEL_CLASS}>
         {label}
+        {note ? (
+          <Text
+            as="span"
+            className="mt-1 block text-[11.5px] leading-[1.22] font-normal tracking-normal text-ink/60"
+          >
+            {note}
+          </Text>
+        ) : null}
       </Text>
-      {note && (
-        <Text as="span" className="mt-1 font-mono text-[10px] text-ink-muted">
-          {note}
-        </Text>
-      )}
     </Box>
   );
 }
@@ -50,7 +63,7 @@ export default function TnaProcess({ data }) {
 
         {subtitle && (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 text-[16px] leading-relaxed text-ink/70">
+            <Text as="p" className="mt-4 max-w-[60ch] text-[16px] leading-relaxed text-ink/70">
               {subtitle}
             </Text>
           </Reveal>
@@ -58,51 +71,66 @@ export default function TnaProcess({ data }) {
       </Box>
 
       <Reveal delay={2}>
-        <Box className="flex flex-col items-center gap-1 lg:flex-row lg:items-stretch lg:justify-center lg:gap-0">
-          <Node label={setup} />
-
-          <Connector />
+        <TnaProcessFlow
+          className="
+            relative flex flex-nowrap items-center justify-center gap-10
+            max-[1141px]:flex-col max-[1141px]:items-stretch max-[1141px]:gap-3
+          "
+        >
+          <Column first>
+            <Node data-hd="setup" label={setup} />
+          </Column>
 
           {inputs && (
-            <Box className="w-full overflow-hidden rounded-2xl border border-ink/12 bg-white lg:w-64">
-              <Box className="border-b border-ink/10 px-5 py-3">
+            <Column>
+              <Box
+                data-hd="table"
+                className="w-[198px] overflow-hidden rounded-[12px] border border-ink/12 bg-white max-[1141px]:w-auto"
+              >
                 <Text
-                  as="span"
-                  className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-muted"
+                  as="p"
+                  className="border-b border-ink/12 bg-paper-warm px-2.5 py-[11px] text-center font-display text-[14px] leading-[1.7] font-bold text-ink"
                 >
                   {inputs.label}
                 </Text>
-              </Box>
-              <Box className="divide-y divide-ink/8">
                 {inputs.items?.map((item) => (
                   <Text
                     key={item}
                     as="p"
-                    className="px-5 py-2.5 text-[13px] leading-snug text-ink/75"
+                    data-hd="input"
+                    className="border-b border-ink/12 p-3 text-center text-[13px] leading-[1.25] text-ink last:border-b-0"
                   >
                     {item}
                   </Text>
                 ))}
               </Box>
-            </Box>
+            </Column>
           )}
 
-          <Connector />
+          <Column>
+            <Box
+              data-hd="hub"
+              className={cn(
+                NODE_CLASS,
+                "min-h-[118px] w-[140px] border-navy bg-navy p-3.5 shadow-lift",
+                "max-[1141px]:min-h-0 max-[1141px]:p-[18px]",
+              )}
+            >
+              <Text
+                as="span"
+                className="font-display text-[19px] leading-[1.1] font-bold tracking-[-0.01em] text-paper"
+              >
+                {hub}
+              </Text>
+            </Box>
+          </Column>
 
-          <Box className="flex min-h-24 w-full flex-col items-center justify-center rounded-2xl bg-navy px-5 py-4 text-center lg:w-45">
-            <Text as="span" className="text-[14px] font-semibold text-lime">
-              {hub}
-            </Text>
-          </Box>
-
-          <Connector />
-
-          <Box className="flex w-full flex-col justify-center gap-3 lg:w-45">
-            {outputs?.map((output) => (
-              <Node key={output.title} label={output.title} note={output.note} />
-            ))}
-          </Box>
-        </Box>
+          {outputs?.map((output) => (
+            <Column key={output.title}>
+              <Node data-hd="output" label={output.title} note={output.note} />
+            </Column>
+          ))}
+        </TnaProcessFlow>
       </Reveal>
     </Section>
   );

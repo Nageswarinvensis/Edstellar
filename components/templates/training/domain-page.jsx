@@ -43,7 +43,7 @@ export default function DomainPage({ domain }) {
       <TickerBar />
       <Hero hero={domain.hero} breadcrumbs={domain.breadcrumbs} />
       <DomainInfo groupQuote={domain.hero?.group_quote} proof={domain.proof} />
-      <ClientLogos data={domain.ClientsLogosData} className="bg-paper-warm" />
+      <ClientLogos data={domain.ClientsLogosData} />
 
       <StickyNavbar data={domain.sticky_nav} />
       <About about={domain.about} ctaBannerData={domain.about?.cta_banner} />

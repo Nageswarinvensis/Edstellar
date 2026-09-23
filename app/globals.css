@@ -173,6 +173,66 @@
   /* Accent used for emphasis text on light backgrounds. Lime itself fails
      contrast on paper, so the designs use this olive instead. */
   --color-olive: #6f8c0f;
+
+  /* Warm sand of the client-logo band. */
+  --color-sand: #f5f3eb;
+
+  /* Resting card elevation from the designs' elevation scale. */
+  --shadow-rest: 0 1px 2px rgba(10, 22, 40, 0.06), 0 8px 24px rgba(10, 22, 40, 0.06);
+  --shadow-lift: 0 2px 4px rgba(10, 22, 40, 0.08), 0 18px 40px rgba(10, 22, 40, 0.12);
+
+  /* Marching dashes on the TNA process flowchart connectors. One cycle
+     moves the dash pattern (6 on, 6 off) by exactly its own length. */
+  --animate-hd-flow: hd-flow 0.95s linear infinite;
+
+  @keyframes hd-flow {
+    to { stroke-dashoffset: -12; }
+  }
+
+  /* Illustrative engine screens (TNA stages). Each loops on the same 6s
+     cycle so the cells, bars and rows of one screen build up together;
+     per-element staggering is an `[animation-delay:…]` class. */
+  --animate-scr-pulse: scr-pulse 1.6s ease-in-out infinite;
+  --animate-scr-scan: scr-scan 3.4s ease-in-out infinite;
+  --animate-scr-cell: scr-cell 6s ease-in-out infinite;
+  --animate-scr-fill: scr-fill 6s ease-in-out infinite;
+  --animate-scr-ring: scr-ring 3s ease-in-out infinite;
+  --animate-scr-slide: scr-slide 6s ease-in-out infinite;
+  --animate-scr-bar-up: scr-bar-up 6s ease-in-out infinite;
+  --animate-scr-bar-in: scr-bar-in 6s ease-in-out infinite;
+
+  @keyframes scr-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.65); }
+  }
+  @keyframes scr-scan {
+    0% { transform: translateX(-110%); }
+    55%, 100% { transform: translateX(110%); }
+  }
+  @keyframes scr-cell {
+    0% { opacity: 0; transform: scale(0.55); }
+    12%, 100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes scr-fill {
+    0% { width: 0; }
+    70%, 100% { width: calc(100% - 12px); }
+  }
+  @keyframes scr-ring {
+    0%, 100% { box-shadow: 0 0 0 2px rgba(10, 22, 40, 0.1); }
+    50% { box-shadow: 0 0 0 3px rgba(10, 22, 40, 0.18); }
+  }
+  @keyframes scr-slide {
+    0% { opacity: 0; transform: translateX(-8px); }
+    14%, 100% { opacity: 1; transform: none; }
+  }
+  @keyframes scr-bar-up {
+    0% { transform: scaleY(0); }
+    16%, 100% { transform: scaleY(1); }
+  }
+  @keyframes scr-bar-in {
+    0% { transform: scaleX(0); }
+    14%, 100% { transform: scaleX(1); }
+  }
 }
 
 /* Every heading's CMS `heading`/`title` field is a plain string with its

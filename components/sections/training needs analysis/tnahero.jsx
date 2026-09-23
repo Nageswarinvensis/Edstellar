@@ -4,19 +4,22 @@ import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import Breadcrumbs from "@/components/common/breadcrumbs";
 import CtaButton from "@/components/common/cta-button";
+import TnaSkillMatrix from "./tna-skill-matrix";
 
 export default function TNAHero({ data, breadcrumbItems }) {
   if (!data) return null;
 
   return (
-    <Section className="bg-[#f8f7f4]">
+    // `top` is what the sticky enquiry bar watches to know the hero has
+    // scrolled away.
+    <Section id="top" className="bg-[#f8f7f4]">
       <Reveal>
         {breadcrumbItems ? <Breadcrumbs items={breadcrumbItems} /> : null}
       </Reveal>
       <Box>
-        <Box className="grid items-center gap-12 lg:grid-cols-12">
+        <Box className="grid grid-cols-[1.15fr_0.85fr] items-center gap-14 max-[901px]:grid-cols-1 max-[901px]:gap-9">
           {/* Left Side Content */}
-          <Box className="lg:col-span-6">
+          <Box className="min-w-0">
             <Reveal delay={1}>
               <Text as="h1" className="mt-4">
                 {data.title}
@@ -59,12 +62,11 @@ export default function TNAHero({ data, breadcrumbItems }) {
             </Reveal>
           </Box>
 
-          {/* Right Side Content - Renders HTML string directly from JSON */}
-          {data.rightSideHtml && (
-            <Box className="lg:col-span-6">
-              <div dangerouslySetInnerHTML={{ __html: data.rightSideHtml }} />
+          {data.skill_matrix ? (
+            <Box className="min-w-0">
+              <TnaSkillMatrix data={data.skill_matrix} />
             </Box>
-          )}
+          ) : null}
         </Box>
       </Box>
     </Section>

@@ -56,7 +56,7 @@ export default function CoursePage({ course }) {
         <Certificate />
         <DeliveryModes deliveryModes={course.deliveryModes} />
         <Trainers trainers={course.trainers} />
-        <Faq faqs={course.faqs ?? course.Faqs} />
+        <Faq faqs={course.faqs ?? course.Faqs} collapsible />
       </PageToc>
 
       <WhyEdstellar data={course.WhyEds} relatedCourses={course.related_courses} />
