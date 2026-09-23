@@ -4,16 +4,11 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
 
-// The design's dot/band greens are a muted, olive-leaning green with no
+// The design's dot/pill greens are a muted, olive-leaning green with no
 // equivalent design token (`--color-olive` is a different, more yellow
 // shade) — arbitrary hex here matches the source exactly rather than
 // approximating with Tailwind's more saturated default green scale, which
 // reads visibly "off" next to the source at this size.
-const BAND_CLASSES = {
-  pre: "bg-[#f1f8ec] text-[#3f7d27]",
-  taught: "bg-blue-50 text-blue-600",
-};
-
 const PILL_CLASSES = {
   true: "bg-[#eaf6e3] text-[#3f7d27]",
   false: "bg-[#f1f3f6] text-ink/65",
@@ -148,27 +143,17 @@ export default function SkillProgression({ progression }) {
           </Text>
         ))}
 
-        {bands.map((band) => (
-          <Box key={band.label} className="contents">
-            <Text
-              as="span"
-              className={cn(
-                "col-span-full border-b border-ink/12 px-6 py-2.25 text-[12.5px] font-bold tracking-[-0.01em]",
-                BAND_CLASSES[band.variant],
-              )}
-            >
-              {band.label}
-            </Text>
-
+        {bands.map((band, bandIndex) => (
+          <Box key={`${band.variant}-${bandIndex}`} className="contents">
             {band.rows.map((row) => (
               <Box key={row.skill} className="contents">
                 <Text
                   as="span"
-                  className="border-b border-ink/8 py-3.25 pl-6 text-[13px] leading-[1.35] text-ink"
+                  className="flex items-center border-b border-ink/8 py-3.25 pl-6 text-[13px] leading-[1.35] text-ink"
                 >
                   {row.skill}
                 </Text>
-                <Box className="border-b border-ink/8 py-3.25">
+                <Box className="flex items-center border-b border-ink/8 py-3.25">
                   <Text
                     as="span"
                     className={cn(
@@ -179,7 +164,7 @@ export default function SkillProgression({ progression }) {
                     {row.prerequisite ? "Yes" : "No"}
                   </Text>
                 </Box>
-                <Box className="col-span-full border-b border-ink/8 px-6 pb-3 min-[901px]:col-span-4 min-[901px]:col-start-3 min-[901px]:px-0 min-[901px]:pb-0">
+                <Box className="col-span-full border-b border-ink/8 px-6 pb-3 min-[901px]:col-span-4 min-[901px]:col-start-3 min-[901px]:grid min-[901px]:content-center min-[901px]:px-0 min-[901px]:pb-0">
                   <Rail levels={levels} entry={row.entry} exit={row.exit} />
                 </Box>
               </Box>

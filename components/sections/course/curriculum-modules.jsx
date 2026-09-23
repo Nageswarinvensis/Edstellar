@@ -97,7 +97,7 @@ function ModuleTrigger({ module }) {
         <Box className="flex items-start gap-3 sm:contents">
           <Text
             as="span"
-            className="flex-none pt-0.5 font-mono text-[11.5px] tracking-[0.06em] text-ink/40 sm:pt-0"
+            className="w-6 flex-none pt-0.5 font-mono text-[11.5px] tracking-[0.06em] text-ink/40 sm:pt-0"
           >
             {module.number}
           </Text>
@@ -112,7 +112,7 @@ function ModuleTrigger({ module }) {
           <ModuleExpandIcon className="sm:order-last" />
         </Box>
 
-        <Box className="pl-[34px] sm:pl-0">
+        <Box className="pl-9 sm:pl-0">
           <ModuleMeta module={module} />
         </Box>
       </AccordionPrimitive.Trigger>
@@ -262,7 +262,10 @@ export default function CurriculumModules({ modules }) {
             >
               <ModuleTrigger module={module} />
 
-              <AccordionContent className="pt-3 pr-6 pb-5.5 pl-11 sm:pl-14.5">
+              {/* Left padding = trigger padding + `w-6` number + gap
+                  (16+24+12 / sm: 20+24+14), so the panel starts on the
+                  title's first letter. Change those together. */}
+              <AccordionContent className="pt-0 pr-6 pb-5.5 pl-13 sm:pl-14.5">
                 {module.lab?.description ? (
                   <Text
                     as="p"
