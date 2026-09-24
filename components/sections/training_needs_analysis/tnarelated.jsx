@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 import Box from "@/components/ui/Box";
@@ -6,34 +8,40 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
-/*
- * Related consulting services. The TNA design's cards differ from the
- * domain page's `RelatedCategories` (body-size copy, not mono kickers).
- *
- * Each card is a column that spaces its content between top and bottom:
- * title and description at the top, the "Explore" link on its own at the
- * bottom. Grid rows stretch every card to the tallest one, so the links
- * line up across a row even when the descriptions differ in length.
- */
-export default function TnaRelated({ data, id = "related" }) {
+export default function TnaRelated({ data }) {
   if (!data?.items?.length) return null;
 
+  // Reads background color from JSON (data.bgColor) or defaults to "bg-paper"
+  const sectionBg = data.bgColor || "bg-paper";
+
   return (
-    <Section id={id} className="border-t border-ink/12 bg-paper">
+    <Section id="services" className={`border-t border-ink/12 ${sectionBg}`}>
       <Box className="mb-11 max-w-[62ch]">
         <Reveal>
-          <RichHeading heading={data.heading} />
+          {data.heading && (
+            <Box className="[&_span]:italic [&_span]:font-serif [&_span]:font-normal">
+              <RichHeading heading={data.heading} />
+            </Box>
+          )}
+
+          {data.showSubheading !== false && data.subheading && (
+            <Text
+              as="p"
+              className="mt-4 text-[16px] leading-[1.7] text-ink/60"
+              dangerouslySetInnerHTML={{ __html: data.subheading }}
+            />
+          )}
         </Reveal>
       </Box>
 
-      <Reveal delay={1}>
+      <Reveal delay={0.1}>
         <Box className="grid grid-cols-3 gap-5 max-[901px]:grid-cols-2 max-[601px]:grid-cols-1">
           {data.items.map((item) => (
             <Box
               key={item.title}
               className="
-                flex h-full flex-col justify-between gap-3.5 rounded-[14px] border border-ink/12 bg-white p-[26px]
-                transition-[translate,box-shadow] duration-200 hover:-translate-y-[3px] hover:shadow-lift
+                flex h-full flex-col justify-between gap-3.5 rounded-[14px] border border-ink/12 bg-white p-5 lg:p-6.5
+                transition-[translate,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lift
                 motion-reduce:hover:translate-y-0
               "
             >
@@ -44,7 +52,7 @@ export default function TnaRelated({ data, id = "related" }) {
                 >
                   {item.title}
                 </Text>
-                <Text as="p" className="text-[15px] leading-[1.7] text-ink/60">
+                <Text as="p" className="text-[16px] leading-[1.7] text-ink/60">
                   {item.description}
                 </Text>
               </Box>
