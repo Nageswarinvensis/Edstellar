@@ -70,6 +70,7 @@ function Breadcrumbs({ items: itemsProp, className, tone = "light" }) {
             ) : (
               <Link
                 href={item.href}
+                title={`Click Here to View ${item.label}`}
                 className={cn(
                   "transition-colors focus-visible:outline-2 focus-visible:outline-offset-2",
                   isDark

@@ -15,7 +15,7 @@ import Faq from "@/components/common/faq";
 import LeadForm from "@/components/forms/lead-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
-import heroData from "@/content/training needs analysis/TNA.json";
+import heroData from "@/content/training_needs_analysis/TNA.json";
 
 export const metadata = buildMetadata({
   title: "Training Needs Analysis Services",

@@ -22,6 +22,7 @@ export default function SiteFooter() {
             <Link
               href="/"
               aria-label="Edstellar home"
+              title="Click Here to View Edstellar Home"
               className="mb-4 inline-flex items-center"
             >
               <Image
@@ -54,6 +55,7 @@ export default function SiteFooter() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  title={`Click Here to View ${link.label}`}
                   className="block py-1.5 text-[14px] text-paper/72 transition-colors duration-200 hover:text-lime"
                 >
                   {link.label}
@@ -78,6 +80,7 @@ export default function SiteFooter() {
               <Link
                 key={link.href}
                 href={link.href}
+                title={`Click Here to View ${link.label}`}
                 className="text-[12.5px] text-paper/45 transition-colors duration-200 hover:text-lime"
               >
                 {link.label}

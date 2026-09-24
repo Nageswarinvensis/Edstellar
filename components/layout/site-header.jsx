@@ -47,6 +47,7 @@ export default function SiteHeader() {
           <Link
             href="/"
             aria-label="Edstellar home"
+            title="Click Here to View Edstellar Home"
             className="flex shrink-0 items-center duration-200 "
           >
             <Image
@@ -67,6 +68,7 @@ export default function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
+                title={`Click Here to View ${link.label}`}
                 className="group relative py-1.5 font-body text-[13.5px] font-medium text-ink/60 transition-colors duration-200 hover:text-ink"
               >
                 {link.label}

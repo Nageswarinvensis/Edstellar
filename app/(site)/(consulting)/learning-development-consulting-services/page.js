@@ -5,7 +5,7 @@ import LearningStats from "@/components/sections/learning_development_consulting
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import Maturity from "@/components/sections/learning_development_consulting/maturity";
 
-import heroData from "@/content/learning development consulting/L&D Consulting.json";
+import heroData from "@/content/learning_development_consulting/LD_Consulting.json";
 
 export const metadata = buildMetadata({
   title: "Learning and Development Consulting",
