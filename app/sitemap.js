@@ -1,7 +1,10 @@
 import { SITE } from "@/lib/constants";
 import { getTrainingSlugs } from "@/lib/content/taxonomy";
 import { getAllCoursePaths } from "@/lib/content/courses";
-import { CONSULTING_PILLARS } from "@/lib/content/consulting";
+import {
+  CONSULTING_PILLARS,
+  getConsultingServiceSlugs,
+} from "@/lib/content/consulting";
 import { RESOURCE_TYPES } from "@/lib/content/resources";
 
 /**
@@ -25,9 +28,16 @@ export default async function sitemap() {
     priority,
   });
 
-  const [trainingSlugs, coursePaths] = await Promise.all([
+  const [trainingSlugs, coursePaths, servicePaths] = await Promise.all([
     getTrainingSlugs(),
     getAllCoursePaths(),
+    Promise.all(
+      CONSULTING_PILLARS.map(async ({ slug: pillar }) =>
+        (await getConsultingServiceSlugs(pillar)).map(
+          (slug) => `/${pillar}/${slug}`,
+        ),
+      ),
+    ).then((paths) => paths.flat()),
   ]);
 
   return [
@@ -38,6 +48,7 @@ export default async function sitemap() {
       entry(`/corporate-training/${domain}/${course}`, 0.8),
     ),
     ...CONSULTING_PILLARS.map(({ slug }) => entry(`/${slug}`, 0.7)),
+    ...servicePaths.map((path) => entry(path, 0.6)),
     entry("/resources", 0.6),
     ...RESOURCE_TYPES.map(({ slug }) => entry(`/resources/${slug}`, 0.5)),
     entry("/blog", 0.6, "daily"),

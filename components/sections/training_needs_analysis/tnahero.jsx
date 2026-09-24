@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/common/breadcrumbs";
 import HeroMeta from "@/components/common/hero-meta";
 import CtaButton from "@/components/common/cta-button";
 import TnaSkillMatrix from "./tna-skill-matrix";
-import LdRightSideBlock from "../learning development consulting/l d right side block";
+import LdRightSideBlock from "../learning_development_consulting/l d right side block";
 import { cn } from "@/lib/utils";
 
 export default function TNAHero({
@@ -81,11 +81,28 @@ export default function TNAHero({
             <Reveal delay={4}>
               <Box className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 {data.primaryBtnText && (
-                  <CtaButton arrow>{data.primaryBtnText}</CtaButton>
+                  <CtaButton
+                    arrow
+                    render={
+                      data.primaryBtnHref ? (
+                        <a href={data.primaryBtnHref} />
+                      ) : undefined
+                    }
+                  >
+                    {data.primaryBtnText}
+                  </CtaButton>
                 )}
 
                 {data.secondaryBtnText && (
-                  <CtaButton variant="ghost" arrow>
+                  <CtaButton
+                    variant="ghost"
+                    arrow
+                    render={
+                      data.secondaryBtnHref ? (
+                        <a href={data.secondaryBtnHref} />
+                      ) : undefined
+                    }
+                  >
                     {data.secondaryBtnText}
                   </CtaButton>
                 )}

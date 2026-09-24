@@ -19,12 +19,17 @@ const BAND_CLASSES = {
   apply: "bg-violet-50 text-violet-600",
 };
 
+// Hours and minutes, always two minute digits ("4.00 h", "2.30 h" for 2.5)
+// so every module's hours stat is the same width in the mono font and the
+// meta columns line up row to row.
 function formatHours(hours) {
-  const wholeHours = Math.floor(hours);
-  const minutes = Math.round((hours - wholeHours) * 60);
-  return minutes
-    ? `${wholeHours}:${String(minutes).padStart(2, "0")} h`
-    : `${wholeHours} h`;
+  let wholeHours = Math.floor(hours);
+  let minutes = Math.round((hours - wholeHours) * 60);
+  if (minutes === 60) {
+    wholeHours += 1;
+    minutes = 0;
+  }
+  return `${wholeHours}.${String(minutes).padStart(2, "0")} h`;
 }
 
 function ModuleStat({ icon: Icon, iconClassName, children }) {
@@ -256,7 +261,7 @@ export default function CurriculumModules({ modules }) {
               id={`mod-${module.number}`}
               value={module.number}
               className={cn(
-                "scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_var(--module-filter-h,0px)_+_16px)] border-b border-ink/10 transition-colors duration-300 last:border-b-0 data-open:bg-paper-warm/50",
+                "scroll-mt-[calc(68px_+_var(--mobile-toc-h,0px)_+_var(--module-filter-h,0px)_+_16px)] border-b border-ink/10 last:border-b-0",
                 !visible && "hidden",
               )}
             >
@@ -265,11 +270,11 @@ export default function CurriculumModules({ modules }) {
               {/* Left padding = trigger padding + `w-6` number + gap
                   (16+24+12 / sm: 20+24+14), so the panel starts on the
                   title's first letter. Change those together. */}
-              <AccordionContent className="pt-0 pr-6 pb-5.5 pl-13 sm:pl-14.5">
+              <AccordionContent className="border-t border-ink/8 bg-paper-warm/50 pt-5.5 pr-6 pb-5.5 pl-13 sm:pl-14.5">
                 {module.lab?.description ? (
                   <Text
                     as="p"
-                    className="mb-3.5 max-w-3xl text-[13.5px] leading-[1.6] text-ink/60"
+                    className="mb-3.5 max-w-[44rem] text-[13.5px] leading-[1.6] text-ink/60"
                   >
                     {module.lab.description}
                   </Text>

@@ -1,6 +1,16 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import { Target, BookOpen, Monitor, TrendingUp, Users } from "lucide-react";
+import {
+  Target,
+  BookOpen,
+  Monitor,
+  TrendingUp,
+  Users,
+  SlidersHorizontal,
+  LayoutGrid,
+  Route,
+  ChartLine,
+} from "lucide-react";
 
 // Map Lucide components directly to keys
 const ICON_MAP = {
@@ -9,6 +19,10 @@ const ICON_MAP = {
   technology: Monitor,
   governance: TrendingUp,
   delivery: Users,
+  "operating-model": SlidersHorizontal,
+  framework: LayoutGrid,
+  pathway: Route,
+  measurement: ChartLine,
 };
 
 export default function LdRightSideBlock({ data }) {

@@ -1,36 +1,61 @@
-import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
-import Reveal from "@/components/common/reveal";
+import { notFound } from "next/navigation";
+
+import {
+  getConsultingService,
+  getConsultingServiceSlugs,
+} from "@/lib/content/consulting";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { titleFromSlug } from "@/lib/slug";
+import {
+  breadcrumbJsonLd,
+  faqJsonLd,
+  serviceJsonLd,
+} from "@/lib/seo/json-ld";
+import JsonLd from "@/components/seo/json-ld";
+import ServicePage from "@/components/templates/consulting/service-page";
+
+const PILLAR = "learning-development-consulting-services";
+
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const slugs = await getConsultingServiceSlugs(PILLAR);
+  return slugs.map((slug) => ({ slug }));
+}
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const name = titleFromSlug(slug);
+  const service = await getConsultingService(PILLAR, slug);
+  if (!service) return {};
 
   return buildMetadata({
-    title: `{name} | Learning and Development Consulting`,
-    description: `${name} — part of Edstellar's learning and development consulting practice.`,
-    path: `/learning-development-consulting-services/${slug}`,
+    title: service.seo.title,
+    description: service.seo.description,
+    path: `/${PILLAR}/${slug}`,
   });
 }
 
-export default async function LearningDevelopmentDetailPage({ params }) {
+export default async function LearningDevelopmentServicePage({ params }) {
   const { slug } = await params;
 
+  // Both segments — a sub-service only exists under its own pillar.
+  const service = await getConsultingService(PILLAR, slug);
+  if (!service) notFound();
+
   return (
-    <Section>
-      <Reveal delay={1} className="flex justify-center items-center">
-        <RichHeading
-          as="h1"
-          parts={[
-            { text: "Learning & Development Consulting " },
-            { text: `${slug} `, highlighted: true },
-          ]}
-          emphasisClassName="color-ink"
-          className="mb-2.5 text-center max-lg:text-[clamp(32px,5vw,50px)]"
-        />
-      </Reveal>
-    </Section>
+    <>
+      <JsonLd
+        data={[
+          serviceJsonLd({
+            name: service.name,
+            description: service.seo.description,
+            path: `/${PILLAR}/${slug}`,
+            serviceType: service.name,
+          }),
+          breadcrumbJsonLd(service.BreadcrumbData),
+          faqJsonLd(service.faqData?.items),
+        ]}
+      />
+      <ServicePage data={service} />
+    </>
   );
 }

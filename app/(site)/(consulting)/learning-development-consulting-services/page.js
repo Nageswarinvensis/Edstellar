@@ -1,9 +1,9 @@
 import { buildMetadata } from "@/lib/seo/metadata";
 
-import TNAHero from "@/components/sections/training needs analysis/tnahero";
-import LearningStats from "@/components/sections/learning development consulting/learningstats";
+import TNAHero from "@/components/sections/training_needs_analysis/tnahero";
+import LearningStats from "@/components/sections/learning_development_consulting/learningstats";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
-import Maturity from "@/components/sections/learning development consulting/maturity";
+import Maturity from "@/components/sections/learning_development_consulting/maturity";
 
 import heroData from "@/content/learning development consulting/L&D Consulting.json";
 

@@ -9,6 +9,7 @@ import {
   ShoppingBag,
   Zap,
   Globe,
+  ChartLine,
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -21,6 +22,7 @@ const ICONS = {
   merge: Merge,
   grid: LayoutGrid,
   shield: ShieldCheck,
+  chart: ChartLine,
 };
 
 const INDUSTRY_ICONS = {

@@ -1,0 +1,809 @@
+{
+  "slug": "learning-strategy",
+  "name": "Learning Strategy & Design Consulting",
+  "seo": {
+    "title": "Learning Strategy & Design Consulting",
+    "description": "Edstellar designs the L&D operating model, competency frameworks, curriculum architecture and measurement that turn scattered training into a business-aligned learning function."
+  },
+  "BreadcrumbData": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/learning-development-consulting-services",
+      "label": "Learning & Development"
+    },
+    {
+      "label": "Learning Strategy & Design"
+    }
+  ],
+  "heroData": {
+    "title": "Learning Strategy & Design Consulting",
+    "tagline": "The operating model your learning function runs on.",
+    "description": "Most learning happens without a strategy behind it. Edstellar designs the operating model, capability frameworks and curriculum architecture that turn scattered training into a business-aligned learning function.",
+    "showMeta": true,
+    "fontWeight": "font-normal",
+    "textColor": "text-ink-muted",
+    "meta": [
+      "Consulting & delivery",
+      "Onsite / virtual / hybrid",
+      {
+        "label": "20+ industries",
+        "tooltip": {
+          "heading": "Delivered in",
+          "body": "English, Spanish, Mandarin, German, Arabic, Portuguese, Hindi, French, Japanese, Italian"
+        }
+      },
+      {
+        "label": "100+ locations",
+        "tooltip": {
+          "heading": "We have delivered in",
+          "body": "United States, United Kingdom, India, Canada, Germany, France, Netherlands, UAE, Saudi Arabia, Singapore, Australia, Japan, Brazil, South Africa and 90+ more countries"
+        }
+      }
+    ],
+    "primaryBtnText": "Book a strategy consultation",
+    "primaryBtnHref": "#contact",
+    "secondaryBtnText": "See what's included",
+    "secondaryBtnHref": "#offering",
+    "learning_system": {
+      "title": "What we design",
+      "items": [
+        {
+          "icon": "operating-model",
+          "title": "Operating model",
+          "description": "How L&D is run and governed"
+        },
+        {
+          "icon": "framework",
+          "title": "Capability framework",
+          "description": "Role-based competencies"
+        },
+        {
+          "icon": "pathway",
+          "title": "Curriculum architecture",
+          "description": "Learning pathways by role"
+        },
+        {
+          "icon": "measurement",
+          "title": "Measurement framework",
+          "description": "KPIs and learning ROI"
+        }
+      ],
+      "footerText": "A strategy you own and run."
+    }
+  },
+  "proof": {
+    "tone": "dark",
+    "ctaTitle": "Ready to build your learning strategy?",
+    "primaryBtnText": "Book a consultation",
+    "primaryBtnTitle": "Book an L&D consultation with our team",
+    "primaryBtnHref": "#contact",
+    "secondaryBtnText": "Download the L&D brochure (PDF)",
+    "secondaryBtnTitle": "Download the L&D brochure in PDF format",
+    "secondaryBtnHref": "https://www.edstellar.com/brochures/learning-and-development-consulting",
+    "stats": [
+      {
+        "value": "300+",
+        "label": "Clients"
+      },
+      {
+        "value": "20+",
+        "label": "Industries"
+      },
+      {
+        "value": "300+",
+        "label": "Consultants"
+      },
+      {
+        "value": "ISO 9001 & 27001",
+        "label": "Certified"
+      }
+    ]
+  },
+  "ClientsLogosData": {
+    "heading": "Trusted by teams at",
+    "logos": [
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9c115c2a0faf78d5187_Abb.webp",
+        "alt": "ABB",
+        "title": "ABB"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aa7c4dc52f902b965f86_Aditya%20Birla%20Group.webp",
+        "alt": "Aditya Birla Group",
+        "title": "Aditya Birla Group"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b587f256c7ca56ef383708_Adobe.webp",
+        "alt": "Adobe",
+        "title": "Adobe"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698469c6a91cef644870febe_Amazon%201%20%281%29.webp",
+        "alt": "Amazon",
+        "title": "Amazon"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aa97d7f1555ba95b5394_AutoDesk.webp",
+        "alt": "Autodesk",
+        "title": "Autodesk"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9d8e0dd2f35457d1311_Emerson.webp",
+        "alt": "Emerson",
+        "title": "Emerson"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a94748156eb2b452d94e_godrej.webp",
+        "alt": "Godrej",
+        "title": "Godrej"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b587b637a6028400026a71_Intel2.webp",
+        "alt": "Intel",
+        "title": "Intel"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846266b0acf082e648fdb0_Johnson%26Johnson%201.webp",
+        "alt": "Johnson & Johnson",
+        "title": "Johnson & Johnson"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b588572d0fd67c6424af0a_MediaTek.webp",
+        "alt": "MediaTek",
+        "title": "MediaTek"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5873a89529b86f470b686_Microsoft.webp",
+        "alt": "Microsoft",
+        "title": "Microsoft"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9601c7bda326efbe969_nrsc.webp",
+        "alt": "NRSC",
+        "title": "NRSC"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846830ede4cc2aea05d48a_Sportskeeda%201.webp",
+        "alt": "Sportskeeda",
+        "title": "Sportskeeda"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5887637a6028400031b44_Tata_Chemicals.webp",
+        "alt": "Tata Chemicals",
+        "title": "Tata Chemicals"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a98ed7f1555ba95a94c2_Total.webp",
+        "alt": "Total",
+        "title": "Total"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b9218334a6bbb7e0046a57_visa.webp",
+        "alt": "Visa",
+        "title": "Visa"
+      }
+    ]
+  },
+  "stickyNavbarData": {
+    "logo": {
+      "src": "/course/Edstellar.svg",
+      "alt": "Edstellar"
+    },
+    "cta": {
+      "text": "Book a Consultation",
+      "title": "Click Here to Book a Consultation",
+      "targetId": "contact"
+    },
+    "tabs": [
+      {
+        "id": "offering",
+        "label": "What's included",
+        "active": true
+      },
+      {
+        "id": "blueprint",
+        "label": "Blueprint",
+        "active": false
+      },
+      {
+        "id": "method",
+        "label": "How we work",
+        "active": false
+      },
+      {
+        "id": "why",
+        "label": "Why us",
+        "active": false
+      },
+      {
+        "id": "faq",
+        "label": "FAQ",
+        "active": false
+      }
+    ]
+  },
+  "challengeData": {
+    "section_id": "challenge",
+    "heading": "The cost of learning without a <span>strategy.</span>",
+    "description": "When there is no operating model behind L&D, training scatters: courses nobody asked for, no shared language for skills, and no way to prove impact.",
+    "stat": {
+      "value": "12%",
+      "label": "of L&D budgets are lost to training that is not tied to business priorities."
+    },
+    "cards": [
+      {
+        "icon": "message",
+        "title": "No shared language",
+        "description": "Every team defines skills differently, so capability cannot be compared, planned or moved.",
+        "impact": "Impacts planning"
+      },
+      {
+        "icon": "zap",
+        "title": "Reactive, not planned",
+        "description": "L&D fields requests as they land, instead of building the capability the strategy needs next.",
+        "impact": "Impacts readiness"
+      },
+      {
+        "icon": "compass",
+        "title": "Spend without direction",
+        "description": "Budgets fund requests, not priorities, so the gaps that matter to the business stay open.",
+        "impact": "Impacts budget"
+      },
+      {
+        "icon": "hourglass",
+        "title": "Learning that doesn't stick",
+        "description": "Programs run once and fade without reinforcement, so the same gaps reopen within a year.",
+        "impact": "Impacts capability"
+      },
+      {
+        "icon": "layers",
+        "title": "Nothing scales",
+        "description": "What works for one team can't be repeated across the org, so growth stalls.",
+        "impact": "Impacts scale"
+      },
+      {
+        "icon": "chart",
+        "title": "Nothing to measure",
+        "description": "With no framework, leaders cannot see whether learning changed performance or the bottom line.",
+        "impact": "Impacts ROI"
+      }
+    ]
+  },
+  "readinessData": {
+    "section_id": "readiness",
+    "heading": "Where does your L&D stand <span>today?</span>",
+    "description": "Use this checklist to assess your L&D maturity, and see exactly where your learning strategy has gaps before you engage a consultant.",
+    "points": [
+      "Strategic alignment between L&D investment and business priorities",
+      "Capability gap visibility across critical roles and functions",
+      "Learning governance, measurement and ROI readiness"
+    ],
+    "cta": {
+      "label": "Get the free readiness checklist",
+      "href": "https://www.edstellar.com/tool/learning-and-development-consulting"
+    },
+    "checklist": {
+      "title": "L&D readiness checklist",
+      "items": [
+        {
+          "label": "Business goals mapped to capabilities",
+          "done": true
+        },
+        {
+          "label": "Skills baseline defined by role",
+          "done": true
+        },
+        {
+          "label": "L&D plan and budget owned",
+          "done": true
+        },
+        {
+          "label": "Success metrics and ROI defined",
+          "done": false
+        },
+        {
+          "label": "Governance and review cadence set",
+          "done": false
+        }
+      ]
+    }
+  },
+  "offeringData": {
+    "section_id": "offering",
+    "heading": "What we design into your <span>learning function.</span>",
+    "description": "Edstellar designs six connected pieces that turn intent into a running learning function. Select one to see how it works.",
+    "items": [
+      {
+        "id": "alignment",
+        "icon": "target",
+        "title": "L&D strategy & alignment",
+        "summary": "A learning strategy tied to the business plan and workforce priorities.",
+        "description": "Every learning priority tied to the business plan and workforce strategy, so training targets the capability the business actually needs. Every program traces back to a business goal.",
+        "diagram": {
+          "type": "alignment",
+          "caption": "Every priority traces to a business goal",
+          "tiers": [
+            {
+              "label": "Business strategy",
+              "tone": "navy",
+              "chips": [
+                "Growth",
+                "Efficiency",
+                "Resilience"
+              ]
+            },
+            {
+              "label": "Capability priorities",
+              "tone": "soft",
+              "chips": [
+                "Leadership",
+                "Data & AI",
+                "Compliance"
+              ]
+            },
+            {
+              "label": "Learning strategy",
+              "tone": "lime",
+              "chips": [
+                "Academies",
+                "Pathways",
+                "Programs"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "operating-model",
+        "icon": "operating-model",
+        "title": "Operating model design",
+        "summary": "How L&D is structured, resourced and owned to deliver at scale.",
+        "description": "How L&D is structured, resourced and owned, so it can deliver at scale. A function with clear ownership, not scattered activity.",
+        "diagram": {
+          "type": "operating_model",
+          "caption": "Layers of the L&D operating model",
+          "top": "Ownership & accountability",
+          "pillars": [
+            "Strategy",
+            "Content",
+            "Technology",
+            "Delivery"
+          ],
+          "bottom": "Resourcing & shared services"
+        }
+      },
+      {
+        "id": "competency",
+        "icon": "framework",
+        "title": "Competency frameworks",
+        "summary": "Role-based competency models and career pathways across the organization.",
+        "description": "Role-based competency models and career pathways that give every role a shared language for the skills it needs, so capability is comparable, plannable and measurable.",
+        "diagram": {
+          "type": "competency_matrix",
+          "levels": [
+            "L1",
+            "L2",
+            "L3",
+            "L4"
+          ],
+          "legend": [
+            "Foundational",
+            "Working",
+            "Proficient",
+            "Expert"
+          ],
+          "rows": [
+            {
+              "label": "Leadership",
+              "cells": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "label": "Technical",
+              "cells": [
+                1,
+                2,
+                3,
+                3
+              ]
+            },
+            {
+              "label": "Data",
+              "cells": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "label": "Compliance",
+              "cells": [
+                1,
+                2,
+                3,
+                0
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "curriculum",
+        "icon": "pathway",
+        "title": "Curriculum architecture",
+        "summary": "Learning pathways and program blueprints by role and level.",
+        "description": "Learning pathways and program blueprints mapped by role and level, so people know what to learn and when. Designed around roles and outcomes, not a catalogue of courses.",
+        "diagram": {
+          "type": "curriculum_tree",
+          "caption": "Role → pathways → programs",
+          "root": "Role profile",
+          "paths": [
+            {
+              "label": "Foundational",
+              "modules": 2
+            },
+            {
+              "label": "Functional",
+              "modules": 3
+            },
+            {
+              "label": "Leadership",
+              "modules": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "measurement",
+        "icon": "measurement",
+        "title": "Measurement & KPIs",
+        "summary": "The metrics, baselines and ROI models that prove learning works.",
+        "description": "The metrics, baselines and ROI models that prove learning works, so you can show impact against business results, not training activity. Measurement is built in from the start.",
+        "diagram": {
+          "type": "kpi_dashboard",
+          "caption": "Impact measured against business KPIs",
+          "kpis": [
+            {
+              "label": "Adoption",
+              "value": "↑ 37%"
+            },
+            {
+              "label": "Readiness",
+              "value": "↑ 42%"
+            },
+            {
+              "label": "ROI",
+              "value": "Proven"
+            }
+          ],
+          "axis": [
+            "Baseline",
+            "Now"
+          ]
+        }
+      },
+      {
+        "id": "governance",
+        "icon": "governance",
+        "title": "Learning governance",
+        "summary": "Standards, cadences and review that keep the strategy alive.",
+        "description": "The standards, cadences and review that keep the strategy alive, so the function improves every cycle instead of drifting into shelfware.",
+        "diagram": {
+          "type": "governance_cycle",
+          "caption": "A continuous governance cycle",
+          "steps": [
+            {
+              "label": "Plan",
+              "cadence": "Quarterly"
+            },
+            {
+              "label": "Run",
+              "cadence": "Continuous"
+            },
+            {
+              "label": "Review",
+              "cadence": "Monthly"
+            },
+            {
+              "label": "Improve",
+              "cadence": "Each cycle"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "blueprintData": {
+    "section_id": "blueprint",
+    "heading": "The Edstellar learning strategy <span>blueprint.</span>",
+    "description": "Five connected layers that turn business strategy into a running learning function, and the model every engagement builds.",
+    "layers": [
+      {
+        "number": "01",
+        "title": "Business alignment",
+        "summary": "The foundation every layer above is built on.",
+        "description": "We translate the business plan into the capabilities it demands. Get this wrong and every layer above it, the competency model, the curriculum, the metrics, is built for skills the business does not need.",
+        "points": [
+          "Business goal mapping",
+          "Workforce plan review",
+          "Priority setting"
+        ]
+      },
+      {
+        "number": "02",
+        "title": "Capability model",
+        "summary": "The shared language everything above it is organized around.",
+        "description": "Built from the priorities in layer 01, it becomes the common language the operating model, the curriculum and the metrics all reference. Without it, none of them are comparable across the business.",
+        "points": [
+          "Competency library",
+          "Role profiles",
+          "Proficiency levels"
+        ]
+      },
+      {
+        "number": "03",
+        "title": "Operating model",
+        "summary": "What turns the model into a function that runs.",
+        "description": "A capability model is only a framework until someone owns it, funds it and governs it. This layer supplies the ownership and resourcing that let the architecture above it actually ship.",
+        "points": [
+          "Structure & roles",
+          "Resourcing model",
+          "Governance"
+        ]
+      },
+      {
+        "number": "04",
+        "title": "Learning architecture",
+        "summary": "Where the strategy becomes what people actually learn.",
+        "description": "Pathways are mapped to the capability model in layer 02 and resourced by the operating model in layer 03. This is the point where the framework turns into programs a person can enroll in.",
+        "points": [
+          "Curriculum map",
+          "Role-based pathways",
+          "Program blueprints"
+        ]
+      },
+      {
+        "number": "05",
+        "title": "Measurement",
+        "summary": "Closes the loop back to the business goals.",
+        "description": "Baselines are set against the capability model and read back against the business goals in layer 01. Without the four layers beneath it, there is nothing solid to measure or improve.",
+        "points": [
+          "KPI framework",
+          "Baselines",
+          "ROI models"
+        ]
+      }
+    ]
+  },
+  "methodData": {
+    "section_id": "method",
+    "heading": "The Edstellar 5A <span>methodology.</span>",
+    "description": "Our five-step L&D consulting method, from business strategy to a running, measured learning function.",
+    "steps": [
+      {
+        "title": "Assess",
+        "duration": "1–2 weeks",
+        "description": [
+          {
+            "text": "Read the business strategy, roles and workforce plan to define what capability the plan needs."
+          }
+        ],
+        "output": "Capability brief"
+      },
+      {
+        "title": "Analyze",
+        "duration": "2–3 weeks",
+        "description": [
+          {
+            "text": "Analyze the skill gaps from your "
+          },
+          {
+            "text": "training needs analysis",
+            "href": "/training-needs-analysis"
+          },
+          {
+            "text": " and "
+          },
+          {
+            "text": "assessments",
+            "href": "/talent-assessment-services"
+          },
+          {
+            "text": "."
+          }
+        ],
+        "output": "Skills-gap report"
+      },
+      {
+        "title": "Architect",
+        "duration": "3–5 weeks",
+        "description": [
+          {
+            "text": "Architect the strategy, content, technology and governance that close the priority gaps."
+          }
+        ],
+        "output": "Strategy & roadmap"
+      },
+      {
+        "title": "Activate",
+        "duration": "6–12 weeks",
+        "description": [
+          {
+            "text": "Roll out blended delivery across teams, on the platforms your people already use."
+          }
+        ],
+        "output": "Live programs"
+      },
+      {
+        "title": "Advance",
+        "duration": "Ongoing",
+        "description": [
+          {
+            "text": "Measure, govern and improve each cycle, so the function compounds rather than resets."
+          }
+        ],
+        "output": "Impact dashboard"
+      }
+    ]
+  },
+  "whyEdstellarData": {
+    "sectionId": "why",
+    "heading": "Why choose Edstellar for <span>learning strategy.</span>",
+    "subtitle": "The rare partner that designs the learning system and delivers it.",
+    "items": [
+      {
+        "icon": "merge",
+        "title": "Strategy to delivery, one partner",
+        "description": "Most firms design and leave. Edstellar designs the system and staffs the programs that bring it to life."
+      },
+      {
+        "icon": "grid",
+        "title": "Runs on the Capability Intelligence Platform",
+        "description": "The Capability Intelligence Platform and TNA/TNI platforms keep your capability picture live, not a once-a-year snapshot."
+      },
+      {
+        "icon": "chart",
+        "title": "Outcomes tied to the business",
+        "description": "Every engagement sets its baseline and metrics up front, so impact is measured against business results, not training activity."
+      }
+    ],
+    "trust": {
+      "heading": "Trusted across industries and regions",
+      "industries": [
+        {
+          "icon": "landmark",
+          "label": "Financial services"
+        },
+        {
+          "icon": "monitor",
+          "label": "Technology"
+        },
+        {
+          "icon": "cross",
+          "label": "Healthcare"
+        },
+        {
+          "icon": "factory",
+          "label": "Manufacturing"
+        },
+        {
+          "icon": "bag",
+          "label": "Retail & consumer"
+        },
+        {
+          "icon": "zap",
+          "label": "Energy"
+        }
+      ],
+      "more_label": "20+ in all",
+      "regions_label": "Delivered across",
+      "regions": [
+        "APAC",
+        "Middle East",
+        "Europe",
+        "North America",
+        "India"
+      ],
+      "caption_strong": "Fortune 500",
+      "caption": "clients served worldwide."
+    }
+  },
+  "relatedData": {
+    "heading": "Other L&D consulting <span>services.</span>",
+    "items": [
+      {
+        "title": "Learning Technology Consulting",
+        "description": "The LMS, LXP and integrations that deliver the strategy.",
+        "link": "Explore",
+        "href": "https://www.edstellar.com/learning-technology-consulting"
+      },
+      {
+        "title": "Content Design & Development Consulting",
+        "description": "The courses and content the curriculum architecture calls for.",
+        "link": "Explore",
+        "href": "https://www.edstellar.com/learning-content-development-services"
+      },
+      {
+        "title": "Governance, Analytics & ROI Consulting",
+        "description": "The dashboards and ROI models that prove it works.",
+        "link": "Explore",
+        "href": "https://www.edstellar.com/learning-governance-analytics-roi-consulting"
+      },
+      {
+        "title": "Employee Performance Support Consulting",
+        "description": "In-the-moment support that sustains the strategy at work.",
+        "link": "Explore",
+        "href": "https://www.edstellar.com/employee-performance-support"
+      }
+    ]
+  },
+  "faqData": {
+    "heading": "Learning strategy & design <span>FAQs.</span>",
+    "items": [
+      {
+        "question": "What does learning strategy and design consulting include?",
+        "answer": "It covers your L&D operating model, capability and competency frameworks, curriculum architecture, learning measurement and governance, all aligned to the business plan."
+      },
+      {
+        "question": "How is a learning strategy different from a training plan?",
+        "answer": "A training plan lists courses. A learning strategy defines the operating model, capability priorities and measurement that decide which courses matter and why, so spend follows business goals."
+      },
+      {
+        "question": "How long does a learning strategy engagement take?",
+        "answer": "Typically four to eight weeks for the strategy and architecture, depending on organization size and how many roles are in scope."
+      },
+      {
+        "question": "Do you build the competency frameworks too?",
+        "answer": "Yes. Role-based competency models and career pathways are a core deliverable, so capability is defined the same way across the business."
+      },
+      {
+        "question": "What do we get at the end?",
+        "answer": "A business-aligned L&D strategy, a 12 to 24 month roadmap, competency frameworks, a curriculum blueprint and a measurement framework you own and run."
+      }
+    ]
+  },
+  "leadFormData": {
+    "heading": "Book a learning strategy <span>consultation.</span>",
+    "description": "Tell us where your learning function is today. We reply within one business day with a scoped response, no automated sales sequence.",
+    "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+    "submit_label": "Book a consultation",
+    "requirements_label": "Your requirements",
+    "requirements_placeholder": "Tell us about your team: size, roles in scope, timing, and the outcomes you are trying to move.",
+    "thanks_heading": "Request received.",
+    "thanks_body": "Thanks. A specialist will reply within one business day with a scoped response."
+  },
+  "stickyFooter": {
+    "form_anchor_id": "contact",
+    "messages": [
+      {
+        "highlight": "A learning strategy",
+        "suffix": "tied to business goals"
+      },
+      {
+        "highlight": "Competency frameworks",
+        "suffix": "and curriculum by role"
+      },
+      {
+        "highlight": "Measurement",
+        "suffix": "built in from day one"
+      }
+    ],
+    "email": "hello@edstellar.com",
+    "brochure": {
+      "label": "Brochure",
+      "href": "https://www.edstellar.com/brochures/learning-and-development-consulting"
+    },
+    "cta": {
+      "label": "Book a consultation",
+      "href": "#contact"
+    }
+  }
+}
