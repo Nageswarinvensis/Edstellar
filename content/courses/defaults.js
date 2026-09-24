@@ -73,49 +73,6 @@ export const COURSE_DEFAULTS = {
         "Tell us your training needs: what your team already works with, the level they’re at, and the topics you want them to focus on. We’ll adjust the modules, duration and hands-on labs, and send you a customized outline for your group.",
       cta: { label: "Get a Tailored Outline", href: APPLY_ANCHOR },
     },
-
-    method: {
-      steps: [
-        {
-          label: "Assess",
-          parts: [
-            { text: "Baseline each participant’s level before module 01" },
-          ],
-        },
-        {
-          label: "Learn",
-          parts: [
-            { text: "Build strong foundations in instructor-led sessions" },
-          ],
-        },
-        {
-          label: "Practice",
-          parts: [{ text: "Reinforce skills through role plays" }],
-        },
-        {
-          label: "Apply",
-          parts: [
-            { text: "Work on real-world scenarios and a capstone project" },
-          ],
-        },
-      ],
-      split: [
-        { phase_key: "assess", label: "Assess", percent: 4 },
-        { phase_key: "learn", label: "Learn", percent: 13 },
-        { phase_key: "practice", label: "Practice", percent: 65 },
-        { phase_key: "apply", label: "Apply", percent: 18 },
-      ],
-      note: "A short <b>pre-training assessment sets each participant's entry level</b>, so the program starts where your team actually is. The rest is weighted toward hands-on practice: role plays and realistic scenarios drawn from your team's work, not slides.",
-      formats: ["Multi-day program", "Weekly sessions", "Split into batches"],
-      summary_note:
-        "<b>Entry level set by the assessment.</b> Depth and schedule customized to your team.",
-      // Extracted from the source's inline base64 <img> and saved as a real
-      // static asset — no CMS field for it.
-      media: {
-        src: "/course/ml-model-monitoring-method.jpg",
-        alt: "A team reviewing a model monitoring dashboard together on a laptop",
-      },
-    },
   },
 
   audience: {

@@ -78,6 +78,11 @@ const DELIVERY_ICON_MAP = {
   clock: Clock,
 };
 
+const METHOD_IMAGE = {
+  src: "/course/ml-model-monitoring-method.jpg",
+  alt: "A team reviewing a model monitoring dashboard together on a laptop",
+};
+
 const SUMMARY_PILL_META = [
   { icon: FlaskConical, bg: "bg-[#f1f3f6]", iconColor: "text-[#64748b]" },
   { icon: FileText, bg: "bg-[#e9f6f1]", iconColor: "text-[#0e9f6e]" },
@@ -238,7 +243,7 @@ export default function Curriculum({ curriculum }) {
           <Box
             className={[
               "mt-1.5 mb-7.5 grid grid-cols-1 gap-6 rounded-2xl border border-ink/12 bg-white p-6.5 max-sm:p-5",
-              method.media ? "lg:grid-cols-[1fr_0.46fr] lg:items-stretch" : "",
+              "lg:grid-cols-[1fr_0.46fr] lg:items-stretch",
             ].join(" ")}
           >
             <Box>
@@ -438,17 +443,17 @@ export default function Curriculum({ curriculum }) {
               ) : null}
             </Box>
 
-            {method.media ? (
-              <Box className="relative hidden overflow-hidden rounded-[18px] bg-paper-cream lg:block">
-                <Image
-                  src={method.media.src}
-                  alt={method.media.alt || ""}
-                  fill
-                  sizes="280px"
-                  className="object-cover"
-                />
-              </Box>
-            ) : null}
+            {/* Static — the same photo on every course; the CMS has no
+                field for it. */}
+            <Box className="relative hidden overflow-hidden rounded-[18px] bg-paper-cream lg:block">
+              <Image
+                src={METHOD_IMAGE.src}
+                alt={METHOD_IMAGE.alt}
+                fill
+                sizes="280px"
+                className="object-cover"
+              />
+            </Box>
           </Box>
         </Reveal>
       ) : null}

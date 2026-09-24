@@ -7,6 +7,7 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import SecCta from "@/components/common/sec-cta";
 import SkillProgression from "@/components/sections/course/skill-progression";
+import DepartmentTabs from "@/components/sections/course/department-tabs";
 
 /**
  * The role list — one white card, up to three plain bulleted columns
@@ -48,16 +49,25 @@ function RolesCard({ columns }) {
 }
 
 /**
- * Course audience — a three-column role card, a prerequisites callout, and
- * a full-width skill-progression matrix.
+ * Course audience — department tabs (or, for a course whose CMS record has
+ * no `departments` yet, the older three-column role card), a prerequisites
+ * callout, and a full-width skill-progression matrix.
  *
  * Design: `#audience`, `.eds-aud-card`, `.eds-aud-note`, `.eds-path`.
  */
 export default function Audience({ audience }) {
-  if (!audience?.roles?.length) return null;
+  if (!audience?.departments?.length && !audience?.roles?.length) return null;
 
-  const { heading, description, roles, prerequisites, progression, section_cta } =
-    audience;
+  const {
+    heading,
+    description,
+    departments,
+    departments_note,
+    roles,
+    prerequisites,
+    progression,
+    section_cta,
+  } = audience;
 
   return (
     <Section
@@ -78,8 +88,23 @@ export default function Audience({ audience }) {
       </Reveal>
 
       <Reveal delay={2}>
-        <RolesCard columns={roles} />
+        {departments?.length ? (
+          <DepartmentTabs departments={departments} />
+        ) : (
+          <RolesCard columns={roles} />
+        )}
       </Reveal>
+
+      {departments?.length && departments_note ? (
+        <Reveal delay={2}>
+          <Text
+            as="p"
+            className="mt-5.5 max-w-[760px] text-[14px] leading-[1.65] text-ink/60"
+          >
+            {departments_note}
+          </Text>
+        </Reveal>
+      ) : null}
 
       {prerequisites ? (
         <Reveal delay={2}>

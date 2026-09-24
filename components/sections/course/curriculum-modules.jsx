@@ -288,34 +288,17 @@ export default function CurriculumModules({ modules }) {
                 ) : null}
 
                 <Box className="grid grid-cols-1 gap-x-10 gap-y-4.5 sm:grid-cols-2">
-                  {module.groups?.map((group, groupIndex) => (
-                    <Box key={group.title}>
-                      <Text
-                        as="h5"
-                        className="mb-1.5 font-display text-sm font-semibold text-ink"
-                      >
-                        <span className="mr-1 font-semibold text-ink/50">
-                          {String.fromCharCode(97 + groupIndex)})
-                        </span>
-                        {group.title}
-                      </Text>
-                      <Box as="ul" className="flex flex-col">
-                        {group.items.map((item) => (
-                          <Box
-                            as="li"
-                            key={item}
-                            className="flex gap-2.5 py-1 text-[13.5px] leading-[1.5] text-ink/60"
-                          >
-                            <Box
-                              as="span"
-                              aria-hidden="true"
-                              className="mt-2 size-1.5 flex-none rounded-full bg-lime"
-                            />
-                            {item}
-                          </Box>
-                        ))}
-                      </Box>
-                    </Box>
+                  {module.subtitles?.map((subtitle, subtitleIndex) => (
+                    <Text
+                      key={subtitle}
+                      as="h5"
+                      className="font-display text-sm font-semibold text-ink"
+                    >
+                      <span className="mr-1 font-semibold text-ink/50">
+                        {String.fromCharCode(97 + subtitleIndex)})
+                      </span>
+                      {subtitle}
+                    </Text>
                   ))}
                 </Box>
               </AccordionContent>
