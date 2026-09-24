@@ -4,20 +4,6 @@ import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import { cn } from "@/lib/utils";
 
-/*
- * Logo sizing. Fitting every logo into one fixed box sizes it purely by its
- * shape: a 10:1 wordmark like Johnson & Johnson hits the width limit at 11px
- * tall while a 3:1 mark fills the box. Instead each logo's height scales with
- * its aspect ratio to the power -0.4 — wide logos give up some height and
- * gain width, so every logo carries roughly the same visual weight — capped
- * at LOGO_MAX_HEIGHT for near-square marks.
- *
- * Tiles share one height and a minimum width, so compact marks sit in
- * uniform tiles while wide wordmarks grow theirs to fit.
- *
- * This needs the file's real pixel `width`/`height` on the logo record. A
- * logo without them falls back to the fixed-box fit.
- */
 const LOGO_MAX_HEIGHT = 36;
 const LOGO_SCALE = 48;
 const LOGO_RATIO_EXPONENT = -0.4;
@@ -40,22 +26,22 @@ function ClientLogos({ data, className }) {
   return (
     <Box
       as="section"
-      className={cn(
-        "px-5 lg:px-10 overflow-hidden bg-sand py-12",
-        className,
+      className={cn("px-5 lg:px-10 overflow-hidden bg-sand py-12", className,
       )}
     >
       {/* Content container */}
       <Box className="mx-auto max-w-7xl">
-        {/* Small eyebrow */}
-        <Reveal>
-          <Text
-            as="p"
-            className="mb-8 font-mono text-[10px] tracking-[0.18em] text-ink/60 uppercase"
-          >
-            Trusted as a Leading Corporate Training Provider by
-          </Text>
-        </Reveal>
+        {/* Eyebrow heading dynamically loaded from JSON */}
+        {data.heading && (
+          <Reveal>
+            <Text
+              as="p"
+              className="mb-8 font-mono text-[10px] tracking-[0.18em] text-ink/60 uppercase"
+            >
+              {data.heading}
+            </Text>
+          </Reveal>
+        )}
       </Box>
 
       {/* Logo animation - full width */}

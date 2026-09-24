@@ -29,7 +29,7 @@ export default function LearningStats({ data }) {
                   </Text>
                 </Box>
 
-                {!isLast && <Box className="hidden h-9 w-px bg-slate-800/80 md:mx-auto md:block" />}
+                {!isLast && <Box className="hidden h-12 w-px bg-[#fafaf726] md:mx-auto md:block" />}
               </Box>
             );
           })}

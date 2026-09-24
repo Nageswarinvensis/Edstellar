@@ -90,7 +90,7 @@
       }
     ]
   },
-  "ClientsLogosData": {
+  "clientsLogosData": {
     "heading": "Trusted by teams at",
     "logos": [
       {
@@ -228,9 +228,8 @@
         }
     ]
   },
-  "maturityData": {
-    "title": "Facing these common capability",
-    "titleItalic": "issues?",
+  "WhyLandDData": {
+    "heading": "Facing these common capability <span>issues</span>?",
     "description": [
       "If any of these sound familiar, you're in good company. Most enterprise L&D functions hit the same problems, and they trace to one cause: capability gets built a request at a time, with no design tying it to the business.",
       "The parts pile up but never become a whole. Courses, a platform, competency lists and vendors all exist, yet nothing links them to a strategy or each other, so the same gaps keep reopening whatever you spend. A real learning strategy is what turns scattered activity into a function that builds capability on purpose."
@@ -255,6 +254,326 @@
         "badge": "IMPACT: REPEATED SPEND"
       }
     ]
+  },
+  "maturityData": {
+    "heading": "The Edstellar L&D <span>capability maturity model</span>.",
+    "subheading": "Five stages of capability maturity. Edstellar moves your organization up the curve, level by level, until building capability becomes self-sustaining.",
+    "badgeText": "Most enterprises sit at Levels 1–2.",
+    "expandTitle": "The model is a path, not a scorecard you fill in once. Each level is a genuine step change from the one before, so here is what each stage looks like and what it takes to reach the next.",
+    "businessMeaning": {
+      "title": "What it means for the business.",
+      "text": "The higher you climb, the more it shows where the business feels it: faster reskilling when strategy shifts, stronger internal mobility and succession, and learning spend you can defend with evidence rather than activity. Near the top of the curve, capability stops reading as a cost line and starts working as a competitive edge."
+    },
+    "levels": [
+      {
+        "level": "L1",
+        "title": "Sporadic",
+        "color": "bg-[#0A1128]",
+        "textColor": "text-[#CCFF00]",
+        "points": [
+          "Training runs on request",
+          "No link to business strategy",
+          "Capability is accidental"
+        ],
+        "description": "Training happens on request. Someone needs a course, so one gets bought or built, but nothing ties it to the business or to the last thing you ran. Capability here is a by-product. The move to Structured begins the moment L&D gets a clear owner and a catalogue people can actually find."
+      },
+      {
+        "level": "L2",
+        "title": "Structured",
+        "color": "bg-[#0A1128]",
+        "textColor": "text-[#CCFF00]",
+        "points": [
+          "Organized and catalogued",
+          "Delivered consistently",
+          "Not tied to priorities"
+        ],
+        "description": "Now there is order. Programs are organized, catalogued and delivered consistently, usually through an LMS. What is missing is direction, because the catalogue reflects what is available rather than what the business most needs. Reaching Strategic means mapping learning to a competency framework and the business plan."
+      },
+      {
+        "level": "L3",
+        "title": "Strategic",
+        "color": "bg-[#0A1128]",
+        "textColor": "text-[#CCFF00]",
+        "points": [
+          "Mapped to competencies",
+          "Aligned to the business plan",
+          "Priorities drive what is built"
+        ],
+        "description": "Learning is aligned. Every program traces to a capability the strategy calls for, and roles have defined competencies and pathways. The gap now is proof: you can say what you are building and why, but not yet what it changed. Systematic is where measurement closes that loop."
+      },
+      {
+        "level": "L4",
+        "title": "Systematic",
+        "color": "bg-[#E2F99B]",
+        "textColor": "text-ink",
+        "points": [
+          "Baselines and KPIs set",
+          "Impact measured, not assumed",
+          "Improved on evidence"
+        ],
+        "description": "Capability is managed with data. Baselines are set, impact is measured against business KPIs, and programs improve on evidence rather than opinion. The last step is as much cultural as technical, because the function starts improving itself every cycle without depending on outside help."
+      },
+      {
+        "level": "L5",
+        "title": "Self-sustaining",
+        "color": "bg-[#CCFF00]",
+        "textColor": "text-ink",
+        "points": [
+          "Improves itself each cycle",
+          "Capability compounds",
+          "A source of advantage"
+        ],
+        "description": "L&D runs as an engine. It senses where capability is needed, builds it, measures it and reinvests, cycle after cycle. Capability compounds, lives in how the organization works rather than in a few people, and shows up as a genuine source of advantage."
+      }
+    ]
+  },
+  "transformData": {
+    "heading": "Your L&D function, <span>transformed.</span>",
+    "subheading": "By the end of the 5A method, your learning function moves from reactive and scattered to strategic, measured and self-sufficient.",
+    "beforeCard": {
+      "tag": "LEVELS 1-2 · WHERE MOST START",
+      "items": [
+        "Training driven by requests, not strategy",
+        "No shared view of skills or gaps",
+        "Impact nobody can measure",
+        "Dependent on vendors to run anything",
+        "Spend spread thin across disconnected tools"
+      ]
+    },
+    "afterCard": {
+      "tag": "LEVELS 4-5 · WITH EDSTELLAR",
+      "items": [
+        "A learning strategy tied to the business plan",
+        "A live capability picture across every role",
+        "Outcomes measured against business KPIs",
+        "Frameworks and playbooks your team owns",
+        "One connected system that scales"
+      ]
+    }
+  },
+  "landdctaData": {
+    "heading": "Where does your L&D <span>stand?</span>",
+    "description": "Answer a few questions and see which of the five stages your L&D sits at today, and the fastest path to the next one.",
+    "pills": [
+      "SPORADIC",
+      "STRUCTURED",
+      "STRATEGIC",
+      "SYSTEMATIC",
+      "SELF-SUSTAINING"
+    ],
+    "buttonText": "Start the free 5-minute assessment",
+    "buttonHref": "#contact"
+  },
+  "methodologyData": {
+    "heading": "The Edstellar 5A <span>methodology.</span>",
+    "subheading": "The method we run to move you up the curve, from wherever you sit today. Five steps, each leaving you with a deliverable you keep.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Assess",
+        "duration": "1-2 WEEKS",
+        "description": "Read the business strategy, roles and workforce plan to define what capability the plan needs.",
+        "deliverable": "Capability brief"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Analyze",
+        "duration": "2-3 WEEKS",
+        "description": "Analyze the skill gaps from your <u>training needs analysis</u> and <u>assessments</u>.",
+        "deliverable": "Skills-gap report"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Architect",
+        "duration": "3-5 WEEKS",
+        "description": "Architect the strategy, content, technology and governance that close the priority gaps.",
+        "deliverable": "Strategy & roadmap"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Activate",
+        "duration": "6-12 WEEKS",
+        "description": "Roll out blended delivery across teams, on the platforms your people already use.",
+        "deliverable": "Live programs"
+      },
+      {
+        "stepNumber": 5,
+        "title": "Advance",
+        "duration": "ONGOING",
+        "description": "Measure, govern and improve each cycle, so the function compounds rather than resets.",
+        "deliverable": "Impact dashboard"
+      }
+    ]
+  },
+  "relatedData": {
+    "bgColor": "bg-paper-warm",
+    "heading": "The capabilities we build into your <span>L&D function.</span>",
+    "subheading": "Each service leaves your organization with a capability it keeps, not a report it files.",
+    "showSubheading": true,
+    "items": [
+      {
+        "title": "Training Needs Analysis",
+        "description": "A prioritized map of the skill gaps that matter most, before you spend.",
+        "link": "EXPLORE",
+        "href": "/training-needs-analysis"
+      },
+      {
+        "title": "Learning Strategy & Design",
+        "description": "A learning strategy and operating model your function runs on.",
+        "link": "EXPLORE",
+        "href": "/learning-strategy-design"
+      },
+      {
+        "title": "Learning Technology",
+        "description": "A learning tech stack that fits your ecosystem, not the vendor's.",
+        "link": "EXPLORE",
+        "href": "/learning-technology"
+      },
+      {
+        "title": "Content Design & Development",
+        "description": "Content your teams actually use, built for your roles.",
+        "link": "EXPLORE",
+        "href": "/content-design-development"
+      },
+      {
+        "title": "Governance, Analytics & ROI",
+        "description": "Proof that learning moves the business, in dashboards leaders trust.",
+        "link": "EXPLORE",
+        "href": "/governance-analytics-roi"
+      },
+      {
+        "title": "Employee Performance Support",
+        "description": "Performance lifted in the flow of work, without a course.",
+        "link": "EXPLORE",
+        "href": "/employee-performance-support"
+      }
+    ]
+  },
+  "engagementsData": {
+    "heading": "Engagement models that <span>scale with you.</span>",
+    "subheading": "Start with a diagnostic or go all the way to an enterprise partnership. Every model runs on the 5A methodology and builds on the one before it.",
+    "columns": [
+      {
+        "id": "discover",
+        "title": "Discover",
+        "subtitle": "Diagnostics",
+        "isPopular": false,
+        "highlight": false
+      },
+      {
+        "id": "design",
+        "title": "Design",
+        "subtitle": "Strategy & architecture",
+        "isPopular": false,
+        "highlight": false
+      },
+      {
+        "id": "deploy",
+        "title": "Deploy",
+        "subtitle": "Activation & delivery",
+        "badge": "MOST POPULAR",
+        "isPopular": true,
+        "highlight": true
+      },
+      {
+        "id": "drive",
+        "title": "Drive",
+        "subtitle": "Enterprise partnership",
+        "isPopular": false,
+        "highlight": false
+      }
+    ],
+    "rows": [
+      {
+        "feature": "Training needs analysis",
+        "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Skills-gap assessment",
+        "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Discovery workshops",
+        "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "L&D maturity benchmark",
+        "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Learning infrastructure review",
+        "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Enterprise L&D strategy",
+        "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Competency frameworks",
+        "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Curriculum architecture",
+        "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "KPI & measurement framework",
+        "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "12–24 month roadmap",
+        "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Custom program design",
+        "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Learning-technology setup",
+        "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Leadership academies",
+        "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Train-the-trainer",
+        "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Impact dashboards",
+        "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
+      },
+      {
+        "feature": "Fractional CLO advisory",
+        "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
+      },
+      {
+        "feature": "Enterprise skills architecture",
+        "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
+      },
+      {
+        "feature": "Talent & succession integration",
+        "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
+      },
+      {
+        "feature": "AI-enabled learning systems",
+        "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
+      },
+      {
+        "feature": "Capability analytics",
+        "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
+      }
+    ],
+    "footer": {
+      "label": "YOU WALK AWAY WITH",
+      "takeaways": {
+        "discover": "An executive-ready diagnostic and prioritized gaps.",
+        "design": "A strategy, frameworks and metrics to track ROI.",
+        "deploy": "Live programs, internal trainers and early adoption.",
+        "drive": "An enterprise capability strategy and scalable infrastructure."
+      }
+    }
   },
   "ctaTrainerData": {
     "sectionId": "still",
@@ -467,29 +786,6 @@
       {
         "title": "Import and API",
         "description": "Bring data in via Excel, CSV or API, and export the outputs the same way."
-      }
-    ]
-  },
-  "relatedData": {
-    "heading": "Related <span>consulting services.</span>",
-    "items": [
-      {
-        "title": "L&D Consulting",
-        "description": "Turn the roadmap into a learning strategy your function can run for years.",
-        "link": "Explore L&D Consulting",
-        "href": "/learning-development-consulting-services"
-      },
-      {
-        "title": "OD Consulting",
-        "description": "When the gap is structural, not just skills, redesign how the organization works.",
-        "link": "Explore OD Consulting",
-        "href": "/organizational-development-consulting"
-      },
-      {
-        "title": "Assessments",
-        "description": "Measure individuals against the competency model with 360s, psychometrics and centers.",
-        "link": "Explore Assessments",
-        "href": "/talent-assessment-services"
       }
     ]
   },
