@@ -261,6 +261,7 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
                     described in the{" "}
                     <a
                       href="/privacy-policy"
+                      title="Click Here to View Privacy Policy"
                       className="underline hover:text-ink"
                     >
                       privacy policy

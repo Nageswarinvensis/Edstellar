@@ -58,6 +58,7 @@ export default function MobileNav({ id, open, onClose, links, cta }) {
             <Link
               key={link.href}
               href={link.href}
+              title={`Click Here to View ${link.label}`}
               onClick={onClose}
               className="border-b border-ink/8 py-3.5 font-body text-[15px] font-medium text-ink/75 transition-colors duration-200 last:border-none hover:text-ink"
             >

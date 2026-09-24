@@ -61,6 +61,7 @@ function CourseInfo({ proof, capabilityModel }) {
 
             <a
               href={GROUP_QUOTE.href}
+              title={`Click Here to ${GROUP_QUOTE.label}`}
               className="group border-b border-lime/55 pb-0.5 font-mono text-[10px] font-medium tracking-[0.13em] text-ink/60 uppercase transition-colors hover:border-navy hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy max-sm:text-[9.5px]"
             >
               {GROUP_QUOTE.label}

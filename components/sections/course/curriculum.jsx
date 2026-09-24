@@ -205,7 +205,7 @@ export default function Curriculum({ curriculum }) {
               <Box className="mb-2 flex items-center gap-2.5">
                 <Image
                   src="/course/Avatar.webp"
-                  alt=""
+                  alt="Edstellar expert trainers who reviewed this curriculum"
                   width={44}
                   height={24}
                   className="h-6.5 w-auto flex-none object-contain"

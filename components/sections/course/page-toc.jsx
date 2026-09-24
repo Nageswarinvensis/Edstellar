@@ -263,6 +263,7 @@ export default function PageToc({ modules, hasTrainers, children }) {
               key={item.id}
               data-section={item.id}
               href={`#${item.id}`}
+              title={`Click Here to View ${item.label}`}
               onClick={scrollToId(item.id, "start")}
               className={cn(
                 "flex-none rounded-full border px-3.25 py-1.75 font-mono text-[10.5px] tracking-[0.08em] whitespace-nowrap uppercase transition-colors duration-200",
@@ -298,6 +299,7 @@ export default function PageToc({ modules, hasTrainers, children }) {
                   <Box
                     as="a"
                     href={`#${item.id}`}
+                    title={`Click Here to View ${item.label}`}
                     onClick={scrollToId(item.id, "start")}
                     className={cn(
                       "flex items-baseline gap-2.5 rounded-[9px] border-l-2 px-3 py-2 transition-colors duration-200",

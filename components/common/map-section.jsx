@@ -305,7 +305,10 @@ export default function MapSection({ data, className }) {
                 {data.related_services.map((service, index) => (
                   <Box
                     as="a"
-                    href={service.href}
+                    // Trailing slash stripped — the CMS sends some hrefs as
+                    // "/corporate-training/ai/", which costs a 308 per click.
+                    href={service.href?.replace(/(.)\/+$/, "$1")}
+                    title={`Click Here to View ${service.title}`}
                     key={index}
                     className={`
                       group

@@ -34,7 +34,7 @@ function Avatars({ people = [] }) {
       {person.photo && (
         <Image
           src={person.photo}
-          alt=""
+          alt="Edstellar expert trainers"
           width={72}
           height={30}
           sizes="72px"
@@ -332,6 +332,7 @@ function ProofBar({
             <Link
               key={action.label}
               href={action.href}
+              title={`Click Here to ${action.label}`}
               className={cn(
                 "group flex flex-none items-center gap-3 rounded-full",
                 "border border-paper/14 bg-paper/5 py-1.5 pr-3 pl-1.5",
