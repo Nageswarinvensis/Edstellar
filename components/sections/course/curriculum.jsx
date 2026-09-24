@@ -3,6 +3,8 @@ import {
   ArrowRight,
   BookOpen,
   Calendar,
+  CalendarCheck,
+  CalendarDays,
   ClipboardList,
   Clock,
   FileText,
@@ -64,6 +66,17 @@ const FORMAT_CHIP_META = [
   { icon: Calendar, bg: "bg-[#eaf7ee]", iconColor: "text-[#16a34a]" },
   { icon: Layers, bg: "bg-[#f1ebfd]", iconColor: "text-[#7c3aed]" },
 ];
+
+// Maps backend icon slugs to Lucide components for "Delivered as" chips.
+const DELIVERY_ICON_MAP = {
+  users: Users,
+  calendar: Calendar,
+  "calendar-days": CalendarDays,
+  "calendar-check": CalendarCheck,
+  layers: Layers,
+  "file-text": FileText,
+  clock: Clock,
+};
 
 const SUMMARY_PILL_META = [
   { icon: FlaskConical, bg: "bg-[#f1f3f6]", iconColor: "text-[#64748b]" },
@@ -231,7 +244,7 @@ export default function Curriculum({ curriculum }) {
             <Box>
               <Box className="flex flex-wrap items-start gap-3.5 max-md:flex-col md:gap-5">
                 {method.steps?.map((step, index) => {
-                  const phaseKey = step.label?.toLowerCase();
+                  const phaseKey = step.id ?? step.label?.toLowerCase();
                   const StepIcon = STEP_ICONS[phaseKey];
 
                   return (
@@ -363,30 +376,34 @@ export default function Curriculum({ curriculum }) {
                     {/* `formats` is the static, local set of delivery-shape
                         pills; the lab/capstone/hours pills that follow are
                         `meta` reworded as chips (see `META_PILL_FIELDS`). */}
-                    {method.formats.map((item, index) => (
-                      <MethodChip
-                        key={item}
-                        meta={FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0]}
-                      >
-                        {item}
-                      </MethodChip>
-                    ))}
-
-                    {META_PILL_FIELDS.map((field, index) => {
-                      const metaItem = meta?.find(
-                        (item) => item.label === field.label,
-                      );
-                      if (!metaItem) return null;
-
+                    {method.formats.map((item, index) => {
+                      const label = typeof item === "object" ? item.label : item;
+                      const IconFromApi = typeof item === "object" ? DELIVERY_ICON_MAP[item.icon] : null;
+                      const baseMeta = FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0];
+                      const chipMeta = IconFromApi ? { ...baseMeta, icon: IconFromApi } : baseMeta;
                       return (
-                        <MethodChip
-                          key={field.label}
-                          meta={SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]}
-                        >
-                          {field.format(metaItem.value)}
+                        <MethodChip key={label} meta={chipMeta}>
+                          {label}
                         </MethodChip>
                       );
                     })}
+
+                    {!method.formats_complete &&
+                      META_PILL_FIELDS.map((field, index) => {
+                        const metaItem = meta?.find(
+                          (item) => item.label === field.label,
+                        );
+                        if (!metaItem) return null;
+
+                        return (
+                          <MethodChip
+                            key={field.label}
+                            meta={SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]}
+                          >
+                            {field.format(metaItem.value)}
+                          </MethodChip>
+                        );
+                      })}
                   </Box>
 
                   {method.summary_note ? (
