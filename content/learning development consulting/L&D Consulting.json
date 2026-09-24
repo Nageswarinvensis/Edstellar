@@ -1,11 +1,57 @@
 {
-  "l&dheroData": {
-    "title": "Training Needs Analysis Services",
-    "tagline": "Know what to train, and what to skip.",
-    "description": "Most training budgets fund courses nobody needed. Edstellar's needs analysis finds the skill gaps that actually hold your teams back, ranks them by business impact, and hands you a roadmap you can defend to finance.",
-    "primaryBtnText": "Request training needs analysis",
-    "secondaryBtnText": "Take the 3-minute TNA diagnostic",
-    "rightSideHtml": "<aside class=\"gapm\" aria-label=\"Skill matrix, illustrative\"><div class=\"gapm-top\"><p class=\"gapm-lab\">Skill matrix</p><div class=\"gt\" role=\"tablist\" aria-label=\"Matrix view\"><button class=\"gt-b active\" type=\"button\" role=\"tab\" aria-selected=\"true\" data-view=\"gap\">Skill gap</button><button class=\"gt-b\" type=\"button\" role=\"tab\" aria-selected=\"false\" data-view=\"req\">Required level</button></div></div><p class=\"gapm-note\">Illustrative. Your matrix is built from your data.</p><div class=\"gapm-grid view-gap\" id=\"gapmGrid\"><span></span><span class=\"ch\">Ops</span><span class=\"ch\">Eng</span><span class=\"ch\">Sales</span><span class=\"ch\">Mgmt</span><span class=\"rh\">Data literacy</span><span class=\"gc\" data-gap=\"crit\" data-req=\"4\" data-lbl-gap=\"Data literacy, Ops: critical gap\" data-lbl-req=\"Data literacy, Ops: required level 4\" data-tip-gap=\"Data literacy · Ops · Critical gap\" data-tip-req=\"Data literacy · Ops · Required level 4\"><b class=\"ng\">2</b><b class=\"nr\">4</b></span><span class=\"gc\" data-gap=\"mild\" data-req=\"3\" data-lbl-gap=\"Data literacy, Eng: mild gap\" data-lbl-req=\"Data literacy, Eng: required level 3\" data-tip-gap=\"Data literacy · Eng · Mild gap\" data-tip-req=\"Data literacy · Eng · Required level 3\"><b class=\"ng\">1</b><b class=\"nr\">3</b></span><span class=\"gc\" data-gap=\"none\" data-req=\"2\" data-lbl-gap=\"Data literacy, Sales: no gap\" data-lbl-req=\"Data literacy, Sales: required level 2\" data-tip-gap=\"Data literacy · Sales · No gap\" data-tip-req=\"Data literacy · Sales · Required level 2\"><b class=\"ng\">0</b><b class=\"nr\">2</b></span><span class=\"gc\" data-gap=\"mild\" data-req=\"3\" data-lbl-gap=\"Data literacy, Mgmt: mild gap\" data-lbl-req=\"Data literacy, Mgmt: required level 3\" data-tip-gap=\"Data literacy · Mgmt · Mild gap\" data-tip-req=\"Data literacy · Mgmt · Required level 3\"><b class=\"ng\">1</b><b class=\"nr\">3</b></span><span class=\"rh\">Leadership</span><span class=\"gc\" data-gap=\"mild\" data-req=\"3\" data-lbl-gap=\"Leadership, Ops: mild gap\" data-lbl-req=\"Leadership, Ops: required level 3\" data-tip-gap=\"Leadership · Ops · Mild gap\" data-tip-req=\"Leadership · Ops · Required level 3\"><b class=\"ng\">1</b><b class=\"nr\">3</b></span><span class=\"gc\" data-gap=\"none\" data-req=\"2\" data-lbl-gap=\"Leadership, Eng: no gap\" data-lbl-req=\"Leadership, Eng: required level 2\" data-tip-gap=\"Leadership · Eng · No gap\" data-tip-req=\"Leadership · Eng · Required level 2\"><b class=\"ng\">0</b><b class=\"nr\">2</b></span><span class=\"gc\" data-gap=\"mild\" data-req=\"3\" data-lbl-gap=\"Leadership, Sales: mild gap\" data-lbl-req=\"Leadership, Sales: required level 3\" data-tip-gap=\"Leadership · Sales · Mild gap\" data-tip-req=\"Leadership · Sales · Required level 3\"><b class=\"ng\">1</b><b class=\"nr\">3</b></span><span class=\"gc\" data-gap=\"crit\" data-req=\"4\" data-lbl-gap=\"Leadership, Mgmt: critical gap\" data-lbl-req=\"Leadership, Mgmt: required level 4\" data-tip-gap=\"Leadership · Mgmt · Critical gap\" data-tip-req=\"Leadership · Mgmt · Required level 4\"><b class=\"ng\">2</b><b class=\"nr\">4</b></span><span class=\"rh\">Compliance</span><span class=\"gc\" data-gap=\"none\" data-req=\"3\" data-lbl-gap=\"Compliance, Ops: no gap\" data-lbl-req=\"Compliance, Ops: required level 3\" data-tip-gap=\"Compliance · Ops · No gap\" data-tip-req=\"Compliance · Ops · Required level 3\"><b class=\"ng\">0</b><b class=\"nr\">3</b></span><span class=\"gc\" data-gap=\"mild\" data-req=\"3\" data-lbl-gap=\"Compliance, Eng: mild gap\" data-lbl-req=\"Compliance, Eng: required level 3\" data-tip-gap=\"Compliance · Eng · Mild gap\" data-tip-req=\"Compliance · Eng · Required level 3\"><b class=\"ng\">1</b><b class=\"nr\">3</b></span><span class=\"gc\" data-gap=\"crit\" data-req=\"4\" data-lbl-gap=\"Compliance, Sales: critical gap\" data-lbl-req=\"Compliance, Sales: required level 4\" data-tip-gap=\"Compliance · Sales · Critical gap\" data-tip-req=\"Compliance · Sales · Required level 4\"><b class=\"ng\">2</b><b class=\"nr\">4</b></span><span class=\"gc\" data-gap=\"none\" data-req=\"3\" data-lbl-gap=\"Compliance, Mgmt: no gap\" data-lbl-req=\"Compliance, Mgmt: required level 3\" data-tip-gap=\"Compliance · Mgmt · No gap\" data-tip-req=\"Compliance · Mgmt · Required level 3\"><b class=\"ng\">0</b><b class=\"nr\">3</b></span><span class=\"rh\">AI tools</span><span class=\"gc\" data-gap=\"crit\" data-req=\"4\" data-lbl-gap=\"AI tools, Ops: critical gap\" data-lbl-req=\"AI tools, Ops: required level 4\" data-tip-gap=\"AI tools · Ops · Critical gap\" data-tip-req=\"AI tools · Ops · Required level 4\"><b class=\"ng\">2</b><b class=\"nr\">4</b></span><span class=\"gc\" data-gap=\"crit\" data-req=\"4\" data-lbl-gap=\"AI tools, Eng: critical gap\" data-lbl-req=\"AI tools, Eng: required level 4\" data-tip-gap=\"AI tools · Eng · Critical gap\" data-tip-req=\"AI tools · Eng · Required level 4\"><b class=\"ng\">2</b><b class=\"nr\">4</b></span><span class=\"gc\" data-gap=\"mild\" data-req=\"3\" data-lbl-gap=\"AI tools, Sales: mild gap\" data-lbl-req=\"AI tools, Sales: required level 3\" data-tip-gap=\"AI tools · Sales · Mild gap\" data-tip-req=\"AI tools · Sales · Required level 3\"><b class=\"ng\">1</b><b class=\"nr\">3</b></span><span class=\"gc\" data-gap=\"none\" data-req=\"2\" data-lbl-gap=\"AI tools, Mgmt: no gap\" data-lbl-req=\"AI tools, Mgmt: required level 2\" data-tip-gap=\"AI tools · Mgmt · No gap\" data-tip-req=\"AI tools · Mgmt · Required level 2\"><b class=\"ng\">0</b><b class=\"nr\">2</b></span></div><ul class=\"gapm-legend leg-gap\"><li><span class=\"sw g-none\"></span>No gap</li><li><span class=\"sw g-mild\"></span>Mild gap</li><li><span class=\"sw g-crit\"></span>Critical gap</li></ul><ul class=\"gapm-legend leg-req\" hidden><li><span class=\"sw lv-1\"></span>1</li><li><span class=\"sw lv-2\"></span>2</li><li><span class=\"sw lv-3\"></span>3</li><li><span class=\"sw lv-4\"></span>4</li><li class=\"leg-cap\">Required proficiency level</li></ul></aside><style>.gapm{background:#ffffff;border:1px solid #dfe3e8;border-radius:16px;padding:22px 22px 20px;box-shadow:0 10px 30px rgba(10,20,40,0.08);}.gapm-lab{font-weight:700;font-size:15px;letter-spacing:-0.01em;color:#07182c;margin:0;}.gapm-note{font-size:11.5px;color:#64748b;margin:3px 0 16px;}.gapm-top{display:flex;align-items:center;justify-content:space-between;gap:12px;}.gapm-grid{display:grid;grid-template-columns:78px repeat(4,1fr);gap:5px;align-items:center;}.gapm-grid .ch{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:#64748b;text-align:center;}.gapm-grid .rh{font-size:12px;color:#07182c;font-weight:600;line-height:1.2;}.gc{position:relative;height:34px;border-radius:6px;cursor:default;transition:transform 0.2s,box-shadow 0.2s;}.gc:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 16px 40px rgba(10,20,40,0.14);z-index:5;}.gc::after{content:attr(data-tip-gap);position:absolute;left:50%;bottom:calc(100% + 9px);transform:translateX(-50%);background:#07182c;color:#ffffff;font-size:12px;line-height:1.3;white-space:nowrap;padding:8px 12px;border-radius:7px;box-shadow:0 16px 40px rgba(10,20,40,0.14);opacity:0;visibility:hidden;transition:opacity 0.15s;pointer-events:none;z-index:20;}.gc::before{content:\"\";position:absolute;left:50%;bottom:calc(100% + 4px);transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:#07182c;opacity:0;visibility:hidden;transition:opacity 0.15s;z-index:20;}.gc:hover::after,.gc:hover::before{opacity:1;visibility:visible;}.g-none{background:#e5f7a8;}.g-mild{background:#ccf244;}.g-crit{background:#0b1320;}.gapm-legend{display:flex;gap:16px;margin:16px 0 0;padding:0;flex-wrap:wrap;}.gapm-legend[hidden]{display:none;}.gapm-legend li{list-style:none;display:flex;align-items:center;gap:8px;font-size:12px;color:#64748b;}.gapm-legend .sw{width:16px;height:16px;border-radius:4px;flex:0 0 auto;}.gt{display:inline-flex;background:#f5f2e9;border-radius:999px;padding:3px;flex:0 0 auto;}.gt-b{font-weight:700;font-size:11.5px;color:#64748b;background:none;border:0;padding:6px 12px;border-radius:999px;cursor:pointer;transition:background 0.2s,color 0.2s;}.gt-b.active{background:#0b1320;color:#ffffff;}.gt-b:focus-visible{outline:2px solid #0b1320;outline-offset:2px;}.gc .ng,.gc .nr{display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-weight:700;font-size:12px;}.view-gap .gc .ng{display:flex;}.view-req .gc .nr{display:flex;}.view-gap .gc[data-gap=\"none\"] .ng,.view-gap .gc[data-gap=\"mild\"] .ng{color:#0b1320;}.view-gap .gc[data-gap=\"crit\"] .ng{color:#ccf244;}.view-req .gc[data-req=\"1\"] .nr,.view-req .gc[data-req=\"2\"] .nr{color:#0b1320;}.view-req .gc[data-req=\"3\"] .nr,.view-req .gc[data-req=\"4\"] .nr{color:#ccf244;}.view-gap .gc[data-gap=\"none\"]{background:#e5f7a8;}.view-gap .gc[data-gap=\"mild\"]{background:#ccf244;}.view-gap .gc[data-gap=\"crit\"]{background:#0b1320;}.view-req .gc[data-req=\"1\"]{background:#e5f7a8;}.view-req .gc[data-req=\"2\"]{background:#ccf244;}.view-req .gc[data-req=\"3\"]{background:#182640;}.view-req .gc[data-req=\"4\"]{background:#0b1320;}.view-req .gc::after{content:attr(data-tip-req);}.gapm-legend .sw.lv-1{background:#e5f7a8;}.gapm-legend .sw.lv-2{background:#ccf244;}.gapm-legend .sw.lv-3{background:#182640;}.gapm-legend .sw.lv-4{background:#0b1320;}.gapm-legend .leg-cap{color:#64748b;font-size:12px;}</style><script>(function(){var grid=document.getElementById(\"gapmGrid\");if(!grid)return;var wrap=grid.closest(\".gapm\");var btns=wrap.querySelectorAll(\".gt-b\");var cells=grid.querySelectorAll(\".gc\");var legGap=wrap.querySelector(\".leg-gap\");var legReq=wrap.querySelector(\".leg-req\");function setView(view){grid.classList.toggle(\"view-req\",view===\"req\");grid.classList.toggle(\"view-gap\",view!==\"req\");btns.forEach(function(button){var active=button.getAttribute(\"data-view\")===view;button.classList.toggle(\"active\",active);button.setAttribute(\"aria-selected\",active?\"true\":\"false\");});if(legGap){legGap.hidden=view===\"req\";}if(legReq){legReq.hidden=view!==\"req\";}cells.forEach(function(cell){cell.setAttribute(\"aria-label\",view===\"req\"?cell.getAttribute(\"data-lbl-req\"):cell.getAttribute(\"data-lbl-gap\"));});}btns.forEach(function(button){button.addEventListener(\"click\",function(){setView(button.getAttribute(\"data-view\"));});});setView(\"gap\");})();</script>"
+  "ldheroData": {
+    "title": "Learning and Development Consulting Services",
+    "tagline": "Build the learning function your strategy needs.",
+    "description": "Most learning spend scatters across disconnected courses, tools and vendors. Edstellar's L&D consulting turns it into one business-aligned system, from strategy and content to technology, governance and delivery.",
+    "showMeta": true,
+    "fontWeight": "font-normal",
+    "textColor": "text-ink-muted",
+    "meta": [
+      "Consulting & delivery",
+      "Onsite / virtual / hybrid",
+      {
+        "label": "20+ industries",
+        "tooltip": {
+          "heading": "Delivered in",
+          "body": "English, Spanish, Mandarin, German, Arabic, Portuguese, Hindi, French, Japanese, Italian"
+        }
+      },
+      {
+        "label": "100+ locations",
+        "tooltip": {
+          "heading": "We have delivered in",
+          "body": "United States, United Kingdom, India, Canada, Germany, France, Netherlands, UAE, Saudi Arabia, Singapore, Australia, Japan, Brazil, South Africa and 90+ more countries"
+        }
+      }
+    ],
+    "primaryBtnText": "Book an L&D Consulting",
+    "secondaryBtnText": "Explore L&D Consulting",
+    "learning_system": {
+      "title": "One connected learning system",
+      "items": [
+        {
+          "title": "Strategy",
+          "description": "Business-aligned L&D plan"
+        },
+        {
+          "title": "Content",
+          "description": "Courses, microlearning, ILT"
+        },
+        {
+          "title": "Technology",
+          "description": "LMS, LXP and integrations"
+        },
+        {
+          "title": "Governance",
+          "description": "Analytics, ROI and governance"
+        },
+        {
+          "title": "Delivery",
+          "description": "Global trainers and programs"
+        }
+      ],
+      "footerText": "Strategy to delivery, working as one."
+    }
   },
   "BreadcrumbData": [
     {
@@ -13,36 +59,34 @@
       "label": "Home"
     },
     {
-      "href": "https://edstellar-two.vercel.app/corporate-training/artificial-intelligence",
-      "label": "Consulting"
-    },
-    {
-      "href": "/corporate-training",
-      "label": "Corporate Training"
+      "label": "Learning & Development Consulting"
     }
   ],
   "proof": {
     "tone": "dark",
+    "ctaTitle": "Ready to build a self-sustaining L&D function?",
+    "primaryBtnText": "Book a consultation",
+    "primaryBtnTitle": "Book an L&D consultation with our team",
+    "primaryBtnHref": "#book-consultation",
+    "secondaryBtnText": "Download the L&D brochure (PDF)",
+    "secondaryBtnTitle": "Download the L&D brochure in PDF format",
+    "secondaryBtnHref": "/brochure.pdf",
     "stats": [
       {
         "value": "300+",
-        "label": "Needs analyses delivered"
-      },
-      {
-        "value": "40,000+",
-        "label": "Roles assessed"
+        "label": "Clients"
       },
       {
         "value": "20+",
-        "label": "Industries assessed"
+        "label": "Industries"
       },
       {
-        "value": "95+",
-        "label": "Surface hidden gaps"
+        "value": "300+",
+        "label": "Consultants"
       },
       {
-        "value": "3.5x",
-        "label": "Return on prioritized spend"
+        "value": "ISO 9001 & 27001",
+        "label": "Certified"
       }
     ]
   },
@@ -137,45 +181,78 @@
       "alt": "Edstellar"
     },
     "cta": {
-      "text": "Request training needs analysis",
-      "title": "Request training needs analysis",
+      "text": "Book a Consultation",
+      "title": "Click Here to Book a Consultation",
       "targetId": "contact"
     },
     "tabs": [
-      {
-        "id": "engine",
-        "label": "The Engine",
+        {
+        "id": "why-ld",
+        "label": "Why L&D",
         "active": true
-      },
-      {
-        "id": "benefits",
-        "label": "Benefits",
+        },
+        {
+        "id": "maturity-model",
+        "label": "Maturity model",
         "active": false
-      },
-      {
-        "id": "process",
-        "label": "Process",
+        },
+        {
+        "id": "how-we-work",
+        "label": "How we work",
         "active": false
-      },
-      {
-        "id": "steps",
-        "label": "Steps",
+        },
+        {
+        "id": "transformation",
+        "label": "Transformation",
         "active": false
-      },
-      {
-        "id": "deliverables",
-        "label": "Deliverables",
+        },
+        {
+        "id": "services",
+        "label": "Services",
         "active": false
-      },
-      {
-        "id": "why-edstellar",
-        "label": "Why us",
+        },
+        {
+        "id": "engagements",
+        "label": "Engagements",
         "active": false
-      },
-      {
+        },
+        {
+        "id": "capability-consulting",
+        "label": "Capability consulting",
+        "active": false
+        },
+        {
         "id": "faq",
         "label": "FAQ",
         "active": false
+        }
+    ]
+  },
+  "maturityData": {
+    "title": "Facing these common capability",
+    "titleItalic": "issues?",
+    "description": [
+      "If any of these sound familiar, you're in good company. Most enterprise L&D functions hit the same problems, and they trace to one cause: capability gets built a request at a time, with no design tying it to the business.",
+      "The parts pile up but never become a whole. Courses, a platform, competency lists and vendors all exist, yet nothing links them to a strategy or each other, so the same gaps keep reopening whatever you spend. A real learning strategy is what turns scattered activity into a function that builds capability on purpose."
+    ],
+    "cards": [
+      {
+        "icon": "gauge",
+        "title": "Capability that lags the business",
+        "description": "Strategy and technology shift faster than your people can be reskilled to keep up.",
+        "badge": "IMPACT: YOU FALL BEHIND"
+      },
+      {
+        "icon": "lock",
+        "title": "Know-how locked in a few people",
+        "description": "Critical expertise sits with a handful of individuals, and walks out the door when they do.",
+        "badge": "IMPACT: KEY-PERSON RISK"
+      },
+      {
+        "icon": "hourglass",
+        "title": "Skills that don't stick",
+        "description": "Learning fades without reinforcement, so the same capability gaps reopen within a year.",
+        "badge": "IMPACT: REPEATED SPEND"
       }
     ]
   },
