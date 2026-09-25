@@ -11,11 +11,14 @@ import RichHeading from "@/components/common/rich-heading";
 export default function TnaRelated({ data }) {
   if (!data?.items?.length) return null;
 
+  // Reads section ID dynamically from JSON (data.sectionId or data.id) or defaults to "services"
+  const sectionId = data?.sectionId || data?.id || "services";
+
   // Reads background color from JSON (data.bgColor) or defaults to "bg-paper"
   const sectionBg = data.bgColor || "bg-paper";
 
   return (
-    <Section id="services" className={`border-t border-ink/12 ${sectionBg}`}>
+    <Section id={sectionId} className={`border-t border-ink/12 ${sectionBg}`}>
       <Box className="mb-11 max-w-[62ch]">
         <Reveal>
           {data.heading && (

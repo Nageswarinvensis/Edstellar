@@ -720,6 +720,7 @@
     "heading": "Other L&D consulting <span>services.</span>",
     "items": [
       {
+        "sectionId": "services",
         "title": "Learning Technology Consulting",
         "description": "The LMS, LXP and integrations that deliver the strategy.",
         "link": "Explore",

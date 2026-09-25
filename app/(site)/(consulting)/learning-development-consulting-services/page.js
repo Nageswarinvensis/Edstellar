@@ -11,6 +11,10 @@ import Methodology from "@/components/sections/learning_development_consulting/m
 import Transform from "@/components/sections/learning_development_consulting/transform";
 import TnaRelated from "@/components/sections/training_needs_analysis/tnarelated";
 import Engagements from "@/components/sections/learning_development_consulting/engagements";
+import TnaWhyEdstellar from "@/components/sections/training_needs_analysis/tnawhyedstellar";
+import Faq from "@/components/common/faq";
+import LeadForm from "@/components/forms/lead-form";
+import StickyFooter from "@/components/common/sticky-footer";
 
 import heroData from "@/content/learning_development_consulting/LD_Consulting.json";
 
@@ -34,6 +38,17 @@ export default function LDConsultingPage() {
       <Transform data={heroData.transformData}/>
       <TnaRelated data={heroData.relatedData}/>
       <Engagements data={heroData.engagementsData}/>
+      <TnaWhyEdstellar data={heroData.whyEdstellarData}/>
+      <TnaRelated data={heroData.capabiltyData}/>
+      <Faq
+        id="faq"
+        faqs={heroData.faqData}
+        innerClassName="max-w-[920px] mx-auto"
+        headingClassName="mx-auto text-center"
+        showCta={false}
+      />
+      <LeadForm id="contact" background="navy" data={heroData.leadFormData} />
+      <StickyFooter data={heroData.stickyFooter} />
     </>
   );
 }
