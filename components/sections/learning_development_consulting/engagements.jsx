@@ -6,15 +6,14 @@ import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
-export default function Engagements({ data}) {
+export default function Engagements({ data }) {
   const content = data?.engagementsData || data;
 
   if (!content) return null;
 
   return (
-    <Section id="engagements">
+    <Section id="engagements" className="bg-paper">
       <Box>
-        
         {/* Header Block */}
         <Reveal>
           <Box className="mb-8 lg:mb-10 max-w-2xl">
@@ -34,38 +33,34 @@ export default function Engagements({ data}) {
           </Box>
         </Reveal>
 
-        {/* Outer Card Wrapper */}
+        {/* Engagement Comparison Table */}
         <Reveal delay={0.1}>
-            
-            {/* Table Horizontal Scroll Container */}
-            <Box className="w-full overflow-x-auto no-scrollbar rounded-xl bg-white border border-ink/10">
-              <table className="w-full min-w-[720px] border-collapse text-left">
-                
-                {/* Table Header */}
+          <Box className="mx-auto max-w-225 overflow-hidden rounded-[12px] border border-white bg-transparent">
+            {/* Added overflow-x-auto for horizontal scrolling on small screens */}
+            <Box className="no-scrollbar overflow-x-auto">
+              <table className="w-full min-w-160 border-collapse text-left">
                 <thead>
-                  <tr className="border-b-2 border-[#0a16281a] bg-[#f9f8f5]">
-                    {/* Empty Left Label Cell */}
-                    <th className="w-[34%] p-5 sm:p-6 text-left" />
+                  <tr className="border-b-2 border-[#0a162829]">
+                    {/* Empty Feature Header */}
+                    <th className="w-[40%] bg-transparent p-0" />
 
-                    {/* Dynamic Column Headers */}
+                    {/* Column Headers */}
                     {content.columns?.map((col) => (
                       <th
                         key={col.id}
-                        className={`w-[16.5%] p-4 sm:p-6 text-center align-bottom transition-colors ${
-                          col.highlight ? "bg-[#f4fae2]" : "bg-[#f9f8f5]"
-                        }`}
+                        className="bg-transparent p-0 text-center align-bottom"
                       >
-                        <Box className="flex flex-col items-center justify-end">
-                          <Text className="font-bold text-[17px] text-ink leading-tight">
+                        <Box className="flex min-h-20 flex-col items-center justify-end px-2 py-3.5">
+                          <Text className="text-[16px] font-bold leading-4 text-ink">
                             {col.title}
                           </Text>
-                          <Text className="text-[12px] text-ink/50 font-normal mt-1 leading-snug">
+
+                          <Text className="mt-1 text-[12px] font-normal leading-3 text-ink-muted">
                             {col.subtitle}
                           </Text>
 
-                          {/* "MOST POPULAR" Pill Badge */}
                           {col.badge && (
-                            <span className="mt-2.5 inline-block rounded-full bg-[#d6fc27] px-2.5 py-0.5 text-[9px] font-mono font-bold tracking-wider text-ink uppercase">
+                            <span className="mt-2 inline-flex h-5 items-center rounded-full bg-lime px-2.5 py-1 text-[8px] font-normal uppercase tracking-[0.07em] text-ink">
                               {col.badge}
                             </span>
                           )}
@@ -75,38 +70,39 @@ export default function Engagements({ data}) {
                   </tr>
                 </thead>
 
-                {/* Table Body */}
                 <tbody className="bg-white">
                   {content.rows?.map((row, idx) => {
-                    // Adds a thicker section border every 5 rows (at idx 4, 9, 14, etc.)
                     const isGroupDivider = (idx + 1) % 5 === 0 && idx !== content.rows.length - 1;
 
                     return (
                       <tr
                         key={idx}
-                        className={`transition-colors hover:bg-ink/[0.01] ${
+                        className={`h-9 ${
                           isGroupDivider
-                            ? "border-b-2 border-[#0a16281a]"
-                            : "border-b border-[#0a16280d]"
+                            ? "border-b-2 border-[#0a162829]"
+                            : "border-b border-[#0a162814]"
                         }`}
                       >
-                        {/* Feature Label */}
-                        <td className="p-3.5 sm:p-4 px-6 text-[13px] sm:text-[14px] font-normal text-ink/80 leading-snug">
+                        {/* Feature */}
+                        <td className="bg-white px-1.5 py-1.5 pl-3 text-[12px] font-normal leading-4 text-[#263244]">
                           {row.feature}
                         </td>
 
-                        {/* Column Checkmark Cells */}
+                        {/* Availability */}
                         {content.columns?.map((col) => {
                           const isAvailable = row.availability?.[col.id];
+
                           return (
                             <td
                               key={col.id}
-                              className={`p-3.5 sm:p-4 text-center align-middle ${
-                                col.highlight ? "bg-[#f4fae2]/70" : "bg-white"
+                              className={`p-0 text-center align-middle ${
+                                col.highlight
+                                  ? "bg-[#C8F1351A]"
+                                  : "bg-white"
                               }`}
                             >
                               {isAvailable ? (
-                                <span className="text-ink font-bold text-sm">
+                                <span className="inline-block text-[13px] font-bold leading-none text-[#07182c]">
                                   ✓
                                 </span>
                               ) : null}
@@ -117,17 +113,20 @@ export default function Engagements({ data}) {
                     );
                   })}
 
-                  {/* Bottom "YOU WALK AWAY WITH" Footer Row */}
+                  {/* Footer */}
                   {content.footer && (
-                    <tr className="border-t-2 border-[#0a16281a] bg-[#f9f8f5]">
-                      <td className="p-5 sm:p-6 text-[11px] font-mono tracking-widest text-ink/50 uppercase font-semibold leading-relaxed align-top">
+                    <tr className="border-t-2 border-[#0a16281a] bg-transparent">
+                      <td className="bg-transparent px-3 py-2.5 align-top text-[10px] font-mono uppercase leading-3 tracking-[0.12em] text-ink">
                         {content.footer.label}
                       </td>
+
                       {content.columns?.map((col) => (
                         <td
                           key={col.id}
-                          className={`p-5 sm:p-6 text-center align-top text-[12px] text-ink/70 leading-relaxed ${
-                            col.highlight ? "bg-[#f4fae2]" : "bg-[#f9f8f5]"
+                          className={`px-2 py-3.5 text-center align-top text-[12px] font-normal leading-3 text-ink-muted ${
+                            col.highlight
+                              ? "bg-transparent"
+                              : "bg-transparent"
                           }`}
                         >
                           {content.footer.takeaways?.[col.id]}
@@ -136,11 +135,10 @@ export default function Engagements({ data}) {
                     </tr>
                   )}
                 </tbody>
-
               </table>
             </Box>
+          </Box>
         </Reveal>
-
       </Box>
     </Section>
   );
