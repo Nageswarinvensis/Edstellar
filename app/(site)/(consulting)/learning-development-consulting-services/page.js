@@ -9,9 +9,12 @@ import Maturity from "@/components/sections/learning_development_consulting/matu
 import LandDCTA from "@/components/sections/learning_development_consulting/ldcta";
 import Methodology from "@/components/sections/learning_development_consulting/methodology";
 import Transform from "@/components/sections/learning_development_consulting/transform";
-import TnaRelated from "@/components/sections/training_needs_analysis/tnarelated";
+import LdSoftCta from "@/components/sections/learning_development_consulting/ld-soft-cta";
+import LdServices from "@/components/sections/learning_development_consulting/ld-services";
 import Engagements from "@/components/sections/learning_development_consulting/engagements";
-import TnaWhyEdstellar from "@/components/sections/training_needs_analysis/tnawhyedstellar";
+import LdWhy from "@/components/sections/learning_development_consulting/ld-why";
+import LdCtaBand from "@/components/sections/learning_development_consulting/ld-cta-band";
+import TnaRelated from "@/components/sections/training_needs_analysis/tnarelated";
 import Faq from "@/components/common/faq";
 import LeadForm from "@/components/forms/lead-form";
 import StickyFooter from "@/components/common/sticky-footer";
@@ -36,9 +39,12 @@ export default function LDConsultingPage() {
       <LandDCTA data={heroData.landdctaData}/>
       <Methodology data={heroData.methodologyData}/>
       <Transform data={heroData.transformData}/>
+      <LdSoftCta data={heroData.blueprintCtaData} />
       <TnaRelated data={heroData.relatedData}/>
+      <LdServices data={heroData.ldServicesData}/>
       <Engagements data={heroData.engagementsData}/>
-      <TnaWhyEdstellar data={heroData.whyEdstellarData}/>
+      <LdWhy data={heroData.whyEdstellarData} />
+      <LdCtaBand data={heroData.whyCtaData} />
       <TnaRelated data={heroData.capabiltyData}/>
       <Faq
         id="faq"

@@ -356,6 +356,14 @@
       ]
     }
   },
+  "blueprintCtaData": {
+    "heading": "This is what the 5A method delivers.",
+    "description": "Want an L&D function that runs like this? Tell us where yours stands today.",
+    "cta": {
+      "label": "Talk it through",
+      "href": "#contact"
+    }
+  },
   "landdctaData": {
     "heading": "Where does your L&D <span>stand?</span>",
     "description": "Answer a few questions and see which of the five stages your L&D sits at today, and the fastest path to the next one.",
@@ -410,195 +418,301 @@
       }
     ]
   },
-  "relatedData": {
-    "bgColor": "bg-paper-warm",
-    "heading": "The capabilities we build into your <span>L&D function.</span>",
+  "ldServicesData": {
+    "sectionId": "ld-services",
+    "heading": "The L&D consulting services we build into your <span>function.</span>",
     "subheading": "Each service leaves your organization with a capability it keeps, not a report it files.",
     "showSubheading": true,
     "items": [
       {
+        "icon": "search",
         "title": "Training Needs Analysis",
-        "description": "A prioritized map of the skill gaps that matter most, before you spend.",
-        "link": "EXPLORE",
+        "description": "A prioritized map of the skill gaps that matter most, so upskilling and reskilling target the right roles before you spend.",
+        "covers": "Skill gaps · Role mapping · Priorities",
+        "youGet": "Prioritized skill-gap map",
+        "link": "EXPLORE →",
         "href": "/training-needs-analysis"
       },
       {
+        "icon": "compass",
         "title": "Learning Strategy & Design",
-        "description": "A learning strategy and operating model your function runs on.",
-        "link": "EXPLORE",
+        "description": "Learning strategy consulting that gives you a strategy and operating model your function runs on.",
+        "covers": "Strategy · Operating model · Roadmap",
+        "youGet": "Learning strategy on a page",
+        "link": "EXPLORE →",
         "href": "/learning-development-consulting-services/learning-strategy-design-consulting"
       },
       {
+        "icon": "monitor",
         "title": "Learning Technology",
         "description": "A learning tech stack that fits your ecosystem, not the vendor's.",
-        "link": "EXPLORE",
+        "covers": "LMS / LXP · Integrations · Architecture",
+        "youGet": "Learning tech blueprint",
+        "link": "EXPLORE →",
         "href": "/learning-technology"
       },
       {
+        "icon": "edit",
         "title": "Content Design & Development",
-        "description": "Content your teams actually use, built for your roles.",
-        "link": "EXPLORE",
+        "description": "Learning experience design and content your teams actually use, built for your roles.",
+        "covers": "Instructional design · Courses · Microlearning",
+        "youGet": "Role-based content library",
+        "link": "EXPLORE →",
         "href": "/content-design-development"
-      },
-      {
-        "title": "Governance, Analytics & ROI",
-        "description": "Proof that learning moves the business, in dashboards leaders trust.",
-        "link": "EXPLORE",
-        "href": "/governance-analytics-roi"
-      },
-      {
-        "title": "Employee Performance Support",
-        "description": "Performance lifted in the flow of work, without a course.",
-        "link": "EXPLORE",
-        "href": "/employee-performance-support"
       }
     ]
   },
   "engagementsData": {
-    "heading": "Engagement models that <span>scale with you.</span>",
-    "subheading": "Start with a diagnostic or go all the way to an enterprise partnership. Every model runs on the 5A methodology and builds on the one before it.",
-    "columns": [
-      {
-        "id": "discover",
-        "title": "Discover",
-        "subtitle": "Diagnostics",
-        "isPopular": false,
-        "highlight": false
-      },
-      {
-        "id": "design",
-        "title": "Design",
-        "subtitle": "Strategy & architecture",
-        "isPopular": false,
-        "highlight": false
-      },
-      {
-        "id": "deploy",
-        "title": "Deploy",
-        "subtitle": "Activation & delivery",
-        "badge": "MOST POPULAR",
-        "isPopular": true,
-        "highlight": true
-      },
-      {
-        "id": "drive",
-        "title": "Drive",
-        "subtitle": "Enterprise partnership",
-        "isPopular": false,
-        "highlight": false
-      }
-    ],
-    "rows": [
-      {
-        "feature": "Training needs analysis",
-        "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Skills-gap assessment",
-        "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Discovery workshops",
-        "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "L&D maturity benchmark",
-        "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Learning infrastructure review",
-        "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Enterprise L&D strategy",
-        "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Competency frameworks",
-        "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Curriculum architecture",
-        "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "KPI & measurement framework",
-        "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "12–24 month roadmap",
-        "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Custom program design",
-        "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Learning-technology setup",
-        "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Leadership academies",
-        "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Train-the-trainer",
-        "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Impact dashboards",
-        "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
-      },
-      {
-        "feature": "Fractional CLO advisory",
-        "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
-      },
-      {
-        "feature": "Enterprise skills architecture",
-        "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
-      },
-      {
-        "feature": "Talent & succession integration",
-        "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
-      },
-      {
-        "feature": "AI-enabled learning systems",
-        "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
-      },
-      {
-        "feature": "Capability analytics",
-        "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
-      }
-    ],
-    "footer": {
-      "label": "YOU WALK AWAY WITH",
-      "takeaways": {
-        "discover": "An executive-ready diagnostic and prioritized gaps.",
-        "design": "A strategy, frameworks and metrics to track ROI.",
-        "deploy": "Live programs, internal trainers and early adoption.",
-        "drive": "An enterprise capability strategy and scalable infrastructure."
-      }
+  "heading": "Engagement models that <span>scale with you.</span>",
+  "subheading": "Start with a diagnostic or go all the way to an enterprise partnership. Every model runs on the 5A methodology and builds on the one before it.",
+  "columns": [
+    {
+      "id": "discover",
+      "title": "Discover",
+      "subtitle": "Diagnostics",
+      "isPopular": false,
+      "highlight": false
+    },
+    {
+      "id": "design",
+      "title": "Design",
+      "subtitle": "Strategy & architecture",
+      "isPopular": false,
+      "highlight": false
+    },
+    {
+      "id": "deploy",
+      "title": "Deploy",
+      "subtitle": "Activation & delivery",
+      "badge": "MOST POPULAR",
+      "isPopular": true,
+      "highlight": true
+    },
+    {
+      "id": "drive",
+      "title": "Drive",
+      "subtitle": "Enterprise partnership",
+      "isPopular": false,
+      "highlight": false
+    }
+  ],
+  "rows": [
+    {
+      "feature": "Training needs analysis",
+      "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Skills-gap assessment",
+      "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Discovery workshops",
+      "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "L&D maturity benchmark",
+      "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Learning infrastructure review",
+      "availability": { "discover": true, "design": true, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Enterprise L&D strategy",
+      "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Competency frameworks",
+      "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Curriculum architecture",
+      "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "KPI & measurement framework",
+      "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "12–24 month roadmap",
+      "availability": { "discover": false, "design": true, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Custom program design",
+      "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Learning-technology setup",
+      "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Leadership academies",
+      "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Train-the-trainer",
+      "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Impact dashboards",
+      "availability": { "discover": false, "design": false, "deploy": true, "drive": true }
+    },
+    {
+      "feature": "Fractional CLO advisory",
+      "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
+    },
+    {
+      "feature": "Enterprise skills architecture",
+      "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
+    },
+    {
+      "feature": "Talent & succession integration",
+      "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
+    },
+    {
+      "feature": "AI-enabled learning systems",
+      "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
+    },
+    {
+      "feature": "Capability analytics",
+      "availability": { "discover": false, "design": false, "deploy": false, "drive": true }
+    }
+  ],
+  "footer": {
+    "label": "YOU WALK AWAY WITH",
+    "takeaways": {
+      "discover": "An executive-ready diagnostic and prioritized gaps.",
+      "design": "A strategy, frameworks and metrics to track ROI.",
+      "deploy": "Live programs, internal trainers and early adoption.",
+      "drive": "An enterprise capability strategy and scalable infrastructure."
     }
   },
+  "ctaCard": {
+    "badge": "NOT SURE WHERE TO START?",
+    "heading": "Find the engagement model that fits your <span>function.</span>",
+    "description": "Book a consultation and we will scope the right model with you, from a single diagnostic to a full enterprise partnership.",
+    "primaryBtn": {
+      "text": "Book an L&D consultation",
+      "href": "/contact"
+    },
+    "secondaryBtn": {
+      "text": "Start the free assessment",
+      "href": "/assessment"
+    }
+  }
+},
   "whyEdstellarData": {
-    "sectionId": "why-edstellar",
-    "heading": "What your L&D <span>gains with Edstellar.</span>",
-    "subtitle": "The rare partner that designs the system and delivers it, keeps your capability gaps in view, and proves the impact to the business.",
+    "section_id": "why-edstellar",
+    "heading": "Why choose Edstellar for learning <span>strategy.</span>",
+    "description": "The rare partner that designs your learning strategy and delivers it, keeps your capability gaps in view, and proves the impact to the business.",
+    "difference_label": "The difference",
     "items": [
       {
-        "icon": "merge",
+        "icon": "link",
         "title": "Strategy to delivery, one partner",
-        "description": "Your strategy actually ships, because the team that designs it also staffs the programs that deliver it."
+        "description": "Your strategy actually ships, because the team that designs it also staffs the programs that deliver it.",
+        "visual": {
+          "type": "flow",
+          "items": [
+            "Design",
+            "Deliver",
+            "Measure"
+          ],
+          "caption": "One team, strategy to delivery"
+        },
+        "difference": "Most firms hand you a strategy deck. We stay through to delivery."
       },
       {
-        "icon": "grid",
+        "icon": "chip",
         "title": "Runs on the Capability Intelligence Platform",
-        "description": "You always know where the gaps are, with a capability picture that stays live between engagements."
+        "description": "The Capability Intelligence Platform keeps your capability picture live, so your strategy targets the skills that matter and proves its impact.",
+        "visual": {
+          "type": "signal",
+          "title": "Capability signal",
+          "status": "Live",
+          "items": [
+            {
+              "label": "Skills",
+              "value": 88
+            },
+            {
+              "label": "Capability",
+              "value": 72
+            },
+            {
+              "label": "Readiness",
+              "value": 64
+            }
+          ]
+        },
+        "difference": "Your capability picture stays live, not frozen in a slide."
       },
       {
         "icon": "chart",
         "title": "Outcomes tied to the business",
-        "description": "Impact you can take to the board, measured against business results, not training activity."
+        "description": "Every engagement is tied to business goals and measured against them, so your strategy is accountable to results, not activity.",
+        "visual": {
+          "type": "bars",
+          "items": [
+            38,
+            52,
+            66,
+            80,
+            100
+          ],
+          "caption": "↑ Business impact over the engagement"
+        },
+        "difference": "Measured in business results, not training delivered."
+      },
+      {
+        "icon": "globe",
+        "title": "Global delivery, wherever your people are",
+        "description": "Strategy and programs delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global rollout stays consistent.",
+        "visual": {
+          "type": "regions",
+          "items": [
+            "Americas",
+            "EMEA",
+            "APAC",
+            "MENA",
+            "India"
+          ],
+          "caption": "Onsite · virtual · hybrid"
+        },
+        "difference": "Delivered where your people are, not just at HQ."
+      },
+      {
+        "icon": "list",
+        "title": "A proven method, not improvisation",
+        "description": "Every engagement runs the same Edstellar 5A method, so your strategy is built systematically rather than improvised each time.",
+        "visual": {
+          "type": "steps",
+          "items": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "caption": "Assess · Analyze · Architect · Activate · Advance"
+        },
+        "difference": "A repeatable system, not a bespoke experiment each time."
+      },
+      {
+        "icon": "sliders",
+        "title": "Flexible from advisory to end-to-end",
+        "description": "Start with a strategy diagnostic, hand over the design, or run the whole function, and scale up as the partnership grows.",
+        "visual": {
+          "type": "tiers",
+          "items": [
+            "Diagnostic",
+            "Design",
+            "Build",
+            "End-to-end"
+          ],
+          "caption": "Start focused, scale up"
+        },
+        "difference": "Take as much or as little as you choose."
       }
     ],
     "trust": {
@@ -639,7 +753,19 @@
         "India"
       ],
       "caption_strong": "Fortune 500",
-      "caption": "clients served worldwide."
+      "caption": "clients served worldwide"
+    }
+  },
+  "whyCtaData": {
+    "heading": "Ready to build an L&D function that proves its <span>impact?</span>",
+    "description": "One partner to design the system, deliver it, and measure what it changes for the business. Let us show you what that looks like for your team.",
+    "primary_cta": {
+      "label": "Book an L&D consultation",
+      "href": "#contact"
+    },
+    "secondary_cta": {
+      "label": "Explore L&D ervices",
+      "href": "#readiness"
     }
   },
   "capabiltyData": {

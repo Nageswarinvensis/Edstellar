@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -12,8 +13,8 @@ export default function Engagements({ data }) {
   if (!content) return null;
 
   return (
-    <Section id="engagements" className="bg-paper">
-      <Box>
+    <Section id="engagements" className="bg-paper py-16 lg:py-20">
+      <Box className="mx-auto max-w-225 px-4 sm:px-6">
         {/* Header Block */}
         <Reveal>
           <Box className="mb-8 lg:mb-10 max-w-2xl">
@@ -35,7 +36,7 @@ export default function Engagements({ data }) {
 
         {/* Engagement Comparison Table */}
         <Reveal delay={0.1}>
-          <Box className="mx-auto max-w-225 overflow-hidden rounded-[12px] border border-white bg-transparent">
+          <Box className="overflow-hidden rounded-[12px] border border-white bg-transparent">
             {/* Added overflow-x-auto for horizontal scrolling on small screens */}
             <Box className="no-scrollbar overflow-x-auto">
               <table className="w-full min-w-160 border-collapse text-left">
@@ -72,7 +73,8 @@ export default function Engagements({ data }) {
 
                 <tbody className="bg-white">
                   {content.rows?.map((row, idx) => {
-                    const isGroupDivider = (idx + 1) % 5 === 0 && idx !== content.rows.length - 1;
+                    const isGroupDivider =
+                      (idx + 1) % 5 === 0 && idx !== content.rows.length - 1;
 
                     return (
                       <tr
@@ -96,9 +98,7 @@ export default function Engagements({ data }) {
                             <td
                               key={col.id}
                               className={`p-0 text-center align-middle ${
-                                col.highlight
-                                  ? "bg-[#C8F1351A]"
-                                  : "bg-white"
+                                col.highlight ? "bg-[#C8F1351A]" : "bg-white"
                               }`}
                             >
                               {isAvailable ? (
@@ -123,11 +123,7 @@ export default function Engagements({ data }) {
                       {content.columns?.map((col) => (
                         <td
                           key={col.id}
-                          className={`px-2 py-3.5 text-center align-top text-[12px] font-normal leading-3 text-ink-muted ${
-                            col.highlight
-                              ? "bg-transparent"
-                              : "bg-transparent"
-                          }`}
+                          className="bg-transparent px-2 py-3.5 text-center align-top text-[12px] font-normal leading-3 text-ink-muted"
                         >
                           {content.footer.takeaways?.[col.id]}
                         </td>
@@ -139,6 +135,57 @@ export default function Engagements({ data }) {
             </Box>
           </Box>
         </Reveal>
+
+        {/* Bottom CTA Card */}
+        {content.ctaCard && (
+          <Reveal delay={0.2}>
+            <Box className="mt-8 lg:mt-11 rounded-xl border border-[#0a16281f] bg-paper-cream p-5 lg:p-9 text-center shadow-sm">
+              <Box className="mx-auto flex max-w-xl flex-col items-center">
+                {/* Badge */}
+                {content.ctaCard.badge && (
+                  <span className="inline-block rounded-full bg-lime px-3 py-1.5 font-mono text-[12px] uppercase tracking-[0.08em] text-ink">
+                    {content.ctaCard.badge}
+                  </span>
+                )}
+
+                {/* Heading */}
+                {content.ctaCard.heading && (
+                  <Box className="mt-4 text-[20px] lg:text-[32px] font-bold text-ink leading-snug [&_span]:italic [&_span]:font-serif [&_span]:font-normal">
+                    <RichHeading heading={content.ctaCard.heading} />
+                  </Box>
+                )}
+
+                {/* Description */}
+                {content.ctaCard.description && (
+                  <Text className="mt-3 text-[16px] leading-relaxed text-ink-muted font-normal">
+                    {content.ctaCard.description}
+                  </Text>
+                )}
+
+                {/* Action Buttons */}
+                <Box className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                  {content.ctaCard.primaryBtn && (
+                    <Link
+                      href={content.ctaCard.primaryBtn.href || "#"}
+                      className="inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-[12px] font-semibold text-lime transition-opacity hover:opacity-90"
+                    >
+                      {content.ctaCard.primaryBtn.text}
+                    </Link>
+                  )}
+
+                  {content.ctaCard.secondaryBtn && (
+                    <Link
+                      href={content.ctaCard.secondaryBtn.href || "#"}
+                      className="inline-flex items-center justify-center rounded-full border border-ink bg-transparent px-6 py-3 text-[12px] font-semibold text-ink transition-colors hover:bg-ink/5"
+                    >
+                      {content.ctaCard.secondaryBtn.text}
+                    </Link>
+                  )}
+                </Box>
+              </Box>
+            </Box>
+          </Reveal>
+        )}
       </Box>
     </Section>
   );

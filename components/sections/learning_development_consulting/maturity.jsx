@@ -44,7 +44,7 @@ export default function Maturity({ data }) {
           <Box className="w-full">
             {/* Scrollable Container for Chart & Points */}
             <Box className="overflow-x-auto pb-4 custom-scrollbar">
-              <Box className="min-w-[680px] max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
+              <Box className="min-w-170 max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
                 <Text className="font-mono text-[10px] tracking-widest text-ink/50 uppercase mb-4">
                   ↑ CAPABILITY & BUSINESS IMPACT
                 </Text>

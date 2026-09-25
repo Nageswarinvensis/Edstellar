@@ -69,13 +69,13 @@ function WhyVisual({ visual }) {
         <Box className="mb-3 flex items-center justify-between">
           <Text
             as="span"
-            className="font-mono text-[9px] leading-none tracking-[0.06em] text-ink/60 uppercase"
+            className="font-mono text-[10px] leading-none tracking-[0.06em] text-ink/60 uppercase"
           >
             {visual.title}
           </Text>
           <Text
             as="span"
-            className="inline-flex items-center gap-1.5 font-mono text-[9px] leading-none tracking-[0.06em] text-ink/60 uppercase before:size-1.75 before:rounded-full before:bg-lime"
+            className="inline-flex items-center gap-1.5 font-mono text-[10px] leading-none tracking-[0.06em] text-ink/60 uppercase before:size-1.75 before:rounded-full before:bg-lime"
           >
             {visual.status}
           </Text>
