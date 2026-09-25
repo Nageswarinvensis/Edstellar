@@ -76,6 +76,18 @@ export default function TnaRelated({ data }) {
           ))}
         </Box>
       </Reveal>
+
+      {/* Optional link to the full services hub — only when content sets it. */}
+      {data.hub_link?.href ? (
+        <Text as="p" className="mt-7 text-center">
+          <Link
+            href={data.hub_link.href}
+            className="border-b-2 border-lime pb-0.5 font-display text-[14px] leading-normal font-bold text-ink focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+          >
+            {data.hub_link.label}
+          </Link>
+        </Text>
+      ) : null}
     </Section>
   );
 }

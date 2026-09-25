@@ -7,7 +7,9 @@ import LdReadiness from "@/components/sections/learning_development_consulting/l
 import LdOffering from "@/components/sections/learning_development_consulting/ld-offering";
 import LdBlueprint from "@/components/sections/learning_development_consulting/ld-blueprint";
 import LdMethod from "@/components/sections/learning_development_consulting/ld-method";
-import TnaWhyEdstellar from "@/components/sections/training_needs_analysis/tnawhyedstellar";
+import LdSoftCta from "@/components/sections/learning_development_consulting/ld-soft-cta";
+import LdWhy from "@/components/sections/learning_development_consulting/ld-why";
+import LdCtaBand from "@/components/sections/learning_development_consulting/ld-cta-band";
 import TnaRelated from "@/components/sections/training_needs_analysis/tnarelated";
 import Faq from "@/components/common/faq";
 import LeadForm from "@/components/forms/lead-form";
@@ -17,12 +19,12 @@ import StickyFooter from "@/components/common/sticky-footer";
  * Consulting sub-service page — e.g. `/learning-development-consulting-services/learning-strategy`.
  *
  * Composition only: one record from `getConsultingService`, handed to the
- * sections in design order. Hero, proof strip, logos, sticky nav, why-us,
- * related, FAQ and lead form are the same sections the L&D and TNA pillar
- * pages use; challenge, readiness, offering, blueprint and method are this
- * design's own.
+ * sections in design order. Hero, proof strip, logos, sticky nav, related,
+ * FAQ and lead form are the same sections the L&D and TNA pillar pages use;
+ * challenge, offering, readiness, blueprint, method, why-us and the two
+ * mid-page CTAs are this design's own.
  *
- * Design: `learning-strategy-design final 23sep.html`.
+ * Design: `learning-strategy-design (48).html`.
  */
 export default function ServicePage({ data }) {
   return (
@@ -32,12 +34,13 @@ export default function ServicePage({ data }) {
       <ClientLogos data={data.ClientsLogosData} />
       <StickyTabs data={data.stickyNavbarData} />
       <LdChallenge data={data.challengeData} />
-      <LdReadiness data={data.readinessData} />
       <LdOffering data={data.offeringData} />
+      <LdReadiness data={data.readinessData} />
       <LdBlueprint data={data.blueprintData} />
+      <LdSoftCta data={data.blueprintCtaData} />
       <LdMethod data={data.methodData} />
-      <TnaWhyEdstellar data={data.whyEdstellarData} />
-      <TnaRelated data={data.relatedData} />
+      <LdWhy data={data.whyEdstellarData} />
+      <LdCtaBand data={data.whyCtaData} />
       <Faq
         id="faq"
         faqs={data.faqData}
@@ -45,6 +48,7 @@ export default function ServicePage({ data }) {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
+      <TnaRelated data={data.relatedData} />
       <LeadForm id="contact" background="navy" data={data.leadFormData} />
       <StickyFooter data={data.stickyFooter} />
     </>

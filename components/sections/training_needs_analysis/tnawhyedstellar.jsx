@@ -36,7 +36,7 @@ const INDUSTRY_ICONS = {
 
 const PILL_MONO = "font-mono leading-[1.7] uppercase";
 
-function TrustStrip({ trust }) {
+export function TrustStrip({ trust }) {
   return (
     <Box className="mt-14 border-t border-ink/12 pt-11 text-center">
       <Text

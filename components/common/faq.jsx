@@ -9,6 +9,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import SecCta from "@/components/common/sec-cta";
+import { CtaButton } from "@/components/common/cta-button";
 import {
   Accordion,
   AccordionItem,
@@ -170,6 +171,24 @@ export default function Faq({
               </button>
             </Box>
           </Reveal>
+        ) : null}
+
+        {/* Optional content-driven prompt under the list — only pages whose
+            `faqs` carries a `footer_cta` show it. */}
+        {faqs.footer_cta?.href ? (
+          <Box className="flex flex-wrap items-center justify-center gap-4.5 pt-8 pb-1 text-center">
+            <Text as="p" className="font-semibold text-ink">
+              {faqs.footer_cta.text}
+            </Text>
+            <CtaButton
+              variant="ghost"
+              arrow
+              render={<a href={faqs.footer_cta.href} />}
+              className="border-navy text-navy"
+            >
+              {faqs.footer_cta.label}
+            </CtaButton>
+          </Box>
         ) : null}
 
         {showCta ? <SecCta {...SECTION_CTA} /> : null}
