@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { getTrainer } from "@/lib/content/trainers";
-import trainerContent from "@/content/trainer.json";
+import { TRAINERS_DATA } from "@/content/trainers/trainersdata";
 
 import TrainerHero from "@/components/sections/trainers details/trainerhero";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
@@ -18,6 +18,7 @@ import Trainers from "@/components/common/trainers";
 import Faq from "@/components/common/faq";
 import JsonLd from "@/components/seo/json-ld";
 import { parseCoursesWithStart } from "@/lib/trainer-history";
+import { fillTemplate } from "@/lib/template";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd, faqJsonLd, personJsonLd } from "@/lib/seo/json-ld";
 
@@ -27,18 +28,14 @@ function formatList(items) {
   return `${items.slice(0, -1).join(", ")}, and ${items.at(-1)}`;
 }
 
-function fillTemplate(template, values) {
-  return template.replace(/\{(\w+)\}/g, (token, key) => values[key] ?? token);
-}
-
 /**
- * The FAQ copy lives in `content/trainer.json` as templates; this fills
+ * The FAQ copy lives in `content/trainers/trainersdata.js` as templates; this fills
  * them with this trainer's CMS facts (name, city, country, topics) and the
  * static delivery languages. The same items feed the visible FAQ and its
  * `FAQPage` JSON-LD.
  */
 function buildTrainerFaq(trainer) {
-  const { heading, items, topics } = trainerContent.faq;
+  const { heading, items, topics } = TRAINERS_DATA.faqData;
 
   // Same topic source and order as the expertise section: courses (oldest
   // first) when the CMS has them, otherwise the flat `skills` list.
@@ -53,7 +50,9 @@ function buildTrainerFaq(trainer) {
     name: trainer.name.split(" ")[0],
     city: trainer.city,
     country: trainer.country,
-    languages: formatList(trainerContent.languages.map((lang) => lang.name)),
+    languages: formatList(
+      TRAINERS_DATA.sharedData.languages.map((lang) => lang.name),
+    ),
     core: formatList(core),
     related: formatList(related),
   };
@@ -112,19 +111,29 @@ export default async function TrainerPage({ params }) {
   }
 
   const otherTrainers = {
-    heading: "Other <span>trainers</span>.",
-    people: trainerContent.otherTrainers.filter(
+    heading: TRAINERS_DATA.otherTrainersData.heading,
+    people: TRAINERS_DATA.otherTrainersData.trainers.filter(
       (item) => item.slug !== trainer.slug,
     ),
   };
 
+  // Static crumbs from `content/trainers/trainersdata.js`; the last one is
+  // this trainer.
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
-    { label: "Trainers", href: "/trainer" },
+    ...TRAINERS_DATA.BreadcrumbData,
     { label: trainer.name },
   ];
 
   const faq = buildTrainerFaq(trainer);
+
+  // The shared CTA section renders `data` as given, so its `{name}` is
+  // filled here.
+  const ctaData = {
+    ...TRAINERS_DATA.ctaTrainerData,
+    heading: fillTemplate(TRAINERS_DATA.ctaTrainerData.heading, {
+      name: trainer.name.split(" ")[0],
+    }),
+  };
 
   const jsonLd = [
     personJsonLd({
@@ -134,7 +143,7 @@ export default async function TrainerPage({ params }) {
       path: `/trainer/${trainer.slug}`,
       city: trainer.city,
       country: trainer.country,
-      languages: trainerContent.languages.map((lang) => lang.name),
+      languages: TRAINERS_DATA.sharedData.languages.map((lang) => lang.name),
     }),
     breadcrumbJsonLd(breadcrumbItems),
     faqJsonLd(faq.items),
@@ -144,16 +153,25 @@ export default async function TrainerPage({ params }) {
     <>
       <JsonLd data={jsonLd} />
       <TrainerHero trainer={trainer} breadcrumbItems={breadcrumbItems} />
-      <StickyTabs data={trainerContent.stickyNav} />
-      <TrainerAbout trainer={trainer} />
-      <OurReach trainer={trainer} />
-      <TrainerLocation trainer={trainer} />
-      <TrainerExpertise trainer={trainer} />
-      <TrainerExperience trainer={trainer} />
-      <TrainerEngagements trainer={trainer} />
-      <TrainerRatings trainer={trainer} />
-      <TrainerAccreditations trainer={trainer} />
-      <CtaTrainer trainer={trainer} />
+      <StickyTabs data={TRAINERS_DATA.stickyNavbarData} />
+      <TrainerAbout trainer={trainer} data={TRAINERS_DATA.aboutData} />
+      <OurReach trainer={trainer} data={TRAINERS_DATA.reachData} />
+      <TrainerLocation trainer={trainer} data={TRAINERS_DATA.locationData} />
+      <TrainerExpertise trainer={trainer} data={TRAINERS_DATA.expertiseData} />
+      <TrainerExperience
+        trainer={trainer}
+        data={TRAINERS_DATA.experienceData}
+      />
+      <TrainerEngagements
+        trainer={trainer}
+        data={TRAINERS_DATA.engagementsData}
+      />
+      <TrainerRatings trainer={trainer} data={TRAINERS_DATA.ratingsData} />
+      <TrainerAccreditations
+        trainer={trainer}
+        data={TRAINERS_DATA.accreditationsData}
+      />
+      <CtaTrainer trainer={trainer} data={ctaData} />
       <Trainers trainers={otherTrainers} desktopCards={4} />
       <Faq
         faqs={faq}

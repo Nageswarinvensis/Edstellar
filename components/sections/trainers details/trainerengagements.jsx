@@ -4,18 +4,18 @@ import Box from "@/components/ui/Box";
 import Section from "@/components/ui/Section";
 import Text from "@/components/ui/Text";
 import RichHeading from "@/components/common/rich-heading";
-import trainerContent from "@/content/trainer.json";
+import { fillTemplate } from "@/lib/template";
 
 /**
  * "Selected engagements" — programs the trainer has delivered. Static for
- * now: every trainer shows the `engagements` in `content/trainer.json`,
+ * now: every trainer shows the `engagements` in `content/trainers/trainersdata.js`,
  * and the CMS's `meta.projects` is deliberately not read yet. When the CMS
  * is connected, source this from the trainer record instead.
  *
  * Design: `trainer-profile-date-SEP18.html` → `#engagements`.
  */
-export default function TrainerEngagements({ trainer }) {
-  const engagements = trainerContent.engagements;
+export default function TrainerEngagements({ trainer, data }) {
+  const engagements = data.engagements;
   if (!engagements?.length) return null;
 
   const firstName = trainer.name.split(" ")[0];
@@ -25,14 +25,12 @@ export default function TrainerEngagements({ trainer }) {
       <Box>
         <Box className="mb-10 max-w-2xl">
           <RichHeading
-            heading="Selected <span>engagements.</span>"
+            heading={data.heading}
             className="tracking-tight text-ink"
             emphasisClassName="font-normal"
           />
           <Text as="p" className="mt-3 text-[16px] leading-relaxed text-ink/60">
-            A sample of programs {firstName} has delivered. Clients are
-            described by sector and scope rather than named, unless permission
-            to name them is on record.
+            {fillTemplate(data.description, { name: firstName })}
           </Text>
         </Box>
 
@@ -56,7 +54,7 @@ export default function TrainerEngagements({ trainer }) {
 
                 <Text
                   as="h3"
-                  className="font-display text-[17px] leading-[1.25] font-bold tracking-[-0.01em] text-ink"
+                  className="font-display text-[17px] leading-normal font-bold tracking-[-0.01em] text-ink"
                 >
                   {title}
                 </Text>
@@ -96,7 +94,7 @@ export default function TrainerEngagements({ trainer }) {
           })}
         </Box>
 
-        <Box className="mt-7 flex items-start gap-2.5 text-[13px] leading-[1.55] text-ink/60">
+        <Box className="mt-5 flex items-start gap-2.5 rounded-[10px] bg-paper-cream px-4 py-3.5 text-[13px] leading-[1.55] text-ink/60">
           <Info
             size={16}
             strokeWidth={1.7}
@@ -104,9 +102,7 @@ export default function TrainerEngagements({ trainer }) {
             className="mt-0.5 flex-none"
           />
           <Text as="span" className="text-[13px] leading-[1.55] text-ink/60">
-            Engagements shown are anonymized samples. Per brand guidelines §23.1
-            / §23.3, a named client, logo or specific result publishes only with
-            the client&apos;s permission and a verifiable source.
+            {data.note}
           </Text>
         </Box>
       </Box>

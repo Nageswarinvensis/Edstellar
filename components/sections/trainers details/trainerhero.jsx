@@ -5,9 +5,11 @@ import { CtaButton } from "@/components/common/cta-button";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Breadcrumbs from "@/components/common/breadcrumbs";
-import trainerContent from "@/content/trainer.json";
+import { TRAINERS_DATA } from "@/content/trainers/trainersdata";
 
 export default function TrainerHero({ trainer, breadcrumbItems }) {
+  const { availabilityBadge, primaryCta, secondaryCta } =
+    TRAINERS_DATA.heroData;
 
   const visibleSkills = trainer.skills.slice(0, 3);
   const remainingSkills = Math.max(
@@ -18,23 +20,21 @@ export default function TrainerHero({ trainer, breadcrumbItems }) {
   const location = [trainer.city, trainer.country].join(", ");
 
   // Static for now — the CMS doesn't send a delivery reach yet.
-  const reach = trainerContent.deliveryReach;
+  const reach = TRAINERS_DATA.heroData.deliveryReach;
   const deliveryReachText = `Based in ${location}${reach ? ` · Delivering across ${reach}` : ""}`;
 
-  const statsData = [
-    { label: "BASE LOCATION", value: location },
-    { label: "TRAINER SINCE", value: trainer.training_since },
-    {
-      label: "LANGUAGES",
-      value: trainer.languages
-        ? trainer.languages.join(" · ")
-        : trainerContent.languages.map((lang) => lang.name).join(" · "),
-    },
-    {
-      label: "DELIVERY",
-      value: trainer.delivery_mode || trainerContent.deliveryMode,
-    },
-  ];
+  const statValues = {
+    base_location: location,
+    trainer_since: trainer.training_since,
+    languages: trainer.languages
+      ? trainer.languages.join(" · ")
+      : TRAINERS_DATA.sharedData.languages.map((lang) => lang.name).join(" · "),
+    delivery: trainer.delivery_mode || TRAINERS_DATA.sharedData.deliveryMode,
+  };
+  const statsData = TRAINERS_DATA.heroData.stats.map((stat) => ({
+    label: stat.label,
+    value: statValues[stat.key],
+  }));
 
   return (
     <>
@@ -58,7 +58,7 @@ export default function TrainerHero({ trainer, breadcrumbItems }) {
             {/* "Available to book" Badge */}
             <Box className="absolute left-2.5 top-2.5 flex items-center gap-1.5 rounded-full bg-lime px-3 py-1 text-[11px] font-bold text-ink shadow-md">
               <span className="h-1.5 w-1.5 rounded-full bg-ink" />
-              Available to book
+              {availabilityBadge}
             </Box>
           </Box>
 
@@ -107,17 +107,21 @@ export default function TrainerHero({ trainer, breadcrumbItems }) {
 
             {/* Buttons */}
             <Box className="mt-6 flex flex-wrap items-center gap-3">
-              <CtaButton color="lime" arrow render={<a href="#contact" />}>
-                Talk to Edstellar Consultant
+              <CtaButton
+                color="lime"
+                arrow
+                render={<a href={primaryCta.href} />}
+              >
+                {primaryCta.text}
               </CtaButton>
 
               <CtaButton
                 variant="ghost"
                 arrow
-                render={<a href="#trainer-details" />}
+                render={<a href={secondaryCta.href} />}
                 className="border-white/25 text-white hover:border-white hover:bg-white/5"
               >
-                See delivery reach
+                {secondaryCta.text}
               </CtaButton>
             </Box>
           </Box>

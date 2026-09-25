@@ -3,10 +3,12 @@ import { CtaButton } from "@/components/common/cta-button";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
-import trainerContent from "@/content/trainer.json";
+import { fillTemplate } from "@/lib/template";
+import { TRAINERS_DATA } from "@/content/trainers/trainersdata";
 
-export default function TrainerAbout({ trainer }) {
+export default function TrainerAbout({ trainer, data }) {
   const trainerFirstName = trainer.name.split(" ")[0];
+  const copy = { name: trainerFirstName };
   const baseLocation = [trainer.city, trainer.country].join(", ");
 
   // `trainer_category` doesn't exist on the API record — the real field is
@@ -14,21 +16,22 @@ export default function TrainerAbout({ trainer }) {
   const primaryDomain =
     trainer.meta?.primary_training_type ||
     trainer.meta?.current_job_title ||
-    trainerContent.primaryDomain;
+    data.primaryDomain;
 
   const languages = Array.isArray(trainer.languages)
     ? trainer.languages.join(", ")
     : trainer.languages ||
-      trainerContent.languages.map((lang) => lang.name).join(", ");
+      TRAINERS_DATA.sharedData.languages.map((lang) => lang.name).join(", ");
 
-  const deliveryMode = trainer.delivery_mode || trainerContent.deliveryMode;
+  const deliveryMode =
+    trainer.delivery_mode || TRAINERS_DATA.sharedData.deliveryMode;
 
   const travelsForOnsite =
     trainer.travels_onsite !== undefined
       ? trainer.travels_onsite
         ? "Yes"
         : "No"
-      : trainerContent.travelsOnsite;
+      : data.travelsOnsite;
 
   const rawAboutText = trainer.meta?.about || "";
 
@@ -39,14 +42,18 @@ export default function TrainerAbout({ trainer }) {
         .filter(Boolean)
     : [];
 
-  const glanceDetails = [
-    { label: "Base", value: baseLocation },
-    { label: "Trainer since", value: trainer.training_since },
-    { label: "Primary domain", value: primaryDomain },
-    { label: "Languages", value: languages },
-    { label: "Delivery", value: deliveryMode },
-    { label: "Travels for onsite", value: travelsForOnsite },
-  ];
+  const glanceValues = {
+    base: baseLocation,
+    trainer_since: trainer.training_since,
+    primary_domain: primaryDomain,
+    languages,
+    delivery: deliveryMode,
+    travels_for_onsite: travelsForOnsite,
+  };
+  const glanceDetails = data.glance_rows.map((row) => ({
+    label: row.label,
+    value: glanceValues[row.key],
+  }));
 
   return (
     <Section id="about" className="bg-[#f9fafb] py-16 text-ink">
@@ -55,7 +62,7 @@ export default function TrainerAbout({ trainer }) {
           {/* Left Side: About Bio Text */}
           <Box className="flex flex-col space-y-6">
             <RichHeading
-              heading={`About <span>${trainerFirstName}.</span>`}
+              heading={fillTemplate(data.heading, copy)}
               className="tracking-tight text-ink"
               emphasisClassName="font-normal"
             />
@@ -81,7 +88,7 @@ export default function TrainerAbout({ trainer }) {
               as="h3"
               className="text-[20px] font-bold tracking-tight text-ink"
             >
-              At a glance
+              {data.glance_heading}
             </Text>
 
             <Box className="mt-4 flex flex-col divide-y divide-[#f1f5f9]">
@@ -101,8 +108,8 @@ export default function TrainerAbout({ trainer }) {
             </Box>
 
             <Box className="mt-4">
-              <CtaButton block arrow render={<a href="#contact" />}>
-                Talk to Edstellar Consultant
+              <CtaButton block arrow render={<a href={data.cta.href} />}>
+                {data.cta.text}
               </CtaButton>
             </Box>
           </Box>

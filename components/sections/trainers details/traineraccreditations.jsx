@@ -2,7 +2,7 @@ import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import RichHeading from "@/components/common/rich-heading";
-import trainerContent from "@/content/trainer.json";
+import { fillTemplate } from "@/lib/template";
 
 const parseEducationData = (educationRaw) => {
   if (!educationRaw) return [];
@@ -28,7 +28,7 @@ const parseEducationData = (educationRaw) => {
   });
 };
 
-export default function CertificationsAndEducation({ trainer }) {
+export default function CertificationsAndEducation({ trainer, data }) {
   const educationString = trainer.meta?.education;
   const educationList = parseEducationData(educationString);
 
@@ -39,19 +39,19 @@ export default function CertificationsAndEducation({ trainer }) {
         <Box>
           {/* Section Heading */}
           <RichHeading
-            heading="Certifications & <span>accreditations.</span>"
+            heading={data.heading}
             className="mb-3 tracking-tight text-ink"
             emphasisClassName="font-normal"
           />
 
           {/* Subtitle */}
           <Text as="p" className="mb-10 max-w-2xl text-[16px] text-black/60">
-            Professional certifications a trainer holds in their domain. Displayed with the issuing body and year; badges use each partner's official artwork per §23.4.
+            {data.description}
           </Text>
 
           {/* Certifications Cards Grid */}
           <Box className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {trainerContent.certifications.map((item, index) => (
+            {data.certifications.map((item, index) => (
               <Box
                 key={index}
                 className="flex flex-col justify-between rounded-2xl border border-black/5 bg-white p-5 lg:p-6 shadow-sm transition-all hover:shadow-md"
@@ -102,20 +102,15 @@ export default function CertificationsAndEducation({ trainer }) {
             <span className="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-black/30 text-[10px] font-bold">
               !
             </span>
-            <Text as="p">
-              Accreditation names shown are sample credentials. Real badges use each partner's official logo files and usage rules per §23.4, and a lapsed credential comes down.
-            </Text>
+            <Text as="p">{data.note}</Text>
           </Box>
         </Box>
 
         {/* BOTTOM BLOCK: Education */}
         {educationList.length > 0 && (
           <Box id="education">
-            <Text
-              as="h2"
-              className="tracking-tight text-ink"
-            >
-              Education.
+            <Text as="h2" className="tracking-tight text-ink">
+              {data.education_heading}
             </Text>
 
             <Box className="mt-8 grid gap-4 sm:grid-cols-2">

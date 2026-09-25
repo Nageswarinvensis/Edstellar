@@ -2,15 +2,15 @@ import Box from "@/components/ui/Box";
 import Section from "@/components/ui/Section";
 import Text from "@/components/ui/Text";
 import RichHeading from "@/components/common/rich-heading";
-import trainerContent from "@/content/trainer.json";
+import { fillTemplate } from "@/lib/template";
 
 /**
  * Country and city come from the CMS trainer record. Everything else here
  * — metro/region, timezone, onsite radius, travel, virtual delivery and the
- * nearby-cities list — is static from `content/trainer.json` for now: the
+ * nearby-cities list — is static from `content/trainers/trainersdata.js` for now: the
  * CMS doesn't send those fields yet. Connect them later.
  */
-export default function TrainerLocation({ trainer }) {
+export default function TrainerLocation({ trainer, data }) {
   const city = trainer.city;
   const country = trainer.country;
   const {
@@ -19,25 +19,28 @@ export default function TrainerLocation({ trainer }) {
     onsiteRadius,
     willingToTravel,
     virtualDelivery,
-  } = trainerContent.locationDetail;
-  const nearbyCities = trainerContent.nearbyCities;
+  } = data.locationDetail;
+  const nearbyCities = data.nearbyCities;
 
-  const locationDetails = [
-    { label: "Country", value: country },
-    { label: "City", value: city },
-    { label: "Metro / region", value: metroRegion },
-    { label: "Timezone", value: timezone },
-    { label: "Onsite radius", value: onsiteRadius },
-    { label: "Willing to travel", value: willingToTravel },
-    { label: "Virtual delivery", value: virtualDelivery },
-  ];
+  const detailValues = {
+    country,
+    city,
+    metro_region: metroRegion,
+    timezone,
+    onsite_radius: onsiteRadius,
+    willing_to_travel: willingToTravel,
+    virtual_delivery: virtualDelivery,
+  };
+  const locationDetails = data.detail_rows.map((row) => ({
+    label: row.label,
+    value: detailValues[row.key],
+  }));
 
   return (
     <Section id="location" className="bg-[#f9fafb]">
       <Box>
-        {/* Section Heading */}
         <RichHeading
-          heading={`Based in ${city}, <span>open to travel.</span>`}
+          heading={fillTemplate(data.heading, { city })}
           className="tracking-tight"
           emphasisClassName="font-normal"
         />
@@ -46,10 +49,16 @@ export default function TrainerLocation({ trainer }) {
           {/* Dark Location Card */}
           <Box className="flex flex-col justify-between rounded-2xl bg-ink p-5 text-white shadow-sm lg:p-6">
             <Box>
-              <Text as="span" className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#94a3b8]">
-                Home Base
+              <Text
+                as="span"
+                className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#94a3b8]"
+              >
+                {data.home_base_label}
               </Text>
-              <Text as="h3" className="mt-2 text-2xl font-bold tracking-tight text-white lg:text-3xl">
+              <Text
+                as="h3"
+                className="mt-2 text-2xl font-bold tracking-tight text-white lg:text-3xl"
+              >
                 {city}
               </Text>
               <Text as="p" className="mt-1 font-serif italic text-lg text-lime">
@@ -58,19 +67,26 @@ export default function TrainerLocation({ trainer }) {
 
               <Box className="mt-6 inline-flex items-center gap-2 rounded-full bg-lime-soft px-4 py-2 text-[14px] font-semibold text-ink">
                 <span className="h-2 w-2 rounded-full bg-ink" />
-                Willing to travel for onsite delivery
+                {data.travel_pill}
               </Box>
             </Box>
 
             {/* Nearby Served Locations — static for now (see above). */}
             {nearbyCities.length > 0 && (
               <Box>
-                <Text as="span" className="text-[12px] font-medium uppercase tracking-[0.2em] text-[#FAFAF78C]">
-                  Also Serves Nearby
+                <Text
+                  as="span"
+                  className="text-[12px] font-medium uppercase tracking-[0.2em] text-[#FAFAF78C]"
+                >
+                  {data.nearby_label}
                 </Text>
                 <Box className="mt-2 flex flex-wrap gap-2">
                   {nearbyCities.map((item, idx) => (
-                    <Text key={idx} as="span" className="rounded-full border border-[rgba(250,250,247,0.12)] bg-[rgba(250,250,247,0.12)] px-3.5 py-1.5 text-xs text-[#cbd5e1]">
+                    <Text
+                      key={idx}
+                      as="span"
+                      className="rounded-full border border-[rgba(250,250,247,0.12)] bg-[rgba(250,250,247,0.12)] px-3.5 py-1.5 text-xs text-[#cbd5e1]"
+                    >
                       {item}
                     </Text>
                   ))}
@@ -82,7 +98,10 @@ export default function TrainerLocation({ trainer }) {
           {/* Right Side Specs List */}
           <Box className="flex flex-col justify-center divide-y divide-[#e2e8f0]">
             {locationDetails.map((item, idx) => (
-              <Box key={idx} className="flex items-center justify-between py-3.5 text-sm">
+              <Box
+                key={idx}
+                className="flex items-center justify-between py-3.5 text-sm"
+              >
                 <Text as="span" className="text-[#64748b]">
                   {item.label}
                 </Text>

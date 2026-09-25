@@ -2,10 +2,12 @@ import Box from "@/components/ui/Box";
 import Section from "@/components/ui/Section";
 import Text from "@/components/ui/Text";
 import RichHeading from "@/components/common/rich-heading";
-import trainerContent from "@/content/trainer.json";
+import { fillTemplate } from "@/lib/template";
+import { TRAINERS_DATA } from "@/content/trainers/trainersdata";
 
-export default function OurReach({ trainer }) {
+export default function OurReach({ trainer, data }) {
   const firstName = trainer.name.split(" ")[0];
+  const copy = { name: firstName };
 
   const languages = trainer.languages?.length
     ? trainer.languages.map((lang, idx) => ({
@@ -23,15 +25,16 @@ export default function OurReach({ trainer }) {
               ? "100%"
               : "85%",
       }))
-    : trainerContent.languages.map((lang) => ({
+    : TRAINERS_DATA.sharedData.languages.map((lang) => ({
         name: lang.name,
         proc: lang.proficiency,
         width: lang.level,
       }));
 
-  const coverage = trainer.regional_coverage || trainerContent.regionalCoverage;
+  const coverage = trainer.regional_coverage || data.regionalCoverage;
 
-  const cardClass = "flex flex-col justify-between rounded-2xl border border-[rgba(10,22,40,.12)] bg-white p-5 shadow-sm lg:p-6";
+  const cardClass =
+    "flex flex-col justify-between rounded-2xl border border-[rgba(10,22,40,.12)] bg-white p-5 shadow-sm lg:p-6";
 
   const cardHeaderClass = "mb-4.5 flex items-center gap-2.5";
 
@@ -40,15 +43,13 @@ export default function OurReach({ trainer }) {
       <Box>
         <Box className="mb-10 max-w-2xl">
           <RichHeading
-            heading="Delivery <span>reach,</span> in detail."
+            heading={data.heading}
             className="mb-3 tracking-tight"
             emphasisClassName="font-normal"
           />
 
-          <Text as="p" className="text-[16px] text-in">
-            Which languages {firstName} trains in, and how each region is
-            served, so a buyer knows exactly what a session with her looks like
-            from their location.
+          <Text as="p" className="text-[16px]">
+            {fillTemplate(data.description, copy)}
           </Text>
         </Box>
 
@@ -71,7 +72,7 @@ export default function OurReach({ trainer }) {
                 </svg>
 
                 <Text as="h3" className="text-[18px] font-bold">
-                  Languages of delivery
+                  {data.languages_heading}
                 </Text>
               </Box>
 
@@ -107,17 +108,10 @@ export default function OurReach({ trainer }) {
                 viewBox="0 0 24 24"
               >
                 <circle cx="12" cy="12" r="10" strokeWidth="2" />
-                <path
-                  strokeWidth="2"
-                  d="M12 6v6l4 2"
-                  strokeLinecap="round"
-                />
+                <path strokeWidth="2" d="M12 6v6l4 2" strokeLinecap="round" />
               </svg>
 
-              <Text as="p">
-                Materials, exercises and assessment are delivered in the
-                chosen language, not just spoken translation.
-              </Text>
+              <Text as="p">{data.languages_note}</Text>
             </Box>
           </Box>
 
@@ -138,7 +132,7 @@ export default function OurReach({ trainer }) {
                 </svg>
 
                 <Text as="h3" className="text-[18px] font-bold">
-                  Regional coverage
+                  {data.coverage_heading}
                 </Text>
               </Box>
 
@@ -179,20 +173,15 @@ export default function OurReach({ trainer }) {
                   viewBox="0 0 24 24"
                 >
                   <circle cx="12" cy="12" r="10" strokeWidth="2" />
-                  <path
-                    strokeWidth="2"
-                    d="M12 6v6l4 2"
-                    strokeLinecap="round"
-                  />
+                  <path strokeWidth="2" d="M12 6v6l4 2" strokeLinecap="round" />
                 </svg>
 
                 <Text as="p">
-                  Home timezone{" "}
+                  {data.timezone_label}{" "}
                   <Text as="span" className="font-bold text-ink">
-                    {trainerContent.locationDetail.timezone}
+                    {TRAINERS_DATA.locationData.locationDetail.timezone}
                   </Text>
-                  . Virtual cohorts are scheduled to overlap the team's hours,
-                  not the trainer's.
+                  . {data.timezone_note}
                 </Text>
               </Box>
             </Box>

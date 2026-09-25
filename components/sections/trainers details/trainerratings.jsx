@@ -2,9 +2,9 @@ import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import RichHeading from "@/components/common/rich-heading";
-import trainerContent from "@/content/trainer.json";
+import { fillTemplate } from "@/lib/template";
 
-export default function TrainerRatings({ trainer }) {
+export default function TrainerRatings({ trainer, data }) {
   const trainerFirstName = trainer.name.split(" ")[0];
 
   return (
@@ -12,14 +12,13 @@ export default function TrainerRatings({ trainer }) {
       <Box>
         {/* Section Header */}
         <RichHeading
-          heading="Ratings & <span>testimonials.</span>"
+          heading={data.heading}
           className="tracking-tight text-white"
           emphasisClassName="font-normal text-lime"
         />
 
         <Text as="p" className="mt-2 max-w-2xl text-[16px] text-white/70">
-          Feedback from teams {trainerFirstName} has trained. Every rating and
-          quote shown here comes from real, consented post-program evaluations.
+          {fillTemplate(data.description, { name: trainerFirstName })}
         </Text>
 
         {/* Ratings Card */}
@@ -31,7 +30,7 @@ export default function TrainerRatings({ trainer }) {
                 as="span"
                 className="text-[42px] text-white font-bold leading-none"
               >
-                {trainerContent.ratingSummary.score}
+                {data.ratingSummary.score}
               </Text>
               <Box className="mt-3 flex gap-1 text-lime">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -41,13 +40,15 @@ export default function TrainerRatings({ trainer }) {
                 ))}
               </Box>
               <Text as="span" className="mt-2 text-[12px] text-white/50">
-                from {trainerContent.ratingSummary.evaluations} evaluations*
+                {fillTemplate(data.evaluations_label, {
+                  count: data.ratingSummary.evaluations,
+                })}
               </Text>
             </Box>
 
             {/* Right Metric Bars */}
             <Box className="flex-1 space-y-3.5">
-              {trainerContent.ratingMetrics.map((metric) => (
+              {data.ratingMetrics.map((metric) => (
                 <Box
                   key={metric.label}
                   className="grid grid-cols-[130px_1fr_32px] items-center gap-4 text-[12spx]"
@@ -75,7 +76,7 @@ export default function TrainerRatings({ trainer }) {
 
         {/* Testimonials Grid */}
         <Box className="mt-6 grid gap-6 md:grid-cols-2">
-          {trainerContent.testimonials.map((item, index) => (
+          {data.testimonials.map((item, index) => (
             <Box
               key={index}
               className="flex flex-col justify-between rounded-2xl border border-white/10 bg-ink p-5 lg:p-6"
@@ -114,10 +115,7 @@ export default function TrainerRatings({ trainer }) {
         <Box className="mt-6 flex items-start gap-2.5 rounded-xl border border-dashed border-white/20 bg-[#081220] p-4 text-[12px]">
           <span className="mt-0.5 text-[14px]">🛡️</span>
           <Text as="p" className="text-white/60">
-            Ratings, evaluation counts and quotes are illustrative placeholders
-            in this template. Per brand guidelines §23.1 / §23.2, they publish
-            only when populated from real, consented client evaluations with
-            attribution on record.
+            {data.note}
           </Text>
         </Box>
       </Box>

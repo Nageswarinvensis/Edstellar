@@ -2,9 +2,10 @@ import Box from "@/components/ui/Box";
 import Section from "@/components/ui/Section";
 import Text from "@/components/ui/Text";
 import RichHeading from "@/components/common/rich-heading";
+import { fillTemplate } from "@/lib/template";
 import { parseTrainerHistory } from "@/lib/trainer-history";
 
-export default function TrainerExperience({ trainer }) {
+export default function TrainerExperience({ trainer, data }) {
   const parsedExperience = parseTrainerHistory(trainer.meta?.work_history);
   const firstName = trainer.name.split(" ")[0];
 
@@ -14,7 +15,7 @@ export default function TrainerExperience({ trainer }) {
         {/* Section Header */}
         <Box className="mb-10 max-w-2xl">
           <RichHeading
-            heading="Professional <span>experience.</span>"
+            heading={data.heading}
             className="tracking-tight text-ink"
             emphasisClassName="font-normal"
           />
@@ -22,8 +23,7 @@ export default function TrainerExperience({ trainer }) {
             as="p"
             className="mt-3 text-[16px] leading-relaxed text-[#64748b]"
           >
-            The operating background that informs how {firstName} trains change
-            and leadership.
+            {fillTemplate(data.description, { name: firstName })}
           </Text>
         </Box>
 
@@ -84,7 +84,7 @@ export default function TrainerExperience({ trainer }) {
               ))
             ) : (
               <Text as="p" className="text-sm italic text-[#64748b]">
-                No professional experience details available.
+                {data.empty_text}
               </Text>
             )}
           </Box>

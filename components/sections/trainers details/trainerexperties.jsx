@@ -6,7 +6,7 @@ import { CtaButton } from "@/components/common/cta-button";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
-import trainerContent from "@/content/trainer.json";
+import { fillTemplate } from "@/lib/template";
 import { parseCoursesWithStart, yearsSince } from "@/lib/trainer-history";
 
 function yearsDelivering(years) {
@@ -15,7 +15,7 @@ function yearsDelivering(years) {
   return `${years} ${years === 1 ? "year" : "years"} delivering`;
 }
 
-export default function TrainerExpertise({ trainer }) {
+export default function TrainerExpertise({ trainer, data }) {
   const [showAll, setShowAll] = useState(false);
   const firstName = trainer.name.split(" ")[0];
 
@@ -30,8 +30,7 @@ export default function TrainerExpertise({ trainer }) {
   // `meta.years_experience` — not a fabricated year repeated on every skill.
   const skillsList = courses.length
     ? courses.map((course, index) => {
-        const tier =
-          trainerContent.skillTiers[index] || trainerContent.skillTierDefault;
+        const tier = data.skillTiers[index] || data.skillTierDefault;
 
         return {
           title: course.title,
@@ -43,8 +42,7 @@ export default function TrainerExpertise({ trainer }) {
       })
     : trainer.skills.length
       ? trainer.skills.map((title, index) => {
-          const tier =
-            trainerContent.skillTiers[index] || trainerContent.skillTierDefault;
+          const tier = data.skillTiers[index] || data.skillTierDefault;
           const isPrimary = index === 0;
 
           return {
@@ -58,7 +56,7 @@ export default function TrainerExpertise({ trainer }) {
             level: tier.level,
           };
         })
-      : trainerContent.skills;
+      : data.skills;
 
   const displayedSkills = showAll ? skillsList : skillsList.slice(0, 6);
 
@@ -68,13 +66,12 @@ export default function TrainerExpertise({ trainer }) {
         {/* Section Header */}
         <Box className="max-w-2xl">
           <RichHeading
-            heading="Areas of <span>expertise.</span>"
+            heading={data.heading}
             className="tracking-tight"
             emphasisClassName="font-normal"
           />
           <Text as="p" className="mt-3 text-[16px] text-ink">
-            Topics {firstName} delivers as a corporate trainer, with depth shown
-            by years of active delivery rather than self-rated stars.
+            {fillTemplate(data.description, { name: firstName })}
           </Text>
         </Box>
 
@@ -120,8 +117,10 @@ export default function TrainerExpertise({ trainer }) {
           <Box className="mt-8 flex justify-center">
             <CtaButton type="button" arrow onClick={() => setShowAll(!showAll)}>
               {showAll
-                ? "Show less"
-                : `Show all ${skillsList.length} areas of expertise`}
+                ? data.show_less_label
+                : fillTemplate(data.show_all_label, {
+                    count: skillsList.length,
+                  })}
             </CtaButton>
           </Box>
         )}
