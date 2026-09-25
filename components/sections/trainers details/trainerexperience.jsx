@@ -1,58 +1,11 @@
 import Box from "@/components/ui/Box";
 import Section from "@/components/ui/Section";
 import Text from "@/components/ui/Text";
-
-/**
- * Utility function to parse custom formatted work_history string:
- *  - Splits multiple jobs by '||'
- *  - Splits job header from bullets by '::'
- *  - Splits individual bullet items by ';;'
- */
-function parseWorkHistory(workHistory) {
-  if (!workHistory || typeof workHistory !== "string") return [];
-
-  const jobEntries = workHistory.split(/\s*\|\|\s*/).filter(Boolean);
-
-  return jobEntries.map((entry, index) => {
-    const [headerPart = "", highlightsPart = ""] = entry.split(/\s*::\s*/);
-
-    let role = "";
-    let company_or_industry = "";
-    let duration = "";
-
-    // Extract date range inside parentheses, e.g. "(Feb 2024 - present)"
-    const dateMatch = headerPart.match(/\((.*?)\)/);
-
-    if (dateMatch) {
-      duration = dateMatch[1].trim();
-      const beforeDate = headerPart.replace(dateMatch[0], "").trim();
-      const parts = beforeDate.split(/\s*-\s*/);
-      role = parts[0] || "";
-      company_or_industry = parts.slice(1).join(" - ") || "";
-    } else {
-      const parts = headerPart.split(/\s*-\s*/);
-      role = parts[0] || "";
-      company_or_industry = parts[1] || "";
-      duration = parts.slice(2).join(" - ") || "";
-    }
-
-    const highlights = highlightsPart
-      .split(/\s*;;\s*/)
-      .map((b) => b.trim())
-      .filter(Boolean);
-
-    return {
-      role: role.trim(),
-      company_or_industry: company_or_industry.trim(),
-      duration: duration.trim(),
-      is_current: index === 0 || duration.toLowerCase().includes("present"),
-      highlights,
-    };
-  });
-}
+import RichHeading from "@/components/common/rich-heading";
+import { parseTrainerHistory } from "@/lib/trainer-history";
 
 export default function TrainerExperience({ trainer }) {
-  const parsedExperience = parseWorkHistory(trainer.meta?.work_history);
+  const parsedExperience = parseTrainerHistory(trainer.meta?.work_history);
   const firstName = trainer.name.split(" ")[0];
 
   return (
@@ -60,15 +13,11 @@ export default function TrainerExperience({ trainer }) {
       <Box>
         {/* Section Header */}
         <Box className="mb-10 max-w-2xl">
-          <Text as="h2" className="tracking-tight text-ink">
-            Professional{" "}
-            <Text
-              as="span"
-              className="font-serif text-[20px] font-normal italic text-ink lg:text-[24px]"
-            >
-              experience.
-            </Text>
-          </Text>
+          <RichHeading
+            heading="Professional <span>experience.</span>"
+            className="tracking-tight text-ink"
+            emphasisClassName="font-normal"
+          />
           <Text
             as="p"
             className="mt-3 text-[16px] leading-relaxed text-[#64748b]"

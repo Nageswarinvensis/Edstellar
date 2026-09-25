@@ -42,7 +42,7 @@ export default function OurReach({ trainer }) {
           <RichHeading
             heading="Delivery <span>reach,</span> in detail."
             className="mb-3 tracking-tight"
-            emphasisClassName="text-[18px] font-normal text-ink lg:text-[24px]"
+            emphasisClassName="font-normal"
           />
 
           <Text as="p" className="text-[16px] text-in">
@@ -189,7 +189,7 @@ export default function OurReach({ trainer }) {
                 <Text as="p">
                   Home timezone{" "}
                   <Text as="span" className="font-bold text-ink">
-                    {trainer.timezone || trainerContent.timezone}
+                    {trainerContent.locationDetail.timezone}
                   </Text>
                   . Virtual cohorts are scheduled to overlap the team's hours,
                   not the trainer's.

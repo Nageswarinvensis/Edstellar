@@ -23,14 +23,16 @@ export default function Trainers({ trainers, desktopCards }) {
         />
       </Reveal>
 
-      <Reveal delay={2}>
-        <Text
-          as="p"
-          className="mb-5 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink/60"
-        >
-          {trainers.description}
-        </Text>
-      </Reveal>
+      {trainers.description ? (
+        <Reveal delay={2}>
+          <Text
+            as="p"
+            className="mb-5 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink/60"
+          >
+            {trainers.description}
+          </Text>
+        </Reveal>
+      ) : null}
 
       <Reveal delay={2}>
         <TrainerCarousel people={people} desktopCards={desktopCards} />

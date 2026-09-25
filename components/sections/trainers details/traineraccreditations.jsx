@@ -1,6 +1,7 @@
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import RichHeading from "@/components/common/rich-heading";
 import trainerContent from "@/content/trainer.json";
 
 const parseEducationData = (educationRaw) => {
@@ -37,22 +38,15 @@ export default function CertificationsAndEducation({ trainer }) {
         {/* TOP BLOCK: Certifications & Accreditations */}
         <Box>
           {/* Section Heading */}
-          <Text
-            as="h2"
+          <RichHeading
+            heading="Certifications & <span>accreditations.</span>"
             className="mb-3 tracking-tight text-ink"
-          >
-            Certifications &{" "}
-            <Text
-              as="span"
-              className="font-serif text-[32px] font-normal italic text-black/80 lg:text-[38px]"
-            >
-              accreditations.
-            </Text>
-          </Text>
+            emphasisClassName="font-normal"
+          />
 
           {/* Subtitle */}
           <Text as="p" className="mb-10 max-w-2xl text-[16px] text-black/60">
-            Professional certifications a trainer holds in their domain. Displayed with the issuing body and year; badges use each partner's official artwork per $23.4.
+            Professional certifications a trainer holds in their domain. Displayed with the issuing body and year; badges use each partner's official artwork per §23.4.
           </Text>
 
           {/* Certifications Cards Grid */}
@@ -109,7 +103,7 @@ export default function CertificationsAndEducation({ trainer }) {
               !
             </span>
             <Text as="p">
-              Accreditation names shown are sample credentials. Real badges use each partner's official logo files and usage rules per $23.4, and a lapsed credential comes down.
+              Accreditation names shown are sample credentials. Real badges use each partner's official logo files and usage rules per §23.4, and a lapsed credential comes down.
             </Text>
           </Box>
         </Box>

@@ -1,6 +1,7 @@
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import RichHeading from "@/components/common/rich-heading";
 import trainerContent from "@/content/trainer.json";
 
 export default function TrainerRatings({ trainer }) {
@@ -10,22 +11,15 @@ export default function TrainerRatings({ trainer }) {
     <Section id="ratings" className="bg-ink">
       <Box>
         {/* Section Header */}
-        <Text
-          as="h2"
+        <RichHeading
+          heading="Ratings & <span>testimonials.</span>"
           className="tracking-tight text-white"
-        >
-          Ratings &{" "}
-          <Text
-            as="span"
-            className="font-serif text-[18px] font-normal italic text-lime lg:text-[24px]"
-          >
-            testimonials.
-          </Text>
-        </Text>
+          emphasisClassName="font-normal text-lime"
+        />
 
         <Text as="p" className="mt-2 max-w-2xl text-[16px] text-white/70">
           Feedback from teams {trainerFirstName} has trained. Every rating and
-          quote shown here comes from real, consented post–program evaluations.
+          quote shown here comes from real, consented post-program evaluations.
         </Text>
 
         {/* Ratings Card */}
@@ -37,7 +31,7 @@ export default function TrainerRatings({ trainer }) {
                 as="span"
                 className="text-[42px] text-white font-bold leading-none"
               >
-                4.9
+                {trainerContent.ratingSummary.score}
               </Text>
               <Box className="mt-3 flex gap-1 text-lime">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -47,7 +41,7 @@ export default function TrainerRatings({ trainer }) {
                 ))}
               </Box>
               <Text as="span" className="mt-2 text-[12px] text-white/50">
-                from 84 evaluations*
+                from {trainerContent.ratingSummary.evaluations} evaluations*
               </Text>
             </Box>
 

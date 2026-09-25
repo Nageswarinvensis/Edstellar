@@ -7,6 +7,7 @@
       { "id": "location", "label": "Location", "active": false },
       { "id": "expertise", "label": "Expertise", "active": false },
       { "id": "experience", "label": "Experience", "active": false },
+      { "id": "engagements", "label": "Engagements", "active": false },
       { "id": "ratings", "label": "Ratings", "active": false },
       { "id": "accreditations", "label": "Accreditations", "active": false },
       { "id": "education", "label": "Education", "active": false },
@@ -15,6 +16,7 @@
   },
 
   "deliveryMode": "Onsite & Virtual",
+  "deliveryReach": "West Africa & EMEA",
   "travelsOnsite": "Yes",
   "primaryDomain": "Corporate Training",
 
@@ -23,14 +25,12 @@
     { "name": "French", "proficiency": "Professional / full delivery", "level": "88%" }
   ],
 
-  "timezone": "Timezone on file",
-
   "regionalCoverage": [
     {
       "badge": "ONSITE",
       "isLime": true,
-      "title": "Home region",
-      "desc": "Onsite delivery within the trainer's home country and neighboring markets"
+      "title": "West Africa",
+      "desc": "Nigeria, Ghana, Côte d'Ivoire, Senegal"
     },
     {
       "badge": "VIRTUAL",
@@ -53,14 +53,14 @@
   ],
 
   "locationDetail": {
-    "metroRegion": "Metro area on file",
-    "timezone": "Timezone on file",
-    "onsiteRadius": "Regional",
+    "metroRegion": "Lagos State, South-West",
+    "timezone": "WAT (UTC+1)",
+    "onsiteRadius": "West Africa",
     "willingToTravel": "Yes, for multi-day & enterprise",
     "virtualDelivery": "Global, timezone-matched"
   },
 
-  "nearbyCities": [],
+  "nearbyCities": ["Ibadan", "Abeokuta", "Abuja", "Port Harcourt", "Accra"],
 
   "skills": [
     { "title": "Leadership Development", "type": "Flagship", "years": "11 years delivering", "since": "Since 2013", "level": "95%" },
@@ -80,6 +80,8 @@
     { "type": "Active", "level": "58%" }
   ],
   "skillTierDefault": { "type": "Active", "level": "50%" },
+
+  "ratingSummary": { "score": "4.9", "evaluations": 84 },
 
   "ratingMetrics": [
     { "label": "Content quality", "score": "4.9", "percentage": 98 },
@@ -109,63 +111,141 @@
   ],
 
   "faq": {
-    "heading": "Working with our <span>trainers</span>.",
+    "heading": "Working with <span>{name}</span>.",
     "items": [
       {
-        "question": "Where are Edstellar trainers based and where can they deliver training?",
-        "answer": "Trainers are based worldwide. Onsite and virtual delivery is confirmed with an Edstellar consultant based on your team's location."
+        "question": "Where is {name} based and where can {name} deliver training?",
+        "answer": "{name} is based in {city}, {country}, and delivers both onsite and live virtual training. Onsite delivery beyond {city} is arranged for multi-day or enterprise engagements, confirmed with an Edstellar consultant."
       },
       {
-        "question": "What topics do Edstellar trainers cover?",
-        "answer": "Each trainer's profile lists their core delivery areas, covering leadership, technical, and functional skill tracks."
+        "question": "What languages does {name} train in?",
+        "answer": "{name} delivers full programs in {languages}, including materials, exercises, and assessment, not spoken translation alone."
       },
       {
-        "question": "Do Edstellar trainers deliver virtual as well as onsite training?",
-        "answer": "Yes. Edstellar trainers deliver both onsite and live virtual instructor-led programs, with the delivery mode agreed to fit your team's location and timezone."
+        "question": "What topics does {name} train?",
+        "answer": "{topics}"
       },
       {
-        "question": "How do I book a trainer for my team?",
-        "answer": "Talk to an Edstellar consultant. They confirm availability, delivery mode, and timezone before scheduling."
+        "question": "Does {name} deliver virtual as well as onsite training?",
+        "answer": "Yes. {name} delivers both onsite and live virtual instructor-led programs. Virtual cohorts are scheduled to overlap your team's working hours rather than the trainer's timezone."
+      },
+      {
+        "question": "How do I book {name} for my team?",
+        "answer": "Talk to an Edstellar consultant. They confirm availability, delivery mode, language, and timezone before scheduling."
       }
-    ]
+    ],
+    "topics": {
+      "core_and_related": "{name}'s core areas are {core}, with related programs in {related}.",
+      "core_only": "{name}'s core areas are {core}."
+    }
   },
+
+  "engagements": [
+    {
+      "sector": "Financial services",
+      "title": "Leading through a core-banking migration",
+      "scope": [
+        "West Africa",
+        "120 managers",
+        "Blended"
+      ],
+      "outcome": "A change-leadership program run alongside a major system rollout, equipping managers to carry their teams through the transition.",
+      "outcome_note": "Outcome figures pending client sign-off."
+    },
+    {
+      "sector": "Telecommunications",
+      "title": "First-time manager foundations",
+      "scope": [
+        "Multi-country",
+        "6 cohorts",
+        "Virtual"
+      ],
+      "outcome": "A cohort-based leadership track for newly promoted managers across several markets, delivered in English and French.",
+      "outcome_note": "Outcome figures pending client sign-off."
+    },
+    {
+      "sector": "Public sector",
+      "title": "Change management for a service reform",
+      "scope": [
+        "Onsite",
+        "Senior leadership",
+        "Multi-day"
+      ],
+      "outcome": "A senior-leadership engagement supporting a large-scale service reform, focused on stakeholder alignment and adoption.",
+      "outcome_note": "Outcome figures pending client sign-off."
+    }
+  ],
 
   "otherTrainers": [
     {
-      "slug": "mehak-bangalore-india",
-      "name": "Mehak",
-      "city": "Bangalore",
-      "country": "India",
-      "flag": "🇮🇳",
-      "image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/67ac91699076214823e466a9_mehak-bangalore-india.webp",
-      "skills": ["Design Thinking", "Emotional Intelligence"]
+      "slug": "daniel-roth",
+      "name": "Daniel Roth",
+      "image": "/course/hero-photo.jpg",
+      "role": "Principal MLOps engineer",
+      "years": "12+ years in production ML",
+      "rating": "4.9",
+      "sessions": "180+",
+      "specializations": [
+        "Drift detection",
+        "Observability stack",
+        "Dashboards"
+      ]
     },
     {
-      "slug": "ravi-bangalore-india",
-      "name": "Ravi",
-      "city": "Bangalore",
-      "country": "India",
-      "flag": "🇮🇳",
-      "image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/67a49be2bc6d7e4c6f48aae3_ravi-bangalore-india.webp",
-      "skills": ["Change Management", "Problem Solving"]
+      "slug": "marco-bianchi",
+      "name": "Marco Bianchi",
+      "image": "/course/image2.png",
+      "role": "Staff ML engineer, platform",
+      "years": "10+ years in production ML",
+      "rating": "4.8",
+      "sessions": "140+",
+      "specializations": [
+        "Retraining pipelines",
+        "A/B & shadow deploys",
+        "Orchestration"
+      ]
     },
     {
-      "slug": "roberta-al-wajba-qatar",
-      "name": "Roberta",
-      "city": "Al Wajba",
-      "country": "Qatar",
-      "flag": "🇶🇦",
-      "image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/67972d6201dc4ed11e276a82_roberta-al-wajba-qatar.webp",
-      "skills": ["Team Building", "People Management"]
+      "slug": "annika-lund",
+      "name": "Annika Lund",
+      "image": "/course/image3.png",
+      "role": "Lead data scientist, model risk",
+      "years": "9+ years in regulated ML",
+      "rating": "4.9",
+      "sessions": "120+",
+      "specializations": [
+        "Fairness monitoring",
+        "Explainability",
+        "EU AI Act"
+      ]
     },
     {
-      "slug": "simon-ubud-indonesia",
-      "name": "Simon",
-      "city": "Ubud",
-      "country": "Indonesia",
-      "flag": "🇮🇩",
-      "image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/678e3990ca24b08c35ec2239_simon-ubud-indonesia.webp",
-      "skills": ["Team Management", "Public Speaking"]
+      "slug": "priya-raghavan",
+      "name": "Priya Raghavan",
+      "image": "/course/image4.png",
+      "role": "SRE lead, ML systems",
+      "years": "11+ years in reliability",
+      "rating": "4.8",
+      "sessions": "160+",
+      "specializations": [
+        "Alerting design",
+        "Incident response",
+        "Tracing"
+      ]
+    },
+    {
+      "slug": "lucas-moreau",
+      "name": "Lucas Moreau",
+      "image": "/course/image.png",
+      "role": "ML platform architect",
+      "years": "13+ years in data platforms",
+      "rating": "4.9",
+      "sessions": "200+",
+      "specializations": [
+        "Feature stores",
+        "Model serving",
+        "Cost optimisation"
+      ]
     }
   ]
 }

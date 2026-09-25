@@ -1,18 +1,13 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import Box from "@/components/ui/Box";
+import { CtaButton } from "@/components/common/cta-button";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Breadcrumbs from "@/components/common/breadcrumbs";
 import trainerContent from "@/content/trainer.json";
 
-export default function TrainerHero({ trainer }) {
-  const breadcrumbItems = [
-    { label: "Home", href: "/" },
-    { label: "Trainers", href: "/trainer" },
-    { label: trainer.name },
-  ];
+export default function TrainerHero({ trainer, breadcrumbItems }) {
 
   const visibleSkills = trainer.skills.slice(0, 3);
   const remainingSkills = Math.max(
@@ -22,7 +17,8 @@ export default function TrainerHero({ trainer }) {
 
   const location = [trainer.city, trainer.country].join(", ");
 
-  const reach = trainer.delivery_reach || trainer.meta?.delivery_reach;
+  // Static for now — the CMS doesn't send a delivery reach yet.
+  const reach = trainerContent.deliveryReach;
   const deliveryReachText = `Based in ${location}${reach ? ` · Delivering across ${reach}` : ""}`;
 
   const statsData = [
@@ -31,8 +27,8 @@ export default function TrainerHero({ trainer }) {
     {
       label: "LANGUAGES",
       value: trainer.languages
-        ? trainer.languages.join(" • ")
-        : trainerContent.languages.map((lang) => lang.name).join(" • "),
+        ? trainer.languages.join(" · ")
+        : trainerContent.languages.map((lang) => lang.name).join(" · "),
     },
     {
       label: "DELIVERY",
@@ -111,25 +107,24 @@ export default function TrainerHero({ trainer }) {
 
             {/* Buttons */}
             <Box className="mt-6 flex flex-wrap items-center gap-3">
-              <Link
-                href="#contact"
-                className="inline-flex h-10 items-center justify-center rounded-full bg-lime px-6 text-[13px] font-bold text-black transition-all hover:bg-lime"
-              >
+              <CtaButton color="lime" arrow render={<a href="#contact" />}>
                 Talk to Edstellar Consultant
-              </Link>
+              </CtaButton>
 
-              <a
-                href="#trainer-details"
-                className="inline-flex h-10 items-center justify-center rounded-full border border-white/25 px-6 text-[13px] font-semibold text-white transition-colors hover:border-white"
+              <CtaButton
+                variant="ghost"
+                arrow
+                render={<a href="#trainer-details" />}
+                className="border-white/25 text-white hover:border-white hover:bg-white/5"
               >
                 See delivery reach
-              </a>
+              </CtaButton>
             </Box>
           </Box>
         </Box>
 
-        <Box className="left-1/2 mt-10 w-screen -translate-x-1/2 border-t border-white/10 bg-[#050d1a66] py-5">
-          <Box className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4 lg:gap-8">
+        <Box className="relative left-1/2 mt-10 w-screen -translate-x-1/2 border-t border-white/10 bg-[#050d1a66] px-5 py-5 lg:px-10">
+          <Box className="rail-container mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4 lg:gap-8">
             {statsData.map((stat, index) => (
               <Box key={index} className="flex flex-col gap-1">
                 <Text

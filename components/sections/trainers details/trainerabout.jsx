@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Box from "@/components/ui/Box";
+import { CtaButton } from "@/components/common/cta-button";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
@@ -57,7 +57,7 @@ export default function TrainerAbout({ trainer }) {
             <RichHeading
               heading={`About <span>${trainerFirstName}.</span>`}
               className="tracking-tight text-ink"
-              emphasisClassName="text-[18px] font-normal text-ink lg:text-[24px]"
+              emphasisClassName="font-normal"
             />
 
             {paragraphs.length > 0 && (
@@ -101,13 +101,9 @@ export default function TrainerAbout({ trainer }) {
             </Box>
 
             <Box className="mt-4">
-              <Link
-                href="#contact"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text.sm font-semibold text-lime transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-12px_rgba(10,22,40,0.5)]"
-              >
-                <span>Talk to Edstellar Consultant</span>
-                <span className="text-base leading-none">→</span>
-              </Link>
+              <CtaButton block arrow render={<a href="#contact" />}>
+                Talk to Edstellar Consultant
+              </CtaButton>
             </Box>
           </Box>
         </Box>
