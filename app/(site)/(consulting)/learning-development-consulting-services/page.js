@@ -9,7 +9,6 @@ import Maturity from "@/components/sections/learning_development_consulting/matu
 import LandDCTA from "@/components/sections/learning_development_consulting/ldcta";
 import Methodology from "@/components/sections/learning_development_consulting/methodology";
 import Transform from "@/components/sections/learning_development_consulting/transform";
-import LdSoftCta from "@/components/sections/learning_development_consulting/ld-soft-cta";
 import LdServices from "@/components/sections/learning_development_consulting/ld-services";
 import Engagements from "@/components/sections/learning_development_consulting/engagements";
 import LdWhy from "@/components/sections/learning_development_consulting/ld-why";
@@ -39,7 +38,6 @@ export default function LDConsultingPage() {
       <LandDCTA data={heroData.landdctaData}/>
       <Methodology data={heroData.methodologyData}/>
       <Transform data={heroData.transformData}/>
-      <LdSoftCta data={heroData.blueprintCtaData} />
       <TnaRelated data={heroData.relatedData}/>
       <LdServices data={heroData.ldServicesData}/>
       <Engagements data={heroData.engagementsData}/>

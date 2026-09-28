@@ -145,7 +145,7 @@ function ProofBar({
       <Box
         className={cn(
           className,
-          "flex flex-wrap items-center gap-2 rounded-[20px] bg-navy px-[34px] py-[22px] shadow-lift",
+          "flex flex-wrap items-center gap-2 rounded-[20px] bg-navy px-8.5 py-5.5 shadow-lift",
           "max-[601px]:gap-[18px] max-[601px]:px-[22px] max-[601px]:py-[18px]",
         )}
       >
@@ -153,8 +153,8 @@ function ProofBar({
           <Box
             key={`${stat.label}-${index}`}
             className={cn(
-              "flex min-w-[140px] flex-[1_1_0] flex-col gap-1.5",
-              index > 0 && "border-l border-paper/15 pl-[34px]",
+              "flex min-w-35 flex-[1_1_0] flex-col gap-1.5",
+              index > 0 && "border-l border-paper/15 pl-8.5",
               "max-[601px]:flex-[1_1_45%] max-[601px]:border-l-0 max-[601px]:pl-0",
             )}
           >

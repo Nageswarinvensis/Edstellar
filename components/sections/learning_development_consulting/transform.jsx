@@ -5,6 +5,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import LdSoftCta from "@/components/common/ld-soft-cta";
 
 // Reusable List Item Component
 function ComparisonItem({ text, isDark }) {
@@ -66,10 +67,10 @@ export default function Transform({ data }) {
 
   return (
     <Section id="transformation" className="bg-paper">
-      <Box>
+      <Box className="space-y-10 sm:space-y-12">
         {/* Header Block */}
         <Reveal>
-          <Box className="mb-10 lg:mb-14 max-w-2xl">
+          <Box className="max-w-2xl">
             {content.heading && (
               <Box className="[&_span]:italic [&_span]:font-serif [&_span]:font-normal">
                 <RichHeading heading={content.heading} />
@@ -102,6 +103,9 @@ export default function Transform({ data }) {
             <ComparisonCard cardData={content.afterCard} isDark={true} />
           </Box>
         </Reveal>
+
+        {/* Soft CTA Component */}
+        {content.softCtaData && <LdSoftCta data={content.softCtaData} />}
       </Box>
     </Section>
   );

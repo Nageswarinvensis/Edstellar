@@ -21,7 +21,7 @@ export default function LearningStats({ data }) {
             return (
               <Box key={index} className={`flex items-center ${!isLast ? "md:flex-1 md:justify-between" : ""}`}>
                 <Box className="flex flex-col">
-                  <Text className={`text-[20px] font-bold tracking-tight ${isLast ? "text-white" : "text-lime-soft"}`}>
+                  <Text className={`text-[20px] font-bold tracking-tight ${isLast ? "text-white" : "text-lime"}`}>
                     {value}
                   </Text>
                   <Text className="mt-1 text-[12px] uppercase tracking-widest text-slate-400">

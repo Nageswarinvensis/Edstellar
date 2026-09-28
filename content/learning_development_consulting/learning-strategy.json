@@ -486,15 +486,15 @@
           "ROI models"
         ]
       }
-    ]
-  },
-  "blueprintCtaData": {
+    ],
+    "softCtaData": {
     "heading": "Want a learning strategy built on this blueprint?",
     "description": "Tell us where your L&D function stands today and we will show you what the first move looks like.",
     "cta": {
       "label": "Talk it through",
-      "href": "#contact"
+      "href": "/contact"
     }
+   }
   },
   "methodData": {
     "section_id": "method",
