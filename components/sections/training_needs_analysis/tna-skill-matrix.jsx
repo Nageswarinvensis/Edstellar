@@ -172,12 +172,16 @@ export default function TnaSkillMatrix({ data }) {
       </Box>
 
       <Box as="ul" className={cn(LEGEND_CLASS, "flex", IN_GAP_VIEW)}>
-        {Object.entries(gapLevels).map(([key, level]) => (
-          <Box as="li" key={key} className={LEGEND_ITEM}>
-            <Box as="span" className={cn("size-4 flex-none rounded-[4px]", GAP_SWATCH[key])} />
-            {level.label}
-          </Box>
-        ))}
+        {/* Sorted by `value`, not key order: the CMS does not preserve the
+            order it stores keys in, and the legend reads none → mild → critical. */}
+        {Object.entries(gapLevels)
+          .sort(([, a], [, b]) => a.value - b.value)
+          .map(([key, level]) => (
+            <Box as="li" key={key} className={LEGEND_ITEM}>
+              <Box as="span" className={cn("size-4 flex-none rounded-[4px]", GAP_SWATCH[key])} />
+              {level.label}
+            </Box>
+          ))}
       </Box>
 
       <Box as="ul" className={cn(LEGEND_CLASS, IN_REQ_VIEW)}>

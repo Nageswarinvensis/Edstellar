@@ -1,3 +1,6 @@
+import { notFound } from "next/navigation";
+
+import { getTnaPage } from "@/lib/content/tna";
 import { buildMetadata } from "@/lib/seo/metadata";
 import TNAHero from "@/components/sections/training_needs_analysis/tnahero";
 import DomainInfo from "@/components/sections/domain/domain-info";
@@ -9,49 +12,79 @@ import Benefits from "@/components/sections/training_needs_analysis/tnabenifits"
 import TnaProcess from "@/components/sections/training_needs_analysis/tnaprocess";
 import TnaSteps from "@/components/sections/training_needs_analysis/tnasteps";
 import TnaWhyEdstellar from "@/components/sections/training_needs_analysis/tnawhyedstellar";
-import Outcome from "@/components/sections/domain/outcome";
+import TnaCardGrid from "@/components/sections/training_needs_analysis/tnacardgrid";
+import LdReadiness from "@/components/sections/learning_development_consulting/ld-readiness";
 import TnaRelated from "@/components/sections/training_needs_analysis/tnarelated";
 import Faq from "@/components/common/faq";
 import LeadForm from "@/components/forms/lead-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
-import heroData from "@/content/training_needs_analysis/TNA.json";
+export const revalidate = 3600;
 
-export const metadata = buildMetadata({
-  title: "Training Needs Analysis Services",
-  description:
-    "Edstellar's training needs analysis (LNA/LNI) finds the skill gaps that hold teams back, ranks them by business impact, and delivers a roadmap you can defend to finance.",
-  path: "/training-needs-analysis",
-});
+// Lead-form copy the CMS `leadForm` component does not carry. Anything the
+// CMS does send wins over these.
+const LEAD_FORM_COPY = {
+  requirements_label: "Your requirements",
+  requirements_placeholder:
+    "Tell us about your team: size, roles in scope, timing, and the outcomes you are trying to move.",
+  thanks_heading: "Request received.",
+  thanks_body:
+    "Thanks. A specialist will reply within one business day with a scoped response.",
+};
 
-export default function TrainingNeedsAnalysisPage() {
+export async function generateMetadata() {
+  const tna = await getTnaPage();
+  if (!tna) return {};
+  const { seo } = tna;
+
+  // The CMS title carries the brand suffix the root layout's title template
+  // already adds — stripped so it does not render twice, as the course route does.
+  const title = seo?.meta_title?.replace(/\s*\|\s*Edstellar\s*$/i, "").trim();
+
+  return buildMetadata({
+    title,
+    description: seo?.Meta_description,
+    path: "/training-needs-analysis",
+    image: seo?.og_image_url,
+  });
+}
+
+export default async function TrainingNeedsAnalysisPage() {
+  const tna = await getTnaPage();
+  if (!tna) notFound();
+
   return (
     <>
       <TNAHero
-        data={heroData.trainingNeedsAnalysis}
-        breadcrumbItems={heroData.BreadcrumbData}
+        data={tna.tnaHero}
+        breadcrumbItems={tna.breadcrumbs?.items}
       />
-      <DomainInfo proof={heroData.proof} />
-      <ClientLogos data={heroData.ClientsLogosData} />
-      <StickyTabs data={heroData.stickyNavbarData} />
-      <CtaTrainer data={heroData.ctaTrainerData} emphasisClassName="block" />
-      <TnaEngine data={heroData.tnaEngineData} />
-      <Benefits data={heroData.benefitsData} />
-      <TnaProcess data={heroData.processData} />
-      <TnaSteps data={heroData.stepsData} />
-      <Outcome id="integrations" columns={4} data={heroData.integrationsData} />
-      <TnaWhyEdstellar data={heroData.whyEdstellarData} />
-      <Outcome id="when" columns={3} data={heroData.whenData} />
-      <TnaRelated data={heroData.relatedData} />
+      <DomainInfo proof={tna.generalProof} layout="spread" />
+      <ClientLogos />
+      <StickyTabs data={tna.stickyNavbar} />
+      <CtaTrainer id="still" data={tna.tnaProblemStatement} emphasisClassName="block" />
+      <TnaEngine id="engine" data={tna.tnaEngineIntro} />
+      <Benefits id="benefits" data={tna.tnaBenifits} />
+      <TnaProcess id="process" data={tna.tnaProcessFlow} />
+      <TnaSteps id="steps" data={tna.tnaEngineStages} />
+      <TnaCardGrid id="integrations" data={tna.tnaIntegrations} columns={4} />
+      <TnaWhyEdstellar id="why-edstellar" data={tna.tnaWhyEdstellar} />
+      <TnaCardGrid id="when" data={tna.tnaWhenToRun} columns={3} background="warm" />
+      <LdReadiness id="readiness" data={tna.readinessData} />
+      <TnaRelated data={tna.relatedServices} />
       <Faq
         id="faq"
-        faqs={heroData.faqData}
+        faqs={tna.faqs}
         innerClassName="max-w-[920px] mx-auto"
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <LeadForm id="contact" background="navy" data={heroData.leadFormData} />
-      <StickyFooter data={heroData.stickyFooter} />
+      <LeadForm
+        id="contact"
+        background="navy"
+        data={{ ...LEAD_FORM_COPY, ...tna.leadForm }}
+      />
+      <StickyFooter data={{ ...tna.stickyFooter, email: "contact@edstellar.com" }} />
     </>
   );
 }

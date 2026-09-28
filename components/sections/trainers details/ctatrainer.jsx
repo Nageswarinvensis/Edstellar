@@ -6,14 +6,14 @@ import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
 import { cn } from "@/lib/utils";
 
-export default function CtaTrainer({ trainer, data, emphasisClassName }) {
+export default function CtaTrainer({ id, trainer, data, emphasisClassName }) {
   // Support passing either data directly OR data.ctaTrainerData wrapper
   const ctaData = data?.ctaTrainerData || data || {};
 
   // Extract trainer first name if trainer object exists
   const trainerFirstName = trainer?.name ? trainer.name.split(" ")[0] : null;
 
-  const sectionId = ctaData.sectionId || "contact";
+  const sectionId = id || ctaData.sectionId || "contact";
 
   // Default subtitle and button for trainer pages if missing in JSON object
   const subtitle =

@@ -32,7 +32,7 @@ export default function LDConsultingPage() {
     <>
       <TNAHero data={heroData.ldheroData} breadcrumbItems={heroData.BreadcrumbData} />
       <LearningStats data={heroData.proof} />
-      <ClientLogos data={heroData.clientsLogosData}/>
+      <ClientLogos />
       <StickyTabs data={heroData.stickyNavbarData} />
       <WhyLandD data={heroData.WhyLandDData} />
       <Maturity data={heroData.maturityData}/>

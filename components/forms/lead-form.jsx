@@ -293,7 +293,8 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
                     disabled={isSubmitting}
                     className="w-full sm:w-auto"
                   >
-                    {data.submit_label || "Request my quote"}
+                    {/* `Button_Label` is the site-pages CMS field; `submit_label` the local-content one. */}
+                    {data.Button_Label || data.submit_label || "Request my quote"}
                   </CtaButton>
                 </Box>
               </Box>

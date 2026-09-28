@@ -12,8 +12,17 @@ import {
 } from "@/lib/seo/json-ld";
 import JsonLd from "@/components/seo/json-ld";
 import ServicePage from "@/components/templates/consulting/service-page";
+import ContentDevelopmentPage from "@/components/templates/consulting/content-development-page";
+import LearningTechnologyPage from "@/components/templates/consulting/learning-technology-page";
 
 const PILLAR = "learning-development-consulting-services";
+
+// Each sub-service record names its design in `template`.
+const TEMPLATES = {
+  "learning-strategy": ServicePage,
+  "content-development": ContentDevelopmentPage,
+  "learning-technology": LearningTechnologyPage,
+};
 
 export const revalidate = 3600;
 
@@ -41,6 +50,9 @@ export default async function LearningDevelopmentServicePage({ params }) {
   const service = await getConsultingService(PILLAR, slug);
   if (!service) notFound();
 
+  const Template = TEMPLATES[service.template];
+  if (!Template) notFound();
+
   return (
     <>
       <JsonLd
@@ -55,7 +67,7 @@ export default async function LearningDevelopmentServicePage({ params }) {
           faqJsonLd(service.faqData?.items),
         ]}
       />
-      <ServicePage data={service} />
+      <Template data={service} />
     </>
   );
 }

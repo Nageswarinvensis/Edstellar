@@ -4,11 +4,10 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import Section from "@/components/ui/Section";
 
-export default function Benefits({ data }) {
+export default function Benefits({ id, data }) {
   // Support both wrapped (data.benefitsData) and direct data props
   const content = data?.benefitsData || data || {};
 
-  const sectionId = content.sectionId || "benefits";
   const heading = content.heading || "Why <span>automate</span> your TNA?";
   const subtitle = content.subtitle;
   const columns = content.columns || {};
@@ -17,7 +16,7 @@ export default function Benefits({ data }) {
   const automated = columns.automated || {};
 
   return (
-    <Section id={sectionId} className="bg-white border-b border-t-[#0a16281f]">
+    <Section id={id} className="bg-white border-b border-t-[#0a16281f]">
       <Box>
         {/* Header Section */}
         <Box className="mx-auto mb-12 max-w-[62ch] text-center">

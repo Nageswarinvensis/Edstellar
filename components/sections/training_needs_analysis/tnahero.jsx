@@ -22,6 +22,10 @@ export default function TNAHero({
   // Extract meta items from either hero prop or data object
   const metaItems = hero?.meta || data?.meta || [];
 
+  // `…BtnLink` is the site-pages CMS field; `…BtnHref` the local-content one.
+  const primaryHref = data?.primaryBtnLink || data?.primaryBtnHref;
+  const secondaryHref = data?.secondaryBtnLink || data?.secondaryBtnHref;
+
   // Check showMeta flag (defaults to true if showMeta is undefined)
   const shouldShowMeta =
     (hero?.showMeta ?? data?.showMeta ?? true) && metaItems.length > 0;
@@ -84,8 +88,8 @@ export default function TNAHero({
                   <CtaButton
                     arrow
                     render={
-                      data.primaryBtnHref ? (
-                        <a href={data.primaryBtnHref} />
+                      primaryHref ? (
+                        <a href={primaryHref} />
                       ) : undefined
                     }
                   >
@@ -98,8 +102,8 @@ export default function TNAHero({
                     variant="ghost"
                     arrow
                     render={
-                      data.secondaryBtnHref ? (
-                        <a href={data.secondaryBtnHref} />
+                      secondaryHref ? (
+                        <a href={secondaryHref} />
                       ) : undefined
                     }
                   >

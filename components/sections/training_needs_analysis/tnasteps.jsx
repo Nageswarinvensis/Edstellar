@@ -37,13 +37,13 @@ const FIG_CLASS = `
   motion-reduce:h-auto! motion-reduce:translate-none! motion-reduce:opacity-100! motion-reduce:**:animate-none!
 `;
 
-export default function TnaSteps({ data }) {
+export default function TnaSteps({ id, data }) {
   if (!data) return null;
 
-  const { sectionId, heading, subtitle, items } = data;
+  const { heading, subtitle, items } = data;
 
   return (
-    <Section id={sectionId} className="bg-paper-warm">
+    <Section id={id} className="bg-paper-warm">
       <Box className="mb-10 max-w-[62ch]">
         <Reveal>
           <RichHeading heading={heading} />

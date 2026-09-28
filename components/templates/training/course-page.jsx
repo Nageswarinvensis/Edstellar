@@ -42,7 +42,7 @@ export default function CoursePage({ course }) {
     <>
       <Hero hero={course.hero} breadcrumbs={course.breadcrumbs?.items} />
       <CourseInfo proof={course.proof} capabilityModel={course.CapabilityModel} />
-      <ClientLogos data={course.ClientsLogosData} />
+      <ClientLogos heading="Trusted as a Leading Corporate Training Provider by" />
       <About about={course.about} />
 
       <PageToc
