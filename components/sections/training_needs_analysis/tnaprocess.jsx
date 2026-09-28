@@ -49,13 +49,13 @@ function Node({ label, note, ...props }) {
   );
 }
 
-export default function TnaProcess({ data }) {
+export default function TnaProcess({ id, data }) {
   if (!data) return null;
 
-  const { sectionId, heading, subtitle, setup, inputs, hub, outputs } = data;
+  const { heading, subtitle, setup, inputs, hub, outputs } = data;
 
   return (
-    <Section id={sectionId} className="bg-paper-warm">
+    <Section id={id} className="bg-paper-warm">
       <Box className="mb-10 max-w-[62ch]">
         <Reveal>
           <RichHeading heading={heading} />

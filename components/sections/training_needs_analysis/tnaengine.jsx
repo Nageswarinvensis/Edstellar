@@ -5,18 +5,17 @@ import RichHeading from "@/components/common/rich-heading";
 import Section from "@/components/ui/Section";
 import CtaButton from "@/components/common/cta-button";
 
-export default function TnaEngine({ data }) {
+export default function TnaEngine({ id, data }) {
   // Support both wrapped (data.tnaEngineData) and direct data props
   const content = data?.tnaEngineData || data || {};
 
-  const sectionId = content.sectionId || "engine";
   const heading =
     content.heading || "The automated <span>TNA/TNI Engine.</span>";
   const subtitle = content.subtitle;
   const button = content.button;
 
   return (
-    <Section id={sectionId} className="bg-white border-b border-t-[#0a16281f]">
+    <Section id={id} className="bg-white border-b border-t-[#0a16281f]">
       <Box className="mx-auto flex max-w-[920px] flex-col items-center text-center">
         {/* Heading */}
         <Reveal>

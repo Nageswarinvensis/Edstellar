@@ -13,7 +13,11 @@ import RichHeading from "@/components/common/rich-heading";
  * Design: `learning-strategy-design (48).html` → `#blueprint`, `.bt`,
  * `.bt-row`, `.bt-node`, `.bt-card`, `.bt-found`.
  */
-export default function LdBlueprint({ data }) {
+/**
+ * `narrow` keeps the track at the design's 920px reading width; the content
+ * development design (16) runs it at the full container width instead.
+ */
+export default function LdBlueprint({ data, narrow = true }) {
   if (!data?.layers?.length) return null;
 
   const {
@@ -27,7 +31,7 @@ export default function LdBlueprint({ data }) {
 
   return (
     <Section id={section_id} className="border-t border-ink/12 bg-paper">
-      <Box className="mx-auto max-w-230">
+      <Box className={narrow ? "mx-auto max-w-230" : undefined}>
         <Box className="mb-11 max-w-[62ch]">
           <Reveal>
             <RichHeading

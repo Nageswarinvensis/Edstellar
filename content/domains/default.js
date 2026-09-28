@@ -1,10 +1,8 @@
 /**
  * Scaffolding every domain page shares. Mirrors `content/courses/defaults.js`
  * — merged in beneath every domain by `lib/content/domains.js` so a section
- * the CMS has not modeled yet (the client-logo strip) still renders.
+ * the CMS has not modeled yet still renders.
  */
-
-import { CLIENT_LOGOS_DATA } from "@/lib/constants";
 
 /**
  * Every domain's breadcrumb trail starts with the same two crumbs — only the
@@ -20,8 +18,6 @@ export const BREADCRUMB_PREFIX = [
 ];
 
 export const DOMAIN_DEFAULTS = {
-  ClientsLogosData: CLIENT_LOGOS_DATA,
-
   /**
    * Every course card's delivery badge (INSTRUCTOR-LED · ON-SITE · VIRTUAL)
    * — every course across every domain ships in the same three formats

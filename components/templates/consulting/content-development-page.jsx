@@ -5,9 +5,11 @@ import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import LdChallenge from "@/components/sections/learning_development_consulting/ld-challenge";
 import LdReadiness from "@/components/sections/learning_development_consulting/ld-readiness";
 import LdOffering from "@/components/sections/learning_development_consulting/ld-offering";
+import LdFormats from "@/components/sections/learning_development_consulting/ld-formats";
+import LdSoftCta from "@/components/sections/learning_development_consulting/ld-soft-cta";
 import LdBlueprint from "@/components/sections/learning_development_consulting/ld-blueprint";
 import LdMethod from "@/components/sections/learning_development_consulting/ld-method";
-import LdSoftCta from "@/components/sections/learning_development_consulting/ld-soft-cta";
+import LdFrameworks from "@/components/sections/learning_development_consulting/ld-frameworks";
 import LdWhy from "@/components/sections/learning_development_consulting/ld-why";
 import LdCtaBand from "@/components/sections/learning_development_consulting/ld-cta-band";
 import TnaRelated from "@/components/sections/training_needs_analysis/tnarelated";
@@ -16,17 +18,16 @@ import LeadForm from "@/components/forms/lead-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
 /**
- * Consulting sub-service page — e.g. `/learning-development-consulting-services/learning-strategy`.
+ * Content design & development sub-service page —
+ * `/learning-development-consulting-services/learning-content-development-services`.
  *
- * Composition only: one record from `getConsultingService`, handed to the
- * sections in design order. Hero, proof strip, logos, sticky nav, related,
- * FAQ and lead form are the same sections the L&D and TNA pillar pages use;
- * challenge, offering, readiness, blueprint, method, why-us and the two
- * mid-page CTAs are this design's own.
+ * The learning strategy design's sections with readiness moved above the
+ * offering, plus a formats gallery (after the offering) and a frameworks
+ * strip (after the method). The blueprint runs full width here.
  *
- * Design: `learning-strategy-design (48).html`.
+ * Design: `learning-content-development (16).html`.
  */
-export default function ServicePage({ data }) {
+export default function ContentDevelopmentPage({ data }) {
   return (
     <>
       <TNAHero data={data.heroData} breadcrumbItems={data.BreadcrumbData} />
@@ -34,11 +35,13 @@ export default function ServicePage({ data }) {
       <ClientLogos />
       <StickyTabs data={data.stickyNavbarData} />
       <LdChallenge data={data.challengeData} />
-      <LdOffering data={data.offeringData} />
       <LdReadiness data={data.readinessData} />
-      <LdBlueprint data={data.blueprintData} />
+      <LdOffering data={data.offeringData} />
+      <LdFormats data={data.formatsData} />
       <LdSoftCta data={data.blueprintCtaData} />
+      <LdBlueprint data={data.blueprintData} narrow={false} />
       <LdMethod data={data.methodData} />
+      <LdFrameworks data={data.frameworksData} />
       <LdWhy data={data.whyEdstellarData} />
       <LdCtaBand data={data.whyCtaData} />
       <Faq

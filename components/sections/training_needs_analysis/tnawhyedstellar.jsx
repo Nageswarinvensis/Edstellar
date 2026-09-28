@@ -1,6 +1,6 @@
 import {
-  Merge,
-  LayoutGrid,
+  Link2,
+  Cpu,
   ShieldCheck,
   Landmark,
   Monitor,
@@ -18,9 +18,10 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
+// Keys are the CMS's `icon` values, read verbatim.
 const ICONS = {
-  merge: Merge,
-  grid: LayoutGrid,
+  merge: Link2,
+  grid: Cpu,
   shield: ShieldCheck,
   chart: ChartLine,
 };
@@ -108,21 +109,25 @@ export function TrustStrip({ trust }) {
   );
 }
 
-export default function TnaWhyEdstellar({ data }) {
+export default function TnaWhyEdstellar({ id, data }) {
   if (!data) return null;
 
-  const { sectionId, heading, subtitle, items, trust } = data;
+  const { heading, subtitle, items, trust } = data;
 
   return (
-    <Section id={sectionId} className="bg-white border-b border-t-[#0a16281f]">
-      <Box className="mb-10 max-w-[62ch]">
+    <Section id={id} className="border-t border-ink/12 bg-paper">
+      <Box className="mb-11 max-w-[62ch]">
         <Reveal>
-          <RichHeading heading={heading} />
+          <RichHeading
+            heading={heading}
+            className="text-[clamp(32px,4vw,40px)] leading-[1.08] hyphens-none"
+            emphasisClassName="font-normal"
+          />
         </Reveal>
 
         {subtitle && (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[60ch] text-[16px] leading-relaxed text-ink/70">
+            <Text as="p" className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60 hyphens-none">
               {subtitle}
             </Text>
           </Reveal>
@@ -131,20 +136,23 @@ export default function TnaWhyEdstellar({ data }) {
 
       <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {items?.map((item, index) => {
-          const Icon = ICONS[item.icon] || Merge;
+          const Icon = ICONS[item.icon] || Link2;
 
           return (
             <Reveal key={item.title} delay={Math.min(index + 2, 4)}>
-              <Box className="h-full rounded-2xl border border-ink/12 bg-paper-warm px-6 py-6">
-                <Box className="grid size-10 place-items-center rounded-full bg-lime text-ink">
-                  <Icon size={19} strokeWidth={2} aria-hidden="true" />
+              <Box className="h-full rounded-[14px] border border-ink/12 bg-white p-7 transition-[translate,box-shadow] duration-250 hover:-translate-y-[5px] hover:shadow-lift motion-reduce:hover:translate-y-0">
+                <Box className="mb-4 grid size-[42px] place-items-center rounded-[11px] bg-lime-soft text-navy">
+                  <Icon size={22} strokeWidth={1.7} aria-hidden="true" />
                 </Box>
 
-                <Text as="h3" className="mt-4 text-[16px] font-bold text-ink">
+                <Text
+                  as="h3"
+                  className="mb-2 text-[16px] leading-[1.3] font-bold tracking-[-0.01em] text-ink hyphens-none"
+                >
                   {item.title}
                 </Text>
 
-                <Text as="p" className="mt-2 text-[14px] leading-relaxed text-ink/70">
+                <Text as="p" className="text-[14px] leading-[1.6] text-ink/60 hyphens-none">
                   {item.description}
                 </Text>
               </Box>

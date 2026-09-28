@@ -1,5 +1,4 @@
 import {
-  CLIENT_LOGOS_DATA,
   DELIVERY_COUNTRIES,
   DELIVERY_LANGUAGES,
 } from "@/lib/constants";
@@ -23,8 +22,6 @@ const DELIVERY_META = [
 ];
 
 export const COURSE_DEFAULTS = {
-  ClientsLogosData: CLIENT_LOGOS_DATA,
-
   about: {
     // Extracted from the source's inline base64 <img> and saved as a real
     // static asset — `#about`'s only media in that file, no CMS field for it.

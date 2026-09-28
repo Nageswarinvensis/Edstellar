@@ -100,6 +100,13 @@ export default function StickyFooter({ data }) {
   if (!data || !messages?.length) return null;
 
   const message = messages[index % messages.length];
+
+  // The site-pages CMS sends `Brochure: [{ href, Label }]`; local content
+  // sends `brochure: { href, label }`.
+  const cmsBrochure = data.Brochure?.[0];
+  const brochure = cmsBrochure
+    ? { href: cmsBrochure.href, label: cmsBrochure.Label }
+    : data.brochure;
   const cta = data.cta ?? STICKY_CTA;
 
   return (
@@ -171,14 +178,14 @@ export default function StickyFooter({ data }) {
             </a>
           ) : null}
 
-          {data?.brochure ? (
+          {brochure?.href ? (
             <a
-              href={data.brochure.href}
-              aria-label={data.brochure.label}
+              href={brochure.href}
+              aria-label={brochure.label}
               className={PILL_CLASS}
             >
               <Download size={13} strokeWidth={1.8} aria-hidden="true" />
-              {data.brochure.label}
+              {brochure.label}
             </a>
           ) : null}
 

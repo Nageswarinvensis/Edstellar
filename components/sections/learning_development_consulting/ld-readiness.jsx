@@ -57,13 +57,13 @@ function ChecklistCard({ checklist }) {
  *
  * Design: `#readiness`, `.rd`, `.rd-card`, `.rd-row`, `.rd-list`.
  */
-export default function LdReadiness({ data }) {
+export default function LdReadiness({ id, data }) {
   if (!data) return null;
 
   const { section_id, heading, description, points, cta, checklist } = data;
 
   return (
-    <Section id={section_id} className="bg-navy">
+    <Section id={id ?? section_id} className="bg-navy">
       <Box className="grid grid-cols-[0.9fr_1.1fr] items-center gap-12 max-[900px]:grid-cols-1 max-[900px]:gap-8">
         <Reveal>
           <ChecklistCard checklist={checklist} />
