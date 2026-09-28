@@ -5,7 +5,7 @@ import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import LdChallenge from "@/components/sections/learning_development_consulting/ld-challenge";
 import LdReadiness from "@/components/sections/learning_development_consulting/ld-readiness";
 import LdOffering from "@/components/sections/learning_development_consulting/ld-offering";
-import LdSoftCta from "@/components/sections/learning_development_consulting/ld-soft-cta";
+import LdSoftCta from "@/components/common/ld-soft-cta";
 import LdPlatforms from "@/components/sections/learning_development_consulting/ld-platforms";
 import LdBlueprint from "@/components/sections/learning_development_consulting/ld-blueprint";
 import LdMethod from "@/components/sections/learning_development_consulting/ld-method";

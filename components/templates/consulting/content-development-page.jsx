@@ -6,7 +6,7 @@ import LdChallenge from "@/components/sections/learning_development_consulting/l
 import LdReadiness from "@/components/sections/learning_development_consulting/ld-readiness";
 import LdOffering from "@/components/sections/learning_development_consulting/ld-offering";
 import LdFormats from "@/components/sections/learning_development_consulting/ld-formats";
-import LdSoftCta from "@/components/sections/learning_development_consulting/ld-soft-cta";
+import LdSoftCta from "@/components/common/ld-soft-cta";
 import LdBlueprint from "@/components/sections/learning_development_consulting/ld-blueprint";
 import LdMethod from "@/components/sections/learning_development_consulting/ld-method";
 import LdFrameworks from "@/components/sections/learning_development_consulting/ld-frameworks";
