@@ -1,0 +1,1025 @@
+{
+  "heroData": {
+  "title": "Managed Training Services",
+  "tagline": "An extended arm of your L&D team, running the whole function as your own.",
+  "description": "Running L&D in-house stretches small teams across strategy, content, delivery, technology and vendors. Edstellar becomes an extension of your team, taking on every L&D initiative, or the parts you choose, so learning runs better while yours focuses on what matters.",
+  "showMeta": false,
+  "meta": [
+    "Instructor-led group training",
+    "Virtual / on-site / off-site",
+    {
+      "label": "10 languages",
+      "tooltip": {
+        "heading": "Delivered in",
+        "body": "English, Spanish, Mandarin, German, Arabic, Portuguese, Hindi, French, Japanese, Italian"
+      }
+    },
+    {
+      "label": "100+ countries",
+      "tooltip": {
+        "heading": "We have delivered in",
+        "body": "United States, United Kingdom, India, Canada, Germany, France, Netherlands, UAE, Saudi Arabia, Singapore, Australia, Japan, Brazil, South Africa and 90+ more countries"
+      }
+    }
+  ],
+  "primaryBtnText": "Request a managed services proposal",
+  "secondaryBtnText": "See engagement models",
+    "learning_system": {
+      "title": "Engagement models",
+      "items": [
+        {
+          "title": "Advisory",
+          "description": "Guidance only"
+        },
+        {
+          "title": "Selective",
+          "description": "Pick your areas"
+        },
+        {
+          "title": "Managed",
+          "description": "Most of the function"
+        },
+        {
+          "title": "End-to-end",
+          "description": "The whole function"
+        }
+      ],
+      "footerText": "Start focused, scale up."
+    }
+  },
+  "BreadcrumbData": [
+    {
+      "href": "https://edstellar-two.vercel.app/",
+      "label": "Home"
+    },
+    {
+      "href": "https://edstellar-two.vercel.app/corporate-training/artificial-intelligence",
+      "label": "Consulting"
+    },
+    {
+      "label": "Managed Training Services"
+    }
+  ],
+  "proof": {
+    "tone": "dark",
+    "ctaTitle": "Ready to outsource your L&D?",
+    "primaryBtnText": "Request a Proposal",
+    "primaryBtnTitle": "Request a Proposal",
+    "primaryBtnHref": "#book-consultation",
+    "secondaryBtnText": "Download the L&D brochure (PDF)",
+    "secondaryBtnTitle": "Download the L&D brochure in PDF format",
+    "secondaryBtnHref": "/brochure.pdf",
+    "stats": [
+      {
+        "value": "5000+",
+        "label": "Trainers"
+      },
+      {
+        "value": "100+",
+        "label": "Countries"
+      },
+      {
+        "value": "Fortune 500",
+        "label": "Clients served"
+      },
+      {
+        "value": "ISO 9001 & 27001",
+        "label": "Certified"
+      }
+    ]
+  },
+  "ClientsLogosData": {
+    "heading": "Trusted by teams at",
+    "logos": [
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9c115c2a0faf78d5187_Abb.webp",
+        "alt": "ABB",
+        "title": "ABB",
+        "width": 121,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aa7c4dc52f902b965f86_Aditya%20Birla%20Group.webp",
+        "alt": "Aditya Birla Group",
+        "title": "Aditya Birla Group",
+        "width": 86,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b587f256c7ca56ef383708_Adobe.webp",
+        "alt": "Adobe",
+        "title": "Adobe",
+        "width": 184,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698469c6a91cef644870febe_Amazon%201%20%281%29.webp",
+        "alt": "Amazon",
+        "title": "Amazon",
+        "width": 86,
+        "height": 26
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aa97d7f1555ba95b5394_AutoDesk.webp",
+        "alt": "Autodesk",
+        "title": "Autodesk",
+        "width": 287,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9d8e0dd2f35457d1311_Emerson.webp",
+        "alt": "Emerson",
+        "title": "Emerson",
+        "width": 109,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a94748156eb2b452d94e_godrej.webp",
+        "alt": "Godrej",
+        "title": "Godrej",
+        "width": 100,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b587b637a6028400026a71_Intel2.webp",
+        "alt": "Intel",
+        "title": "Intel",
+        "width": 124,
+        "height": 42
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846266b0acf082e648fdb0_Johnson%26Johnson%201.webp",
+        "alt": "Johnson & Johnson",
+        "title": "Johnson & Johnson",
+        "width": 120,
+        "height": 11
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b588572d0fd67c6424af0a_MediaTek.webp",
+        "alt": "MediaTek",
+        "title": "MediaTek",
+        "width": 183,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5873a89529b86f470b686_Microsoft.webp",
+        "alt": "Microsoft",
+        "title": "Microsoft",
+        "width": 219,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9601c7bda326efbe969_nrsc.webp",
+        "alt": "NRSC",
+        "title": "NRSC",
+        "width": 50,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846830ede4cc2aea05d48a_Sportskeeda%201.webp",
+        "alt": "Sportskeeda",
+        "title": "Sportskeeda",
+        "width": 120,
+        "height": 14
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5887637a6028400031b44_Tata_Chemicals.webp",
+        "alt": "Tata Chemicals",
+        "title": "Tata Chemicals",
+        "width": 110,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a98ed7f1555ba95a94c2_Total.webp",
+        "alt": "Total",
+        "title": "Total",
+        "width": 162,
+        "height": 48
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b9218334a6bbb7e0046a57_visa.webp",
+        "alt": "Visa",
+        "title": "Visa",
+        "width": 137,
+        "height": 48
+      }
+    ]
+  },
+  "stickyNavbarData": {
+    "logo": {
+      "src": "/course/Edstellar.svg",
+      "alt": "Edstellar"
+    },
+    "cta": {
+      "text": "Request a proposal",
+      "title": "Click here to Request a proposal",
+      "targetId": "contact"
+    },
+    "tabs": [
+      {
+        "id": "in-house-managed",
+        "label": "In-house vs managed",
+        "active": true
+      },
+      {
+        "id": "what-we-manage",
+        "label": "What we manage",
+        "active": false
+      },
+      {
+        "id": "engagement",
+        "label": "Engagement models",
+        "active": false
+      },
+      {
+        "id": "transition",
+        "label": "Transition",
+        "active": false
+      },
+      {
+        "id": "why-us",
+        "label": "Why us",
+        "active": false
+      },
+      {
+        "id": "faq",
+        "label": "FAQ",
+        "active": false
+      }
+    ]
+  },
+  "managedData": {
+    "section_id": "in-house-managed",
+    "heading": "Edstellar L&D outsourcing, from strategy to <span>delivery.</span>",
+    "description": "Edstellar can run your whole learning function, from strategy and content to delivery, technology and vendors. Here is the honest trade-off between covering that span in-house and handing it to a managed service.",
+    "inHouseCard": {
+      "tag": "ON YOUR OWN",
+      "title": "Keeping L&D in-house",
+      "items": [
+        "One small team stretched across strategy, content, delivery, technology and vendors.",
+        "Fixed headcount sits idle in quiet months and is overwhelmed in busy ones.",
+        "Quality and cost swing by which vendor and region delivered.",
+        "Reporting is manual, so impact is hard to prove."
+      ]
+    },
+    "managedCard": {
+      "tag": "WITH EDSTELLAR",
+      "title": "Running it as a managed service",
+      "items": [
+        "One partner runs the whole span, from strategy to delivery, or just the parts you choose.",
+        "Cost flexes with demand and stays predictable per learner.",
+        "One standard of delivery across every region and language.",
+        "Impact reported every quarter against agreed SLAs."
+      ]
+    }
+  },
+  "stepsData": {
+    "sectionId": "what-we-manage",
+    "heading": "Edstellar runs seven L&D services, as one <span>team.</span>",
+    "subtitle": "Strategy, content, delivery, technology, vendors, analytics and staff, managed together or piece by piece. Here is each area we run.",
+    "items": [
+      {
+        "title": "Organization setup",
+        "paragraphs": [
+          "A guided setup seeds the engine to your world.",
+          "Pick the industry and structure, and it seeds the competency fields, governing standards and strategy to match."
+        ],
+        "screen": {
+          "type": "setup",
+          "title": "Organization setup",
+          "wizard": [
+            "Industry",
+            "Structure",
+            "Fields",
+            "Strategy",
+            "Review"
+          ],
+          "options": [
+            "Specialty Chemicals",
+            "Healthcare",
+            "Manufacturing",
+            "Banking & Financial",
+            "IT Services",
+            "Pharmaceuticals"
+          ],
+          "seed_heading": "Seeded from Specialty Chemicals",
+          "seed_rows": [
+            {
+              "label": "Competency domains",
+              "value": "6"
+            },
+            {
+              "label": "Skills library",
+              "value": "38 skills"
+            },
+            {
+              "label": "Governing standards",
+              "value": "OSHA · REACH · ISO 9001"
+            },
+            {
+              "label": "Roles mapped",
+              "value": "24"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Inputs",
+        "paragraphs": [
+          "Everything that describes required and current capability, gathered into one layer.",
+          "It is triangulated, so no single source decides a gap on its own."
+        ],
+        "screen": {
+          "type": "inputs",
+          "title": "Inputs · capability sources",
+          "subtitle": "Six sources, triangulated so no single one decides a gap on its own.",
+          "cards": [
+            {
+              "title": "Skills & competency framework",
+              "description": "Required level per role",
+              "tag": "Loaded"
+            },
+            {
+              "title": "Job descriptions",
+              "description": "Role accountabilities",
+              "tag": "24 roles"
+            },
+            {
+              "title": "Assessments",
+              "description": "Objective skill verification",
+              "tag": "1,240 responses"
+            },
+            {
+              "title": "Interviews",
+              "description": "Leaders & high performers",
+              "tag": "18 completed"
+            },
+            {
+              "title": "Surveys",
+              "description": "Self-assessment at scale",
+              "tag": "86% response"
+            },
+            {
+              "title": "Focus groups",
+              "description": "Qualitative, cross-functional",
+              "tag": "6 sessions"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Gap analysis",
+        "paragraphs": [
+          "This is where it comes together. The engine builds the skill matrix and separates the proficiency gap, the real training need, from the perception gap.",
+          "Then it ranks every gap by business impact."
+        ],
+        "screen": {
+          "type": "matrix",
+          "title": "Skill matrix · role × skill",
+          "columns": [
+            "Ops",
+            "Eng",
+            "Sales",
+            "Mgmt"
+          ],
+          "rows": [
+            {
+              "label": "Data literacy",
+              "levels": [
+                4,
+                3,
+                2,
+                3
+              ]
+            },
+            {
+              "label": "Leadership",
+              "levels": [
+                3,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "label": "Compliance",
+              "levels": [
+                3,
+                3,
+                4,
+                3
+              ]
+            },
+            {
+              "label": "AI tools",
+              "levels": [
+                4,
+                4,
+                3,
+                2
+              ]
+            }
+          ],
+          "legend": [
+            {
+              "level": 1,
+              "label": "1–2 gap"
+            },
+            {
+              "level": 3,
+              "label": "3 near target"
+            },
+            {
+              "level": 4,
+              "label": "4 meets need"
+            }
+          ],
+          "note_strong": "Biggest gap:",
+          "note": "Data literacy in Sales. Every gap ranked by business impact."
+        }
+      },
+      {
+        "title": "TNA/TNI report",
+        "paragraphs": [
+          "It compiles the report: the key findings, the top-priority programs and the evidence behind them.",
+          "Ready to share, and to defend to finance."
+        ],
+        "screen": {
+          "type": "report",
+          "title": "TNA / TNI report",
+          "metrics": [
+            {
+              "value": "18",
+              "label": "gaps found"
+            },
+            {
+              "value": "4",
+              "label": "critical"
+            },
+            {
+              "value": "12",
+              "label": "programs"
+            }
+          ],
+          "priorities_heading": "Top priorities",
+          "priorities": [
+            "Compliance gaps concentrated in Sales",
+            "AI tools critical across Ops and Eng",
+            "Data literacy uneven across teams"
+          ],
+          "domains_heading": "Priority by domain",
+          "domains": [
+            {
+              "label": "Compliance",
+              "value": 95
+            },
+            {
+              "label": "AI tools",
+              "value": 80
+            },
+            {
+              "label": "Data lit.",
+              "value": 60
+            },
+            {
+              "label": "Leadership",
+              "value": 40
+            }
+          ],
+          "evidence": "Evidence · 1,240 data points",
+          "tag": "Defensible to finance"
+        }
+      },
+      {
+        "title": "Training roadmap",
+        "paragraphs": [
+          "It matches programs to the priority gaps and auto-sequences a one-year roadmap by dependency.",
+          "Constrained by real dates and your team's capacity."
+        ],
+        "screen": {
+          "type": "roadmap",
+          "title": "Training roadmap · 12 programs",
+          "subtitle": "Auto-sequenced by dependency, constrained by team capacity.",
+          "quarters": [
+            {
+              "label": "Q1 · 3",
+              "programs": [
+                {
+                  "name": "Data literacy",
+                  "value": 80
+                },
+                {
+                  "name": "Compliance",
+                  "value": 55
+                },
+                {
+                  "name": "Safety basics",
+                  "value": 68
+                }
+              ]
+            },
+            {
+              "label": "Q2 · 3",
+              "programs": [
+                {
+                  "name": "AI tools",
+                  "value": 88
+                },
+                {
+                  "name": "Leadership",
+                  "value": 48
+                },
+                {
+                  "name": "Communication",
+                  "value": 62
+                }
+              ]
+            },
+            {
+              "label": "Q3 · 3",
+              "programs": [
+                {
+                  "name": "Process safety",
+                  "value": 64
+                },
+                {
+                  "name": "Analytics",
+                  "value": 44
+                },
+                {
+                  "name": "Quality systems",
+                  "value": 58
+                }
+              ]
+            },
+            {
+              "label": "Q4 · 3",
+              "programs": [
+                {
+                  "name": "Coaching",
+                  "value": 58
+                },
+                {
+                  "name": "Review",
+                  "value": 34
+                },
+                {
+                  "name": "Certification",
+                  "value": 70
+                }
+              ]
+            }
+          ],
+          "footnote": "Bars show program readiness across the year."
+        }
+      },
+      {
+        "title": "Training calendar",
+        "paragraphs": [
+          "The locked roadmap becomes a scheduled calendar and syncs with your LMS.",
+          "Programs are booked, assigned and tracked without re-keying anything."
+        ],
+        "screen": {
+          "type": "calendar",
+          "title": "Training calendar",
+          "month": "March",
+          "year": "2026",
+          "sync_label": "Synced to LMS",
+          "weekdays": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "days": 20,
+          "events": [
+            {
+              "day": 3,
+              "label": "Data literacy"
+            },
+            {
+              "day": 5,
+              "label": "Compliance"
+            },
+            {
+              "day": 9,
+              "label": "AI tools"
+            },
+            {
+              "day": 12,
+              "label": "Analytics"
+            },
+            {
+              "day": 14,
+              "label": "Process safety"
+            },
+            {
+              "day": 18,
+              "label": "Leadership"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "engModulesData": {
+    "section_id": "engagement",
+    "heading": "Choose how much of your L&D to outsource to <span>Edstellar.</span>",
+    "description": "Start with advice, hand over the parts that stretch your team, or run the whole function through one contract. Every engagement can grow over time.",
+    "footerNote": "Not sure which fits? We map it with you on the first call.",
+    "modules": [
+      {
+        "title": "Advisory",
+        "description": "An in-house team that wants expert direction while keeping delivery.",
+        "isPopular": false,
+        "ctaText": "Request a proposal",
+        "features": [
+          { "label": "Learning strategy", "active": true },
+          { "label": "Content development", "active": false },
+          { "label": "Managed training (MTS)", "active": false },
+          { "label": "Learning technology", "active": false },
+          { "label": "Vendor management", "active": false },
+          { "label": "Analytics & reporting", "active": false },
+          { "label": "Staff augmentation", "active": false }
+        ]
+      },
+      {
+        "title": "Selective",
+        "description": "Hand over the areas that stretch your team, and keep the rest.",
+        "isPopular": false,
+        "ctaText": "Request a proposal",
+        "features": [
+          { "label": "Learning strategy", "active": true },
+          { "label": "Content development", "active": true },
+          { "label": "Managed training (MTS)", "active": true },
+          { "label": "Learning technology", "active": false },
+          { "label": "Vendor management", "active": false },
+          { "label": "Analytics & reporting", "active": true },
+          { "label": "Staff augmentation", "active": false }
+        ]
+      },
+      {
+        "badge": "MOST POPULAR",
+        "title": "Managed",
+        "description": "Most of the function run by us, with your team steering.",
+        "isPopular": true,
+        "ctaText": "Request a proposal",
+        "features": [
+          { "label": "Learning strategy", "active": true },
+          { "label": "Content development", "active": true },
+          { "label": "Managed training (MTS)", "active": true },
+          { "label": "Learning technology", "active": true },
+          { "label": "Vendor management", "active": false },
+          { "label": "Analytics & reporting", "active": true },
+          { "label": "Staff augmentation", "active": true }
+        ]
+      },
+      {
+        "title": "End-to-end",
+        "description": "The entire L&D function under one contract and one SLA.",
+        "isPopular": false,
+        "ctaText": "Request a proposal",
+        "features": [
+          { "label": "Learning strategy", "active": true },
+          { "label": "Content development", "active": true },
+          { "label": "Managed training (MTS)", "active": true },
+          { "label": "Learning technology", "active": true },
+          { "label": "Vendor management", "active": true },
+          { "label": "Analytics & reporting", "active": true },
+          { "label": "Staff augmentation", "active": true }
+        ]
+      }
+    ]
+  },
+  "methodData": {
+    "section_id": "transition",
+    "heading": "The Edstellar 5A managed-services <span>methodology.</span>",
+    "description": "The same five-step method behind every Edstellar engagement, here applied to taking on your L&D as a managed service, without dropping a beat.",
+    "steps": [
+      {
+        "title": "Assess",
+        "duration": "1–3 weeks",
+        "description": [
+          {
+            "text": "Review your current L&D, spend, vendors and demand to define what moves across."
+          }
+        ],
+        "output": "Capability brief"
+      },
+      {
+        "title": "Analyze",
+        "duration": "3–5 weeks",
+        "description": [
+          {
+            "text": "Analyze demand and gaps, then agree the scope, SLAs and operating model."
+          }
+        ],
+        "output": "Service design"
+      },
+      {
+        "title": "Architect",
+        "duration": "3–5 weeks",
+        "description": [
+          {
+            "text": "Architect the strategy, content, technology and governance that close the priority gaps."
+          }
+        ],
+        "output": "Transition plan"
+      },
+      {
+        "title": "Activate",
+        "duration": "10–14 weeks",
+        "description": [
+          {
+            "text": "Go live and stabilize, with your team steering throughout."
+          }
+        ],
+        "output": "Live service"
+      },
+      {
+        "title": "Advance",
+        "duration": "Ongoing",
+        "description": [
+          {
+            "text": "Report, review and drive cost down and impact up every quarter."
+          }
+        ],
+        "output": "Quarterly review"
+      }
+    ],
+    "softCtaData": {
+    "heading": "Not ready for a full proposal?",
+    "description": "Book a short scoping call and we will map what to outsource first, no proposal required.",
+    "cta": {
+      "label": "Book a scoping call",
+      "href": "/contact"
+    }
+  }
+  },
+  "whyEdstellarData": {
+    "section_id": "why-us",
+    "heading": "Why outsource your L&D to <span>Edstellar.</span>",
+    "description": "The rare partner that can run your entire L&D function, not just advise on it.",
+    "difference_label": "The difference",
+    "items": [
+      {
+        "icon": "link",
+        "title": "Strategy to delivery, one partner",
+        "description": "Your strategy actually ships, because the team that designs it also staffs the programs that deliver it.",
+        "visual": {
+          "type": "flow",
+          "items": [
+            "Design",
+            "Deliver",
+            "Measure"
+          ],
+          "caption": "One team, strategy to delivery"
+        },
+        "difference": "Most firms hand you a strategy deck. We stay through to delivery."
+      },
+      {
+        "icon": "chip",
+        "title": "Runs on the Capability Intelligence Platform",
+        "description": "The Capability Intelligence Platform keeps your capability picture live, so your strategy targets the skills that matter and proves its impact.",
+        "visual": {
+          "type": "signal",
+          "title": "Capability signal",
+          "status": "Live",
+          "items": [
+            {
+              "label": "Skills",
+              "value": 88
+            },
+            {
+              "label": "Capability",
+              "value": 72
+            },
+            {
+              "label": "Readiness",
+              "value": 64
+            }
+          ]
+        },
+        "difference": "Your capability picture stays live, not frozen in a slide."
+      },
+      {
+        "icon": "chart",
+        "title": "Outcomes tied to the business",
+        "description": "Every engagement is tied to business goals and measured against them, so your strategy is accountable to results, not activity.",
+        "visual": {
+          "type": "bars",
+          "items": [
+            38,
+            52,
+            66,
+            80,
+            100
+          ],
+          "caption": "↑ Business impact over the engagement"
+        },
+        "difference": "Measured in business results, not training delivered."
+      },
+      {
+        "icon": "globe",
+        "title": "Global delivery, wherever your people are",
+        "description": "Strategy and programs delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global rollout stays consistent.",
+        "visual": {
+          "type": "regions",
+          "items": [
+            "Americas",
+            "EMEA",
+            "APAC",
+            "MENA",
+            "India"
+          ],
+          "caption": "Onsite · virtual · hybrid"
+        },
+        "difference": "Delivered where your people are, not just at HQ."
+      },
+      {
+        "icon": "list",
+        "title": "A proven method, not improvisation",
+        "description": "Every engagement runs the same Edstellar 5A method, so your strategy is built systematically rather than improvised each time.",
+        "visual": {
+          "type": "steps",
+          "items": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "caption": "Assess · Analyze · Architect · Activate · Advance"
+        },
+        "difference": "A repeatable system, not a bespoke experiment each time."
+      },
+      {
+        "icon": "sliders",
+        "title": "Flexible from advisory to end-to-end",
+        "description": "Start with a strategy diagnostic, hand over the design, or run the whole function, and scale up as the partnership grows.",
+        "visual": {
+          "type": "tiers",
+          "items": [
+            "Diagnostic",
+            "Design",
+            "Build",
+            "End-to-end"
+          ],
+          "caption": "Start focused, scale up"
+        },
+        "difference": "Take as much or as little as you choose."
+      }
+    ],
+    "trust": {
+      "heading": "Trusted across industries and regions",
+      "industries": [
+        {
+          "icon": "landmark",
+          "label": "Financial services"
+        },
+        {
+          "icon": "monitor",
+          "label": "Technology"
+        },
+        {
+          "icon": "cross",
+          "label": "Healthcare"
+        },
+        {
+          "icon": "factory",
+          "label": "Manufacturing"
+        },
+        {
+          "icon": "bag",
+          "label": "Retail & consumer"
+        },
+        {
+          "icon": "zap",
+          "label": "Energy"
+        }
+      ],
+      "more_label": "20+ in all",
+      "regions_label": "Delivered across",
+      "regions": [
+        "APAC",
+        "Middle East",
+        "Europe",
+        "North America",
+        "India"
+      ],
+      "caption_strong": "Fortune 500",
+      "caption": "clients served worldwide"
+    }
+  },
+  "whyCtaData": {
+    "heading": "Ready to build an L&D function that proves its <span>impact?</span>",
+    "description": "One partner to design the system, deliver it, and measure what it changes for the business. Let us show you what that looks like for your team.",
+    "primary_cta": {
+      "label": "Book an L&D consultation",
+      "href": "#contact"
+    },
+    "secondary_cta": {
+      "label": "Explore L&D ervices",
+      "href": "#readiness"
+    }
+  },
+  "relatedData": {
+    "sectionId": "related",
+    "heading": "Other L&D consulting <span>services.</span>",
+    "subheading": "Strategy sets the direction. These services build and run what it defines.",
+    "items": [
+      {
+        "title": "Training Needs Analysis",
+        "description": "The prioritized skill-gap map that points the strategy, before you spend.",
+        "link": "Explore",
+        "href": "https://www.edstellar.com/training-needs-analysis-solutions"
+      },
+      {
+        "title": "Learning Technology Consulting",
+        "description": "The LMS, LXP and integrations that deliver the strategy.",
+        "link": "Explore",
+        "href": "https://www.edstellar.com/learning-technology-consulting"
+      },
+      {
+        "title": "Content Design & Development Services",
+        "description": "The courses and content the curriculum architecture calls for.",
+        "link": "Explore",
+        "href": "https://www.edstellar.com/learning-content-development-services"
+      }
+    ],
+    "hub_link": {
+      "label": "See all L&D consulting services →",
+      "href": "/learning-development-consulting-services"
+    }
+  },
+  "faqData": {
+    "heading": "Training needs analysis <span>FAQs.</span>",
+    "items": [
+      {
+        "question": "How is a training needs analysis different from just running a survey?",
+        "answer": "A survey tells you what people say they want. A needs analysis triangulates that against performance data, role requirements and business goals, then separates real skill gaps from problems training cannot fix. The output is a ranked plan, not a wish list."
+      },
+      {
+        "question": "How long does an engagement take?",
+        "answer": "A focused analysis typically runs four to eight weeks, depending on the number of roles and functions in scope. Enterprise-wide diagnostics tied to a transformation can run longer. You get a clear timeline in the proposal."
+      },
+      {
+        "question": "What do we actually receive at the end?",
+        "answer": "A skill-gap heatmap, a competency map, a risk-ranked roadmap, a finance-ready business case, and a measurement baseline. Working artifacts your team can act on and reuse, not a one-off presentation."
+      },
+      {
+        "question": "Can you analyze needs without selling us the training afterward?",
+        "answer": "Yes. The analysis is a standalone service. If a gap is best closed another way, or not by training at all, that is what the roadmap will say. Edstellar can deliver the programs if you want, but the diagnosis stands on its own."
+      },
+      {
+        "question": "How do you prove the training worked once it runs?",
+        "answer": "Measurement is designed in at the start. We set the baseline and the metrics before delivery, so impact is compared against a known starting point rather than argued about later."
+      },
+      {
+        "question": "We already have a competency framework. Does that change things?",
+        "answer": "It helps. We work with your existing framework where one exists, calibrate it against role requirements, and only rebuild what is missing or out of date, so you are not paying to reinvent what already works."
+      },
+      {
+        "question": "Is a training needs analysis the same as a learning needs analysis?",
+        "answer": "Yes. Training needs analysis (TNA or TNI) and learning needs analysis (LNA or LNI) are interchangeable terms for the same work: measuring the gap between the capability a role requires and the capability your people have today, then turning it into a prioritized plan. Whichever term your organization uses, this is the engagement it describes."
+      }
+    ]
+  },
+  "leadFormData": {
+    "heading": "Request a training needs analysis <span>for your team.</span>",
+    "description": "Tell us what your team needs. We reply within one business day, with a scoped response and no automated sales sequence.",
+    "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+    "submit_label": "Request a needs analysis",
+    "requirements_label": "Your requirements",
+    "requirements_placeholder": "Tell us about your team: size, roles in scope, timing, and the outcomes you are trying to move.",
+    "thanks_heading": "Request received.",
+    "thanks_body": "Thanks. A specialist will reply within one business day with a scoped response."
+  },
+  "stickyFooter": {
+    "form_anchor_id": "contact",
+    "messages": [
+      {
+        "highlight": "Know what to train,",
+        "suffix": "and what to skip"
+      },
+      {
+        "highlight": "Gaps ranked",
+        "suffix": "by business impact"
+      },
+      {
+        "highlight": "A roadmap",
+        "suffix": "you can defend to finance"
+      }
+    ],
+    "email": "hello@edstellar.com",
+    "brochure": {
+      "label": "Brochure",
+      "href": "https://www.edstellar.com/brochures/learning-and-development-consulting"
+    },
+    "cta": {
+      "label": "Request a needs analysis",
+      "href": "#contact"
+    }
+  }
+}

@@ -7,7 +7,6 @@ import LdReadiness from "@/components/sections/learning_development_consulting/l
 import LdOffering from "@/components/sections/learning_development_consulting/ld-offering";
 import LdBlueprint from "@/components/sections/learning_development_consulting/ld-blueprint";
 import LdMethod from "@/components/sections/learning_development_consulting/ld-method";
-import LdSoftCta from "@/components/sections/learning_development_consulting/ld-soft-cta";
 import LdWhy from "@/components/sections/learning_development_consulting/ld-why";
 import LdCtaBand from "@/components/sections/learning_development_consulting/ld-cta-band";
 import TnaRelated from "@/components/sections/training_needs_analysis/tnarelated";
@@ -37,7 +36,6 @@ export default function ServicePage({ data }) {
       <LdOffering data={data.offeringData} />
       <LdReadiness data={data.readinessData} />
       <LdBlueprint data={data.blueprintData} />
-      <LdSoftCta data={data.blueprintCtaData} />
       <LdMethod data={data.methodData} />
       <LdWhy data={data.whyEdstellarData} />
       <LdCtaBand data={data.whyCtaData} />

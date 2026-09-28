@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 import Box from "@/components/ui/Box";
@@ -5,6 +7,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import LdSoftCta from "@/components/common/ld-soft-cta";
 
 function StepDescription({ parts = [] }) {
   return parts.map((part, index) =>
@@ -22,18 +25,14 @@ function StepDescription({ parts = [] }) {
   );
 }
 
-/**
- * The 5A methodology — five numbered steps on a connecting rail. A single
- * row above 900px, with the rail running behind the dots; below that, a
- * vertical list with the dot beside each step and no rail.
- *
- * Design: `#method`, `.ra`, `.ra-line`, `.ra-step`, `.ra-dot`, `.ra-time`,
- * `.ra-out`.
- */
 export default function LdMethod({ data }) {
   if (!data?.steps?.length) return null;
 
   const { section_id, heading, description, steps } = data;
+
+  // Unified CTA data extractor matching Transform & LdBlueprint components
+  const ctaData =
+    data.softCtaData || data.softCta || data.soft_cta || data.ctaCard;
 
   return (
     <Section id={section_id} className="border-t border-ink/12 bg-paper">
@@ -120,6 +119,13 @@ export default function LdMethod({ data }) {
           </Reveal>
         ))}
       </Box>
+
+      {/* Soft CTA Component matching Transform format */}
+      {ctaData && (
+        <Box className="mt-12 sm:mt-16 w-full">
+          <LdSoftCta data={ctaData} />
+        </Box>
+      )}
     </Section>
   );
 }

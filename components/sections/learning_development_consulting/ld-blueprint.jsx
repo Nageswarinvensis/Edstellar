@@ -3,16 +3,8 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import LdSoftCta from "@/components/common/ld-soft-cta";
 
-/**
- * The learning strategy blueprint — five layers on a vertical track, each a
- * numbered node beside a card: title, a "You get:" deliverable pill, a
- * one-line lead and topic chips. A "foundation up" marker closes the track.
- * Static, so it stays a Server Component.
- *
- * Design: `learning-strategy-design (48).html` → `#blueprint`, `.bt`,
- * `.bt-row`, `.bt-node`, `.bt-card`, `.bt-found`.
- */
 export default function LdBlueprint({ data }) {
   if (!data?.layers?.length) return null;
 
@@ -25,10 +17,15 @@ export default function LdBlueprint({ data }) {
     layers,
   } = data;
 
+  // Unified CTA data extractor matching Transform component
+  const ctaData =
+    data.softCtaData || data.softCta || data.soft_cta || data.ctaCard;
+
   return (
     <Section id={section_id} className="border-t border-ink/12 bg-paper">
+      {/* 1. Inner centered container constrained to max-w-230 for the track */}
       <Box className="mx-auto max-w-230">
-        <Box className="mb-11 max-w-[62ch]">
+        <Box className="mb-12 max-w-[62ch]">
           <Reveal>
             <RichHeading
               heading={heading}
@@ -61,18 +58,18 @@ export default function LdBlueprint({ data }) {
                   <Box className="flex flex-wrap items-baseline justify-between gap-4">
                     <Text
                       as="h3"
-                      className="font-display text-[19px] leading-[1.3] font-bold tracking-[-0.01em] text-ink"
+                      className="font-display text-[18px] leading-[1.3] font-bold tracking-[-0.01em] text-ink"
                     >
                       {layer.title}
                     </Text>
                     {layer.deliverable ? (
                       <Text
                         as="span"
-                        className="inline-flex flex-none items-center gap-2 rounded-full bg-lime-soft px-3.5 py-1.5 text-[12.5px] leading-normal text-navy"
+                        className="inline-flex flex-none items-center gap-2 rounded-full bg-lime-soft px-3.5 py-1.5 text-[12.5px] leading-normal text-ink"
                       >
                         <Text
                           as="span"
-                          className="text-[12.5px] leading-normal font-bold text-navy"
+                          className="text-[12px] leading-normal font-bold text-ink"
                         >
                           {deliverable_label}
                         </Text>
@@ -83,7 +80,7 @@ export default function LdBlueprint({ data }) {
 
                   <Text
                     as="p"
-                    className="mt-1.5 mb-3.5 text-[14.5px] leading-[1.55] text-ink/60"
+                    className="mt-1.5 mb-3.5 text-[14px] leading-[1.55] text-ink/60"
                   >
                     {layer.description}
                   </Text>
@@ -94,7 +91,7 @@ export default function LdBlueprint({ data }) {
                         <Box
                           as="li"
                           key={point}
-                          className="rounded-full border border-ink/12 bg-paper-warm px-3 py-1.25 font-mono text-[11px] tracking-[0.02em] text-ink"
+                          className="rounded-full border border-ink/12 bg-paper-warm px-3 py-1.25 font-mono text-[12px] tracking-[0.02em] text-ink"
                         >
                           {point}
                         </Box>
@@ -116,7 +113,7 @@ export default function LdBlueprint({ data }) {
               </Box>
               <Text
                 as="span"
-                className="justify-self-start rounded-full bg-lime-soft px-4 py-2 font-mono text-[10px] leading-normal tracking-[0.1em] text-navy uppercase"
+                className="justify-self-start rounded-full bg-lime-soft px-4 py-2 font-mono text-[10px] leading-normal tracking-widest text-ink uppercase"
               >
                 {foundation_label}
               </Text>
@@ -124,6 +121,13 @@ export default function LdBlueprint({ data }) {
           ) : null}
         </Box>
       </Box>
+
+      {/* 2. Full-width Soft CTA placed outside max-w-230 wrapper */}
+      {ctaData && (
+        <Box className="mt-12 sm:mt-16 w-full">
+          <LdSoftCta data={ctaData} />
+        </Box>
+      )}
     </Section>
   );
 }

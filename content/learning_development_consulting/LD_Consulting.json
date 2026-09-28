@@ -333,37 +333,37 @@
     ]
   },
   "transformData": {
-    "heading": "Your L&D function, <span>transformed.</span>",
-    "subheading": "By the end of the 5A method, your learning function moves from reactive and scattered to strategic, measured and self-sufficient.",
-    "beforeCard": {
-      "tag": "LEVELS 1-2 · WHERE MOST START",
-      "items": [
-        "Training driven by requests, not strategy",
-        "No shared view of skills or gaps",
-        "Impact nobody can measure",
-        "Dependent on vendors to run anything",
-        "Spend spread thin across disconnected tools"
-      ]
-    },
-    "afterCard": {
-      "tag": "LEVELS 4-5 · WITH EDSTELLAR",
-      "items": [
-        "A learning strategy tied to the business plan",
-        "A live capability picture across every role",
-        "Outcomes measured against business KPIs",
-        "Frameworks and playbooks your team owns",
-        "One connected system that scales"
-      ]
-    }
+  "heading": "Your L&D function, <span>transformed.</span>",
+  "subheading": "By the end of the 5A method, your learning function moves from reactive and scattered to strategic, measured and self-sufficient, driving measurable performance improvement.",
+  "beforeCard": {
+    "tag": "LEVELS 1–2 · WHERE MOST START",
+    "items": [
+      "Training driven by requests, not strategy",
+      "No shared view of skills or gaps",
+      "Impact nobody can measure",
+      "Dependent on vendors to run anything",
+      "Spend spread thin across disconnected tools"
+    ]
   },
-  "blueprintCtaData": {
+  "afterCard": {
+    "tag": "LEVELS 4–5 · WITH EDSTELLAR",
+    "items": [
+      "A learning strategy tied to the business plan",
+      "A live capability picture across every role",
+      "Outcomes measured against business KPIs",
+      "Frameworks and playbooks your team owns",
+      "One connected system that scales"
+    ]
+  },
+  "softCtaData": {
     "heading": "This is what the 5A method delivers.",
     "description": "Want an L&D function that runs like this? Tell us where yours stands today.",
     "cta": {
       "label": "Talk it through",
-      "href": "#contact"
+      "href": "/contact"
     }
-  },
+  }
+},
   "landdctaData": {
     "heading": "Where does your L&D <span>stand?</span>",
     "description": "Answer a few questions and see which of the five stages your L&D sits at today, and the fastest path to the next one.",
@@ -603,8 +603,8 @@
 },
   "whyEdstellarData": {
     "section_id": "why-edstellar",
-    "heading": "Why choose Edstellar for learning <span>strategy.</span>",
-    "description": "The rare partner that designs your learning strategy and delivers it, keeps your capability gaps in view, and proves the impact to the business.",
+    "heading": "What your L&D <span>gains with Edstellar.</span>",
+    "description": "The rare partner that designs the system and delivers it, keeps your capability gaps in view, and proves the impact to the business.",
     "difference_label": "The difference",
     "items": [
       {
@@ -625,7 +625,7 @@
       {
         "icon": "chip",
         "title": "Runs on the Capability Intelligence Platform",
-        "description": "The Capability Intelligence Platform keeps your capability picture live, so your strategy targets the skills that matter and proves its impact.",
+        "description": "You always know where the skill gaps are, with a live picture of skills, capability and readiness between engagements.",
         "visual": {
           "type": "signal",
           "title": "Capability signal",
@@ -650,7 +650,7 @@
       {
         "icon": "chart",
         "title": "Outcomes tied to the business",
-        "description": "Every engagement is tied to business goals and measured against them, so your strategy is accountable to results, not activity.",
+        "description": "Impact you can take to the board, measured against business results and learning outcomes, not training activity.",
         "visual": {
           "type": "bars",
           "items": [
@@ -667,24 +667,24 @@
       {
         "icon": "globe",
         "title": "Global delivery, wherever your people are",
-        "description": "Strategy and programs delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global rollout stays consistent.",
+        "description": "Training delivered onsite, virtual or hybrid across 100+ locations and 20+ industries, so a global rollout stays consistent",
         "visual": {
           "type": "regions",
           "items": [
-            "Americas",
-            "EMEA",
             "APAC",
-            "MENA",
+            "Middle East",
+            "Europe",
+            "North America",  
             "India"
           ],
           "caption": "Onsite · virtual · hybrid"
         },
-        "difference": "Delivered where your people are, not just at HQ."
+        "difference": "Training delivered where your people are, not just at HQ."
       },
       {
         "icon": "list",
         "title": "A proven method, not improvisation",
-        "description": "Every engagement runs the same Edstellar 5A method, so your strategy is built systematically rather than improvised each time.",
+        "description": "Every engagement runs the same 5A method, so learning is systematic and repeatable rather than reinvented each time.",
         "visual": {
           "type": "steps",
           "items": [
@@ -700,7 +700,7 @@
       },
       {
         "icon": "sliders",
-        "title": "Flexible from advisory to end-to-end",
+        "title": "One partner across learning, change and talent",
         "description": "Start with a strategy diagnostic, hand over the design, or run the whole function, and scale up as the partnership grows.",
         "visual": {
           "type": "tiers",
