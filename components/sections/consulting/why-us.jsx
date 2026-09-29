@@ -13,7 +13,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-import { TrustStrip } from "@/components/sections/training_needs_analysis/tnawhyedstellar";
+import { TrustStrip } from "./trust-strip";
 import { cn } from "@/lib/utils";
 
 const ICONS = {
@@ -200,7 +200,7 @@ function WhyVisual({ visual }) {
  * Design: `learning-strategy-design (48).html` → `#why`, `.wg-grid`, `.wg`,
  * `.tir`.
  */
-export default function LdWhy({ data }) {
+export default function WhyUs({ data }) {
   if (!data?.items?.length) return null;
 
   const { section_id, heading, description, difference_label, items, trust } =

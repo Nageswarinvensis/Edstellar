@@ -1,18 +1,18 @@
-import TNAHero from "@/components/sections/training_needs_analysis/tnahero";
-import LearningStats from "@/components/sections/learning_development_consulting/learningstats";
+import ConsultingHero from "@/components/sections/consulting/consulting-hero";
+import ProofStats from "@/components/sections/consulting/proof-stats";
 import ClientLogos from "@/components/common/client-logos";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import LdChallenge from "@/components/sections/learning_development_consulting/ld-challenge";
-import LdReadiness from "@/components/sections/learning_development_consulting/ld-readiness";
+import Readiness from "@/components/sections/consulting/readiness";
 import LdOffering from "@/components/sections/learning_development_consulting/ld-offering";
 import LdFormats from "@/components/sections/learning_development_consulting/ld-formats";
 import LdSoftCta from "@/components/common/ld-soft-cta";
 import LdBlueprint from "@/components/sections/learning_development_consulting/ld-blueprint";
-import LdMethod from "@/components/sections/learning_development_consulting/ld-method";
+import Method from "@/components/sections/consulting/method";
 import LdFrameworks from "@/components/sections/learning_development_consulting/ld-frameworks";
-import LdWhy from "@/components/sections/learning_development_consulting/ld-why";
-import LdCtaBand from "@/components/sections/learning_development_consulting/ld-cta-band";
-import TnaRelated from "@/components/sections/training_needs_analysis/tnarelated";
+import WhyUs from "@/components/sections/consulting/why-us";
+import CtaBand from "@/components/sections/consulting/cta-band";
+import RelatedServices from "@/components/sections/consulting/related-services";
 import Faq from "@/components/common/faq";
 import LeadForm from "@/components/forms/lead-form";
 import StickyFooter from "@/components/common/sticky-footer";
@@ -30,20 +30,20 @@ import StickyFooter from "@/components/common/sticky-footer";
 export default function ContentDevelopmentPage({ data }) {
   return (
     <>
-      <TNAHero data={data.heroData} breadcrumbItems={data.BreadcrumbData} />
-      <LearningStats data={data.proof} />
+      <ConsultingHero data={data.heroData} breadcrumbItems={data.BreadcrumbData} />
+      <ProofStats data={data.proof} />
       <ClientLogos />
       <StickyTabs data={data.stickyNavbarData} />
       <LdChallenge data={data.challengeData} />
-      <LdReadiness data={data.readinessData} />
+      <Readiness data={data.readinessData} />
       <LdOffering data={data.offeringData} />
       <LdFormats data={data.formatsData} />
       <LdSoftCta data={data.blueprintCtaData} />
       <LdBlueprint data={data.blueprintData} narrow={false} />
-      <LdMethod data={data.methodData} />
+      <Method data={data.methodData} />
       <LdFrameworks data={data.frameworksData} />
-      <LdWhy data={data.whyEdstellarData} />
-      <LdCtaBand data={data.whyCtaData} />
+      <WhyUs data={data.whyEdstellarData} />
+      <CtaBand data={data.whyCtaData} />
       <Faq
         id="faq"
         faqs={data.faqData}
@@ -51,7 +51,7 @@ export default function ContentDevelopmentPage({ data }) {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <TnaRelated data={data.relatedData} />
+      <RelatedServices data={data.relatedData} />
       <LeadForm id="contact" background="navy" data={data.leadFormData} />
       <StickyFooter data={data.stickyFooter} />
     </>

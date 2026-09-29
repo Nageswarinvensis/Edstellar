@@ -1,15 +1,15 @@
-import TNAHero from "@/components/sections/training_needs_analysis/tnahero";
-import LearningStats from "@/components/sections/learning_development_consulting/learningstats";
+import ConsultingHero from "@/components/sections/consulting/consulting-hero";
+import ProofStats from "@/components/sections/consulting/proof-stats";
 import ClientLogos from "@/components/common/client-logos";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import Managed from "@/components/sections/managed_training_services/managed";
-import TnaSteps from "@/components/sections/training_needs_analysis/tnasteps";
+import StageSteps from "@/components/sections/consulting/stage-steps";
 import EngModules from "@/components/sections/managed_training_services/eng-module";
-import LdMethod from "@/components/sections/learning_development_consulting/ld-method";
-import LdWhy from "@/components/sections/learning_development_consulting/ld-why";
-import LdCtaBand from "@/components/sections/learning_development_consulting/ld-cta-band";
+import Method from "@/components/sections/consulting/method";
+import WhyUs from "@/components/sections/consulting/why-us";
+import CtaBand from "@/components/sections/consulting/cta-band";
 import Faq from "@/components/common/faq";
-import TnaRelated from "@/components/sections/training_needs_analysis/tnarelated";
+import RelatedServices from "@/components/sections/consulting/related-services";
 import LeadForm from "@/components/forms/lead-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
@@ -18,16 +18,16 @@ import pageData from "@/content/managed-training-services/managed-training-servi
 export default function ServicePage({ data }) {
   return (
     <>
-      <TNAHero data={pageData.heroData} breadcrumbItems={pageData.BreadcrumbData} />
-      <LearningStats data={pageData.proof} />
+      <ConsultingHero data={pageData.heroData} breadcrumbItems={pageData.BreadcrumbData} />
+      <ProofStats data={pageData.proof} />
       <ClientLogos data={pageData.ClientsLogosData} />
       <StickyTabs data={pageData.stickyNavbarData} />
       <Managed data={pageData.managedData}/>
-      <TnaSteps data={pageData.stepsData}/>
+      <StageSteps data={pageData.stepsData}/>
       <EngModules data={pageData.engModulesData}/>
-      <LdMethod data={pageData.methodData}/>
-      <LdWhy data={pageData.whyEdstellarData} />
-      <LdCtaBand data={pageData.whyCtaData} />
+      <Method data={pageData.methodData}/>
+      <WhyUs data={pageData.whyEdstellarData} />
+      <CtaBand data={pageData.whyCtaData} />
       
       <Faq
         id="faq"
@@ -36,7 +36,7 @@ export default function ServicePage({ data }) {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <TnaRelated data={pageData.relatedData} />
+      <RelatedServices data={pageData.relatedData} />
       <LeadForm id="contact" background="navy" data={pageData.leadFormData} />
       <StickyFooter data={pageData.stickyFooter} />
     </>

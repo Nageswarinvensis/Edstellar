@@ -1,6 +1,6 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import TnaMatrixToggle from "./tna-matrix-toggle";
+import MatrixToggle from "./matrix-toggle";
 import { cn } from "@/lib/utils";
 
 /*
@@ -106,7 +106,7 @@ function Cell({ row, column, cell, gapLevels, reqLabel }) {
   );
 }
 
-export default function TnaSkillMatrix({ data }) {
+export default function SkillMatrix({ data }) {
   if (!data?.rows?.length) return null;
 
   const defaultView = data.views?.[0]?.id ?? "gap";
@@ -128,7 +128,7 @@ export default function TnaSkillMatrix({ data }) {
           {data.label}
         </Text>
         {data.views?.length ? (
-          <TnaMatrixToggle views={data.views} defaultView={defaultView} />
+          <MatrixToggle views={data.views} defaultView={defaultView} />
         ) : null}
       </Box>
 

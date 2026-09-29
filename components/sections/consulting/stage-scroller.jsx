@@ -13,7 +13,7 @@ import Box from "@/components/ui/Box";
  * All styling keyed off `data-on` is gated to the two-column layout, so on
  * narrow screens (where the stages simply stack) this has no visible effect.
  */
-export default function TnaStageScroller({ className, children }) {
+export default function StageScroller({ className, children }) {
   const ref = useRef(null);
 
   useEffect(() => {

@@ -481,7 +481,10 @@ components/
 │   ├── catalog/        course-catalog · catalog-filters · course-card
 │   ├── course/         curriculum · certificate · audience · delivery-mode-tabs
 │   ├── domain/         why-now · capability · method · related-categories
-│   ├── industry/  vendor/  consulting/  resources/
+│   ├── consulting/     sections shared by more than one consulting page (TNA, L&D, managed training)
+│   ├── training_needs_analysis/  learning_development_consulting/  managed_training_services/
+│   │                   sections used by that one consulting page (or its sub-pages) only
+│   ├── industry/  vendor/  resources/
 ├── forms/              lead-form · group-quote · contact-form · newsletter-form
 ├── layout/             site-header · site-footer · mobile-nav
 ├── seo/                json-ld.jsx
@@ -491,6 +494,8 @@ components/
 ```
 
 **The one rule that keeps these folders honest: anything a second template imports moves to `components/common/`.** This is mechanical and not a judgement call. A section folder named after a page type must contain only sections used by *that* page type — otherwise the folder name is a lie and nobody can tell what is safe to change. There is no separate `sections/shared/` — `components/common/` is the one folder for everything reused beyond its own template, whether it's a small primitive (`reveal.jsx`) or a full page section (`hero.jsx`); splitting "shared primitive" from "shared section" into two folders never bought anything once both answer to the same rule.
+
+**Consulting is the one family-level exception.** The consulting pages (TNA, the L&D hub and its sub-pages, managed training) share a visual language no other page type uses, so a section used by more than one of them lives in `sections/consulting/`, not `common/`. A section used by one consulting page only stays in that page's folder, and a section any non-consulting page also uses still moves to `common/`. A section's own sub-components move with it.
 
 Templates own layout and order. Sections own presentation. `forms/` owns the interactive leaves.
 

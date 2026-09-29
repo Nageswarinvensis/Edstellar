@@ -5,34 +5,49 @@ import Reveal from "@/components/common/reveal";
 import Breadcrumbs from "@/components/common/breadcrumbs";
 import HeroMeta from "@/components/common/hero-meta";
 import CtaButton from "@/components/common/cta-button";
-import TnaSkillMatrix from "./tna-skill-matrix";
-import LdRightSideBlock from "../learning_development_consulting/l d right side block";
+import SkillMatrix from "./skill-matrix";
+import LearningSystemCard from "./learning-system-card";
 import { cn } from "@/lib/utils";
 
-export default function TNAHero({
+/** The hero meta row — the same on every page that shows it (`showMeta: true`). */
+const HERO_META = [
+  "Consulting & delivery",
+  "Onsite / virtual / hybrid",
+  {
+    label: "20+ industries",
+    tooltip: {
+      heading: "Industries we serve",
+      body: "Technology, healthcare, financial services, manufacturing, retail, energy and more",
+    },
+  },
+  {
+    label: "100+ locations",
+    tooltip: {
+      heading: "Global delivery",
+      body: "Global delivery across APAC, the Middle East, Europe, North America and India",
+    },
+  },
+];
+
+export default function ConsultingHero({
   data,
   breadcrumbItems,
-  hero,
   customWeight,
   customColor,
   rightSideComponent,
 }) {
   if (!data) return null;
 
-  // Extract meta items from either hero prop or data object
-  const metaItems = hero?.meta || data?.meta || [];
-
   // `…BtnLink` is the site-pages CMS field; `…BtnHref` the local-content one.
   const primaryHref = data?.primaryBtnLink || data?.primaryBtnHref;
   const secondaryHref = data?.secondaryBtnLink || data?.secondaryBtnHref;
 
-  // Check showMeta flag (defaults to true if showMeta is undefined)
-  const shouldShowMeta =
-    (hero?.showMeta ?? data?.showMeta ?? true) && metaItems.length > 0;
+  // Shown only when the page asks for it — a missing flag means hidden.
+  const shouldShowMeta = data?.showMeta === true;
 
   // READ FROM JSON DATA/HERO OBJECT OR PROPS
-  const weightClass = customWeight || hero?.fontWeight || data?.fontWeight;
-  const colorClass = customColor || hero?.textColor || data?.textColor;
+  const weightClass = customWeight || data?.fontWeight;
+  const colorClass = customColor || data?.textColor;
 
   return (
     <Section id="top" className="bg-[#f8f7f4]">
@@ -75,7 +90,7 @@ export default function TNAHero({
             {shouldShowMeta && (
               <Reveal delay={3}>
                 <HeroMeta
-                  items={metaItems}
+                  items={HERO_META}
                   className={cn("mt-6", weightClass, colorClass)}
                 />
               </Reveal>
@@ -114,16 +129,18 @@ export default function TNAHero({
             </Reveal>
           </Box>
 
-          {/* Right Side Conditional Rendering per page */}
+          {/* Right Side Conditional Rendering per page. Each panel needs actual
+              content — the CMS sends empty placeholders (e.g. `learning_system: []`
+              on the TNA page) that would otherwise win and render blank. */}
           <Box className="min-w-0">
             {rightSideComponent ? (
               rightSideComponent
-            ) : data.learning_system ? (
+            ) : data.learning_system?.items?.length ? (
               /* Image 2 Card */
-              <LdRightSideBlock data={data.learning_system} />
-            ) : data.skill_matrix ? (
+              <LearningSystemCard data={data.learning_system} />
+            ) : data.skill_matrix?.rows?.length ? (
               /* Image 1 Card */
-              <TnaSkillMatrix data={data.skill_matrix} />
+              <SkillMatrix data={data.skill_matrix} />
             ) : null}
           </Box>
         </Box>

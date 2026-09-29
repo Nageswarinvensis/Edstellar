@@ -4,24 +4,6 @@
   "tagline": "An extended arm of your L&D team, running the whole function as your own.",
   "description": "Running L&D in-house stretches small teams across strategy, content, delivery, technology and vendors. Edstellar becomes an extension of your team, taking on every L&D initiative, or the parts you choose, so learning runs better while yours focuses on what matters.",
   "showMeta": false,
-  "meta": [
-    "Instructor-led group training",
-    "Virtual / on-site / off-site",
-    {
-      "label": "10 languages",
-      "tooltip": {
-        "heading": "Delivered in",
-        "body": "English, Spanish, Mandarin, German, Arabic, Portuguese, Hindi, French, Japanese, Italian"
-      }
-    },
-    {
-      "label": "100+ countries",
-      "tooltip": {
-        "heading": "We have delivered in",
-        "body": "United States, United Kingdom, India, Canada, Germany, France, Netherlands, UAE, Saudi Arabia, Singapore, Australia, Japan, Brazil, South Africa and 90+ more countries"
-      }
-    }
-  ],
   "primaryBtnText": "Request a managed services proposal",
   "secondaryBtnText": "See engagement models",
     "learning_system": {

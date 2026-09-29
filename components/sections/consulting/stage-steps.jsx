@@ -5,8 +5,8 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-import TnaStageScroller from "./tna-stage-scroller";
-import TnaStageScreen from "./tna-stage-screens";
+import StageScroller from "./stage-scroller";
+import StageScreen from "./stage-screens";
 import { cn } from "@/lib/utils";
 
 /*
@@ -37,7 +37,7 @@ const FIG_CLASS = `
   motion-reduce:h-auto! motion-reduce:translate-none! motion-reduce:opacity-100! motion-reduce:**:animate-none!
 `;
 
-export default function TnaSteps({ id, data }) {
+export default function StageSteps({ id, data }) {
   if (!data) return null;
 
   const { heading, subtitle, items } = data;
@@ -58,7 +58,7 @@ export default function TnaSteps({ id, data }) {
         )}
       </Box>
 
-      <TnaStageScroller
+      <StageScroller
         className="
           mt-[26px]
           min-[900px]:grid min-[900px]:grid-cols-2 min-[900px]:items-start min-[900px]:gap-x-[60px]
@@ -103,12 +103,12 @@ export default function TnaSteps({ id, data }) {
                 aria-hidden="true"
                 className={cn(FIG_CLASS)}
               >
-                <TnaStageScreen screen={step.screen} />
+                <StageScreen screen={step.screen} />
               </Box>
             </Fragment>
           );
         })}
-      </TnaStageScroller>
+      </StageScroller>
     </Section>
   );
 }

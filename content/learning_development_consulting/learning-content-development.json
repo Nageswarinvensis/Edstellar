@@ -29,24 +29,6 @@
     "showMeta": true,
     "fontWeight": "font-normal",
     "textColor": "text-ink-muted",
-    "meta": [
-      "Consulting & delivery",
-      "Onsite / virtual / hybrid",
-      {
-        "label": "20+ industries",
-        "tooltip": {
-          "heading": "Industries we serve",
-          "body": "Technology, healthcare, financial services, manufacturing, retail, energy and more"
-        }
-      },
-      {
-        "label": "100+ locations",
-        "tooltip": {
-          "heading": "Global delivery",
-          "body": "Global delivery across APAC, the Middle East, Europe, North America and India"
-        }
-      }
-    ],
     "primaryBtnText": "Book a content consultation",
     "primaryBtnHref": "#contact",
     "secondaryBtnText": "See what's included",

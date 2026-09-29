@@ -25,7 +25,10 @@ const ICON_MAP = {
   measurement: ChartLine,
 };
 
-export default function LdRightSideBlock({ data }) {
+export default function LearningSystemCard({ data }) {
+  // `footer_text` is the site-pages CMS field; `footerText` the local-content one.
+  const footerText = data.footer_text || data.footerText;
+
   if (!data) return null;
 
   return (
@@ -67,10 +70,10 @@ export default function LdRightSideBlock({ data }) {
       </Box>
 
       {/* Footer Divider & Text */}
-      {data.footerText && (
+      {footerText && (
         <Box className="mt-4 border-t border-slate-200/70 pt-3 text-center">
           <Text className="text-[12px] text-[#64748b]">
-            {data.footerText}
+            {footerText}
           </Text>
         </Box>
       )}

@@ -489,7 +489,7 @@ const SCREENS = {
   calendar: CalendarScreen,
 };
 
-export default function TnaStageScreen({ screen }) {
+export default function StageScreen({ screen }) {
   const Component = screen && SCREENS[screen.type];
   return Component ? <Component screen={screen} /> : null;
 }

@@ -36,7 +36,9 @@ export default function StickyFooter({ data }) {
       return;
 
     const hero = document.getElementById("top");
-    const form = document.getElementById(data?.form_anchor_id || "apply");
+    // Tolerates a leading `#` — the CMS has sent `"#contact"` for `"contact"`.
+    const formId = data?.form_anchor_id?.replace(/^#/, "") || "apply";
+    const form = document.getElementById(formId);
     const footer = document.getElementById("site-footer");
     if (!hero) return;
 

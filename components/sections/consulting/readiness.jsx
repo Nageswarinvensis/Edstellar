@@ -57,7 +57,7 @@ function ChecklistCard({ checklist }) {
  *
  * Design: `#readiness`, `.rd`, `.rd-card`, `.rd-row`, `.rd-list`.
  */
-export default function LdReadiness({ id, data }) {
+export default function Readiness({ id, data }) {
   if (!data) return null;
 
   const { section_id, heading, description, points, cta, checklist } = data;

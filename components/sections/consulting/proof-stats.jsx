@@ -4,11 +4,24 @@ import Text from "@/components/ui/Text";
 import Link from "next/link";
 import { Calendar, Download } from "lucide-react";
 
-export default function LearningStats({ data }) {
+export default function ProofStats({ data }) {
   const proofData = data?.proof || data;
   const stats = proofData?.stats || [];
 
   if (!stats.length) return null;
+
+  // The site-pages CMS (`generalProof`) nests the CTA in `items[0]` with its
+  // own field names; local content keeps it flat on the object.
+  const cmsCta = proofData?.items?.[0];
+  const cta = {
+    title: cmsCta?.Label ?? proofData?.ctaTitle,
+    primaryText: cmsCta?.primary_btn_text ?? proofData?.primaryBtnText,
+    primaryTitle: proofData?.primaryBtnTitle,
+    primaryHref: cmsCta?.primary_btn_link ?? proofData?.primaryBtnHref,
+    secondaryText: cmsCta?.secondary_btn_text ?? proofData?.secondaryBtnText,
+    secondaryTitle: proofData?.secondaryBtnTitle,
+    secondaryHref: cmsCta?.secondary_btn_link ?? proofData?.secondaryBtnHref,
+  };
 
   return (
     <Section className="py-8">
@@ -41,25 +54,25 @@ export default function LearningStats({ data }) {
         {/* Bottom Section: CTA Banner */}
         <Box className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <Text as="h3" className="text-lg font-semibold text-white">
-            {proofData?.ctaTitle || "Ready to build a self-sustaining L&D function?"}
+            {cta.title || "Ready to build a self-sustaining L&D function?"}
           </Text>
 
           {/* Action Links */}
           <Box className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            {proofData?.primaryBtnText && (
-              <ActionLink 
-                text={proofData.primaryBtnText} 
-                title={proofData.primaryBtnTitle} 
-                href={proofData.primaryBtnHref || "#"}
-                Icon={Calendar} 
+            {cta.primaryText && (
+              <ActionLink
+                text={cta.primaryText}
+                title={cta.primaryTitle}
+                href={cta.primaryHref || "#"}
+                Icon={Calendar}
               />
             )}
-            {proofData?.secondaryBtnText && (
-              <ActionLink 
-                text={proofData.secondaryBtnText} 
-                title={proofData.secondaryBtnTitle} 
-                href={proofData.secondaryBtnHref || "#"}
-                Icon={Download} 
+            {cta.secondaryText && (
+              <ActionLink
+                text={cta.secondaryText}
+                title={cta.secondaryTitle}
+                href={cta.secondaryHref || "#"}
+                Icon={Download}
               />
             )}
           </Box>

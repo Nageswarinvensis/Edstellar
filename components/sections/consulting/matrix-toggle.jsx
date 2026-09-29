@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
  * the HTML; this only flips `data-view` on the enclosing `[data-matrix]`
  * element, and the matrix's `group-data-[view=req]` classes do the rest.
  */
-export default function TnaMatrixToggle({ views, defaultView }) {
+export default function MatrixToggle({ views, defaultView }) {
   const ref = useRef(null);
   const [view, setView] = useState(defaultView);
 

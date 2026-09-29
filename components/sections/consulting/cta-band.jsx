@@ -14,7 +14,7 @@ import CtaButton from "@/components/common/cta-button";
  * Design: `learning-strategy-design (48).html` → `.cta-band`,
  * `.cta-band-actions`.
  */
-export default function LdCtaBand({ data }) {
+export default function CtaBand({ data }) {
   if (!data?.heading) return null;
 
   const { heading, description, primary_cta, secondary_cta } = data;

@@ -8,14 +8,16 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
-export default function TnaRelated({ data }) {
+export default function RelatedServices({ id, bgColor, data }) {
   if (!data?.items?.length) return null;
 
-  // Reads section ID dynamically from JSON (data.sectionId or data.id) or defaults to "services"
-  const sectionId = data?.sectionId || data?.id || "services";
+  // Section ID and background: the page's props first, then local-content
+  // fields (`sectionId`, `bgColor`), then the defaults.
+  const sectionId = id || data?.sectionId || data?.id || "services";
+  const sectionBg = bgColor || data.bgColor || "bg-paper";
 
-  // Reads background color from JSON (data.bgColor) or defaults to "bg-paper"
-  const sectionBg = data.bgColor || "bg-paper";
+  // `Description` is the site-pages CMS field; `subheading` the local-content one.
+  const subheading = data.Description || data.subheading;
 
   return (
     <Section id={sectionId} className={`border-t border-ink/12 ${sectionBg}`}>
@@ -27,11 +29,11 @@ export default function TnaRelated({ data }) {
             </Box>
           )}
 
-          {data.showSubheading !== false && data.subheading && (
+          {data.showSubheading !== false && subheading && (
             <Text
               as="p"
               className="mt-4 text-[16px] leading-[1.7] text-ink/60"
-              dangerouslySetInnerHTML={{ __html: data.subheading }}
+              dangerouslySetInnerHTML={{ __html: subheading }}
             />
           )}
         </Reveal>

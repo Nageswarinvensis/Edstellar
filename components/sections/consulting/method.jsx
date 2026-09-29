@@ -25,7 +25,7 @@ function StepDescription({ parts = [] }) {
   );
 }
 
-export default function LdMethod({ data }) {
+export default function Method({ data }) {
   if (!data?.steps?.length) return null;
 
   const { section_id, heading, description, steps } = data;
