@@ -30,7 +30,7 @@ export default function LdServices({ data }) {
 
   if (!content?.items?.length) return null;
 
-  const sectionId = content?.sectionId || content?.id || "services";
+  const sectionId = content?.section_id || content?.id || "services";
 
   return (
     <Section id={sectionId} className="bg-paper-warm">
@@ -44,7 +44,7 @@ export default function LdServices({ data }) {
               </Box>
             )}
 
-            {content.showSubheading !== false && content.subheading && (
+            {content.show_subheading !== false && content.subheading && (
               <Text
                 as="p"
                 className="mt-4 text-[16px] text-ink-muted"
@@ -108,13 +108,13 @@ export default function LdServices({ data }) {
                         </Box>
                       )}
 
-                      {item.youGet && (
+                      {item.you_get && (
                         <Box className="flex items-baseline gap-2">
                           <Text className="font-mono text-[10px] uppercase tracking-wider text-ink w-16 shrink-0">
                             YOU GET
                           </Text>
                           <Text className="font-bold text-ink text-[12px]">
-                            {item.youGet}
+                            {item.you_get}
                           </Text>
                         </Box>
                       )}

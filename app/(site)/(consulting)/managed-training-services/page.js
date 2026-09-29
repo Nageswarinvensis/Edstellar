@@ -4,6 +4,7 @@ import ClientLogos from "@/components/common/client-logos";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import Managed from "@/components/sections/managed_training_services/managed";
 import StageSteps from "@/components/sections/consulting/stage-steps";
+import { SCOPE_SCREENS } from "@/components/sections/managed_training_services/scope-screens";
 import EngModules from "@/components/sections/managed_training_services/eng-module";
 import Method from "@/components/sections/consulting/method";
 import WhyUs from "@/components/sections/consulting/why-us";
@@ -23,7 +24,12 @@ export default function ServicePage({ data }) {
       <ClientLogos data={pageData.ClientsLogosData} />
       <StickyTabs data={pageData.stickyNavbarData} />
       <Managed data={pageData.managedData}/>
-      <StageSteps data={pageData.stepsData}/>
+      <StageSteps
+        id="what-we-manage"
+        data={pageData.stepsData}
+        screens={SCOPE_SCREENS}
+        variant="scope"
+      />
       <EngModules data={pageData.engModulesData}/>
       <Method data={pageData.methodData}/>
       <WhyUs data={pageData.whyEdstellarData} />

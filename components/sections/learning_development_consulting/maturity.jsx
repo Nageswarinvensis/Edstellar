@@ -118,7 +118,7 @@ export default function Maturity({ data }) {
                             <Text
                               className={cn(
                                 "font-bold text-[11px] sm:text-xs md:text-sm leading-tight",
-                                item.textColor || "text-white"
+                                item.text_color || "text-white"
                               )}
                               dangerouslySetInnerHTML={{ __html: item.title }}
                             />
@@ -149,11 +149,11 @@ export default function Maturity({ data }) {
                   </Box>
                 </Box>
 
-                {content.badgeText && (
+                {content.badge_text && (
                   <Box className="flex justify-center mt-6">
                     <Box 
                       className="bg-lime-soft text-ink text-xs font-bold px-4 sm:px-5 py-1.5 rounded-sm shadow-sm"
-                      dangerouslySetInnerHTML={{ __html: content.badgeText }}
+                      dangerouslySetInnerHTML={{ __html: content.badge_text }}
                     />
                   </Box>
                 )}
@@ -174,10 +174,10 @@ export default function Maturity({ data }) {
 
         {isExpanded && (
           <Box className="mt-8 space-y-6 sm:space-y-8 animate-fadeIn max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
-            {content.expandTitle && (
+            {content.expand_title && (
               <Text 
                 className="text-xs sm:text-sm md:text-base text-ink/80 leading-relaxed font-normal"
-                dangerouslySetInnerHTML={{ __html: content.expandTitle }}
+                dangerouslySetInnerHTML={{ __html: content.expand_title }}
               />
             )}
 
@@ -208,14 +208,14 @@ export default function Maturity({ data }) {
               </Box>
             )}
 
-            {content.businessMeaning && (
+            {content.business_meaning && (
               <Box className="pt-5 sm:pt-6 border-t border-ink/10">
                 <Text className="text-xs sm:text-sm text-ink/80 leading-relaxed">
                   <span 
                     className="font-bold text-ink"
-                    dangerouslySetInnerHTML={{ __html: content.businessMeaning.title }}
+                    dangerouslySetInnerHTML={{ __html: content.business_meaning.title }}
                   />{" "}
-                  <span dangerouslySetInnerHTML={{ __html: content.businessMeaning.text }} />
+                  <span dangerouslySetInnerHTML={{ __html: content.business_meaning.text }} />
                 </Text>
               </Box>
             )}

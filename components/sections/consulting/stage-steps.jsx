@@ -37,7 +37,36 @@ const FIG_CLASS = `
   motion-reduce:h-auto! motion-reduce:translate-none! motion-reduce:opacity-100! motion-reduce:**:animate-none!
 `;
 
-export default function StageSteps({ id, data }) {
+const MONO_LABEL = "font-mono text-[10px] leading-[1.7] uppercase";
+
+/** A step's at-a-glance facts: label on the left, value on the right. */
+function StepFacts({ facts }) {
+  return (
+    <Box className="mt-4 flex max-w-125 flex-col overflow-hidden rounded-[10px] border border-ink/12">
+      {facts.map((fact) => (
+        <Box
+          key={fact.label}
+          className="flex items-baseline justify-between gap-4 px-3.5 py-2.5 [&+&]:border-t [&+&]:border-ink/12"
+        >
+          <Text as="span" className={`${MONO_LABEL} flex-none tracking-[0.08em] text-ink/60`}>
+            {fact.label}
+          </Text>
+          <Text as="span" className="text-right text-[13.5px] leading-[1.7] font-semibold text-ink">
+            {fact.value}
+          </Text>
+        </Box>
+      ))}
+    </Box>
+  );
+}
+
+/**
+ * `screens` registers a page's own screen types alongside the TNA set, and
+ * `variant="scope"` switches to the managed-services design: 22px step
+ * titles, the facts box and "how we run it" note, and the scope window
+ * chrome (set by each of those screens).
+ */
+export default function StageSteps({ id, data, screens, variant }) {
   if (!data) return null;
 
   const { heading, subtitle, items } = data;
@@ -73,14 +102,22 @@ export default function StageSteps({ id, data }) {
               <Box data-stage-step data-i={index} {...active} className={cn(STEP_CLASS)}>
                 <Text
                   as="span"
-                  className="mb-1.5 block font-mono text-[12px] leading-[1.7] tracking-[0.14em] text-ink/60"
+                  className={cn(
+                    "block font-mono text-[12px] leading-[1.7] tracking-[0.14em] text-ink/60",
+                    variant === "scope" ? "mb-2" : "mb-1.5",
+                  )}
                 >
                   {String(index + 1).padStart(2, "0")}
                 </Text>
 
                 <Text
                   as="h3"
-                  className="mb-2.5 text-[clamp(20px,2.2vw,24px)] leading-[1.2]"
+                  className={cn(
+                    "mb-2.5",
+                    variant === "scope"
+                      ? "text-[22px] leading-[1.35] tracking-[-0.01em]"
+                      : "text-[clamp(20px,2.2vw,24px)] leading-[1.2]",
+                  )}
                 >
                   {step.title}
                 </Text>
@@ -94,6 +131,23 @@ export default function StageSteps({ id, data }) {
                     {paragraph}
                   </Text>
                 ))}
+
+                {step.facts?.length ? <StepFacts facts={step.facts} /> : null}
+
+                {step.how ? (
+                  <Text
+                    as="p"
+                    className="mt-4 max-w-125 border-l-2 border-lime pt-3 pl-4 text-[14.5px] leading-[1.55] text-ink hyphens-none"
+                  >
+                    <Text
+                      as="span"
+                      className={`${MONO_LABEL} mb-1.25 block font-medium tracking-[0.12em] text-navy`}
+                    >
+                      {step.how.label}
+                    </Text>
+                    {step.how.text}
+                  </Text>
+                ) : null}
               </Box>
 
               <Box
@@ -103,7 +157,7 @@ export default function StageSteps({ id, data }) {
                 aria-hidden="true"
                 className={cn(FIG_CLASS)}
               >
-                <StageScreen screen={step.screen} />
+                <StageScreen screen={step.screen} screens={screens} />
               </Box>
             </Fragment>
           );

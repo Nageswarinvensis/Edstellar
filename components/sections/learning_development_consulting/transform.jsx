@@ -91,7 +91,7 @@ export default function Transform({ data }) {
         <Reveal delay={0.1}>
           <Box className="flex flex-col lg:flex-row items-center justify-between gap-5">
             {/* Before Card */}
-            <ComparisonCard cardData={content.beforeCard} isDark={false} />
+            <ComparisonCard cardData={content.before_card} isDark={false} />
 
             {/* Transition Arrow Indicator */}
             <Box className="shrink-0 flex items-center justify-center text-[#0a1628]/40">
@@ -100,12 +100,12 @@ export default function Transform({ data }) {
             </Box>
 
             {/* After Card */}
-            <ComparisonCard cardData={content.afterCard} isDark={true} />
+            <ComparisonCard cardData={content.after_card} isDark={true} />
           </Box>
         </Reveal>
 
         {/* Soft CTA Component */}
-        {content.softCtaData && <LdSoftCta data={content.softCtaData} />}
+        {content.soft_cta && <LdSoftCta data={content.soft_cta} />}
       </Box>
     </Section>
   );

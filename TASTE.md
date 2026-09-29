@@ -565,6 +565,8 @@ export default function IndustryPage({ data }) {
 
 > **Deferred, not forbidden.** The CMS already returns `page_components` as `{ component_slug, config }` pairs, so section order *could* be data-driven. Today the CMS owns content and the template owns order, which is the right default while each type has its own bespoke design. If marketing ever needs to reorder sections without a deploy, that is one new file — `lib/section-registry.js` mapping slug → component — and the API shape already supports it. Do not build it speculatively.
 
+> **Exception — L&D consulting sub-pages have no templates.** The three sub-pages (`/learning-development-consulting-services/{slug}`) share one section vocabulary and differ only in which sections they carry and in what order, and they are moving to the CMS, whose `sort_order` will own that order. So `[slug]/page.js` renders them directly: a key → component map in the page, and each record's `sections` list naming its sections in order (content, like the CMS order that will replace it). Only the frame every sub-page shares — hero, proof, logos, sticky nav above; lead form and sticky footer below — is written out in the page. A section whose data is absent renders nothing.
+
 ---
 
 ## 7. Forms & Lead Capture
@@ -788,7 +790,7 @@ Each of these is a real decision or a known gap, not a placeholder.
 
 4. **Trailing slashes.** The consulting URL examples were written with a trailing slash; `trailingSlash` is at its default `false`, so Next 308s to the non-slash form. If the live site serves trailing slashes today, this is a deliberate config decision plus a redirect audit.
 5. **The `-services` rename was deliberately NOT done.** The routes still ship as `learning-development-consulting-services`, matching the live URLs, because renaming a ranking URL without a redirect plan is not a refactor. `talent-assessment-services` and `coaching-services` are in the same position.
-6. **Consulting sub-services are assumed template-driven** — each pillar has a `[slug]` child sharing one template, matching what was already in the repo. If each sub-service is bespoke like the pillars, they become static folders.
+6. **Consulting sub-services** — each pillar has a `[slug]` child. The L&D sub-pages render without templates (see the exception in §6.3); other pillars' sub-services have no content yet.
 
 ### Content not yet modeled
 

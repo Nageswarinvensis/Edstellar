@@ -35,6 +35,18 @@ const CAPTION =
  * card's own heading and text carry the point — so it is hidden from
  * assistive tech. The last step/tier is the highlighted one.
  */
+/**
+ * A signal bar as `{ label, value }` — or as the `"Label:Value"` string the
+ * site-pages CMS stores it as (`"Skills:88"`).
+ */
+function signalRow(row) {
+  if (typeof row !== "string") return row;
+  const split = row.lastIndexOf(":");
+  return split < 0
+    ? { label: row, value: 0 }
+    : { label: row.slice(0, split).trim(), value: Number(row.slice(split + 1)) };
+}
+
 function WhyVisual({ visual }) {
   if (!visual) return null;
   const { type, items = [], caption } = visual;
@@ -80,7 +92,7 @@ function WhyVisual({ visual }) {
             {visual.status}
           </Text>
         </Box>
-        {items.map((row, index) => (
+        {items.map(signalRow).map((row, index) => (
           <Box
             key={row.label}
             className="mb-2 flex items-center gap-2.5 last:mb-0"
@@ -200,14 +212,14 @@ function WhyVisual({ visual }) {
  * Design: `learning-strategy-design (48).html` → `#why`, `.wg-grid`, `.wg`,
  * `.tir`.
  */
-export default function WhyUs({ data }) {
+export default function WhyUs({ id, data }) {
   if (!data?.items?.length) return null;
 
   const { section_id, heading, description, difference_label, items, trust } =
     data;
 
   return (
-    <Section id={section_id} className="border-t border-ink/12 bg-paper">
+    <Section id={id ?? section_id} className="border-t border-ink/12 bg-paper">
       <Box className="mb-11 max-w-[62ch]">
         <Reveal>
           <RichHeading

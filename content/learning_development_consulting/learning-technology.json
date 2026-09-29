@@ -1,6 +1,18 @@
 {
   "slug": "learning-technology-consulting",
-  "template": "learning-technology",
+  "sections": [
+    "challengeData",
+    "readinessData",
+    "offeringData",
+    "blueprintCtaData",
+    "platformsData",
+    "blueprintData",
+    "methodData",
+    "whyEdstellarData",
+    "whyCtaData",
+    "faqData",
+    "relatedData"
+  ],
   "name": "Learning Technology Consulting",
   "seo": {
     "title": "Learning Technology Consulting",
@@ -162,45 +174,7 @@
       }
     ]
   },
-  "readinessData": {
-    "section_id": "readiness",
-    "heading": "Assess your learning technology maturity against the <span>essentials.</span>",
-    "description": "A quick learning technology maturity assessment: see where your stack is strong today, and where selection, integration and governance can go further.",
-    "points": [
-      "Fit between your tools and the capability the strategy needs",
-      "Integration and data flow across the learning stack",
-      "Adoption, governance and reporting readiness"
-    ],
-    "cta": {
-      "label": "Get the free readiness checklist",
-      "href": "https://www.edstellar.com/tool/learning-and-development-consulting"
-    },
-    "checklist": {
-      "title": "Learning tech readiness checklist",
-      "items": [
-        {
-          "label": "Core LMS or LXP in place",
-          "done": true
-        },
-        {
-          "label": "Tools mapped to learning needs",
-          "done": true
-        },
-        {
-          "label": "Single sign-on and HR sync",
-          "done": true
-        },
-        {
-          "label": "Systems integrated end to end",
-          "done": false
-        },
-        {
-          "label": "Learning data in one dashboard",
-          "done": false
-        }
-      ]
-    }
-  },
+
   "offeringData": {
     "section_id": "offering",
     "heading": "What we build into your <span>learning tech stack.</span>",
@@ -219,29 +193,17 @@
             {
               "label": "Learning needs",
               "tone": "navy",
-              "chips": [
-                "Onboarding",
-                "Upskilling",
-                "Compliance"
-              ]
+              "chips": ["Onboarding", "Upskilling", "Compliance"]
             },
             {
               "label": "Capabilities required",
               "tone": "soft",
-              "chips": [
-                "Delivery",
-                "Content",
-                "Data"
-              ]
+              "chips": ["Delivery", "Content", "Data"]
             },
             {
               "label": "Tool selection",
               "tone": "lime",
-              "chips": [
-                "LMS",
-                "LXP",
-                "Tools"
-              ]
+              "chips": ["LMS", "LXP", "Tools"]
             }
           ]
         }
@@ -256,12 +218,7 @@
           "type": "operating_model",
           "caption": "Layers of the learning tech stack",
           "top": "Core learning platform",
-          "pillars": [
-            "LMS",
-            "LXP",
-            "Authoring",
-            "Delivery"
-          ],
+          "pillars": ["LMS", "LXP", "Authoring", "Delivery"],
           "bottom": "Integrations & data layer"
         }
       },
@@ -273,54 +230,24 @@
         "description": "The integrations that connect the LMS, HRIS and learning tools, plus LMS migration when you move platforms, so learning data flows to one place and every system stays in sync.",
         "diagram": {
           "type": "competency_matrix",
-          "levels": [
-            "SSO",
-            "Sync",
-            "Data",
-            "Reports"
-          ],
-          "legend": [
-            "None",
-            "Partial",
-            "Standard",
-            "Full"
-          ],
+          "levels": ["SSO", "Sync", "Data", "Reports"],
+          "legend": ["None", "Partial", "Standard", "Full"],
           "rows": [
             {
               "label": "HRIS",
-              "cells": [
-                3,
-                3,
-                2,
-                1
-              ]
+              "cells": [3, 3, 2, 1]
             },
             {
               "label": "LMS",
-              "cells": [
-                3,
-                3,
-                3,
-                3
-              ]
+              "cells": [3, 3, 3, 3]
             },
             {
               "label": "LXP",
-              "cells": [
-                3,
-                2,
-                2,
-                1
-              ]
+              "cells": [3, 2, 2, 1]
             },
             {
               "label": "Tools",
-              "cells": [
-                2,
-                1,
-                1,
-                0
-              ]
+              "cells": [2, 1, 1, 0]
             }
           ]
         }
@@ -374,10 +301,7 @@
               "value": "2.6x"
             }
           ],
-          "axis": [
-            "Baseline",
-            "Now"
-          ]
+          "axis": ["Baseline", "Now"]
         }
       },
       {
@@ -493,6 +417,7 @@
     ]
   },
   "blueprintData": {
+    "full_width": true,
     "section_id": "blueprint",
     "heading": "The Edstellar learning technology <span>blueprint.</span>",
     "description": "The five layers your learning tech stack is built from, each one built on the one before it, from needs alignment up to measurement. This is what we build.",
@@ -504,55 +429,35 @@
         "title": "Needs alignment",
         "deliverable": "Aligned tool shortlist",
         "description": "The foundation the whole blueprint is built on: we map the tools to the learning needs and capability priorities they must serve.",
-        "points": [
-          "Needs mapping",
-          "Use-case definition",
-          "Tool shortlist"
-        ]
+        "points": ["Needs mapping", "Use-case definition", "Tool shortlist"]
       },
       {
         "number": "02",
         "title": "Platform core",
         "deliverable": "LMS / LXP core",
         "description": "Built from the needs in layer 01, the LMS or LXP at the center sets what the integrations and data layer above connect to.",
-        "points": [
-          "LMS / LXP",
-          "Core config",
-          "User model"
-        ]
+        "points": ["LMS / LXP", "Core config", "User model"]
       },
       {
         "number": "03",
         "title": "Systems architecture",
         "deliverable": "A connected stack",
         "description": "The SSO, data flow and integrations that turn a single platform into one connected stack.",
-        "points": [
-          "Integrations",
-          "SSO & sync",
-          "Data flow"
-        ]
+        "points": ["Integrations", "SSO & sync", "Data flow"]
       },
       {
         "number": "04",
         "title": "Adoption architecture",
         "deliverable": "An adopted rollout",
         "description": "Rollout, enablement and support mapped to teams and moments, resourced by the architecture in layer 03.",
-        "points": [
-          "Rollout plan",
-          "Enablement",
-          "Support model"
-        ]
+        "points": ["Rollout plan", "Enablement", "Support model"]
       },
       {
         "number": "05",
         "title": "Data & measurement",
         "deliverable": "Impact dashboard",
         "description": "Usage and outcome data, captured through xAPI and SCORM in a learning record store (LRS), read back against the needs in layer 01, closing the loop from tools to impact.",
-        "points": [
-          "Data model",
-          "Dashboards",
-          "ROI models"
-        ]
+        "points": ["Data model", "Dashboards", "ROI models"]
       }
     ]
   },
@@ -639,11 +544,7 @@
         "description": "Your stack actually goes live, because the team that selects and architects it also runs the rollout.",
         "visual": {
           "type": "flow",
-          "items": [
-            "Select",
-            "Integrate",
-            "Adopt"
-          ],
+          "items": ["Select", "Integrate", "Adopt"],
           "caption": "One team, selection to adoption"
         },
         "difference": "Most firms hand you a vendor shortlist. We stay through to adoption."
@@ -679,13 +580,7 @@
         "description": "Every engagement sets its baseline and metrics up front, so the stack is measured against adoption and business results, not licenses bought.",
         "visual": {
           "type": "bars",
-          "items": [
-            38,
-            52,
-            66,
-            80,
-            100
-          ],
+          "items": [38, 52, 66, 80, 100],
           "caption": "↑ Adoption and impact over the rollout"
         },
         "difference": "Measured in adoption and results, not seats sold."
@@ -696,13 +591,7 @@
         "description": "A learning stack rolled out and configured across 100+ countries and 20+ industries, so a global deployment stays consistent.",
         "visual": {
           "type": "regions",
-          "items": [
-            "Americas",
-            "EMEA",
-            "APAC",
-            "MENA",
-            "India"
-          ],
+          "items": ["Americas", "EMEA", "APAC", "MENA", "India"],
           "caption": "Onsite · virtual · hybrid"
         },
         "difference": "Configured for every region, not just headquarters."
@@ -713,12 +602,7 @@
         "description": "We are not tied to any platform, so the LMS or LXP we recommend is the one your strategy needs, not the one we resell.",
         "visual": {
           "type": "tiers",
-          "items": [
-            "LMS",
-            "LXP",
-            "LRS",
-            "Best fit"
-          ],
+          "items": ["LMS", "LXP", "LRS", "Best fit"],
           "caption": "Independent advice"
         },
         "difference": "The right platform for you, not the one we are paid to sell."
@@ -729,12 +613,7 @@
         "description": "Start with a platform selection, hand over the architecture, or run the whole implementation, and scale up as the partnership grows.",
         "visual": {
           "type": "tiers",
-          "items": [
-            "Select",
-            "Architect",
-            "Implement",
-            "End-to-end"
-          ],
+          "items": ["Select", "Architect", "Implement", "End-to-end"],
           "caption": "Start focused, scale up"
         },
         "difference": "Take as much or as little as you choose."
@@ -770,13 +649,7 @@
       ],
       "more_label": "20+ in all",
       "regions_label": "Delivered across",
-      "regions": [
-        "APAC",
-        "Middle East",
-        "Europe",
-        "North America",
-        "India"
-      ],
+      "regions": ["APAC", "Middle East", "Europe", "North America", "India"],
       "caption_strong": "Fortune 500",
       "caption": "clients served worldwide"
     }
@@ -790,38 +663,15 @@
     },
     "secondary_cta": {
       "label": "Get the free readiness checklist",
-      "href": "#readiness"
+      "href": "https://www.edstellar.com/tool/learning-and-development-consulting"
     }
   },
   "faqData": {
-    "heading": "Learning technology <span>FAQs.</span>",
     "footer_cta": {
       "text": "Still have a question about your learning tech stack?",
       "label": "Ask us directly",
       "href": "#contact"
-    },
-    "items": [
-      {
-        "question": "What does learning technology consulting include?",
-        "answer": "It covers platform strategy and selection (LMS, LXP, tools), systems architecture and integrations, LMS implementation and migration, the learning data layer, adoption and enablement, technology governance, and managed services for ongoing learning administration, all aligned to your learning strategy."
-      },
-      {
-        "question": "How do you choose the right LMS or LXP?",
-        "answer": "We start from the learning needs and capability priorities, not the feature list, then run a vendor-neutral selection, shortlisting and evaluating platforms on fit, integration and total cost of ownership, so you buy what your people will use."
-      },
-      {
-        "question": "How long does a learning technology engagement take?",
-        "answer": "Typically six to ten weeks for the strategy and architecture, with implementation and rollout scoped separately by stack size and number of integrations."
-      },
-      {
-        "question": "Do you handle the integrations too?",
-        "answer": "Yes. Connecting the LMS, HRIS and learning tools so data flows to one place is a core deliverable, not an afterthought."
-      },
-      {
-        "question": "What do we get at the end?",
-        "answer": "A tool selection and architecture, an integration and data plan, a rollout and adoption plan, and a reporting layer you own and run."
-      }
-    ]
+    }
   },
   "relatedData": {
     "sectionId": "related",
@@ -863,29 +713,10 @@
     "thanks_body": "Thanks. A specialist will reply within one business day with a scoped response."
   },
   "stickyFooter": {
-    "form_anchor_id": "contact",
-    "messages": [
-      {
-        "highlight": "The tech stack",
-        "suffix": "your learning function runs on"
-      },
-      {
-        "highlight": "Platforms, integrations",
-        "suffix": "and data"
-      },
-      {
-        "highlight": "A connected stack",
-        "suffix": "your team owns and runs"
-      }
-    ],
     "email": "hello@edstellar.com",
     "brochure": {
       "label": "Brochure",
       "href": "https://www.edstellar.com/brochures/learning-and-development-consulting"
-    },
-    "cta": {
-      "label": "Book a technology consultation",
-      "href": "#contact"
     }
   }
 }

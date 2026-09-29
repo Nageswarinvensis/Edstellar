@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { notFound } from "next/navigation";
 
 import {
@@ -11,17 +12,55 @@ import {
   serviceJsonLd,
 } from "@/lib/seo/json-ld";
 import JsonLd from "@/components/seo/json-ld";
-import ServicePage from "@/components/templates/consulting/service-page";
-import ContentDevelopmentPage from "@/components/templates/consulting/content-development-page";
-import LearningTechnologyPage from "@/components/templates/consulting/learning-technology-page";
+import ConsultingHero from "@/components/sections/consulting/consulting-hero";
+import ProofStats from "@/components/sections/consulting/proof-stats";
+import ClientLogos from "@/components/common/client-logos";
+import StickyTabs from "@/components/sections/domain/sticky-navbar";
+import LdChallenge from "@/components/sections/learning_development_consulting/ld-challenge";
+import Readiness from "@/components/sections/consulting/readiness";
+import LdOffering from "@/components/sections/learning_development_consulting/ld-offering";
+import LdFormats from "@/components/sections/learning_development_consulting/ld-formats";
+import LdSoftCta from "@/components/common/ld-soft-cta";
+import LdPlatforms from "@/components/sections/learning_development_consulting/ld-platforms";
+import LdBlueprint from "@/components/sections/learning_development_consulting/ld-blueprint";
+import Method from "@/components/sections/consulting/method";
+import LdFrameworks from "@/components/sections/learning_development_consulting/ld-frameworks";
+import WhyUs from "@/components/sections/consulting/why-us";
+import CtaBand from "@/components/sections/consulting/cta-band";
+import Faq from "@/components/common/faq";
+import RelatedServices from "@/components/sections/consulting/related-services";
+import LeadForm from "@/components/forms/lead-form";
+import StickyFooter from "@/components/common/sticky-footer";
 
 const PILLAR = "learning-development-consulting-services";
 
-// Each sub-service record names its design in `template`.
-const TEMPLATES = {
-  "learning-strategy": ServicePage,
-  "content-development": ContentDevelopmentPage,
-  "learning-technology": LearningTechnologyPage,
+/**
+ * The middle of every L&D sub-page, by record key. Each record's `sections`
+ * lists which of these it carries and in what order (TASTE.md §6.3); a
+ * section whose data is absent renders nothing.
+ */
+const SECTIONS = {
+  challengeData: (data) => <LdChallenge data={data} />,
+  readinessData: (data) => <Readiness data={data} />,
+  offeringData: (data) => <LdOffering data={data} />,
+  formatsData: (data) => <LdFormats data={data} />,
+  blueprintCtaData: (data) => <LdSoftCta data={data} />,
+  platformsData: (data) => <LdPlatforms data={data} />,
+  blueprintData: (data) => <LdBlueprint data={data} narrow={!data?.full_width} />,
+  methodData: (data) => <Method data={data} />,
+  frameworksData: (data) => <LdFrameworks data={data} />,
+  whyEdstellarData: (data) => <WhyUs data={data} />,
+  whyCtaData: (data) => <CtaBand data={data} />,
+  faqData: (data) => (
+    <Faq
+      id="faq"
+      faqs={data}
+      innerClassName="max-w-[920px] mx-auto"
+      headingClassName="mx-auto text-center"
+      showCta={false}
+    />
+  ),
+  relatedData: (data) => <RelatedServices data={data} />,
 };
 
 export const revalidate = 3600;
@@ -50,9 +89,6 @@ export default async function LearningDevelopmentServicePage({ params }) {
   const service = await getConsultingService(PILLAR, slug);
   if (!service) notFound();
 
-  const Template = TEMPLATES[service.template];
-  if (!Template) notFound();
-
   return (
     <>
       <JsonLd
@@ -67,7 +103,18 @@ export default async function LearningDevelopmentServicePage({ params }) {
           faqJsonLd(service.faqData?.items),
         ]}
       />
-      <Template data={service} />
+      <ConsultingHero data={service.heroData} breadcrumbItems={service.BreadcrumbData} />
+      <ProofStats data={service.proof} />
+      <ClientLogos />
+      <StickyTabs data={service.stickyNavbarData} />
+
+      {service.sections?.map((key) => {
+        const render = SECTIONS[key];
+        return render ? <Fragment key={key}>{render(service[key])}</Fragment> : null;
+      })}
+
+      <LeadForm id="contact" background="navy" data={service.leadFormData} />
+      <StickyFooter data={service.stickyFooter} />
     </>
   );
 }

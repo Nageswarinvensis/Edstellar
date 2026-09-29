@@ -74,30 +74,60 @@ const LEGEND_SHADE = {
 const PILL =
   "rounded-full bg-lime-soft font-mono text-[8.5px] leading-[1.7] tracking-[0.05em] text-navy uppercase";
 
-function Screen({ title, bodyClassName, children }) {
+/** The light sweep across a screen, on the TNA matrix and every managed-services screen. */
+export const SCAN =
+  "relative overflow-hidden after:pointer-events-none after:absolute after:inset-0 after:animate-scr-scan after:content-[''] after:bg-[linear-gradient(105deg,transparent_42%,rgba(255,255,255,0.5)_50%,transparent_58%)]";
+
+/**
+ * The window chrome every screen sits in. `variant="scope"` is the managed
+ * services design's version: paper title bar, muted mono title, lifted
+ * shadow, 20px body and the scan sweep on every screen.
+ */
+export function Screen({ title, bodyClassName, variant, children }) {
+  const scope = variant === "scope";
+
   return (
-    <Box className="w-full overflow-hidden rounded-[14px] border border-ink/12 bg-white shadow-rest">
-      <Box className="flex items-center gap-2.5 border-b border-ink/12 px-4 py-3">
-        <Box className="flex gap-[5px]">
+    <Box
+      className={cn(
+        "w-full overflow-hidden rounded-[14px] border border-ink/12 bg-white",
+        scope ? "shadow-lift" : "shadow-rest",
+      )}
+    >
+      <Box
+        className={cn(
+          "flex items-center gap-2.5 border-b border-ink/12 px-4 py-3",
+          scope && "bg-paper",
+        )}
+      >
+        <Box className={cn("flex gap-[5px]", scope && "flex-none")}>
           {[0, 1, 2].map((dot) => (
             <Box key={dot} as="i" className="size-2 rounded-full bg-ink/22" />
           ))}
         </Box>
         <Text
           as="span"
-          className="font-display text-[13px] leading-[1.7] font-bold tracking-[-0.01em] text-ink"
+          className={
+            scope
+              ? "truncate font-mono text-[12.5px] leading-[1.7] font-medium tracking-[0.01em] text-ink/60"
+              : "font-display text-[13px] leading-[1.7] font-bold tracking-[-0.01em] text-ink"
+          }
         >
           {title}
         </Text>
         <Text
           as="span"
-          className="ml-auto inline-flex items-center gap-1.5 font-mono text-[10px] leading-[1.7] tracking-[0.12em] text-ink/60 uppercase"
+          className={cn(
+            "ml-auto inline-flex items-center gap-1.5 font-mono text-[10px] leading-[1.7] tracking-[0.12em] text-ink/60 uppercase",
+            scope && "flex-none",
+          )}
         >
           <Box as="b" className="size-[7px] animate-scr-pulse rounded-full bg-lime" />
           Live
         </Text>
       </Box>
-      <Box className={cn("p-[18px]", bodyClassName)}>{children}</Box>
+      <Box className={cn(scope ? cn("p-5", SCAN) : "p-[18px]", bodyClassName)}>
+        {children}
+      </Box>
     </Box>
   );
 }
@@ -216,11 +246,7 @@ function MatrixScreen({ screen }) {
   return (
     <Screen
       title={screen.title}
-      bodyClassName="
-        relative overflow-hidden
-        after:pointer-events-none after:absolute after:inset-0 after:animate-scr-scan after:content-['']
-        after:bg-[linear-gradient(105deg,transparent_42%,rgba(255,255,255,0.5)_50%,transparent_58%)]
-      "
+      bodyClassName={SCAN}
     >
       <Box as="table" className="w-full table-fixed border-separate border-spacing-[5px]">
         <Box as="thead">
@@ -489,7 +515,8 @@ const SCREENS = {
   calendar: CalendarScreen,
 };
 
-export default function StageScreen({ screen }) {
-  const Component = screen && SCREENS[screen.type];
+/** `screens` adds a page's own screen types to the TNA set, keyed by `screen.type`. */
+export default function StageScreen({ screen, screens }) {
+  const Component = screen && (screens?.[screen.type] ?? SCREENS[screen.type]);
   return Component ? <Component screen={screen} /> : null;
 }

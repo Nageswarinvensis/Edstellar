@@ -58,7 +58,9 @@ function ChecklistCard({ checklist }) {
  * Design: `#readiness`, `.rd`, `.rd-card`, `.rd-row`, `.rd-list`.
  */
 export default function Readiness({ id, data }) {
-  if (!data) return null;
+  // Needs actual content — the CMS creates empty placeholders (every field
+  // null, every list empty) that would otherwise render a blank navy band.
+  if (!data?.heading && !data?.checklist?.items?.length) return null;
 
   const { section_id, heading, description, points, cta, checklist } = data;
 

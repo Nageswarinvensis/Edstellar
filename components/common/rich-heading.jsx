@@ -1,5 +1,6 @@
 import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
+import { decodeEntities } from "@/lib/decode-entities";
 
 /**
  * Headings in these designs mix Sora roman with a Cormorant Garamond italic
@@ -24,7 +25,9 @@ function RichHeading({
   plain = false,
   ...props
 }) {
-  const text = typeof heading === "string" ? heading : "";
+  // Entities decoded first: the CMS stores some headings HTML-escaped
+  // (`&amp;`), which would otherwise render literally.
+  const text = typeof heading === "string" ? decodeEntities(heading) : "";
   if (!text) return null;
 
   return (

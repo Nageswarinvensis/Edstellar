@@ -1,6 +1,6 @@
 {
   "slug": "learning-content-development-services",
-  "template": "content-development",
+  "sections": ["challengeData", "readinessData", "offeringData", "formatsData", "blueprintCtaData", "blueprintData", "methodData", "frameworksData", "whyEdstellarData", "whyCtaData", "faqData", "relatedData"],
   "name": "Content Design & Development Services",
   "seo": {
     "title": "Learning Content Design & Development Services",
@@ -168,43 +168,7 @@
     ]
   },
   "readinessData": {
-    "section_id": "readiness",
-    "heading": "Assess your learning content maturity against the <span>essentials.</span>",
-    "description": "A quick content maturity assessment: see where your learning content is strong today, and where instructional design, findability and governance can go further.",
-    "points": [
-      "Fit between content and the capability people need",
-      "Quality, accessibility and brand consistency",
-      "Findability, ownership and refresh readiness"
-    ],
-    "cta": {
-      "label": "Get the free readiness checklist",
-      "href": "https://www.edstellar.com/tool/learning-and-development-consulting"
-    },
-    "checklist": {
-      "title": "Content readiness checklist",
-      "items": [
-        {
-          "label": "Content mapped to learning needs",
-          "done": true
-        },
-        {
-          "label": "Instructional design standards set",
-          "done": true
-        },
-        {
-          "label": "Brand and accessibility guidelines",
-          "done": true
-        },
-        {
-          "label": "A single place to find content",
-          "done": false
-        },
-        {
-          "label": "Refresh cadence and owners set",
-          "done": false
-        }
-      ]
-    }
+    "section_id": "readiness"
   },
   "offeringData": {
     "section_id": "offering",
@@ -653,6 +617,7 @@
     }
   },
   "blueprintData": {
+    "full_width": true,
     "section_id": "blueprint",
     "heading": "The Edstellar learning content <span>blueprint.</span>",
     "description": "The five layers your learning content is built from, each one built on the one before it, from audience needs up to measurement. This is what we design.",
@@ -1292,38 +1257,15 @@
     },
     "secondary_cta": {
       "label": "Get the free readiness checklist",
-      "href": "#readiness"
+      "href": "https://www.edstellar.com/tool/learning-and-development-consulting"
     }
   },
   "faqData": {
-    "heading": "Learning content <span>FAQs.</span>",
     "footer_cta": {
       "text": "Still have a question about your learning content?",
       "label": "Ask us directly",
       "href": "#contact"
-    },
-    "items": [
-      {
-        "question": "What do content design and development services include?",
-        "answer": "It covers content strategy and planning, instructional design, courseware and media production, curation and sourcing, content performance, and quality and governance, all mapped to your learning needs."
-      },
-      {
-        "question": "Do you build custom content or curate existing content?",
-        "answer": "Both. We build custom eLearning, video and assessments where they add value, and curate or adapt existing content where it already exists, so you only build what you must."
-      },
-      {
-        "question": "How long does a content development engagement take?",
-        "answer": "Typically eight to twelve weeks for the design and a first release, with the volume of content driving the overall timeline."
-      },
-      {
-        "question": "Can you make content accessible and localized?",
-        "answer": "Yes. Accessibility to WCAG and localization into the languages your teams need are part of the production standard, not add-ons."
-      },
-      {
-        "question": "What do we get at the end?",
-        "answer": "A content strategy and instructional design, a produced set of custom eLearning, media and assessments delivered SCORM- and xAPI-ready for your LMS and built in industry-standard authoring tools, quality standards, and a refresh plan you own and maintain."
-      }
-    ]
+    }
   },
   "relatedData": {
     "sectionId": "related",
@@ -1365,29 +1307,10 @@
     "thanks_body": "Thanks. A specialist will reply within one business day with a scoped response."
   },
   "stickyFooter": {
-    "form_anchor_id": "contact",
-    "messages": [
-      {
-        "highlight": "The content",
-        "suffix": "your people actually finish"
-      },
-      {
-        "highlight": "Courses, media",
-        "suffix": "and assessments"
-      },
-      {
-        "highlight": "Content",
-        "suffix": "your team owns and maintains"
-      }
-    ],
     "email": "hello@edstellar.com",
     "brochure": {
       "label": "Brochure",
       "href": "https://www.edstellar.com/brochures/learning-and-development-consulting"
-    },
-    "cta": {
-      "label": "Book a content consultation",
-      "href": "#contact"
     }
   }
 }

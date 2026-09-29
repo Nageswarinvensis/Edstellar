@@ -21,8 +21,6 @@ import Faq from "@/components/common/faq";
 import LeadForm from "@/components/forms/lead-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
-import heroData from "@/content/learning_development_consulting/LD_Consulting.json";
-
 export const revalidate = 3600;
 
 const CMS_SLUG = "learning-development-consulting-services";
@@ -70,16 +68,15 @@ export default async function LDConsultingPage() {
       <ProofStats data={cms.generalProof} />
       <ClientLogos />
       <StickyTabs data={cms.stickyNavbar} />
-      <WhyLandD data={heroData.WhyLandDData} />
-      <Maturity data={heroData.maturityData}/>
-      <LandDCTA data={heroData.landdctaData}/>
-      <Methodology data={heroData.methodologyData}/>
-      <Transform data={heroData.transformData}/>
-      <RelatedServices data={heroData.relatedData}/>
-      <LdServices data={heroData.ldServicesData}/>
-      <Engagements data={heroData.engagementsData}/>
-      <WhyUs data={heroData.whyEdstellarData} />
-      <CtaBand data={heroData.whyCtaData} />
+      <WhyLandD data={cms.why_ld} />
+      <Maturity data={cms.maturity_model}/>
+      <LandDCTA data={cms.ld_cta} />
+      <Methodology data={cms.methodology}/>
+      <Transform data={cms.transformation}/>
+      <LdServices data={cms.services}/>
+      <Engagements data={cms.engagement_models}/>
+      <WhyUs id="why-edstellar" data={cms.ld_why_edstellar} />
+      <CtaBand data={cms.cta_band} />
       <RelatedServices
         id="capability-consulting"
         bgColor="bg-paper-warm"

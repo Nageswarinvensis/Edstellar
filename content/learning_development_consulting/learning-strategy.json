@@ -1,6 +1,6 @@
 {
   "slug": "learning-strategy",
-  "template": "learning-strategy",
+  "sections": ["challengeData", "offeringData", "readinessData", "blueprintData", "methodData", "whyEdstellarData", "whyCtaData", "faqData", "relatedData"],
   "name": "Learning Strategy Consulting",
   "seo": {
     "title": "Learning Strategy Consulting",
@@ -158,43 +158,7 @@
     ]
   },
   "readinessData": {
-    "section_id": "readiness",
-    "heading": "Assess your L&D maturity against the <span>essentials.</span>",
-    "description": "A quick L&D maturity assessment: see where your learning strategy is strong today, and where the operating model, measurement and governance can go further.",
-    "points": [
-      "Strategic alignment between L&D investment and business priorities",
-      "Capability gap visibility across critical roles and functions",
-      "Learning governance, measurement and ROI readiness"
-    ],
-    "cta": {
-      "label": "Get the free readiness checklist",
-      "href": "https://www.edstellar.com/tool/learning-and-development-consulting"
-    },
-    "checklist": {
-      "title": "L&D readiness checklist",
-      "items": [
-        {
-          "label": "Business goals mapped to capabilities",
-          "done": true
-        },
-        {
-          "label": "Skills baseline defined by role",
-          "done": true
-        },
-        {
-          "label": "L&D plan and budget owned",
-          "done": true
-        },
-        {
-          "label": "Success metrics and ROI defined",
-          "done": false
-        },
-        {
-          "label": "Governance and review cadence set",
-          "done": false
-        }
-      ]
-    }
+    "section_id": "readiness"
   },
   "offeringData": {
     "section_id": "offering",
@@ -746,34 +710,11 @@
     }
   },
   "faqData": {
-    "heading": "Learning strategy consulting <span>FAQs.</span>",
     "footer_cta": {
       "text": "Still have a question about your learning strategy?",
       "label": "Ask us directly",
       "href": "#contact"
-    },
-    "items": [
-      {
-        "question": "What does learning strategy consulting include?",
-        "answer": "It covers your L&D operating model, capability and competency frameworks, curriculum architecture, learning measurement and governance, all aligned to the business plan."
-      },
-      {
-        "question": "How is a learning strategy different from a training plan?",
-        "answer": "A training plan lists courses. A learning strategy defines the operating model, capability priorities and measurement that decide which courses matter and why, so spend follows business goals."
-      },
-      {
-        "question": "How long does a learning strategy engagement take?",
-        "answer": "Typically four to eight weeks for the strategy and architecture, depending on organization size and how many roles are in scope."
-      },
-      {
-        "question": "Do you build the competency frameworks too?",
-        "answer": "Yes. Role-based competency models and career pathways are a core deliverable, so capability is defined the same way across the business."
-      },
-      {
-        "question": "What do we get at the end?",
-        "answer": "A business-aligned L&D strategy, a 12 to 24 month roadmap, competency frameworks, a curriculum blueprint and a measurement framework you own and run."
-      }
-    ]
+    }
   },
   "leadFormData": {
     "heading": "Book a learning strategy <span>consultation.</span>",
@@ -786,29 +727,10 @@
     "thanks_body": "Thanks. A specialist will reply within one business day with a scoped response."
   },
   "stickyFooter": {
-    "form_anchor_id": "contact",
-    "messages": [
-      {
-        "highlight": "A learning strategy",
-        "suffix": "tied to business goals"
-      },
-      {
-        "highlight": "Competency frameworks",
-        "suffix": "and curriculum by role"
-      },
-      {
-        "highlight": "Measurement",
-        "suffix": "built in from day one"
-      }
-    ],
     "email": "hello@edstellar.com",
     "brochure": {
       "label": "Brochure",
       "href": "https://www.edstellar.com/brochures/learning-and-development-consulting"
-    },
-    "cta": {
-      "label": "Book a consultation",
-      "href": "#contact"
     }
   }
 }
