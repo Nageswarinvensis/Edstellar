@@ -5,14 +5,20 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import LdSoftCta from "@/components/common/ld-soft-cta";
 
 export default function Methodology({ data }) {
   const content = data?.methodologyData || data;
 
   if (!content) return null;
 
+  // Unified CTA data extractor with showSoftCta check
+  const ctaData =
+    content.showSoftCta !== false &&
+    (content.softCtaData || content.softCta || content.soft_cta || content.ctaCard);
+
   return (
-    <Section id="how-we-work" className="bg-white border-y border-[#0a16281f]">
+    <Section id={content.section_id || "how-we-work"} className="bg-white border-y border-[#0a16281f]">
       <Box className="mx-auto max-w-7xl">
         {/* Header Block */}
         <Reveal>
@@ -50,9 +56,9 @@ export default function Methodology({ data }) {
                       {/* Horizontal Timeline Line (>= lg) */}
                       <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-[#0a162838] -z-10" />
 
-                      {/* Numbered Circle Badge */}
+                      {/* Dynamic Numbered Circle Badge */}
                       <Box className="size-8 rounded-full bg-ink text-lime font-mono text-xs font-bold flex items-center justify-center shadow-sm z-10 shrink-0">
-                        {step.stepNumber || idx + 1}
+                        {idx + 1}
                       </Box>
                     </Box>
 
@@ -76,11 +82,11 @@ export default function Methodology({ data }) {
                           </Box>
                         )}
 
-                        {/* Description */}
+                        {/* Description with styled anchor & underline links */}
                         {step.description && (
                           <Text
                             as="p"
-                            className="mt-3 text-[14px] sm:text-[15px] leading-relaxed text-ink-muted [&_u]:underline [&_u]:decoration-ink-muted/50 [&_u]:underline-offset-2"
+                            className="mt-3 text-[14px] sm:text-[15px] leading-relaxed text-ink-muted [&_u]:underline [&_u]:decoration-ink/40 [&_u]:underline-offset-2 [&_a]:underline [&_a]:text-ink [&_a]:font-medium hover:[&_a]:text-navy"
                             dangerouslySetInnerHTML={{ __html: step.description }}
                           />
                         )}
@@ -103,6 +109,13 @@ export default function Methodology({ data }) {
                 </Reveal>
               ))}
             </Box>
+          </Box>
+        )}
+
+        {/* Soft CTA Component */}
+        {ctaData && (
+          <Box className="mt-12 sm:mt-16 w-full">
+            <LdSoftCta data={ctaData} />
           </Box>
         )}
       </Box>

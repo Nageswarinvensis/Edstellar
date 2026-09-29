@@ -6,7 +6,7 @@ import Managed from "@/components/sections/managed_training_services/managed";
 import StageSteps from "@/components/sections/consulting/stage-steps";
 import { SCOPE_SCREENS } from "@/components/sections/managed_training_services/scope-screens";
 import EngModules from "@/components/sections/managed_training_services/eng-module";
-import Method from "@/components/sections/consulting/method";
+import Methodology from "@/components/sections/learning_development_consulting/methodology";
 import WhyUs from "@/components/sections/consulting/why-us";
 import CtaBand from "@/components/sections/consulting/cta-band";
 import Faq from "@/components/common/faq";
@@ -31,7 +31,7 @@ export default function ServicePage({ data }) {
         variant="scope"
       />
       <EngModules data={pageData.engModulesData}/>
-      <Method data={pageData.methodData}/>
+      <Methodology data={pageData.methodologyData}/>
       <WhyUs data={pageData.whyEdstellarData} />
       <CtaBand data={pageData.whyCtaData} />
       

@@ -752,6 +752,52 @@
       }
     ]
   },
+  "methodologyData": {
+    "section_id": "method",
+    "heading": "The Edstellar 5A <span>methodology.</span>",
+    "subheading": "How we run the engagement: a five-step content design and development method, run with your subject-matter experts, that takes you from scattered material to a measured content transformation. This is how we work.",
+    "showSoftCta": false,
+    "steps": [
+      {
+        "title": "Assess",
+        "duration": "1-2 WEEKS",
+        "description": "Audit the existing content and needs to define what to build, buy or retire.",
+        "deliverable": "Content audit"
+      },
+      {
+        "title": "Analyze",
+        "duration": "2-3 WEEKS",
+        "description": "Analyze the content gaps against the capability people need, informed by your <a href='/tna'>training needs analysis</a> and <a href='/assessments'>assessments</a>.",
+        "deliverable": "Content gap report"
+      },
+      {
+        "title": "Architect",
+        "duration": "3-4 WEEKS",
+        "description": "Design the content approach, instructional model and standards that close the gaps.",
+        "deliverable": "Content blueprint"
+      },
+      {
+        "title": "Activate",
+        "duration": "8-14 WEEKS",
+        "description": "Build and publish the courses, media and assessments, ready for your platforms.",
+        "deliverable": "Live content"
+      },
+      {
+        "title": "Advance",
+        "duration": "ONGOING",
+        "description": "Measure completion and outcomes, then refresh content each cycle so it stays current.",
+        "deliverable": "Content dashboard"
+      }
+    ],
+    "softCtaData": {
+      "heading": "Not ready for a full proposal?",
+      "description": "Book a short scoping call and we will map what to outsource first, no proposal required.",
+      "cta": {
+        "label": "Book a scoping call",
+        "href": "/contact"
+      }
+    }
+  },
   "frameworksData": {
     "section_id": "frameworks",
     "heading": "Grounded in the frameworks that make learning <span>work.</span>",
