@@ -5,7 +5,7 @@ import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import Managed from "@/components/sections/managed_training_services/managed";
 import StageSteps from "@/components/sections/consulting/stage-steps";
 import EngModules from "@/components/sections/managed_training_services/eng-module";
-import Method from "@/components/sections/consulting/method";
+import Methodology from "@/components/sections/learning_development_consulting/methodology";
 import WhyUs from "@/components/sections/consulting/why-us";
 import CtaBand from "@/components/sections/consulting/cta-band";
 import Faq from "@/components/common/faq";
@@ -25,7 +25,7 @@ export default function ServicePage({ data }) {
       <Managed data={pageData.managedData}/>
       <StageSteps data={pageData.stepsData}/>
       <EngModules data={pageData.engModulesData}/>
-      <Method data={pageData.methodData}/>
+      <Methodology data={pageData.methodologyData}/>
       <WhyUs data={pageData.whyEdstellarData} />
       <CtaBand data={pageData.whyCtaData} />
       

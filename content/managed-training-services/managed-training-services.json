@@ -674,70 +674,51 @@
       }
     ]
   },
-  "methodData": {
+  "methodologyData": {
     "section_id": "transition",
     "heading": "The Edstellar 5A managed-services <span>methodology.</span>",
-    "description": "The same five-step method behind every Edstellar engagement, here applied to taking on your L&D as a managed service, without dropping a beat.",
+    "subheading": "The same five-step method behind every Edstellar engagement, here applied to taking on your L&D as a managed service, without dropping a beat.",
+    "showSoftCta": true,
     "steps": [
       {
         "title": "Assess",
-        "duration": "1–3 weeks",
-        "description": [
-          {
-            "text": "Review your current L&D, spend, vendors and demand to define what moves across."
-          }
-        ],
-        "output": "Capability brief"
+        "duration": "1-3 WEEKS",
+        "description": "Review your current L&D, spend, vendors and demand to define what moves across.",
+        "deliverable": "Capability brief"
       },
       {
         "title": "Analyze",
-        "duration": "3–5 weeks",
-        "description": [
-          {
-            "text": "Analyze demand and gaps, then agree the scope, SLAs and operating model."
-          }
-        ],
-        "output": "Service design"
+        "duration": "3-5 WEEKS",
+        "description": "Analyze demand and gaps, then agree the scope, SLAs and operating model.",
+        "deliverable": "Service design"
       },
       {
         "title": "Architect",
-        "duration": "3–5 weeks",
-        "description": [
-          {
-            "text": "Architect the service, then move delivery, technology and vendors across in phases."
-          }
-        ],
-        "output": "Transition plan"
+        "duration": "3-5 WEEKS",
+        "description": "Architect the service, then move delivery, technology and vendors across in phases.",
+        "deliverable": "Transition plan"
       },
       {
         "title": "Activate",
-        "duration": "10–14 weeks",
-        "description": [
-          {
-            "text": "Go live and stabilize, with your team steering throughout."
-          }
-        ],
-        "output": "Live service"
+        "duration": "10-14 WEEKS",
+        "description": "Go live and stabilize, with your team steering throughout.",
+        "deliverable": "Live service"
       },
       {
         "title": "Advance",
-        "duration": "Ongoing",
-        "description": [
-          {
-            "text": "Report, review and drive cost down and impact up every quarter."
-          }
-        ],
-        "output": "Quarterly review"
+        "duration": "ONGOING",
+        "description": "Report, review and drive cost down and impact up every quarter.",
+        "deliverable": "Quarterly review"
       }
     ],
     "softCtaData": {
-    "heading": "Not ready for a full proposal?",
-    "description": "Book a short scoping call and we will map what to outsource first, no proposal required.",
-    "cta": {
-      "label": "Book a scoping call",
-      "href": "/contact"
+      "heading": "Not ready for a full proposal?",
+      "description": "Book a short scoping call and we will map what to outsource first, no proposal required.",
+      "cta": {
+        "label": "Book a scoping call",
+        "href": "/contact"
+      }
     }
-  }
   },
   "whyEdstellarData": {
     "section_id": "why-us",

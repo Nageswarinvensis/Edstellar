@@ -8,7 +8,7 @@ import LdOffering from "@/components/sections/learning_development_consulting/ld
 import LdFormats from "@/components/sections/learning_development_consulting/ld-formats";
 import LdSoftCta from "@/components/common/ld-soft-cta";
 import LdBlueprint from "@/components/sections/learning_development_consulting/ld-blueprint";
-import Method from "@/components/sections/consulting/method";
+import Methodology from "@/components/sections/learning_development_consulting/methodology";
 import LdFrameworks from "@/components/sections/learning_development_consulting/ld-frameworks";
 import WhyUs from "@/components/sections/consulting/why-us";
 import CtaBand from "@/components/sections/consulting/cta-band";
@@ -40,7 +40,7 @@ export default function ContentDevelopmentPage({ data }) {
       <LdFormats data={data.formatsData} />
       <LdSoftCta data={data.blueprintCtaData} />
       <LdBlueprint data={data.blueprintData} narrow={false} />
-      <Method data={data.methodData} />
+      <Methodology data={data.methodologyData}/>
       <LdFrameworks data={data.frameworksData} />
       <WhyUs data={data.whyEdstellarData} />
       <CtaBand data={data.whyCtaData} />

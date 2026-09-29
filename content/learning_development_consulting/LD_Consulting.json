@@ -144,45 +144,50 @@
     "buttonHref": "#contact"
   },
   "methodologyData": {
+    "section_id": "how-we-work",
     "heading": "The Edstellar 5A <span>methodology.</span>",
     "subheading": "The method we run to move you up the curve, from wherever you sit today. Five steps, each leaving you with a deliverable you keep.",
+    "showSoftCta": false,
     "steps": [
       {
-        "stepNumber": 1,
         "title": "Assess",
         "duration": "1-2 WEEKS",
         "description": "Read the business strategy, roles and workforce plan to define what capability the plan needs.",
         "deliverable": "Capability brief"
       },
       {
-        "stepNumber": 2,
         "title": "Analyze",
         "duration": "2-3 WEEKS",
-        "description": "Analyze the skill gaps from your <u>training needs analysis</u> and <u>assessments</u>.",
+        "description": "Analyze the skill gaps from your <a href='/tna'>training needs analysis</a> and <a href='/assessments'>assessments</a>.",
         "deliverable": "Skills-gap report"
       },
       {
-        "stepNumber": 3,
         "title": "Architect",
         "duration": "3-5 WEEKS",
         "description": "Architect the strategy, content, technology and governance that close the priority gaps.",
         "deliverable": "Strategy & roadmap"
       },
       {
-        "stepNumber": 4,
         "title": "Activate",
         "duration": "6-12 WEEKS",
         "description": "Roll out blended delivery across teams, on the platforms your people already use.",
         "deliverable": "Live programs"
       },
       {
-        "stepNumber": 5,
         "title": "Advance",
         "duration": "ONGOING",
         "description": "Measure, govern and improve each cycle, so the function compounds rather than resets.",
         "deliverable": "Impact dashboard"
       }
-    ]
+    ],
+    "softCtaData": {
+      "heading": "Not ready for a full proposal?",
+      "description": "Book a short scoping call and we will map what to outsource first, no proposal required.",
+      "cta": {
+        "label": "Book a scoping call",
+        "href": "/contact"
+      }
+    }
   },
   "ldServicesData": {
     "sectionId": "ld-services",
