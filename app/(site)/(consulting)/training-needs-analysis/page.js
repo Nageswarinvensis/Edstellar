@@ -25,11 +25,9 @@ export const revalidate = 3600;
 // CMS does send wins over these.
 const LEAD_FORM_COPY = {
   requirements_label: "Your requirements",
-  requirements_placeholder:
-    "Tell us about your team: size, roles in scope, timing, and the outcomes you are trying to move.",
+  requirements_placeholder: "Tell us about your team: size, roles in scope, timing, and the outcomes you are trying to move.",
   thanks_heading: "Request received.",
-  thanks_body:
-    "Thanks. A specialist will reply within one business day with a scoped response.",
+  thanks_body: "Thanks. A specialist will reply within one business day with a scoped response.",
 };
 
 export async function generateMetadata() {

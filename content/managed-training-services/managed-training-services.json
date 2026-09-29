@@ -279,9 +279,9 @@
     "subtitle": "Strategy, content, delivery, technology, vendors, analytics and staff, managed together or piece by piece. Here is each area we run.",
     "items": [
       {
-        "title": "Organization setup",
+        "title": "Learning strategy consulting",
         "paragraphs": [
-          "A guided setup seeds the engine to your world.",
+          "The advisory layer that keeps everything we run pointed at your business priorities.",
           "Pick the industry and structure, and it seeds the competency fields, governing standards and strategy to match."
         ],
         "screen": {
@@ -722,7 +722,7 @@
         "duration": "3–5 weeks",
         "description": [
           {
-            "text": "Architect the strategy, content, technology and governance that close the priority gaps."
+            "text": "Architect the service, then move delivery, technology and vendors across in phases."
           }
         ],
         "output": "Transition plan"
@@ -765,18 +765,18 @@
     "items": [
       {
         "icon": "link",
-        "title": "Strategy to delivery, one partner",
-        "description": "Your strategy actually ships, because the team that designs it also staffs the programs that deliver it.",
+        "title": "One partner, the whole function",
+        "description": "Most providers cover one slice. Edstellar runs strategy, content, delivery, technology and vendors under a single managed contract.",
         "visual": {
           "type": "flow",
           "items": [
             "Design",
             "Deliver",
-            "Measure"
+            "Analytics"
           ],
-          "caption": "One team, strategy to delivery"
+          "caption": "One contract, the whole function"
         },
-        "difference": "Most firms hand you a strategy deck. We stay through to delivery."
+        "difference": "Most firms cover one piece. We run the whole function."
       },
       {
         "icon": "chip",
@@ -788,7 +788,7 @@
           "status": "Live",
           "items": [
             {
-              "label": "Skills",
+              "label": "Coverage",
               "value": 88
             },
             {
@@ -796,7 +796,7 @@
               "value": 72
             },
             {
-              "label": "Readiness",
+              "label": "Impact",
               "value": 64
             }
           ]
@@ -806,7 +806,7 @@
       {
         "icon": "chart",
         "title": "Outcomes tied to the business",
-        "description": "Every engagement is tied to business goals and measured against them, so your strategy is accountable to results, not activity.",
+        "description": "Every managed engagement runs to agreed SLAs and outcome metrics, so the service is accountable to business results, not activity.",
         "visual": {
           "type": "bars",
           "items": [
@@ -818,12 +818,12 @@
           ],
           "caption": "↑ Business impact over the engagement"
         },
-        "difference": "Measured in business results, not training delivered."
+        "difference": "Measured in business results, not sessions delivered."
       },
       {
         "icon": "globe",
         "title": "Global delivery, wherever your people are",
-        "description": "Strategy and programs delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global rollout stays consistent.",
+        "description": "Training delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global rollout stays consistent.",
         "visual": {
           "type": "regions",
           "items": [
@@ -840,7 +840,7 @@
       {
         "icon": "list",
         "title": "A proven method, not improvisation",
-        "description": "Every engagement runs the same Edstellar 5A method, so your strategy is built systematically rather than improvised each time.",
+        "description": "Every engagement runs the same Edstellar 5A method, so the service is systematic and repeatable rather than reinvented each time.",
         "visual": {
           "type": "steps",
           "items": [
@@ -857,18 +857,18 @@
       {
         "icon": "sliders",
         "title": "Flexible from advisory to end-to-end",
-        "description": "Start with a strategy diagnostic, hand over the design, or run the whole function, and scale up as the partnership grows.",
+        "description": "Start with advice, hand over the parts that stretch your team, or run the whole function, and scale up as the partnership grows.",
         "visual": {
           "type": "tiers",
           "items": [
-            "Diagnostic",
-            "Design",
-            "Build",
+            "Advisory",
+            "Selective",
+            "Managed",
             "End-to-end"
           ],
           "caption": "Start focused, scale up"
         },
-        "difference": "Take as much or as little as you choose."
+        "difference": "Outsource as much or as little as you choose."
       }
     ],
     "trust": {
@@ -913,37 +913,62 @@
     }
   },
   "whyCtaData": {
-    "heading": "Ready to build an L&D function that proves its <span>impact?</span>",
-    "description": "One partner to design the system, deliver it, and measure what it changes for the business. Let us show you what that looks like for your team.",
+    "heading": "Ready to hand your L&D to a team that runs it as <span>one?</span>",
+    "description": "Request a proposal and we will scope the services, the model and the SLAs, built around how much of your L&D you want to outsource.",
     "primary_cta": {
-      "label": "Book an L&D consultation",
+      "label": "Request a proposal",
       "href": "#contact"
     },
     "secondary_cta": {
-      "label": "Explore L&D ervices",
+      "label": "see the engagement model",
       "href": "#readiness"
     }
+  },
+  "faqData": {
+    "heading": "Managed training services <span>FAQs.</span>",
+    "items": [
+      {
+        "question": "What does managed learning services include?",
+        "answer": "It can cover your whole L&D function, strategy, content, training delivery, learning technology, vendor management and analytics, or just the parts you choose to hand over."
+      },
+      {
+        "question": "How is it different from L&D consulting?",
+        "answer": "Consulting advises and designs, then hands over. Managed learning services run L&D for you on an ongoing basis, so we operate the function, not just design it."
+      },
+      {
+        "question": "Can we outsource only part of our L&D?",
+        "answer": "Yes. Engagements range from a single area, such as training delivery or LMS administration, to the full function, and can expand over time as the partnership grows."
+      },
+      {
+        "question": "How long does it take to get started?",
+        "answer": "A typical transition takes ten to fourteen weeks before we are running the service, after which it is usually a multi-year partnership."
+      },
+      {
+        "question": "What do we get at the end?",
+        "answer": "A managed L&D function run to agreed SLAs, a single point of accountability, lower and more predictable cost, and quarterly reporting on impact."
+      }
+    ]
   },
   "relatedData": {
     "sectionId": "related",
     "heading": "Other L&D consulting <span>services.</span>",
-    "subheading": "Strategy sets the direction. These services build and run what it defines.",
+    "subheading": "Managed learning services can run all of these, or you can engage any one on its own.",
     "items": [
       {
-        "title": "Training Needs Analysis",
-        "description": "The prioritized skill-gap map that points the strategy, before you spend.",
-        "link": "Explore",
-        "href": "https://www.edstellar.com/training-needs-analysis-solutions"
-      },
-      {
         "title": "Learning Technology Consulting",
-        "description": "The LMS, LXP and integrations that deliver the strategy.",
+        "description": "The platforms we run as part of the service.",
         "link": "Explore",
         "href": "https://www.edstellar.com/learning-technology-consulting"
       },
       {
-        "title": "Content Design & Development Services",
-        "description": "The courses and content the curriculum architecture calls for.",
+        "title": "Learning Content Design & Development Consulting",
+        "description": "Learning Content Design & Development Consulting",
+        "link": "Explore",
+        "href": "https://www.edstellar.com/learning-technology-consulting"
+      },
+      {
+        "title": "Learning Strategy & Design Consulting",
+        "description": "The strategy that directs the whole service.",
         "link": "Explore",
         "href": "https://www.edstellar.com/learning-content-development-services"
       }
@@ -953,44 +978,11 @@
       "href": "/learning-development-consulting-services"
     }
   },
-  "faqData": {
-    "heading": "Training needs analysis <span>FAQs.</span>",
-    "items": [
-      {
-        "question": "How is a training needs analysis different from just running a survey?",
-        "answer": "A survey tells you what people say they want. A needs analysis triangulates that against performance data, role requirements and business goals, then separates real skill gaps from problems training cannot fix. The output is a ranked plan, not a wish list."
-      },
-      {
-        "question": "How long does an engagement take?",
-        "answer": "A focused analysis typically runs four to eight weeks, depending on the number of roles and functions in scope. Enterprise-wide diagnostics tied to a transformation can run longer. You get a clear timeline in the proposal."
-      },
-      {
-        "question": "What do we actually receive at the end?",
-        "answer": "A skill-gap heatmap, a competency map, a risk-ranked roadmap, a finance-ready business case, and a measurement baseline. Working artifacts your team can act on and reuse, not a one-off presentation."
-      },
-      {
-        "question": "Can you analyze needs without selling us the training afterward?",
-        "answer": "Yes. The analysis is a standalone service. If a gap is best closed another way, or not by training at all, that is what the roadmap will say. Edstellar can deliver the programs if you want, but the diagnosis stands on its own."
-      },
-      {
-        "question": "How do you prove the training worked once it runs?",
-        "answer": "Measurement is designed in at the start. We set the baseline and the metrics before delivery, so impact is compared against a known starting point rather than argued about later."
-      },
-      {
-        "question": "We already have a competency framework. Does that change things?",
-        "answer": "It helps. We work with your existing framework where one exists, calibrate it against role requirements, and only rebuild what is missing or out of date, so you are not paying to reinvent what already works."
-      },
-      {
-        "question": "Is a training needs analysis the same as a learning needs analysis?",
-        "answer": "Yes. Training needs analysis (TNA or TNI) and learning needs analysis (LNA or LNI) are interchangeable terms for the same work: measuring the gap between the capability a role requires and the capability your people have today, then turning it into a prioritized plan. Whichever term your organization uses, this is the engagement it describes."
-      }
-    ]
-  },
   "leadFormData": {
-    "heading": "Request a training needs analysis <span>for your team.</span>",
-    "description": "Tell us what your team needs. We reply within one business day, with a scoped response and no automated sales sequence.",
+    "heading": "Request a managed services <span>proposal.</span>",
+    "description": "Tell us which parts of L&D you are considering handing over. We reply within one business day with a scoped response, no automated sales sequence.",
     "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
-    "submit_label": "Request a needs analysis",
+    "submit_label": "Request a proposal",
     "requirements_label": "Your requirements",
     "requirements_placeholder": "Tell us about your team: size, roles in scope, timing, and the outcomes you are trying to move.",
     "thanks_heading": "Request received.",

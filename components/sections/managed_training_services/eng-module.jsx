@@ -13,7 +13,7 @@ function FeatureItem({ feature }) {
   return (
     <li className="flex items-center gap-2.5 py-1">
       <span
-        className={`flex size-4 shrink-0 items-center justify-center text-[13px] font-bold ${
+        className={`flex size-4 shrink-0 items-center justify-center text-[12px] font-bold ${
           active ? "text-ink" : "text-ink/25"
         }`}
         aria-hidden="true"
@@ -58,7 +58,7 @@ function ModuleCard({ cardData }) {
           {title}
         </Text>
 
-        <Text as="p" className="mt-2 min-h-9.5 text-[12px] leading-normal text-ink/55">
+        <Text as="p" className="mt-2 min-h-9 text-[12px] leading-normal text-ink/55">
           {description}
         </Text>
 

@@ -73,7 +73,7 @@ export default function TnaSteps({ id, data }) {
               <Box data-stage-step data-i={index} {...active} className={cn(STEP_CLASS)}>
                 <Text
                   as="span"
-                  className="mb-[7px] block font-mono text-[12px] leading-[1.7] tracking-[0.14em] text-ink/60"
+                  className="mb-1.5 block font-mono text-[12px] leading-[1.7] tracking-[0.14em] text-ink/60"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </Text>
@@ -89,7 +89,7 @@ export default function TnaSteps({ id, data }) {
                   <Text
                     key={paragraph}
                     as="p"
-                    className="max-w-[500px] text-[17px] leading-[1.6] text-ink/60 hyphens-manual [p+&]:mt-[15px]"
+                    className="max-w-125 text-[16px] leading-[1.6] text-ink/60 hyphens-manual [p+&]:mt-[15px]"
                   >
                     {paragraph}
                   </Text>
