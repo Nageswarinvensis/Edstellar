@@ -35,7 +35,7 @@ function FeatureItem({ feature }) {
 function ModuleCard({ cardData }) {
   if (!cardData) return null;
 
-  const { title, description, badge, features, ctaText, isPopular } = cardData;
+  const { title, description, badge, features, ctaText, ctaTextLink, isPopular } = cardData;
 
   return (
     <Box
@@ -73,16 +73,16 @@ function ModuleCard({ cardData }) {
 
       {/* Action Button */}
       <Box className="mt-auto pt-4">
-        <button
-          type="button"
-          className={`w-full rounded-full py-3 px-4 font-display text-[12px] font-bold transition-all duration-200 cursor-pointer ${
+        <a
+          href={ctaTextLink || "#apply"}
+          className={`block w-full rounded-full py-3 px-4 text-center font-display text-[12px] font-bold transition-all duration-200 cursor-pointer ${
             isPopular
               ? "bg-navy text-lime hover:bg-navy/90 shadow-md"
               : "bg-transparent border border-ink/80 text-ink hover:bg-ink hover:text-white"
           }`}
         >
           {ctaText || "Request a proposal"}
-        </button>
+        </a>
       </Box>
     </Box>
   );

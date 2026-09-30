@@ -105,20 +105,30 @@ export default function Maturity({ data }) {
                           "h-[80%]",
                           "h-[100%]",
                         ];
+                        // The design's colour per level, set here rather than read
+                        // from the CMS's `color`/`text_color` class strings: Tailwind
+                        // only builds classes it finds in source, so CMS-supplied
+                        // classes render nothing.
+                        const barColors = [
+                          "bg-navy-deep text-lime",
+                          "bg-navy text-lime",
+                          "bg-navy-soft text-lime",
+                          "bg-lime-soft text-navy",
+                          "bg-lime text-navy",
+                        ];
 
                         return (
                           <Box
                             key={item.level || idx}
                             className={cn(
                               "w-full flex flex-col items-center justify-start text-center rounded-t-xl rounded-b-none px-1.5 sm:px-2 pt-4 sm:pt-6 transition-all duration-300",
-                              item.color || "bg-ink",
+                              barColors[idx] ?? "bg-navy text-lime",
                               barHeights[idx]
                             )}
                           >
                             <Text
                               className={cn(
-                                "font-bold text-[11px] sm:text-xs md:text-sm leading-tight",
-                                item.text_color || "text-white"
+                                "font-bold text-[11px] sm:text-xs md:text-sm leading-tight text-inherit"
                               )}
                               dangerouslySetInnerHTML={{ __html: item.title }}
                             />
