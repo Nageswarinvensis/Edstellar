@@ -30,7 +30,7 @@
     "fontWeight": "font-normal",
     "textColor": "text-ink-muted",
     "primaryBtnText": "Book a content consultation",
-    "primaryBtnHref": "#contact",
+    "primaryBtnHref": "#apply",
     "secondaryBtnText": "See what's included",
     "secondaryBtnHref": "#offering",
     "learning_system": {
@@ -65,7 +65,7 @@
     "ctaTitle": "Ready to fix your learning content?",
     "primaryBtnText": "Book a consultation",
     "primaryBtnTitle": "Book an L&D consultation with our team",
-    "primaryBtnHref": "#contact",
+    "primaryBtnHref": "#apply",
     "secondaryBtnText": "Download the L&D brochure (PDF)",
     "secondaryBtnTitle": "Download the L&D brochure in PDF format",
     "secondaryBtnHref": "https://www.edstellar.com/brochures/learning-and-development-consulting",
@@ -96,7 +96,7 @@
     "cta": {
       "text": "Book a consultation",
       "title": "Click Here to Book a Consultation",
-      "targetId": "contact"
+      "targetId": "apply"
     },
     "tabs": [
       {
@@ -604,7 +604,7 @@
       "note": "A sample of this format will play here.",
       "note_cta": {
         "label": "Request the full sample library",
-        "href": "#contact"
+        "href": "#apply"
       }
     }
   },
@@ -613,7 +613,7 @@
     "description": "Tell us the topic and audience, and we will show you the format and a sample built for it.",
     "cta": {
       "label": "Talk it through",
-      "href": "#contact"
+      "href": "#apply"
     }
   },
   "blueprintData": {
@@ -1299,7 +1299,7 @@
     "description": "Book a content consultation and we will scope the formats, the plan and the build, mapped to your audience and your goals.",
     "primary_cta": {
       "label": "Book a content consultation",
-      "href": "#contact"
+      "href": "#apply"
     },
     "secondary_cta": {
       "label": "Get the free readiness checklist",
@@ -1310,7 +1310,7 @@
     "footer_cta": {
       "text": "Still have a question about your learning content?",
       "label": "Ask us directly",
-      "href": "#contact"
+      "href": "#apply"
     }
   },
   "relatedData": {
@@ -1353,7 +1353,7 @@
     "thanks_body": "Thanks. A specialist will reply within one business day with a scoped response."
   },
   "stickyFooter": {
-    "email": "hello@edstellar.com",
+    "email": true,
     "brochure": {
       "label": "Brochure",
       "href": "https://www.edstellar.com/brochures/learning-and-development-consulting"

@@ -20,7 +20,7 @@ function page() {
             { text: " Page", highlighted: true },
           ]}
           emphasisClassName="color-ink"
-          className="mb-2.5 text-center max-lg:text-[clamp(32px,5vw,50px)]"
+          className="mb-2.5 text-center]"
         />
       </Reveal>
     </Section>

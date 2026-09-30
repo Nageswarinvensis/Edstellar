@@ -38,16 +38,27 @@ export default function ConsultingHero({
 }) {
   if (!data) return null;
 
+  // The site-pages CMS splits the hero into `heroLeft` (copy and buttons) and
+  // `heroRight` (the right-hand panel); local content keeps it flat.
+  const left = data.heroLeft ?? data;
+  const right = data.heroRight ?? data;
+
+  // A CMS list-type field arrives as a one-entry list; local content sends the object.
+  const learningSystem = Array.isArray(right.learning_system)
+    ? right.learning_system[0]
+    : right.learning_system;
+
   // `…BtnLink` is the site-pages CMS field; `…BtnHref` the local-content one.
-  const primaryHref = data?.primaryBtnLink || data?.primaryBtnHref;
-  const secondaryHref = data?.secondaryBtnLink || data?.secondaryBtnHref;
+  const primaryHref = left.primaryBtnLink || left.primaryBtnHref;
+  const secondaryHref = left.secondaryBtnLink || left.secondaryBtnHref;
 
   // Shown only when the page asks for it — a missing flag means hidden.
-  const shouldShowMeta = data?.showMeta === true;
+  const shouldShowMeta = left.showMeta === true;
 
-  // READ FROM JSON DATA/HERO OBJECT OR PROPS
-  const weightClass = customWeight || data?.fontWeight;
-  const colorClass = customColor || data?.textColor;
+  // The consulting designs' meta row: regular weight, muted, wider tracking
+  // (HeroMeta's own default is the course hero's semibold ink).
+  const weightClass = customWeight || left.fontWeight || "font-normal";
+  const colorClass = customColor || left.textColor || "text-ink-muted";
 
   return (
     <Section id="top" className="bg-[#f8f7f4]">
@@ -60,28 +71,28 @@ export default function ConsultingHero({
           <Box className="min-w-0">
             <Reveal>
               <Text as="h1" className="mt-4">
-                {data.title}
+                {left.title}
               </Text>
             </Reveal>
 
-            {data.tagline && (
+            {left.tagline && (
               <Reveal delay={1}>
               <Text
                 as="p"
                 className="mt-4 font-serif text-[18px] font-normal italic text-ink"
               >
-                {data.tagline}
+                {left.tagline}
               </Text>
               </Reveal>
             )}
 
-            {data.description && (
+            {left.description && (
               <Reveal delay={2}>
                 <Text
                   as="p"
                   className="mt-6 text-[16px] font-normal leading-relaxed text-ink-muted"
                 >
-                  {data.description}
+                  {left.description}
                 </Text>
               </Reveal>
             )}
@@ -91,7 +102,7 @@ export default function ConsultingHero({
               <Reveal delay={3}>
                 <HeroMeta
                   items={HERO_META}
-                  className={cn("mt-6", weightClass, colorClass)}
+                  className={cn("mt-6 tracking-[0.12em]", weightClass, colorClass)}
                 />
               </Reveal>
             )}
@@ -99,7 +110,7 @@ export default function ConsultingHero({
             {/* Action Buttons */}
             <Reveal delay={4}>
               <Box className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                {data.primaryBtnText && (
+                {left.primaryBtnText && (
                   <CtaButton
                     arrow
                     render={
@@ -108,11 +119,11 @@ export default function ConsultingHero({
                       ) : undefined
                     }
                   >
-                    {data.primaryBtnText}
+                    {left.primaryBtnText}
                   </CtaButton>
                 )}
 
-                {data.secondaryBtnText && (
+                {left.secondaryBtnText && (
                   <CtaButton
                     variant="ghost"
                     arrow
@@ -122,7 +133,7 @@ export default function ConsultingHero({
                       ) : undefined
                     }
                   >
-                    {data.secondaryBtnText}
+                    {left.secondaryBtnText}
                   </CtaButton>
                 )}
               </Box>
@@ -135,12 +146,12 @@ export default function ConsultingHero({
           <Box className="min-w-0">
             {rightSideComponent ? (
               rightSideComponent
-            ) : data.learning_system?.items?.length ? (
+            ) : learningSystem?.items?.length ? (
               /* Image 2 Card */
-              <LearningSystemCard data={data.learning_system} />
-            ) : data.skill_matrix?.rows?.length ? (
+              <LearningSystemCard data={learningSystem} />
+            ) : right.skill_matrix?.rows?.length ? (
               /* Image 1 Card */
-              <SkillMatrix data={data.skill_matrix} />
+              <SkillMatrix data={right.skill_matrix} />
             ) : null}
           </Box>
         </Box>

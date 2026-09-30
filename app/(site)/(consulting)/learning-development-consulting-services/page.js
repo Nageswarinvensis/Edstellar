@@ -60,10 +60,8 @@ export default async function LDConsultingPage() {
   return (
     <>
       <ConsultingHero
-        data={cms.tnaHero}
+        data={cms.consulting_Hero}
         breadcrumbItems={cms.breadcrumbs?.items}
-        customWeight="font-normal"
-        customColor="text-ink-muted"
       />
       <ProofStats data={cms.generalProof} />
       <ClientLogos />
@@ -76,7 +74,7 @@ export default async function LDConsultingPage() {
       <LdServices data={cms.services}/>
       <Engagements data={cms.engagement_models}/>
       <WhyUs id="why-edstellar" data={cms.ld_why_edstellar} />
-      <CtaBand data={cms.cta_band} />
+      <CtaBand data={cms.why_cta_banner} />
       <RelatedServices
         id="capability-consulting"
         bgColor="bg-paper-warm"
@@ -90,11 +88,11 @@ export default async function LDConsultingPage() {
         showCta={false}
       />
       <LeadForm
-        id="contact"
+        id="apply"
         background="navy"
         data={{ ...LEAD_FORM_COPY, ...cms.leadForm }}
       />
-      <StickyFooter data={{ ...cms.stickyFooter, email: "hello@edstellar.com" }} />
+      <StickyFooter data={{ ...cms.stickyFooter, email: true }} />
     </>
   );
 }

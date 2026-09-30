@@ -47,7 +47,7 @@ export const DOMAIN_DEFAULTS = {
     ],
   },
   stickyFooter: {
-    email: "contact@edstellar.com",
+    email: true,
     catalog: {
       label: "Catalog",
       href: "#by-topic",

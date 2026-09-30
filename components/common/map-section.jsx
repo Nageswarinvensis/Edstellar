@@ -19,13 +19,12 @@ import { cn } from "@/lib/utils";
  * Fixed regardless of which domain sends `feature.icon` — the icon on each
  * of the eight FEATURE CARDS is chosen by position, not by CMS/content data.
  */
-const FEATURE_ICONS = ["✏️", "⚙️", "🧪", "👤", "👥", "🌐", "🗓️", "📊"];
-
+const FEATURE_ICONS = ["✏️", "⚙️", "🧪", "👤", "🌐", "📊"];
 const APPROACH_ICONS = [MessageCircle, Route, UserCheck, Wrench, Rocket, Award];
 
 const STATS = [
-  { value: "10,000+", label: "EXPERT TRAINERS" },
-  { value: "13+", label: "YEARS DELIVERING" },
+  { value: "5000+", label: "EXPERT TRAINERS" },
+  { value: "5+", label: "YEARS DELIVERING" },
   { value: "1,000+", label: "ORGANIZATIONS TRAINED" },
   {
     value: "ISO 9001",

@@ -20,6 +20,9 @@ const PILL_CLASS =
  * exists to promote. Dismissal is session-only (component state, not storage)
  * since this is a soft nudge, not a persistent preference.
  */
+/** The one enquiry address the bar shows — set here, not per page. */
+const EMAIL = "contact@edstellar.com";
+
 export default function StickyFooter({ data }) {
   const [dismissed, setDismissed] = useState(false);
   const [pastHero, setPastHero] = useState(false);
@@ -36,7 +39,7 @@ export default function StickyFooter({ data }) {
       return;
 
     const hero = document.getElementById("top");
-    // Tolerates a leading `#` — the CMS has sent `"#contact"` for `"contact"`.
+    // Tolerates a leading `#` — the CMS has sent `"#apply"` for `"apply"`.
     const formId = data?.form_anchor_id?.replace(/^#/, "") || "apply";
     const form = document.getElementById(formId);
     const footer = document.getElementById("site-footer");
@@ -159,14 +162,15 @@ export default function StickyFooter({ data }) {
         </Box>
 
         <Box className="flex flex-none items-center gap-3 max-lg:w-full max-lg:justify-center">
+          {/* `email` only switches the pill on; the address is always EMAIL. */}
           {data?.email ? (
             <a
-              href={`mailto:${data.email}`}
-              aria-label={`Email Edstellar at ${data.email}`}
+              href={`mailto:${EMAIL}`}
+              aria-label={`Email Edstellar at ${EMAIL}`}
               className={PILL_CLASS}
             >
               <Mail size={13} strokeWidth={1.8} aria-hidden="true" />
-              {data.email}
+              {EMAIL}
             </a>
           ) : null}
 

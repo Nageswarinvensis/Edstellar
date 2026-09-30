@@ -88,7 +88,7 @@ function StrategyScreen({ screen }) {
               </Text>
             ) : null}
 
-            {row.chips ? (
+            {row.chips?.length ? (
               <Box className="flex flex-wrap gap-1.5">
                 {row.chips.map((chip) => (
                   <Text
@@ -105,7 +105,7 @@ function StrategyScreen({ screen }) {
               </Box>
             ) : null}
 
-            {row.bars ? (
+            {row.bars?.length ? (
               <Box className="flex flex-col gap-2">
                 {row.bars.map((bar) => (
                   <Box key={bar.label} className="flex items-center gap-2.5">

@@ -110,7 +110,24 @@ export default function SkillMatrix({ data }) {
   if (!data?.rows?.length) return null;
 
   const defaultView = data.views?.[0]?.id ?? "gap";
-  const gapLevels = data.gap_levels ?? {};
+
+  // Two shapes, both read as-is. Local content: `gap_levels` keyed by id,
+  // `req_levels` a list, each row's `cells`. The site-pages CMS: `gap_levels`
+  // a list of `{ id, label, value }`, `req_levels` a "1,2,3,4" string, and
+  // flat `col1_gap`/`col1_req`… on each row.
+  const gapLevels = Array.isArray(data.gap_levels)
+    ? Object.fromEntries(data.gap_levels.map(({ id, ...level }) => [id, level]))
+    : (data.gap_levels ?? {});
+  const reqLevels =
+    typeof data.req_levels === "string"
+      ? data.req_levels.split(",").map((level) => Number(level.trim()))
+      : data.req_levels;
+  const cellsOf = (row) =>
+    row.cells ??
+    (data.columns ?? []).map((_, index) => ({
+      gap: row[`col${index + 1}_gap`],
+      req: row[`col${index + 1}_req`],
+    }));
 
   return (
     <Box
@@ -158,7 +175,7 @@ export default function SkillMatrix({ data }) {
           >
             {row.label}
           </Text>,
-          ...row.cells.map((cell, index) => (
+          ...cellsOf(row).map((cell, index) => (
             <Cell
               key={`${row.label}-${index}`}
               row={row.label}
@@ -185,7 +202,7 @@ export default function SkillMatrix({ data }) {
       </Box>
 
       <Box as="ul" className={cn(LEGEND_CLASS, IN_REQ_VIEW)}>
-        {data.req_levels?.map((level) => (
+        {reqLevels?.map((level) => (
           <Box as="li" key={level} className={LEGEND_ITEM}>
             <Box as="span" className={cn("size-4 flex-none rounded-[4px]", REQ_SWATCH[level])} />
             {level}

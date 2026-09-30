@@ -201,7 +201,8 @@ export default function StickyTabs({ data, hasTrainers }) {
                   arrow
                   render={
                     <a
-                      href={`#${data.cta.targetId || "form"}`}
+                      // Tolerates a leading `#` — the CMS sends both `apply` and `#apply`.
+                      href={`#${(data.cta.targetId || "form").replace(/^#/, "")}`}
                       onClick={scrollToHash}
                     />
                   }

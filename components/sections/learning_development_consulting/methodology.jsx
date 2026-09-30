@@ -12,10 +12,18 @@ export default function Methodology({ data }) {
 
   if (!content) return null;
 
-  // Unified CTA data extractor with showSoftCta check
-  const ctaData =
-    content.showSoftCta !== false &&
-    (content.softCtaData || content.softCta || content.soft_cta || content.ctaCard);
+  // The soft CTA under the steps. The site-pages CMS sends it as a one-entry
+  // `cta` list (`heading`, `description`, `btn_label`, `href`, `showSoftCta`);
+  // local content as `softCtaData` in LdSoftCta's own shape.
+  const cmsCta = Array.isArray(content.cta) ? content.cta[0] : null;
+  const ctaData = cmsCta
+    ? cmsCta.showSoftCta !== false && {
+        heading: cmsCta.heading,
+        description: cmsCta.description,
+        cta: { label: cmsCta.btn_label, href: cmsCta.href },
+      }
+    : content.showSoftCta !== false &&
+      (content.softCtaData || content.softCta || content.soft_cta || content.ctaCard);
 
   return (
     <Section id={content.section_id || "how-we-work"} className="bg-white border-y border-[#0a16281f]">

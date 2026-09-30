@@ -9,18 +9,17 @@ import CtaButton from "@/components/common/cta-button";
 import { cn } from "@/lib/utils";
 
 export default function LandDCTA({ data, emphasisClassName }) {
-  // Support passing either data directly OR data.landdctaData wrapper
-  const ctaData = data?.landdctaData || data || {};
+  const ctaData = data || {};
 
   if (!ctaData.heading && !ctaData.description) return null;
 
-  const sectionId = ctaData.sectionId || "assessment";
+  const sectionId = "assessment";
 
-  // Build button object from JSON data or set fallback
+  // Field names are the CMS `ld_cta` component's own.
   const button = {
-    text: ctaData.buttonText || ctaData.button?.text || "Start the free 5-minute assessment",
-    href: ctaData.buttonHref || ctaData.button?.href || "#assessment",
-    showArrow: ctaData.button?.showArrow ?? true,
+    text: ctaData.button_text,
+    href: ctaData.button_href || "#apply",
+    showArrow: true,
   };
 
   return (

@@ -1,82 +1,157 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import {
-  Target,
-  BookOpen,
-  Monitor,
-  TrendingUp,
-  Users,
-  SlidersHorizontal,
-  LayoutGrid,
-  Route,
-  ChartLine,
-} from "lucide-react";
 
-// Map Lucide components directly to keys
-const ICON_MAP = {
-  strategy: Target,
-  content: BookOpen,
-  technology: Monitor,
-  governance: TrendingUp,
-  delivery: Users,
-  "operating-model": SlidersHorizontal,
-  framework: LayoutGrid,
-  pathway: Route,
-  measurement: ChartLine,
+/*
+ * The hero's right-hand "learning system" card on the L&D hub, its sub-pages
+ * and managed training. Each row's icon is picked by `item.icon`, else by its
+ * title (lower-cased, spaces to dashes); an unknown key gets the target.
+ *
+ * The icons are the designs' own strokes, not a library set — so each page
+ * shows exactly what its design draws.
+ *
+ * Design: `.ld-model`, `.ld-model-lab`, `.ls-list`, `.ls-ic`, `.ls-t`, `.ls-note`.
+ */
+
+const ICON_PATHS = {
+  strategy: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="4.2" />
+    </>
+  ),
+  content: (
+    <>
+      <path d="M5 4a2 2 0 0 1 2-2h8v18H7a2 2 0 0 0-2 2z" />
+      <path d="M15 2h4v18" />
+    </>
+  ),
+  technology: (
+    <>
+      <rect x="3" y="4" width="18" height="13" rx="2" />
+      <path d="M8 21h8M12 17v4" />
+    </>
+  ),
+  measurement: (
+    <>
+      <path d="M3 3v18h18" />
+      <path d="M7 14l3-3 3 3 4-5" />
+    </>
+  ),
+  delivery: (
+    <>
+      <circle cx="9" cy="8" r="3" />
+      <path d="M15.5 11a3 3 0 1 0-2.5-4.5" />
+      <path d="M3.5 20a5.5 5.5 0 0 1 11 0" />
+      <path d="M16 20a5.5 5.5 0 0 0-3-4.9" />
+    </>
+  ),
+  "operating-model": (
+    <>
+      <path d="M4 6h16M4 12h16M4 18h16" />
+      <circle cx="8" cy="6" r="2" className="fill-lime-soft" />
+      <circle cx="16" cy="12" r="2" className="fill-lime-soft" />
+      <circle cx="9" cy="18" r="2" className="fill-lime-soft" />
+    </>
+  ),
+  framework: (
+    <>
+      <rect x="3" y="3" width="7" height="7" rx="1.5" />
+      <rect x="14" y="3" width="7" height="7" rx="1.5" />
+      <rect x="3" y="14" width="7" height="7" rx="1.5" />
+      <rect x="14" y="14" width="7" height="7" rx="1.5" />
+    </>
+  ),
+  pathway: (
+    <>
+      <circle cx="6" cy="19" r="2" />
+      <circle cx="18" cy="5" r="2" />
+      <path d="M8 19h6a4 4 0 0 0 0-8h-4a4 4 0 0 1 0-8h6" />
+    </>
+  ),
 };
 
+// Rows the designs draw with an icon from the set above: the hub's
+// "Governance" chart, and managed training's four engagement models.
+Object.assign(ICON_PATHS, {
+  governance: ICON_PATHS.measurement,
+  advisory: ICON_PATHS["operating-model"],
+  selective: ICON_PATHS.framework,
+  managed: ICON_PATHS.pathway,
+  "end-to-end": ICON_PATHS.measurement,
+});
+
+const titleOf = (item) => item.title;
+
+function iconFor(item) {
+  const key = item.icon || titleOf(item)?.toLowerCase().trim().replace(/\s+/g, "-");
+  return ICON_PATHS[key] ?? ICON_PATHS.strategy;
+}
+
 export default function LearningSystemCard({ data }) {
+  if (!data) return null;
+
   // `footer_text` is the site-pages CMS field; `footerText` the local-content one.
   const footerText = data.footer_text || data.footerText;
 
-  if (!data) return null;
-
   return (
-    <Box 
-      className="w-full rounded-xl bg-white p-[26px_28px] border [border-color:rgba(10,22,40,0.12)] shadow-[0_2px_4px_rgba(10,22,40,0.08),0_18px_40px_rgba(10,22,40,0.12)]"
+    <Box
+      as="aside"
+      aria-label={data.title}
+      className="w-full rounded-[14px] border border-ink/12 bg-white px-7 py-[26px] shadow-lift"
     >
-      {/* Title */}
-      {data.title && (
-        <Text as="h3" className="text-[16px] font-bold tracking-tight text-ink">
+      {data.title ? (
+        <Text
+          as="p"
+          className="mb-4 font-display text-[14px] leading-[1.7] font-bold text-ink"
+        >
           {data.title}
         </Text>
-      )}
+      ) : null}
 
-      {/* List Items */}
-      <Box className="mt-4.5 flex flex-col gap-3.5">
-        {data.items?.map((item, index) => {
-          const iconKey = item.icon || item.title?.toLowerCase();
-          const IconComponent = ICON_MAP[iconKey] || Target;
-
-          return (
-            <Box key={index} className="flex items-center gap-3">
-              {/* Rounded Lime Square Icon Container */}
-              <Box className="flex size-10 flex-none items-center justify-center rounded-lg bg-lime-soft">
-                <IconComponent className="size-5 text-ink" strokeWidth={1.75} />
-              </Box>
-
-              {/* Text Group */}
-              <Box className="flex flex-col">
-                <Text className="text-[14px] font-bold leading-tight text-ink">
-                  {item.title}
-                </Text>
-                <Text className="mt-0.5 text-[12px] leading-normal text-[#64748b]">
-                  {item.description}
-                </Text>
-              </Box>
+      <Box as="ul" className="m-0 flex list-none flex-col gap-3.5 p-0">
+        {data.items?.map((item, index) => (
+          <Box as="li" key={titleOf(item) ?? index} className="flex items-center gap-[13px]">
+            <Box
+              as="span"
+              className="flex size-[38px] flex-none items-center justify-center rounded-[10px] bg-lime-soft text-navy"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                className="size-5"
+              >
+                {iconFor(item)}
+              </svg>
             </Box>
-          );
-        })}
+
+            <Box>
+              <Text
+                as="span"
+                className="block font-display text-[15px] leading-[1.2] font-bold tracking-[-0.01em] text-ink"
+              >
+                {titleOf(item)}
+              </Text>
+              <Text as="span" className="mt-px block text-[12px] leading-[1.7] text-ink/60">
+                {item.description}
+              </Text>
+            </Box>
+          </Box>
+        ))}
       </Box>
 
-      {/* Footer Divider & Text */}
-      {footerText && (
-        <Box className="mt-4 border-t border-slate-200/70 pt-3 text-center">
-          <Text className="text-[12px] text-[#64748b]">
-            {footerText}
-          </Text>
-        </Box>
-      )}
+      {footerText ? (
+        <Text
+          as="p"
+          className="mt-4 border-t border-ink/12 pt-3.5 text-center text-[12px] leading-[1.7] text-ink/60"
+        >
+          {footerText}
+        </Text>
+      ) : null}
     </Box>
   );
 }

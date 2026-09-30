@@ -113,7 +113,7 @@ export default async function LearningDevelopmentServicePage({ params }) {
         return render ? <Fragment key={key}>{render(service[key])}</Fragment> : null;
       })}
 
-      <LeadForm id="contact" background="navy" data={service.leadFormData} />
+      <LeadForm id="apply" background="navy" data={service.leadFormData} />
       <StickyFooter data={service.stickyFooter} />
     </>
   );

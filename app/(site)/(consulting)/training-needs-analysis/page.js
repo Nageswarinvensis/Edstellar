@@ -56,7 +56,7 @@ export default async function TrainingNeedsAnalysisPage() {
   return (
     <>
       <ConsultingHero
-        data={tna.tnaHero}
+        data={tna.consulting_Hero}
         breadcrumbItems={tna.breadcrumbs?.items}
       />
       <DomainInfo proof={tna.generalProof} layout="spread" />
@@ -80,11 +80,11 @@ export default async function TrainingNeedsAnalysisPage() {
         showCta={false}
       />
       <LeadForm
-        id="contact"
+        id="apply"
         background="navy"
         data={{ ...LEAD_FORM_COPY, ...tna.leadForm }}
       />
-      <StickyFooter data={{ ...tna.stickyFooter, email: "contact@edstellar.com" }} />
+      <StickyFooter data={{ ...tna.stickyFooter, email: true }} />
     </>
   );
 }
