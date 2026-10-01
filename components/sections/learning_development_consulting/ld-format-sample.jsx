@@ -15,6 +15,9 @@ import Text from "@/components/ui/Text";
  * Design: `.fmt-sample`, `.smodal`, `.smodal-box`, `.smodal-stage`.
  */
 export default function LdFormatSample({ name, label, dialog }) {
+  // No dialog copy, no button — rather than a crash that 500s the page.
+  if (!dialog) return null;
+
   return (
     <Dialog.Root>
       <Dialog.Trigger

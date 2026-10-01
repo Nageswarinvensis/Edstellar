@@ -17,8 +17,9 @@ import { cn } from "@/lib/utils";
  * so browser zoom and page padding are accounted for. That is the narrowest
  * width the row fits with a "24-40" hours range, and only because the
  * delivery formats line may wrap. Below it the four stats keep their row
- * from `lg` and the CTAs drop beneath them; 2×2 on tablets, stacked on
- * phones.
+ * from `lg`, each centred, with the CTAs centred beneath them. Below `lg`
+ * the icons shrink: 2×2 on tablets; on phones hours and modules (icon
+ * beside value) share a row above full-width delivery and trainers.
  */
 
 /* A stat cell. Divided by a hairline whenever the stats sit in a row. */
@@ -26,6 +27,8 @@ const CELL_CLASS = cn(
   "flex min-h-14 min-w-0 items-center gap-2.5",
   "lg:flex-auto lg:border-l lg:border-paper/25 lg:px-3.5",
   "lg:first:border-l-0 lg:first:pl-0",
+  "justify-center @min-[1170px]:justify-start",
+  "max-sm:flex-col max-sm:text-center",
 );
 
 function IconBadge({ icon: Icon }) {
@@ -33,19 +36,26 @@ function IconBadge({ icon: Icon }) {
     <Box
       as="span"
       aria-hidden="true"
-      className="grid size-10 flex-none place-items-center rounded-full bg-lime/15 text-lime"
+      className="grid size-10 flex-none place-items-center rounded-full bg-lime/15 text-lime max-lg:size-8"
     >
-      <Icon size={19} strokeWidth={1.8} />
+      <Icon size={19} strokeWidth={1.8} className="max-lg:size-4" />
     </Box>
   );
 }
+
+/* Hours and modules keep the icon beside the value even on phones, where
+   the other cells stack it on top. */
+const NUMBER_CELL_CLASS = cn(
+  CELL_CLASS,
+  "max-sm:flex-row max-sm:gap-2 max-sm:text-left",
+);
 
 const NUMBER_CLASS =
   "font-display text-[28px] leading-none font-bold tracking-[-0.04em] whitespace-nowrap text-paper";
 
 function HoursStat({ value }) {
   return (
-    <Box className={CELL_CLASS}>
+    <Box className={NUMBER_CELL_CLASS}>
       <IconBadge icon={Clock} />
 
       <Box className="flex items-end gap-2">
@@ -74,7 +84,7 @@ function HoursStat({ value }) {
 
 function ModulesStat({ value }) {
   return (
-    <Box className={CELL_CLASS}>
+    <Box className={NUMBER_CELL_CLASS}>
       <IconBadge icon={FileText} />
 
       <Box className="flex flex-col gap-1">
@@ -94,7 +104,7 @@ function ModulesStat({ value }) {
 
 function DeliveryStat({ delivery }) {
   return (
-    <Box className={CELL_CLASS}>
+    <Box className={cn(CELL_CLASS, "max-sm:col-span-2")}>
       <IconBadge icon={Monitor} />
 
       <Box className="flex flex-col">
@@ -126,7 +136,11 @@ function TrainersStat({ trainers }) {
 
   return (
     <Box
-      className={cn(CELL_CLASS, "flex-col items-start justify-center gap-2")}
+      className={cn(
+        CELL_CLASS,
+        "flex-col items-center justify-center gap-2 max-sm:col-span-2",
+        "@min-[1170px]:items-start",
+      )}
     >
       <Box className="flex items-center gap-2.5">
         {photo && (
@@ -255,7 +269,8 @@ function CourseInfoStrip({ stats = [], delivery, trainers, actions = [] }) {
       >
         <Box
           className={cn(
-            "grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2",
+            "grid grid-cols-2 gap-x-6 gap-y-5",
+            "max-sm:grid-cols-[auto_auto] max-sm:justify-evenly max-sm:gap-x-3",
             "lg:flex lg:items-center lg:gap-0",
             "@min-[1170px]:flex-1",
           )}
@@ -270,7 +285,7 @@ function CourseInfoStrip({ stats = [], delivery, trainers, actions = [] }) {
           <Box
             className={cn(
               "flex flex-none items-center gap-2.5",
-              "border-t border-paper/15 pt-5 lg:justify-end",
+              "justify-center border-t border-paper/15 pt-5",
               "@min-[1170px]:min-h-14 @min-[1170px]:border-t-0 @min-[1170px]:border-l",
               "@min-[1170px]:border-paper/25 @min-[1170px]:pt-0 @min-[1170px]:pl-3.5",
               "max-sm:flex-col max-sm:items-stretch",

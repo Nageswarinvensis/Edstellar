@@ -5,6 +5,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import LdSoftCta from "@/components/common/ld-soft-cta";
 import LdFormatSample from "./ld-format-sample";
 
 // Share of the table width per column, in `columns` order.
@@ -69,7 +70,11 @@ function InteractivityLevels({ data }) {
 export default function LdFormats({ data }) {
   if (!data?.groups?.length) return null;
 
-  const { section_id, heading, description, columns, sample_label, groups, interactivity, sample_dialog } = data;
+  const { section_id, heading, description, columns, sample_label, groups, interactivity, sample_dialog, CTA } = data;
+
+  // The CMS sends the closing soft CTA as a one-entry `CTA` list
+  // (`heading`, `description`, `btn_label`, `btn_link`).
+  const cta = Array.isArray(CTA) ? CTA[0] : null;
 
   return (
     <Section id={section_id} className="scroll-mt-20 border-t border-ink/12 bg-paper-warm">
@@ -166,6 +171,18 @@ export default function LdFormats({ data }) {
         <Reveal delay={3}>
           <InteractivityLevels data={interactivity} />
         </Reveal>
+      ) : null}
+
+      {cta?.heading ? (
+        <Box className="mt-12 sm:mt-16">
+          <LdSoftCta
+            data={{
+              heading: cta.heading,
+              description: cta.description,
+              cta: { label: cta.btn_label, href: cta.btn_link },
+            }}
+          />
+        </Box>
       ) : null}
     </Section>
   );
