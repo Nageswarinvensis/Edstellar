@@ -31,24 +31,49 @@ import StickyFooter from "@/components/common/sticky-footer";
 const PILLAR = "learning-development-consulting-services";
 
 /**
+ * Section order for the sub-pages served entirely from the CMS (the design's
+ * order — the CMS `sort_order` does not match it). A section the CMS does not
+ * send is skipped. Pages with a local file carry their own `sections`.
+ */
+const CMS_PAGE_SECTIONS = {
+  "learning-strategy-design-consulting": [
+    "challengeData",
+    "offeringData",
+    "readinessData",
+    "blueprintData",
+    "methodData",
+    "whyEdstellarData",
+    "whyCtaData",
+    "faqData",
+    "relatedData",
+  ],
+};
+
+/**
  * The middle of every L&D sub-page, by record key. Each record's `sections`
  * lists which of these it carries and in what order (TASTE.md §6.3); a
  * section whose data is absent renders nothing.
  */
 const SECTIONS = {
-  challengeData: (data) => <LdChallenge data={data} />,
+  challengeData: (data) => (
+    <LdChallenge data={data && { ...data, section_id: data.section_id ?? "challenge" }} />
+  ),
   readinessData: (data) => (
     <Readiness id={data?.section_id ?? "readiness"} data={data} />
   ),
-  offeringData: (data) => <LdOffering data={data} />,
+  offeringData: (data) => (
+    <LdOffering data={data && { ...data, section_id: data.section_id ?? "offering" }} />
+  ),
   formatsData: (data) => <LdFormats data={data} />,
   blueprintCtaData: (data) => <LdSoftCta data={data} />,
   platformsData: (data) => <LdPlatforms data={data} />,
   blueprintData: (data) => (
-    <LdBlueprint data={data} narrow={!data?.full_width} />
+    <LdBlueprint data={data && { ...data, section_id: data.section_id ?? "blueprint" }} />
   ),
   methodData: (data) => <Methodology data={data} />,
-  frameworksData: (data) => <LdFrameworks data={data} />,
+  frameworksData: (data) => (
+    <LdFrameworks data={data && { ...data, section_id: data.section_id ?? "frameworks" }} />
+  ),
   whyEdstellarData: (data) => (
     <WhyUs id={data?.section_id ?? "why-us"} data={data} />
   ),
@@ -116,7 +141,7 @@ export default async function LearningDevelopmentServicePage({ params }) {
       <ClientLogos />
       <StickyTabs data={service.stickyNavbarData} />
 
-      {service.sections?.map((key) => {
+      {(service.sections ?? CMS_PAGE_SECTIONS[slug])?.map((key) => {
         const render = SECTIONS[key];
         return render ? (
           <Fragment key={key}>{render(service[key])}</Fragment>

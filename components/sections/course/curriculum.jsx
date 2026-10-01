@@ -231,12 +231,8 @@ export default function Curriculum({ curriculum }) {
 
       {method ? (
         <Reveal delay={2}>
-          <Box
-            className={[
-              "mt-1.5 mb-7.5 grid grid-cols-1 gap-6 rounded-2xl border border-ink/12 bg-white p-6.5 max-sm:p-5",
-              "lg:grid-cols-[1fr_0.46fr] lg:items-stretch",
-            ].join(" ")}
-          >
+          <Box className="mt-1.5 mb-7.5 rounded-2xl border border-ink/12 bg-white p-6.5 max-sm:p-5">
+            {/* Row 1, full width: the steps and the time split across them. */}
             <Box>
               <Box className="flex flex-wrap items-start gap-3.5 max-md:flex-col md:gap-5">
                 {method.steps?.map((step, index) => {
@@ -339,120 +335,125 @@ export default function Curriculum({ curriculum }) {
                       </Box>
                     ))}
                   </Box>
-
-                  {method.note ? (
-                    <Box className="mt-4.5 flex items-center gap-3.25 rounded-xl bg-[#f2f6fb] px-4 py-3.5">
-                      <Lightbulb
-                        size={20}
-                        strokeWidth={1.9}
-                        className="flex-none text-[#2563eb]"
-                        aria-hidden="true"
-                      />
-                      <Text
-                        as="p"
-                        className="text-[13px] leading-[1.55] text-ink/80"
-                      >
-                        <BoldLead text={method.note} />
-                      </Text>
-                    </Box>
-                  ) : null}
-                </Box>
-              ) : null}
-
-              {method.formats?.length ? (
-                <Box className="mt-5.5 border-t border-ink/12 pt-4.5">
-                  <Text
-                    as="p"
-                    className="mb-2.75 font-mono text-[10.5px] tracking-[0.16em] text-ink/60 uppercase"
-                  >
-                    Delivered as
-                  </Text>
-
-                  <Box className="flex flex-wrap gap-1">
-                    {/* `formats` is the static, local set of delivery-shape
-                        pills; the lab/capstone/hours pills that follow are
-                        `meta` reworded as chips (see `META_PILL_FIELDS`). */}
-                    {method.formats.map((item, index) => {
-                      const label =
-                        typeof item === "object" ? item.label : item;
-                      const IconFromApi =
-                        typeof item === "object"
-                          ? DELIVERY_ICON_MAP[item.icon]
-                          : null;
-                      const baseMeta =
-                        FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0];
-                      const chipMeta = IconFromApi
-                        ? { ...baseMeta, icon: IconFromApi }
-                        : baseMeta;
-                      return (
-                        <MethodChip key={label} meta={chipMeta}>
-                          {label}
-                        </MethodChip>
-                      );
-                    })}
-
-                    {!method.formats_complete &&
-                      META_PILL_FIELDS.map((field, index) => {
-                        const metaItem = meta?.find(
-                          (item) => item.label === field.label,
-                        );
-                        if (!metaItem) return null;
-
-                        return (
-                          <MethodChip
-                            key={field.label}
-                            meta={
-                              SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]
-                            }
-                          >
-                            {field.format(metaItem.value)}
-                          </MethodChip>
-                        );
-                      })}
-                  </Box>
-
-                  {method.summary_note ? (
-                    <Text as="p" className="mt-3 text-[12.5px] text-ink/60">
-                      <BoldLead text={method.summary_note} />
-                    </Text>
-                  ) : null}
-                </Box>
-              ) : null}
-
-              {method.tools?.length ? (
-                <Box className="mt-5.5 border-t border-ink/12 pt-5">
-                  <Text
-                    as="p"
-                    className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink"
-                  >
-                    {method.tools_label}
-                  </Text>
-
-                  <Box className="mt-3 flex flex-wrap gap-2">
-                    {method.tools.map((tool) => (
-                      <Text
-                        key={tool}
-                        as="span"
-                        className="rounded-full bg-paper-warm px-3.5 py-1.5 text-[12.5px] font-medium text-ink"
-                      >
-                        {tool}
-                      </Text>
-                    ))}
-                  </Box>
                 </Box>
               ) : null}
             </Box>
 
-            {/* Static — the same photo on every course; the CMS has no
-                field for it. */}
-            <Box className="relative hidden overflow-hidden rounded-[18px] bg-paper-cream lg:block">
-              <Image
-                src={METHOD_IMAGE.src}
-                alt={METHOD_IMAGE.alt}
-                fill
-                sizes="280px"
-                className="object-cover"
-              />
+            {/* Row 2: the note and the delivery formats beside the photo. */}
+            <Box className="mt-6 grid grid-cols-1 gap-6 border-t border-ink/12 pt-5.5 lg:grid-cols-[1fr_0.46fr] lg:items-stretch">
+              <Box>
+                {method.note ? (
+                  <Box className="flex items-center gap-3.25 rounded-xl bg-[#f2f6fb] px-4 py-3.5">
+                    <Lightbulb
+                      size={20}
+                      strokeWidth={1.9}
+                      className="flex-none text-[#2563eb]"
+                      aria-hidden="true"
+                    />
+                    <Text
+                      as="p"
+                      className="text-[13px] leading-[1.55] text-ink/80"
+                    >
+                      <BoldLead text={method.note} />
+                    </Text>
+                  </Box>
+                ) : null}
+
+                {method.formats?.length ? (
+                  <Box className="mt-5.5 border-t border-ink/12 pt-4.5 first:mt-0 first:border-t-0 first:pt-0">
+                    <Text
+                      as="p"
+                      className="mb-2.75 font-mono text-[10.5px] tracking-[0.16em] text-ink/60 uppercase"
+                    >
+                      Delivered as
+                    </Text>
+
+                    <Box className="flex flex-wrap gap-1">
+                      {/* `formats` is the static, local set of delivery-shape
+                        pills; the lab/capstone/hours pills that follow are
+                        `meta` reworded as chips (see `META_PILL_FIELDS`). */}
+                      {method.formats.map((item, index) => {
+                        const label =
+                          typeof item === "object" ? item.label : item;
+                        const IconFromApi =
+                          typeof item === "object"
+                            ? DELIVERY_ICON_MAP[item.icon]
+                            : null;
+                        const baseMeta =
+                          FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0];
+                        const chipMeta = IconFromApi
+                          ? { ...baseMeta, icon: IconFromApi }
+                          : baseMeta;
+                        return (
+                          <MethodChip key={label} meta={chipMeta}>
+                            {label}
+                          </MethodChip>
+                        );
+                      })}
+
+                      {!method.formats_complete &&
+                        META_PILL_FIELDS.map((field, index) => {
+                          const metaItem = meta?.find(
+                            (item) => item.label === field.label,
+                          );
+                          if (!metaItem) return null;
+
+                          return (
+                            <MethodChip
+                              key={field.label}
+                              meta={
+                                SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]
+                              }
+                            >
+                              {field.format(metaItem.value)}
+                            </MethodChip>
+                          );
+                        })}
+                    </Box>
+
+                    {method.summary_note ? (
+                      <Text as="p" className="mt-3 text-[12.5px] text-ink/60">
+                        <BoldLead text={method.summary_note} />
+                      </Text>
+                    ) : null}
+                  </Box>
+                ) : null}
+
+                {method.tools?.length ? (
+                  <Box className="mt-5.5 border-t border-ink/12 pt-5 first:mt-0 first:border-t-0 first:pt-0">
+                    <Text
+                      as="p"
+                      className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink"
+                    >
+                      {method.tools_label}
+                    </Text>
+
+                    <Box className="mt-3 flex flex-wrap gap-2">
+                      {method.tools.map((tool) => (
+                        <Text
+                          key={tool}
+                          as="span"
+                          className="rounded-full bg-paper-warm px-3.5 py-1.5 text-[12.5px] font-medium text-ink"
+                        >
+                          {tool}
+                        </Text>
+                      ))}
+                    </Box>
+                  </Box>
+                ) : null}
+              </Box>
+
+              {/* Static — the same photo on every course; the CMS has no
+                  field for it. */}
+              <Box className="relative hidden min-h-55 overflow-hidden rounded-[18px] bg-paper-cream lg:block">
+                <Image
+                  src={METHOD_IMAGE.src}
+                  alt={METHOD_IMAGE.alt}
+                  fill
+                  sizes="280px"
+                  className="object-cover"
+                />
+              </Box>
             </Box>
           </Box>
         </Reveal>

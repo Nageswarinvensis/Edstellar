@@ -1,11 +1,12 @@
 import Box from "@/components/ui/Box";
 import Reveal from "@/components/common/reveal";
-import ProofBar from "@/components/common/proof-bar";
+import CourseInfoStrip from "@/components/sections/course/course-info-strip";
 import CapabilityModel from "@/components/sections/course/capability-model";
 
-const DELIVERY_STAT = {
-  value: "Delivery",
-  label: "Instructor-led (onsite/virtual/hybrid)",
+const DELIVERY = {
+  title: "Delivery",
+  mode: "Instructor-led",
+  formats: "(Onsite / Virtual / Hybrid)",
 };
 
 const GROUP_QUOTE = {
@@ -22,12 +23,6 @@ const TRAINERS_STATIC = {
 
 function CourseInfo({ proof, capabilityModel }) {
   const topic_tags = proof?.topic_tags ?? [];
-  const stats = proof
-    ? [
-        ...(proof.stats ?? []).filter((stat) => stat.value !== "Delivery"),
-        DELIVERY_STAT,
-      ]
-    : [];
   const trainers = proof?.trainers && {
     ...proof.trainers,
     ...TRAINERS_STATIC,
@@ -39,9 +34,9 @@ function CourseInfo({ proof, capabilityModel }) {
         <CapabilityModel data={capabilityModel} />
 
         <Reveal delay={4}>
-          <ProofBar
-            tone={proof?.tone || "dark"}
-            stats={stats}
+          <CourseInfoStrip
+            stats={proof?.stats}
+            delivery={proof && DELIVERY}
             trainers={trainers}
             actions={proof?.actions}
           />

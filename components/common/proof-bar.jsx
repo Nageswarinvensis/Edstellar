@@ -13,6 +13,22 @@ const LIGHT_VALUE_CLASS = cn(
   "max-sm:text-[20px]",
 );
 
+/**
+ * A stat's label. "Hours" is an estimate, so it gets "(approx.)" in the
+ * serif accent (Cormorant Garamond), outside the label's mono caps.
+ */
+function StatLabel({ label }) {
+  if (label?.trim().toLowerCase() !== "hours") return label;
+  return (
+    <>
+      {label}{" "}
+      <span className="font-serif text-[12px] tracking-normal normal-case italic">
+        (approx.)
+      </span>
+    </>
+  );
+}
+
 const LIGHT_LABEL_CLASS = cn(
   "font-mono uppercase",
   "text-[10px]",
@@ -99,7 +115,9 @@ function ProofBar({
               <Box className="flex min-w-0 flex-col gap-1.5">
                 <b className={LIGHT_VALUE_CLASS}>{stat.value}</b>
 
-                <span className={LIGHT_LABEL_CLASS}>{stat.label}</span>
+                <span className={LIGHT_LABEL_CLASS}>
+                  <StatLabel label={stat.label} />
+                </span>
               </Box>
             </Box>
           ))}
@@ -162,7 +180,7 @@ function ProofBar({
               {stat.value}
             </b>
             <span className="font-mono text-[10px] leading-[1.7] tracking-[0.14em] text-paper/55 uppercase">
-              {stat.label}
+              <StatLabel label={stat.label} />
             </span>
           </Box>
         ))}
@@ -216,7 +234,7 @@ function ProofBar({
                   "text-paper/55",
                 )}
               >
-                {stat.label}
+                <StatLabel label={stat.label} />
               </span>
             </Box>
 

@@ -43,10 +43,11 @@ export default function ConsultingHero({
   const left = data.heroLeft ?? data;
   const right = data.heroRight ?? data;
 
-  // A CMS list-type field arrives as a one-entry list; local content sends the object.
-  const learningSystem = Array.isArray(right.learning_system)
-    ? right.learning_system[0]
-    : right.learning_system;
+  // A CMS list-type field arrives as a one-entry list; local content sends the
+  // object. A CMS card with no items yet falls back to the page's own card.
+  const firstOf = (value) => (Array.isArray(value) ? value[0] : value);
+  const cmsCard = firstOf(right.learning_system);
+  const learningSystem = cmsCard?.items?.length ? cmsCard : firstOf(data.learning_system);
 
   // `…BtnLink` is the site-pages CMS field; `…BtnHref` the local-content one.
   const primaryHref = left.primaryBtnLink || left.primaryBtnHref;

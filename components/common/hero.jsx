@@ -14,8 +14,8 @@ import RichHeading from "@/components/common/rich-heading";
  * their own hero — components/sections/blog/common/listing-hero.jsx).
  *
  * Adds the topic pill rail, the dark proof bar, and the multi-program
- * group-quote prompt. The proof bar tone is always dark on the course page —
- * hardcoded in `CourseInfo`, not read from CMS's `proof.tone`.
+ * group-quote prompt. The course page renders its info strip with
+ * `CourseInfoStrip` (always dark); the domain page uses `ProofBar`.
  *
  * Design: `header.hero` on the course page.
  */

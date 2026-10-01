@@ -17,9 +17,17 @@ export default function LdBlueprint({ data }) {
     layers,
   } = data;
 
-  // Unified CTA data extractor matching Transform component
-  const ctaData =
-    data.softCtaData || data.softCta || data.soft_cta || data.ctaCard;
+  // The soft CTA under the track. The site-pages CMS sends it as a one-entry
+  // `cta` list (`heading`, `description`, `btn_label`, `btn_link`); local
+  // content as `softCtaData` in LdSoftCta's own shape.
+  const cmsCta = Array.isArray(data.cta) ? data.cta[0] : null;
+  const ctaData = cmsCta
+    ? {
+        heading: cmsCta.heading,
+        description: cmsCta.description,
+        cta: { label: cmsCta.btn_label, href: cmsCta.btn_link },
+      }
+    : data.softCtaData || data.softCta || data.soft_cta || data.ctaCard;
 
   return (
     <Section id={section_id} className="border-t border-ink/12 bg-paper">
