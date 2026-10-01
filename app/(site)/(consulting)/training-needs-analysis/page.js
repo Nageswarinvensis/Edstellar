@@ -23,15 +23,6 @@ export const revalidate = 3600;
 
 const CMS_SLUG = "training-needs-analysis";
 
-// Lead-form copy the CMS `leadForm` component does not carry. Anything the
-// CMS does send wins over these.
-const LEAD_FORM_COPY = {
-  requirements_label: "Your requirements",
-  requirements_placeholder: "Tell us about your team: size, roles in scope, timing, and the outcomes you are trying to move.",
-  thanks_heading: "Request received.",
-  thanks_body: "Thanks. A specialist will reply within one business day with a scoped response.",
-};
-
 export async function generateMetadata() {
   const tna = await getSitePage(CMS_SLUG);
   if (!tna) return {};
@@ -82,7 +73,7 @@ export default async function TrainingNeedsAnalysisPage() {
       <LeadForm
         id="apply"
         background="navy"
-        data={{ ...LEAD_FORM_COPY, ...tna.leadForm }}
+        data={tna.leadForm}
       />
       <StickyFooter data={{ ...tna.stickyFooter, email: true }} />
     </>

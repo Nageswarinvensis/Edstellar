@@ -158,15 +158,6 @@ function BoldLead({ text }) {
   });
 }
 
-/**
- * Course curriculum — heading, the review badge, the Learn / Practice
- * / Apply method breakdown, and the filterable module accordion.
- *
- * Design: `section#curriculum.block.section`, `.cur-head`, `.cur-method`,
- * `.rev-badge`, `.sec-cta`. The reviewed-by avatar strip is not reproduced —
- * it borrows the hero's trainer roster, and this section only receives its
- * own data.
- */
 export default function Curriculum({ curriculum }) {
   if (!curriculum?.modules?.length) return null;
 
@@ -382,10 +373,17 @@ export default function Curriculum({ curriculum }) {
                         pills; the lab/capstone/hours pills that follow are
                         `meta` reworded as chips (see `META_PILL_FIELDS`). */}
                     {method.formats.map((item, index) => {
-                      const label = typeof item === "object" ? item.label : item;
-                      const IconFromApi = typeof item === "object" ? DELIVERY_ICON_MAP[item.icon] : null;
-                      const baseMeta = FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0];
-                      const chipMeta = IconFromApi ? { ...baseMeta, icon: IconFromApi } : baseMeta;
+                      const label =
+                        typeof item === "object" ? item.label : item;
+                      const IconFromApi =
+                        typeof item === "object"
+                          ? DELIVERY_ICON_MAP[item.icon]
+                          : null;
+                      const baseMeta =
+                        FORMAT_CHIP_META[index] || FORMAT_CHIP_META[0];
+                      const chipMeta = IconFromApi
+                        ? { ...baseMeta, icon: IconFromApi }
+                        : baseMeta;
                       return (
                         <MethodChip key={label} meta={chipMeta}>
                           {label}
@@ -403,7 +401,9 @@ export default function Curriculum({ curriculum }) {
                         return (
                           <MethodChip
                             key={field.label}
-                            meta={SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]}
+                            meta={
+                              SUMMARY_PILL_META[index] || SUMMARY_PILL_META[0]
+                            }
                           >
                             {field.format(metaItem.value)}
                           </MethodChip>

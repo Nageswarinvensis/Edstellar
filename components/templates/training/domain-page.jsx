@@ -1,5 +1,3 @@
-import TickerBar from "@/components/layout/ticker-bar";
-
 import Hero from "@/components/common/hero";
 import DomainInfo from "@/components/sections/domain/domain-info";
 import ClientLogos from "@/components/common/client-logos";
@@ -40,7 +38,6 @@ export default function DomainPage({ domain }) {
 
   return (
     <>
-      <TickerBar />
       <Hero hero={domain.hero} breadcrumbs={domain.breadcrumbs} />
       <DomainInfo groupQuote={domain.hero?.group_quote} proof={domain.proof} />
       <ClientLogos />

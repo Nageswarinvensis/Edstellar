@@ -6,11 +6,7 @@ import {
   getConsultingServiceSlugs,
 } from "@/lib/content/consulting";
 import { buildMetadata } from "@/lib/seo/metadata";
-import {
-  breadcrumbJsonLd,
-  faqJsonLd,
-  serviceJsonLd,
-} from "@/lib/seo/json-ld";
+import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo/json-ld";
 import JsonLd from "@/components/seo/json-ld";
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -22,8 +18,8 @@ import LdOffering from "@/components/sections/learning_development_consulting/ld
 import LdFormats from "@/components/sections/learning_development_consulting/ld-formats";
 import LdSoftCta from "@/components/common/ld-soft-cta";
 import LdPlatforms from "@/components/sections/learning_development_consulting/ld-platforms";
+import Methodology from "@/components/sections/learning_development_consulting/methodology";
 import LdBlueprint from "@/components/sections/learning_development_consulting/ld-blueprint";
-import Method from "@/components/sections/consulting/method";
 import LdFrameworks from "@/components/sections/learning_development_consulting/ld-frameworks";
 import WhyUs from "@/components/sections/consulting/why-us";
 import CtaBand from "@/components/sections/consulting/cta-band";
@@ -41,15 +37,21 @@ const PILLAR = "learning-development-consulting-services";
  */
 const SECTIONS = {
   challengeData: (data) => <LdChallenge data={data} />,
-  readinessData: (data) => <Readiness data={data} />,
+  readinessData: (data) => (
+    <Readiness id={data?.section_id ?? "readiness"} data={data} />
+  ),
   offeringData: (data) => <LdOffering data={data} />,
   formatsData: (data) => <LdFormats data={data} />,
   blueprintCtaData: (data) => <LdSoftCta data={data} />,
   platformsData: (data) => <LdPlatforms data={data} />,
-  blueprintData: (data) => <LdBlueprint data={data} narrow={!data?.full_width} />,
-  methodData: (data) => <Method data={data} />,
+  blueprintData: (data) => (
+    <LdBlueprint data={data} narrow={!data?.full_width} />
+  ),
+  methodData: (data) => <Methodology data={data} />,
   frameworksData: (data) => <LdFrameworks data={data} />,
-  whyEdstellarData: (data) => <WhyUs data={data} />,
+  whyEdstellarData: (data) => (
+    <WhyUs id={data?.section_id ?? "why-us"} data={data} />
+  ),
   whyCtaData: (data) => <CtaBand data={data} />,
   faqData: (data) => (
     <Faq
@@ -60,7 +62,9 @@ const SECTIONS = {
       showCta={false}
     />
   ),
-  relatedData: (data) => <RelatedServices data={data} />,
+  relatedData: (data) => (
+    <RelatedServices id={data?.sectionId ?? "related"} data={data} />
+  ),
 };
 
 export const revalidate = 3600;
@@ -79,6 +83,7 @@ export async function generateMetadata({ params }) {
     title: service.seo.title,
     description: service.seo.description,
     path: `/${PILLAR}/${slug}`,
+    image: service.seo.image,
   });
 }
 
@@ -103,18 +108,25 @@ export default async function LearningDevelopmentServicePage({ params }) {
           faqJsonLd(service.faqData?.items),
         ]}
       />
-      <ConsultingHero data={service.heroData} breadcrumbItems={service.BreadcrumbData} />
+      <ConsultingHero
+        data={service.heroData}
+        breadcrumbItems={service.BreadcrumbData}
+      />
       <ProofStats data={service.proof} />
       <ClientLogos />
       <StickyTabs data={service.stickyNavbarData} />
 
       {service.sections?.map((key) => {
         const render = SECTIONS[key];
-        return render ? <Fragment key={key}>{render(service[key])}</Fragment> : null;
+        return render ? (
+          <Fragment key={key}>{render(service[key])}</Fragment>
+        ) : null;
       })}
 
       <LeadForm id="apply" background="navy" data={service.leadFormData} />
-      <StickyFooter data={service.stickyFooter} />
+      <StickyFooter
+        data={service.stickyFooter && { ...service.stickyFooter, email: true }}
+      />
     </>
   );
 }

@@ -706,11 +706,7 @@
     "heading": "Book a learning technology <span>consultation.</span>",
     "description": "Tell us where your learning tech stands today. We reply within one business day with a scoped response, no automated sales sequence.",
     "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
-    "submit_label": "Book a consultation",
-    "requirements_label": "Your requirements",
-    "requirements_placeholder": "Tell us about your team: size, roles in scope, timing, and the outcomes you are trying to move.",
-    "thanks_heading": "Request received.",
-    "thanks_body": "Thanks. A specialist will reply within one business day with a scoped response."
+    "submit_label": "Book a consultation"
   },
   "stickyFooter": {
     "email": true,
