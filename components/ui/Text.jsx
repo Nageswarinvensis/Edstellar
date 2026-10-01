@@ -24,12 +24,12 @@ const componentMap = {
  * over the top. See `components/sections/*`.
  */
 const tailwindClasses = {
-  h1: "font-display font-bold text-ink text-[clamp(38px,3.5vw,44px)] leading-[1.05] tracking-[-0.035em] break-words hyphens-auto",
-  h2: "font-display font-bold text-ink text-[clamp(32px,3.2vw,38px)] leading-[1.08] tracking-[-0.03em] break-words hyphens-auto",
-  h3: "font-display font-bold text-ink text-[clamp(20px,2vw,26px)] leading-[1.15] tracking-[-0.02em] break-words hyphens-auto",
-  h4: "font-display font-semibold text-ink text-lg leading-snug tracking-[-0.01em] break-words hyphens-auto",
-  h5: "font-display font-semibold text-ink text-base leading-snug break-words hyphens-auto",
-  p: "font-body text-ink/60 text-base leading-[1.7] break-words hyphens-auto",
+  h1: "font-display font-bold text-ink text-[clamp(38px,3.5vw,44px)] leading-[1.05] tracking-[-0.035em] break-words hyphens-none",
+  h2: "font-display font-bold text-ink text-[clamp(32px,3.2vw,38px)] leading-[1.08] tracking-[-0.03em] break-words hyphens-none",
+  h3: "font-display font-bold text-ink text-[clamp(20px,2vw,26px)] leading-[1.15] tracking-[-0.02em] break-words hyphens-none",
+  h4: "font-display font-semibold text-ink text-lg leading-snug tracking-[-0.01em] break-words hyphens-none",
+  h5: "font-display font-semibold text-ink text-base leading-snug break-words hyphens-none",
+  p: "font-body text-ink/60 text-base leading-[1.7] break-words hyphens-none",
   span: "font-body text-ink/60 text-sm break-words",
   div: "font-body text-ink/60 text-base break-words",
   label: "font-body text-ink/60 text-sm break-words",
