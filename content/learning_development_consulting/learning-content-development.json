@@ -1,6 +1,6 @@
 {
   "slug": "learning-content-development-services",
-  "sections": ["challengeData", "readinessData", "offeringData", "formatsData", "blueprintCtaData", "blueprintData", "methodData", "frameworksData", "whyEdstellarData", "whyCtaData", "faqData", "relatedData"],
+  "sections": ["challengeData", "readinessData", "offeringData", "formatsData", "blueprintData", "methodData", "frameworksData", "whyEdstellarData", "whyCtaData", "faqData", "relatedData"],
   "name": "Content Design & Development Services",
   "heroData": {
     "learning_system": {
@@ -106,222 +106,16 @@
       }
     ]
   },
-  "offeringData": {
-    "section_id": "offering",
-    "heading": "What we design into your <span>learning content.</span>",
-    "description": "Our learning content development covers six connected pieces that turn scattered material into content people actually finish. Select one to see how it works.",
-    "items": [
-      {
-        "id": "alignment",
-        "icon": "target",
-        "title": "Content strategy & planning",
-        "summary": "What to build, for whom, and why.",
-        "description": "Every asset mapped to a real learning need and audience, so you build what people will use, not another course library nobody opens. Every piece traces back to a learning need.",
-        "diagram": {
-          "type": "alignment",
-          "caption": "Every asset maps to an audience",
-          "tiers": [
-            {
-              "label": "Audiences",
-              "tone": "navy",
-              "chips": [
-                "New hires",
-                "Managers",
-                "Frontline"
-              ]
-            },
-            {
-              "label": "Content approach",
-              "tone": "soft",
-              "chips": [
-                "Build",
-                "Buy",
-                "Curate"
-              ]
-            },
-            {
-              "label": "Formats",
-              "tone": "lime",
-              "chips": [
-                "Courses",
-                "Video",
-                "Microlearning"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "id": "operating-model",
-        "icon": "operating-model",
-        "title": "Instructional design",
-        "summary": "How content is structured so people learn.",
-        "description": "How each piece is structured to make people learn and apply it, using proven instructional design and learning experience design (LXD) instead of slides with a quiz bolted on.",
-        "diagram": {
-          "type": "operating_model",
-          "caption": "Layers of the content model",
-          "top": "Learning objectives",
-          "pillars": [
-            "Structure",
-            "Practice",
-            "Feedback",
-            "Media"
-          ],
-          "bottom": "Standards & templates"
-        }
-      },
-      {
-        "id": "competency",
-        "icon": "framework",
-        "title": "Courseware & media production",
-        "summary": "Building the courses, video and assessments.",
-        "description": "Building custom eLearning, video, microlearning, scenario-based and blended learning and assessments to a consistent standard, so quality does not depend on who made it.",
-        "diagram": {
-          "type": "competency_matrix",
-          "levels": [
-            "Design",
-            "Build",
-            "Media",
-            "Localize"
-          ],
-          "legend": [
-            "Basic",
-            "Standard",
-            "Advanced",
-            "Full"
-          ],
-          "rows": [
-            {
-              "label": "Courses",
-              "cells": [
-                3,
-                3,
-                2,
-                1
-              ]
-            },
-            {
-              "label": "Video",
-              "cells": [
-                3,
-                2,
-                3,
-                1
-              ]
-            },
-            {
-              "label": "Microlearning",
-              "cells": [
-                3,
-                3,
-                2,
-                2
-              ]
-            },
-            {
-              "label": "Assessments",
-              "cells": [
-                3,
-                2,
-                1,
-                1
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "id": "curriculum",
-        "icon": "pathway",
-        "title": "Curation & sourcing",
-        "summary": "Blending built, bought and curated content.",
-        "description": "Blending custom-built, bought and curated content into one coherent library, so you reuse what exists and build only what you must.",
-        "diagram": {
-          "type": "curriculum_tree",
-          "caption": "Need → build, buy or curate",
-          "root": "Content plan",
-          "paths": [
-            {
-              "label": "Build",
-              "modules": 2
-            },
-            {
-              "label": "Buy",
-              "modules": 3
-            },
-            {
-              "label": "Curate",
-              "modules": 2
-            }
-          ]
-        }
-      },
-      {
-        "id": "measurement",
-        "icon": "measurement",
-        "title": "Content performance & analytics",
-        "summary": "The metrics that show content works.",
-        "description": "The completion, engagement and outcome data that show whether content is working, so you invest in what lands and retire what does not.",
-        "diagram": {
-          "type": "kpi_dashboard",
-          "caption": "Content performance in one view",
-          "kpis": [
-            {
-              "label": "Completion",
-              "value": "↑ 46%"
-            },
-            {
-              "label": "Satisfaction",
-              "value": "↑ 53%"
-            },
-            {
-              "label": "ROI",
-              "value": "3.1x"
-            }
-          ],
-          "axis": [
-            "Baseline",
-            "Now"
-          ]
-        }
-      },
-      {
-        "id": "governance",
-        "icon": "governance",
-        "title": "Content quality & governance",
-        "summary": "Standards, review and refresh that keep it current.",
-        "description": "The standards, review and refresh cadence that keep content accurate, accessible and on-brand, instead of decaying the day it ships.",
-        "diagram": {
-          "type": "governance_cycle",
-          "caption": "A continuous content quality cycle",
-          "steps": [
-            {
-              "label": "Plan",
-              "cadence": "Quarterly"
-            },
-            {
-              "label": "Create",
-              "cadence": "Continuous"
-            },
-            {
-              "label": "Review",
-              "cadence": "Monthly"
-            },
-            {
-              "label": "Refresh",
-              "cadence": "Each cycle"
-            }
-          ]
-        }
+  "offeringData": { "section_id": "offering" },
+  "formatsData": {
+    "sample_dialog": {
+      "kicker": "Sample asset",
+      "stage_suffix": "sample preview",
+      "note": "A sample of this format will play here.",
+      "note_cta": {
+        "label": "Request the full sample library",
+        "href": "#apply"
       }
-    ]
-  },
-  "blueprintCtaData": {
-    "heading": "Want a sample built around your content?",
-    "description": "Tell us the topic and audience, and we will show you the format and a sample built for it.",
-    "cta": {
-      "label": "Talk it through",
-      "href": "#apply"
     }
   },
   "methodData": {

@@ -3,6 +3,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import LdSoftCta from "@/components/common/ld-soft-cta";
 import Diagram from "./ld-offering-diagrams";
 import LdOfferingTabs from "./ld-offering-tabs";
 
@@ -17,7 +18,10 @@ function OfferingPanel({ item }) {
         >
           {item.title}
         </Text>
-        <Text as="p" className="max-w-[52ch] text-[14px] leading-[1.6] text-ink/60">
+        <Text
+          as="p"
+          className="max-w-[52ch] text-[14px] leading-[1.6] text-ink/60"
+        >
           {item.description}
         </Text>
       </Box>
@@ -37,7 +41,9 @@ function OfferingPanel({ item }) {
 export default function LdOffering({ data }) {
   if (!data?.items?.length) return null;
 
-  const { section_id, heading, description, items } = data;
+  // `soft_cta` is local content (the CMS offering has no CTA field): an
+  // optional LdSoftCta card closing the section, in LdSoftCta's own shape.
+  const { section_id, heading, description, items, soft_cta } = data;
 
   return (
     <Section id={section_id} className="scroll-mt-20 bg-paper">
@@ -48,7 +54,10 @@ export default function LdOffering({ data }) {
 
         {description ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[60ch] text-[16px] leading-relaxed text-ink/70">
+            <Text
+              as="p"
+              className="mt-4 max-w-[60ch] text-[16px] leading-relaxed text-ink/70"
+            >
               {description}
             </Text>
           </Reveal>
@@ -68,6 +77,12 @@ export default function LdOffering({ data }) {
           ))}
         />
       </Reveal>
+
+      {soft_cta ? (
+        <Box className="mt-12 sm:mt-16">
+          <LdSoftCta data={soft_cta} />
+        </Box>
+      ) : null}
     </Section>
   );
 }
