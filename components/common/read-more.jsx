@@ -24,6 +24,7 @@ function ReadMore({
   showIcon = false,
   tone = "light",
   className,
+  buttonClassName,
 }) {
   const [open, setOpen] = useState(false);
   const contentId = useId();
@@ -52,7 +53,8 @@ function ReadMore({
           "mt-1.5 inline-flex cursor-pointer items-center gap-2 border-b py-2 font-mono text-[11px] tracking-[0.16em] uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-2",
           dark
             ? "border-paper/30 text-paper hover:border-paper focus-visible:outline-lime"
-            : "border-ink/22 text-ink hover:border-navy focus-visible:outline-navy"
+            : "border-ink/22 text-ink hover:border-navy focus-visible:outline-navy",
+          buttonClassName
         )}
       >
         {open ? labelOpen : labelClosed}

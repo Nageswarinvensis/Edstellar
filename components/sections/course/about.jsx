@@ -183,21 +183,38 @@ function AboutChips({ chips }) {
   );
 }
 
-function ExpandedBody({ paragraphs }) {
-  if (!paragraphs?.length) return null;
+function AboutBody({ body, expanded_body }) {
+  const all = [
+    ...(Array.isArray(body) ? body : body ? [body] : []),
+    ...(Array.isArray(expanded_body) ? expanded_body : expanded_body ? [expanded_body] : []),
+  ];
+  if (!all.length) return null;
+
+  const visible = all.slice(0, 2);
+  const hidden = all.slice(2);
 
   return (
-    <ReadMore showIcon>
-      {paragraphs.map((paragraph, index) => (
-        <Text
-          as="p"
-          key={index}
-          className="mb-4.5 text-base leading-[1.75] text-[#0A1628]"
-        >
+    <>
+      {visible.map((paragraph, index) => (
+        <Text as="p" key={index} className="mb-4.5 text-base leading-[1.75]">
           {paragraph}
         </Text>
       ))}
-    </ReadMore>
+      {hidden.length > 0 && (
+        <ReadMore
+          showIcon
+          labelClosed="Read more"
+          labelOpen="Read less"
+          buttonClassName="font-body normal-case tracking-normal text-base font-normal"
+        >
+          {hidden.map((paragraph, index) => (
+            <Text as="p" key={index} className="mb-4.5 text-base leading-[1.75]">
+              {paragraph}
+            </Text>
+          ))}
+        </ReadMore>
+      )}
+    </>
   );
 }
 
@@ -242,17 +259,7 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
                 </Box>
               ) : null}
 
-              {about.body?.map((paragraph, index) => (
-                <Text
-                  as="p"
-                  key={index}
-                  className="mb-4.5 text-base leading-[1.75]"
-                >
-                  {paragraph}
-                </Text>
-              ))}
-
-              <ExpandedBody paragraphs={about.expanded_body} />
+              <AboutBody body={about.body} expanded_body={about.expanded_body} />
             </Box>
           </Reveal>
         </Box>

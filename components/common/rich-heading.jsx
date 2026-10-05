@@ -27,7 +27,10 @@ function RichHeading({
 }) {
   // Entities decoded first: the CMS stores some headings HTML-escaped
   // (`&amp;`), which would otherwise render literally.
-  const text = typeof heading === "string" ? decodeEntities(heading) : "";
+  const text =
+    typeof heading === "string"
+      ? decodeEntities(heading).replace(/ & /g, " and ")
+      : "";
   if (!text) return null;
 
   return (
