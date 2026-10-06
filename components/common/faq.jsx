@@ -130,6 +130,7 @@ export default function Faq({
           <RichHeading
             heading={faqs.heading}
             className={cn("max-w-[28ch]", headingClassName)}
+            emphasisClassName="font-normal"
           />
         </Reveal>
 

@@ -80,7 +80,7 @@ export default function ConsultingHero({
               <Reveal delay={1}>
               <Text
                 as="p"
-                className="mt-4 font-serif text-[18px] font-normal italic text-ink"
+                className="mt-4 max-w-[34ch] font-serif text-[clamp(18px,1.8vw,22px)] font-normal italic leading-[1.3] text-ink"
               >
                 {left.tagline}
               </Text>

@@ -33,7 +33,7 @@ export default function Methodology({ data }) {
           <Box className="mb-8 lg:mb-10 max-w-2xl">
             {content.heading && (
               <Box className="[&_span]:italic [&_span]:font-serif [&_span]:font-normal">
-                <RichHeading heading={content.heading} />
+                <RichHeading heading={content.heading} emphasisClassName="font-normal" />
               </Box>
             )}
 

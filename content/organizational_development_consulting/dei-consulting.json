@@ -1,0 +1,697 @@
+{
+  "slug": "dei-consulting",
+  "name": "Diversity, Equity & Inclusion Consulting",
+  "sections": [
+    "challengeData",
+    "representationData",
+    "whatWeDeliverData",
+    "methodData",
+    "frameworksData",
+    "whyEdstellarData",
+    "readinessData",
+    "whyCtaData",
+    "faqData",
+    "relatedData"
+  ],
+  "seo": {
+    "title": "Diversity, Equity & Inclusion Consulting",
+    "description": "Edstellar's DEI consulting builds the representation data, inclusive culture and equitable hiring, pay and promotion systems that turn diversity, equity and inclusion into how your organization actually works, and measures the change. Book a consultation.",
+    "image": null
+  },
+  "BreadcrumbData": [
+    { "label": "Home", "href": "/" },
+    { "label": "Consulting", "href": "/consulting" },
+    {
+      "label": "Organizational Development",
+      "href": "/organizational-development-consulting"
+    },
+    {
+      "label": "Diversity, Equity & Inclusion",
+      "href": "/organizational-development-consulting/dei-consulting"
+    }
+  ],
+  "heroData": {
+    "title": "Diversity, Equity & Inclusion Consulting",
+    "tagline": "DEI that changes how work actually happens.",
+    "description": "Most DEI stops at a statement and a training day. Edstellar builds the representation data, inclusive culture and equitable hiring, pay and promotion systems that turn diversity, equity and inclusion into how your organization actually works, and measures the change.",
+    "showMeta": true,
+    "primaryBtnText": "Book a DEI consultation",
+    "primaryBtnHref": "#apply",
+    "secondaryBtnText": "See what's included",
+    "secondaryBtnHref": "#what-we-do",
+    "learning_system": {
+      "title": "What we design",
+      "items": [
+        {
+          "icon": "operating-model",
+          "title": "Representation",
+          "description": "Where you stand, honestly"
+        },
+        {
+          "icon": "framework",
+          "title": "Inclusion",
+          "description": "Belonging in the everyday"
+        },
+        {
+          "icon": "pathway",
+          "title": "Equitable systems",
+          "description": "Fair by default"
+        },
+        {
+          "icon": "measurement",
+          "title": "DEI metrics",
+          "description": "Proof it moved"
+        }
+      ],
+      "footerText": "A DEI program you own and run."
+    }
+  },
+  "proof": {
+    "ctaTitle": "Ready to make DEI real?",
+    "primaryBtnText": "Book a consultation",
+    "primaryBtnTitle": "Book a DEI consultation with our team",
+    "primaryBtnHref": "#apply",
+    "secondaryBtnText": "Download the DEI brochure (PDF)",
+    "secondaryBtnTitle": "Download the DEI brochure in PDF format",
+    "secondaryBtnHref": "https://www.edstellar.com/brochures/organizational-development-consulting",
+    "stats": [
+      { "value": "300+", "label": "Clients" },
+      { "value": "20+", "label": "Industries" },
+      { "value": "300+", "label": "Consultants" },
+      { "value": "ISO 9001 & 27001", "label": "Certified" }
+    ]
+  },
+  "stickyNavbarData": {
+    "logo": { "src": "/course/Edstellar.svg", "alt": "Edstellar" },
+    "cta": {
+      "text": "Book a consultation",
+      "title": "Click Here to Book a Consultation",
+      "targetId": "apply"
+    },
+    "tabs": [
+      { "id": "what-we-do", "label": "What we do", "active": true },
+      { "id": "method", "label": "Method", "active": false },
+      { "id": "frameworks", "label": "Frameworks", "active": false },
+      { "id": "why", "label": "Why us", "active": false },
+      { "id": "faq", "label": "FAQ", "active": false }
+    ]
+  },
+  "challengeData": {
+    "section_id": "challenge",
+    "heading": "DEI consulting that changes how work actually <span>happens.</span>",
+    "description": "With diversity and inclusion built into systems, not statements: representation is measured honestly, inclusion shows up day to day, hiring and promotion are fair, and progress is proven.",
+    "items": [
+      {
+        "title": "Inclusion in the everyday",
+        "description": "Inclusion shows up in how meetings run, who gets heard and how decisions are made, so an inclusive workplace is real day to day, not just a policy.",
+        "close": "Real day to day, not a policy."
+      },
+      {
+        "title": "Representation that grows",
+        "description": "More diverse hiring, retention and promotion, so representation improves at every level, not just at entry.",
+        "close": "Better at every level, not just entry."
+      },
+      {
+        "title": "Equity built into systems",
+        "description": "Hiring, pay and promotion are fair by default, so good outcomes do not depend on good intentions.",
+        "close": "Fair by default, not by intent."
+      },
+      {
+        "title": "Belonging that keeps people",
+        "description": "People from every background feel they belong and can progress, supported by employee resource groups (ERGs), so your diverse talent stays.",
+        "close": "People stay because they belong."
+      },
+      {
+        "title": "Proof, not optics",
+        "description": "A clear set of metrics shows representation and inclusion actually moving, so DEI is accountable to results.",
+        "close": "Accountable to results."
+      },
+      {
+        "title": "A program that stays live",
+        "description": "DEI runs on a rhythm, so it keeps driving change instead of fading after the launch moment.",
+        "close": "Keeps driving change, not fading."
+      }
+    ]
+  },
+  "representationData": {
+    "section_id": "representation",
+    "eyebrow": "Representation",
+    "heading": "Edstellar DEI: representation that holds at every <span>level.</span>",
+    "description": "In most organizations, diversity thins the higher you look. Edstellar DEI builds inclusion and equity into the systems that decide who gets hired, heard and promoted, so representation holds from entry to the executive table.",
+    "points": [
+      {
+        "title": "Every level",
+        "description": "Representation that does not thin at the top"
+      },
+      {
+        "title": "Equity by default",
+        "description": "Fair hiring, pay and promotion systems"
+      },
+      {
+        "title": "Proof, not optics",
+        "description": "Metrics that show it actually moving"
+      }
+    ],
+    "target": 50,
+    "levels": [
+      { "label": "Executive", "value": 12 },
+      { "label": "VP", "value": 18 },
+      { "label": "Director", "value": 25 },
+      { "label": "Manager", "value": 35 },
+      { "label": "Entry", "value": 45 }
+    ]
+  },
+  "whatWeDeliverData": {
+    "section_id": "what-we-do",
+    "heading": "What our DEI consulting <span>delivers.</span>",
+    "description": "One connected program, from DEI strategy to a living, accountable program. Not a deck and a hand-off: at each step we show what we do, what we build with you, and the deliverable you keep, layer by layer.",
+    "steps": [
+      {
+        "title": "DEI strategy",
+        "how": "Alignment workshops, structured by our 5A method.",
+        "do": [
+          "Tie each DEI priority to the business strategy",
+          "Define what inclusion and equity mean here",
+          "Align leaders on DEI goals and accountability",
+          "Set the baseline from current DEI data"
+        ],
+        "build": [
+          "A DEI strategy tied to business outcomes",
+          "Clear DEI priorities leaders own",
+          "Target measures for representation and inclusion",
+          "The baseline every result is tracked against"
+        ],
+        "get": "DEI strategy & priorities"
+      },
+      {
+        "title": "Inclusive culture & behaviors",
+        "how": "Inclusive-leadership enablement, informed by the GDIB standard.",
+        "do": [
+          "Build inclusive leadership and everyday behaviors",
+          "Develop cultural competence and allyship",
+          "Make inclusion show up in meetings and decisions",
+          "Equip managers to lead inclusively"
+        ],
+        "build": [
+          "An inclusive-behavior playbook",
+          "Inclusive-leadership development",
+          "Allyship and cultural-competence programs",
+          "Manager enablement for inclusion"
+        ],
+        "get": "Inclusive-behavior playbook"
+      },
+      {
+        "title": "Representation & data",
+        "how": "Representation analysis benchmarked on our Capability Intelligence Platform.",
+        "do": [
+          "Measure representation across levels and functions",
+          "Analyze hiring, retention and promotion by group",
+          "Surface where representation thins and why",
+          "Set honest, specific representation goals"
+        ],
+        "build": [
+          "A representation baseline across levels",
+          "A diversity-data analysis by stage",
+          "A view of where the pipeline leaks",
+          "Representation goals by level and function"
+        ],
+        "get": "Representation baseline & analysis"
+      },
+      {
+        "title": "Equitable systems",
+        "how": "A systems audit applied to hiring, pay and promotion.",
+        "do": [
+          "Audit hiring, pay and promotion for bias",
+          "Build equity into the systems, not just intentions",
+          "Redesign processes so fair outcomes are the default",
+          "Close pay and progression gaps"
+        ],
+        "build": [
+          "An audit of hiring, pay and promotion",
+          "Redesigned, bias-checked processes",
+          "Pay-equity and progression fixes",
+          "Equity built into the talent lifecycle"
+        ],
+        "get": "Equitable-systems redesign"
+      },
+      {
+        "title": "DEI metrics",
+        "how": "DEI analytics benchmarked on our Capability Intelligence Platform.",
+        "do": [
+          "Define the measures that show DEI moving",
+          "Track representation, inclusion and belonging",
+          "Tie DEI to business results, not optics",
+          "Set targets and thresholds for each measure"
+        ],
+        "build": [
+          "A DEI metrics framework",
+          "A dashboard of representation and inclusion",
+          "Baselines and targets per measure",
+          "A reporting rhythm leaders can act on"
+        ],
+        "get": "DEI metrics & dashboard"
+      },
+      {
+        "title": "DEI governance",
+        "how": "A governed review cadence that keeps DEI accountable.",
+        "do": [
+          "Keep DEI live and accountable, not a launch moment",
+          "Set the review cadence, ownership and governance",
+          "Keep DEI driving change every cycle",
+          "Transfer ownership to leaders and DEI owners"
+        ],
+        "build": [
+          "A governance model with named owners",
+          "A review-and-improve operating rhythm",
+          "A DEI playbook handed to your team",
+          "A sustainment plan to keep DEI accountable"
+        ],
+        "get": "Governance model & operating rhythm"
+      }
+    ]
+  },
+  "methodData": {
+    "section_id": "method",
+    "heading": "The Edstellar 5A DEI <span>methodology.</span>",
+    "subheading": "Our five-step DEI consulting method, from business goals to a running, measured DEI program.",
+    "showSoftCta": false,
+    "steps": [
+      {
+        "title": "Assess",
+        "duration": "1–2 weeks",
+        "description": "Read the business strategy, workforce and culture to define what inclusion and representation should look like here.",
+        "deliverable": "DEI brief"
+      },
+      {
+        "title": "Analyze",
+        "duration": "2–3 weeks",
+        "description": "Analyze representation, pay and inclusion using workforce data and <a href=\"/talent-assessment-services\">assessments</a>.",
+        "deliverable": "DEI diagnosis"
+      },
+      {
+        "title": "Architect",
+        "duration": "3–5 weeks",
+        "description": "Architect the program: the inclusive culture, equitable systems and governance that close the gaps.",
+        "deliverable": "DEI roadmap"
+      },
+      {
+        "title": "Activate",
+        "duration": "6–12 weeks",
+        "description": "Activate the program: launch inclusive-leadership work, system redesign and DEI councils across the business.",
+        "deliverable": "Live program"
+      },
+      {
+        "title": "Advance",
+        "duration": "Ongoing",
+        "description": "Measure representation and inclusion, review and improve each cycle, so progress compounds rather than resets.",
+        "deliverable": "DEI dashboard"
+      }
+    ]
+  },
+  "frameworksData": {
+    "section_id": "frameworks",
+    "heading": "The frameworks and models behind Edstellar's DEI <span>consulting.</span>",
+    "description": "The DEI field is built on a body of established models and standards. Edstellar's 5A method puts the most widely recognized ones to work.",
+    "items": [
+      {
+        "id": "thomas-ely",
+        "model_no": "Model 01",
+        "name": "Three Paradigms of Diversity",
+        "author": "Thomas & Ely · HBR",
+        "description": "Diversity as a source of learning, not just fairness or market access.",
+        "phases": [
+          {
+            "title": "Strategy framing",
+            "subtitle": "DEI tied to performance, not compliance",
+            "examples": ["Board-level DEI case", "DEI in the KPI set", "Executive sponsorship"]
+          },
+          {
+            "title": "Leadership case",
+            "subtitle": "The business case for inclusion",
+            "examples": ["Inclusion-performance data", "Peer benchmarks", "Cost-of-inaction view"]
+          },
+          {
+            "title": "Program design",
+            "subtitle": "Aimed at learning and results",
+            "examples": ["Outcome-linked initiatives", "Team-level pilots", "Impact review cadence"]
+          }
+        ]
+      },
+      {
+        "id": "gdib",
+        "model_no": "Model 02",
+        "name": "Global Diversity & Inclusion Benchmarks",
+        "author": "O'Mara & Richter · GDIB",
+        "description": "A five-level maturity standard for DEI practice.",
+        "phases": [
+          {
+            "title": "Maturity benchmark",
+            "subtitle": "Rate where DEI stands today",
+            "examples": ["15-category scorecard", "Baseline assessment", "Gap heatmap"]
+          },
+          {
+            "title": "Target setting",
+            "subtitle": "Define the next level to reach",
+            "examples": ["Level-up roadmap", "Category priorities", "12-month targets"]
+          },
+          {
+            "title": "Progress tracking",
+            "subtitle": "Measure movement over time",
+            "examples": ["Annual re-score", "Trend dashboard", "Board reporting"]
+          }
+        ]
+      },
+      {
+        "id": "diversity-wheel",
+        "model_no": "Model 03",
+        "name": "The Diversity Wheel: Four Layers",
+        "author": "Loden & Rosener · Gardenswartz & Rowe",
+        "description": "Identity across four layers, well beyond the visible few.",
+        "phases": [
+          {
+            "title": "Representation mapping",
+            "subtitle": "Gaps past gender and ethnicity",
+            "examples": ["Age & disability", "Tenure & function", "Background & region"]
+          },
+          {
+            "title": "Inclusive hiring",
+            "subtitle": "Judge capability, not proxies",
+            "examples": ["Structured scorecards", "Skills-based screening", "Diverse panels"]
+          },
+          {
+            "title": "ERG & belonging",
+            "subtitle": "Networks for the full range",
+            "examples": ["Caregiver network", "First-gen professionals", "Veterans group"]
+          }
+        ]
+      },
+      {
+        "id": "psychological-safety",
+        "model_no": "Model 04",
+        "name": "Psychological Safety",
+        "author": "Amy Edmondson · Harvard",
+        "description": "People speak up and take risks without fear.",
+        "phases": [
+          {
+            "title": "Team diagnostics",
+            "subtitle": "Measure safety team by team",
+            "examples": ["Safety pulse survey", "Team scorecards", "Manager debriefs"]
+          },
+          {
+            "title": "Inclusive leadership",
+            "subtitle": "Coach managers to invite voice",
+            "examples": ["Speak-up norms", "Meeting facilitation", "Feedback rituals"]
+          },
+          {
+            "title": "Retention",
+            "subtitle": "Turn representation into belonging",
+            "examples": ["Stay interviews", "Inclusion in reviews", "Exit-driver analysis"]
+          }
+        ]
+      },
+      {
+        "id": "intersectionality",
+        "model_no": "Model 05",
+        "name": "Intersectionality",
+        "author": "Kimberlé Crenshaw",
+        "description": "Overlapping identities create distinct experiences.",
+        "phases": [
+          {
+            "title": "Equity design",
+            "subtitle": "Account for overlapping identities",
+            "examples": ["Cross-cut policy review", "Layered personas", "Benefit-access checks"]
+          },
+          {
+            "title": "Data analysis",
+            "subtitle": "Read representation past single axes",
+            "examples": ["Intersectional data cuts", "Small-group safeguards", "Pay gap by segment"]
+          },
+          {
+            "title": "Targeted support",
+            "subtitle": "Reach groups others miss",
+            "examples": ["Sponsorship programs", "Tailored development", "Focused ERGs"]
+          }
+        ]
+      },
+      {
+        "id": "implicit-bias",
+        "model_no": "Model 06",
+        "name": "Implicit Bias and the IAT",
+        "author": "Banaji & Greenwald",
+        "description": "Unconscious associations shape decisions, and can be measured.",
+        "phases": [
+          {
+            "title": "Bias audits",
+            "subtitle": "Surface bias in decisions",
+            "examples": ["Hiring-funnel review", "Promotion-rate checks", "Pay-decision audit"]
+          },
+          {
+            "title": "System redesign",
+            "subtitle": "Debias hiring, pay and promotion",
+            "examples": ["Structured interviews", "Calibration sessions", "Criteria templates"]
+          },
+          {
+            "title": "Manager training",
+            "subtitle": "Move past awareness to action",
+            "examples": ["Bias interrupters", "Decision checklists", "Nudge prompts"]
+          }
+        ]
+      }
+    ]
+  },
+  "whyEdstellarData": {
+    "section_id": "why",
+    "heading": "Why Edstellar is your DEI consulting <span>solutions provider.</span>",
+    "description": "The rare partner in DEI strategy consulting that designs your program and helps you run it, keeps representation and inclusion in view, and proves the impact to the business.",
+    "difference_label": "The difference",
+    "items": [
+      {
+        "icon": "link",
+        "title": "Strategy to change, one partner",
+        "description": "Your DEI strategy actually lands, because the team that designs it also runs the culture work and system redesign behind it.",
+        "visual": {
+          "type": "flow",
+          "items": ["Design", "Enable", "Measure"],
+          "caption": "One team, strategy to change"
+        },
+        "difference": "Most firms hand you a DEI statement and a diversity training day. We stay through to real change."
+      },
+      {
+        "icon": "chip",
+        "title": "Runs on the Capability Intelligence Platform",
+        "description": "The Capability Intelligence Platform keeps your representation and workplace inclusion picture live, so the program targets the real gaps and proves its impact.",
+        "visual": {
+          "type": "signal",
+          "title": "Capability signal",
+          "status": "Live",
+          "items": ["Representation:88", "Inclusion:72", "Equity:64"]
+        },
+        "difference": "Your capability picture stays live, not frozen in a slide."
+      },
+      {
+        "icon": "chart",
+        "title": "Outcomes tied to the business",
+        "description": "Every program is tied to business goals and measured against them, so your DEI work is accountable to results, not optics.",
+        "visual": {
+          "type": "bars",
+          "items": [38, 52, 66, 80, 100],
+          "caption": "↑ Business impact over the engagement"
+        },
+        "difference": "Measured in representation and inclusion, not statements published."
+      },
+      {
+        "icon": "globe",
+        "title": "Global delivery, wherever your people are",
+        "description": "DEI programs delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global program stays consistent and locally relevant.",
+        "visual": {
+          "type": "regions",
+          "items": ["Americas", "EMEA", "APAC", "MENA", "India"],
+          "caption": "Onsite · virtual · hybrid"
+        },
+        "difference": "Delivered where your people are, not just at HQ."
+      },
+      {
+        "icon": "list",
+        "title": "A proven method, not improvisation",
+        "description": "Every program runs the same Edstellar 5A method, so your DEI work is built systematically rather than improvised each time.",
+        "visual": {
+          "type": "steps",
+          "items": ["A", "A", "A", "A", "A"],
+          "caption": "Assess · Analyze · Architect · Activate · Advance"
+        },
+        "difference": "A repeatable system, not a bespoke experiment each time."
+      },
+      {
+        "icon": "sliders",
+        "title": "Flexible from advisory to end-to-end",
+        "description": "Start with a DEI diagnostic, hand over the roadmap, or run the whole program, and scale up as the partnership grows.",
+        "visual": {
+          "type": "tiers",
+          "items": ["Diagnostic", "Design", "Build", "End-to-end"],
+          "caption": "Start focused, scale up"
+        },
+        "difference": "Take as much or as little as you choose."
+      }
+    ],
+    "trust": {
+      "heading": "Trusted across industries and regions",
+      "industries": [
+        { "icon": "landmark", "label": "Financial services" },
+        { "icon": "monitor", "label": "Technology" },
+        { "icon": "cross", "label": "Healthcare" },
+        { "icon": "factory", "label": "Manufacturing" },
+        { "icon": "bag", "label": "Retail & consumer" },
+        { "icon": "zap", "label": "Energy" }
+      ],
+      "more_label": "20+ in all",
+      "regions_label": "Delivered across",
+      "regions": ["APAC", "Middle East", "Europe", "North America", "India"],
+      "caption_strong": "Fortune 500",
+      "caption": "clients served worldwide"
+    }
+  },
+  "readinessData": {
+    "section_id": "readiness",
+    "heading": "Assess your DEI maturity against the <span>essentials.</span>",
+    "description": "A quick DEI maturity assessment and equity audit, from representation to inclusion: see where your DEI effort is strong today, and where culture, systems and accountability can go further.",
+    "points": [
+      "Alignment between DEI and business strategy",
+      "Honesty and depth of representation data",
+      "Fairness of hiring, pay and promotion systems"
+    ],
+    "cta": {
+      "label": "Get the free readiness checklist ↓",
+      "href": "https://www.edstellar.com/tool/dei-consulting"
+    },
+    "checklist": {
+      "title": "DEI readiness checklist",
+      "items": [
+        { "label": "DEI goals set and owned", "done": true },
+        { "label": "Representation measured across levels", "done": true },
+        { "label": "Inclusive behaviors defined and modeled", "done": true },
+        { "label": "Hiring and promotion checked for bias", "done": false },
+        { "label": "DEI reviewed on a governed rhythm", "done": false }
+      ]
+    }
+  },
+  "whyCtaData": {
+    "heading": "Ready for DEI consulting that is real, measured and <span>accountable?</span>",
+    "primary_cta": { "label": "Book a consultation", "href": "#apply" }
+  },
+  "faqData": {
+    "heading": "DEI consulting <span>FAQs.</span>",
+    "items": [
+      {
+        "question": "What does DEI consulting include?",
+        "answer": "It covers your DEI strategy and framework, a DEI audit of representation and pay-gap analysis, inclusive culture and leadership, unconscious-bias and DEI training, equitable hiring, pay and promotion systems, and the governance and metrics that keep DEI accountable, all aligned to your business goals."
+      },
+      {
+        "question": "Is DEI just about hiring targets?",
+        "answer": "No. Representation matters, but real change comes from inclusive everyday behavior and equitable systems, so people from every background can join, belong and progress, not just get hired."
+      },
+      {
+        "question": "How long does a DEI engagement take?",
+        "answer": "Assessing representation and inclusion takes a few weeks; building an inclusive culture is an ongoing effort, because DEI is a living program reviewed on a rhythm, not a one-off campaign."
+      },
+      {
+        "question": "Do you change our systems, not just run training?",
+        "answer": "Yes. Redesigning hiring, pay and promotion to be fair by default is the core of the engagement, so equity is built into how decisions are made, not left to a workshop."
+      },
+      {
+        "question": "What do we get at the end?",
+        "answer": "A DEI strategy, a representation baseline, an inclusion plan, redesigned talent systems and the DEI metrics you own and run."
+      }
+    ],
+    "footer_cta": {
+      "text": "Still have a question about your DEI program?",
+      "label": "Ask us directly",
+      "href": "#apply"
+    }
+  },
+  "relatedData": {
+    "sectionId": "related",
+    "bgColor": "bg-paper-warm",
+    "heading": "Other organizational development <span>services.</span>",
+    "subheading": "DEI changes who gets hired, heard and promoted. These related services shape the structure, culture and systems it runs on.",
+    "items": [
+      {
+        "icon": "network",
+        "title": "Organization Design",
+        "description": "Design roles and structures that widen access.",
+        "link": "Explore",
+        "href": "/organization-design-consulting"
+      },
+      {
+        "icon": "heart",
+        "title": "Culture Change",
+        "description": "Build the inclusive culture DEI depends on.",
+        "link": "Explore",
+        "href": "/organizational-development-consulting/culture-transformation-consulting"
+      },
+      {
+        "icon": "smile",
+        "title": "Employee Engagement",
+        "description": "Inclusion and belonging lift engagement.",
+        "link": "Explore",
+        "href": "/employee-engagement-consulting"
+      },
+      {
+        "icon": "users",
+        "title": "Leadership Effectiveness",
+        "description": "Develop inclusive leaders at every level.",
+        "link": "Explore",
+        "href": "/leadership-effectiveness-consulting"
+      },
+      {
+        "icon": "change",
+        "title": "Change Management",
+        "description": "Land the culture changes DEI calls for.",
+        "link": "Explore",
+        "href": "/organizational-development-consulting/change-management-consulting"
+      },
+      {
+        "icon": "chart",
+        "title": "Strategic Workforce Planning",
+        "description": "Plan a diverse workforce for the future.",
+        "link": "Explore",
+        "href": "/strategic-workforce-planning-consulting"
+      },
+      {
+        "icon": "succession",
+        "title": "Succession Planning",
+        "description": "Build a diverse, ready leadership pipeline.",
+        "link": "Explore",
+        "href": "/succession-planning-consulting"
+      },
+      {
+        "icon": "target",
+        "title": "Performance Management",
+        "description": "Keep performance and rewards fair for all.",
+        "link": "Explore",
+        "href": "/performance-management-consulting"
+      }
+    ],
+    "hub_link": {
+      "label": "See all organizational development services →",
+      "href": "/organizational-development-consulting"
+    }
+  },
+  "leadFormData": {
+    "heading": "Book a DEI consultation with <span>Edstellar.</span>",
+    "description": "Tell us where your DEI program is today. We reply within one business day with a scoped response, no automated sales sequence.",
+    "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+    "submit_label": "Book a consultation"
+  },
+  "stickyFooter": {
+    "form_anchor_id": "apply",
+    "messages": [
+      { "highlight": "Inclusion", "suffix": "that shows up in the everyday" },
+      { "highlight": "Representation, equity", "suffix": "and belonging" },
+      { "highlight": "DEI", "suffix": "that is measured, not just stated" }
+    ],
+    "brochure": {
+      "label": "Brochure",
+      "href": "https://www.edstellar.com/brochures/organizational-development-consulting"
+    }
+  }
+}
