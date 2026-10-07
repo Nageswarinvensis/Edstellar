@@ -9,11 +9,6 @@ import { setHeaderHidden } from "@/lib/client/header-visibility";
 
 const HEADER_OFFSET = 68;
 
-/**
- * A section becomes active once its top rises above this line: 35% of the
- * way down the viewport, and never closer to the top than just below the
- * bar. A section whose heading is plainly in view is the one being read.
- */
 const ACTIVE_LINE_RATIO = 0.35;
 const ACTIVE_LINE_MIN = HEADER_OFFSET + 60;
 
@@ -31,33 +26,18 @@ export default function StickyTabs({ data, hasTrainers }) {
     (tab) => tab.id !== "trainers" || hasTrainers,
   );
 
+  // Guarantee the first tab is always active by default if none is explicitly active
   const [activeId, setActiveId] = useState(
-    () => tabs?.find((tab) => tab.active)?.id ?? tabs?.[0]?.id,
+    () => tabs?.find((tab) => tab.active)?.id || tabs?.[0]?.id,
   );
 
   const sentinelRef = useRef(null);
   const listRef = useRef(null);
   const tabRefs = useRef({});
 
-  // Stable key so the scroll effect below doesn't re-subscribe on every
-  // render — `tabs` is a freshly filtered array each time.
+  // Stable key so the scroll effect below doesn't re-subscribe on every render
   const tabKey = tabs?.map((tab) => tab.id).join(",") ?? "";
 
-  /*
-   * One scroll handler drives both jobs, measured from positions rather than
-   * from intersection changes. IntersectionObserver only reports *crossings*,
-   * so a jump that skips over the sentinel (an in-page link, a reload
-   * mid-page, a fast mobile fling, scroll restoration) never fired and left
-   * the site header covering this bar.
-   *
-   * - The site header hides whenever the sentinel above this bar has passed
-   *   the top of the viewport, i.e. whenever this bar is pinned.
-   * - The active tab is the last section whose top has crossed the active
-   *   line (see ACTIVE_LINE_RATIO). (Picking the first section still inside a band, as
-   *   before, lagged one section behind while scrolling.) At the very bottom
-   *   of the page the last tab wins, since a short final section may never
-   *   reach the line.
-   */
   useEffect(() => {
     const sentinel = sentinelRef.current;
     if (!sentinel) return;
@@ -130,36 +110,32 @@ export default function StickyTabs({ data, hasTrainers }) {
       <Box
         as="nav"
         aria-label="Course navigation"
-        className="sticky top-0 z-40 px-5 lg:px-10 w-full border-y border-[rgba(10,22,40,0.12)] bg-[rgba(250,250,247,0.94)] backdrop-blur-[14px] shadow-[0_10px_24px_-22px_rgba(10,22,40,0.5)]
-      "
+        className="sticky top-0 z-40 px-3 sm:px-5 lg:px-10 w-full border-y border-[rgba(10,22,40,0.12)] bg-[rgba(250,250,247,0.94)] backdrop-blur-[14px] shadow-[0_10px_24px_-22px_rgba(10,22,40,0.5)]"
       >
-        <Box
-          className="mx-auto flex h-15 w-full max-w-7xl items-center justify-between gap-8
-        "
-        >
+        <Box className="mx-auto flex h-15 w-full max-w-7xl items-center justify-between gap-2 sm:gap-4 lg:gap-8">
           {/* Logo */}
           <Box
             as="a"
             href="#about"
             onClick={scrollToHash}
-            className="flex shrink-0 items-center"
+            className="flex shrink-0 items-center pr-1"
           >
             <img
               src={data?.logo?.src}
               alt={data?.logo?.alt || "Edstellar"}
-              className="h-7 w-auto object-contain"
+              className="h-6 sm:h-7 w-auto object-contain"
             />
           </Box>
 
-          {/* Navigation Container - takes remaining space and stretches tabs end-to-end */}
-          <Box className="flex flex-1 items-center overflow-x-auto no-scrollbar">
-            <ul
-              ref={listRef}
-              className="flex h-full w-full items-center justify-between gap-2
-              "
-            >
-              {tabs.map((tab) => {
-                const isActive = tab.id === activeId;
+          {/* Navigation Scroll Container */}
+          <Box
+            ref={listRef}
+            className="flex min-w-0 flex-1 items-center overflow-x-auto no-scrollbar py-1 px-1"
+          >
+            <ul className="flex h-full min-w-max shrink-0 items-center justify-start sm:justify-between gap-2 sm:gap-3">
+              {tabs.map((tab, idx) => {
+                // Ensure active status matches activeId or falls back to first tab
+                const isActive = activeId ? tab.id === activeId : idx === 0;
 
                 return (
                   <li
@@ -167,25 +143,23 @@ export default function StickyTabs({ data, hasTrainers }) {
                     ref={(el) => {
                       tabRefs.current[tab.id] = el;
                     }}
-                    className="flex h-full shrink-0 items-center"
+                    className="flex h-full shrink-0 items-center scroll-ml-2"
                   >
                     <Box
                       as="a"
                       href={`#${tab.id}`}
                       onClick={scrollToHash}
-                      className={`flex h-8.75 items-center justify-center rounded-[10px] px-3.25 transition-colors duration-200
-                      ${
+                      className={`flex h-8.75 items-center justify-center rounded-[10px] px-3.25 transition-colors duration-200 ${
                         isActive
                           ? "bg-lime"
                           : "bg-transparent hover:bg-[#F1F1EC]"
-                      }
-                    `}
+                      }`}
                     >
                       <Text
                         as="span"
-                        className={`whitespace-nowrap text-[12px] font-medium leading-none
-                        ${isActive ? "text-ink" : "text-ink-muted"}
-                      `}
+                        className={`whitespace-nowrap text-[12px] font-medium leading-none ${
+                          isActive ? "text-ink" : "text-ink-muted"
+                        }`}
                       >
                         {tab.label}
                       </Text>
@@ -194,25 +168,25 @@ export default function StickyTabs({ data, hasTrainers }) {
                 );
               })}
             </ul>
-            {/* Conditional CTA Button */}
-            {data?.cta?.text && (
-              <Box className="ml-6 flex shrink-0 items-center">
-                <CtaButton
-                  arrow
-                  render={
-                    <a
-                      // Tolerates a leading `#` — the CMS sends both `apply` and `#apply`.
-                      href={`#${(data.cta.targetId || "form").replace(/^#/, "")}`}
-                      onClick={scrollToHash}
-                    />
-                  }
-                  title={data.cta.title}
-                >
-                  {data.cta.text}
-                </CtaButton>
-              </Box>
-            )}
           </Box>
+
+          {/* Conditional CTA Button */}
+          {data?.cta?.text && (
+            <Box className="pl-1 sm:pl-2 flex shrink-0 items-center">
+              <CtaButton
+                arrow
+                render={
+                  <a
+                    href={`#${(data.cta.targetId || "form").replace(/^#/, "")}`}
+                    onClick={scrollToHash}
+                  />
+                }
+                title={data.cta.title}
+              >
+                {data.cta.text}
+              </CtaButton>
+            </Box>
+          )}
         </Box>
       </Box>
     </>

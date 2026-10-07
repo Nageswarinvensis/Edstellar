@@ -9,19 +9,28 @@ import CtaButton from "@/components/common/cta-button";
 
 /**
  * Dark mid-page conviction CTA — centred heading, lede and a primary plus a
- * secondary button.
- *
- * Design: `learning-strategy-design (48).html` → `.cta-band`,
- * `.cta-band-actions`.
+ * secondary button, with optional tag items.
  */
 export default function CtaBand({ data }) {
   if (!data?.heading) return null;
 
-  const { heading, description, primary_cta, secondary_cta } = data;
+  const { tag, heading, description, items, primary_cta, secondary_cta } = data;
 
   return (
     <Section aria-label="Book a consultation" className="bg-navy">
       <Box className="mx-auto max-w-230 text-center">
+        {/* Optional Subtitle Tag above heading */}
+        {tag ? (
+          <Reveal>
+            <Text
+              as="p"
+              className="mb-3 font-mono text-[11px] font-medium tracking-[0.12em] text-lime uppercase"
+            >
+              {tag}
+            </Text>
+          </Reveal>
+        ) : null}
+
         <Reveal>
           <RichHeading
             heading={heading}
@@ -29,6 +38,7 @@ export default function CtaBand({ data }) {
             emphasisClassName="font-normal text-lime"
           />
         </Reveal>
+
         {description ? (
           <Reveal delay={1}>
             <Text
@@ -39,6 +49,24 @@ export default function CtaBand({ data }) {
             </Text>
           </Reveal>
         ) : null}
+
+        {/* Render Points/Pills when present in JSON */}
+        {items?.length ? (
+          <Reveal delay={1.5}>
+            <Box className="mb-8 flex flex-wrap justify-center gap-2 sm:gap-2.5">
+              {items.map((item, idx) => (
+                <Text
+                  key={idx}
+                  as="span"
+                  className="rounded-full border border-paper/15 bg-navy-soft px-3 py-2 font-mono text-[12px] font-medium tracking-wider text-paper/80 uppercase"
+                >
+                  {item}
+                </Text>
+              ))}
+            </Box>
+          </Reveal>
+        ) : null}
+
         <Reveal delay={2}>
           <Box className="flex flex-wrap justify-center gap-3.5">
             {primary_cta?.href ? (
