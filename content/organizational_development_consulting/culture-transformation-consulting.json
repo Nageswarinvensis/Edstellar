@@ -1,0 +1,696 @@
+{
+  "slug": "culture-transformation-consulting",
+  "name": "Cultural Transformation Consulting",
+  "sections": [
+    "challengeData",
+    "cultureShiftData",
+    "whatWeDeliverData",
+    "methodData",
+    "frameworksData",
+    "whyEdstellarData",
+    "readinessData",
+    "whyCtaData",
+    "faqData",
+    "relatedData"
+  ],
+  "seo": {
+    "title": "Cultural Transformation Consulting",
+    "description": "Edstellar's cultural transformation consulting defines the target culture your strategy needs, diagnoses your organizational culture, and builds the behaviors, rituals and leadership that shift how work really gets done. Book a consultation.",
+    "image": null
+  },
+  "BreadcrumbData": [
+    { "label": "Home", "href": "/" },
+    { "label": "Consulting", "href": "/consulting" },
+    {
+      "label": "Organizational Development",
+      "href": "/organizational-development-consulting"
+    },
+    {
+      "label": "Cultural Transformation",
+      "href": "/organizational-development-consulting/culture-transformation-consulting"
+    }
+  ],
+  "heroData": {
+    "title": "Cultural Transformation Consulting",
+    "tagline": "The culture your strategy runs on.",
+    "description": "Culture is how work really gets done, and it decides whether your strategy, change and engagement actually happen. Edstellar's cultural transformation consulting drives organizational culture transformation: it defines the target culture your business needs, diagnoses the organizational culture you have today, and builds the behaviors, rituals and leadership that shift it.",
+    "showMeta": true,
+    "primaryBtnText": "Book a culture consultation",
+    "primaryBtnHref": "#apply",
+    "secondaryBtnText": "See what's included",
+    "secondaryBtnHref": "#what-we-do",
+    "learning_system": {
+      "title": "What we design",
+      "items": [
+        {
+          "icon": "operating-model",
+          "title": "Target culture",
+          "description": "What your strategy needs"
+        },
+        {
+          "icon": "framework",
+          "title": "Diagnosis",
+          "description": "The culture you have today"
+        },
+        {
+          "icon": "pathway",
+          "title": "Behaviors",
+          "description": "How work really gets done"
+        },
+        {
+          "icon": "measurement",
+          "title": "Embedding",
+          "description": "Rituals, systems and leaders"
+        }
+      ],
+      "footerText": "A culture your people live every day."
+    }
+  },
+  "proof": {
+    "ctaTitle": "Ready to shift how work gets done?",
+    "primaryBtnText": "Book a consultation",
+    "primaryBtnTitle": "Book a cultural transformation consultation with our team",
+    "primaryBtnHref": "#apply",
+    "secondaryBtnText": "Download the cultural transformation brochure (PDF)",
+    "secondaryBtnTitle": "Download the cultural transformation brochure in PDF format",
+    "secondaryBtnHref": "https://www.edstellar.com/brochures/organizational-development-consulting",
+    "stats": [
+      { "value": "300+", "label": "Clients" },
+      { "value": "20+", "label": "Industries" },
+      { "value": "300+", "label": "Consultants" },
+      { "value": "ISO 9001 & 27001", "label": "Certified" }
+    ]
+  },
+  "stickyNavbarData": {
+    "logo": { "src": "/course/Edstellar.svg", "alt": "Edstellar" },
+    "cta": {
+      "text": "Book a consultation",
+      "title": "Click Here to Book a Consultation",
+      "targetId": "apply"
+    },
+    "tabs": [
+      { "id": "what-we-do", "label": "What we do", "active": true },
+      { "id": "method", "label": "Method", "active": false },
+      { "id": "frameworks", "label": "Frameworks", "active": false },
+      { "id": "why", "label": "Why us", "active": false },
+      { "id": "faq", "label": "FAQ", "active": false }
+    ]
+  },
+  "challengeData": {
+    "section_id": "challenge",
+    "heading": "Cultural transformation consulting that shifts how work really <span>gets done.</span>",
+    "description": "With a high-performance culture built on the behaviors your strategy needs, the organization changes for real: people act differently day to day, and the results follow.",
+    "items": [
+      {
+        "title": "New behaviors, daily",
+        "description": "How people actually work shifts, because cultural transformation targets behaviors and rituals, not posters and values statements.",
+        "close": "Behaviors shift, not posters."
+      },
+      {
+        "title": "Strategy that lands",
+        "description": "Your strategy gets executed, because the culture is aligned to deliver it, not quietly working against it.",
+        "close": "Culture delivers the strategy."
+      },
+      {
+        "title": "Change that sticks",
+        "description": "Transformation holds, because the underlying culture is shifted, not just the process on top of it.",
+        "close": "The shift holds, not just process."
+      },
+      {
+        "title": "One way of working",
+        "description": "Teams share a clear set of behaviors, so your corporate culture is consistent across sites, functions and leaders.",
+        "close": "Consistent across sites and teams."
+      },
+      {
+        "title": "Leaders who model it",
+        "description": "Leaders set the tone and live the behaviors, because culture is shaped from the top, every day.",
+        "close": "Shaped from the top, daily."
+      },
+      {
+        "title": "Culture you can see",
+        "description": "Culture health, behaviors and engagement show the shift is real, not just a value on the wall.",
+        "close": "The shift shows in the numbers."
+      }
+    ]
+  },
+  "cultureShiftData": {
+    "section_id": "culture-shift",
+    "eyebrow": "The shift",
+    "heading": "Edstellar cultural transformation: from the culture you have to the one you <span>need.</span>",
+    "description": "Transformation is a move from one culture to another, from the behaviors holding you back to the ones your strategy needs. Edstellar cultural transformation defines that target, then embeds it as how people actually work.",
+    "points": [
+      {
+        "title": "A defined target",
+        "description": "The behaviors your strategy needs"
+      },
+      {
+        "title": "A real shift",
+        "description": "From current norms to new ones"
+      },
+      {
+        "title": "Embedded, not announced",
+        "description": "New behaviors become the default"
+      }
+    ],
+    "shift": {
+      "current_label": "Current culture",
+      "current": ["Silos", "Blame", "Risk-averse", "Top-down"],
+      "target_label": "Target culture",
+      "target": ["Collaboration", "Ownership", "Experimentation", "Empowered"],
+      "caption": "The shift we design, then embed as everyday behavior"
+    }
+  },
+  "whatWeDeliverData": {
+    "section_id": "what-we-do",
+    "heading": "What our cultural transformation consulting <span>delivers.</span>",
+    "description": "One connected program, from culture strategy to embedded new behaviors. Not a deck and a hand-off: at each step we show what we do, what we build with you, and the deliverable you keep, layer by layer.",
+    "steps": [
+      {
+        "title": "Culture strategy",
+        "how": "Alignment workshops, structured by our 5A method.",
+        "do": [
+          "Tie each cultural behavior to the business outcome it drives",
+          "Define why the culture must change and what it unlocks",
+          "Align leaders on the culture the strategy needs",
+          "Set the baseline from current culture data"
+        ],
+        "build": [
+          "A culture strategy tied to business outcomes",
+          "A clear case for change leaders own",
+          "Target measures for culture and behavior",
+          "The baseline every result is tracked against"
+        ],
+        "get": "Culture strategy & case for change"
+      },
+      {
+        "title": "Target culture",
+        "how": "Behavior definition, informed by the Competing Values and Schein models.",
+        "do": [
+          "Define the values, behaviors and norms you are building",
+          "Make the target culture specific and observable",
+          "Translate values into everyday behaviors",
+          "Tie the target to strategy, not slogans"
+        ],
+        "build": [
+          "A defined target culture and behavior set",
+          "Observable behaviors by level and team",
+          "A shared language for the culture",
+          "The standard diagnosis and change run against"
+        ],
+        "get": "Target-culture definition"
+      },
+      {
+        "title": "Culture diagnosis",
+        "how": "Culture assessment and survey, benchmarked on our Capability Intelligence Platform.",
+        "do": [
+          "Assess where the culture stands against the target",
+          "Run culture assessment, survey and interviews",
+          "Surface the behaviors and beliefs beneath the surface",
+          "Map the gaps that matter most"
+        ],
+        "build": [
+          "A culture diagnosis against the target",
+          "A gap map of behaviors and beliefs",
+          "Hotspots by site, function and level",
+          "The priorities that shape the change plan"
+        ],
+        "get": "Culture diagnosis & gap map"
+      },
+      {
+        "title": "Behavior change",
+        "how": "Behavioral interventions tuned to your rituals and systems.",
+        "do": [
+          "Turn stated values into how people actually behave",
+          "Redesign the rituals and signals that shape behavior",
+          "Equip leaders to model the new behaviors",
+          "Target the few behaviors that move the culture"
+        ],
+        "build": [
+          "A behavior-change plan with priority behaviors",
+          "Ritual and system redesigns",
+          "A leader role-modeling playbook",
+          "Nudges and reinforcement built into the day"
+        ],
+        "get": "Behavior-change plan"
+      },
+      {
+        "title": "Culture metrics",
+        "how": "Culture analytics benchmarked on our Capability Intelligence Platform.",
+        "do": [
+          "Define the measures that show culture shifting",
+          "Track behaviors, culture health and engagement",
+          "Tie culture to business results, not a wall value",
+          "Set targets and thresholds for each measure"
+        ],
+        "build": [
+          "A culture metrics framework",
+          "A dashboard linking culture to outcomes",
+          "Baselines and targets per measure",
+          "A reporting rhythm leaders can act on"
+        ],
+        "get": "Culture metrics & dashboard"
+      },
+      {
+        "title": "Embedding & rhythm",
+        "how": "A governed review cadence with reinforcement built in.",
+        "do": [
+          "Make new behaviors the way things are done here",
+          "Set the rituals, systems and cadence that embed them",
+          "Keep the culture improving every cycle",
+          "Transfer ownership to leaders and HR owners"
+        ],
+        "build": [
+          "An embedding model with named owners",
+          "A review-and-improve operating rhythm",
+          "A culture playbook handed to your team",
+          "A sustainment plan to hold the shift"
+        ],
+        "get": "Embedding model & operating rhythm"
+      }
+    ]
+  },
+  "methodData": {
+    "section_id": "method",
+    "heading": "The Edstellar 5A cultural transformation <span>methodology.</span>",
+    "subheading": "Our five-step cultural transformation method, from business strategy to a culture your people live every day, measured over time.",
+    "showSoftCta": false,
+    "steps": [
+      {
+        "title": "Assess",
+        "duration": "1–2 weeks",
+        "description": "Read the business strategy, the leaders and the current culture to define what the target culture will take.",
+        "deliverable": "Culture brief"
+      },
+      {
+        "title": "Analyze",
+        "duration": "2–3 weeks",
+        "description": "Analyze the gap between today's culture and the target using culture surveys and <a href=\"/talent-assessment-services\">behavior assessments</a>.",
+        "deliverable": "Culture diagnosis"
+      },
+      {
+        "title": "Architect",
+        "duration": "3–5 weeks",
+        "description": "Architect the change: behaviors, rituals, leadership and systems that shift the culture.",
+        "deliverable": "Cultural transformation plan"
+      },
+      {
+        "title": "Activate",
+        "duration": "6–12 weeks",
+        "description": "Activate the plan: launch behaviors, rituals and leadership role-modeling across teams.",
+        "deliverable": "Live rollout"
+      },
+      {
+        "title": "Advance",
+        "duration": "Ongoing",
+        "description": "Measure culture health, reinforce and sustain each cycle, so the culture holds rather than reverting.",
+        "deliverable": "Culture dashboard"
+      }
+    ]
+  },
+  "frameworksData": {
+    "section_id": "frameworks",
+    "heading": "The frameworks and models behind Edstellar's cultural transformation <span>consulting.</span>",
+    "description": "The organizational culture field is built on a body of established models. Edstellar's 5A method puts the most widely recognized ones to work.",
+    "items": [
+      {
+        "id": "schein",
+        "model_no": "Model 01",
+        "name": "Schein's Three Levels of Culture",
+        "author": "Edgar Schein",
+        "description": "Culture works on three levels: visible artifacts, stated values and deep underlying assumptions.",
+        "phases": [
+          {
+            "title": "Culture diagnosis",
+            "subtitle": "See past artifacts to real assumptions",
+            "examples": ["Artifact scan", "Stated vs lived", "Assumption dig"]
+          },
+          {
+            "title": "Values alignment",
+            "subtitle": "Close the say-do gap",
+            "examples": ["Value audit", "Behavior link", "Leader modeling"]
+          },
+          {
+            "title": "Deep change",
+            "subtitle": "Shift the assumptions that drive behavior",
+            "examples": ["Belief work", "New narratives", "Reinforcement"]
+          }
+        ]
+      },
+      {
+        "id": "competing-values",
+        "model_no": "Model 02",
+        "name": "Competing Values Framework",
+        "author": "Cameron & Quinn",
+        "description": "Culture mapped across four types: clan, adhocracy, market and hierarchy.",
+        "phases": [
+          {
+            "title": "Culture profiling",
+            "subtitle": "Map current vs target culture",
+            "examples": ["OCAI survey", "Type profile", "Gap view"]
+          },
+          {
+            "title": "Target culture",
+            "subtitle": "Choose the mix strategy needs",
+            "examples": ["Desired blend", "Trade-offs", "Priorities"]
+          },
+          {
+            "title": "Shift design",
+            "subtitle": "Move the balance deliberately",
+            "examples": ["Lever choices", "Quick shifts", "Reinforcers"]
+          }
+        ]
+      },
+      {
+        "id": "hofstede",
+        "model_no": "Model 03",
+        "name": "Hofstede's Cultural Dimensions",
+        "author": "Geert Hofstede",
+        "description": "National cultures differ along dimensions like power distance and uncertainty avoidance.",
+        "phases": [
+          {
+            "title": "Global alignment",
+            "subtitle": "Adapt culture work across regions",
+            "examples": ["Dimension read", "Local nuance", "Global norms"]
+          },
+          {
+            "title": "Cross-culture teams",
+            "subtitle": "Design for how regions differ",
+            "examples": ["Norm setting", "Comms style", "Decision style"]
+          },
+          {
+            "title": "Rollout design",
+            "subtitle": "Localize a global culture program",
+            "examples": ["Region tailoring", "Local champions", "Shared core"]
+          }
+        ]
+      },
+      {
+        "id": "cultural-web",
+        "model_no": "Model 04",
+        "name": "The Cultural Web",
+        "author": "Johnson & Scholes",
+        "description": "Culture seen through six elements: stories, symbols, rituals, structures, controls and power.",
+        "phases": [
+          {
+            "title": "Web mapping",
+            "subtitle": "Surface the six elements at play",
+            "examples": ["Stories & symbols", "Rituals", "Power structures"]
+          },
+          {
+            "title": "Barrier removal",
+            "subtitle": "Find what holds the old culture in",
+            "examples": ["Control audit", "Routine check", "Symbol reset"]
+          },
+          {
+            "title": "New signals",
+            "subtitle": "Reset the everyday signals",
+            "examples": ["New rituals", "New stories", "New symbols"]
+          }
+        ]
+      },
+      {
+        "id": "handy",
+        "model_no": "Model 05",
+        "name": "Handy's Culture Types",
+        "author": "Charles Handy",
+        "description": "Four culture types, power, role, task and person, each with distinct strengths.",
+        "phases": [
+          {
+            "title": "Type diagnosis",
+            "subtitle": "Name the culture you actually have",
+            "examples": ["Type read", "Strengths", "Risks"]
+          },
+          {
+            "title": "Fit-for-purpose",
+            "subtitle": "Match culture to strategy and work",
+            "examples": ["Work fit", "Target type", "Trade-offs"]
+          },
+          {
+            "title": "Structure link",
+            "subtitle": "Align structure to culture type",
+            "examples": ["Roles", "Decision flow", "Controls"]
+          }
+        ]
+      },
+      {
+        "id": "trompenaars",
+        "model_no": "Model 06",
+        "name": "Trompenaars' Dimensions",
+        "author": "Trompenaars & Hampden-Turner",
+        "description": "Seven dimensions that explain how cultures reconcile competing values.",
+        "phases": [
+          {
+            "title": "Dilemma reconciliation",
+            "subtitle": "Bridge competing cultural values",
+            "examples": ["Dilemma map", "Reconcile paths", "Shared ground"]
+          },
+          {
+            "title": "Global teaming",
+            "subtitle": "Design for value differences",
+            "examples": ["Rule vs relationship", "Individual vs group", "Norms"]
+          },
+          {
+            "title": "M&A culture",
+            "subtitle": "Integrate two cultures well",
+            "examples": ["Culture due diligence", "Bridge plan", "Shared values"]
+          }
+        ]
+      }
+    ]
+  },
+  "whyEdstellarData": {
+    "section_id": "why",
+    "heading": "Why Edstellar is your cultural transformation consulting <span>solutions provider.</span>",
+    "description": "The rare partner for culture consulting that defines your target culture and shifts it, keeps your culture gaps in view, and proves the impact in behaviors, engagement and results.",
+    "difference_label": "The difference",
+    "items": [
+      {
+        "icon": "link",
+        "title": "Diagnosis to daily behavior, one partner",
+        "description": "Your culture actually shifts, because the team that diagnoses it also embeds the behaviors that change it.",
+        "visual": {
+          "type": "flow",
+          "items": ["Define", "Shift", "Measure"],
+          "caption": "One team, target to habit"
+        },
+        "difference": "Most firms hand you a values statement. We stay through to daily behaviors."
+      },
+      {
+        "icon": "chip",
+        "title": "Runs on the Capability Intelligence Platform",
+        "description": "The Capability Intelligence Platform keeps your culture picture live, so the change targets the behaviors that matter and proves its impact.",
+        "visual": {
+          "type": "signal",
+          "title": "Capability signal",
+          "status": "Live",
+          "items": ["Culture:88", "Behaviors:72", "Engagement:64"]
+        },
+        "difference": "Your capability picture stays live, not frozen in a slide."
+      },
+      {
+        "icon": "chart",
+        "title": "Outcomes tied to the business",
+        "description": "Every program is tied to business goals and measured against them, so your culture work is accountable to behaviors and results, not activity.",
+        "visual": {
+          "type": "bars",
+          "items": [38, 52, 66, 80, 100],
+          "caption": "↑ Business impact over the engagement"
+        },
+        "difference": "Measured in behaviors and results, not values posters."
+      },
+      {
+        "icon": "globe",
+        "title": "Global delivery, wherever your people are",
+        "description": "Culture transformation delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global rollout stays consistent.",
+        "visual": {
+          "type": "regions",
+          "items": ["Americas", "EMEA", "APAC", "MENA", "India"],
+          "caption": "Onsite · virtual · hybrid"
+        },
+        "difference": "Delivered where your people are, not just at HQ."
+      },
+      {
+        "icon": "list",
+        "title": "A proven method, not improvisation",
+        "description": "Every program runs the same Edstellar 5A method, so your culture work is built systematically rather than improvised each time.",
+        "visual": {
+          "type": "steps",
+          "items": ["A", "A", "A", "A", "A"],
+          "caption": "Assess · Analyze · Architect · Activate · Advance"
+        },
+        "difference": "A repeatable system, not a bespoke experiment each time."
+      },
+      {
+        "icon": "sliders",
+        "title": "Flexible from advisory to end-to-end",
+        "description": "Start with a culture diagnostic, hand over the plan, or run the whole change, and scale up as the partnership grows.",
+        "visual": {
+          "type": "tiers",
+          "items": ["Diagnostic", "Design", "Build", "End-to-end"],
+          "caption": "Start focused, scale up"
+        },
+        "difference": "Take as much or as little as you choose."
+      }
+    ],
+    "trust": {
+      "heading": "Trusted across industries and regions",
+      "industries": [
+        { "icon": "landmark", "label": "Financial services" },
+        { "icon": "monitor", "label": "Technology" },
+        { "icon": "cross", "label": "Healthcare" },
+        { "icon": "factory", "label": "Manufacturing" },
+        { "icon": "bag", "label": "Retail & consumer" },
+        { "icon": "zap", "label": "Energy" }
+      ],
+      "more_label": "20+ in all",
+      "regions_label": "Delivered across",
+      "regions": ["APAC", "Middle East", "Europe", "North America", "India"],
+      "caption_strong": "Fortune 500",
+      "caption": "clients served worldwide"
+    }
+  },
+  "readinessData": {
+    "section_id": "readiness",
+    "heading": "Assess your culture against the <span>essentials.</span>",
+    "description": "A quick cultural transformation assessment: see where your workplace culture is strong today, and where the target culture, behaviors and embedding can go further.",
+    "points": [
+      "Alignment between the target culture and business priorities",
+      "Leadership and behavior consistency across the organization",
+      "Embedding, rituals and measurement readiness"
+    ],
+    "cta": {
+      "label": "Get the free readiness checklist ↓",
+      "href": "https://www.edstellar.com/tool/culture-change-consulting"
+    },
+    "checklist": {
+      "title": "Culture readiness checklist",
+      "items": [
+        { "label": "Target culture defined and owned", "done": true },
+        { "label": "Current culture diagnosed", "done": true },
+        { "label": "Key behaviors and norms defined", "done": true },
+        { "label": "Leaders modeling the culture", "done": false },
+        { "label": "New behaviors embedded and tracked", "done": false }
+      ]
+    }
+  },
+  "whyCtaData": {
+    "heading": "Ready for cultural transformation that shifts how work really <span>gets done?</span>",
+    "primary_cta": { "label": "Book a consultation", "href": "#apply" }
+  },
+  "faqData": {
+    "heading": "Cultural transformation consulting <span>FAQs.</span>",
+    "items": [
+      {
+        "question": "What does cultural transformation consulting include?",
+        "answer": "It covers your culture strategy and target culture, culture diagnosis, values and behaviors design, leadership role-modeling, embedding through rituals and systems, and the metrics that show culture shifting, all aligned to the business goals."
+      },
+      {
+        "question": "Can you really change company culture?",
+        "answer": "Yes, when you change behaviors, not slogans. Organizational cultural transformation works by defining the specific behaviors the strategy needs, diagnosing where you are, and embedding new behaviors through leaders, rituals and systems, so how work gets done actually changes."
+      },
+      {
+        "question": "How long does a cultural transformation engagement take?",
+        "answer": "Defining the target and diagnosing the culture takes a few weeks; shifting behaviors is an ongoing effort over months to a few years, because culture changes through sustained habit, not a single campaign."
+      },
+      {
+        "question": "Do you help embed the change, not just define the culture?",
+        "answer": "Yes. Leadership role-modeling, rituals, systems and the reinforcement that make new behaviors stick are the core of the engagement, so the culture actually shifts."
+      },
+      {
+        "question": "What do we get at the end?",
+        "answer": "A target culture and behavior model, a culture diagnosis, a behavior change and embedding plan, and the culture metrics you own and run."
+      }
+    ],
+    "footer_cta": {
+      "text": "Still have a question about your culture?",
+      "label": "Ask us directly",
+      "href": "#apply"
+    }
+  },
+  "relatedData": {
+    "sectionId": "related",
+    "bgColor": "bg-paper-warm",
+    "heading": "Other organizational development <span>services.</span>",
+    "subheading": "Cultural transformation shifts how work gets done. These related services shape the culture and reinforce it.",
+    "items": [
+      {
+        "icon": "network",
+        "title": "Organization Design",
+        "description": "Align the structure and roles with the culture you want.",
+        "link": "Explore",
+        "href": "/organization-design-consulting"
+      },
+      {
+        "icon": "smile",
+        "title": "Employee Engagement",
+        "description": "The engagement a healthy culture creates.",
+        "link": "Explore",
+        "href": "/employee-engagement-consulting"
+      },
+      {
+        "icon": "users",
+        "title": "Leadership Effectiveness",
+        "description": "Build the leaders who set and model the culture.",
+        "link": "Explore",
+        "href": "/leadership-effectiveness-consulting"
+      },
+      {
+        "icon": "change",
+        "title": "Change Management",
+        "description": "Land the change that culture has to carry.",
+        "link": "Explore",
+        "href": "/organizational-development-consulting/change-management-consulting"
+      },
+      {
+        "icon": "chart",
+        "title": "Strategic Workforce Planning",
+        "description": "Plan the people the new culture needs.",
+        "link": "Explore",
+        "href": "/strategic-workforce-planning-consulting"
+      },
+      {
+        "icon": "succession",
+        "title": "Succession Planning",
+        "description": "Grow leaders who carry the culture forward.",
+        "link": "Explore",
+        "href": "/succession-planning-consulting"
+      },
+      {
+        "icon": "target",
+        "title": "Performance Management",
+        "description": "Reward the behaviors your culture depends on.",
+        "link": "Explore",
+        "href": "/performance-management-consulting"
+      },
+      {
+        "icon": "dei",
+        "title": "Diversity, Equity & Inclusion",
+        "description": "Build an inclusive culture where everyone belongs.",
+        "link": "Explore",
+        "href": "/dei-consulting"
+      }
+    ],
+    "hub_link": {
+      "label": "See all organizational development services →",
+      "href": "/organizational-development-consulting"
+    }
+  },
+  "leadFormData": {
+    "heading": "Book a cultural transformation consultation with <span>Edstellar.</span>",
+    "description": "Tell us where your culture is today. We reply within one business day with a scoped response, no automated sales sequence.",
+    "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+    "submit_label": "Book a consultation"
+  },
+  "stickyFooter": {
+    "form_anchor_id": "apply",
+    "messages": [
+      { "highlight": "The culture", "suffix": "your strategy runs on" },
+      { "highlight": "Behaviors, rituals", "suffix": "and leadership" },
+      { "highlight": "Culture", "suffix": "your people live every day" }
+    ],
+    "brochure": {
+      "label": "Brochure",
+      "href": "https://www.edstellar.com/brochures/organizational-development-consulting"
+    }
+  }
+}
