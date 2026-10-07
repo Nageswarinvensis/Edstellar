@@ -24,7 +24,7 @@ function stripSiteSuffix(title) {
  * a template (TASTE.md §1.2).
  */
 
-export const revalidate = 3600;
+export const revalidate = 5;
 
 /**
  * Domains, industries and vendors are few and cheap, so all of them are

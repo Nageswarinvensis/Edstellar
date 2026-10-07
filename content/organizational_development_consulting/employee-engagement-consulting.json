@@ -1,0 +1,884 @@
+{
+  "slug": "employee-engagement-consulting",
+  "name": "Employee Engagement Consulting",
+  "sections": [
+    "challengeData",
+    "changeJourneyData",
+    "whatWeDeliverData",
+    "methodData",
+    "frameworksData",
+    "whyEdstellarData",
+    "readinessData",
+    "whyCtaData",
+    "faqData",
+    "relatedData"
+  ],
+  "seo": {
+    "title": "Employee Engagement Consulting",
+    "description": "Edstellar's employee engagement consulting measures what drives engagement, then builds the manager habits, recognition and growth that turn how people feel into commitment, performance and retention. Book a consultation.",
+    "image": null
+  },
+  "BreadcrumbData": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Consulting",
+      "href": "/consulting"
+    },
+    {
+      "label": "Organizational Development",
+      "href": "/organizational-development-consulting"
+    },
+    {
+      "label": "Employee Engagement",
+      "href": "/organizational-development-consulting/employee-engagement-consulting"
+    }
+  ],
+  "heroData": {
+    "title": "Employee Engagement Consulting",
+    "tagline": "The engagement your results depend on.",
+    "description": "Engagement is not perks or an annual survey. Edstellar's employee engagement consulting measures what actually drives engagement, then builds the manager habits, recognition and growth that turn how people feel into commitment, motivation and employee retention, not quiet disengagement.",
+    "showMeta": true,
+    "primaryBtnText": "Book an engagement consultation",
+    "primaryBtnHref": "#apply",
+    "secondaryBtnText": "See what's included",
+    "secondaryBtnHref": "#what-we-do",
+    "learning_system": {
+      "title": "What we design",
+      "items": [
+        {
+          "icon": "operating-model",
+          "title": "Engagement drivers",
+          "description": "What actually moves commitment"
+        },
+        {
+          "icon": "framework",
+          "title": "Manager habits",
+          "description": "Where engagement is won or lost"
+        },
+        {
+          "icon": "pathway",
+          "title": "Recognition & growth",
+          "description": "Why people stay and give more"
+        },
+        {
+          "icon": "measurement",
+          "title": "Measurement",
+          "description": "eNPS, retention and impact"
+        }
+      ],
+      "footerText": "Engagement your people feel and own."
+    }
+  },
+  "proof": {
+    "ctaTitle": "Ready to lift engagement that lasts?",
+    "primaryBtnText": "Book a consultation",
+    "primaryBtnTitle": "Book an employee engagement consultation with our team",
+    "primaryBtnHref": "#apply",
+    "secondaryBtnText": "Download the employee engagement brochure (PDF)",
+    "secondaryBtnTitle": "Download the employee engagement brochure in PDF format",
+    "secondaryBtnHref": "https://www.edstellar.com/brochures/organizational-development-consulting",
+    "stats": [
+      {
+        "value": "300+",
+        "label": "Clients"
+      },
+      {
+        "value": "20+",
+        "label": "Industries"
+      },
+      {
+        "value": "300+",
+        "label": "Consultants"
+      },
+      {
+        "value": "ISO 9001 & 27001",
+        "label": "Certified"
+      }
+    ]
+  },
+  "stickyNavbarData": {
+    "logo": {
+      "src": "/course/Edstellar.svg",
+      "alt": "Edstellar"
+    },
+    "cta": {
+      "text": "Book a consultation",
+      "title": "Click Here to Book a Consultation",
+      "targetId": "apply"
+    },
+    "tabs": [
+      {
+        "id": "what-we-do",
+        "label": "What we do",
+        "active": true
+      },
+      {
+        "id": "method",
+        "label": "Method",
+        "active": false
+      },
+      {
+        "id": "frameworks",
+        "label": "Frameworks",
+        "active": false
+      },
+      {
+        "id": "why",
+        "label": "Why us",
+        "active": false
+      },
+      {
+        "id": "faq",
+        "label": "FAQ",
+        "active": false
+      }
+    ]
+  },
+  "challengeData": {
+    "section_id": "challenge",
+    "heading": "Employee engagement consulting that turns feeling into <span>performance.</span>",
+    "description": "With engagement built on what really drives it, people commit: they bring discretionary effort, they stay, and the business feels it in performance and retention.",
+    "items": [
+      {
+        "title": "Discretionary effort",
+        "description": "People choose to give their best, because the things that actually drive engagement are in place.",
+        "close": "People give their best by choice."
+      },
+      {
+        "title": "Higher retention",
+        "description": "Engaged people stay, so you keep the knowledge, relationships and momentum that turnover destroys.",
+        "close": "Your best people choose to stay."
+      },
+      {
+        "title": "Managers who lift teams",
+        "description": "Every manager knows how to build engagement, because engagement is a daily habit, not an annual event.",
+        "close": "Engagement becomes a daily habit."
+      },
+      {
+        "title": "Heard, not surveyed",
+        "description": "People see their feedback lead to action, so employee voice builds trust instead of survey fatigue.",
+        "close": "Feedback leads to visible action."
+      },
+      {
+        "title": "Engagement you can see",
+        "description": "eNPS, participation and retention show engagement moving, not just a score on a slide.",
+        "close": "The numbers actually move."
+      },
+      {
+        "title": "Built on what drives it",
+        "description": "Effort goes to the drivers that actually move engagement, not perks that look good but change little.",
+        "close": "Effort goes where it counts."
+      }
+    ]
+  },
+  "changeJourneyData": {
+    "section_id": "change-journey",
+    "eyebrow": "Discretionary effort",
+    "heading": "Edstellar employee engagement: the effort people choose to <span>give.</span>",
+    "description": "You can require attendance and tasks. You cannot require discretionary effort, the extra people give when they are engaged. Edstellar employee engagement builds the drivers that unlock it, and measures it moving.",
+    "points": [
+      {
+        "title": "Discretionary effort",
+        "description": "The extra people give when engaged"
+      },
+      {
+        "title": "Higher retention",
+        "description": "Engaged people choose to stay"
+      },
+      {
+        "title": "Measured, not guessed",
+        "description": "eNPS, participation and retention move"
+      }
+    ]
+  },
+  "whatWeDeliverData": {
+    "section_id": "what-we-do",
+    "heading": "What our employee engagement consulting <span>delivers.</span>",
+    "description": "One connected program, from engagement strategy to a lasting habit. Not a deck and a hand-off: at each step we show what we do, what we build with you, and the deliverable you keep, layer by layer.",
+    "steps": [
+      {
+        "title": "Engagement strategy",
+        "how": "Driver-mapping workshops, structured by our 5A method.",
+        "do": [
+          "Tie each engagement driver to the business outcome it moves",
+          "Prioritize the drivers that matter for your workforce",
+          "Align leaders on what engagement should deliver",
+          "Set the baseline from current engagement data"
+        ],
+        "build": [
+          "An engagement strategy tied to business outcomes",
+          "A prioritized map of the drivers that move commitment",
+          "Target measures for engagement and retention",
+          "The baseline every result is tracked against"
+        ],
+        "get": "Engagement strategy & driver map"
+      },
+      {
+        "title": "Engagement drivers",
+        "how": "Driver analysis benchmarked on our Capability Intelligence Platform.",
+        "do": [
+          "Identify the specific levers that move commitment",
+          "Separate the drivers that work from perks that do not",
+          "Target investment where it changes how people feel",
+          "Design interventions for each priority driver"
+        ],
+        "build": [
+          "A ranked set of engagement drivers for your organization",
+          "An action plan per driver with named owners",
+          "A view of effort redirected from perks to drivers",
+          "Quick wins and longer-term moves, sequenced"
+        ],
+        "get": "Driver action plan"
+      },
+      {
+        "title": "Manager enablement",
+        "how": "Blended 70-20-10 enablement with manager coaching.",
+        "do": [
+          "Make engagement a daily manager habit, not an HR event",
+          "Equip managers with practical tools and routines",
+          "Coach managers to act on their team’s signals",
+          "Build team-level engagement rituals"
+        ],
+        "build": [
+          "A manager engagement toolkit and playbook",
+          "Team conversation and one-to-one guides",
+          "A manager coaching and support model",
+          "Habit routines managers can run weekly"
+        ],
+        "get": "Manager engagement toolkit"
+      },
+      {
+        "title": "Listening & feedback",
+        "how": "Continuous listening tuned to an action-planning cadence.",
+        "do": [
+          "Set up continuous listening, from pulse to annual survey",
+          "Turn employee voice into visible action",
+          "Close the loop so people see feedback change things",
+          "Build action planning into the rhythm, not just scores"
+        ],
+        "build": [
+          "A continuous listening framework, pulse to annual",
+          "Action-planning templates by team",
+          "A close-the-loop communication model",
+          "A dashboard of themes and actions taken"
+        ],
+        "get": "Listening & action-planning system"
+      },
+      {
+        "title": "Engagement metrics",
+        "how": "Engagement analytics benchmarked on our Capability Intelligence Platform.",
+        "do": [
+          "Define the measures that prove engagement is moving",
+          "Track eNPS, participation and retention together",
+          "Tie engagement to business results, not a single score",
+          "Set targets and thresholds for each measure"
+        ],
+        "build": [
+          "An engagement metrics framework, eNPS and beyond",
+          "A dashboard linking engagement to outcomes",
+          "Baselines and targets per measure",
+          "A reporting rhythm leaders can act on"
+        ],
+        "get": "Engagement metrics & dashboard"
+      },
+      {
+        "title": "Governance & rhythm",
+        "how": "A governed review cadence with reinforcement built in.",
+        "do": [
+          "Set the cadence, ownership and review that keep engagement a habit",
+          "Keep engagement improving every cycle, not once a year",
+          "Transfer ownership to managers and HR owners",
+          "Guard against the annual-survey spike and fade"
+        ],
+        "build": [
+          "A governance model with named owners",
+          "A review-and-improve operating rhythm",
+          "An engagement playbook handed to your team",
+          "A sustainment plan to hold the gains"
+        ],
+        "get": "Governance model & operating rhythm"
+      }
+    ]
+  },
+  "methodData": {
+    "section_id": "method",
+    "heading": "The Edstellar 5A employee engagement <span>methodology.</span>",
+    "subheading": "Our five-step employee engagement method, from business goals to committed, engaged people and the retention that follows.",
+    "showSoftCta": false,
+    "steps": [
+      {
+        "title": "Assess",
+        "duration": "1–2 weeks",
+        "description": "Read the business goals, the culture and the drivers to define what engagement will take.",
+        "deliverable": "Engagement baseline"
+      },
+      {
+        "title": "Analyze",
+        "duration": "2–3 weeks",
+        "description": "Analyze the survey and eNPS data to find what drives and blocks engagement, using diagnostics and <a href=\"/talent-assessment-services\">employee listening</a>.",
+        "deliverable": "Driver diagnosis"
+      },
+      {
+        "title": "Architect",
+        "duration": "3–5 weeks",
+        "description": "Architect the engagement plan: drivers, manager habits, recognition and listening that move commitment.",
+        "deliverable": "Engagement plan"
+      },
+      {
+        "title": "Activate",
+        "duration": "6–12 weeks",
+        "description": "Activate the plan: enable managers, launch listening and recognition across teams.",
+        "deliverable": "Live rollout"
+      },
+      {
+        "title": "Advance",
+        "duration": "Ongoing",
+        "description": "Measure eNPS and retention, act on feedback and sustain each cycle, so engagement compounds rather than resetting.",
+        "deliverable": "Engagement dashboard"
+      }
+    ]
+  },
+  "frameworksData": {
+    "section_id": "frameworks",
+    "heading": "The frameworks and models behind Edstellar's employee engagement <span>consulting.</span>",
+    "description": "The employee engagement field is built on a body of established models. Edstellar's 5A method puts the most widely recognized ones to work.",
+    "items": [
+      {
+        "id": "jd-r",
+        "model_no": "Model 01",
+        "name": "Job Demands-Resources Model",
+        "author": "Bakker & Demerouti",
+        "description": "Engagement rises when job resources outweigh job demands.",
+        "phases": [
+          {
+            "title": "Balancing demands",
+            "subtitle": "Ease the load that drains people",
+            "examples": [
+              "Workload review",
+              "Demand audit",
+              "Role rebalancing"
+            ]
+          },
+          {
+            "title": "Building resources",
+            "subtitle": "Add the support that energizes",
+            "examples": [
+              "Autonomy & voice",
+              "Growth & feedback",
+              "Manager support"
+            ]
+          },
+          {
+            "title": "Burnout prevention",
+            "subtitle": "Spot and close the risk early",
+            "examples": [
+              "Burnout pulse",
+              "Risk flags",
+              "Recovery design"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sdt",
+        "model_no": "Model 02",
+        "name": "Self-Determination Theory",
+        "author": "Deci & Ryan",
+        "description": "People are motivated by autonomy, mastery and connection, not just rewards.",
+        "phases": [
+          {
+            "title": "Autonomy design",
+            "subtitle": "Give people real choice in how they work",
+            "examples": [
+              "Decision rights",
+              "Flexible how",
+              "Fewer controls"
+            ]
+          },
+          {
+            "title": "Mastery paths",
+            "subtitle": "Build competence and progress",
+            "examples": [
+              "Skill growth",
+              "Stretch work",
+              "Clear progress"
+            ]
+          },
+          {
+            "title": "Relatedness",
+            "subtitle": "Strengthen belonging and connection",
+            "examples": [
+              "Team rituals",
+              "Peer support",
+              "Shared purpose"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "herzberg",
+        "model_no": "Model 03",
+        "name": "Herzberg's Two-Factor Theory",
+        "author": "Frederick Herzberg",
+        "description": "Hygiene factors stop dissatisfaction; motivators are what actually drive engagement.",
+        "phases": [
+          {
+            "title": "Fixing hygiene",
+            "subtitle": "Remove what dissatisfies first",
+            "examples": [
+              "Pay & conditions",
+              "Policies",
+              "Basic fairness"
+            ]
+          },
+          {
+            "title": "Adding motivators",
+            "subtitle": "Build in what truly motivates",
+            "examples": [
+              "Recognition",
+              "Responsibility",
+              "Achievement"
+            ]
+          },
+          {
+            "title": "Role enrichment",
+            "subtitle": "Design jobs that motivate",
+            "examples": [
+              "Job enrichment",
+              "Meaningful work",
+              "Growth in role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "maslow",
+        "model_no": "Model 04",
+        "name": "Maslow's Hierarchy of Needs",
+        "author": "Abraham Maslow",
+        "description": "People are engaged when lower needs are met and higher ones can be pursued.",
+        "phases": [
+          {
+            "title": "Needs assessment",
+            "subtitle": "See which needs are unmet",
+            "examples": [
+              "Needs survey",
+              "Gap read",
+              "Priority tiers"
+            ]
+          },
+          {
+            "title": "Foundation first",
+            "subtitle": "Secure safety and belonging",
+            "examples": [
+              "Security",
+              "Team belonging",
+              "Fair treatment"
+            ]
+          },
+          {
+            "title": "Higher needs",
+            "subtitle": "Enable esteem and self-actualization",
+            "examples": [
+              "Recognition",
+              "Growth",
+              "Purpose"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "kahn",
+        "model_no": "Model 05",
+        "name": "Kahn's Model of Engagement",
+        "author": "William Kahn",
+        "description": "People engage when work feels meaningful, safe and they have the resources to give.",
+        "phases": [
+          {
+            "title": "Meaningfulness",
+            "subtitle": "Make the work feel worth it",
+            "examples": [
+              "Purpose link",
+              "Role fit",
+              "Impact visibility"
+            ]
+          },
+          {
+            "title": "Psychological safety",
+            "subtitle": "Make it safe to bring themselves",
+            "examples": [
+              "Speak-up norms",
+              "Trust building",
+              "Manager behavior"
+            ]
+          },
+          {
+            "title": "Availability",
+            "subtitle": "Free up the energy to engage",
+            "examples": [
+              "Workload fit",
+              "Resource access",
+              "Reduce drain"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "jcm",
+        "model_no": "Model 06",
+        "name": "Job Characteristics Model",
+        "author": "Hackman & Oldham",
+        "description": "Five job traits create the meaning, responsibility and feedback that drive motivation.",
+        "phases": [
+          {
+            "title": "Job design",
+            "subtitle": "Build the five core traits into roles",
+            "examples": [
+              "Skill variety",
+              "Task identity",
+              "Autonomy"
+            ]
+          },
+          {
+            "title": "Meaning & feedback",
+            "subtitle": "Make work significant and visible",
+            "examples": [
+              "Task significance",
+              "Direct feedback",
+              "Ownership"
+            ]
+          },
+          {
+            "title": "Motivating potential",
+            "subtitle": "Raise a role's motivating score",
+            "examples": [
+              "Role redesign",
+              "Enrichment",
+              "Growth path"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "whyEdstellarData": {
+    "section_id": "why",
+    "heading": "Why Edstellar is your employee engagement consulting <span>solutions provider.</span>",
+    "description": "The rare partner that finds what drives your engagement and builds it, keeps your engagement gaps in view, and proves the impact in commitment and retention.",
+    "difference_label": "The difference",
+    "items": [
+      {
+        "icon": "link",
+        "title": "Diagnosis to daily habit, one partner",
+        "description": "Your engagement actually rises, because the team that diagnoses it also builds the manager habits that sustain it.",
+        "visual": {
+          "type": "flow",
+          "items": [
+            "Diagnose",
+            "Build",
+            "Measure"
+          ],
+          "caption": "One team, diagnosis to habit"
+        },
+        "difference": "Most firms hand you a survey report. We stay through to daily habits."
+      },
+      {
+        "icon": "chip",
+        "title": "Runs on the Capability Intelligence Platform",
+        "description": "The Capability Intelligence Platform keeps your engagement picture live, so your plan targets the drivers that matter and proves its impact.",
+        "visual": {
+          "type": "signal",
+          "title": "Capability signal",
+          "status": "Live",
+          "items": [
+            "Engagement:88",
+            "Managers:72",
+            "Retention:64"
+          ]
+        },
+        "difference": "Your capability picture stays live, not frozen in a slide."
+      },
+      {
+        "icon": "chart",
+        "title": "Outcomes tied to the business",
+        "description": "Every program is tied to business goals and measured against them, so your engagement work is accountable to commitment and retention, not activity.",
+        "visual": {
+          "type": "bars",
+          "items": [
+            38,
+            52,
+            66,
+            80,
+            100
+          ],
+          "caption": "↑ Business impact over the engagement"
+        },
+        "difference": "Measured in retention and commitment, not survey scores."
+      },
+      {
+        "icon": "globe",
+        "title": "Global delivery, wherever your people are",
+        "description": "Engagement work delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global rollout stays consistent.",
+        "visual": {
+          "type": "regions",
+          "items": [
+            "Americas",
+            "EMEA",
+            "APAC",
+            "MENA",
+            "India"
+          ],
+          "caption": "Onsite · virtual · hybrid"
+        },
+        "difference": "Delivered where your people are, not just at HQ."
+      },
+      {
+        "icon": "list",
+        "title": "A proven method, not improvisation",
+        "description": "Every program runs the same Edstellar 5A method, so your engagement work is built systematically rather than improvised each time.",
+        "visual": {
+          "type": "steps",
+          "items": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "caption": "Assess · Analyze · Architect · Activate · Advance"
+        },
+        "difference": "A repeatable system, not a bespoke experiment each time."
+      },
+      {
+        "icon": "sliders",
+        "title": "Flexible from advisory to end-to-end",
+        "description": "Start with an engagement diagnostic, hand over the plan, or run the whole program, and scale up as the partnership grows.",
+        "visual": {
+          "type": "tiers",
+          "items": [
+            "Diagnostic",
+            "Design",
+            "Build",
+            "End-to-end"
+          ],
+          "caption": "Start focused, scale up"
+        },
+        "difference": "Take as much or as little as you choose."
+      }
+    ],
+    "trust": {
+      "heading": "Trusted across industries and regions",
+      "industries": [
+        {
+          "icon": "landmark",
+          "label": "Financial services"
+        },
+        {
+          "icon": "monitor",
+          "label": "Technology"
+        },
+        {
+          "icon": "cross",
+          "label": "Healthcare"
+        },
+        {
+          "icon": "factory",
+          "label": "Manufacturing"
+        },
+        {
+          "icon": "bag",
+          "label": "Retail & consumer"
+        },
+        {
+          "icon": "zap",
+          "label": "Energy"
+        }
+      ],
+      "more_label": "20+ in all",
+      "regions_label": "Delivered across",
+      "regions": [
+        "APAC",
+        "Middle East",
+        "Europe",
+        "North America",
+        "India"
+      ],
+      "caption_strong": "Fortune 500",
+      "caption": "clients served worldwide"
+    }
+  },
+  "readinessData": {
+    "section_id": "readiness",
+    "heading": "Assess your engagement against the <span>essentials.</span>",
+    "description": "A quick employee engagement assessment: see where your engagement is strong today, and where the drivers, manager habits and listening can go further.",
+    "points": [
+      "Alignment between engagement drivers and business outcomes",
+      "Manager capability to build engagement across teams",
+      "Listening, action and measurement readiness"
+    ],
+    "cta": {
+      "label": "Get the free readiness checklist ↓",
+      "href": "https://www.edstellar.com/tool/employee-engagement-consulting"
+    },
+    "checklist": {
+      "title": "Engagement readiness checklist",
+      "items": [
+        {
+          "label": "Engagement drivers defined and owned",
+          "done": true
+        },
+        {
+          "label": "Baseline measured (eNPS and drivers)",
+          "done": true
+        },
+        {
+          "label": "Managers equipped to build engagement",
+          "done": true
+        },
+        {
+          "label": "Listening turned into visible action",
+          "done": false
+        },
+        {
+          "label": "Engagement tracked and sustained",
+          "done": false
+        }
+      ]
+    }
+  },
+  "whyCtaData": {
+    "heading": "Ready for employee engagement that turns feeling into <span>commitment?</span>",
+    "primary_cta": {
+      "label": "Book a consultation",
+      "href": "#apply"
+    }
+  },
+  "faqData": {
+    "heading": "Employee engagement consulting <span>FAQs.</span>",
+    "items": [
+      {
+        "question": "What does employee engagement consulting include?",
+        "answer": "It covers your engagement strategy and drivers, employee engagement surveys and pulse surveys, eNPS measurement, employee experience design, manager enablement, recognition and wellbeing, and the action planning and metrics that make engagement stick, all aligned to the business goals."
+      },
+      {
+        "question": "Is employee engagement the same as employee satisfaction?",
+        "answer": "No. Satisfaction is how content people are; engagement is how committed and motivated they are to give their best. We build the drivers of engagement, purpose, managers, growth and voice, that move performance and retention, not just how people rate the perks."
+      },
+      {
+        "question": "How long does an employee engagement program take?",
+        "answer": "Typically a baseline in four to six weeks, then an ongoing rhythm, because engagement is built and sustained over time, not fixed in a single project."
+      },
+      {
+        "question": "Do you help act on the results, not just run the survey?",
+        "answer": "Yes. Manager enablement, recognition, listening and the action planning that turns feedback into change are the core of the engagement, so results lead to visible action."
+      },
+      {
+        "question": "What do we get at the end?",
+        "answer": "An engagement strategy and driver map, a listening and eNPS baseline, an experience and manager plan, and the engagement metrics you own and run."
+      }
+    ],
+    "footer_cta": {
+      "text": "Still have a question about your engagement?",
+      "label": "Ask us directly",
+      "href": "#apply"
+    }
+  },
+  "relatedData": {
+    "sectionId": "related",
+    "bgColor": "bg-paper-warm",
+    "heading": "Other organizational development <span>services.</span>",
+    "subheading": "Engagement is how people feel about work. These related services shape the organization around it.",
+    "items": [
+      {
+        "icon": "network",
+        "title": "Organization Design",
+        "description": "Design the structure and roles engaged people work within.",
+        "link": "Explore",
+        "href": "/organization-design-consulting"
+      },
+      {
+        "icon": "heart",
+        "title": "Culture Change",
+        "description": "Shift the culture that engagement grows from.",
+        "link": "Explore",
+        "href": "/culture-change-consulting"
+      },
+      {
+        "icon": "users",
+        "title": "Leadership Effectiveness",
+        "description": "Build the leaders whose teams are the most engaged.",
+        "link": "Explore",
+        "href": "/leadership-effectiveness-consulting"
+      },
+      {
+        "icon": "smile",
+        "title": "Change Management",
+        "description": "Keep people engaged and on board through change.",
+        "link": "Explore",
+        "href": "/change-management-consulting"
+      },
+      {
+        "icon": "chart",
+        "title": "Strategic Workforce Planning",
+        "description": "Plan the roles and skills engaged teams will need.",
+        "link": "Explore",
+        "href": "/strategic-workforce-planning-consulting"
+      },
+      {
+        "icon": "succession",
+        "title": "Succession Planning",
+        "description": "Keep and grow the engaged people you cannot lose.",
+        "link": "Explore",
+        "href": "/succession-planning-consulting"
+      },
+      {
+        "icon": "target",
+        "title": "Performance Management",
+        "description": "Connect engagement to goals, feedback and growth.",
+        "link": "Explore",
+        "href": "/performance-management-consulting"
+      },
+      {
+        "icon": "dei",
+        "title": "Diversity, Equity & Inclusion",
+        "description": "Make engagement inclusive, so everyone feels they belong.",
+        "link": "Explore",
+        "href": "/dei-consulting"
+      }
+    ],
+    "hub_link": {
+      "label": "See all organizational development services →",
+      "href": "/organizational-development-consulting"
+    }
+  },
+  "leadFormData": {
+    "heading": "Book an employee engagement consultation with <span>Edstellar.</span>",
+    "description": "Tell us where your engagement is today. We reply within one business day with a scoped response, no automated sales sequence.",
+    "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+    "submit_label": "Book a consultation"
+  },
+  "stickyFooter": {
+    "form_anchor_id": "apply",
+    "messages": [
+      {
+        "highlight": "The engagement",
+        "suffix": "your results depend on"
+      },
+      {
+        "highlight": "Drivers, managers",
+        "suffix": "and recognition"
+      },
+      {
+        "highlight": "Engagement",
+        "suffix": "your people feel and own"
+      }
+    ],
+    "brochure": {
+      "label": "Brochure",
+      "href": "https://www.edstellar.com/brochures/organizational-development-consulting"
+    }
+  }
+}

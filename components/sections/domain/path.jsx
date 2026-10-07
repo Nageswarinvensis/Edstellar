@@ -14,6 +14,9 @@ import {
   ChartNoAxesCombined,
   Briefcase,
   Users,
+  Search,
+  Scale,
+  Globe,
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -33,6 +36,9 @@ const icons = {
   chart: ChartNoAxesCombined,
   briefcase: Briefcase,
   users: Users,
+  search: Search,
+  scale: Scale,
+  globe: Globe,
 };
 
 export default function Paths({ data }) {
@@ -144,7 +150,10 @@ export default function Paths({ data }) {
             }}
           >
             {data.paths.map((path, cardIndex) => {
-              const Icon = icons[path.icon];
+              // Fall back to a known icon so an unmapped `path.icon` from the
+              // CMS renders a default instead of crashing the page with an
+              // undefined element.
+              const Icon = icons[path.icon] ?? Workflow;
               const isHovered = hoveredCard === path.id;
 
               return (
