@@ -41,7 +41,17 @@ const SECTIONS = {
   cultureShiftData: (data) => <ShiftSection data={data} />,
   representationData: (data) => <ShiftSection data={data} />,
   whatWeDeliverData: (data) => <WhatWeDeliver data={data} />,
-  methodData: (data) => <Methodology data={data} />,
+  methodData: (data) => (
+    <Methodology
+      data={
+        data && {
+          ...data,
+          section_id: data.section_id ?? "method",
+          showSoftCta: data.showSoftCta ?? false,
+        }
+      }
+    />
+  ),
   frameworksData: (data) => (
     <ChangeFrameworks data={data && { ...data, section_id: data.section_id ?? "frameworks" }} />
   ),
@@ -65,6 +75,30 @@ const SECTIONS = {
     <ChangeRelatedSlider id={data?.sectionId ?? "related"} data={data} />
   ),
 };
+
+/**
+ * Every OD sub-page renders the same sections in the same order, so a page's
+ * record no longer needs to carry its own `sections` list — it falls back to
+ * this. The "journey" slot differs by page (`changeJourneyData` /
+ * `cultureShiftData` / `representationData`, all rendered by `ShiftSection`);
+ * all three are listed consecutively and the two a given page lacks render
+ * nothing, since every section component no-ops on absent data. A page may
+ * still ship its own `sections` to override this order.
+ */
+const DEFAULT_SECTIONS = [
+  "challengeData",
+  "changeJourneyData",
+  "cultureShiftData",
+  "representationData",
+  "whatWeDeliverData",
+  "methodData",
+  "frameworksData",
+  "whyEdstellarData",
+  "readinessData",
+  "whyCtaData",
+  "faqData",
+  "relatedData",
+];
 
 export const revalidate = 3600;
 
@@ -115,7 +149,7 @@ export default async function OrganizationalDevelopmentServicePage({ params }) {
       <ClientLogos />
       <StickyTabs data={service.stickyNavbarData} />
 
-      {service.sections?.map((key) => {
+      {(service.sections ?? DEFAULT_SECTIONS).map((key) => {
         const render = SECTIONS[key];
         return render ? (
           <Fragment key={key}>{render(service[key])}</Fragment>

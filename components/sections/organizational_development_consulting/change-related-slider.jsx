@@ -56,6 +56,12 @@ export default function ChangeRelatedSlider({ id, data }) {
 
   const sectionId = id || data.sectionId || "related";
 
+  // The site-pages CMS sends the intro as `Description` and the footer link as
+  // a one-entry `hub_link` list; local content sends `subheading` and a
+  // `hub_link` object.
+  const subheading = data.subheading || data.Description;
+  const hubLink = Array.isArray(data.hub_link) ? data.hub_link[0] : data.hub_link;
+
   function scrollByCards(direction) {
     const track = trackRef.current;
     if (!track) return;
@@ -74,13 +80,13 @@ export default function ChangeRelatedSlider({ id, data }) {
         <Reveal>
           <RichHeading heading={data.heading} emphasisClassName="font-normal" />
         </Reveal>
-        {data.subheading ? (
+        {subheading ? (
           <Reveal delay={1}>
             <Text
               as="p"
               className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
             >
-              {data.subheading}
+              {subheading}
             </Text>
           </Reveal>
         ) : null}
@@ -156,13 +162,13 @@ export default function ChangeRelatedSlider({ id, data }) {
         </Box>
       </Reveal>
 
-      {data.hub_link?.href ? (
+      {hubLink?.href ? (
         <Text as="p" className="mt-7 text-center">
           <Link
-            href={data.hub_link.href}
+            href={hubLink.href}
             className="border-b-2 border-lime pb-0.5 font-display text-[14px] leading-normal font-bold text-ink focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
           >
-            {data.hub_link.label}
+            {hubLink.label}
           </Link>
         </Text>
       ) : null}

@@ -116,6 +116,17 @@ export default function Faq({
     : 0;
   const collapsed = hiddenCount > 0 && !expanded;
 
+  // The site-pages CMS sends the footer prompt as `cta: [{ cta_text, btn_label,
+  // href }]`; local content sends `footer_cta: { text, label, href }`.
+  const cmsFooterCta = Array.isArray(faqs.cta) ? faqs.cta[0] : null;
+  const footerCta =
+    faqs.footer_cta ??
+    (cmsFooterCta && {
+      text: cmsFooterCta.cta_text,
+      label: cmsFooterCta.btn_label,
+      href: cmsFooterCta.href,
+    });
+
   return (
     <Section
       id={id}
@@ -176,18 +187,18 @@ export default function Faq({
 
         {/* Optional content-driven prompt under the list — only pages whose
             `faqs` carries a `footer_cta` show it. */}
-        {faqs.footer_cta?.href ? (
+        {footerCta?.href ? (
           <Box className="flex flex-wrap items-center justify-center gap-4.5 pt-8 pb-1 text-center">
             <Text as="p" className="font-semibold text-ink">
-              {faqs.footer_cta.text}
+              {footerCta.text}
             </Text>
             <CtaButton
               variant="ghost"
               arrow
-              render={<a href={faqs.footer_cta.href} />}
+              render={<a href={footerCta.href} />}
               className="border-navy text-navy"
             >
-              {faqs.footer_cta.label}
+              {footerCta.label}
             </CtaButton>
           </Box>
         ) : null}
