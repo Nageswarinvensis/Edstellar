@@ -104,7 +104,7 @@ function InclusionsCard({ inclusions }) {
                         <Box
                           as="li"
                           key={item}
-                          className="flex items-start gap-2.5 text-[13.5px] leading-normal font-medium text-ink"
+                          className="flex items-start gap-2.5 text-[13.5px] leading-normal font-normal text-ink"
                         >
                           <Box className="mt-0.5 grid size-3.75 flex-none place-items-center rounded-[5px] bg-lime-soft text-[#4d6208]">
                             <Check
