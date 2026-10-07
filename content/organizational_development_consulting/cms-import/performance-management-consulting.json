@@ -1,0 +1,909 @@
+{
+  "seo": {
+    "og_image": null,
+    "og_title": null,
+    "meta_title": "Performance Management Consulting",
+    "og_image_url": null,
+    "twitter_card": null,
+    "twitter_site": null,
+    "canonical_url": null,
+    "meta_keywords": null,
+    "twitter_title": null,
+    "og_description": null,
+    "twitter_creator": null,
+    "Meta_description": "Edstellar's performance management consulting designs the goal-setting, continuous feedback, fair calibration and manager coaching that turn performance management into a system that moves results all year, not once a year. Book a consultation.",
+    "twitter_image_url": null,
+    "twitter_description": null
+  },
+  "consulting_Hero": {
+    "heroLeft": {
+      "title": "Performance Management Consulting",
+      "tagline": "The performance system that turns goals into results.",
+      "showMeta": true,
+      "description": "Most performance management is an annual ritual that changes nothing. Edstellar designs the goal-setting, continuous feedback, fair calibration and manager coaching that turn performance management into a performance management system that lifts employee performance all year, not once a year.",
+      "primaryBtnLink": "#apply",
+      "primaryBtnText": "Book a performance consultation",
+      "secondaryBtnLink": "#what-we-do",
+      "secondaryBtnText": "See what's included"
+    },
+    "heroRight": {
+      "skill_matrix": {
+        "note": null,
+        "rows": [],
+        "label": null,
+        "views": [],
+        "columns": [],
+        "req_label": null,
+        "aria_label": null,
+        "gap_levels": [],
+        "req_levels": null,
+        "req_caption": null
+      },
+      "learning_system": [
+        {
+          "items": [
+            {
+              "icon": "operating-model",
+              "title": "Goals & alignment",
+              "description": "How work ties to strategy"
+            },
+            {
+              "icon": "framework",
+              "title": "Feedback & coaching",
+              "description": "Continuous, not annual"
+            },
+            {
+              "icon": "pathway",
+              "title": "Reviews & calibration",
+              "description": "Fair, consistent ratings"
+            },
+            {
+              "icon": "measurement",
+              "title": "Performance metrics",
+              "description": "Proof it moved results"
+            }
+          ],
+          "title": "What we design",
+          "footer_text": "A performance system you own and run."
+        }
+      ]
+    }
+  },
+  "breadcrumbs": {
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Consulting",
+        "href": "/consulting"
+      },
+      {
+        "label": "Organizational Development",
+        "href": "/organizational-development-consulting"
+      },
+      {
+        "label": "Performance Management",
+        "href": "/organizational-development-consulting/performance-management-consulting"
+      }
+    ]
+  },
+  "generalProof": {
+    "tone": "dark",
+    "items": [
+      {
+        "Label": "Ready to make performance drive results?",
+        "primary_btn_link": "#apply",
+        "primary_btn_text": "Book a consultation",
+        "secondary_btn_link": "https://www.edstellar.com/brochures/organizational-development-consulting",
+        "secondary_btn_text": "Download the performance management brochure (PDF)"
+      }
+    ],
+    "stats": [
+      {
+        "value": "300+",
+        "label": "Clients"
+      },
+      {
+        "value": "20+",
+        "label": "Industries"
+      },
+      {
+        "value": "300+",
+        "label": "Consultants"
+      },
+      {
+        "value": "ISO 9001 & 27001",
+        "label": "Certified"
+      }
+    ]
+  },
+  "stickyNavbar": {
+    "logo": {
+      "src": "/course/Edstellar.svg",
+      "alt": "Edstellar"
+    },
+    "cta": {
+      "text": "Book a consultation",
+      "title": "Click Here to Book a Consultation",
+      "targetId": "apply"
+    },
+    "tabs": [
+      {
+        "id": "what-we-do",
+        "label": "What we do",
+        "active": true
+      },
+      {
+        "id": "method",
+        "label": "Method",
+        "active": false
+      },
+      {
+        "id": "frameworks",
+        "label": "Frameworks",
+        "active": false
+      },
+      {
+        "id": "why",
+        "label": "Why us",
+        "active": false
+      },
+      {
+        "id": "faq",
+        "label": "FAQ",
+        "active": false
+      }
+    ]
+  },
+  "challenge": {
+    "section_id": "challenge",
+    "heading": "Performance management consulting that turns goals into <span>results.</span>",
+    "description": "With a system behind performance, the annual review stops being theatre: goal setting connects to strategy, feedback is continuous, ratings are fair, managers actually coach, and a performance culture takes hold.",
+    "items": [
+      {
+        "title": "Goals that connect",
+        "description": "Every goal ladders up to a business objective, so people work on what actually matters, not busywork.",
+        "close": "Everyone works on what matters."
+      },
+      {
+        "title": "Feedback all year",
+        "description": "Continuous feedback and regular check-ins replace the once-a-year surprise, so issues get fixed while they are small.",
+        "close": "Fixed small, not once a year."
+      },
+      {
+        "title": "Fair, consistent ratings",
+        "description": "Calibration takes bias and grade inflation out, so a rating means the same thing across every team.",
+        "close": "A rating means the same everywhere."
+      },
+      {
+        "title": "Managers who coach",
+        "description": "Managers are equipped to hold real performance conversations, not just complete a form.",
+        "close": "Real conversations, not forms."
+      },
+      {
+        "title": "Rewards that follow performance",
+        "description": "Recognition, rewards and pay for performance connect to real contribution, so your strongest people see that performance counts.",
+        "close": "Performance actually counts."
+      },
+      {
+        "title": "A system that stays live",
+        "description": "Performance runs on a rhythm, so it reflects how people are doing now, not a memory from last quarter.",
+        "close": "Reflects how people are doing now."
+      }
+    ]
+  },
+  "changeJourney": {
+    "section_id": "cascade",
+    "eyebrow": "Goal alignment",
+    "heading": "Edstellar performance management: every goal ladders up to the <span>strategy.</span>",
+    "description": "Performance only drives results when goals connect. Edstellar performance management cascades goals from the business strategy down to every individual, so everyone is working on what actually moves the business.",
+    "points": [
+      {
+        "title": "Goals that connect",
+        "description": "Every goal ladders up to the strategy"
+      },
+      {
+        "title": "Aligned top to bottom",
+        "description": "Company, team and individual in line"
+      },
+      {
+        "title": "Focused effort",
+        "description": "People work on what matters, not busywork"
+      }
+    ]
+  },
+  "whatwedeliver": {
+    "section_id": "what-we-do",
+    "heading": "What our performance management consulting <span>delivers.</span>",
+    "description": "One connected program, from performance strategy to a living system. Not a deck and a hand-off: at each step we show what we do, what we build with you, and the deliverable you keep, layer by layer.",
+    "steps": [
+      {
+        "title": "Performance strategy",
+        "how": "Alignment workshops, structured by our 5A method.",
+        "do": [
+          "Tie each performance priority to the business strategy",
+          "Define what good performance looks like here",
+          "Align leaders on the system's purpose and principles",
+          "Set the baseline from current performance data"
+        ],
+        "build": [
+          "A performance strategy tied to business outcomes",
+          "Clear performance principles leaders own",
+          "Target measures for performance and the process",
+          "The baseline every result is tracked against"
+        ],
+        "get": "Performance strategy & principles"
+      },
+      {
+        "title": "Goals & alignment",
+        "how": "Goal cascading, informed by the OKR and MBO models.",
+        "do": [
+          "Cascade goals from strategy to every team and role",
+          "Set clear objectives and key results",
+          "Make sure every goal ladders up to a business aim",
+          "Keep goals few, focused and measurable"
+        ],
+        "build": [
+          "A goal and OKR framework across the organization",
+          "Cascaded objectives from company to individual",
+          "Goal-setting templates and guardrails",
+          "A line of sight from each goal to the strategy"
+        ],
+        "get": "Goal & OKR framework"
+      },
+      {
+        "title": "Reviews & calibration",
+        "how": "Calibration design, informed by the Balanced Scorecard and 360 feedback.",
+        "do": [
+          "Design the review cycle, from appraisals to 360 feedback",
+          "Calibrate ratings to remove bias and grade inflation",
+          "Make a rating mean the same across teams",
+          "Build continuous check-ins, not an annual surprise"
+        ],
+        "build": [
+          "A review cycle and calibration model",
+          "A rating scale with calibration guidance",
+          "A continuous check-in cadence",
+          "A fair, consistent review process across teams"
+        ],
+        "get": "Review & calibration model"
+      },
+      {
+        "title": "Development & coaching",
+        "how": "Blended coaching with manager enablement.",
+        "do": [
+          "Turn every review into development, not just a score",
+          "Equip managers to hold real performance conversations",
+          "Build one-on-ones, coaching and development plans",
+          "Follow through so plans actually happen"
+        ],
+        "build": [
+          "A manager coaching and conversation toolkit",
+          "One-on-one and development plan templates",
+          "A follow-through and accountability model",
+          "Enablement so managers coach, not just rate"
+        ],
+        "get": "Coaching & development toolkit"
+      },
+      {
+        "title": "Performance metrics",
+        "how": "Performance analytics benchmarked on our Capability Intelligence Platform.",
+        "do": [
+          "Define the measures that show performance improving",
+          "Track goal attainment, quality and the process itself",
+          "Tie performance to business results, not activity",
+          "Set targets and thresholds for each measure"
+        ],
+        "build": [
+          "A performance metrics framework",
+          "A dashboard of attainment and process health",
+          "Baselines and targets per measure",
+          "A reporting rhythm leaders can act on"
+        ],
+        "get": "Performance metrics & dashboard"
+      },
+      {
+        "title": "Performance governance",
+        "how": "A governed review cadence that keeps the system live.",
+        "do": [
+          "Keep the performance system live, not an annual event",
+          "Set the review cadence, ownership and governance",
+          "Connect rewards and recognition to real performance",
+          "Transfer ownership to leaders and HR owners"
+        ],
+        "build": [
+          "A governance model with named owners",
+          "A review-and-improve operating rhythm",
+          "A reward-and-recognition linkage to performance",
+          "A sustainment plan to keep the system live"
+        ],
+        "get": "Governance model & operating rhythm"
+      }
+    ]
+  },
+  "methodology": {
+    "cta": [],
+    "steps": [
+      {
+        "title": "Assess",
+        "duration": "1–2 weeks",
+        "description": "Read the business strategy, goals and how performance is run today to define what good performance means here.",
+        "deliverable": "Performance brief"
+      },
+      {
+        "title": "Analyze",
+        "duration": "2–3 weeks",
+        "description": "Analyze how goals, feedback and ratings work now, using performance data and <a href=\"/talent-assessment-services\">talent assessments</a>.",
+        "deliverable": "Performance diagnosis"
+      },
+      {
+        "title": "Architect",
+        "duration": "3–5 weeks",
+        "description": "Architect the system: the goals, feedback, calibration and governance that drive performance.",
+        "deliverable": "Performance system"
+      },
+      {
+        "title": "Activate",
+        "duration": "6–12 weeks",
+        "description": "Activate the system: launch goal-setting, check-ins, reviews and manager coaching across the business.",
+        "deliverable": "Live cycle"
+      },
+      {
+        "title": "Advance",
+        "duration": "Ongoing",
+        "description": "Measure goal attainment and quality, review and improve each cycle, so performance compounds rather than resets.",
+        "deliverable": "Performance dashboard"
+      }
+    ],
+    "heading": "The Edstellar 5A performance management <span>methodology.</span>",
+    "subheading": "Our five-step performance management method, from business goals to a running, measured performance system."
+  },
+  "frameworks": {
+    "section_id": "frameworks",
+    "heading": "The frameworks and models behind Edstellar's performance management <span>consulting.</span>",
+    "description": "The performance management field is built on a body of established models. Edstellar's 5A method puts the most widely recognized ones to work.",
+    "items": [
+      {
+        "id": "mbo",
+        "model_no": "Model 01",
+        "name": "Management by Objectives",
+        "author": "Peter Drucker",
+        "description": "Performance follows when goals are set jointly and tied to the organization's objectives.",
+        "phases": [
+          {
+            "title": "Goal cascade",
+            "subtitle": "Line up goals top to bottom",
+            "examples": [
+              "Company goals",
+              "Team goals",
+              "Individual goals"
+            ]
+          },
+          {
+            "title": "Joint goal-setting",
+            "subtitle": "Set goals with people, not at them",
+            "examples": [
+              "Manager-employee",
+              "Agreed targets",
+              "Ownership"
+            ]
+          },
+          {
+            "title": "Review against goals",
+            "subtitle": "Manage to the objectives set",
+            "examples": [
+              "Progress reviews",
+              "Course-correct",
+              "Outcomes"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bsc",
+        "model_no": "Model 02",
+        "name": "Balanced Scorecard",
+        "author": "Kaplan & Norton",
+        "description": "Performance seen across four lenses: financial, customer, process and learning.",
+        "phases": [
+          {
+            "title": "Balanced metrics",
+            "subtitle": "Measure beyond financials",
+            "examples": [
+              "Four perspectives",
+              "Leading vs lagging",
+              "KPI set"
+            ]
+          },
+          {
+            "title": "Strategy link",
+            "subtitle": "Connect measures to strategy",
+            "examples": [
+              "Strategy map",
+              "Cause-effect",
+              "Focus"
+            ]
+          },
+          {
+            "title": "Scorecard rollout",
+            "subtitle": "Cascade measures to teams",
+            "examples": [
+              "Team scorecards",
+              "Dashboards",
+              "Reviews"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "okr",
+        "model_no": "Model 03",
+        "name": "Objectives & Key Results",
+        "author": "Grove & Doerr",
+        "description": "Ambitious objectives paired with measurable key results, set on a short cadence.",
+        "phases": [
+          {
+            "title": "OKR design",
+            "subtitle": "Set clear objectives and key results",
+            "examples": [
+              "Objectives",
+              "Key results",
+              "Alignment"
+            ]
+          },
+          {
+            "title": "Cadence",
+            "subtitle": "Run a quarterly rhythm",
+            "examples": [
+              "Quarterly cycle",
+              "Check-ins",
+              "Scoring"
+            ]
+          },
+          {
+            "title": "Focus & stretch",
+            "subtitle": "Aim high on a few things",
+            "examples": [
+              "Few priorities",
+              "Stretch targets",
+              "Transparency"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart",
+        "model_no": "Model 04",
+        "name": "SMART Goals",
+        "author": "George Doran",
+        "description": "Goals that are Specific, Measurable, Achievable, Relevant and Time-bound.",
+        "phases": [
+          {
+            "title": "Goal quality",
+            "subtitle": "Turn vague goals into SMART ones",
+            "examples": [
+              "Specific",
+              "Measurable",
+              "Time-bound"
+            ]
+          },
+          {
+            "title": "Manager enablement",
+            "subtitle": "Coach managers to set good goals",
+            "examples": [
+              "Templates",
+              "Examples",
+              "Calibration"
+            ]
+          },
+          {
+            "title": "Alignment",
+            "subtitle": "Tie SMART goals to team aims",
+            "examples": [
+              "Line of sight",
+              "Relevance",
+              "Prioritized"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "goal-setting",
+        "model_no": "Model 05",
+        "name": "Goal-Setting Theory",
+        "author": "Locke & Latham",
+        "description": "Specific, challenging goals with feedback and commitment drive higher performance.",
+        "phases": [
+          {
+            "title": "Stretch calibration",
+            "subtitle": "Set goals that are hard but fair",
+            "examples": [
+              "Difficulty tuning",
+              "Commitment",
+              "Buy-in"
+            ]
+          },
+          {
+            "title": "Feedback loops",
+            "subtitle": "Feed progress back often",
+            "examples": [
+              "Regular feedback",
+              "Progress cues",
+              "Adjust"
+            ]
+          },
+          {
+            "title": "Commitment",
+            "subtitle": "Build ownership of the goal",
+            "examples": [
+              "Involvement",
+              "Rationale",
+              "Recognition"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "360-feedback",
+        "model_no": "Model 06",
+        "name": "360-Degree Feedback",
+        "author": "Multi-rater feedback",
+        "description": "Feedback gathered from managers, peers and reports for a rounded view.",
+        "phases": [
+          {
+            "title": "Rounded view",
+            "subtitle": "See performance from all sides",
+            "examples": [
+              "Manager",
+              "Peers",
+              "Reports"
+            ]
+          },
+          {
+            "title": "Development focus",
+            "subtitle": "Turn feedback into growth",
+            "examples": [
+              "Strength map",
+              "Blind spots",
+              "Dev plan"
+            ]
+          },
+          {
+            "title": "Fair calibration",
+            "subtitle": "Reduce single-rater bias",
+            "examples": [
+              "Multiple inputs",
+              "Calibration",
+              "Consistency"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ld_why_edstellar": {
+    "heading": "Why Edstellar is your performance management consulting <span>solutions provider.</span>",
+    "description": "The rare partner that designs your performance management system and runs the performance enablement behind it, keeps performance in view, and proves the impact to the business.",
+    "difference_label": "The difference",
+    "items": [
+      {
+        "icon": "link",
+        "title": "Design to results, one partner",
+        "description": "Your performance system actually works, because the team that designs it also enables the managers who run it.",
+        "visual": {
+          "type": "flow",
+          "items": [
+            "Design",
+            "Enable",
+            "Measure"
+          ],
+          "caption": "One team, design to results"
+        },
+        "difference": "Most firms hand you a new appraisal form. We stay through to results."
+      },
+      {
+        "icon": "chip",
+        "title": "Runs on the Capability Intelligence Platform",
+        "description": "The Capability Intelligence Platform keeps your performance picture live, so the system targets what needs to improve and proves its impact.",
+        "visual": {
+          "type": "signal",
+          "title": "Capability signal",
+          "status": "Live",
+          "items": [
+            "Goals:88",
+            "Feedback:72",
+            "Ratings:64"
+          ]
+        },
+        "difference": "Your capability picture stays live, not frozen in a slide."
+      },
+      {
+        "icon": "chart",
+        "title": "Outcomes tied to the business",
+        "description": "Every program is tied to business goals and measured against them, so your performance system is accountable to results, not activity.",
+        "visual": {
+          "type": "bars",
+          "items": [
+            38,
+            52,
+            66,
+            80,
+            100
+          ],
+          "caption": "↑ Business impact over the engagement"
+        },
+        "difference": "Measured in results, not reviews completed."
+      },
+      {
+        "icon": "globe",
+        "title": "Global delivery, wherever your people are",
+        "description": "Performance management delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global rollout stays consistent.",
+        "visual": {
+          "type": "regions",
+          "items": [
+            "Americas",
+            "EMEA",
+            "APAC",
+            "MENA",
+            "India"
+          ],
+          "caption": "Onsite · virtual · hybrid"
+        },
+        "difference": "Delivered where your people are, not just at HQ."
+      },
+      {
+        "icon": "list",
+        "title": "A proven method, not improvisation",
+        "description": "Every program runs the same Edstellar 5A method, so your performance system is built systematically rather than improvised each time.",
+        "visual": {
+          "type": "steps",
+          "items": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "caption": "Assess · Analyze · Architect · Activate · Advance"
+        },
+        "difference": "A repeatable system, not a bespoke experiment each time."
+      },
+      {
+        "icon": "sliders",
+        "title": "Flexible from advisory to end-to-end",
+        "description": "Start with a performance diagnostic, hand over the design, or run the whole performance cycle, and scale up as the partnership grows.",
+        "visual": {
+          "type": "tiers",
+          "items": [
+            "Diagnostic",
+            "Design",
+            "Build",
+            "End-to-end"
+          ],
+          "caption": "Start focused, scale up"
+        },
+        "difference": "Take as much or as little as you choose."
+      }
+    ],
+    "trust": {
+      "heading": "Trusted across industries and regions",
+      "industries": [
+        {
+          "icon": "landmark",
+          "label": "Financial services"
+        },
+        {
+          "icon": "monitor",
+          "label": "Technology"
+        },
+        {
+          "icon": "cross",
+          "label": "Healthcare"
+        },
+        {
+          "icon": "factory",
+          "label": "Manufacturing"
+        },
+        {
+          "icon": "bag",
+          "label": "Retail & consumer"
+        },
+        {
+          "icon": "zap",
+          "label": "Energy"
+        }
+      ],
+      "more_label": "20+ in all",
+      "regions_label": "Delivered across",
+      "regions": [
+        "APAC",
+        "Middle East",
+        "Europe",
+        "North America",
+        "India"
+      ],
+      "caption_strong": "Fortune 500",
+      "caption": "clients served worldwide"
+    }
+  },
+  "readinessData": {
+    "heading": "Assess your performance management against the <span>essentials.</span>",
+    "description": "A quick performance management maturity assessment, from goal setting to calibration: see where your system is strong today, and where feedback, reviews and development can go further.",
+    "points": [
+      "Alignment between goals and business strategy",
+      "Quality and frequency of feedback and coaching",
+      "Fairness of reviews and follow-through on development"
+    ],
+    "cta": {
+      "label": "Get the free readiness checklist ↓",
+      "href": "https://www.edstellar.com/tool/performance-management-consulting"
+    },
+    "checklist": {
+      "title": "Performance readiness checklist",
+      "items": [
+        {
+          "label": "Goals set and aligned to strategy",
+          "done": true
+        },
+        {
+          "label": "Regular feedback and check-ins happen",
+          "done": true
+        },
+        {
+          "label": "Reviews are calibrated and fair",
+          "done": true
+        },
+        {
+          "label": "Development follows every review",
+          "done": false
+        },
+        {
+          "label": "Performance runs on a governed rhythm",
+          "done": false
+        }
+      ]
+    }
+  },
+  "section-cta": {
+    "heading": "Ready for performance management that actually drives <span>results?</span>",
+    "primary_cta": {
+      "label": "Book a consultation",
+      "href": "#apply"
+    }
+  },
+  "faqs": {
+    "items": [
+      {
+        "question": "What does performance management consulting include?",
+        "answer": "It covers your performance management framework and strategy, goal setting and alignment, continuous feedback and check-ins, the review cycle and calibration, manager coaching, development plans and the governance and metrics that keep the system live, as part of your wider talent management, all aligned to your business goals."
+      },
+      {
+        "question": "Do you replace annual performance reviews?",
+        "answer": "Not necessarily. We design the cycle that fits you, whether that is a lighter annual review backed by continuous check-ins or a fully continuous model, so the performance management process drives results instead of creating paperwork."
+      },
+      {
+        "question": "How long does a performance management engagement take?",
+        "answer": "Designing the framework, goals and review cycle takes a few weeks; embedding it is an ongoing effort, because performance management is a running system reviewed on a rhythm, not a one-off rollout."
+      },
+      {
+        "question": "Do you enable our managers, not just design the process?",
+        "answer": "Yes. Equipping managers to set goals, give feedback and hold fair performance conversations is the core of the engagement, so the system works in practice, not just on paper."
+      },
+      {
+        "question": "What do we get at the end?",
+        "answer": "A performance framework, aligned goals, a review and calibration cycle, manager enablement and the performance metrics you own and run."
+      }
+    ],
+    "heading": "Performance management consulting <span>FAQs.</span>",
+    "cta": [
+      {
+        "href": "#apply",
+        "cta_text": "Still have a question about your performance management?",
+        "btn_label": "Ask us directly"
+      }
+    ]
+  },
+  "relatedServices": {
+    "items": [
+      {
+        "icon": "network",
+        "title": "Organization Design",
+        "description": "Design roles with clear performance expectations.",
+        "link": "Explore",
+        "href": "/organization-design-consulting"
+      },
+      {
+        "icon": "heart",
+        "title": "Culture Change",
+        "description": "Build a culture where high performance is the norm.",
+        "link": "Explore",
+        "href": "/culture-change-consulting"
+      },
+      {
+        "icon": "smile",
+        "title": "Employee Engagement",
+        "description": "Engaged people perform, and stay to keep performing.",
+        "link": "Explore",
+        "href": "/employee-engagement-consulting"
+      },
+      {
+        "icon": "users",
+        "title": "Leadership Effectiveness",
+        "description": "Develop the managers who drive performance.",
+        "link": "Explore",
+        "href": "/leadership-effectiveness-consulting"
+      },
+      {
+        "icon": "change",
+        "title": "Change Management",
+        "description": "Land the changes your performance goals depend on.",
+        "link": "Explore",
+        "href": "/change-management-consulting"
+      },
+      {
+        "icon": "chart",
+        "title": "Strategic Workforce Planning",
+        "description": "Plan the workforce your performance targets need.",
+        "link": "Explore",
+        "href": "/strategic-workforce-planning-consulting"
+      },
+      {
+        "icon": "succession",
+        "title": "Succession Planning",
+        "description": "Turn your top performers into ready successors.",
+        "link": "Explore",
+        "href": "/succession-planning-consulting"
+      },
+      {
+        "icon": "dei",
+        "title": "Diversity, Equity & Inclusion",
+        "description": "Keep performance and rewards fair for everyone.",
+        "link": "Explore",
+        "href": "/dei-consulting"
+      }
+    ],
+    "heading": "Other organizational development <span>services.</span>",
+    "hub_link": [
+      {
+        "href": "/organizational-development-consulting",
+        "label": "See all organizational development services →"
+      }
+    ],
+    "Description": "Performance management drives results. These related services build the system around it."
+  },
+  "leadForm": {
+    "heading": "Book a performance management consultation with <span>Edstellar.</span>",
+    "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+    "description": "Tell us where your performance management is today. We reply within one business day with a scoped response, no automated sales sequence.",
+    "Button_Label": "Book a consultation"
+  },
+  "stickyFooter": {
+    "cta": {
+      "href": "#apply",
+      "label": "Request a Training Quote"
+    },
+    "Brochure": [
+      {
+        "href": "https://www.edstellar.com/brochures/organizational-development-consulting",
+        "Label": "Brochure"
+      }
+    ],
+    "messages": [
+      {
+        "highlight": "The system",
+        "suffix": "your goals actually run on"
+      },
+      {
+        "highlight": "Goals, feedback",
+        "suffix": "and fair ratings"
+      },
+      {
+        "highlight": "Performance",
+        "suffix": "that moves all year"
+      }
+    ],
+    "form_anchor_id": "apply"
+  }
+}

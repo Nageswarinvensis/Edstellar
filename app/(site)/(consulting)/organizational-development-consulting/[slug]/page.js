@@ -100,7 +100,11 @@ const DEFAULT_SECTIONS = [
   "relatedData",
 ];
 
-export const revalidate = 3600;
+// SSG: every OD sub-page is prerendered at build from `generateStaticParams`,
+// and `dynamicParams = false` makes any slug not in that list a 404 instead of
+// being rendered on demand. No timed revalidation — content ships at build.
+export const dynamicParams = false;
+export const revalidate = false;
 
 export async function generateStaticParams() {
   const slugs = await getConsultingServiceSlugs(PILLAR);
