@@ -46,14 +46,25 @@ function deriveTitle(label) {
  * Base UI:
  *   <CtaButton render={<Link href="/contact" />}>Talk to us</CtaButton>
  */
+/** The bordered, transparent "ghost" pill — shared by the `ghost`, `secondary`
+ * and `outline` variant names (the designs have one bordered button; the CMS
+ * just labels it inconsistently). */
+const GHOST_VARIANT =
+  "border border-ink/22 bg-transparent text-ink hover:border-navy hover:bg-ink/[0.04]";
+
 const ctaButtonVariants = cva(
   "inline-flex cursor-pointer items-center justify-center gap-[9px] rounded-full font-body font-semibold whitespace-nowrap transition-[transform,box-shadow,border-color,background-color] duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         primary: "hover:-translate-y-0.5",
-        ghost:
-          "border border-ink/22 bg-transparent text-ink hover:border-navy hover:bg-ink/[0.04]",
+        // The bordered pill. The CMS names this same treatment `secondary` and
+        // `outline` (the hero sends both); they alias `ghost` here because an
+        // unmapped cva variant renders with NO classes at all — which is why
+        // those buttons were showing up with no border.
+        ghost: GHOST_VARIANT,
+        secondary: GHOST_VARIANT,
+        outline: GHOST_VARIANT,
       },
       color: {
         navy: "",

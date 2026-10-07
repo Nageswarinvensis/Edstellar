@@ -30,6 +30,21 @@ export const DOMAIN_DEFAULTS = {
     onSite: true,
     virtual: true,
   },
+  /**
+   * Fallback hero CTAs. A domain modeled purely in the CMS may not have its
+   * `hero.actions` filled in yet; these three generic buttons render until it
+   * does. `deepMerge` leaves them untouched when the CMS sends its own
+   * `hero.actions` (an array replaces wholesale) and fills them in when it
+   * doesn't (an absent/`null` field falls back) — so a domain that configures
+   * its own hero buttons keeps them, and one that hasn't still shows CTAs.
+   */
+  hero: {
+    actions: [
+      { label: "Browse Programs", href: "#by-topic", variant: "primary" },
+      { label: "Ask a Question", href: "#apply", variant: "secondary" },
+      { label: "Download Brochure", href: "#apply", variant: "outline" },
+    ],
+  },
   sticky_nav: {
     logo: {
       src: "/course/Edstellar.svg",
@@ -57,5 +72,51 @@ export const DOMAIN_DEFAULTS = {
       href: "#apply",
     },
     form_anchor_id: "apply",
+  },
+  /**
+   * The catalog section's UI chrome — filter labels, badges, pagination and
+   * card button text — is identical for every domain; only the course list
+   * and heading are domain-specific and come from the CMS. A domain modeled
+   * purely in the CMS (no local content file) still needs these labels, so
+   * they live here and the CMS's `programData` merges on top (TASTE.md §5.4).
+   */
+  programData: {
+    eyebrow: {
+      discipline: "DISCIPLINE",
+    },
+    filters: {
+      allDisciplines: "All disciplines",
+    },
+    catalog: {
+      showingLabel: "SHOWING",
+      ofLabel: "OF",
+      liveCatalogLabel: "IN THE LIVE CATALOG",
+      searchPlaceholder: "Search programs",
+      noResults:
+        "No program matches that combination in this selection. We build custom programs where nothing fits.",
+      actions: [
+        { label: "Ask for a Match", href: "#apply", variant: "primary" },
+      ],
+      courseCount: 0,
+      deliveryBadge: {
+        instructorLed: "INSTRUCTOR-LED",
+        separator: "·",
+        onSite: "ON-SITE",
+        virtual: "VIRTUAL",
+      },
+      card: {
+        viewProgram: "VIEW PROGRAM",
+        requestProgram: "REQUEST PROGRAM",
+        durationOnRequest: "DURATION ON REQUEST",
+        hoursSuffix: "HRS",
+        proposedLabel: "PROPOSED",
+        proposedProgramLabel: "PROPOSED PROGRAM",
+      },
+      pagination: {
+        previous: "PREVIOUS",
+        next: "NEXT",
+        allProgramsSuffix: "ALL",
+      },
+    },
   },
 };

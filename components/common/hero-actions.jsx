@@ -20,6 +20,11 @@ function scrollToHash(event) {
 }
 
 function HeroActions({ actions }) {
+  // `actions` is optional CMS content — a domain can ship a hero with no CTAs
+  // (and `hero.jsx` already treats it as optional). Render nothing rather than
+  // crashing on `undefined.map`.
+  if (!actions?.length) return null;
+
   return (
     <Box className="flex flex-wrap gap-3">
       {actions.map((action) => (

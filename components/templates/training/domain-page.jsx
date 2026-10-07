@@ -1,5 +1,5 @@
 import Hero from "@/components/common/hero";
-import DomainInfo from "@/components/sections/domain/domain-info";
+import DomainProof from "@/components/sections/domain/domain-proof";
 import ClientLogos from "@/components/common/client-logos";
 import StickyNavbar from "@/components/sections/domain/sticky-navbar";
 import About from "@/components/sections/domain/about";
@@ -39,7 +39,7 @@ export default function DomainPage({ domain }) {
   return (
     <>
       <Hero hero={domain.hero} breadcrumbs={domain.breadcrumbs} />
-      <DomainInfo groupQuote={domain.hero?.group_quote} proof={domain.proof} />
+      <DomainProof proof={domain.proof} />
       <ClientLogos />
 
       <StickyNavbar data={domain.sticky_nav} />
