@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ChartLine,
   Cpu,
@@ -15,6 +17,7 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import { TrustStrip } from "./trust-strip";
 import { cn } from "@/lib/utils";
+import LdSoftCta from "@/components/common/ld-soft-cta";
 
 const ICONS = {
   link: Link2,
@@ -30,15 +33,6 @@ const CHIP =
 const CAPTION =
   "mt-3 text-center font-mono text-[10px] leading-normal tracking-[0.04em] text-ink/60 uppercase";
 
-/**
- * Each card's small illustration, picked by `visual.type`. Decorative — the
- * card's own heading and text carry the point — so it is hidden from
- * assistive tech. The last step/tier is the highlighted one.
- */
-/**
- * A signal bar as `{ label, value }` — or as the `"Label:Value"` string the
- * site-pages CMS stores it as (`"Skills:88"`).
- */
 function signalRow(row) {
   if (typeof row !== "string") return row;
   const split = row.lastIndexOf(":");
@@ -109,7 +103,6 @@ function WhyVisual({ visual }) {
                   "block h-full rounded-sm",
                   isLast(index) ? "bg-lime" : "bg-navy",
                 )}
-                // Width is the row's value from content — data, not styling.
                 style={{ width: `${row.value}%` }}
               />
             </span>
@@ -127,7 +120,6 @@ function WhyVisual({ visual }) {
               "block flex-1 rounded-t-[5px]",
               isLast(index) ? "bg-lime" : "bg-navy",
             )}
-            // Height is the bar's value from content — data, not styling.
             style={{ height: `${value}%` }}
           />
         ))}
@@ -203,23 +195,24 @@ function WhyVisual({ visual }) {
   );
 }
 
-/**
- * "Why choose Edstellar for learning strategy" — six proof cards in a
- * 3 / 2 / 1-column grid, each with an icon, a claim, a small illustration
- * and a "The difference" line pinned to the bottom, then the shared
- * industries-and-regions trust strip.
- *
- * Design: `learning-strategy-design (48).html` → `#why`, `.wg-grid`, `.wg`,
- * `.tir`.
- */
 export default function WhyUs({ id, data }) {
-  if (!data?.items?.length) return null;
+  const content = data?.whyusData || data?.whyEdstellarData || data;
 
-  const { section_id, heading, description, difference_label, items, trust } =
-    data;
+  if (!content?.items?.length) return null;
+
+  const {
+    section_id,
+    heading,
+    description,
+    difference_label,
+    items,
+    trust,
+    soft_cta,
+  } = content;
 
   return (
     <Section id={id ?? section_id} className="border-t border-ink/12 bg-paper">
+      {/* Heading Block */}
       <Box className="mb-11 max-w-[62ch]">
         <Reveal>
           <RichHeading
@@ -228,18 +221,19 @@ export default function WhyUs({ id, data }) {
             emphasisClassName="font-normal"
           />
         </Reveal>
-        {description ? (
+        {description || content.subtitle ? (
           <Reveal delay={1}>
             <Text
               as="p"
               className="max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
             >
-              {description}
+              {description || content.subtitle}
             </Text>
           </Reveal>
         ) : null}
       </Box>
 
+      {/* Grid Cards */}
       <Box className="grid grid-cols-3 gap-5 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
         {items.map((item, index) => {
           const Icon = ICONS[item.icon] || Sparkles;
@@ -276,7 +270,7 @@ export default function WhyUs({ id, data }) {
                     </Text>
                     <Text
                       as="p"
-                      className="text-[14.5px] leading-normal font-semibold text-ink"
+                      className="text-[14px] leading-normal font-semibold text-ink"
                     >
                       {item.difference}
                     </Text>
@@ -288,7 +282,15 @@ export default function WhyUs({ id, data }) {
         })}
       </Box>
 
+      {/* Trust Strip */}
       {trust ? <TrustStrip trust={trust} /> : null}
+
+      {/* Soft CTA Component (Rendered below TrustStrip) */}
+      {soft_cta ? (
+        <Box className="mt-10 sm:mt-12">
+          <LdSoftCta data={soft_cta} />
+        </Box>
+      ) : null}
     </Section>
   );
 }

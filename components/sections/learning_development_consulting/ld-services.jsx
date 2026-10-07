@@ -8,6 +8,16 @@ import {
   Edit3,
   BarChart2,
   Zap,
+  Network,
+  Heart,
+  Smile,
+  Users,
+  RefreshCw,
+  TrendingUp,
+  UserCheck,
+  Target,
+  Share2,
+  ArrowRight,
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -15,6 +25,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import LdSoftCta from "@/components/common/ld-soft-cta";
 
 const ICONS = {
   search: Search,
@@ -23,6 +34,15 @@ const ICONS = {
   edit: Edit3,
   "bar-chart": BarChart2,
   zap: Zap,
+  network: Network,
+  heart: Heart,
+  smile: Smile,
+  users: Users,
+  refresh: RefreshCw,
+  trending: TrendingUp,
+  "user-check": UserCheck,
+  target: Target,
+  share: Share2,
 };
 
 export default function LdServices({ data }) {
@@ -32,12 +52,21 @@ export default function LdServices({ data }) {
 
   const sectionId = content?.section_id || content?.id || "services";
 
+  // Dynamic grid configuration: Defaults to 2 columns unless columns === 3
+  const isThreeColumns = Number(content?.columns) === 3;
+  const gridColsClass = isThreeColumns
+    ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-2";
+
+  // Check if soft_cta exists
+  const softCtaData = content?.soft_cta;
+
   return (
     <Section id={sectionId} className="bg-paper-warm">
-      <Box>
+      <Box className="space-y-10 sm:space-y-12">
         {/* Header Section */}
-        <Box className="mb-10 sm:mb-12 max-w-3xl">
-          <Reveal>
+        <Reveal>
+          <Box className="max-w-3xl">
             {content.heading && (
               <Box>
                 <RichHeading heading={content.heading} />
@@ -47,18 +76,20 @@ export default function LdServices({ data }) {
             {content.show_subheading !== false && content.subheading && (
               <Text
                 as="p"
-                className="mt-4 text-[16px] text-ink-muted"
+                className="mt-4 text-[16px] text-ink-muted leading-relaxed font-normal"
                 dangerouslySetInnerHTML={{ __html: content.subheading }}
               />
             )}
-          </Reveal>
-        </Box>
+          </Box>
+        </Reveal>
 
-        {/* 2-Column Responsive Grid matching Image */}
+        {/* Dynamic Column Grid */}
         <Reveal delay={0.1}>
-          <Box className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <Box className={`grid ${gridColsClass} gap-5`}>
             {content.items.map((item) => {
               const IconComponent = ICONS[item.icon] || Search;
+              const linkHref = item.href || item.primary_cta?.href || item.cta?.href || "#";
+              const linkLabel = item.link || item.primary_cta?.label || item.cta?.label || "EXPLORE";
 
               return (
                 <Box
@@ -72,7 +103,7 @@ export default function LdServices({ data }) {
                   {/* Upper Section */}
                   <Box>
                     {/* Icon Badge */}
-                    <Box className="mb-5 grid size-10 place-items-center rounded-xl bg-lime text-ink">
+                    <Box className="mb-5 grid size-10 place-items-center rounded-xl bg-lime-soft text-ink">
                       <IconComponent size={20} strokeWidth={1.8} aria-hidden="true" />
                     </Box>
 
@@ -87,18 +118,18 @@ export default function LdServices({ data }) {
                     {/* Description */}
                     <Text
                       as="p"
-                      className="text-[14px] text-ink-muted"
+                      className="text-[14px] text-ink-muted leading-relaxed"
                     >
                       {item.description}
                     </Text>
 
                     {/* Divider */}
-                    <Box className="mt-5 mb-3.5 border-t border-ink-[#0a16281f]" />
+                    <Box className="mt-5 mb-3.5 border-t border-[#0a16281f]" />
 
                     {/* Metadata Section */}
                     <Box>
                       {item.covers && (
-                        <Box className="flex items-baseline gap-2  mb-3">
+                        <Box className="flex items-baseline gap-2 mb-3">
                           <Text className="font-mono text-[10px] uppercase tracking-wider text-ink w-16 shrink-0">
                             COVERS
                           </Text>
@@ -121,25 +152,30 @@ export default function LdServices({ data }) {
                     </Box>
                   </Box>
 
-                  {/* Footer Link */}
-                  {item.link && item.href ? (
-                    <Box className="mt-4.5">
-                      <Link
-                        href={item.href}
-                        className="
-                          inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-ink
-                          transition-opacity hover:opacity-75 focus-visible:outline-none
-                        "
-                      >
-                        {item.link}
-                      </Link>
-                    </Box>
-                  ) : null}
+                  {/* Card Bottom Link / CTA Button */}
+                  <Box className="mt-5 pt-2">
+                    <Link
+                      href={linkHref}
+                      className="
+                        inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-ink
+                        transition-opacity hover:opacity-75 focus-visible:outline-none
+                      "
+                    >
+                      {linkLabel} <ArrowRight size={12} />
+                    </Link>
+                  </Box>
                 </Box>
               );
             })}
           </Box>
         </Reveal>
+
+        {/* Soft CTA Component */}
+        {softCtaData && (
+          <LdSoftCta 
+            data={softCtaData.soft_cta ? softCtaData : { soft_cta: softCtaData, ...softCtaData }} 
+          />
+        )}
       </Box>
     </Section>
   );

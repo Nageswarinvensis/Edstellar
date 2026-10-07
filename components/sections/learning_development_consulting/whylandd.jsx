@@ -1,3 +1,5 @@
+"use client";
+
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -13,15 +15,15 @@ const ICON_MAP = {
 };
 
 export default function WhyLandD({ data, heading }) {
-  const maturityData = data?.WhyLandDData || data?.maturity || data;
-  if (!maturityData) return null;
+  const content = data?.WhyLandDData || data?.maturity || data;
+  if (!content) return null;
 
   // Uses the passed heading prop OR falls back to heading inside JSON
-  const finalHeading = heading || maturityData.heading;
-  const { description, cards } = maturityData;
+  const finalHeading = heading || content.heading;
+  const { description, cards } = content;
 
   return (
-    <Section id="why-ld" className="bg-paper-warm border-y border-[#0a16281f]">
+    <Section id={content.section_id || "why-ld"} className="bg-paper-warm border-y border-[#0a16281f]">
       <Box className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
         {/* Left Column: Heading & Description */}
         <Box className="flex-1">

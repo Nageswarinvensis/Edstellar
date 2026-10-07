@@ -66,7 +66,7 @@ export default function Transform({ data }) {
   if (!content) return null;
 
   return (
-    <Section id="transformation" className="bg-paper">
+    <Section id={content.section_id || "transformation"} className="bg-paper">
       <Box className="space-y-10 sm:space-y-12">
         {/* Header Block */}
         <Reveal>
