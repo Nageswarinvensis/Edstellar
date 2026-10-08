@@ -19,6 +19,11 @@ function scrollToHash(event) {
   target.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
 }
 
+// Button styling is fixed by position, not read from the CMS: the primary CTA
+// first, a secondary next, everything after it an outline. The CMS `action`
+// only supplies the label and href.
+const VARIANTS = ["primary", "secondary", "outline"];
+
 function HeroActions({ actions }) {
   // `actions` is optional CMS content — a domain can ship a hero with no CTAs
   // (and `hero.jsx` already treats it as optional). Render nothing rather than
@@ -27,10 +32,10 @@ function HeroActions({ actions }) {
 
   return (
     <Box className="flex flex-wrap gap-3">
-      {actions.map((action) => (
+      {actions.map((action, index) => (
         <CtaButton
           key={action.label}
-          variant={action.variant}
+          variant={VARIANTS[index] ?? "outline"}
           arrow
           render={<a href={action.href} onClick={scrollToHash} />}
         >

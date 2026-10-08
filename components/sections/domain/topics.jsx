@@ -13,7 +13,6 @@ import {
   Star,
   Clock,
   Users,
-  Bookmark,
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -91,11 +90,8 @@ function TopicCard({ topic }) {
 
   return (
     <Box as="li">
-      <Box
-        as="a"
-        href={topic.href || "#"}
-        className="group grid h-full grid-cols-[auto_1fr_auto] grid-rows-[auto_auto] items-center gap-x-3.5 gap-y-0.5 rounded-[14px] border border-ink/12 bg-white px-[16px] py-4 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-[3px] hover:border-ink/22 hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.45)] max-sm:p-[22px]"
-      >
+      {/* Not a link — but keeps the card's hover treatment. */}
+      <Box className="group grid h-full grid-cols-[auto_1fr_auto] grid-rows-[auto_auto] items-center gap-x-3.5 gap-y-0.5 rounded-[14px] border border-ink/12 bg-white px-[16px] py-4 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-[3px] hover:border-ink/22 hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.45)] max-sm:p-[22px]">
         <Box
           as="span"
           className="row-span-2 grid size-[38px] place-items-center rounded-[10px] bg-lime/22 text-navy transition-colors duration-300 group-hover:bg-lime"
@@ -230,7 +226,7 @@ function ProgramCard({ program }) {
           {program.description}
         </Text>
 
-        <Box className="mt-auto flex items-center justify-between gap-2.5">
+        <Box className="mt-auto flex items-center gap-2.5">
           <CtaButton
             render={<a href={program.href || "#"} />}
             arrow
@@ -238,15 +234,6 @@ function ProgramCard({ program }) {
           >
             View program
           </CtaButton>
-
-          <button
-            type="button"
-            aria-pressed="false"
-            aria-label={`Save ${program.title}`}
-            className="grid size-10 flex-none place-items-center rounded-[10px] border border-ink/12 bg-paper text-navy transition-[background-color,border-color] duration-200 hover:border-ink/22"
-          >
-            <Bookmark size={17} strokeWidth={1.8} aria-hidden="true" />
-          </button>
         </Box>
       </Box>
     </Box>
@@ -289,7 +276,10 @@ export default function Topics({ data }) {
               </Text>
             </Box>
 
-            <AllLink link={data.all_link} />
+            {/* Fixed navigational affordance: jump to the full catalog
+                (`#by-topic`). The label and anchor are intentional and do not
+                read from the CMS `all_link`, which carries no `href`. */}
+            <AllLink link={{ label: "All Topics", href: "#by-topic" }} />
           </Box>
         </Reveal>
 

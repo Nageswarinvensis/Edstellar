@@ -263,7 +263,7 @@ function BundleDrawer({ bundle, onClose }) {
                   aria-hidden="true"
                   className="flex-none text-ink-muted"
                 />
-                {bundle.program_count}
+                {programs.length} instructor-led programs
               </Box>
 
               <Box
@@ -288,7 +288,7 @@ function BundleDrawer({ bundle, onClose }) {
             as="h4"
             className="mb-4 font-display text-[16px] font-bold tracking-[-0.01em] text-ink"
           >
-            Programs in this bundle ({programs.length})
+            {programs.length} Programs in this Track
           </Text>
 
           <Box className="flex flex-col gap-2.5">

@@ -41,9 +41,19 @@ function OfferingPanel({ item }) {
 export default function LdOffering({ data }) {
   if (!data?.items?.length) return null;
 
-  // `soft_cta` is local content (the CMS offering has no CTA field): an
-  // optional LdSoftCta card closing the section, in LdSoftCta's own shape.
-  const { section_id, heading, description, items, soft_cta } = data;
+  const { section_id, heading, description, items, soft_cta, CTA } = data;
+
+  // The optional soft CTA that closes the section. The CMS sends it as a
+  // one-entry `CTA` list (`heading`, `description`, `btn_label`, `btn_link`);
+  // local content sends `soft_cta` already in LdSoftCta's shape.
+  const cmsCta = Array.isArray(CTA) ? CTA[0] : null;
+  const softCta =
+    (cmsCta && {
+      heading: cmsCta.heading,
+      description: cmsCta.description,
+      cta: { label: cmsCta.btn_label, href: cmsCta.btn_link },
+    }) ||
+    soft_cta;
 
   return (
     <Section id={section_id} className="scroll-mt-20 bg-paper">
@@ -78,9 +88,9 @@ export default function LdOffering({ data }) {
         />
       </Reveal>
 
-      {soft_cta ? (
+      {softCta ? (
         <Box className="mt-12 sm:mt-16">
-          <LdSoftCta data={soft_cta} />
+          <LdSoftCta data={softCta} />
         </Box>
       ) : null}
     </Section>
