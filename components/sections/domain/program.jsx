@@ -453,7 +453,7 @@ export default function Program({ data }) {
               as="span"
               className="w-17 shrink-0 whitespace-nowrap text-[10px] font-medium uppercase tracking-[1.5px] text-ink-muted]"
             >
-              {data.eyebrow.discipline}
+              DISCIPLINE
             </Text>
 
             <Box className="flex flex-wrap gap-1.5">

@@ -22,8 +22,16 @@ import { cn } from "@/lib/utils";
 export default function ShiftSection({ data }) {
   if (!data?.heading) return null;
 
-  const { section_id, eyebrow, heading, description, points, shift, levels } =
-    data;
+  const {
+    section_id,
+    eyebrow,
+    heading,
+    description,
+    points,
+    shift,
+    levels,
+    Image: imageSrc,
+  } = data;
 
   return (
     <Section id={section_id ?? "shift"} className="bg-navy">
@@ -85,16 +93,28 @@ export default function ShiftSection({ data }) {
         </Box>
 
         <Reveal delay={2}>
-          {/* The white viz card (`.cj-viz`). */}
-          <Box className="rounded-[14px] bg-white px-6 py-5.5 shadow-lift">
-            {shift ? (
-              <ShiftColumns shift={shift} />
-            ) : levels ? (
-              <RepresentationBars levels={levels} target={data.target ?? 50} />
-            ) : (
-              <ChangeCurve />
-            )}
-          </Box>
+          {imageSrc ? (
+            // The right side is now a CMS-supplied image (`Image`), which wins
+            // over the built-in illustrations when present.
+            <img
+              src={imageSrc}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="w-full rounded-[14px] object-cover shadow-lift"
+            />
+          ) : (
+            /* The white viz card (`.cj-viz`). */
+            <Box className="rounded-[14px] bg-white px-6 py-5.5 shadow-lift">
+              {shift ? (
+                <ShiftColumns shift={shift} />
+              ) : levels ? (
+                <RepresentationBars levels={levels} target={data.target ?? 50} />
+              ) : (
+                <ChangeCurve />
+              )}
+            </Box>
+          )}
         </Reveal>
       </Box>
     </Section>
