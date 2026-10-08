@@ -1,873 +1,905 @@
-{
-  "seo": {
-    "og_image": null,
-    "og_title": null,
-    "meta_title": "Strategic Workforce Planning Consulting",
-    "og_image_url": null,
-    "twitter_card": null,
-    "twitter_site": null,
-    "canonical_url": null,
-    "meta_keywords": null,
-    "twitter_title": null,
-    "og_description": null,
-    "twitter_creator": null,
-    "Meta_description": "Edstellar's strategic workforce planning consulting forecasts the roles, skills and headcount your strategy will need, finds the skills gaps against the workforce you have, and builds the build, buy and borrow plan to close them. Book a consultation.",
-    "twitter_image_url": null,
-    "twitter_description": null
-  },
-  "consulting_Hero": {
-    "heroLeft": {
-      "title": "Strategic Workforce Planning Consulting",
-      "tagline": "The workforce your strategy needs, planned ahead.",
-      "showMeta": true,
-      "description": "Most workforce plans are headcount budgets, not strategy. Edstellar's strategic workforce planning consulting forecasts the roles, skills and headcount your strategy will need, finds the skills gaps between the workforce you have and the one you will need, and builds the plan to close them before they become a crisis.",
-      "primaryBtnLink": "#apply",
-      "primaryBtnText": "Book a workforce consultation",
-      "secondaryBtnLink": "#what-we-do",
-      "secondaryBtnText": "See what's included"
-    },
-    "heroRight": {
-      "skill_matrix": {
-        "note": null,
-        "rows": [],
-        "label": null,
-        "views": [],
-        "columns": [],
-        "req_label": null,
-        "aria_label": null,
-        "gap_levels": [],
-        "req_levels": null,
-        "req_caption": null
-      },
-      "learning_system": [
-        {
-          "items": [
-            {
-              "icon": "operating-model",
-              "title": "Demand forecast",
-              "description": "The roles and skills you will need"
-            },
-            {
-              "icon": "framework",
-              "title": "Supply & gaps",
-              "description": "The workforce you have today"
-            },
-            {
-              "icon": "pathway",
-              "title": "Scenarios",
-              "description": "How the plan flexes with change"
-            },
-            {
-              "icon": "measurement",
-              "title": "Action plan",
-              "description": "Build, buy or borrow"
-            }
-          ],
-          "title": "What we design",
-          "footer_text": "A workforce plan you own and run."
-        }
-      ]
+[
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "seo",
+    "config": {
+      "og_image": null,
+      "og_title": null,
+      "meta_title": "Strategic Workforce Planning Consulting",
+      "og_image_url": null,
+      "twitter_card": null,
+      "twitter_site": null,
+      "canonical_url": null,
+      "meta_keywords": null,
+      "twitter_title": null,
+      "og_description": null,
+      "twitter_creator": null,
+      "Meta_description": "Edstellar's strategic workforce planning consulting forecasts the roles, skills and headcount your strategy will need, finds the skills gaps against the workforce you have, and builds the build, buy and borrow plan to close them. Book a consultation.",
+      "twitter_image_url": null,
+      "twitter_description": null
     }
   },
-  "breadcrumbs": {
-    "items": [
-      {
-        "label": "Home",
-        "href": "/"
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "consulting_Hero",
+    "config": {
+      "heroLeft": {
+        "title": "Strategic Workforce Planning Consulting",
+        "tagline": "The workforce your strategy needs, planned ahead.",
+        "showMeta": true,
+        "description": "Most workforce plans are headcount budgets, not strategy. Edstellar's strategic workforce planning consulting forecasts the roles, skills and headcount your strategy will need, finds the skills gaps between the workforce you have and the one you will need, and builds the plan to close them before they become a crisis.",
+        "primaryBtnLink": "#apply",
+        "primaryBtnText": "Book a workforce consultation",
+        "secondaryBtnLink": "#what-we-do",
+        "secondaryBtnText": "See what's included"
       },
-      {
-        "label": "Consulting",
-        "href": "/consulting"
-      },
-      {
-        "label": "Organizational Development",
-        "href": "/organizational-development-consulting"
-      },
-      {
-        "label": "Strategic Workforce Planning",
-        "href": "/organizational-development-consulting/strategic-workforce-planning-consulting"
-      }
-    ]
-  },
-  "generalProof": {
-    "tone": "dark",
-    "items": [
-      {
-        "Label": "Ready to plan the workforce ahead?",
-        "primary_btn_link": "#apply",
-        "primary_btn_text": "Book a consultation",
-        "secondary_btn_link": "https://www.edstellar.com/brochures/organizational-development-consulting",
-        "secondary_btn_text": "Download the strategic workforce planning brochure (PDF)"
-      }
-    ],
-    "stats": [
-      {
-        "value": "300+",
-        "label": "Clients"
-      },
-      {
-        "value": "20+",
-        "label": "Industries"
-      },
-      {
-        "value": "300+",
-        "label": "Consultants"
-      },
-      {
-        "value": "ISO 9001 & 27001",
-        "label": "Certified"
-      }
-    ]
-  },
-  "stickyNavbar": {
-    "logo": {
-      "src": "/course/Edstellar.svg",
-      "alt": "Edstellar"
-    },
-    "cta": {
-      "text": "Book a consultation",
-      "title": "Click Here to Book a Consultation",
-      "targetId": "apply"
-    },
-    "tabs": [
-      {
-        "id": "what-we-do",
-        "label": "What we do",
-        "active": true
-      },
-      {
-        "id": "method",
-        "label": "Method",
-        "active": false
-      },
-      {
-        "id": "frameworks",
-        "label": "Frameworks",
-        "active": false
-      },
-      {
-        "id": "why",
-        "label": "Why us",
-        "active": false
-      },
-      {
-        "id": "faq",
-        "label": "FAQ",
-        "active": false
-      }
-    ]
-  },
-  "challenge": {
-    "section_id": "challenge",
-    "heading": "Strategic workforce planning consulting that closes tomorrow's gaps <span>today.</span>",
-    "description": "With a future-ready workforce plan built on what the strategy needs, talent stops being a scramble: you see the gaps coming, and you close them before they slow the business down.",
-    "items": [
-      {
-        "title": "Gaps you see coming",
-        "description": "Critical skill and role gaps surface early, so you plan for them instead of scrambling when they hit.",
-        "close": "Plan ahead, not scramble."
-      },
-      {
-        "title": "Talent ready in time",
-        "description": "The right roles and skills are in place when the strategy needs them, because the talent pipeline is planned, not months behind.",
-        "close": "The right skills, right on time."
-      },
-      {
-        "title": "Build, buy or borrow",
-        "description": "Every gap has a clear plan, to develop, hire or contract, so you fill it the smartest way.",
-        "close": "Every gap, filled the smart way."
-      },
-      {
-        "title": "Fewer surprises, lower cost",
-        "description": "Planning ahead beats emergency hiring, so you avoid the premium of filling roles in a panic.",
-        "close": "No panic-hiring premium."
-      },
-      {
-        "title": "Workforce tied to strategy",
-        "description": "Headcount follows the plan, so investment goes to the roles that move the business, not last year's shape.",
-        "close": "Headcount follows the plan."
-      },
-      {
-        "title": "Plans that flex",
-        "description": "Scenarios show how the workforce shifts if the strategy changes, so the plan bends instead of breaking.",
-        "close": "The plan bends, not breaks."
-      }
-    ]
-  },
-  "changeJourney": {
-    "section_id": "wf-gap",
-    "eyebrow": "Build, buy, borrow",
-    "heading": "Edstellar strategic workforce planning: close the gap the <span>smart way.</span>",
-    "description": "The workforce you have today will not meet what the strategy needs. Edstellar strategic workforce planning closes that gap with the right mix of build, buy and borrow, phased over time so capability arrives exactly when you need it.",
-    "points": [
-      {
-        "title": "Build",
-        "description": "Develop the skills you already have"
-      },
-      {
-        "title": "Buy",
-        "description": "Hire for the gaps that need new talent"
-      },
-      {
-        "title": "Borrow",
-        "description": "Contract for peaks and niche needs"
-      }
-    ]
-  },
-  "whatwedeliver": {
-    "section_id": "what-we-do",
-    "heading": "What our strategic workforce planning consulting <span>delivers.</span>",
-    "description": "One connected program, from workforce strategy to a living plan. Not a deck and a hand-off: at each step we show what we do, what we build with you, and the deliverable you keep, layer by layer.",
-    "steps": [
-      {
-        "title": "Workforce strategy",
-        "how": "Alignment workshops, structured by our 5A method.",
-        "do": [
-          "Tie each workforce need to the business outcome it serves",
-          "Define the critical roles and skills the strategy depends on",
-          "Align leaders on workforce priorities and horizon",
-          "Set the baseline from current workforce data"
-        ],
-        "build": [
-          "A workforce strategy tied to business outcomes",
-          "A map of critical roles and skills",
-          "The planning horizon and scenarios to model",
-          "The baseline every result is tracked against"
-        ],
-        "get": "Workforce strategy & priorities"
-      },
-      {
-        "title": "Demand forecast",
-        "how": "Demand modeling benchmarked on our Capability Intelligence Platform.",
-        "do": [
-          "Model the future roles, skills and headcount the strategy needs",
-          "Translate the business plan into workforce demand",
-          "Factor in growth, attrition and new capabilities",
-          "Build scenarios for different strategic paths"
-        ],
-        "build": [
-          "A workforce demand forecast by role and skill",
-          "Headcount and capability projections",
-          "Scenario models for key strategic paths",
-          "Demand assumptions leaders can test"
-        ],
-        "get": "Workforce demand forecast"
-      },
-      {
-        "title": "Supply & gap analysis",
-        "how": "Skills-gap analysis benchmarked on our Capability Intelligence Platform.",
-        "do": [
-          "Map the workforce you have today, by role and skill",
-          "Project supply forward with attrition and movement",
-          "Compare supply against demand to size each gap",
-          "Prioritize the gaps that put the strategy at risk"
-        ],
-        "build": [
-          "A current-workforce supply picture",
-          "A skills-gap analysis against future demand",
-          "Gaps sized and prioritized by business risk",
-          "The shortfall quantified, role by role"
-        ],
-        "get": "Supply & skills-gap analysis"
-      },
-      {
-        "title": "Action plan",
-        "how": "Build-buy-borrow planning tuned to cost and speed.",
-        "do": [
-          "Choose build, buy or borrow for each gap",
-          "Sequence moves by urgency and lead time",
-          "Weigh cost, speed and risk per option",
-          "Hand owners a clear plan for every gap"
-        ],
-        "build": [
-          "A build, buy and borrow plan per gap",
-          "A sequenced hiring and development roadmap",
-          "Cost and lead-time estimates per move",
-          "Named owners and timelines for each gap"
-        ],
-        "get": "Build, buy, borrow action plan"
-      },
-      {
-        "title": "Workforce metrics",
-        "how": "Workforce analytics benchmarked on our Capability Intelligence Platform.",
-        "do": [
-          "Define the measures that show gaps closing",
-          "Track fill rate, skill coverage and cost",
-          "Tie the plan to business results, not headcount alone",
-          "Set targets and thresholds for each measure"
-        ],
-        "build": [
-          "A workforce metrics framework",
-          "A dashboard of fill rate, coverage and cost",
-          "Baselines and targets per measure",
-          "A reporting rhythm leaders can act on"
-        ],
-        "get": "Workforce metrics & dashboard"
-      },
-      {
-        "title": "Governance & rhythm",
-        "how": "A governed review cadence that keeps the plan live.",
-        "do": [
-          "Keep the workforce plan live, not a one-off deck",
-          "Set the cadence, ownership and review",
-          "Update the plan as the strategy shifts",
-          "Transfer ownership to workforce-planning owners"
-        ],
-        "build": [
-          "A governance model with named owners",
-          "A review-and-refresh operating rhythm",
-          "A workforce-planning playbook for your team",
-          "A sustainment plan to keep the plan current"
-        ],
-        "get": "Governance model & operating rhythm"
-      }
-    ]
-  },
-  "methodology": {
-    "cta": [],
-    "steps": [
-      {
-        "title": "Assess",
-        "duration": "1–2 weeks",
-        "description": "Read the business strategy, the roles and the workforce to define what the plan will need.",
-        "deliverable": "Workforce brief"
-      },
-      {
-        "title": "Analyze",
-        "duration": "2–3 weeks",
-        "description": "Analyze the demand against your current supply to size every critical gap, using workforce data and <a href=\"/talent-assessment-services\">skills assessments</a>.",
-        "deliverable": "Gap analysis"
-      },
-      {
-        "title": "Architect",
-        "duration": "3–5 weeks",
-        "description": "Architect the plan: the build, buy and borrow moves and scenarios that close the gaps.",
-        "deliverable": "Workforce plan"
-      },
-      {
-        "title": "Activate",
-        "duration": "6–12 weeks",
-        "description": "Activate the plan: launch the hiring, development and sourcing moves across the business.",
-        "deliverable": "Live rollout"
-      },
-      {
-        "title": "Advance",
-        "duration": "Ongoing",
-        "description": "Measure gap closure, refresh and re-plan each cycle, so the workforce plan stays ahead of the business.",
-        "deliverable": "Workforce dashboard"
-      }
-    ],
-    "heading": "The Edstellar 5A strategic workforce planning <span>methodology.</span>",
-    "subheading": "Our five-step strategic workforce planning method, from business strategy to a workforce plan you can act on, refreshed over time."
-  },
-  "frameworks": {
-    "section_id": "frameworks",
-    "heading": "The frameworks and models behind Edstellar's strategic workforce planning <span>consulting.</span>",
-    "description": "The strategic workforce planning field is built on a body of established models. Edstellar's 5A method puts the most widely recognized ones to work.",
-    "items": [
-      {
-        "id": "human-capital",
-        "model_no": "Model 01",
-        "name": "Human Capital Theory",
-        "author": "Gary Becker",
-        "description": "People are an investment: capability compounds when you develop and retain it.",
-        "phases": [
+      "heroRight": {
+        "skill_matrix": {
+          "note": null,
+          "rows": [],
+          "label": null,
+          "views": [],
+          "columns": [],
+          "req_label": null,
+          "aria_label": null,
+          "gap_levels": [],
+          "req_levels": null,
+          "req_caption": null
+        },
+        "learning_system": [
           {
-            "title": "Investment view",
-            "subtitle": "Treat capability as an asset to grow",
-            "examples": [
-              "Skill investment",
-              "Retention value",
-              "ROI lens"
-            ]
-          },
-          {
-            "title": "Build vs buy",
-            "subtitle": "Decide where to develop or hire",
-            "examples": [
-              "Build case",
-              "Buy case",
-              "Cost view"
-            ]
-          },
-          {
-            "title": "Capability ROI",
-            "subtitle": "Show the return on people investment",
-            "examples": [
-              "Productivity",
-              "Retention",
-              "Payback"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "workforce-segmentation",
-        "model_no": "Model 02",
-        "name": "Workforce Segmentation",
-        "author": "Boudreau & Ramstad",
-        "description": "Not all roles are equal; focus most on the pivotal roles that drive value.",
-        "phases": [
-          {
-            "title": "Pivotal roles",
-            "subtitle": "Find the roles that move the needle",
-            "examples": [
-              "Role impact",
-              "Value mapping",
-              "Focus list"
-            ]
-          },
-          {
-            "title": "Differentiated plans",
-            "subtitle": "Invest by role, not evenly",
-            "examples": [
-              "Tiered plans",
-              "Targeted spend",
-              "Priority roles"
-            ]
-          },
-          {
-            "title": "Risk focus",
-            "subtitle": "Protect the roles you cannot lose",
-            "examples": [
-              "Risk flags",
-              "Bench depth",
-              "Contingency"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "scenario-planning",
-        "model_no": "Model 03",
-        "name": "Scenario Planning",
-        "author": "Kahn & Wack",
-        "description": "Plan the workforce against several plausible futures, not one forecast.",
-        "phases": [
-          {
-            "title": "Scenario building",
-            "subtitle": "Frame a few plausible futures",
-            "examples": [
-              "Driver scan",
-              "Scenario set",
-              "Signposts"
-            ]
-          },
-          {
-            "title": "Demand modeling",
-            "subtitle": "Size the workforce each future needs",
-            "examples": [
-              "Demand ranges",
-              "Skill shifts",
-              "Gap view"
-            ]
-          },
-          {
-            "title": "Robust plans",
-            "subtitle": "Build a plan that holds up",
-            "examples": [
-              "No-regret moves",
-              "Options",
-              "Triggers"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "resource-based-view",
-        "model_no": "Model 04",
-        "name": "Resource-Based View",
-        "author": "Jay Barney",
-        "description": "Advantage comes from people and capabilities rivals cannot easily copy.",
-        "phases": [
-          {
-            "title": "Capability audit",
-            "subtitle": "Find your rare, valuable capabilities",
-            "examples": [
-              "Capability map",
-              "Rarity check",
-              "Moat view"
-            ]
-          },
-          {
-            "title": "Advantage design",
-            "subtitle": "Build what is hard to imitate",
-            "examples": [
-              "Invest priorities",
-              "Protect know-how",
-              "Develop deep"
-            ]
-          },
-          {
-            "title": "Strategy link",
-            "subtitle": "Tie the workforce plan to advantage",
-            "examples": [
-              "Strategy fit",
-              "Capability roadmap",
-              "Focus"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "markov-modeling",
-        "model_no": "Model 05",
-        "name": "Markov Workforce Modeling",
-        "author": "Markov analysis",
-        "description": "Model how people move between roles over time to project future supply.",
-        "phases": [
-          {
-            "title": "Supply projection",
-            "subtitle": "Forecast internal supply by role",
-            "examples": [
-              "Transition rates",
-              "Flow model",
-              "Supply curve"
-            ]
-          },
-          {
-            "title": "Attrition modeling",
-            "subtitle": "Anticipate losses before they hit",
-            "examples": [
-              "Attrition rates",
-              "Risk roles",
-              "Early warning"
-            ]
-          },
-          {
-            "title": "Gap forecasting",
-            "subtitle": "See gaps years ahead",
-            "examples": [
-              "Demand vs supply",
-              "Gap timeline",
-              "Action triggers"
-            ]
+            "items": [
+              {
+                "icon": "operating-model",
+                "title": "Demand forecast",
+                "description": "The roles and skills you will need"
+              },
+              {
+                "icon": "framework",
+                "title": "Supply & gaps",
+                "description": "The workforce you have today"
+              },
+              {
+                "icon": "pathway",
+                "title": "Scenarios",
+                "description": "How the plan flexes with change"
+              },
+              {
+                "icon": "measurement",
+                "title": "Action plan",
+                "description": "Build, buy or borrow"
+              }
+            ],
+            "title": "What we design",
+            "footer_text": "A workforce plan you own and run."
           }
         ]
       }
-    ]
-  },
-  "ld_why_edstellar": {
-    "heading": "Why Edstellar is your strategic workforce planning consulting <span>solutions provider.</span>",
-    "description": "The rare partner that forecasts your workforce needs and closes the gaps, keeps your talent risks in view, and proves the impact in readiness and cost.",
-    "difference_label": "The difference",
-    "items": [
-      {
-        "icon": "link",
-        "title": "Forecast to filled roles, one partner",
-        "description": "Your gaps actually close, because the team that forecasts the demand also runs the build, buy and borrow moves that fill it.",
-        "visual": {
-          "type": "flow",
-          "items": [
-            "Forecast",
-            "Plan",
-            "Measure"
-          ],
-          "caption": "One team, demand to filled"
-        },
-        "difference": "Most firms hand you a headcount spreadsheet. We stay through to filled roles."
-      },
-      {
-        "icon": "chip",
-        "title": "Runs on the Capability Intelligence Platform",
-        "description": "The Capability Intelligence Platform keeps your workforce picture live, so the plan targets the gaps that matter and proves its impact.",
-        "visual": {
-          "type": "signal",
-          "title": "Capability signal",
-          "status": "Live",
-          "items": [
-            "Demand:88",
-            "Supply:72",
-            "Readiness:64"
-          ]
-        },
-        "difference": "Your capability picture stays live, not frozen in a slide."
-      },
-      {
-        "icon": "chart",
-        "title": "Outcomes tied to the business",
-        "description": "Every program is tied to business goals and measured against them, so your workforce plan is accountable to readiness and cost, not activity.",
-        "visual": {
-          "type": "bars",
-          "items": [
-            38,
-            52,
-            66,
-            80,
-            100
-          ],
-          "caption": "↑ Business impact over the engagement"
-        },
-        "difference": "Measured in gaps closed, not headcount added."
-      },
-      {
-        "icon": "globe",
-        "title": "Global delivery, wherever your people are",
-        "description": "Workforce planning delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global plan stays consistent.",
-        "visual": {
-          "type": "regions",
-          "items": [
-            "Americas",
-            "EMEA",
-            "APAC",
-            "MENA",
-            "India"
-          ],
-          "caption": "Onsite · virtual · hybrid"
-        },
-        "difference": "Delivered where your people are, not just at HQ."
-      },
-      {
-        "icon": "list",
-        "title": "A proven method, not improvisation",
-        "description": "Every program runs the same Edstellar 5A method, so your workforce plan is built systematically rather than improvised each time.",
-        "visual": {
-          "type": "steps",
-          "items": [
-            "A",
-            "A",
-            "A",
-            "A",
-            "A"
-          ],
-          "caption": "Assess · Analyze · Architect · Activate · Advance"
-        },
-        "difference": "A repeatable system, not a bespoke experiment each time."
-      },
-      {
-        "icon": "sliders",
-        "title": "Flexible from advisory to end-to-end",
-        "description": "Start with a workforce diagnostic, hand over the plan, or run the whole planning cycle, and scale up as the partnership grows.",
-        "visual": {
-          "type": "tiers",
-          "items": [
-            "Diagnostic",
-            "Design",
-            "Build",
-            "End-to-end"
-          ],
-          "caption": "Start focused, scale up"
-        },
-        "difference": "Take as much or as little as you choose."
-      }
-    ],
-    "trust": {
-      "heading": "Trusted across industries and regions",
-      "industries": [
-        {
-          "icon": "landmark",
-          "label": "Financial services"
-        },
-        {
-          "icon": "monitor",
-          "label": "Technology"
-        },
-        {
-          "icon": "cross",
-          "label": "Healthcare"
-        },
-        {
-          "icon": "factory",
-          "label": "Manufacturing"
-        },
-        {
-          "icon": "bag",
-          "label": "Retail & consumer"
-        },
-        {
-          "icon": "zap",
-          "label": "Energy"
-        }
-      ],
-      "more_label": "20+ in all",
-      "regions_label": "Delivered across",
-      "regions": [
-        "APAC",
-        "Middle East",
-        "Europe",
-        "North America",
-        "India"
-      ],
-      "caption_strong": "Fortune 500",
-      "caption": "clients served worldwide"
     }
   },
-  "readinessData": {
-    "heading": "Assess your workforce planning against the <span>essentials.</span>",
-    "description": "A quick strategic workforce planning assessment: see where your workforce planning and headcount planning are strong today, and where the demand forecast, gap analysis and action plan can go further.",
-    "points": [
-      "Alignment between the workforce plan and business priorities",
-      "Visibility of critical role and skill gaps",
-      "Scenario planning and review readiness"
-    ],
-    "cta": {
-      "label": "Get the free readiness checklist ↓",
-      "href": "https://www.edstellar.com/tool/strategic-workforce-planning-consulting"
-    },
-    "checklist": {
-      "title": "Workforce planning readiness checklist",
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "breadcrumbs",
+    "config": {
       "items": [
         {
-          "label": "Critical roles and future skills defined",
-          "done": true
+          "label": "Home",
+          "href": "/"
         },
         {
-          "label": "Current workforce supply mapped",
-          "done": true
+          "label": "Consulting",
+          "href": "/consulting"
         },
         {
-          "label": "Gaps sized and prioritized",
-          "done": true
+          "label": "Organizational Development",
+          "href": "/organizational-development-consulting"
         },
         {
-          "label": "Build, buy, borrow plan in place",
-          "done": false
-        },
-        {
-          "label": "Plan reviewed on a regular rhythm",
-          "done": false
+          "label": "Strategic Workforce Planning",
+          "href": "/organizational-development-consulting/strategic-workforce-planning-consulting"
         }
       ]
     }
   },
-  "section-cta": {
-    "heading": "Ready for strategic workforce planning that gets ahead of the <span>gaps?</span>",
-    "primary_cta": {
-      "label": "Book a consultation",
-      "href": "#apply"
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "generalProof",
+    "config": {
+      "tone": "dark",
+      "items": [
+        {
+          "Label": "Ready to plan the workforce ahead?",
+          "primary_btn_link": "#apply",
+          "primary_btn_text": "Book a consultation",
+          "secondary_btn_link": "https://www.edstellar.com/brochures/organizational-development-consulting",
+          "secondary_btn_text": "Download the strategic workforce planning brochure (PDF)"
+        }
+      ],
+      "stats": [
+        {
+          "value": "300+",
+          "label": "Clients"
+        },
+        {
+          "value": "20+",
+          "label": "Industries"
+        },
+        {
+          "value": "300+",
+          "label": "Consultants"
+        },
+        {
+          "value": "ISO 9001 & 27001",
+          "label": "Certified"
+        }
+      ]
     }
   },
-  "faqs": {
-    "items": [
-      {
-        "question": "What does strategic workforce planning consulting include?",
-        "answer": "It covers your workforce strategy and talent planning, demand forecasting, workforce analytics, supply and skills gap analysis, scenario planning, and the build, buy and borrow action plan and metrics that close the gaps, all aligned to the business goals."
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "stickyNavbar",
+    "config": {
+      "logo": {
+        "src": "/course/Edstellar.svg",
+        "alt": "Edstellar"
       },
-      {
-        "question": "How is this different from headcount budgeting?",
-        "answer": "Headcount budgeting counts the roles you can afford this year. Strategic workforce planning forecasts the roles and skills the strategy will need, sizes the gaps against today's workforce, and plans how to close them, so your talent strategy follows the business strategy, not just the budget."
+      "cta": {
+        "text": "Book a consultation",
+        "title": "Click Here to Book a Consultation",
+        "targetId": "apply"
       },
-      {
-        "question": "How far ahead does workforce planning look?",
-        "answer": "Typically a three to five year horizon for the strategy, refreshed on a regular rhythm, because the plan and its capacity planning have to stay current as the business and labor market shift."
-      },
-      {
-        "question": "Do you help close the gaps, not just find them?",
-        "answer": "Yes. The build, buy and borrow action plan, and the hiring, development and sourcing moves that execute it, are the core of the engagement, so analysis leads to filled roles."
-      },
-      {
-        "question": "What do we get at the end?",
-        "answer": "A workforce strategy, a demand forecast, a supply and gap analysis, a build-buy-borrow action plan and the workforce metrics you own and run."
+      "tabs": [
+        {
+          "id": "what-we-do",
+          "label": "What we do",
+          "active": true
+        },
+        {
+          "id": "method",
+          "label": "Method",
+          "active": false
+        },
+        {
+          "id": "frameworks",
+          "label": "Frameworks",
+          "active": false
+        },
+        {
+          "id": "why",
+          "label": "Why us",
+          "active": false
+        },
+        {
+          "id": "faq",
+          "label": "FAQ",
+          "active": false
+        }
+      ]
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "challenge",
+    "config": {
+      "section_id": "challenge",
+      "heading": "Strategic workforce planning consulting that closes tomorrow's gaps <span>today.</span>",
+      "description": "With a future-ready workforce plan built on what the strategy needs, talent stops being a scramble: you see the gaps coming, and you close them before they slow the business down.",
+      "items": [
+        {
+          "title": "Gaps you see coming",
+          "description": "Critical skill and role gaps surface early, so you plan for them instead of scrambling when they hit.",
+          "close": "Plan ahead, not scramble."
+        },
+        {
+          "title": "Talent ready in time",
+          "description": "The right roles and skills are in place when the strategy needs them, because the talent pipeline is planned, not months behind.",
+          "close": "The right skills, right on time."
+        },
+        {
+          "title": "Build, buy or borrow",
+          "description": "Every gap has a clear plan, to develop, hire or contract, so you fill it the smartest way.",
+          "close": "Every gap, filled the smart way."
+        },
+        {
+          "title": "Fewer surprises, lower cost",
+          "description": "Planning ahead beats emergency hiring, so you avoid the premium of filling roles in a panic.",
+          "close": "No panic-hiring premium."
+        },
+        {
+          "title": "Workforce tied to strategy",
+          "description": "Headcount follows the plan, so investment goes to the roles that move the business, not last year's shape.",
+          "close": "Headcount follows the plan."
+        },
+        {
+          "title": "Plans that flex",
+          "description": "Scenarios show how the workforce shifts if the strategy changes, so the plan bends instead of breaking.",
+          "close": "The plan bends, not breaks."
+        }
+      ]
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "changeJourney",
+    "config": {
+      "section_id": "wf-gap",
+      "eyebrow": "Build, buy, borrow",
+      "heading": "Edstellar strategic workforce planning: close the gap the <span>smart way.</span>",
+      "description": "The workforce you have today will not meet what the strategy needs. Edstellar strategic workforce planning closes that gap with the right mix of build, buy and borrow, phased over time so capability arrives exactly when you need it.",
+      "points": [
+        {
+          "title": "Build",
+          "description": "Develop the skills you already have"
+        },
+        {
+          "title": "Buy",
+          "description": "Hire for the gaps that need new talent"
+        },
+        {
+          "title": "Borrow",
+          "description": "Contract for peaks and niche needs"
+        }
+      ]
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "representation",
+    "config": {
+      "section_id": "wf-gap",
+      "eyebrow": "Build, buy, borrow",
+      "heading": "Edstellar strategic workforce planning: close the gap the <span>smart way.</span>",
+      "description": "The workforce you have today will not meet what the strategy needs. Edstellar strategic workforce planning closes that gap with the right mix of build, buy and borrow, phased over time so capability arrives exactly when you need it.",
+      "Image": "https://placehold.co/800x500?text=strategic-workforce-planning-consulting",
+      "target": 3,
+      "points": [
+        {
+          "title": "Build",
+          "description": "Develop the skills you already have"
+        },
+        {
+          "title": "Buy",
+          "description": "Hire for the gaps that need new talent"
+        },
+        {
+          "title": "Borrow",
+          "description": "Contract for peaks and niche needs"
+        }
+      ]
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "whatwedeliver",
+    "config": {
+      "section_id": "what-we-do",
+      "heading": "What our strategic workforce planning consulting <span>delivers.</span>",
+      "description": "One connected program, from workforce strategy to a living plan. Not a deck and a hand-off: at each step we show what we do, what we build with you, and the deliverable you keep, layer by layer.",
+      "steps": [
+        {
+          "title": "Workforce strategy",
+          "how": "Alignment workshops, structured by our 5A method.",
+          "do": [
+            "Tie each workforce need to the business outcome it serves",
+            "Define the critical roles and skills the strategy depends on",
+            "Align leaders on workforce priorities and horizon",
+            "Set the baseline from current workforce data"
+          ],
+          "build": [
+            "A workforce strategy tied to business outcomes",
+            "A map of critical roles and skills",
+            "The planning horizon and scenarios to model",
+            "The baseline every result is tracked against"
+          ],
+          "get": "Workforce strategy & priorities"
+        },
+        {
+          "title": "Demand forecast",
+          "how": "Demand modeling benchmarked on our Capability Intelligence Platform.",
+          "do": [
+            "Model the future roles, skills and headcount the strategy needs",
+            "Translate the business plan into workforce demand",
+            "Factor in growth, attrition and new capabilities",
+            "Build scenarios for different strategic paths"
+          ],
+          "build": [
+            "A workforce demand forecast by role and skill",
+            "Headcount and capability projections",
+            "Scenario models for key strategic paths",
+            "Demand assumptions leaders can test"
+          ],
+          "get": "Workforce demand forecast"
+        },
+        {
+          "title": "Supply & gap analysis",
+          "how": "Skills-gap analysis benchmarked on our Capability Intelligence Platform.",
+          "do": [
+            "Map the workforce you have today, by role and skill",
+            "Project supply forward with attrition and movement",
+            "Compare supply against demand to size each gap",
+            "Prioritize the gaps that put the strategy at risk"
+          ],
+          "build": [
+            "A current-workforce supply picture",
+            "A skills-gap analysis against future demand",
+            "Gaps sized and prioritized by business risk",
+            "The shortfall quantified, role by role"
+          ],
+          "get": "Supply & skills-gap analysis"
+        },
+        {
+          "title": "Action plan",
+          "how": "Build-buy-borrow planning tuned to cost and speed.",
+          "do": [
+            "Choose build, buy or borrow for each gap",
+            "Sequence moves by urgency and lead time",
+            "Weigh cost, speed and risk per option",
+            "Hand owners a clear plan for every gap"
+          ],
+          "build": [
+            "A build, buy and borrow plan per gap",
+            "A sequenced hiring and development roadmap",
+            "Cost and lead-time estimates per move",
+            "Named owners and timelines for each gap"
+          ],
+          "get": "Build, buy, borrow action plan"
+        },
+        {
+          "title": "Workforce metrics",
+          "how": "Workforce analytics benchmarked on our Capability Intelligence Platform.",
+          "do": [
+            "Define the measures that show gaps closing",
+            "Track fill rate, skill coverage and cost",
+            "Tie the plan to business results, not headcount alone",
+            "Set targets and thresholds for each measure"
+          ],
+          "build": [
+            "A workforce metrics framework",
+            "A dashboard of fill rate, coverage and cost",
+            "Baselines and targets per measure",
+            "A reporting rhythm leaders can act on"
+          ],
+          "get": "Workforce metrics & dashboard"
+        },
+        {
+          "title": "Governance & rhythm",
+          "how": "A governed review cadence that keeps the plan live.",
+          "do": [
+            "Keep the workforce plan live, not a one-off deck",
+            "Set the cadence, ownership and review",
+            "Update the plan as the strategy shifts",
+            "Transfer ownership to workforce-planning owners"
+          ],
+          "build": [
+            "A governance model with named owners",
+            "A review-and-refresh operating rhythm",
+            "A workforce-planning playbook for your team",
+            "A sustainment plan to keep the plan current"
+          ],
+          "get": "Governance model & operating rhythm"
+        }
+      ]
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "methodology",
+    "config": {
+      "cta": [],
+      "steps": [
+        {
+          "title": "Assess",
+          "duration": "1–2 weeks",
+          "description": "Read the business strategy, the roles and the workforce to define what the plan will need.",
+          "deliverable": "Workforce brief"
+        },
+        {
+          "title": "Analyze",
+          "duration": "2–3 weeks",
+          "description": "Analyze the demand against your current supply to size every critical gap, using workforce data and <a href=\"/talent-assessment-services\">skills assessments</a>.",
+          "deliverable": "Gap analysis"
+        },
+        {
+          "title": "Architect",
+          "duration": "3–5 weeks",
+          "description": "Architect the plan: the build, buy and borrow moves and scenarios that close the gaps.",
+          "deliverable": "Workforce plan"
+        },
+        {
+          "title": "Activate",
+          "duration": "6–12 weeks",
+          "description": "Activate the plan: launch the hiring, development and sourcing moves across the business.",
+          "deliverable": "Live rollout"
+        },
+        {
+          "title": "Advance",
+          "duration": "Ongoing",
+          "description": "Measure gap closure, refresh and re-plan each cycle, so the workforce plan stays ahead of the business.",
+          "deliverable": "Workforce dashboard"
+        }
+      ],
+      "heading": "The Edstellar 5A strategic workforce planning <span>methodology.</span>",
+      "subheading": "Our five-step strategic workforce planning method, from business strategy to a workforce plan you can act on, refreshed over time."
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "frameworks",
+    "config": {
+      "section_id": "frameworks",
+      "heading": "The frameworks and models behind Edstellar's strategic workforce planning <span>consulting.</span>",
+      "description": "The strategic workforce planning field is built on a body of established models. Edstellar's 5A method puts the most widely recognized ones to work.",
+      "items": [
+        {
+          "id": "human-capital",
+          "model_no": "Model 01",
+          "name": "Human Capital Theory",
+          "author": "Gary Becker",
+          "description": "People are an investment: capability compounds when you develop and retain it.",
+          "phases": [
+            {
+              "title": "Investment view",
+              "subtitle": "Treat capability as an asset to grow",
+              "examples": [
+                "Skill investment",
+                "Retention value",
+                "ROI lens"
+              ]
+            },
+            {
+              "title": "Build vs buy",
+              "subtitle": "Decide where to develop or hire",
+              "examples": [
+                "Build case",
+                "Buy case",
+                "Cost view"
+              ]
+            },
+            {
+              "title": "Capability ROI",
+              "subtitle": "Show the return on people investment",
+              "examples": [
+                "Productivity",
+                "Retention",
+                "Payback"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "workforce-segmentation",
+          "model_no": "Model 02",
+          "name": "Workforce Segmentation",
+          "author": "Boudreau & Ramstad",
+          "description": "Not all roles are equal; focus most on the pivotal roles that drive value.",
+          "phases": [
+            {
+              "title": "Pivotal roles",
+              "subtitle": "Find the roles that move the needle",
+              "examples": [
+                "Role impact",
+                "Value mapping",
+                "Focus list"
+              ]
+            },
+            {
+              "title": "Differentiated plans",
+              "subtitle": "Invest by role, not evenly",
+              "examples": [
+                "Tiered plans",
+                "Targeted spend",
+                "Priority roles"
+              ]
+            },
+            {
+              "title": "Risk focus",
+              "subtitle": "Protect the roles you cannot lose",
+              "examples": [
+                "Risk flags",
+                "Bench depth",
+                "Contingency"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "scenario-planning",
+          "model_no": "Model 03",
+          "name": "Scenario Planning",
+          "author": "Kahn & Wack",
+          "description": "Plan the workforce against several plausible futures, not one forecast.",
+          "phases": [
+            {
+              "title": "Scenario building",
+              "subtitle": "Frame a few plausible futures",
+              "examples": [
+                "Driver scan",
+                "Scenario set",
+                "Signposts"
+              ]
+            },
+            {
+              "title": "Demand modeling",
+              "subtitle": "Size the workforce each future needs",
+              "examples": [
+                "Demand ranges",
+                "Skill shifts",
+                "Gap view"
+              ]
+            },
+            {
+              "title": "Robust plans",
+              "subtitle": "Build a plan that holds up",
+              "examples": [
+                "No-regret moves",
+                "Options",
+                "Triggers"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "resource-based-view",
+          "model_no": "Model 04",
+          "name": "Resource-Based View",
+          "author": "Jay Barney",
+          "description": "Advantage comes from people and capabilities rivals cannot easily copy.",
+          "phases": [
+            {
+              "title": "Capability audit",
+              "subtitle": "Find your rare, valuable capabilities",
+              "examples": [
+                "Capability map",
+                "Rarity check",
+                "Moat view"
+              ]
+            },
+            {
+              "title": "Advantage design",
+              "subtitle": "Build what is hard to imitate",
+              "examples": [
+                "Invest priorities",
+                "Protect know-how",
+                "Develop deep"
+              ]
+            },
+            {
+              "title": "Strategy link",
+              "subtitle": "Tie the workforce plan to advantage",
+              "examples": [
+                "Strategy fit",
+                "Capability roadmap",
+                "Focus"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "markov-modeling",
+          "model_no": "Model 05",
+          "name": "Markov Workforce Modeling",
+          "author": "Markov analysis",
+          "description": "Model how people move between roles over time to project future supply.",
+          "phases": [
+            {
+              "title": "Supply projection",
+              "subtitle": "Forecast internal supply by role",
+              "examples": [
+                "Transition rates",
+                "Flow model",
+                "Supply curve"
+              ]
+            },
+            {
+              "title": "Attrition modeling",
+              "subtitle": "Anticipate losses before they hit",
+              "examples": [
+                "Attrition rates",
+                "Risk roles",
+                "Early warning"
+              ]
+            },
+            {
+              "title": "Gap forecasting",
+              "subtitle": "See gaps years ahead",
+              "examples": [
+                "Demand vs supply",
+                "Gap timeline",
+                "Action triggers"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "ld_why_edstellar",
+    "config": {
+      "heading": "Why Edstellar is your strategic workforce planning consulting <span>solutions provider.</span>",
+      "description": "The rare partner that forecasts your workforce needs and closes the gaps, keeps your talent risks in view, and proves the impact in readiness and cost.",
+      "difference_label": "The difference",
+      "items": [
+        {
+          "icon": "link",
+          "title": "Forecast to filled roles, one partner",
+          "description": "Your gaps actually close, because the team that forecasts the demand also runs the build, buy and borrow moves that fill it.",
+          "difference": "Most firms hand you a headcount spreadsheet. We stay through to filled roles."
+        },
+        {
+          "icon": "chip",
+          "title": "Runs on the Capability Intelligence Platform",
+          "description": "The Capability Intelligence Platform keeps your workforce picture live, so the plan targets the gaps that matter and proves its impact.",
+          "difference": "Your capability picture stays live, not frozen in a slide."
+        },
+        {
+          "icon": "chart",
+          "title": "Outcomes tied to the business",
+          "description": "Every program is tied to business goals and measured against them, so your workforce plan is accountable to readiness and cost, not activity.",
+          "difference": "Measured in gaps closed, not headcount added."
+        },
+        {
+          "icon": "globe",
+          "title": "Global delivery, wherever your people are",
+          "description": "Workforce planning delivered onsite, virtual or hybrid across 100+ countries and 20+ industries, so a global plan stays consistent.",
+          "difference": "Delivered where your people are, not just at HQ."
+        },
+        {
+          "icon": "list",
+          "title": "A proven method, not improvisation",
+          "description": "Every program runs the same Edstellar 5A method, so your workforce plan is built systematically rather than improvised each time.",
+          "difference": "A repeatable system, not a bespoke experiment each time."
+        },
+        {
+          "icon": "sliders",
+          "title": "Flexible from advisory to end-to-end",
+          "description": "Start with a workforce diagnostic, hand over the plan, or run the whole planning cycle, and scale up as the partnership grows.",
+          "difference": "Take as much or as little as you choose."
+        }
+      ],
+      "trust": {
+        "heading": "Trusted across industries and regions",
+        "industries": [
+          {
+            "icon": "landmark",
+            "label": "Financial services"
+          },
+          {
+            "icon": "monitor",
+            "label": "Technology"
+          },
+          {
+            "icon": "cross",
+            "label": "Healthcare"
+          },
+          {
+            "icon": "factory",
+            "label": "Manufacturing"
+          },
+          {
+            "icon": "bag",
+            "label": "Retail & consumer"
+          },
+          {
+            "icon": "zap",
+            "label": "Energy"
+          }
+        ],
+        "more_label": "20+ in all",
+        "regions_label": "Delivered across",
+        "regions": [
+          "APAC",
+          "Middle East",
+          "Europe",
+          "North America",
+          "India"
+        ],
+        "caption_strong": "Fortune 500",
+        "caption": "clients served worldwide"
       }
-    ],
-    "heading": "Strategic workforce planning consulting <span>FAQs.</span>",
-    "cta": [
-      {
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "readinessData",
+    "config": {
+      "heading": "Assess your workforce planning against the <span>essentials.</span>",
+      "description": "A quick strategic workforce planning assessment: see where your workforce planning and headcount planning are strong today, and where the demand forecast, gap analysis and action plan can go further.",
+      "points": [
+        "Alignment between the workforce plan and business priorities",
+        "Visibility of critical role and skill gaps",
+        "Scenario planning and review readiness"
+      ],
+      "cta": {
+        "label": "Get the free readiness checklist ↓",
+        "href": "https://www.edstellar.com/tool/strategic-workforce-planning-consulting"
+      },
+      "checklist": {
+        "title": "Workforce planning readiness checklist",
+        "items": [
+          {
+            "label": "Critical roles and future skills defined",
+            "done": true
+          },
+          {
+            "label": "Current workforce supply mapped",
+            "done": true
+          },
+          {
+            "label": "Gaps sized and prioritized",
+            "done": true
+          },
+          {
+            "label": "Build, buy, borrow plan in place",
+            "done": false
+          },
+          {
+            "label": "Plan reviewed on a regular rhythm",
+            "done": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "section-cta",
+    "config": {
+      "heading": "Ready for strategic workforce planning that gets ahead of the <span>gaps?</span>",
+      "primary_cta": {
+        "label": "Book a consultation",
+        "href": "#apply"
+      }
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "faqs",
+    "config": {
+      "items": [
+        {
+          "question": "What does strategic workforce planning consulting include?",
+          "answer": "It covers your workforce strategy and talent planning, demand forecasting, workforce analytics, supply and skills gap analysis, scenario planning, and the build, buy and borrow action plan and metrics that close the gaps, all aligned to the business goals."
+        },
+        {
+          "question": "How is this different from headcount budgeting?",
+          "answer": "Headcount budgeting counts the roles you can afford this year. Strategic workforce planning forecasts the roles and skills the strategy will need, sizes the gaps against today's workforce, and plans how to close them, so your talent strategy follows the business strategy, not just the budget."
+        },
+        {
+          "question": "How far ahead does workforce planning look?",
+          "answer": "Typically a three to five year horizon for the strategy, refreshed on a regular rhythm, because the plan and its capacity planning have to stay current as the business and labor market shift."
+        },
+        {
+          "question": "Do you help close the gaps, not just find them?",
+          "answer": "Yes. The build, buy and borrow action plan, and the hiring, development and sourcing moves that execute it, are the core of the engagement, so analysis leads to filled roles."
+        },
+        {
+          "question": "What do we get at the end?",
+          "answer": "A workforce strategy, a demand forecast, a supply and gap analysis, a build-buy-borrow action plan and the workforce metrics you own and run."
+        }
+      ],
+      "heading": "Strategic workforce planning consulting <span>FAQs.</span>",
+      "cta": [
+        {
+          "href": "#apply",
+          "cta_text": "Still have a question about your workforce?",
+          "btn_label": "Ask us directly"
+        }
+      ]
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "relatedServices",
+    "config": {
+      "items": [
+        {
+          "icon": "network",
+          "title": "Organization Design",
+          "description": "Design the structure your workforce plan will fill.",
+          "link": "Explore",
+          "href": "/organization-design-consulting"
+        },
+        {
+          "icon": "heart",
+          "title": "Culture Change",
+          "description": "Shape the culture that attracts and keeps talent.",
+          "link": "Explore",
+          "href": "/culture-change-consulting"
+        },
+        {
+          "icon": "smile",
+          "title": "Employee Engagement",
+          "description": "Keep the people your plan works hard to secure.",
+          "link": "Explore",
+          "href": "/employee-engagement-consulting"
+        },
+        {
+          "icon": "users",
+          "title": "Leadership Effectiveness",
+          "description": "Build the leaders your pipeline is planning for.",
+          "link": "Explore",
+          "href": "/leadership-effectiveness-consulting"
+        },
+        {
+          "icon": "change",
+          "title": "Change Management",
+          "description": "Land the workforce changes the plan calls for.",
+          "link": "Explore",
+          "href": "/change-management-consulting"
+        },
+        {
+          "icon": "succession",
+          "title": "Succession Planning",
+          "description": "Secure the critical roles the plan flags as risks.",
+          "link": "Explore",
+          "href": "/succession-planning-consulting"
+        },
+        {
+          "icon": "target",
+          "title": "Performance Management",
+          "description": "Turn workforce plans into individual goals and growth.",
+          "link": "Explore",
+          "href": "/performance-management-consulting"
+        },
+        {
+          "icon": "dei",
+          "title": "Diversity, Equity & Inclusion",
+          "description": "Build a diverse workforce into the plan by design.",
+          "link": "Explore",
+          "href": "/dei-consulting"
+        }
+      ],
+      "heading": "Other organizational development <span>services.</span>",
+      "hub_link": [
+        {
+          "href": "/organizational-development-consulting",
+          "label": "See all organizational development services →"
+        }
+      ],
+      "Description": "Workforce planning gets ahead of the talent gaps. These related services shape the workforce around it."
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "leadForm",
+    "config": {
+      "heading": "Book a strategic workforce planning consultation with <span>Edstellar.</span>",
+      "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+      "description": "Tell us where your workforce planning is today. We reply within one business day with a scoped response, no automated sales sequence.",
+      "Button_Label": "Book a consultation"
+    }
+  },
+  {
+    "site_page_slug": "organizational-development-consulting/strategic-workforce-planning-consulting",
+    "slug": "stickyFooter",
+    "config": {
+      "cta": {
         "href": "#apply",
-        "cta_text": "Still have a question about your workforce?",
-        "btn_label": "Ask us directly"
-      }
-    ]
-  },
-  "relatedServices": {
-    "items": [
-      {
-        "icon": "network",
-        "title": "Organization Design",
-        "description": "Design the structure your workforce plan will fill.",
-        "link": "Explore",
-        "href": "/organization-design-consulting"
+        "label": "Request a Training Quote"
       },
-      {
-        "icon": "heart",
-        "title": "Culture Change",
-        "description": "Shape the culture that attracts and keeps talent.",
-        "link": "Explore",
-        "href": "/culture-change-consulting"
-      },
-      {
-        "icon": "smile",
-        "title": "Employee Engagement",
-        "description": "Keep the people your plan works hard to secure.",
-        "link": "Explore",
-        "href": "/employee-engagement-consulting"
-      },
-      {
-        "icon": "users",
-        "title": "Leadership Effectiveness",
-        "description": "Build the leaders your pipeline is planning for.",
-        "link": "Explore",
-        "href": "/leadership-effectiveness-consulting"
-      },
-      {
-        "icon": "change",
-        "title": "Change Management",
-        "description": "Land the workforce changes the plan calls for.",
-        "link": "Explore",
-        "href": "/change-management-consulting"
-      },
-      {
-        "icon": "succession",
-        "title": "Succession Planning",
-        "description": "Secure the critical roles the plan flags as risks.",
-        "link": "Explore",
-        "href": "/succession-planning-consulting"
-      },
-      {
-        "icon": "target",
-        "title": "Performance Management",
-        "description": "Turn workforce plans into individual goals and growth.",
-        "link": "Explore",
-        "href": "/performance-management-consulting"
-      },
-      {
-        "icon": "dei",
-        "title": "Diversity, Equity & Inclusion",
-        "description": "Build a diverse workforce into the plan by design.",
-        "link": "Explore",
-        "href": "/dei-consulting"
-      }
-    ],
-    "heading": "Other organizational development <span>services.</span>",
-    "hub_link": [
-      {
-        "href": "/organizational-development-consulting",
-        "label": "See all organizational development services →"
-      }
-    ],
-    "Description": "Workforce planning gets ahead of the talent gaps. These related services shape the workforce around it."
-  },
-  "leadForm": {
-    "heading": "Book a strategic workforce planning consultation with <span>Edstellar.</span>",
-    "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
-    "description": "Tell us where your workforce planning is today. We reply within one business day with a scoped response, no automated sales sequence.",
-    "Button_Label": "Book a consultation"
-  },
-  "stickyFooter": {
-    "cta": {
-      "href": "#apply",
-      "label": "Request a Training Quote"
-    },
-    "Brochure": [
-      {
-        "href": "https://www.edstellar.com/brochures/organizational-development-consulting",
-        "Label": "Brochure"
-      }
-    ],
-    "messages": [
-      {
-        "highlight": "The workforce",
-        "suffix": "your strategy needs"
-      },
-      {
-        "highlight": "Demand, supply",
-        "suffix": "and gap analysis"
-      },
-      {
-        "highlight": "Talent",
-        "suffix": "planned before you need it"
-      }
-    ],
-    "form_anchor_id": "apply"
+      "Brochure": [
+        {
+          "href": "https://www.edstellar.com/brochures/organizational-development-consulting",
+          "Label": "Brochure"
+        }
+      ],
+      "messages": [
+        {
+          "highlight": "The workforce",
+          "suffix": "your strategy needs"
+        },
+        {
+          "highlight": "Demand, supply",
+          "suffix": "and gap analysis"
+        },
+        {
+          "highlight": "Talent",
+          "suffix": "planned before you need it"
+        }
+      ],
+      "form_anchor_id": "apply"
+    }
   }
-}
+]
