@@ -1,7 +1,4 @@
-import {
-  DELIVERY_COUNTRIES,
-  DELIVERY_LANGUAGES,
-} from "@/lib/constants";
+import { DELIVERY_COUNTRIES, DELIVERY_LANGUAGES } from "@/lib/constants";
 
 const APPLY_ANCHOR = "#apply";
 

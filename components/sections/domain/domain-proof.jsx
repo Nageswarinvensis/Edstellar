@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
  *
  * Matches the design's *effective* `.proof-bar` — the light-card variant (a
  * later rule in the design overrides the earlier navy one): white card, ink
- * figures, muted mono-caps labels, `--rule` (ink/12) dividers. `DomainInfo`
+ * figures, muted mono-caps labels, `--rule` (ink/12) dividers. `TnaInfo`
  * (TNA page) is a separate component and stays as-is.
  *
  * Driven by `proof.stats`: a stat carrying a `photo`/`photos` renders as the
@@ -29,7 +29,7 @@ function StatValue({ children }) {
 
 function StatLabel({ children }) {
   return (
-    <span className="font-mono text-[10px] tracking-[0.14em] whitespace-nowrap text-ink-muted uppercase">
+    <span className="font-mono text-[10px] tracking-[0.14em] text-ink-muted uppercase max-md:tracking-[0.1em]">
       {children}
     </span>
   );
@@ -52,8 +52,10 @@ function DomainProof({ proof }) {
               const cell = cn(
                 "flex min-w-0 flex-1 flex-col gap-[5px]",
                 index > 0 && "border-l border-ink/12 pl-[26px]",
+                // Tablet: two per row. Phone: one per row, full width.
                 "max-md:flex-[1_1_44%] max-md:py-2",
                 "max-md:[&:nth-child(odd)]:border-l-0 max-md:[&:nth-child(odd)]:pl-0",
+                "max-sm:flex-[1_1_100%] max-sm:border-l-0 max-sm:pl-0",
               );
 
               if (photos.length) {
@@ -62,24 +64,26 @@ function DomainProof({ proof }) {
                     key={index}
                     className={cn(cell, "flex-row items-center gap-3")}
                   >
-                    <Box aria-hidden="true" className="flex flex-none">
-                      {photos.slice(0, 4).map((src, i) => (
-                        <Box
-                          as="span"
+                    <Box
+                      aria-hidden="true"
+                      className="flex flex-none items-center"
+                    >
+                      {photos.map((src, i) => (
+                        // `Avatar.webp` is a wide, pre-composed avatar strip, so
+                        // it's rendered at a fixed size with `object-contain` —
+                        // the same way the course page shows it — rather than
+                        // cropped into a circle.
+                        <Image
                           key={i}
-                          className="relative size-[30px] flex-none overflow-hidden rounded-full border-2 border-white shadow-[0_1px_3px_rgba(10,22,40,0.22)] [&:not(:first-child)]:-ml-[9px]"
-                        >
-                          <Image
-                            src={src}
-                            alt=""
-                            fill
-                            sizes="30px"
-                            className="object-cover"
-                          />
-                        </Box>
+                          src={src}
+                          alt=""
+                          width={44}
+                          height={24}
+                          className="h-7 w-auto flex-none object-contain"
+                        />
                       ))}
                     </Box>
-                    <Box className="flex flex-col gap-[5px]">
+                    <Box className="flex min-w-0 flex-col gap-[5px]">
                       <StatValue>{stat.value}</StatValue>
                       <StatLabel>{stat.label}</StatLabel>
                     </Box>

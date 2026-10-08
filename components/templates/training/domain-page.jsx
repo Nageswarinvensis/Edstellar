@@ -3,16 +3,17 @@ import DomainProof from "@/components/sections/domain/domain-proof";
 import ClientLogos from "@/components/common/client-logos";
 import StickyNavbar from "@/components/sections/domain/sticky-navbar";
 import About from "@/components/sections/domain/about";
+import Topics from "@/components/sections/domain/topics";
 import Program from "@/components/sections/domain/program";
+import Bundles from "@/components/sections/domain/bundles";
 import ByRole from "@/components/sections/domain/byrole";
-import Paths from "@/components/sections/domain/path";
+import ExploreCategories from "@/components/sections/domain/explore-categories";
 import Trainers from "@/components/common/trainers";
 import MapSection from "@/components/common/map-section";
 import Delivered from "@/components/sections/domain/delivered";
 import DeliveryModes from "@/components/common/delivery-modes";
 import StickyFooter from "@/components/common/sticky-footer";
 import FromEdstellar from "@/components/sections/domain/from_edstellar";
-import RelatedCategories from "@/components/sections/domain/related-categories";
 import Faq from "@/components/common/faq";
 import Scope from "@/components/sections/domain/scope";
 import LeadForm from "@/components/forms/lead-form";
@@ -44,11 +45,13 @@ export default function DomainPage({ domain }) {
 
       <StickyNavbar data={domain.sticky_nav} />
       <About about={domain.about} ctaBannerData={domain.about?.cta_banner} />
+      <Topics data={domain.topicsData} />
       <Program
         data={{ ...domain.programData, defaultDelivery: domain.delivery }}
       />
+      <Bundles data={domain.bundlesData} />
       <ByRole data={domain.byRoleData} />
-      <Paths data={domain.pathsData} />
+      <ExploreCategories data={domain.exploreCategoriesData} />
       <Outcome data={domain.outcomeData} />
       <DeliveryModes
         deliveryModes={domain.deliveryModes}
@@ -60,7 +63,6 @@ export default function DomainPage({ domain }) {
       <MapSection data={domain.mapsectionData} className="bg-paper-warm" />
       <Delivered data={domain.deliveredData} />
       <FromEdstellar data={domain.fromedstellarData} />
-      <RelatedCategories data={domain.relatedCategoriesData} />
       <Faq
         faqs={domain.faqs}
         innerClassName="max-w-[920px] mx-auto"
