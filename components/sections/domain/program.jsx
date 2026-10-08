@@ -105,14 +105,21 @@ function CourseImage({ course, data }) {
     );
   }
 
+  // The CMS can send a course with no image yet (`image.src === ""`); an empty
+  // `src` makes the browser refetch the page, so render only when it's set and
+  // fall back to the card's own neutral background otherwise.
+  const imageSrc = course.image?.src;
+
   return (
-    <Box className="relative h-51 overflow-hidden">
-      <img
-        src={course.image?.src}
-        alt={course.image?.alt || course.title}
-        title={course.image?.title || course.title}
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-      />
+    <Box className="relative h-51 overflow-hidden bg-paper-warm">
+      {imageSrc ? (
+        <img
+          src={imageSrc}
+          alt={course.image?.alt || course.title}
+          title={course.image?.title || course.title}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+        />
+      ) : null}
 
       <div className="absolute inset-0 bg-black/5" />
 

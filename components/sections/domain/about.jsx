@@ -10,6 +10,15 @@ function CategoryAbout({ about }) {
 
   const contrast = about.inclusions;
 
+  // The CMS may send the whole definition in `body` with no `expanded_body`.
+  // Match the design's definition block: keep the first paragraph visible and
+  // fold the rest under "Read more". When the content already ships a separate
+  // `expanded_body`, use that split as-is.
+  const bodyParagraphs = about.body ?? [];
+  const expanded = about.expanded_body ?? [];
+  const visibleBody = expanded.length ? bodyParagraphs : bodyParagraphs.slice(0, 1);
+  const hiddenBody = expanded.length ? expanded : bodyParagraphs.slice(1);
+
   return (
     <Section id="about" className="relative border-b border-ink/12 ">
       <Box className="grid grid-cols-1 items-start gap-8 gap-x-12 md:grid-cols-2 md:gap-12">
@@ -20,23 +29,23 @@ function CategoryAbout({ about }) {
 
           <Reveal delay={1}>
             <Box className="pt-6">
-              {about.body?.map((paragraph, index) => (
+              {visibleBody.map((paragraph, index) => (
                 <Text
                   as="p"
                   key={index}
-                  className="mb-4.5 text-base leading-[1.75]"
+                  className="mb-4.5 text-base leading-[1.75] text-ink-muted"
                 >
                   {paragraph}
                 </Text>
               ))}
 
-              {about.expanded_body?.length ? (
+              {hiddenBody.length ? (
                 <ReadMore showIcon>
-                  {about.expanded_body.map((paragraph, index) => (
+                  {hiddenBody.map((paragraph, index) => (
                     <Text
                       as="p"
                       key={index}
-                      className="mb-4.5 text-base leading-[1.75] text-[#0A1628]"
+                      className="mb-4.5 text-base leading-[1.75] text-ink-muted"
                     >
                       {paragraph}
                     </Text>

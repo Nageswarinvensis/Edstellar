@@ -132,7 +132,13 @@ export default function StickyTabs({ data, hasTrainers }) {
             ref={listRef}
             className="flex min-w-0 flex-1 items-center overflow-x-auto no-scrollbar py-1 px-1"
           >
-            <ul className="flex h-full min-w-max shrink-0 items-center justify-start sm:justify-between gap-2 sm:gap-3">
+            <ul
+              className={`flex h-full items-center gap-2 sm:gap-3 min-w-max ${
+                data?.cta?.text
+                  ? "shrink-0 justify-start"
+                  : "justify-start sm:min-w-0 sm:w-full sm:justify-between"
+              }`}
+            >
               {tabs.map((tab, idx) => {
                 // Ensure active status matches activeId or falls back to first tab
                 const isActive = activeId ? tab.id === activeId : idx === 0;

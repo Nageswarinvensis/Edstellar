@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
-import DomainInfo from "@/components/sections/domain/domain-info";
+import TnaInfo from "@/components/sections/training_needs_analysis/tnainfo";
 import ClientLogos from "@/components/common/client-logos";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import CtaTrainer from "@/components/sections/trainers details/ctatrainer";
@@ -50,7 +50,7 @@ export default async function TrainingNeedsAnalysisPage() {
         data={tna.consulting_Hero}
         breadcrumbItems={tna.breadcrumbs?.items}
       />
-      <DomainInfo proof={tna.generalProof} layout="spread" />
+      <TnaInfo proof={tna.generalProof} layout="spread" />
       <ClientLogos />
       <StickyTabs data={tna.stickyNavbar} />
       <CtaTrainer id="still" data={tna.tnaProblemStatement} emphasisClassName="block" />

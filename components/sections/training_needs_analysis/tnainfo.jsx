@@ -4,7 +4,7 @@ import Reveal from "@/components/common/reveal";
 import ProofBar from "@/components/common/proof-bar";
 import Section from "@/components/ui/Section";
 
-function DomainInfo({ proof, layout }) {
+function TnaInfo({ proof, layout }) {
   const topic_tags = proof?.topic_tags ?? [];
   const stats = proof?.stats ?? [];
   const isDark = proof?.tone === "dark";
@@ -59,4 +59,4 @@ function DomainInfo({ proof, layout }) {
   );
 }
 
-export default DomainInfo;
+export default TnaInfo;

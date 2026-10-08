@@ -120,7 +120,9 @@ export default function WhatWeDeliver({ data }) {
                     as="span"
                     className="font-display text-[13.5px] leading-[1.2] font-semibold text-ink"
                   >
-                    {step.title}
+                    {/* The CMS sends a short `tab_title` for this layer-stack
+                        label; local content and the step heading use `title`. */}
+                    {step.tab_title || step.title}
                   </Text>
                 </Box>
 
