@@ -22,6 +22,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import { DOMAIN_CARD_IMAGE } from "@/lib/constants";
 
 /**
  * "Compliance bundles for whole teams" — the `#bundles` section of the domain
@@ -73,9 +74,11 @@ function BundleCard({ bundle, onOpen }) {
       className="group flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-[14px] border border-ink/12 bg-white text-left shadow-[0_1px_0_rgba(10,22,40,0.04)] transition-[transform,border-color,box-shadow] duration-[250ms] hover:-translate-y-1 hover:border-ink/22 hover:shadow-[0_24px_48px_-30px_rgba(10,22,40,0.45)]"
     >
       <Box className="relative block aspect-[16/9] overflow-hidden bg-paper-warm">
-        {bundle.image ? (
+        {/* Card image is hardcoded for every bundle (not from the CMS) — see
+            DOMAIN_CARD_IMAGE. `bundle.image` is intentionally ignored. */}
+        {DOMAIN_CARD_IMAGE ? (
           <img
-            src={bundle.image}
+            src={DOMAIN_CARD_IMAGE}
             alt={bundle.image_alt || bundle.name || ""}
             width={800}
             height={450}

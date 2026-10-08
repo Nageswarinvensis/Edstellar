@@ -14,6 +14,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
+import { DOMAIN_CARD_IMAGE } from "@/lib/constants";
 
 const COURSES_PER_PAGE = 9;
 
@@ -105,10 +106,9 @@ function CourseImage({ course, data }) {
     );
   }
 
-  // The CMS can send a course with no image yet (`image.src === ""`); an empty
-  // `src` makes the browser refetch the page, so render only when it's set and
-  // fall back to the card's own neutral background otherwise.
-  const imageSrc = course.image?.src;
+  // Card image is hardcoded for every course (not from the CMS) — see
+  // DOMAIN_CARD_IMAGE. The CMS `course.image.src` is intentionally ignored.
+  const imageSrc = DOMAIN_CARD_IMAGE;
 
   return (
     <Box className="relative h-51 overflow-hidden bg-paper-warm">
