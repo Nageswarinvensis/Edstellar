@@ -26,10 +26,10 @@ export default function StickyTabs({ data, hasTrainers }) {
     (tab) => tab.id !== "trainers" || hasTrainers,
   );
 
-  // Guarantee the first tab is always active by default if none is explicitly active
-  const [activeId, setActiveId] = useState(
-    () => tabs?.find((tab) => tab.active)?.id || tabs?.[0]?.id,
-  );
+  // Scroll-driven: no tab is active until its section reaches the scroll line.
+  // Starts null so nothing is highlighted while the reader is still above the
+  // first section (e.g. in the hero) — the effect below sets it on mount/scroll.
+  const [activeId, setActiveId] = useState(null);
 
   const sentinelRef = useRef(null);
   const listRef = useRef(null);
@@ -58,7 +58,9 @@ export default function StickyTabs({ data, hasTrainers }) {
         ACTIVE_LINE_MIN,
         window.innerHeight * ACTIVE_LINE_RATIO,
       );
-      let current = sections[0].id;
+      // Null until a section's top crosses the line — so while the reader is
+      // still above the first section, no tab is highlighted.
+      let current = null;
       for (const section of sections) {
         if (section.getBoundingClientRect().top <= line) current = section.id;
       }
@@ -137,9 +139,9 @@ export default function StickyTabs({ data, hasTrainers }) {
                 so they never cluster on the left with a gap. On mobile they
                 keep their natural width and scroll. */}
             <ul className="flex h-full min-w-max items-center justify-start gap-2 sm:min-w-0 sm:w-full sm:justify-between sm:gap-3">
-              {tabs.map((tab, idx) => {
-                // Ensure active status matches activeId or falls back to first tab
-                const isActive = activeId ? tab.id === activeId : idx === 0;
+              {tabs.map((tab) => {
+                // Active only when scroll-spy has reached this tab's section.
+                const isActive = tab.id === activeId;
 
                 return (
                   <li
