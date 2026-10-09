@@ -1,3 +1,7 @@
+import { notFound } from "next/navigation";
+
+import { getSitePage } from "@/lib/content/site-pages";
+import { buildMetadata } from "@/lib/seo/metadata";
 import JsonLd from "@/components/seo/json-ld";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo/json-ld";
 
@@ -9,7 +13,6 @@ import WhyLandD from "@/components/sections/learning_development_consulting/whyl
 import Maturity from "@/components/sections/learning_development_consulting/maturity";
 import CtaBand from "@/components/sections/consulting/cta-band";
 import Methodology from "@/components/sections/learning_development_consulting/methodology";
-import LdPlatformSection from "@/components/sections/organizational_development_consulting/ldplatformsec";
 import Transform from "@/components/sections/learning_development_consulting/transform";
 import LdServices from "@/components/sections/learning_development_consulting/ld-services";
 import Engagements from "@/components/sections/learning_development_consulting/engagements";
@@ -19,49 +22,74 @@ import Faq from "@/components/common/faq";
 import LeadForm from "@/components/forms/lead-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
-// 1. IMPORT YOUR JSON DATA DIRECTLY
-import service from "@/content/organizational_development_consulting/OD-consulting.json";
+export const revalidate = 3600;
 
+const CMS_SLUG = "organizational-development-consulting";
+const PATH = "/organizational-development-consulting";
 
-// 5. METADATA GENERATION
-export const metadata = {
-  title: service.seo.title,
-  description: service.seo.description,
-};
+export async function generateMetadata() {
+  const cms = await getSitePage(CMS_SLUG);
+  if (!cms) return {};
+  const { seo } = cms;
 
-export default function Page() {
+  // The CMS title carries the brand suffix the root layout's title template
+  // already adds — stripped so it does not render twice.
+  const title = seo?.meta_title?.replace(/\s*\|\s*Edstellar\s*$/i, "").trim();
+
+  return buildMetadata({
+    title,
+    description: seo?.Meta_description,
+    path: PATH,
+    image: seo?.og_image_url,
+  });
+}
+
+export default async function OrganizationalDevelopmentConsultingPage() {
+  const cms = await getSitePage(CMS_SLUG);
+  if (!cms) notFound();
+
+  const name = cms.consulting_Hero?.heroLeft?.title;
+
   return (
     <>
       <JsonLd
         data={[
           serviceJsonLd({
-            name: service.name,
-            description: service.seo.description,
-            path: `/consulting/${service.slug}`,
-            serviceType: service.name,
+            name,
+            description: cms.seo?.Meta_description,
+            path: PATH,
+            serviceType: name,
           }),
-          breadcrumbJsonLd(service.BreadcrumbData),
-          faqJsonLd(service.faqData?.items),
+          breadcrumbJsonLd(cms.breadcrumbs?.items),
+          faqJsonLd(cms.faqs?.items),
         ]}
       />
 
-      <ConsultingHero data={service.heroData} breadcrumbItems={service.BreadcrumbData} />
-      <ProofStats data={service.proof} />
+      <ConsultingHero
+        data={cms.consulting_Hero}
+        breadcrumbItems={cms.breadcrumbs?.items}
+      />
+      <ProofStats data={cms.generalProof} />
       <ClientLogos />
-      <StickyTabs data={service.stickyNavbarData} />
-      <WhyLandD data={service.whyLandDData} />
-      <Maturity data={service.maturityData} />
-      <CtaBand data={service.ctaBandData}/>
-      <Methodology data={service.methodologyData} />
-      <LdPlatformSection data={service.ldPlatformData}/>
-      <Transform data={service.transformData}/>
-      <LdServices data={service.ldServicesData}/>
-      <Engagements data={service.engagementsData}/>
-      <WhyUs data={service.whyusData} />
-      <RelatedServices data={service.relatedData} />
-      <Faq data={service.faqData} />
-      <LeadForm data={service.leadFormData} />
-      <StickyFooter data={service.stickyFooter} />
+      <StickyTabs data={cms.stickyNavbar} />
+      <WhyLandD data={cms.why_ld} />
+      <Maturity data={cms.maturity_model} />
+      <CtaBand data={cms.why_cta_banner} />
+      <Methodology data={cms.methodology} />
+      <Transform data={cms.transformation} />
+      <LdServices data={cms.services} />
+      <Engagements data={cms.engagement_models} />
+      <WhyUs id="why-edstellar" data={cms.ld_why_edstellar} />
+      <RelatedServices data={cms.relatedServices} />
+      <Faq
+        id="faq"
+        faqs={cms.faqs}
+        innerClassName="max-w-[920px] mx-auto"
+        headingClassName="mx-auto text-center"
+        showCta={false}
+      />
+      <LeadForm id="apply" background="navy" data={cms.leadForm} />
+      <StickyFooter data={{ ...cms.stickyFooter, email: true }} />
     </>
   );
 }
