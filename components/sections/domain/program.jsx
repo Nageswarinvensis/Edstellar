@@ -444,8 +444,8 @@ function TopicsModal({
           ) : null}
         </Box>
 
-        {/* Rows */}
-        <Box className="flex flex-1 flex-col gap-2 overflow-y-auto overscroll-contain px-[34px] pb-7 pt-6">
+        {/* Rows — two columns, with "All disciplines" spanning the full width */}
+        <Box className="grid flex-1 grid-cols-1 content-start gap-2.5 overflow-y-auto overscroll-contain px-[34px] pb-7 pt-6 sm:grid-cols-2">
           {rows.map((row) => {
             const active = selected === row.value;
 
@@ -455,8 +455,9 @@ function TopicsModal({
                 type="button"
                 onClick={() => onSelect(row.value)}
                 className={[
-                  "flex cursor-pointer items-center justify-between gap-2 rounded-[10px] border px-4 py-[14px] text-left",
-                  "text-[14px] font-medium leading-[1.3] transition-colors duration-200",
+                  "flex cursor-pointer items-center justify-between gap-2 rounded-[10px] border px-3.5 py-[12px] text-left",
+                  "text-[12px] font-medium leading-[1.3] transition-colors duration-200",
+                  row.value === null ? "sm:col-span-2" : "",
                   active
                     ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
                     : "border-ink/12 bg-white text-[#07182C] hover:border-ink hover:bg-paper-warm",

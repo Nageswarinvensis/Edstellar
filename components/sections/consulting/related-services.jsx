@@ -13,6 +13,11 @@ import {
   RefreshCw,
   GitBranch,
   Scale,
+  FileText,
+  Gauge,
+  ClipboardCheck,
+  UserCheck,
+  GraduationCap,
   ArrowRight,
 } from "lucide-react";
 
@@ -39,6 +44,13 @@ const serviceIcons = {
   change: RefreshCw,
   succession: GitBranch,
   dei: Scale,
+  filetext: FileText,
+  file: FileText,
+  gauge: Gauge,
+  clipboardcheck: ClipboardCheck,
+  usercheck: UserCheck,
+  graduationcap: GraduationCap,
+  graduation: GraduationCap,
 };
 
 export default function RelatedServices({ id, bgColor, data }) {

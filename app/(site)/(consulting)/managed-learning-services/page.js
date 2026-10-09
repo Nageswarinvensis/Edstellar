@@ -21,7 +21,7 @@ import StickyFooter from "@/components/common/sticky-footer";
 
 export const revalidate = 3600;
 
-const CMS_SLUG = "managed-training-services";
+const CMS_SLUG = "managed-learning-services";
 
 export async function generateMetadata() {
   const cms = await getSitePage(CMS_SLUG);
@@ -35,13 +35,13 @@ export async function generateMetadata() {
   return buildMetadata({
     title,
     description: seo?.Meta_description,
-    path: "/managed-training-services",
+    path: "/managed-learning-services",
     image: seo?.og_image_url,
   });
 }
 
 /**
- * Managed training services. The CMS (`site-pages/managed-training-services`)
+ * Managed learning services. The CMS (`site-pages/managed-learning-services`)
  * owns the frame — SEO, hero copy, breadcrumbs, proof bar, sticky nav, FAQ,
  * related services, why-us, the lead form and the sticky footer, and the
  * page's own sections. Only section anchors and lead-form labels are set here.
