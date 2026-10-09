@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
-import { ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -150,6 +150,237 @@ const ICON_PATHS = {
       <path d="M4.6 8.6 2.5 13a2.1 2.1 0 0 0 4.2 0z" />
       <path d="M19.4 8.6 17.3 13a2.1 2.1 0 0 0 4.2 0z" />
       <circle cx="12" cy="5" r="1.25" />
+    </>
+  ),
+
+  // strategic-workforce-planning-consulting
+  "human-capital": (
+    <>
+      <path d="M12 21v-7" />
+      <path d="M12 14c0-3-2-5-5-5 0 3 2 5 5 5z" />
+      <path d="M12 12c0-3 2-6 6-6 0 3-2 6-6 6z" />
+    </>
+  ),
+  "workforce-segmentation": (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="1.5" />
+      <path d="M9 3.5v17M15 3.5v17M3.5 9h17M3.5 15h17" />
+    </>
+  ),
+  "scenario-planning": (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="1.5" />
+      <path d="M12 3.5v17M3.5 12h17" />
+    </>
+  ),
+  "resource-based-view": (
+    <>
+      <path d="M12 3l9 5-9 5-9-5 9-5z" />
+      <path d="M3 13l9 5 9-5M3 16.5l9 5 9-5" />
+    </>
+  ),
+  "markov-modeling": (
+    <>
+      <circle cx="5" cy="6" r="2" />
+      <circle cx="5" cy="18" r="2" />
+      <circle cx="19" cy="12" r="2" />
+      <path d="M7 6h6a4 4 0 0 1 4 4v0M7 18h6a4 4 0 0 0 4-4" />
+    </>
+  ),
+
+  // leadership-effectiveness-consulting
+  situational: (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="1.5" />
+      <path d="M12 3.5v17M3.5 12h17" />
+    </>
+  ),
+  transformational: (
+    <>
+      <circle cx="5" cy="6" r="2" />
+      <circle cx="5" cy="18" r="2" />
+      <circle cx="19" cy="12" r="2" />
+      <path d="M7 6h6a4 4 0 0 1 4 4v0M7 18h6a4 4 0 0 0 4-4" />
+    </>
+  ),
+  servant: (
+    <>
+      <path d="M8 11l2.5-2.5a2 2 0 0 1 2.8 0L18 13" />
+      <path d="M3 8l4-2 5 3M21 8l-4-2-2 1" />
+      <path d="M7 13l3 3M10 16l2 2M13 18l2 1" />
+    </>
+  ),
+  ei: (
+    <>
+      <path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-1 5.8V15a3 3 0 0 0 4 2.8" />
+      <path d="M15 4a3 3 0 0 1 3 3 3 3 0 0 1 1 5.8V15a3 3 0 0 1-4 2.8" />
+      <path d="M12 4v14" />
+    </>
+  ),
+  grow: (
+    <>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="3.3" />
+      <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22" />
+    </>
+  ),
+  "five-practices": (
+    <path d="M7 3v18M17 3v18M7 7h10M7 12h10M7 17h10" />
+  ),
+
+  // organization-design-consulting
+  star: (
+    <>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M15.5 8.5l-2 5-5 2 2-5z" />
+    </>
+  ),
+  congruence: (
+    <>
+      <circle cx="5" cy="6" r="2" />
+      <circle cx="5" cy="18" r="2" />
+      <circle cx="19" cy="12" r="2" />
+      <path d="M7 6h6a4 4 0 0 1 4 4v0M7 18h6a4 4 0 0 0 4-4" />
+    </>
+  ),
+  mintzberg: (
+    <>
+      <path d="M12 3l9 17H3z" />
+      <path d="M7.5 12h9M9.7 7.5h4.6" />
+    </>
+  ),
+  weisbord: (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="1.5" />
+      <path d="M9 3.5v17M15 3.5v17M3.5 9h17M3.5 15h17" />
+    </>
+  ),
+  mechanistic: (
+    <>
+      <path d="M4 12a8 8 0 0 1 13.7-5.6L20 8" />
+      <path d="M20 3v5h-5" />
+      <path d="M20 12a8 8 0 0 1-13.7 5.6L4 16" />
+      <path d="M4 21v-5h5" />
+    </>
+  ),
+  greiner: (
+    <>
+      <path d="M3 6C6 6 6 18 12 18s6-12 9-12" />
+      <circle cx="3" cy="6" r="1" />
+      <circle cx="21" cy="6" r="1" />
+    </>
+  ),
+
+  // employee-engagement-consulting
+  "jd-r": (
+    <>
+      <path d="M12 4.6v15M6.5 19.6h11M4.6 8.6h14.8" />
+      <path d="M4.6 8.6 2.5 13a2.1 2.1 0 0 0 4.2 0z" />
+      <path d="M19.4 8.6 17.3 13a2.1 2.1 0 0 0 4.2 0z" />
+      <circle cx="12" cy="5" r="1.25" />
+    </>
+  ),
+  sdt: (
+    <>
+      <path d="M12 21v-7" />
+      <path d="M12 14c0-3-2-5-5-5 0 3 2 5 5 5z" />
+      <path d="M12 12c0-3 2-6 6-6 0 3-2 6-6 6z" />
+    </>
+  ),
+  herzberg: (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="1.5" />
+      <path d="M12 3.5v17M3.5 12h17" />
+    </>
+  ),
+  maslow: (
+    <>
+      <path d="M12 3l9 17H3z" />
+      <path d="M7.5 12h9M9.7 7.5h4.6" />
+    </>
+  ),
+  kahn: (
+    <>
+      <path d="M12 3l7 2.5v5.6c0 4.4-3 7.8-7 9.4-4-1.6-7-5-7-9.4V5.5z" />
+      <path d="M9 12l2.2 2.2L15.5 10" />
+    </>
+  ),
+  jcm: (
+    <>
+      <circle cx="5" cy="6" r="2" />
+      <circle cx="5" cy="18" r="2" />
+      <circle cx="19" cy="12" r="2" />
+      <path d="M7 6h6a4 4 0 0 1 4 4v0M7 18h6a4 4 0 0 0 4-4" />
+    </>
+  ),
+
+  // performance-management-consulting
+  mbo: (
+    <>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="3.3" />
+      <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22" />
+    </>
+  ),
+  bsc: (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="2" />
+      <path d="M7 9h4M7 13h4M7 17h2" />
+      <path d="M14.5 8.5l1.5 1.5 3-3" />
+    </>
+  ),
+  okr: <path d="M4 20h4v-4h4v-4h4v-4h4" />,
+  smart: (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="1.5" />
+      <path d="M12 3.5v17M3.5 12h17" />
+    </>
+  ),
+  "goal-setting": (
+    <>
+      <path d="M4 18a8 8 0 1 1 16 0" />
+      <path d="M12 18l4-5" />
+      <circle cx="12" cy="18" r="1.3" fill="currentColor" stroke="none" />
+    </>
+  ),
+  "360-feedback": (
+    <>
+      <path d="M4 12a8 8 0 0 1 13.7-5.6L20 8" />
+      <path d="M20 3v5h-5" />
+      <path d="M20 12a8 8 0 0 1-13.7 5.6L4 16" />
+      <path d="M4 21v-5h5" />
+    </>
+  ),
+
+  // succession-planning-consulting
+  "leadership-pipeline": (
+    <path d="M7 3v18M17 3v18M7 7h10M7 12h10M7 17h10" />
+  ),
+  rothwell: (
+    <>
+      <path d="M4 12a8 8 0 0 1 13.7-5.6L20 8" />
+      <path d="M20 3v5h-5" />
+      <path d="M20 12a8 8 0 0 1-13.7 5.6L4 16" />
+      <path d="M4 21v-5h5" />
+    </>
+  ),
+  "9-box": (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="1.5" />
+      <path d="M9 3.5v17M15 3.5v17M3.5 9h17M3.5 15h17" />
+    </>
+  ),
+  "70-20-10": (
+    <>
+      <path d="M4 20h16" />
+      <path d="M7 20v-4M12 20v-8.5M17 20v-13" />
+    </>
+  ),
+  "talent-review": (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="2" />
+      <path d="M7 9h4M7 13h4M7 17h2" />
+      <path d="M14.5 8.5l1.5 1.5 3-3" />
     </>
   ),
 };
@@ -324,6 +555,33 @@ export default function ChangeFrameworks({ data }) {
             </AccordionItem>
           ))}
         </Accordion>
+      </Reveal>
+
+      {/* Section footer — static design caption tying every model back to
+          Edstellar's 5A method. Hardcoded by design: the same line sits under
+          the frameworks accordion on every OD sub-page and the CMS does not
+          carry it. */}
+      <Reveal delay={3}>
+        <Box className="mt-9 flex items-center justify-center gap-2.5 text-center">
+          <ArrowRight
+            size={18}
+            strokeWidth={2}
+            aria-hidden="true"
+            className="flex-none text-ink"
+          />
+          <Text
+            as="p"
+            className="font-display text-[clamp(15px,1.4vw,17px)] leading-[1.3] font-bold tracking-[-0.01em] text-ink"
+          >
+            Every framework feeds the Edstellar{" "}
+            <Text
+              as="span"
+              className="font-serif text-[1.08em] leading-[1.3] font-normal italic"
+            >
+              5A method
+            </Text>
+          </Text>
+        </Box>
       </Reveal>
     </Section>
   );
