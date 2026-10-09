@@ -1,24 +1,4 @@
 {
-  "changeJourneyData": {
-    "section_id": "change-journey",
-    "eyebrow": "The change curve",
-    "heading": "Edstellar change management: less disruption, faster <span>adoption.</span>",
-    "description": "Every change costs some performance before it pays off. Our job is to make that dip shallower and shorter, and the climb higher, so your people reach the new way of working sooner.",
-    "points": [
-      {
-        "title": "Shallower dip",
-        "description": "Less lost productivity during the change"
-      },
-      {
-        "title": "Faster recovery",
-        "description": "People reach the new normal sooner"
-      },
-      {
-        "title": "Higher plateau",
-        "description": "Performance settles above where it started"
-      }
-    ]
-  },
   "whyEdstellarData": {
     "section_id": "why",
     "heading": "Why Edstellar is your change management consulting <span>solutions provider.</span>",
