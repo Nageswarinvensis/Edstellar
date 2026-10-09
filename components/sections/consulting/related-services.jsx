@@ -1,12 +1,44 @@
 "use client";
 
 import Link from "next/link";
+import {
+  Target,
+  ZoomIn,
+  Monitor,
+  Network,
+  Heart,
+  Smile,
+  Users,
+  BarChart3,
+  RefreshCw,
+  GitBranch,
+  Scale,
+} from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+
+// Card icons, resolved from the CMS item's `icon` string. The CMS is not
+// consistent about casing — some pages send lucide PascalCase names
+// (`Target`, `ZoomIn`), others lowercase semantic keys (`change`, `dei`) — so
+// the lookup is lowercased and both styles map here. An unmapped or empty
+// value renders no icon square (the card still works without one).
+const serviceIcons = {
+  target: Target,
+  zoomin: ZoomIn,
+  monitor: Monitor,
+  network: Network,
+  heart: Heart,
+  smile: Smile,
+  users: Users,
+  chart: BarChart3,
+  change: RefreshCw,
+  succession: GitBranch,
+  dei: Scale,
+};
 
 export default function RelatedServices({ id, bgColor, data }) {
   if (!data?.items?.length) return null;
@@ -18,6 +50,8 @@ export default function RelatedServices({ id, bgColor, data }) {
 
   // `Description` is the site-pages CMS field; `subheading` the local-content one.
   const subheading = data.Description || data.subheading;
+  // The CMS sends `hub_link` as a one-entry list; local content sends an object.
+  const hubLink = Array.isArray(data.hub_link) ? data.hub_link[0] : data.hub_link;
 
   return (
     <Section id={sectionId} className={`border-t border-ink/12 ${sectionBg}`}>
@@ -41,7 +75,9 @@ export default function RelatedServices({ id, bgColor, data }) {
 
       <Reveal delay={0.1}>
         <Box className="grid grid-cols-3 gap-5 max-[901px]:grid-cols-2 max-[601px]:grid-cols-1">
-          {data.items.map((item) => (
+          {data.items.map((item) => {
+            const Icon = serviceIcons[(item.icon || "").trim().toLowerCase()];
+            return (
             <Box
               key={item.title}
               className="
@@ -51,6 +87,15 @@ export default function RelatedServices({ id, bgColor, data }) {
               "
             >
               <Box>
+                {Icon ? (
+                  <Box
+                    as="span"
+                    className="mb-4 grid size-11 place-items-center rounded-[12px] bg-lime/22 text-navy"
+                  >
+                    <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
+                  </Box>
+                ) : null}
+
                 <Text
                   as="h3"
                   className="mb-2 text-[18px] leading-[1.3] tracking-[-0.01em]"
@@ -75,18 +120,19 @@ export default function RelatedServices({ id, bgColor, data }) {
                 </Link>
               ) : null}
             </Box>
-          ))}
+            );
+          })}
         </Box>
       </Reveal>
 
       {/* Optional link to the full services hub — only when content sets it. */}
-      {data.hub_link?.href ? (
+      {hubLink?.href ? (
         <Text as="p" className="mt-7 text-center">
           <Link
-            href={data.hub_link.href}
+            href={hubLink.href}
             className="border-b-2 border-lime pb-0.5 font-display text-[14px] leading-normal font-bold text-ink focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
           >
-            {data.hub_link.label}
+            {hubLink.label}
           </Link>
         </Text>
       ) : null}

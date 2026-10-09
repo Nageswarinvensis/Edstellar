@@ -56,7 +56,7 @@ function CategoryAbout({ about }) {
           </Reveal>
         </Box>
 
-        {contrast ? (
+        {contrast && (contrast.label || contrast.columns?.length) ? (
           <Box>
             {contrast.label ? (
               <Reveal delay={1}>
@@ -69,9 +69,10 @@ function CategoryAbout({ about }) {
               </Reveal>
             ) : null}
 
-            <Reveal delay={2}>
-              <Box className="mt-6 grid grid-cols-1 overflow-hidden rounded-[18px] border border-ink/12 bg-white sm:grid-cols-2">
-                {contrast.columns.map((column, index) => (
+            {contrast.columns?.length ? (
+              <Reveal delay={2}>
+                <Box className="mt-6 grid grid-cols-1 overflow-hidden rounded-[18px] border border-ink/12 bg-white sm:grid-cols-2">
+                  {contrast.columns.map((column, index) => (
                   <Box
                     key={column.heading}
                     className={[
@@ -106,8 +107,9 @@ function CategoryAbout({ about }) {
                     </Box>
                   </Box>
                 ))}
-              </Box>
-            </Reveal>
+                </Box>
+              </Reveal>
+            ) : null}
           </Box>
         ) : null}
       </Box>

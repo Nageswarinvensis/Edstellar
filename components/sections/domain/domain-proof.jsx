@@ -16,9 +16,14 @@ import { cn } from "@/lib/utils";
  * figures, muted mono-caps labels, `--rule` (ink/12) dividers. `TnaInfo`
  * (TNA page) is a separate component and stays as-is.
  *
- * Driven by `proof.stats`: a stat carrying a `photo`/`photos` renders as the
- * avatar-stack trainers cell; every other stat as a figure + label.
+ * Driven by `proof.stats`: the stat whose label names the trainers renders as
+ * the avatar-stack cell; every other stat as a figure + label. The avatar
+ * strip itself is a fixed asset (`AVATAR_SRC`), not CMS data.
  */
+// Pre-composed avatar strip, shown on the trainers stat. Static — the CMS
+// `stats` only carry the figures and labels.
+const AVATAR_SRC = "/course/Avatar.webp";
+
 function StatValue({ children }) {
   return (
     <b className="font-display text-[24px] leading-none font-bold tracking-[-0.03em] text-ink">
@@ -48,7 +53,9 @@ function DomainProof({ proof }) {
             className="flex w-full min-w-0 items-stretch max-md:flex-wrap"
           >
             {stats.map((stat, index) => {
-              const photos = stat.photos ?? (stat.photo ? [stat.photo] : []);
+              // The avatar strip is a fixed asset on the trainers stat, chosen
+              // by label rather than any CMS `photo` field.
+              const showAvatar = /trainer/i.test(stat.label ?? "");
               const cell = cn(
                 "flex min-w-0 flex-1 flex-col gap-[5px]",
                 index > 0 && "border-l border-ink/12 pl-[26px]",
@@ -58,7 +65,7 @@ function DomainProof({ proof }) {
                 "max-sm:flex-[1_1_100%] max-sm:border-l-0 max-sm:pl-0",
               );
 
-              if (photos.length) {
+              if (showAvatar) {
                 return (
                   <Box
                     key={index}
@@ -68,20 +75,17 @@ function DomainProof({ proof }) {
                       aria-hidden="true"
                       className="flex flex-none items-center"
                     >
-                      {photos.map((src, i) => (
-                        // `Avatar.webp` is a wide, pre-composed avatar strip, so
-                        // it's rendered at a fixed size with `object-contain` —
-                        // the same way the course page shows it — rather than
-                        // cropped into a circle.
-                        <Image
-                          key={i}
-                          src={src}
-                          alt=""
-                          width={44}
-                          height={24}
-                          className="h-7 w-auto flex-none object-contain"
-                        />
-                      ))}
+                      {/* `Avatar.webp` is a wide, pre-composed avatar strip, so
+                          it's rendered at a fixed size with `object-contain` —
+                          the same way the course page shows it — rather than
+                          cropped into a circle. */}
+                      <Image
+                        src={AVATAR_SRC}
+                        alt=""
+                        width={44}
+                        height={24}
+                        className="h-7 w-auto flex-none object-contain"
+                      />
                     </Box>
                     <Box className="flex min-w-0 flex-col gap-[5px]">
                       <StatValue>{stat.value}</StatValue>

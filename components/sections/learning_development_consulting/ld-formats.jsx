@@ -13,6 +13,18 @@ const COLUMN_WIDTHS = ["w-[18%]", "w-[30%]", "w-[40%]", "w-[12%]"];
 
 const CELL = "border-b border-ink/12 px-4.5 py-3.25 align-middle text-[14px] leading-[1.5] text-ink/60";
 
+// The "View sample" dialog is the same placeholder for every format and never
+// varied per page, so it lives here rather than in content or the CMS.
+const SAMPLE_DIALOG = {
+  kicker: "Sample asset",
+  stage_suffix: "sample preview",
+  note: "A sample of this format will play here.",
+  note_cta: {
+    label: "Request the full sample library",
+    href: "#apply",
+  },
+};
+
 /** The four levels of interactivity, on a navy band below the table. */
 function InteractivityLevels({ data }) {
   return (
@@ -70,7 +82,7 @@ function InteractivityLevels({ data }) {
 export default function LdFormats({ data }) {
   if (!data?.groups?.length) return null;
 
-  const { section_id, heading, description, columns, sample_label, groups, interactivity, sample_dialog, CTA } = data;
+  const { section_id, heading, description, columns, sample_label, groups, interactivity, CTA } = data;
 
   // The CMS sends the closing soft CTA as a one-entry `CTA` list
   // (`heading`, `description`, `btn_label`, `btn_link`).
@@ -155,7 +167,7 @@ export default function LdFormats({ data }) {
                         <LdFormatSample
                           name={format.name}
                           label={sample_label}
-                          dialog={sample_dialog}
+                          dialog={SAMPLE_DIALOG}
                         />
                       </td>
                     </tr>

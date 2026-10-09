@@ -132,13 +132,11 @@ export default function StickyTabs({ data, hasTrainers }) {
             ref={listRef}
             className="flex min-w-0 flex-1 items-center overflow-x-auto no-scrollbar py-1 px-1"
           >
-            <ul
-              className={`flex h-full items-center gap-2 sm:gap-3 min-w-max ${
-                data?.cta?.text
-                  ? "shrink-0 justify-start"
-                  : "justify-start sm:min-w-0 sm:w-full sm:justify-between"
-              }`}
-            >
+            {/* Tabs spread end-to-end across the available width on desktop
+                (`sm:w-full sm:justify-between`), whether or not a CTA follows —
+                so they never cluster on the left with a gap. On mobile they
+                keep their natural width and scroll. */}
+            <ul className="flex h-full min-w-max items-center justify-start gap-2 sm:min-w-0 sm:w-full sm:justify-between sm:gap-3">
               {tabs.map((tab, idx) => {
                 // Ensure active status matches activeId or falls back to first tab
                 const isActive = activeId ? tab.id === activeId : idx === 0;

@@ -32,15 +32,48 @@ import StickyFooter from "@/components/common/sticky-footer";
 const PILLAR = "learning-development-consulting-services";
 
 /**
- * Section order for the sub-pages served entirely from the CMS (the design's
- * order — the CMS `sort_order` does not match it). A section the CMS does not
- * send is skipped. Pages with a local file carry their own `sections`.
+ * The common section order for an L&D sub-page. A page uses it unless it needs
+ * a different arrangement, in which case its own `sections` (local file) or an
+ * entry in `CMS_PAGE_SECTIONS` (CMS-only page) wins. A section whose data is
+ * absent renders nothing, so carrying a key a given page lacks is harmless.
+ */
+const DEFAULT_SECTIONS = [
+  "challengeData",
+  "readinessData",
+  "offeringData",
+  "formatsData",
+  "blueprintData",
+  "methodData",
+  "frameworksData",
+  "whyEdstellarData",
+  "whyCtaData",
+  "faqData",
+  "relatedData",
+];
+
+/**
+ * Per-slug section order for pages that differ from `DEFAULT_SECTIONS`. Used by
+ * the sub-pages served entirely from the CMS (the design's order — the CMS
+ * `sort_order` does not match it). A section the CMS does not send is skipped.
+ * Pages with a local file carry their own `sections` instead.
  */
 const CMS_PAGE_SECTIONS = {
   "learning-strategy-design-consulting": [
     "challengeData",
     "offeringData",
     "readinessData",
+    "blueprintData",
+    "methodData",
+    "whyEdstellarData",
+    "whyCtaData",
+    "faqData",
+    "relatedData",
+  ],
+  "learning-technology-consulting": [
+    "challengeData",
+    "readinessData",
+    "offeringData",
+    "platformsData",
     "blueprintData",
     "methodData",
     "whyEdstellarData",
@@ -69,14 +102,16 @@ const SECTIONS = {
   blueprintCtaData: (data) => <LdSoftCta data={data} />,
   platformsData: (data) => <LdPlatforms data={data} />,
   blueprintData: (data) => (
-    <LdBlueprint data={data && { ...data, section_id: data.section_id ?? "blueprint" }} />
+    <LdBlueprint data={data && { ...data, section_id: "blueprint" }} />
   ),
-  methodData: (data) => <Methodology data={data} />,
+  methodData: (data) => (
+    <Methodology data={data && { ...data, section_id: "method" }} />
+  ),
   frameworksData: (data) => (
     <LdFrameworks data={data && { ...data, section_id: data.section_id ?? "frameworks" }} />
   ),
   whyEdstellarData: (data) => (
-    <WhyUs id={data?.section_id ?? "why-us"} data={data} />
+    <WhyUs id={data?.section_id ?? "why"} data={data} />
   ),
   whyCtaData: (data) => <CtaBand data={data} />,
   faqData: (data) => (
@@ -142,7 +177,7 @@ export default async function LearningDevelopmentServicePage({ params }) {
       <ClientLogos />
       <StickyTabs data={service.stickyNavbarData} />
 
-      {(service.sections ?? CMS_PAGE_SECTIONS[slug])?.map((key) => {
+      {(service.sections ?? CMS_PAGE_SECTIONS[slug] ?? DEFAULT_SECTIONS).map((key) => {
         const render = SECTIONS[key];
         return render ? (
           <Fragment key={key}>{render(service[key])}</Fragment>
