@@ -1,12 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Search,
   Clock3,
   ArrowRight,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
+  Check,
+  X,
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -16,6 +19,11 @@ import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
 
 const COURSES_PER_PAGE = 9;
+
+// How many discipline chips show inline (after "All disciplines") before the
+// rest collapse behind the "View all topics" modal — roughly two rows on a
+// desktop width. The modal always lists every topic.
+const INLINE_DISCIPLINE_COUNT = 10;
 
 const paginationButtonBase =
   "flex h-8 w-8 items-center justify-center rounded-[7px] border transition-all duration-200";
@@ -332,8 +340,160 @@ function Pagination({ currentPage, totalPages, onPageChange, data }) {
   );
 }
 
+/**
+ * "All program topics" overflow modal for the discipline filter. Lists every
+ * topic (plus "All disciplines") as outlined rows in a two-column grid.
+ * Selecting a row filters the catalog and closes the modal; the × button, a
+ * click on the backdrop and Escape also close it. Desktop renders a centered
+ * dialog that rises into place; below `sm` it is a bottom sheet. Body scroll is
+ * locked while open. Mirrors `BundleDrawer`'s mount/animate/scroll-lock pattern
+ * (sections/domain/bundles.jsx), with a short exit transition before unmount.
+ */
+function TopicsModal({
+  title,
+  subtitle,
+  allLabel,
+  disciplines,
+  selected,
+  onSelect,
+  onClose,
+}) {
+  const [shown, setShown] = useState(false);
+
+  // Animate out, then hand control back to the parent (which unmounts us).
+  const close = useCallback(() => {
+    setShown(false);
+    const id = window.setTimeout(onClose, 180);
+    return () => window.clearTimeout(id);
+  }, [onClose]);
+
+  // Rise in on the frame after mount.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setShown(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // Close on Escape.
+  useEffect(() => {
+    function onKeyDown(event) {
+      if (event.key === "Escape") close();
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [close]);
+
+  // Lock body scroll while open.
+  useEffect(() => {
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, []);
+
+  // "All disciplines" first (clears the filter), then every topic.
+  const rows = [{ label: allLabel, value: null }].concat(
+    disciplines.map((discipline) => ({ label: discipline, value: discipline })),
+  );
+
+  return (
+    <Box
+      onClick={close}
+      className="fixed inset-0 z-[1300] flex items-end justify-center sm:items-center"
+    >
+      {/* Backdrop */}
+      <Box
+        aria-hidden="true"
+        className={[
+          "absolute inset-0 bg-ink/45 backdrop-blur-[2px] transition-opacity duration-200",
+          shown ? "opacity-100" : "opacity-0",
+        ].join(" ")}
+      />
+
+      {/* Panel */}
+      <Box
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        onClick={(event) => event.stopPropagation()}
+        className={[
+          "relative z-[1] flex max-h-[85vh] w-full flex-col overflow-hidden bg-white",
+          "rounded-t-[18px] sm:w-[min(880px,calc(100vw-48px))] sm:rounded-[16px]",
+          "shadow-[0_-24px_60px_rgba(5,13,26,0.26)] sm:shadow-[0_30px_80px_rgba(5,13,26,0.32)]",
+          "transition-all duration-200 ease-out",
+          shown
+            ? "translate-y-0 scale-100 opacity-100"
+            : "translate-y-full scale-100 opacity-0 sm:translate-y-3 sm:scale-[0.96]",
+        ].join(" ")}
+      >
+        {/* Header */}
+        <Box className="flex flex-none items-start justify-between gap-4 border-b border-ink/12 px-6 pb-4 pt-5 sm:px-7 sm:pt-6">
+          <Box>
+            <Text
+              as="h3"
+              className="font-display text-[20px] font-bold leading-[1.2] tracking-[-0.02em] text-ink sm:text-[22px]"
+            >
+              {title}
+            </Text>
+
+            {subtitle ? (
+              <Text as="p" className="mt-1 text-[13px] leading-[1.5] text-ink-muted">
+                {subtitle}
+              </Text>
+            ) : null}
+          </Box>
+
+          <button
+            type="button"
+            onClick={close}
+            aria-label="Close"
+            className="grid size-9 flex-none cursor-pointer place-items-center rounded-[9px] border border-ink/12 bg-white text-ink transition-colors duration-200 hover:bg-paper-warm"
+          >
+            <X size={18} strokeWidth={1.7} aria-hidden="true" />
+          </button>
+        </Box>
+
+        {/* Rows */}
+        <Box className="grid flex-1 grid-cols-1 gap-2 overflow-y-auto overscroll-contain px-6 py-5 sm:grid-cols-2 sm:px-7">
+          {rows.map((row) => {
+            const active = selected === row.value;
+
+            return (
+              <button
+                key={row.label}
+                type="button"
+                onClick={() => onSelect(row.value)}
+                className={[
+                  "flex cursor-pointer items-center justify-between gap-2 rounded-[8px] border px-3.5 py-2.5 text-left",
+                  "text-[12.5px] font-medium leading-[1.3] transition-colors duration-200",
+                  active
+                    ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
+                    : "border-[#B9BEC5] bg-white text-[#07182C] hover:border-[#07182C]",
+                ].join(" ")}
+              >
+                <span className="min-w-0 flex-1">{row.label}</span>
+
+                {active ? (
+                  <Check
+                    size={14}
+                    strokeWidth={2}
+                    aria-hidden="true"
+                    className="flex-none"
+                  />
+                ) : null}
+              </button>
+            );
+          })}
+        </Box>
+      </Box>
+    </Box>
+  );
+}
+
 export default function Program({ data }) {
   const [selectedDiscipline, setSelectedDiscipline] = useState(null);
+
+  const [topicsOpen, setTopicsOpen] = useState(false);
 
   const [search, setSearch] = useState("");
 
@@ -408,6 +568,35 @@ export default function Program({ data }) {
     setCurrentPage(1);
   };
 
+  // Selecting a topic in the modal filters the catalog and closes the modal.
+  const handleTopicSelect = (discipline) => {
+    handleDisciplineChange(discipline);
+    setTopicsOpen(false);
+  };
+
+  // Keep the inline chips to roughly two rows; the rest live in the modal. When
+  // the current filter is a collapsed topic, surface it inline so the active
+  // selection is always visible without opening the modal.
+  const hasOverflow = disciplines.length > INLINE_DISCIPLINE_COUNT;
+  const inlineDisciplines = useMemo(() => {
+    if (!hasOverflow) return disciplines;
+
+    const shown = disciplines.slice(0, INLINE_DISCIPLINE_COUNT);
+    if (selectedDiscipline && !shown.includes(selectedDiscipline)) {
+      shown[shown.length - 1] = selectedDiscipline;
+    }
+    return shown;
+  }, [disciplines, hasOverflow, selectedDiscipline]);
+
+  const hiddenCount = disciplines.length - INLINE_DISCIPLINE_COUNT;
+
+  const filterLabels = data?.filters ?? {};
+  const viewAllLabel = filterLabels.viewAllTopics || "View all topics";
+  const topicsTitle = filterLabels.allTopicsTitle || "All program topics";
+  const topicsSubtitle = (
+    filterLabels.allTopicsSubtitle || "Browse all {count} topics available."
+  ).replace("{count}", String(disciplines.length));
+
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
     setCurrentPage(1);
@@ -456,23 +645,41 @@ export default function Program({ data }) {
               DISCIPLINE
             </Text>
 
-            <Box className="flex flex-wrap gap-1.5">
-              <FilterButton
-                active={!selectedDiscipline}
-                onClick={() => handleDisciplineChange(null)}
-              >
-                {data.filters.allDisciplines}
-              </FilterButton>
-
-              {disciplines.map((discipline) => (
+            <Box className="flex flex-col gap-2.5">
+              <Box className="flex flex-wrap gap-1.5">
                 <FilterButton
-                  key={discipline}
-                  active={selectedDiscipline === discipline}
-                  onClick={() => handleDisciplineChange(discipline)}
+                  active={!selectedDiscipline}
+                  onClick={() => handleDisciplineChange(null)}
                 >
-                  {discipline}
+                  {data.filters.allDisciplines}
                 </FilterButton>
-              ))}
+
+                {inlineDisciplines.map((discipline) => (
+                  <FilterButton
+                    key={discipline}
+                    active={selectedDiscipline === discipline}
+                    onClick={() => handleDisciplineChange(discipline)}
+                  >
+                    {discipline}
+                  </FilterButton>
+                ))}
+              </Box>
+
+              {hasOverflow ? (
+                <button
+                  type="button"
+                  onClick={() => setTopicsOpen(true)}
+                  className="group inline-flex w-fit cursor-pointer items-center gap-1 text-[12px] font-semibold text-navy transition-colors duration-200 hover:text-ink"
+                >
+                  {viewAllLabel} ({hiddenCount} more)
+                  <ChevronDown
+                    size={14}
+                    strokeWidth={2}
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-y-0.5"
+                  />
+                </button>
+              ) : null}
             </Box>
           </Box>
         </Box>
@@ -605,6 +812,19 @@ export default function Program({ data }) {
           />
         )}
       </Box>
+
+      {/* ================= ALL TOPICS MODAL ================= */}
+      {topicsOpen ? (
+        <TopicsModal
+          title={topicsTitle}
+          subtitle={topicsSubtitle}
+          allLabel={data.filters.allDisciplines}
+          disciplines={disciplines}
+          selected={selectedDiscipline}
+          onSelect={handleTopicSelect}
+          onClose={() => setTopicsOpen(false)}
+        />
+      ) : null}
     </Section>
   );
 }
