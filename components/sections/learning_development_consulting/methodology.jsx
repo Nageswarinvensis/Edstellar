@@ -7,6 +7,14 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import LdSoftCta from "@/components/common/ld-soft-cta";
 
+// Some CMS-authored HTML is stored with JS-style escaped quotes
+// (`href=\"/x\"` instead of `href="/x"`). Left as-is, the browser can't read
+// the attribute and turns the link into `/%22/x/%22`. Strip the stray
+// backslashes before the HTML is injected.
+function cleanHtml(html) {
+  return typeof html === "string" ? html.replace(/\\(["'])/g, "$1") : html;
+}
+
 export default function Methodology({ data }) {
   const content = data?.methodologyData || data;
 
@@ -41,7 +49,7 @@ export default function Methodology({ data }) {
               <Text
                 as="p"
                 className="mt-4 text-sm sm:text-base text-ink-muted leading-relaxed font-normal"
-                dangerouslySetInnerHTML={{ __html: content.subheading }}
+                dangerouslySetInnerHTML={{ __html: cleanHtml(content.subheading) }}
               />
             )}
           </Box>
@@ -95,7 +103,7 @@ export default function Methodology({ data }) {
                           <Text
                             as="p"
                             className="mt-3 text-[14px] sm:text-[15px] leading-relaxed text-ink-muted [&_u]:underline [&_u]:decoration-ink/40 [&_u]:underline-offset-2 [&_a]:underline [&_a]:text-ink [&_a]:font-medium hover:[&_a]:text-navy"
-                            dangerouslySetInnerHTML={{ __html: step.description }}
+                            dangerouslySetInnerHTML={{ __html: cleanHtml(step.description) }}
                           />
                         )}
                       </Box>
