@@ -13,6 +13,7 @@ import {
   RefreshCw,
   GitBranch,
   Scale,
+  ArrowRight,
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -111,12 +112,18 @@ export default function RelatedServices({ id, bgColor, data }) {
                 <Link
                   href={item.href}
                   className="
-                    w-fit font-body text-[14px] leading-[1.7] font-semibold text-navy
+                    group/go inline-flex w-fit items-center gap-1.5 font-body text-[14px] leading-[1.7] font-semibold text-navy
                     underline-offset-4 hover:underline
                     focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy
                   "
                 >
                   {item.link}
+                  <ArrowRight
+                    size={15}
+                    strokeWidth={2}
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover/go:translate-x-0.5"
+                  />
                 </Link>
               ) : null}
             </Box>

@@ -58,8 +58,24 @@ export default function LdServices({ data }) {
     ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
     : "grid-cols-1 md:grid-cols-2 lg:grid-cols-2";
 
-  // Check if soft_cta exists
-  const softCtaData = content?.soft_cta;
+  // Soft CTA beneath the cards. The site-pages CMS sends it as
+  // `cta: [{ title, description, btn_label, btn_link }]`; local content uses
+  // `soft_cta: { heading, description, cta: { href, label } }`. Normalise both
+  // to the `LdSoftCta` shape, and render only when a heading/title is present.
+  const rawSoftCta =
+    (Array.isArray(content?.cta) ? content.cta[0] : content?.cta) ||
+    content?.soft_cta;
+  const softCtaData = rawSoftCta
+    ? {
+        heading: rawSoftCta.heading || rawSoftCta.title,
+        description: rawSoftCta.description,
+        cta: {
+          href: rawSoftCta.cta?.href || rawSoftCta.btn_link || rawSoftCta.href,
+          label:
+            rawSoftCta.cta?.label || rawSoftCta.btn_label || rawSoftCta.label,
+        },
+      }
+    : null;
 
   return (
     <Section id={sectionId} className="bg-paper-warm">
@@ -88,14 +104,24 @@ export default function LdServices({ data }) {
           <Box className={`grid ${gridColsClass} gap-5`}>
             {content.items.map((item) => {
               const IconComponent = ICONS[item.icon] || Search;
-              const linkHref = item.href || item.primary_cta?.href || item.cta?.href || "#";
-              const linkLabel = item.link || item.primary_cta?.label || item.cta?.label || "EXPLORE";
+              const linkHref =
+                item.href || item.primary_cta?.href || item.cta?.href;
+              const linkLabel = (
+                item.link ||
+                item.primary_cta?.label ||
+                item.cta?.label ||
+                "EXPLORE"
+              ).trim();
+              // The whole card links to the service when the CMS gives an href;
+              // otherwise it stays a plain card (no dead "#" link).
+              const CardTag = linkHref ? Link : Box;
 
               return (
-                <Box
+                <CardTag
                   key={item.title}
+                  {...(linkHref ? { href: linkHref } : {})}
                   className="
-                    flex h-full flex-col justify-between rounded-xl bg-white p-5 lg:p-6
+                    group flex h-full flex-col justify-between rounded-xl bg-white p-5 lg:p-6
                     border border-[#0a16281f] shadow-sm transition-all duration-200
                     hover:-translate-y-1
                   "
@@ -152,30 +178,26 @@ export default function LdServices({ data }) {
                     </Box>
                   </Box>
 
-                  {/* Card Bottom Link / CTA Button */}
+                  {/* Card bottom CTA (the whole card is the link) */}
                   <Box className="mt-5 pt-2">
-                    <Link
-                      href={linkHref}
+                    <Box
+                      as="span"
                       className="
                         inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-ink
-                        transition-opacity hover:opacity-75 focus-visible:outline-none
+                        transition-opacity group-hover:opacity-75
                       "
                     >
                       {linkLabel} <ArrowRight size={12} />
-                    </Link>
+                    </Box>
                   </Box>
-                </Box>
+                </CardTag>
               );
             })}
           </Box>
         </Reveal>
 
-        {/* Soft CTA Component */}
-        {softCtaData && (
-          <LdSoftCta 
-            data={softCtaData.soft_cta ? softCtaData : { soft_cta: softCtaData, ...softCtaData }} 
-          />
-        )}
+        {/* Soft CTA — only when the CMS sent one */}
+        {softCtaData?.heading && <LdSoftCta data={softCtaData} />}
       </Box>
     </Section>
   );

@@ -1,16 +1,32 @@
+import { Target, Network, Heart, Users, RotateCw } from "lucide-react";
+
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 
 /*
- * The hero's right-hand "learning system" card on the L&D hub, its sub-pages
- * and managed training. Each row's icon is picked by `item.icon`, else by its
- * title (lower-cased, spaces to dashes); an unknown key gets the target.
+ * The hero's right-hand "learning system" card on the L&D hub, its sub-pages,
+ * managed training and the OD hub. Each row's icon is picked by `item.icon`,
+ * else by its title (lower-cased, spaces to dashes); an unknown key gets the
+ * target.
  *
- * The icons are the designs' own strokes, not a library set — so each page
- * shows exactly what its design draws.
+ * Most pages draw the designs' own strokes (`ICON_PATHS` below), but the CMS
+ * may instead send a lucide-react icon name (PascalCase, e.g. "Target",
+ * "Network") — the OD hub does. Those render straight from lucide; anything
+ * else falls back to the inline strokes, so each page shows what it asks for.
  *
  * Design: `.ld-model`, `.ld-model-lab`, `.ls-list`, `.ls-ic`, `.ls-t`, `.ls-note`.
  */
+
+// CMS `icon` names (lucide-react) → component. Extend as the CMS uses more.
+const LUCIDE_ICONS = { Target, Network, Heart, Users, RotateCw };
+
+// The lucide icon for a row, or null when `item.icon` isn't a lucide name
+// (then the inline `ICON_PATHS` strokes are used). `.trim()` because the CMS
+// has sent an icon with a leading space (" Heart").
+function lucideFor(item) {
+  const name = item.icon?.trim();
+  return name ? (LUCIDE_ICONS[name] ?? null) : null;
+}
 
 const ICON_PATHS = {
   strategy: (
@@ -109,24 +125,35 @@ export default function LearningSystemCard({ data }) {
       ) : null}
 
       <Box as="ul" className="m-0 flex list-none flex-col gap-3.5 p-0">
-        {data.items?.map((item, index) => (
+        {data.items?.map((item, index) => {
+          const LucideIcon = lucideFor(item);
+
+          return (
           <Box as="li" key={titleOf(item) ?? index} className="flex items-center gap-[13px]">
             <Box
               as="span"
               className="flex size-[38px] flex-none items-center justify-center rounded-[10px] bg-lime-soft text-navy"
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                className="size-5"
-              >
-                {iconFor(item)}
-              </svg>
+              {LucideIcon ? (
+                <LucideIcon
+                  strokeWidth={1.7}
+                  aria-hidden="true"
+                  className="size-5"
+                />
+              ) : (
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  className="size-5"
+                >
+                  {iconFor(item)}
+                </svg>
+              )}
             </Box>
 
             <Box>
@@ -141,7 +168,8 @@ export default function LearningSystemCard({ data }) {
               </Text>
             </Box>
           </Box>
-        ))}
+          );
+        })}
       </Box>
 
       {footerText ? (

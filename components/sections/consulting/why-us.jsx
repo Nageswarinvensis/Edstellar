@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   ChartLine,
   Cpu,
@@ -15,6 +16,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import CtaButton from "@/components/common/cta-button";
 import { TrustStrip } from "./trust-strip";
 import { cn } from "@/lib/utils";
 import LdSoftCta from "@/components/common/ld-soft-cta";
@@ -210,6 +212,20 @@ export default function WhyUs({ id, data }) {
     soft_cta,
   } = content;
 
+  // Optional dark CTA band beneath the section (design `.cta-band.navy`). The
+  // CMS sends it as `cta: [{ title, description, btn_label, btn_link }]`
+  // (also accepts an object, `cta_banner`, or `primary_cta`); rendered only
+  // when a heading/title is present.
+  const ctaBanner =
+    (Array.isArray(content.cta) ? content.cta[0] : content.cta) ||
+    content.cta_banner;
+  const bannerHeading = ctaBanner?.heading || ctaBanner?.title;
+  const bannerBtn =
+    ctaBanner?.primary_cta ||
+    (ctaBanner?.btn_link || ctaBanner?.btn_label
+      ? { href: ctaBanner.btn_link, label: ctaBanner.btn_label?.trim() }
+      : null);
+
   return (
     <Section id={id ?? section_id} className="border-t border-ink/12 bg-paper">
       {/* Heading Block */}
@@ -290,6 +306,38 @@ export default function WhyUs({ id, data }) {
         <Box className="mt-10 sm:mt-12">
           <LdSoftCta data={soft_cta} />
         </Box>
+      ) : null}
+
+      {/* Dark CTA band — only when the CMS sent `cta_banner` */}
+      {bannerHeading ? (
+        <Reveal>
+          <Box className="mx-auto mt-10 flex max-w-[1000px] flex-wrap items-center justify-between gap-x-8 gap-y-5 rounded-[20px] bg-navy px-6 py-7 shadow-lift sm:mt-12 sm:px-[34px]">
+            <Box className="max-w-[60ch]">
+              <Text
+                as="p"
+                className="mb-1.5 font-display text-[clamp(18px,2vw,22px)] font-bold leading-[1.2] tracking-[-0.01em] text-paper"
+              >
+                {bannerHeading}
+              </Text>
+              {ctaBanner.description ? (
+                <Text as="p" className="text-[14px] leading-[1.6] text-paper/70">
+                  {ctaBanner.description}
+                </Text>
+              ) : null}
+            </Box>
+
+            {bannerBtn?.href ? (
+              <CtaButton
+                color="lime"
+                arrow
+                render={<Link href={bannerBtn.href} />}
+                className="flex-none focus-visible:outline-lime"
+              >
+                {bannerBtn.label}
+              </CtaButton>
+            ) : null}
+          </Box>
+        </Reveal>
       ) : null}
     </Section>
   );

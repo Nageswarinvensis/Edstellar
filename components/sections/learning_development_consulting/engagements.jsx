@@ -12,6 +12,18 @@ export default function Engagements({ data }) {
 
   if (!content) return null;
 
+  // The CMS can send an empty `cta_card` (present, but every field null/blank).
+  // Only render the card when it actually carries something — otherwise it would
+  // show as an empty band with two label-less buttons.
+  const ctaCard = content.cta_card;
+  const hasCtaCard =
+    ctaCard &&
+    (ctaCard.badge ||
+      ctaCard.heading ||
+      ctaCard.description ||
+      ctaCard.primary_btn?.text ||
+      ctaCard.secondary_btn?.text);
+
   return (
     <Section id="engagements" className="bg-paper py-16 lg:py-20">
       <Box className="mx-auto max-w-225 px-4 sm:px-6">
@@ -137,51 +149,53 @@ export default function Engagements({ data }) {
         </Reveal>
 
         {/* Bottom CTA Card */}
-        {content.cta_card && (
+        {hasCtaCard && (
           <Reveal delay={0.2}>
             <Box className="mt-8 lg:mt-11 rounded-xl border border-[#0a16281f] bg-paper-cream p-5 lg:p-9 text-center shadow-sm">
               <Box className="mx-auto flex max-w-xl flex-col items-center">
                 {/* Badge */}
-                {content.cta_card.badge && (
+                {ctaCard.badge && (
                   <span className="inline-block rounded-full bg-lime px-3 py-1.5 font-mono text-[12px] uppercase tracking-[0.08em] text-ink">
-                    {content.cta_card.badge}
+                    {ctaCard.badge}
                   </span>
                 )}
 
                 {/* Heading */}
-                {content.cta_card.heading && (
+                {ctaCard.heading && (
                   <Box className="mt-4 text-[20px] lg:text-[32px] font-bold text-ink leading-snug [&_span]:italic [&_span]:font-serif [&_span]:font-normal">
-                    <RichHeading heading={content.cta_card.heading} />
+                    <RichHeading heading={ctaCard.heading} />
                   </Box>
                 )}
 
                 {/* Description */}
-                {content.cta_card.description && (
+                {ctaCard.description && (
                   <Text className="mt-3 text-[16px] leading-relaxed text-ink-muted font-normal">
-                    {content.cta_card.description}
+                    {ctaCard.description}
                   </Text>
                 )}
 
-                {/* Action Buttons */}
-                <Box className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                  {content.cta_card.primary_btn && (
-                    <Link
-                      href={content.cta_card.primary_btn.href || "#"}
-                      className="inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-[12px] font-semibold text-lime transition-opacity hover:opacity-90"
-                    >
-                      {content.cta_card.primary_btn.text}
-                    </Link>
-                  )}
+                {/* Action Buttons — only when they carry a label */}
+                {(ctaCard.primary_btn?.text || ctaCard.secondary_btn?.text) && (
+                  <Box className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                    {ctaCard.primary_btn?.text && (
+                      <Link
+                        href={ctaCard.primary_btn.href || "#"}
+                        className="inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-[12px] font-semibold text-lime transition-opacity hover:opacity-90"
+                      >
+                        {ctaCard.primary_btn.text}
+                      </Link>
+                    )}
 
-                  {content.cta_card.secondary_btn && (
-                    <Link
-                      href={content.cta_card.secondary_btn.href || "#"}
-                      className="inline-flex items-center justify-center rounded-full border border-ink bg-transparent px-6 py-3 text-[12px] font-semibold text-ink transition-colors hover:bg-ink/5"
-                    >
-                      {content.cta_card.secondary_btn.text}
-                    </Link>
-                  )}
-                </Box>
+                    {ctaCard.secondary_btn?.text && (
+                      <Link
+                        href={ctaCard.secondary_btn.href || "#"}
+                        className="inline-flex items-center justify-center rounded-full border border-ink bg-transparent px-6 py-3 text-[12px] font-semibold text-ink transition-colors hover:bg-ink/5"
+                      >
+                        {ctaCard.secondary_btn.text}
+                      </Link>
+                    )}
+                  </Box>
+                )}
               </Box>
             </Box>
           </Reveal>

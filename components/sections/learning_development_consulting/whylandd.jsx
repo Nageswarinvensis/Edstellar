@@ -5,13 +5,27 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-import { Gauge, Lock, Hourglass, AlertCircle } from "lucide-react";
+import {
+  Gauge,
+  Lock,
+  Hourglass,
+  Zap,
+  Heart,
+  Network,
+  AlertCircle,
+} from "lucide-react";
 
-// Lucide Icon mapping
+// Lucide icon name (CMS `card.icon`, lower-cased) → component. `newtwork` is a
+// known misspelling in the CMS data for Network — kept as an alias so the card
+// renders; fix the CMS value and it still works. An unmapped key gets AlertCircle.
 const ICON_MAP = {
   gauge: Gauge,
   lock: Lock,
   hourglass: Hourglass,
+  zap: Zap,
+  heart: Heart,
+  network: Network,
+  newtwork: Network,
 };
 
 export default function WhyLandD({ data, heading }) {

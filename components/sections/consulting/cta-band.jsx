@@ -14,7 +14,12 @@ import CtaButton from "@/components/common/cta-button";
 export default function CtaBand({ data }) {
   if (!data?.heading) return null;
 
-  const { tag, heading, description, items, primary_cta, secondary_cta } = data;
+  const { heading, description, primary_cta, secondary_cta } = data;
+
+  // Field names differ across CMS components: the OD hub's `why_cta_banner`
+  // sends `tag_line`/`Points`, others send `tag`/`items`. Read either.
+  const tag = data.tag_line || data.tag;
+  const items = data.Points?.length ? data.Points : data.items;
 
   return (
     <Section aria-label="Book a consultation" className="bg-navy">
@@ -53,12 +58,12 @@ export default function CtaBand({ data }) {
         {/* Render Points/Pills when present in JSON */}
         {items?.length ? (
           <Reveal delay={1.5}>
-            <Box className="mb-8 flex flex-wrap justify-center gap-2 sm:gap-2.5">
+            <Box className="mb-7.5 flex flex-nowrap justify-center gap-2.25 max-[900px]:flex-wrap">
               {items.map((item, idx) => (
                 <Text
                   key={idx}
                   as="span"
-                  className="rounded-full border border-paper/15 bg-navy-soft px-3 py-2 font-mono text-[12px] font-medium tracking-wider text-paper/80 uppercase"
+                  className="rounded-full border border-paper/15 bg-navy-soft px-3.5 py-2 font-mono text-[10.5px] tracking-[0.05em] whitespace-nowrap text-paper uppercase"
                 >
                   {item}
                 </Text>
