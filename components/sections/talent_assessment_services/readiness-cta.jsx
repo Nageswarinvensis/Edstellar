@@ -11,12 +11,20 @@ import CtaButton from "@/components/common/cta-button";
  * Dark, centered band pointing to the live readiness-check tool, with the five
  * maturity levels shown as chips.
  *
+ * Reads the CMS `why_cta_banner` shape (`Points`, `description`, `primary_cta`)
+ * and the local shape (`dims`, `lede`, `cta`) interchangeably — no adapter layer
+ * (TASTE.md §5.4).
+ *
  * Design: `#maturity`, `.mat`, `.mat-dims`.
  */
 export default function ReadinessCta({ data }) {
-  if (!data?.cta?.href) return null;
+  if (!data) return null;
 
-  const { section_id, heading, lede, dims, cta } = data;
+  const { section_id, heading } = data;
+  const lede = data.lede ?? data.description;
+  const dims = data.dims ?? data.Points;
+  const cta = data.cta ?? data.primary_cta;
+  if (!cta?.href) return null;
 
   return (
     <Section id={section_id} className="bg-navy">

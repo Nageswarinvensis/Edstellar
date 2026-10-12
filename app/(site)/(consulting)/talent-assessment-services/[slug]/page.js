@@ -25,6 +25,7 @@ import Instruments from "@/components/sections/talent_assessment_services/instru
 import Inside from "@/components/sections/talent_assessment_services/inside";
 import Services from "@/components/sections/talent_assessment_services/services";
 import Process from "@/components/sections/talent_assessment_services/process";
+import Methodology from "@/components/sections/learning_development_consulting/methodology";
 import Outputs from "@/components/sections/talent_assessment_services/outputs";
 import RelatedAssessments from "@/components/sections/talent_assessment_services/related-assessments";
 
@@ -45,6 +46,20 @@ const SECTIONS = {
   readiness: (data) => <Readiness id="readiness" data={data} />,
   services: (data) => <Services data={data} />,
   process: (data) => <Process data={data} />,
+  // Shared L&D methodology section (TASTE.md §6.1), driven by the CMS
+  // `methodology` component. Takes the "process" slot/anchor on CMS-backed
+  // sub-pages; its steps may carry `chips`, shown only when present.
+  methodology: (data) => (
+    <Methodology
+      data={
+        data && {
+          ...data,
+          section_id: data.section_id ?? "process",
+          showSoftCta: data.showSoftCta ?? false,
+        }
+      }
+    />
+  ),
   outputs: (data) => <Outputs data={data} />,
   why: (data) => <WhyUs id="why" data={data} />,
   related: (data) => <RelatedAssessments data={data} />,
@@ -59,6 +74,9 @@ const SECTIONS = {
   ),
 };
 
+// The section order for every sub-page (all are CMS-served; a record could
+// still override it with its own `sections`). `methodology` (shared L&D
+// section) takes the "process" slot/anchor.
 const DEFAULT_SECTIONS = [
   "concept",
   "benefits",
@@ -66,7 +84,7 @@ const DEFAULT_SECTIONS = [
   "inside",
   "readiness",
   "services",
-  "process",
+  "methodology",
   "outputs",
   "why",
   "related",
@@ -75,7 +93,7 @@ const DEFAULT_SECTIONS = [
 
 // SSG: every sub-page is prerendered at build from `generateStaticParams`, and
 // `dynamicParams = false` makes any slug not in that list a 404 instead of being
-// rendered on demand. Content is local, so there is nothing to revalidate.
+// rendered on demand. The CMS is read once at build, so nothing revalidates.
 export const dynamicParams = false;
 export const revalidate = false;
 

@@ -1,4 +1,4 @@
-import { UserX, TrendingUp, BarChart3 } from "lucide-react";
+import { UserX, TrendingUp, BarChart3, Gauge, Lock, Hourglass } from "lucide-react";
 
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
@@ -6,18 +6,33 @@ import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
-const ICONS = { "user-x": UserX, "trending-up": TrendingUp, "bar-chart": BarChart3 };
+const ICONS = {
+  "user-x": UserX,
+  "trending-up": TrendingUp,
+  "bar-chart": BarChart3,
+  gauge: Gauge,
+  lock: Lock,
+  hourglass: Hourglass,
+};
 
 /**
  * Positioning: the case for assessment, as a split with a lede, a supporting
  * paragraph and three "issue" cards naming the cost of deciding without evidence.
  *
+ * Reads the CMS `why_ld` shape (`cards`, `description` as a two-entry list,
+ * `badge`) and the local shape (`issues`, `lede`/`body`, `tag`) interchangeably
+ * — no adapter layer (TASTE.md §5.4).
+ *
  * Design: `#problem`, `.es2`, `.iss-card`.
  */
 export default function Positioning({ data }) {
-  if (!data?.issues?.length) return null;
+  const issues = data?.issues ?? data?.cards;
+  if (!issues?.length) return null;
 
-  const { section_id, heading, lede, body, issues } = data;
+  const { section_id, heading } = data;
+  const description = Array.isArray(data.description) ? data.description : [];
+  const lede = data.lede ?? description[0];
+  const body = data.body ?? description[1];
 
   return (
     <Section id={section_id} className="bg-paper-warm">
@@ -58,12 +73,12 @@ export default function Positioning({ data }) {
                     <Text as="p" className="mb-3 text-[14px] leading-[1.5] text-ink/60">
                       {issue.description}
                     </Text>
-                    {issue.tag ? (
+                    {issue.tag ?? issue.badge ? (
                       <Text
                         as="span"
                         className="inline-block rounded-full bg-paper-cream px-3 py-1.25 font-mono text-[9.5px] uppercase tracking-[0.07em] text-ink"
                       >
-                        {issue.tag}
+                        {issue.tag ?? issue.badge}
                       </Text>
                     ) : null}
                   </Box>

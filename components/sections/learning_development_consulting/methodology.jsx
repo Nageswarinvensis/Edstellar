@@ -106,6 +106,23 @@ export default function Methodology({ data }) {
                             dangerouslySetInnerHTML={{ __html: cleanHtml(step.description) }}
                           />
                         )}
+
+                        {/* Step chips — only the talent-assessment pages send
+                            these, and only when the CMS returns a non-empty
+                            list, so the row stays hidden everywhere else. */}
+                        {step.chips?.length > 0 && (
+                          <Box className="mt-3 flex flex-wrap gap-1.5">
+                            {step.chips.map((chip) => (
+                              <Text
+                                as="span"
+                                key={chip}
+                                className="rounded-md bg-lime-soft px-2 py-0.75 text-[11px] font-semibold leading-[1.3] text-navy"
+                              >
+                                {chip}
+                              </Text>
+                            ))}
+                          </Box>
+                        )}
                       </Box>
 
                       {/* Deliverable Box */}

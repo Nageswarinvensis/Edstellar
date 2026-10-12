@@ -1,0 +1,1134 @@
+[
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "seo",
+        "config": {
+            "og_image": null,
+            "og_title": "Cognitive Ability & Aptitude Testing Services",
+            "meta_title": "Cognitive Ability & Aptitude Testing Services",
+            "og_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_card": "summary_large_image",
+            "twitter_site": "@edstellar",
+            "canonical_url": "https://www.edstellar.com/talent-assessment-services/cognitive-ability-assessment",
+            "meta_keywords": null,
+            "twitter_title": "Cognitive Ability & Aptitude Testing Services",
+            "og_description": "Edstellar cognitive ability and aptitude testing measures verbal, numerical, abstract and critical thinking for fair, job-relevant hiring and promotion.",
+            "twitter_creator": "@edstellar",
+            "Meta_description": "Edstellar cognitive ability and aptitude testing measures verbal, numerical, abstract and critical thinking for fair, job-relevant hiring and promotion.",
+            "twitter_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_description": "Edstellar cognitive ability and aptitude testing measures verbal, numerical, abstract and critical thinking for fair, job-relevant hiring and promotion."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "consulting_Hero",
+        "config": {
+            "heroLeft": {
+                "title": "Cognitive Ability & Aptitude Testing Services",
+                "tagline": "See how people think, learn and solve problems.",
+                "showMeta": true,
+                "description": "Edstellar designs and runs cognitive ability tests and aptitude tests for hiring, promotion and succession. Validated tests of verbal, numerical, abstract, critical thinking and mechanical reasoning show how quickly people learn and how well they solve problems, so decisions rest on job-relevant evidence.",
+                "primaryBtnLink": "#apply",
+                "primaryBtnText": "Book a cognitive testing consultation",
+                "secondaryBtnLink": "#instruments",
+                "secondaryBtnText": "Explore the tests"
+            },
+            "heroRight": {
+                "skill_matrix": {
+                    "note": null,
+                    "rows": [],
+                    "label": null,
+                    "views": [],
+                    "columns": [],
+                    "req_label": null,
+                    "aria_label": null,
+                    "gap_levels": [],
+                    "req_levels": null,
+                    "req_caption": null
+                },
+                "learning_system": [
+                    {
+                        "items": [
+                            {
+                                "icon": "Users",
+                                "title": "Graduate hiring",
+                                "description": "Fast learners, at scale"
+                            },
+                            {
+                                "icon": "Target",
+                                "title": "Professional hiring",
+                                "description": "Reasoning for complex roles"
+                            },
+                            {
+                                "icon": "Network",
+                                "title": "Technical roles",
+                                "description": "Mechanical and safety-critical screening"
+                            },
+                            {
+                                "icon": "RotateCw",
+                                "title": "Promotion & succession",
+                                "description": "Potential for bigger roles"
+                            }
+                        ],
+                        "title": "One test battery, four decisions",
+                        "footer_text": "Job-relevant reasoning, read alongside other evidence."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "breadcrumbs",
+        "config": {
+            "items": [
+                {
+                    "href": "/",
+                    "label": "Home"
+                },
+                {
+                    "href": "/talent-assessment-services",
+                    "label": "Talent Assessment Services"
+                },
+                {
+                    "href": null,
+                    "label": "Cognitive Ability & Aptitude Testing"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "generalProof",
+        "config": {
+            "tone": "dark",
+            "items": [
+                {
+                    "Label": "Ready to see how your people think and learn?",
+                    "primary_btn_link": "#apply",
+                    "primary_btn_text": "Book a consultation",
+                    "secondary_btn_link": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "secondary_btn_text": "Download the assessments brochure (PDF)"
+                }
+            ],
+            "stats": [
+                {
+                    "label": "Assessments",
+                    "value": "13,650+"
+                },
+                {
+                    "label": "Clients",
+                    "value": "300+"
+                },
+                {
+                    "label": "Industries",
+                    "value": "20+"
+                },
+                {
+                    "label": "Certified",
+                    "value": "ISO 9001 & 27001"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "stickyNavbar",
+        "config": {
+            "cta": {
+                "text": "Book a consultation",
+                "title": "Click Here to Book a Consultation",
+                "targetId": "apply"
+            },
+            "logo": {
+                "alt": "Edstellar",
+                "src": "/course/Edstellar.svg"
+            },
+            "tabs": [
+                {
+                    "id": "concept",
+                    "label": "Method",
+                    "active": true
+                },
+                {
+                    "id": "benefits",
+                    "label": "Benefits",
+                    "active": false
+                },
+                {
+                    "id": "instruments",
+                    "label": "Tests",
+                    "active": false
+                },
+                {
+                    "id": "services",
+                    "label": "Services",
+                    "active": false
+                },
+                {
+                    "id": "process",
+                    "label": "Process",
+                    "active": false
+                },
+                {
+                    "id": "outputs",
+                    "label": "Outputs",
+                    "active": false
+                },
+                {
+                    "id": "why",
+                    "label": "Why Edstellar",
+                    "active": false
+                },
+                {
+                    "id": "faq",
+                    "label": "FAQ",
+                    "active": false
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "concepts",
+        "config": {
+            "art": "reasoning-battery",
+            "grid": {
+                "rows": [],
+                "caption": null,
+                "columns": []
+            },
+            "heading": "The right reasoning tests, <span>combined for each role.</span>",
+            "principles": [
+                {
+                    "title": "Job analysis first",
+                    "description": "Each test is chosen because the reasoning it measures matters in the role."
+                },
+                {
+                    "title": "The right reasoning areas",
+                    "description": "Verbal, numerical, abstract or logical reasoning, critical thinking or mechanical reasoning, combined into one battery for the role."
+                },
+                {
+                    "title": "Relevant norm groups and cut-offs",
+                    "description": "Scores are compared with a suitable comparison group, and any cut-off score is calibrated for the role."
+                },
+                {
+                    "title": "One part of the picture",
+                    "description": "Cognitive results sit alongside structured interviews, work samples and other evidence, never on their own."
+                }
+            ],
+            "section_id": "concept",
+            "description": "A cognitive ability test measures how well people reason, learn and solve problems, often called general mental ability. An aptitude test focuses on one ability, such as numerical or mechanical reasoning. Edstellar combines both into a battery built for each role, around four principles."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "benifits",
+        "config": {
+            "items": [
+                {
+                    "icon": "rocket",
+                    "title": "Find fast learners",
+                    "description": "Learning ability and learning agility show who will pick up new roles, systems and ideas quickly."
+                },
+                {
+                    "icon": "users",
+                    "title": "Screen large applicant pools consistently",
+                    "description": "Online pre-employment aptitude tests give every applicant the same standard, so candidate screening for graduate and high-volume hiring stays consistent."
+                },
+                {
+                    "icon": "target",
+                    "title": "Match reasoning to the role",
+                    "description": "Numerical reasoning, verbal reasoning, critical thinking or mechanical reasoning tests focus on the reasoning skills each role actually uses."
+                },
+                {
+                    "icon": "eye",
+                    "title": "Compare candidates objectively",
+                    "description": "Standardized scoring and relevant norm groups show how each result compares with a suitable group."
+                },
+                {
+                    "icon": "trending-up",
+                    "title": "Spot potential for bigger roles",
+                    "description": "Cognitive measures add evidence to promotion and succession decisions, alongside performance and leadership data."
+                },
+                {
+                    "icon": "shield",
+                    "title": "Fair, defensible decisions",
+                    "description": "Documented job relevance, calibrated cut-off scores and fairness reviews give every decision a clear rationale."
+                }
+            ],
+            "heading": "Edstellar cognitive ability tests that make hiring <span>clearer and fairer.</span>",
+            "section_id": "benefits",
+            "description": "Edstellar’s cognitive ability and aptitude testing gives hiring managers and HR a consistent, job-relevant view of reasoning ability, so selection, promotion and succession decisions build on objective evidence."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "instruments",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "heading": "Get a recommended test battery for your roles.",
+                "btn_label": "Talk to a specialist",
+                "description": "An Edstellar specialist will match tests to the reasoning each role needs."
+            },
+            "groups": [
+                {
+                    "label": "General reasoning",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                2,
+                                0,
+                                0
+                            ],
+                            "name": "Logiks (Talogy)",
+                            "note": "Verbal, numerical and abstract reasoning",
+                            "best_used": "For graduate and volume hiring, with cut-off scores calibrated to the role"
+                        },
+                        {
+                            "fit": [
+                                2,
+                                2,
+                                1,
+                                0
+                            ],
+                            "name": "DAT™ Next Generation",
+                            "note": "General reasoning and aptitude, with an indication of learning agility",
+                            "best_used": "As an early-stage cognitive screen, paired with structured interviews and job-relevant work samples"
+                        },
+                        {
+                            "fit": [
+                                2,
+                                1,
+                                2,
+                                0
+                            ],
+                            "name": "RAVEN’S™ Adaptive (Pearson)",
+                            "note": "Abstract, non-verbal reasoning and learning agility",
+                            "best_used": "For graduate and technical roles, as one part of a balanced battery"
+                        }
+                    ]
+                },
+                {
+                    "label": "Specialist reasoning",
+                    "tools": [
+                        {
+                            "fit": [
+                                1,
+                                2,
+                                0,
+                                0
+                            ],
+                            "name": "WATSON-GLASER™ III (Pearson)",
+                            "note": "Critical thinking, decision making and reasoning",
+                            "best_used": "For manager and analyst roles where critical thinking is job relevant"
+                        },
+                        {
+                            "fit": [
+                                1,
+                                2,
+                                0,
+                                0
+                            ],
+                            "name": "NDIT™ (Pearson)",
+                            "note": "Numerical reasoning and data interpretation",
+                            "best_used": "For finance and analytics roles that work with numbers every day"
+                        },
+                        {
+                            "fit": [
+                                0,
+                                0,
+                                2,
+                                0
+                            ],
+                            "name": "BMCT-II (Bennett Mechanical Comprehension Test)",
+                            "note": "Mechanical reasoning and comprehension",
+                            "best_used": "For maintenance, technician and operations roles where mechanical comprehension is job relevant"
+                        }
+                    ]
+                },
+                {
+                    "label": "Cognitive and personality combined",
+                    "tools": [
+                        {
+                            "fit": [
+                                0,
+                                2,
+                                0,
+                                2
+                            ],
+                            "name": "Talogy Caliper™",
+                            "note": "Personality plus cognitive predictor of potential",
+                            "best_used": "For sales and manager hiring, promotion and succession, with role benchmarking"
+                        }
+                    ]
+                }
+            ],
+            "columns": [
+                "Graduate hiring",
+                "Professional & manager hiring",
+                "Technical & safety-critical roles",
+                "Promotion & succession"
+            ],
+            "heading": "Proven cognitive ability and aptitude tests, <span>chosen for each role.</span>",
+            "lifecycle": {
+                "title": "Where Edstellar cognitive ability testing fits in the employee lifecycle",
+                "stages": [
+                    {
+                        "label": "Campus & pre-hire",
+                        "active": true
+                    },
+                    {
+                        "label": "Hiring decisions",
+                        "active": true
+                    },
+                    {
+                        "label": "Onboarding",
+                        "active": false
+                    },
+                    {
+                        "label": "Individual development",
+                        "active": false
+                    },
+                    {
+                        "label": "First-time managers",
+                        "active": false
+                    },
+                    {
+                        "label": "Promotion & succession",
+                        "active": true
+                    },
+                    {
+                        "label": "Leadership & coaching",
+                        "active": false
+                    },
+                    {
+                        "label": "Team & culture",
+                        "active": false
+                    },
+                    {
+                        "label": "Safety & compliance",
+                        "active": false
+                    }
+                ],
+                "audiences": [
+                    "Graduates",
+                    "Analysts",
+                    "Managers",
+                    "Technical roles"
+                ]
+            },
+            "fit_legend": {
+                "none": "Not used for this",
+                "strong": "Strong fit",
+                "supporting": "Supporting evidence"
+            },
+            "section_id": "instruments",
+            "description": "Edstellar works with validated cognitive ability and aptitude tests from leading publishers, choosing reliable tests for the reasoning each role needs and the decision each one supports.",
+            "table_label": "Cognitive ability and aptitude test fit",
+            "table_caption": "Cognitive ability and aptitude tests and how well each fits graduate hiring, professional and manager hiring, technical and safety-critical roles, and promotion and succession"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "Inside",
+        "config": {
+            "cta": null,
+            "tabs": [],
+            "heading": null,
+            "section_id": "inside",
+            "description": null
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "readinessData",
+        "config": {
+            "cta": {
+                "href": "https://www.edstellar.com/tool/talent-assessment-services",
+                "label": "Take the free readiness check →"
+            },
+            "points": [
+                "Job relevance and test choice",
+                "Norm groups and cut-off scores",
+                "Fairness, accessibility and how results are combined"
+            ],
+            "heading": "Assess your cognitive testing against the <span>essentials.</span>",
+            "checklist": {
+                "items": [
+                    {
+                        "done": true,
+                        "label": "Tests are chosen through job analysis"
+                    },
+                    {
+                        "done": true,
+                        "label": "Norm groups match your applicants"
+                    },
+                    {
+                        "done": true,
+                        "label": "Cut-off scores are calibrated"
+                    },
+                    {
+                        "done": false,
+                        "label": "Results are combined with interviews"
+                    },
+                    {
+                        "done": false,
+                        "label": "Fairness is reviewed across groups"
+                    }
+                ],
+                "title": "Cognitive testing checklist"
+            },
+            "description": "A quick check of how your organization uses cognitive ability and aptitude tests today, from job relevance to fairness, and where testing can add even more value."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "talent-services",
+        "config": {
+            "items": [
+                {
+                    "get": "Role-matched test battery",
+                    "flow": [
+                        "Verbal",
+                        "Numerical",
+                        "Abstract",
+                        "Critical thinking",
+                        "Mechanical"
+                    ],
+                    "icon": "target",
+                    "title": "Job analysis and test selection",
+                    "caption": "Reasoning areas chosen for the role",
+                    "summary": "Identify the reasoning each role uses and choose the tests that measure it, documenting job relevance for every test.",
+                    "flow_style": "tags",
+                    "flow_highlight": 1
+                },
+                {
+                    "get": "Calibrated norms and cut-off scores",
+                    "flow": [
+                        "Norm group",
+                        "Score band",
+                        "Calibrated cut-off"
+                    ],
+                    "icon": "scale",
+                    "title": "Norm groups and cut-off calibration",
+                    "caption": "Every score read against the right group",
+                    "summary": "Select comparison groups that match your applicants and calibrate cut-off scores to the role, so every result is read in the right context.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Online testing across locations",
+                    "flow": [
+                        "Invite",
+                        "Online test",
+                        "Scored results"
+                    ],
+                    "icon": "globe",
+                    "title": "Online testing at scale",
+                    "caption": "One standard for every applicant",
+                    "summary": "Run cognitive and aptitude tests online for graduate and high-volume hiring, including adaptive tests such as RAVEN’S Adaptive where they fit.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Selection process design",
+                    "flow": [
+                        "Screen",
+                        "Assess",
+                        "Interview",
+                        "Decide"
+                    ],
+                    "icon": "layers",
+                    "title": "Hiring process integration",
+                    "caption": "Tests as one part of the decision",
+                    "summary": "Place cognitive tests at the right stage, pair them with structured interviews and work samples, and set how results feed each decision.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Fairness and accessibility review",
+                    "flow": [
+                        "Job relevance",
+                        "Group review",
+                        "Accommodations"
+                    ],
+                    "icon": "user-check",
+                    "title": "Fairness and accessibility reviews",
+                    "caption": "Fair testing for every candidate",
+                    "summary": "Review results across candidate groups, document job relevance and arrange accommodations where required, so testing stays fair.",
+                    "flow_style": "arrows",
+                    "flow_highlight": 1
+                },
+                {
+                    "get": "Score reports and feedback",
+                    "flow": [
+                        "Scores",
+                        "Report",
+                        "Feedback"
+                    ],
+                    "icon": "message",
+                    "title": "Feedback and reporting",
+                    "caption": "Results people can use",
+                    "summary": "Give hiring managers clear score reports and give internal candidates development feedback on their reasoning strengths.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                }
+            ],
+            "heading": "Edstellar cognitive ability and aptitude testing services, <span>end to end.</span>",
+            "get_label": "You get:",
+            "section_id": "services",
+            "description": "From job analysis to fairness reviews, Edstellar covers every part of cognitive ability and aptitude testing."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "methodology",
+        "config": {
+            "cta": [],
+            "steps": [
+                {
+                    "chips": [
+                        "Job analysis",
+                        "Reasoning areas"
+                    ],
+                    "title": "Scope",
+                    "duration": "Week 1",
+                    "deliverable": "Test plan for each role",
+                    "description": "Agree on the roles, the decision and the reasoning each role needs."
+                },
+                {
+                    "chips": [
+                        "Test battery",
+                        "Cut-off scores"
+                    ],
+                    "title": "Design",
+                    "duration": "Weeks 1 to 2",
+                    "deliverable": "Configured test battery",
+                    "description": "Choose the tests, set norm groups and calibrate cut-off scores."
+                },
+                {
+                    "chips": [
+                        "Online testing",
+                        "Accommodations"
+                    ],
+                    "title": "Assess",
+                    "duration": "Weeks 2 to 4",
+                    "deliverable": "Scored results",
+                    "description": "Candidates or employees complete the tests online, in one consistent format."
+                },
+                {
+                    "chips": [
+                        "Score reports",
+                        "Interview evidence"
+                    ],
+                    "title": "Debrief",
+                    "duration": "Weeks 4 to 5",
+                    "deliverable": "Integrated results",
+                    "description": "Review results with hiring managers and combine them with interview evidence."
+                },
+                {
+                    "chips": [
+                        "Decisions",
+                        "Feedback"
+                    ],
+                    "title": "Decide",
+                    "duration": "Weeks 5 to 6",
+                    "deliverable": "Documented decisions",
+                    "description": "Use the results in hiring, promotion and succession decisions with a clear rationale."
+                },
+                {
+                    "chips": [
+                        "Fairness review",
+                        "Refinement"
+                    ],
+                    "title": "Review",
+                    "duration": "Ongoing",
+                    "deliverable": "Program review",
+                    "description": "Review fairness across groups, and refine tests and cut-off scores."
+                }
+            ],
+            "heading": "The Edstellar cognitive testing <span>process.</span>",
+            "subheading": "Edstellar runs cognitive ability and aptitude testing in six steps, from scope to review. A typical program takes about six weeks from kickoff to the first decisions, depending on the number of roles and candidates."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "output",
+        "config": {
+            "cta": {
+                "heading": "Build a test battery you can rely on.",
+                "primary": {
+                    "href": "#apply",
+                    "label": "Plan your testing"
+                },
+                "secondary": {
+                    "href": "/tool/talent-assessment-services",
+                    "label": "Take the readiness check"
+                },
+                "description": "Scope your cognitive testing with an Edstellar specialist."
+            },
+            "columns": [
+                {
+                    "items": [
+                        {
+                            "icon": "file",
+                            "stage": "Step 4: Debrief",
+                            "title": "Candidate score reports",
+                            "description": "Results for each reasoning area, compared with the right norm group."
+                        },
+                        {
+                            "icon": "list-check",
+                            "stage": "Step 4: Debrief",
+                            "title": "Interview follow-up guides",
+                            "description": "Questions that explore each result with the candidate."
+                        }
+                    ],
+                    "title": "Hiring managers",
+                    "subtitle": "Confident selection"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "users",
+                            "stage": "Step 5: Decide",
+                            "title": "Feedback on reasoning strengths",
+                            "description": "Plain-language feedback on results for internal candidates."
+                        },
+                        {
+                            "icon": "trending-up",
+                            "stage": "Step 5: Decide",
+                            "title": "Development suggestions",
+                            "description": "Practical next steps for internal candidates."
+                        }
+                    ],
+                    "title": "Candidates and employees",
+                    "subtitle": "Clear, respectful feedback"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "layers",
+                            "stage": "Step 2: Design",
+                            "title": "Test battery and cut-off scores",
+                            "description": "A documented, job-relevant battery, ready to reuse."
+                        },
+                        {
+                            "icon": "grid",
+                            "stage": "Step 6: Review",
+                            "title": "Fairness review",
+                            "description": "Results reviewed across candidate groups."
+                        }
+                    ],
+                    "title": "HR and talent leaders",
+                    "subtitle": "A program you can rely on"
+                }
+            ],
+            "heading": "Ready-to-use outputs for <span>every decision.</span>",
+            "section_id": "outputs",
+            "description": "Every Edstellar cognitive testing program ends with reports and outputs that people can read quickly and act on right away."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "ld_why_edstellar",
+        "config": {
+            "cta": [],
+            "items": [
+                {
+                    "icon": "link",
+                    "title": "Assessment to development, one partner",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Test",
+                            "Debrief",
+                            "Develop"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "One team, from measurement to development"
+                    },
+                    "difference": "Many test providers stop at the report. Edstellar connects it to development.",
+                    "description": "Results turn into action, because the team that tests your people also maps every result to training, coaching or OD work."
+                },
+                {
+                    "icon": "chip",
+                    "title": "Runs on the Capability Intelligence Platform",
+                    "visual": {
+                        "type": "signal",
+                        "items": [
+                            "Profiled:74",
+                            "Debriefed:56",
+                            "Developing:63"
+                        ],
+                        "title": "Capability signal",
+                        "status": "Live",
+                        "caption": null
+                    },
+                    "difference": "Your skills data stays live, not frozen in a PDF.",
+                    "description": "You always know who is ready and where the gaps sit, with a live picture of verified skills between assessment cycles."
+                },
+                {
+                    "icon": "chart",
+                    "title": "Expert interpretation, every time",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Test",
+                            "Norm group",
+                            "Practitioner"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Every score read in context"
+                    },
+                    "difference": "Insight people act on, not a score they guess at.",
+                    "description": "Trained practitioners read every score against the role and the right norm group, and explain it in plain language, so people understand and use their results."
+                },
+                {
+                    "icon": "globe",
+                    "title": "Certified assessors, wherever your people are",
+                    "visual": {
+                        "type": "regions",
+                        "items": [
+                            "APAC",
+                            "Middle East",
+                            "Europe",
+                            "Americas"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Online · in-person · blended"
+                    },
+                    "difference": "The same standard in every country you assess.",
+                    "description": "Cognitive and aptitude tests run online, in person or blended across 100+ locations, with norm groups suited to each region."
+                },
+                {
+                    "icon": "list",
+                    "title": "A proven method, not improvisation",
+                    "visual": {
+                        "type": "steps",
+                        "items": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Scope · Design · Assess · Debrief · Decide · Review"
+                    },
+                    "difference": "A repeatable system, not a bespoke experiment each time.",
+                    "description": "Every engagement runs the same six steps, from scope to review, with validated tests chosen for the decision at hand."
+                },
+                {
+                    "icon": "sliders",
+                    "title": "The right test for every role",
+                    "visual": {
+                        "type": "tiers",
+                        "items": [
+                            "Logiks",
+                            "WATSON-GLASER™ III",
+                            "RAVEN’S™ Adaptive",
+                            "NDIT™"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Chosen from leading publishers"
+                    },
+                    "difference": "The test fits the role, not the other way round.",
+                    "description": "Edstellar is not tied to a single test publisher, so each role and decision gets the test that fits it best."
+                }
+            ],
+            "trust": {
+                "caption": "clients served worldwide",
+                "heading": "Trusted across industries and regions",
+                "regions": [
+                    "APAC",
+                    "Middle East",
+                    "Europe",
+                    "Americas"
+                ],
+                "industries": [
+                    {
+                        "icon": "landmark",
+                        "label": "Financial services"
+                    },
+                    {
+                        "icon": "monitor",
+                        "label": "Technology"
+                    },
+                    {
+                        "icon": "cross",
+                        "label": "Healthcare"
+                    },
+                    {
+                        "icon": "factory",
+                        "label": "Manufacturing"
+                    },
+                    {
+                        "icon": "bag",
+                        "label": "Retail & consumer"
+                    },
+                    {
+                        "icon": "airoplane",
+                        "label": "Aviation & maritime"
+                    }
+                ],
+                "more_label": "20+ in all",
+                "regions_label": "Delivered across",
+                "caption_strong": "Fortune 500"
+            },
+            "heading": "Why choose Edstellar for <span>cognitive ability testing.</span>",
+            "description": "Edstellar chooses job-relevant reasoning tests for each role, reads every result against the right norm group, and connects the insight to hiring and development, so cognitive testing leads to better decisions.",
+            "difference_label": "The difference"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "talent_related_services",
+        "config": {
+            "items": [
+                {
+                    "href": "/talent-assessment-services/pre-employment-assessment",
+                    "icon": "user-check",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Safety"
+                    ],
+                    "title": "Pre-employment Assessment",
+                    "description": "Screen early-career and high-volume hiring quickly and fairly."
+                },
+                {
+                    "href": "/talent-assessment-services/psychometric-assessment",
+                    "icon": "layers",
+                    "tags": [
+                        "Hiring",
+                        "Development",
+                        "Promotion"
+                    ],
+                    "title": "Psychometric Assessment",
+                    "description": "Profile personality, work style and motivation for hiring and development."
+                },
+                {
+                    "href": "/talent-assessment-services/skill-gap-competency-assessment",
+                    "icon": "wrench",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "Skills Assessment",
+                    "description": "Verify role-specific skills and see where to develop next."
+                },
+                {
+                    "href": "/talent-assessment-services/leadership-assessment",
+                    "icon": "star",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Leadership Assessment",
+                    "description": "Assess leadership capability, potential and succession readiness."
+                },
+                {
+                    "href": "/talent-assessment-services/assessment-development-centers-consulting",
+                    "icon": "clipboard",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Assessment & Development Centers",
+                    "description": "Combine live exercises with psychometrics for high-stakes decisions."
+                },
+                {
+                    "href": "/talent-assessment-services/behavioral-assessment-services",
+                    "icon": "users",
+                    "tags": [
+                        "Onboarding",
+                        "Development",
+                        "Team"
+                    ],
+                    "title": "Behavioral Assessment",
+                    "description": "Profile behavioral style, strengths and career direction."
+                },
+                {
+                    "href": "/talent-assessment-services/emotional-intelligence-assessment",
+                    "icon": "heart",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Emotional Intelligence Assessment",
+                    "description": "Measure self-awareness, empathy and resilience at work."
+                },
+                {
+                    "href": "/talent-assessment-services/language-proficiency-assessment",
+                    "icon": "languages",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "English Proficiency Assessment",
+                    "description": "Verify English proficiency for each role, on CEFR levels."
+                },
+                {
+                    "href": "/talent-assessment-services/organizational-alignment-consulting",
+                    "icon": "network",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "360-Degree Feedback",
+                    "description": "See how behavior is experienced by manager, peers and reports."
+                },
+                {
+                    "href": "/talent-assessment-services/team-effectiveness-assessment-services",
+                    "icon": "smile",
+                    "tags": [
+                        "Onboarding",
+                        "First-time managers",
+                        "Team"
+                    ],
+                    "title": "Team Effectiveness Assessment",
+                    "description": "Strengthen how teams trust, work and deliver together."
+                },
+                {
+                    "href": "/talent-assessment-services/culture-assessment",
+                    "icon": "building",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Culture Assessment",
+                    "description": "Understand the culture people experience every day."
+                },
+                {
+                    "href": "/talent-assessment-services/employee-engagement-survey",
+                    "icon": "star",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Employee Engagement Survey",
+                    "description": "Measure engagement and act on what drives it."
+                }
+            ],
+            "heading": "Complete the picture with <span>related assessments.</span>",
+            "hub_link": {
+                "href": "/talent-assessment-services#services",
+                "label": "Explore all 58 assessments in 14 families"
+            },
+            "cta_label": "Explore",
+            "section_id": "related",
+            "tags_label": "Best for",
+            "description": "Cognitive results are strongest alongside other evidence. These Edstellar assessments complete the view."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "faqs",
+        "config": {
+            "cta": [
+                {
+                    "href": "#apply",
+                    "cta_text": "Talk through your questions with an Edstellar assessment specialist.",
+                    "btn_label": "Ask us directly"
+                }
+            ],
+            "items": [
+                {
+                    "question": "What is a cognitive ability test?",
+                    "answer": "A cognitive ability test, also called a cognitive assessment, measures how well a person reasons, learns and solves problems, often called general mental ability. Common areas include verbal, numerical and abstract reasoning. Edstellar uses validated cognitive ability tests as one part of hiring, promotion and succession decisions."
+                },
+                {
+                    "question": "What is the difference between a cognitive ability test and an aptitude test?",
+                    "answer": "A cognitive ability test gives a broad view of reasoning and learning ability. An aptitude test focuses on one specific ability, such as numerical reasoning, critical thinking or mechanical aptitude. Edstellar often combines both in one battery, matched to the role."
+                },
+                {
+                    "question": "Which cognitive ability and aptitude tests does Edstellar use?",
+                    "answer": "Depending on the role, Edstellar uses tests such as Logiks, DAT Next Generation, RAVEN'S Adaptive, WATSON-GLASER III, NDIT and BMCT-II, and Talogy Caliper where cognitive and personality measures are combined."
+                },
+                {
+                    "question": "Which roles are cognitive tests best suited for?",
+                    "answer": "Cognitive tests suit roles where reasoning skills, learning and problem solving are job relevant, such as graduate, analyst, manager, finance and technical roles. Mechanical reasoning tests such as BMCT-II are used only where mechanical comprehension matters in the role."
+                },
+                {
+                    "question": "Can cognitive tests be used for high-volume hiring?",
+                    "answer": "Yes. Online aptitude tests such as Logiks and DAT Next Generation work well as an early-stage screen for graduate and high-volume hiring, with cut-off scores calibrated to the role and paired with structured interviews."
+                },
+                {
+                    "question": "How do you keep cognitive testing fair?",
+                    "answer": "Edstellar uses tests only where they are job relevant, documents that relevance, compares scores with suitable norm groups, provides accommodations where required and reviews results across candidate groups. Cognitive results are always combined with other evidence, such as structured interviews and work samples."
+                },
+                {
+                    "question": "How are cut-off scores set?",
+                    "answer": "Cut-off scores are calibrated for each role, using the right norm group and the level of reasoning the role requires, and they are reviewed over time so they stay fair and useful."
+                },
+                {
+                    "question": "Can cognitive tests support promotion and succession?",
+                    "answer": "Yes. Measures such as Talogy Caliper add evidence on potential for bigger roles, alongside performance data, leadership assessment and development center results."
+                },
+                {
+                    "question": "Can candidates take the tests online?",
+                    "answer": "Yes. Cognitive and aptitude tests run online across locations, so every candidate follows the same format. Adaptive tests such as RAVEN'S Adaptive adjust to each candidate's responses."
+                },
+                {
+                    "question": "How is cognitive test data protected?",
+                    "answer": "Test data is collected only for the agreed purpose, access is limited to agreed stakeholders, and reports are shared under the confidentiality terms set at scoping. Edstellar holds ISO/IEC 27001:2022 certification for information security management."
+                },
+                {
+                    "question": "How much does cognitive ability testing cost?",
+                    "answer": "Cost depends on the number of candidates, the tests used, how many roles need their own battery, and how much calibration, reporting and feedback you need. Edstellar scopes each program before quoting, so you pay only for what your decision requires."
+                }
+            ],
+            "heading": "Cognitive ability and aptitude testing <span>FAQs.</span>"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "leadForm",
+        "config": {
+            "heading": "Plan your cognitive ability testing <span>with Edstellar.</span>",
+            "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+            "description": "Tell Edstellar the roles and decisions you want reasoning evidence for. A specialist replies within one business day with a scoped response, no automated sales sequence.",
+            "Button_Label": "Book a consultation"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/cognitive-ability-assessment",
+        "slug": "stickyFooter",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "label": "Request a consultation"
+            },
+            "Brochure": [
+                {
+                    "href": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "Label": "Download brochure"
+                }
+            ],
+            "messages": [
+                {
+                    "suffix": "job-relevant reasoning tests for hiring and promotion",
+                    "highlight": "Cognitive ability testing"
+                }
+            ],
+            "form_anchor_id": "apply"
+        }
+    }
+]

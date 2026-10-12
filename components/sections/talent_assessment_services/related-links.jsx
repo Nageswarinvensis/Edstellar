@@ -17,7 +17,10 @@ import RichHeading from "@/components/common/rich-heading";
 export default function RelatedLinks({ data }) {
   if (!data?.items?.length) return null;
 
-  const { section_id, heading, lede, items } = data;
+  const { section_id, heading, items } = data;
+  // CMS `relatedServices` sends the lede as `Description` and the per-card label
+  // as `link`; local content uses `lede` and `cta`. Read both (TASTE.md §5.4).
+  const lede = data.lede ?? data.Description;
 
   return (
     <Section id={section_id} className="bg-paper-warm">
@@ -43,9 +46,11 @@ export default function RelatedLinks({ data }) {
               title={`Click Here to View ${item.title}`}
               className="group flex h-full flex-col rounded-2xl border border-ink/12 bg-white p-8 no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lift"
             >
-              <Text as="span" className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink/60">
-                {item.kicker}
-              </Text>
+              {item.kicker ? (
+                <Text as="span" className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink/60">
+                  {item.kicker}
+                </Text>
+              ) : null}
               <Text as="h3" className="mt-2 mb-2 font-display text-[18px] font-bold leading-[1.3] text-ink">
                 {item.title}
               </Text>
@@ -56,7 +61,7 @@ export default function RelatedLinks({ data }) {
                 as="span"
                 className="mt-auto inline-flex items-center gap-2 text-[14px] font-semibold text-ink"
               >
-                {item.cta}
+                {item.cta ?? item.link}
                 <ArrowRight size={16} aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1" />
               </Text>
             </Box>

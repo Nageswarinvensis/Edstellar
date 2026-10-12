@@ -1,0 +1,1104 @@
+[
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "seo",
+        "config": {
+            "og_image": null,
+            "og_title": "Emotional Intelligence (EQ) Assessment Services",
+            "meta_title": "Emotional Intelligence (EQ) Assessment Services",
+            "og_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_card": "summary_large_image",
+            "twitter_site": "@edstellar",
+            "canonical_url": "https://www.edstellar.com/talent-assessment-services/emotional-intelligence-assessment",
+            "meta_keywords": null,
+            "twitter_title": "Emotional Intelligence (EQ) Assessment Services",
+            "og_description": "Edstellar emotional intelligence assessments measure EQ in leaders and teams with EIP3 and Agile EQ, then build it through practitioner debriefs and coaching.",
+            "twitter_creator": "@edstellar",
+            "Meta_description": "Edstellar emotional intelligence assessments measure EQ in leaders and teams with EIP3 and Agile EQ, then build it through practitioner debriefs and coaching.",
+            "twitter_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_description": "Edstellar emotional intelligence assessments measure EQ in leaders and teams with EIP3 and Agile EQ, then build it through practitioner debriefs and coaching."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "consulting_Hero",
+        "config": {
+            "heroLeft": {
+                "title": "Emotional Intelligence Assessment Services",
+                "tagline": "Build leaders and teams who handle people well.",
+                "showMeta": true,
+                "description": "Edstellar runs emotional intelligence assessments for leaders, managers and teams. Validated EQ tools such as EIP3 and Everything DiSC Agile EQ, debriefed by trained practitioners and followed by coaching, help people build self-awareness, stay steady under pressure and work better with others.",
+                "primaryBtnLink": "#apply",
+                "primaryBtnText": "Book an EQ assessment consultation",
+                "secondaryBtnLink": "#instruments",
+                "secondaryBtnText": "Explore the tools"
+            },
+            "heroRight": {
+                "skill_matrix": {
+                    "note": null,
+                    "rows": [],
+                    "label": null,
+                    "views": [],
+                    "columns": [],
+                    "req_label": null,
+                    "aria_label": null,
+                    "gap_levels": [],
+                    "req_levels": null,
+                    "req_caption": null
+                },
+                "learning_system": [
+                    {
+                        "items": [
+                            {
+                                "icon": "Target",
+                                "title": "Leadership development",
+                                "description": "Self-aware, steady leaders"
+                            },
+                            {
+                                "icon": "RotateCw",
+                                "title": "Coaching",
+                                "description": "A clear coaching focus"
+                            },
+                            {
+                                "icon": "Users",
+                                "title": "Teams",
+                                "description": "Trust and better collaboration"
+                            },
+                            {
+                                "icon": "Heart",
+                                "title": "Change & resilience",
+                                "description": "Steadiness under pressure"
+                            }
+                        ],
+                        "title": "One EQ assessment, four uses",
+                        "footer_text": "Development first, with coaching built in."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "breadcrumbs",
+        "config": {
+            "items": [
+                {
+                    "href": "/",
+                    "label": "Home"
+                },
+                {
+                    "href": "/talent-assessment-services",
+                    "label": "Talent Assessment Services"
+                },
+                {
+                    "href": null,
+                    "label": "Emotional Intelligence Assessment"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "generalProof",
+        "config": {
+            "tone": "dark",
+            "items": [
+                {
+                    "Label": "Ready to build leaders who handle people well?",
+                    "primary_btn_link": "#apply",
+                    "primary_btn_text": "Book a consultation",
+                    "secondary_btn_link": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "secondary_btn_text": "Download the assessments brochure (PDF)"
+                }
+            ],
+            "stats": [
+                {
+                    "label": "Assessments",
+                    "value": "13,650+"
+                },
+                {
+                    "label": "Clients",
+                    "value": "300+"
+                },
+                {
+                    "label": "Industries",
+                    "value": "20+"
+                },
+                {
+                    "label": "Certified",
+                    "value": "ISO 9001 & 27001"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "stickyNavbar",
+        "config": {
+            "cta": {
+                "text": "Book a consultation",
+                "title": "Click Here to Book a Consultation",
+                "targetId": "apply"
+            },
+            "logo": {
+                "alt": "Edstellar",
+                "src": "/course/Edstellar.svg"
+            },
+            "tabs": [
+                {
+                    "id": "concept",
+                    "label": "Method",
+                    "active": true
+                },
+                {
+                    "id": "benefits",
+                    "label": "Benefits",
+                    "active": false
+                },
+                {
+                    "id": "instruments",
+                    "label": "Tools",
+                    "active": false
+                },
+                {
+                    "id": "services",
+                    "label": "Services",
+                    "active": false
+                },
+                {
+                    "id": "process",
+                    "label": "Process",
+                    "active": false
+                },
+                {
+                    "id": "outputs",
+                    "label": "Outputs",
+                    "active": false
+                },
+                {
+                    "id": "why",
+                    "label": "Why Edstellar",
+                    "active": false
+                },
+                {
+                    "id": "faq",
+                    "label": "FAQ",
+                    "active": false
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "concepts",
+        "config": {
+            "art": "eq-quadrants",
+            "grid": {
+                "rows": [],
+                "caption": null,
+                "columns": []
+            },
+            "heading": "Emotional intelligence, <span>measured and developed.</span>",
+            "principles": [
+                {
+                    "title": "A validated EQ profile",
+                    "description": "EIP3 or Everything DiSC Agile EQ shows each person’s emotional intelligence strengths and development areas."
+                },
+                {
+                    "title": "Others’ view, where useful",
+                    "description": "A multi-rater view shows how colleagues experience each person’s interpersonal behavior."
+                },
+                {
+                    "title": "A practitioner debrief",
+                    "description": "A trained practitioner explains the results in plain language and agrees on one or two focus areas."
+                },
+                {
+                    "title": "Coaching and action plans",
+                    "description": "Each person leaves with an EQ goal and a practical plan, supported by coaching or workshops."
+                }
+            ],
+            "section_id": "concept",
+            "description": "An emotional intelligence assessment, often called an EQ assessment or emotional intelligence test, measures how people recognize and manage emotions in themselves and in others. Edstellar uses it mainly for development, built around four principles."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "benifits",
+        "config": {
+            "items": [
+                {
+                    "icon": "eye",
+                    "title": "Deeper self-awareness",
+                    "description": "People see their emotional strengths and blind spots, from self-awareness and self-regulation to empathy, and how they affect others."
+                },
+                {
+                    "icon": "message",
+                    "title": "Better conversations and conflict handling",
+                    "description": "Leaders learn to read situations, listen fully and respond calmly, even when stakes are high."
+                },
+                {
+                    "icon": "users",
+                    "title": "Stronger, more trusting teams",
+                    "description": "A shared EQ language helps teams talk openly about how they work together."
+                },
+                {
+                    "icon": "shield",
+                    "title": "Steadier under pressure",
+                    "description": "Resilience insight shows how people respond to pressure and change, and where support helps."
+                },
+                {
+                    "icon": "target",
+                    "title": "Focused coaching",
+                    "description": "Results give every coaching program a clear, agreed starting point."
+                },
+                {
+                    "icon": "trending-up",
+                    "title": "Growth you can track",
+                    "description": "Reassessment shows how emotional intelligence develops over time."
+                }
+            ],
+            "heading": "Edstellar EQ assessments that build <span>stronger working relationships.</span>",
+            "section_id": "benefits",
+            "description": "Edstellar’s emotional intelligence assessments give leaders, managers and teams a clear view of emotional intelligence in the workplace, how they handle emotions and relationships, so leadership development and coaching focus where they help most."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "instruments",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "heading": "Get a recommended EQ program for your leaders.",
+                "btn_label": "Talk to a specialist",
+                "description": "An Edstellar specialist will match tools to your group and purpose."
+            },
+            "groups": [
+                {
+                    "label": "Emotional intelligence profiles",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                2,
+                                2,
+                                2,
+                                0
+                            ],
+                            "name": "EIP3 (Emotional Intelligence Profile)",
+                            "note": "Emotional intelligence and interpersonal effectiveness",
+                            "best_used": "For leaders, managers and technical leaders, with coaching and action planning; benchmarked when it supports promotion or succession"
+                        },
+                        {
+                            "fit": [
+                                0,
+                                0,
+                                2,
+                                0,
+                                2
+                            ],
+                            "name": "Everything DiSC® Agile EQ™",
+                            "note": "Emotional agility and adapting to people and situations",
+                            "best_used": "For managers and teams building emotional agility, as a development tool alongside other evidence"
+                        }
+                    ]
+                },
+                {
+                    "label": "Resilience",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                0,
+                                2,
+                                0
+                            ],
+                            "name": "Resilience Questionnaire (Talogy)",
+                            "note": "Resilience strengths and gaps at work",
+                            "best_used": "For roles under pressure and change programs, guiding coaching and resilience workshops; not a clinical tool"
+                        }
+                    ]
+                },
+                {
+                    "label": "Multi-rater view",
+                    "tools": [
+                        {
+                            "fit": [
+                                0,
+                                2,
+                                2,
+                                0,
+                                0
+                            ],
+                            "name": "Talogy 360",
+                            "note": "How others experience leadership and interpersonal behavior",
+                            "best_used": "For leadership development and succession conversations, kept separate from pay decisions"
+                        }
+                    ]
+                }
+            ],
+            "columns": [
+                "Individual development",
+                "Succession",
+                "Leadership development",
+                "Coaching & change",
+                "Teams & collaboration"
+            ],
+            "heading": "Proven emotional intelligence tools, <span>chosen for each purpose.</span>",
+            "lifecycle": {
+                "title": "Where Edstellar emotional intelligence assessment fits in the employee lifecycle",
+                "stages": [
+                    {
+                        "label": "Campus & pre-hire",
+                        "active": false
+                    },
+                    {
+                        "label": "Hiring decisions",
+                        "active": false
+                    },
+                    {
+                        "label": "Onboarding",
+                        "active": false
+                    },
+                    {
+                        "label": "Individual development",
+                        "active": true
+                    },
+                    {
+                        "label": "First-time managers",
+                        "active": false
+                    },
+                    {
+                        "label": "Promotion & succession",
+                        "active": true
+                    },
+                    {
+                        "label": "Leadership & coaching",
+                        "active": true
+                    },
+                    {
+                        "label": "Team & culture",
+                        "active": true
+                    },
+                    {
+                        "label": "Safety & compliance",
+                        "active": false
+                    }
+                ],
+                "audiences": [
+                    "Leaders",
+                    "Managers",
+                    "Teams",
+                    "High-pressure roles"
+                ]
+            },
+            "fit_legend": {
+                "none": "Not used for this",
+                "strong": "Strong fit",
+                "supporting": "Supporting evidence"
+            },
+            "section_id": "instruments",
+            "description": "Edstellar works with validated emotional intelligence and resilience tools from leading publishers, choosing the right tool for each group and the purpose it supports.",
+            "table_label": "Emotional intelligence tool fit",
+            "table_caption": "Emotional intelligence and resilience tools and how well each fits individual development, succession, leadership development, coaching and change, and teams and collaboration, in employee lifecycle order"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "Inside",
+        "config": {
+            "cta": null,
+            "tabs": [],
+            "heading": null,
+            "section_id": "inside",
+            "description": null
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "readinessData",
+        "config": {
+            "cta": {
+                "href": "https://www.edstellar.com/tool/talent-assessment-services",
+                "label": "Take the free readiness check →"
+            },
+            "points": [
+                "Tool choice and who takes part",
+                "Debriefs, coaching and team workshops",
+                "Reassessment and progress tracking"
+            ],
+            "heading": "Assess your EQ development against the <span>essentials.</span>",
+            "checklist": {
+                "items": [
+                    {
+                        "done": true,
+                        "label": "EQ is part of leadership development"
+                    },
+                    {
+                        "done": true,
+                        "label": "Leaders get a practitioner debrief"
+                    },
+                    {
+                        "done": true,
+                        "label": "Results lead to coaching goals"
+                    },
+                    {
+                        "done": false,
+                        "label": "Teams share an EQ language"
+                    },
+                    {
+                        "done": false,
+                        "label": "Progress is reassessed"
+                    }
+                ],
+                "title": "EQ development checklist"
+            },
+            "description": "A quick check of how your organization builds emotional intelligence today, from assessment to coaching, and where an EQ assessment can add even more value."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "talent-services",
+        "config": {
+            "items": [
+                {
+                    "get": "EQ program design",
+                    "flow": [
+                        "EIP3",
+                        "Agile EQ",
+                        "Resilience Questionnaire",
+                        "Talogy 360"
+                    ],
+                    "icon": "target",
+                    "title": "Tool selection and program design",
+                    "caption": "Tools chosen for each group",
+                    "summary": "Choose the right EQ and resilience tools for each group and purpose, and design how results feed development.",
+                    "flow_style": "tags",
+                    "flow_highlight": 0
+                },
+                {
+                    "get": "Individual debrief and focus areas",
+                    "flow": [
+                        "Profile",
+                        "Debrief",
+                        "Focus areas"
+                    ],
+                    "icon": "message",
+                    "title": "Individual debriefs",
+                    "caption": "Results people understand and use",
+                    "summary": "Trained practitioners walk each person through their results and agree on one or two focus areas.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Coaching plan",
+                    "flow": [
+                        "Goal",
+                        "Practice",
+                        "Review"
+                    ],
+                    "icon": "user-check",
+                    "title": "EQ coaching",
+                    "caption": "Steady progress, session by session",
+                    "summary": "Coaching sessions turn each focus area into new habits, with practical goals between sessions.",
+                    "flow_style": "arrows",
+                    "flow_highlight": 1
+                },
+                {
+                    "get": "Team workshop and team agreements",
+                    "flow": [
+                        "Team profile",
+                        "Workshop",
+                        "Team agreements"
+                    ],
+                    "icon": "users",
+                    "title": "Team EQ workshops",
+                    "caption": "A shared language for working together",
+                    "summary": "Facilitated workshops help teams use a shared EQ language to improve trust, feedback and collaboration.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Resilience focus areas and workshops",
+                    "flow": [
+                        "Resilience profile",
+                        "Workshop",
+                        "Coaching"
+                    ],
+                    "icon": "scale",
+                    "title": "Resilience programs",
+                    "caption": "Support where pressure is highest",
+                    "summary": "Use the Resilience Questionnaire to guide coaching and workshops for roles under pressure and teams going through change.",
+                    "flow_style": "arrows",
+                    "flow_highlight": 0
+                },
+                {
+                    "get": "Progress report",
+                    "flow": [
+                        "Baseline",
+                        "Coaching",
+                        "Reassessment"
+                    ],
+                    "icon": "trending-up",
+                    "title": "Reassessment and progress",
+                    "caption": "Growth you can see",
+                    "summary": "Reassess after coaching to show how emotional intelligence has developed, and refresh development goals.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                }
+            ],
+            "heading": "Edstellar emotional intelligence assessment services, <span>end to end.</span>",
+            "get_label": "You get:",
+            "section_id": "services",
+            "description": "From tool choice to reassessment, Edstellar covers every part of an emotional intelligence program."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "methodology",
+        "config": {
+            "cta": [],
+            "steps": [
+                {
+                    "chips": [
+                        "Purpose",
+                        "Participants"
+                    ],
+                    "title": "Scope",
+                    "duration": "Week 1",
+                    "deliverable": "Program scope",
+                    "description": "Agree on the group, the purpose and how results will be used."
+                },
+                {
+                    "chips": [
+                        "Tool choice",
+                        "Program plan"
+                    ],
+                    "title": "Design",
+                    "duration": "Weeks 1 to 2",
+                    "deliverable": "Configured EQ program",
+                    "description": "Choose the tools and plan debriefs, coaching and workshops."
+                },
+                {
+                    "chips": [
+                        "Online assessment",
+                        "Raters"
+                    ],
+                    "title": "Assess",
+                    "duration": "Weeks 2 to 3",
+                    "deliverable": "EQ and resilience profiles",
+                    "description": "Participants complete the assessments online, with raters added where a multi-rater view is used."
+                },
+                {
+                    "chips": [
+                        "Individual debriefs",
+                        "Focus areas"
+                    ],
+                    "title": "Debrief",
+                    "duration": "Weeks 3 to 4",
+                    "deliverable": "Debriefed profiles",
+                    "description": "Trained practitioners debrief every participant and agree on focus areas."
+                },
+                {
+                    "chips": [
+                        "Coaching",
+                        "Workshops"
+                    ],
+                    "title": "Develop",
+                    "duration": "Following weeks",
+                    "deliverable": "Development plans in action",
+                    "description": "Coaching and team workshops build the agreed skills."
+                },
+                {
+                    "chips": [
+                        "Reassessment",
+                        "Progress review"
+                    ],
+                    "title": "Review",
+                    "duration": "Ongoing",
+                    "deliverable": "Progress report",
+                    "description": "Reassess to track growth and refresh goals."
+                }
+            ],
+            "heading": "The Edstellar emotional intelligence assessment <span>process.</span>",
+            "subheading": "Edstellar runs emotional intelligence assessments in six steps, from scope to review. Most participants have their debrief within about four weeks of kickoff, followed by coaching and team workshops."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "output",
+        "config": {
+            "cta": {
+                "heading": "Build emotional intelligence that lasts.",
+                "primary": {
+                    "href": "#apply",
+                    "label": "Plan your EQ program"
+                },
+                "secondary": {
+                    "href": "/tool/talent-assessment-services",
+                    "label": "Take the readiness check"
+                },
+                "description": "Scope your EQ program with an Edstellar specialist."
+            },
+            "columns": [
+                {
+                    "items": [
+                        {
+                            "icon": "file",
+                            "stage": "Step 4: Debrief",
+                            "title": "Individual EQ report",
+                            "description": "Emotional intelligence strengths and development areas, explained in plain language."
+                        },
+                        {
+                            "icon": "list-check",
+                            "stage": "Step 4: Debrief",
+                            "title": "EQ development plan",
+                            "description": "One or two focus areas with practical goals."
+                        }
+                    ],
+                    "title": "Participants",
+                    "subtitle": "Clear self-insight"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "user-cog",
+                            "stage": "Step 5: Develop",
+                            "title": "Coaching guide",
+                            "description": "Focus areas and goals that give every coaching session a starting point."
+                        },
+                        {
+                            "icon": "trending-up",
+                            "stage": "Step 6: Review",
+                            "title": "Progress report",
+                            "description": "Growth in emotional intelligence after coaching."
+                        }
+                    ],
+                    "title": "Managers and coaches",
+                    "subtitle": "A clear coaching focus"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "grid",
+                            "stage": "Step 4: Debrief",
+                            "title": "Group EQ summary",
+                            "description": "Shared strengths and development themes across the group."
+                        },
+                        {
+                            "icon": "users",
+                            "stage": "Step 5: Develop",
+                            "title": "Team workshop outputs",
+                            "description": "Team agreements on trust, feedback and collaboration."
+                        }
+                    ],
+                    "title": "HR and L&D",
+                    "subtitle": "Insight across the group"
+                }
+            ],
+            "heading": "Ready-to-use outputs for <span>every decision.</span>",
+            "section_id": "outputs",
+            "description": "Every Edstellar EQ assessment ends with reports and outputs that people can read quickly and act on right away."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "ld_why_edstellar",
+        "config": {
+            "cta": [],
+            "items": [
+                {
+                    "icon": "link",
+                    "title": "Assessment to development, one partner",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Profile",
+                            "Debrief",
+                            "Develop"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "One team, from measurement to development"
+                    },
+                    "difference": "Many test providers stop at the report. Edstellar connects it to development.",
+                    "description": "Insight turns into action, because the team that profiles your people also maps every result to training, coaching or OD work."
+                },
+                {
+                    "icon": "chip",
+                    "title": "Runs on the Capability Intelligence Platform",
+                    "visual": {
+                        "type": "signal",
+                        "items": [
+                            "Profiled:74",
+                            "Debriefed:56",
+                            "Developing:63"
+                        ],
+                        "title": "Capability signal",
+                        "status": "Live",
+                        "caption": null
+                    },
+                    "difference": "Your skills data stays live, not frozen in a PDF.",
+                    "description": "You always know who is ready and where the gaps sit, with a live picture of verified skills between assessment cycles."
+                },
+                {
+                    "icon": "chart",
+                    "title": "Expert interpretation, every time",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "EQ tool",
+                            "Work context",
+                            "Practitioner"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Every score read in context"
+                    },
+                    "difference": "Insight people act on, not a score they guess at.",
+                    "description": "Trained practitioners read every profile against the role and explain it in plain language, so people understand and use their results."
+                },
+                {
+                    "icon": "globe",
+                    "title": "Certified assessors, wherever your people are",
+                    "visual": {
+                        "type": "regions",
+                        "items": [
+                            "APAC",
+                            "Middle East",
+                            "Europe",
+                            "Americas"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Online · in-person · blended"
+                    },
+                    "difference": "The same standard in every country you assess.",
+                    "description": "Emotional intelligence assessments run online, in person or blended across 100+ locations, with debriefs in a format that suits each group."
+                },
+                {
+                    "icon": "list",
+                    "title": "A proven method, not improvisation",
+                    "visual": {
+                        "type": "steps",
+                        "items": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Scope · Design · Assess · Debrief · Develop · Review"
+                    },
+                    "difference": "A repeatable system, not a bespoke experiment each time.",
+                    "description": "Every engagement runs the same six steps, from scope to review, with validated tools chosen for the purpose at hand."
+                },
+                {
+                    "icon": "sliders",
+                    "title": "The right tool for every purpose",
+                    "visual": {
+                        "type": "tiers",
+                        "items": [
+                            "EIP3",
+                            "Agile EQ™",
+                            "Resilience Questionnaire",
+                            "Talogy 360"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Chosen from leading publishers"
+                    },
+                    "difference": "The tool fits the purpose, not the other way round.",
+                    "description": "Edstellar is not tied to a single test publisher, so each group and purpose gets the tool that fits it best."
+                }
+            ],
+            "trust": {
+                "caption": "clients served worldwide",
+                "heading": "Trusted across industries and regions",
+                "regions": [
+                    "APAC",
+                    "Middle East",
+                    "Europe",
+                    "Americas"
+                ],
+                "industries": [
+                    {
+                        "icon": "landmark",
+                        "label": "Financial services"
+                    },
+                    {
+                        "icon": "monitor",
+                        "label": "Technology"
+                    },
+                    {
+                        "icon": "cross",
+                        "label": "Healthcare"
+                    },
+                    {
+                        "icon": "factory",
+                        "label": "Manufacturing"
+                    },
+                    {
+                        "icon": "bag",
+                        "label": "Retail & consumer"
+                    },
+                    {
+                        "icon": "airoplane",
+                        "label": "Aviation & maritime"
+                    }
+                ],
+                "more_label": "20+ in all",
+                "regions_label": "Delivered across",
+                "caption_strong": "Fortune 500"
+            },
+            "heading": "Why choose Edstellar for <span>emotional intelligence assessment.</span>",
+            "description": "Edstellar chooses the right EQ tools for each group, has trained practitioners debrief every profile, and connects the insight to coaching and development, so emotional intelligence keeps growing after the assessment.",
+            "difference_label": "The difference"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "talent_related_services",
+        "config": {
+            "items": [
+                {
+                    "href": "/talent-assessment-services/leadership-assessment",
+                    "icon": "star",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Leadership Assessment",
+                    "description": "Assess leadership capability, potential and succession readiness."
+                },
+                {
+                    "href": "/talent-assessment-services/organizational-alignment-consulting",
+                    "icon": "network",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "360-Degree Feedback",
+                    "description": "See how behavior is experienced by manager, peers and reports."
+                },
+                {
+                    "href": "/talent-assessment-services/psychometric-assessment",
+                    "icon": "layers",
+                    "tags": [
+                        "Hiring",
+                        "Development",
+                        "Promotion"
+                    ],
+                    "title": "Psychometric Assessment",
+                    "description": "Profile personality, work style and motivation for hiring and development."
+                },
+                {
+                    "href": "/talent-assessment-services/team-effectiveness-assessment-services",
+                    "icon": "smile",
+                    "tags": [
+                        "Onboarding",
+                        "First-time managers",
+                        "Team"
+                    ],
+                    "title": "Team Effectiveness Assessment",
+                    "description": "Strengthen how teams trust, work and deliver together."
+                },
+                {
+                    "href": "/talent-assessment-services/behavioral-assessment-services",
+                    "icon": "users",
+                    "tags": [
+                        "Onboarding",
+                        "Development",
+                        "Team"
+                    ],
+                    "title": "Behavioral Assessment",
+                    "description": "Profile behavioral style, strengths and career direction."
+                },
+                {
+                    "href": "/talent-assessment-services/assessment-development-centers-consulting",
+                    "icon": "clipboard",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Assessment & Development Centers",
+                    "description": "Combine live exercises with psychometrics for high-stakes decisions."
+                },
+                {
+                    "href": "/talent-assessment-services/skill-gap-competency-assessment",
+                    "icon": "wrench",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "Skills Assessment",
+                    "description": "Verify role-specific skills and see where to develop next."
+                },
+                {
+                    "href": "/talent-assessment-services/cognitive-ability-assessment",
+                    "icon": "brain",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Promotion"
+                    ],
+                    "title": "Cognitive Ability & Aptitude Testing",
+                    "description": "Measure reasoning, problem solving and learning ability."
+                },
+                {
+                    "href": "/talent-assessment-services/pre-employment-assessment",
+                    "icon": "user-check",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Safety"
+                    ],
+                    "title": "Pre-employment Assessment",
+                    "description": "Screen early-career and high-volume hiring quickly and fairly."
+                },
+                {
+                    "href": "/talent-assessment-services/language-proficiency-assessment",
+                    "icon": "languages",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "English Proficiency Assessment",
+                    "description": "Verify English proficiency for each role, on CEFR levels."
+                },
+                {
+                    "href": "/talent-assessment-services/culture-assessment",
+                    "icon": "building",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Culture Assessment",
+                    "description": "Understand the culture people experience every day."
+                },
+                {
+                    "href": "/talent-assessment-services/employee-engagement-survey",
+                    "icon": "star",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Employee Engagement Survey",
+                    "description": "Measure engagement and act on what drives it."
+                }
+            ],
+            "heading": "Complete the picture with <span>related assessments.</span>",
+            "hub_link": {
+                "href": "/talent-assessment-services#services",
+                "label": "Explore all 58 assessments in 14 families"
+            },
+            "cta_label": "Explore",
+            "section_id": "related",
+            "tags_label": "Best for",
+            "description": "Emotional intelligence insight is strongest alongside other assessments. These Edstellar services complete the view."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "faqs",
+        "config": {
+            "cta": [
+                {
+                    "href": "#apply",
+                    "cta_text": "Talk through your questions with an Edstellar assessment specialist.",
+                    "btn_label": "Ask us directly"
+                }
+            ],
+            "items": [
+                {
+                    "question": "What is an emotional intelligence assessment?",
+                    "answer": "An emotional intelligence assessment, often called an EQ assessment or EQ test, measures how people recognize, understand and manage emotions in themselves and others, and how they use that awareness in relationships. Edstellar uses validated EQ tools mainly for leadership development, coaching and team effectiveness."
+                },
+                {
+                    "question": "What is the difference between EQ and IQ?",
+                    "answer": "IQ, or cognitive ability, describes how people reason and solve problems. EQ describes how they handle emotions and relationships. Both matter at work, and Edstellar assesses cognitive ability through its own cognitive ability testing service."
+                },
+                {
+                    "question": "Which emotional intelligence tools does Edstellar use?",
+                    "answer": "Depending on the group and purpose, Edstellar uses EIP3 (Emotional Intelligence Profile), Everything DiSC Agile EQ, the Resilience Questionnaire from Talogy, and Talogy 360 where a multi-rater view of interpersonal behavior is useful."
+                },
+                {
+                    "question": "Can emotional intelligence be developed and improved?",
+                    "answer": "Yes, people can improve emotional intelligence. With a clear debrief, focused goals and coaching or workshops, people can build habits such as pausing before reacting, listening more fully and handling conflict calmly. Reassessment shows how those habits develop over time."
+                },
+                {
+                    "question": "Who is an EQ assessment for?",
+                    "answer": "Leaders, managers, technical leaders and teams benefit most, especially high-potential employees moving into bigger roles, people leading through change or working in high-pressure roles."
+                },
+                {
+                    "question": "Can EQ assessments be used for hiring or promotion?",
+                    "answer": "Edstellar uses emotional intelligence assessments mainly for development. EIP3 can support promotion and succession decisions when it is benchmarked for the role and combined with other evidence, and EQ results are never used on their own to make selection decisions."
+                },
+                {
+                    "question": "What happens in an EQ debrief?",
+                    "answer": "A trained practitioner explains the results in plain language, explores real examples from the participant's work and agrees on one or two focus areas with practical goals."
+                },
+                {
+                    "question": "Is the Resilience Questionnaire a clinical tool?",
+                    "answer": "No. The Resilience Questionnaire is a development tool that shows how people respond to pressure and change at work. It guides coaching and workshops and is not a clinical or medical assessment."
+                },
+                {
+                    "question": "How long does an emotional intelligence assessment take?",
+                    "answer": "Each participant completes a short online questionnaire, and debriefs usually follow within about four weeks of kickoff. Coaching and team workshops then run over the following weeks, depending on the program."
+                },
+                {
+                    "question": "How is EQ assessment data protected?",
+                    "answer": "Data is collected only for the agreed development purpose, access is limited to agreed stakeholders, and individual reports are shared under the confidentiality terms set at scoping. Edstellar holds ISO/IEC 27001:2022 certification for information security management."
+                },
+                {
+                    "question": "How much does an emotional intelligence assessment cost?",
+                    "answer": "Cost depends on the number of participants, the tools used, whether a multi-rater view is included, and how much debriefing, coaching and workshop support you need. Edstellar scopes each program before quoting, so you pay only for what your goals require."
+                }
+            ],
+            "heading": "Emotional intelligence assessment <span>FAQs.</span>"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "leadForm",
+        "config": {
+            "heading": "Plan your emotional intelligence assessment <span>with Edstellar.</span>",
+            "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+            "description": "Tell Edstellar the leaders or teams you want to develop. A specialist replies within one business day with a scoped response, no automated sales sequence.",
+            "Button_Label": "Book a consultation"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/emotional-intelligence-assessment",
+        "slug": "stickyFooter",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "label": "Request a consultation"
+            },
+            "Brochure": [
+                {
+                    "href": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "Label": "Download brochure"
+                }
+            ],
+            "messages": [
+                {
+                    "suffix": "EQ and resilience insight, debriefed and coached",
+                    "highlight": "Emotional intelligence assessment"
+                }
+            ],
+            "form_anchor_id": "apply"
+        }
+    }
+]

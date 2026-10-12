@@ -1,0 +1,1176 @@
+[
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "seo",
+        "config": {
+            "og_image": null,
+            "og_title": "Leadership Assessment & Executive Assessment",
+            "meta_title": "Leadership Assessment & Executive Assessment",
+            "og_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_card": "summary_large_image",
+            "twitter_site": "@edstellar",
+            "canonical_url": "https://www.edstellar.com/talent-assessment-services/leadership-assessment",
+            "meta_keywords": null,
+            "twitter_title": "Leadership Assessment & Executive Assessment",
+            "og_description": "Edstellar's leadership assessment and executive assessment services measure leadership potential and derailers for hiring, development and succession planning.",
+            "twitter_creator": "@edstellar",
+            "Meta_description": "Edstellar's leadership assessment and executive assessment services measure leadership potential and derailers for hiring, development and succession planning.",
+            "twitter_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_description": "Edstellar's leadership assessment and executive assessment services measure leadership potential and derailers for hiring, development and succession planning."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "consulting_Hero",
+        "config": {
+            "heroLeft": {
+                "title": "Leadership Assessment Services",
+                "tagline": "Know who is ready to lead next.",
+                "showMeta": true,
+                "description": "Edstellar’s leadership assessment and executive assessment services measure leadership capability, leadership potential and derailment risk with validated tools. Trained practitioners interpret every result, so leader hiring, development and succession decisions rest on clear evidence.",
+                "primaryBtnLink": "#apply",
+                "primaryBtnText": "Book a leadership assessment consultation",
+                "secondaryBtnLink": "#instruments",
+                "secondaryBtnText": "Explore the tools"
+            },
+            "heroRight": {
+                "skill_matrix": {
+                    "note": null,
+                    "rows": [],
+                    "label": null,
+                    "views": [],
+                    "columns": [],
+                    "req_label": null,
+                    "aria_label": null,
+                    "gap_levels": [],
+                    "req_levels": null,
+                    "req_caption": null
+                },
+                "learning_system": [
+                    {
+                        "items": [
+                            {
+                                "icon": "Users",
+                                "title": "Leader hiring",
+                                "description": "Readiness for senior and external roles"
+                            },
+                            {
+                                "icon": "RotateCw",
+                                "title": "Leadership development",
+                                "description": "Focused growth plans and programs"
+                            },
+                            {
+                                "icon": "Network",
+                                "title": "Succession",
+                                "description": "Ready-now and ready-later benches"
+                            },
+                            {
+                                "icon": "Target",
+                                "title": "Executive coaching",
+                                "description": "Coaching goals grounded in evidence"
+                            }
+                        ],
+                        "title": "One leadership profile, four decisions",
+                        "footer_text": "Capability, potential and risk, interpreted by experts."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "breadcrumbs",
+        "config": {
+            "items": [
+                {
+                    "href": "/",
+                    "label": "Home"
+                },
+                {
+                    "href": "/talent-assessment-services",
+                    "label": "Talent Assessment Services"
+                },
+                {
+                    "href": null,
+                    "label": "Leadership Assessment"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "generalProof",
+        "config": {
+            "tone": "dark",
+            "items": [
+                {
+                    "Label": "Ready to build a stronger leadership bench?",
+                    "primary_btn_link": "#apply",
+                    "primary_btn_text": "Book a consultation",
+                    "secondary_btn_link": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "secondary_btn_text": "Download the assessments brochure (PDF)"
+                }
+            ],
+            "stats": [
+                {
+                    "label": "Assessments",
+                    "value": "13,650+"
+                },
+                {
+                    "label": "Clients",
+                    "value": "300+"
+                },
+                {
+                    "label": "Industries",
+                    "value": "20+"
+                },
+                {
+                    "label": "Certified",
+                    "value": "ISO 9001 & 27001"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "stickyNavbar",
+        "config": {
+            "cta": {
+                "text": "Book a consultation",
+                "title": "Click Here to Book a Consultation",
+                "targetId": "apply"
+            },
+            "logo": {
+                "alt": "Edstellar",
+                "src": "/course/Edstellar.svg"
+            },
+            "tabs": [
+                {
+                    "id": "concept",
+                    "label": "Lenses",
+                    "active": true
+                },
+                {
+                    "id": "benefits",
+                    "label": "Benefits",
+                    "active": false
+                },
+                {
+                    "id": "instruments",
+                    "label": "Tools",
+                    "active": false
+                },
+                {
+                    "id": "services",
+                    "label": "Services",
+                    "active": false
+                },
+                {
+                    "id": "process",
+                    "label": "Process",
+                    "active": false
+                },
+                {
+                    "id": "outputs",
+                    "label": "Outputs",
+                    "active": false
+                },
+                {
+                    "id": "why",
+                    "label": "Why Edstellar",
+                    "active": false
+                },
+                {
+                    "id": "faq",
+                    "label": "FAQ",
+                    "active": false
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "concepts",
+        "config": {
+            "art": "leadership-lenses",
+            "grid": {
+                "rows": [],
+                "caption": null,
+                "columns": []
+            },
+            "heading": "Three lenses on <span>every leader.</span>",
+            "principles": [
+                {
+                    "title": "Capability today",
+                    "description": "How well a leader sets direction, builds teams and delivers results in the current role, measured against clear leadership competencies."
+                },
+                {
+                    "title": "Potential for tomorrow",
+                    "description": "The learning agility, drive and judgment that show who can grow into a bigger, more complex role."
+                },
+                {
+                    "title": "Risks under pressure",
+                    "description": "The derailers and blind spots that can surface under stress, identified early so they can be coached well."
+                }
+            ],
+            "section_id": "concept",
+            "description": "A leadership assessment combines leadership tests, structured exercises and feedback to look beyond past performance to leadership skills, potential and effectiveness. Edstellar views every leader through three lenses, and where they meet is real leadership readiness."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "benifits",
+        "config": {
+            "items": [
+                {
+                    "icon": "trending-up",
+                    "title": "Promote the right leaders",
+                    "description": "See who is ready for a bigger role before the promotion, so new leaders start with the capability the role needs."
+                },
+                {
+                    "icon": "users",
+                    "title": "Build a ready succession bench",
+                    "description": "Name ready-now and ready-later successors for critical roles, so the leadership pipeline stays strong and leadership transitions run smoothly."
+                },
+                {
+                    "icon": "star",
+                    "title": "Spot high-potential talent early",
+                    "description": "Identify high-potential employees and future leaders through learning agility and drive, not just current performance, and invest in them sooner."
+                },
+                {
+                    "icon": "target",
+                    "title": "Focus leadership development",
+                    "description": "Target programs and coaching on each leader’s biggest leadership gaps, so development budgets go further."
+                },
+                {
+                    "icon": "user-check",
+                    "title": "Hire senior leaders with confidence",
+                    "description": "Bring structured evidence into executive recruitment, alongside interviews, for both role and culture fit."
+                },
+                {
+                    "icon": "shield",
+                    "title": "Decisions you can defend",
+                    "description": "Validated tools, several sources of evidence and trained interpretation reduce bias and give every leadership decision a documented rationale."
+                }
+            ],
+            "heading": "Edstellar leadership assessment that builds a <span>ready bench.</span>",
+            "section_id": "benefits",
+            "description": "Edstellar’s leadership assessment services give boards, CHROs and business leaders a consistent, objective view of leaders, so leader hiring and recruitment, leadership development, succession planning and wider talent management all build on the same reliable, data-driven evidence."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "instruments",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "heading": "Get a recommended leadership assessment for your roles.",
+                "btn_label": "Talk to a specialist",
+                "description": "An Edstellar specialist will match tools to your leadership roles and decisions."
+            },
+            "groups": [
+                {
+                    "label": "Leadership potential and readiness",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                2,
+                                0,
+                                0
+                            ],
+                            "name": "Talogy InView Leadership",
+                            "note": "Leadership potential, personality and capability",
+                            "best_used": "Together with interviews and other evidence of leadership readiness, not on its own"
+                        },
+                        {
+                            "fit": [
+                                2,
+                                2,
+                                1,
+                                0
+                            ],
+                            "name": "Talogy Caliper™",
+                            "note": "Personality plus cognitive predictor of leadership potential",
+                            "best_used": "With role benchmarking and trained feedback; also supports development conversations"
+                        },
+                        {
+                            "fit": [
+                                2,
+                                2,
+                                1,
+                                0
+                            ],
+                            "name": "Saville Wave® (Professional Styles)",
+                            "note": "Work style, competency potential, motives and culture fit",
+                            "best_used": "With job profiling and trained interpretation, for selection and development"
+                        }
+                    ]
+                },
+                {
+                    "label": "Personality, derailers and values",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                2,
+                                1,
+                                2
+                            ],
+                            "name": "Hogan (HPI/HDS/MVPI)",
+                            "note": "Leadership potential, derailers, values and motivators",
+                            "best_used": "With role profiling and qualified interpretation, especially for executive coaching and succession"
+                        }
+                    ]
+                },
+                {
+                    "label": "Simulations and multi-rater feedback",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                2,
+                                1,
+                                0
+                            ],
+                            "name": "VirtualAC™ (Talogy)",
+                            "note": "Observed behavior in leadership simulations",
+                            "best_used": "For high-stakes leadership decisions and development centers, with trained assessors"
+                        },
+                        {
+                            "fit": [
+                                0,
+                                2,
+                                2,
+                                0
+                            ],
+                            "name": "Talogy 360",
+                            "note": "Multi-rater feedback on leadership behavior",
+                            "best_used": "For development and succession conversations, not for pay decisions"
+                        }
+                    ]
+                },
+                {
+                    "label": "Leadership style, behavior and emotional intelligence",
+                    "tools": [
+                        {
+                            "fit": [
+                                0,
+                                2,
+                                2,
+                                2
+                            ],
+                            "name": "Diamond Leadership (Diamond Power Index®)",
+                            "note": "Use of power, influence and leadership efficacy",
+                            "best_used": "As a development diagnostic with a facilitated debrief, paired with coaching or 360 feedback"
+                        },
+                        {
+                            "fit": [
+                                0,
+                                2,
+                                2,
+                                0
+                            ],
+                            "name": "Everything DiSC® Work of Leaders",
+                            "note": "Leadership behavior across vision, alignment and execution",
+                            "best_used": "In facilitated leadership programs for senior leaders"
+                        },
+                        {
+                            "fit": [
+                                0,
+                                2,
+                                2,
+                                1
+                            ],
+                            "name": "EIP3 (Emotional Intelligence Profile)",
+                            "note": "Emotional intelligence and interpersonal effectiveness",
+                            "best_used": "For development with coaching and action planning; supports promotion decisions when benchmarked"
+                        }
+                    ]
+                },
+                {
+                    "label": "Edstellar tool",
+                    "tools": [
+                        {
+                            "fit": [
+                                0,
+                                2,
+                                2,
+                                0
+                            ],
+                            "name": "Zenith",
+                            "note": "Twelve leadership competencies, derailers, blind spots and learning agility",
+                            "best_used": "For succession planning, high-potential identification and leadership development"
+                        }
+                    ]
+                }
+            ],
+            "columns": [
+                "Leader hiring",
+                "Promotion & succession",
+                "Leadership development",
+                "Executive coaching"
+            ],
+            "heading": "Proven leadership assessment tools, <span>chosen for each role.</span>",
+            "lifecycle": {
+                "title": "Where Edstellar leadership assessment fits in the employee lifecycle",
+                "stages": [
+                    {
+                        "label": "Campus & pre-hire",
+                        "active": false
+                    },
+                    {
+                        "label": "Hiring decisions",
+                        "active": true
+                    },
+                    {
+                        "label": "Onboarding",
+                        "active": false
+                    },
+                    {
+                        "label": "Individual development",
+                        "active": false
+                    },
+                    {
+                        "label": "First-time managers",
+                        "active": false
+                    },
+                    {
+                        "label": "Promotion & succession",
+                        "active": true
+                    },
+                    {
+                        "label": "Leadership & coaching",
+                        "active": true
+                    },
+                    {
+                        "label": "Team & culture",
+                        "active": false
+                    },
+                    {
+                        "label": "Safety & compliance",
+                        "active": false
+                    }
+                ],
+                "audiences": [
+                    "Managers",
+                    "Senior leaders",
+                    "Executives",
+                    "High potentials"
+                ]
+            },
+            "fit_legend": {
+                "none": "Not used for this",
+                "strong": "Strong fit",
+                "supporting": "Supporting evidence"
+            },
+            "section_id": "instruments",
+            "description": "Edstellar selects from leading leadership assessment tools and tests, choosing validated, reliable instruments for the decision each one supports, alongside Edstellar’s own Zenith leadership assessment.",
+            "table_label": "Leadership assessment tool fit",
+            "table_caption": "Leadership assessment tools and how well each fits leader hiring, promotion and succession, leadership development and executive coaching decisions, in employee lifecycle order"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "Inside",
+        "config": {
+            "cta": null,
+            "tabs": [],
+            "heading": null,
+            "section_id": "inside",
+            "description": null
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "readinessData",
+        "config": {
+            "cta": {
+                "href": "https://www.edstellar.com/tool/talent-assessment-services",
+                "label": "Take the free readiness check →"
+            },
+            "points": [
+                "Leadership competencies and role profiles",
+                "Readiness evidence for succession decisions",
+                "Development plans and coaching follow-through"
+            ],
+            "heading": "Assess your leadership pipeline against the <span>essentials.</span>",
+            "checklist": {
+                "items": [
+                    {
+                        "done": true,
+                        "label": "Leadership competencies are defined"
+                    },
+                    {
+                        "done": true,
+                        "label": "Critical roles are mapped"
+                    },
+                    {
+                        "done": true,
+                        "label": "Successors are named for key roles"
+                    },
+                    {
+                        "done": false,
+                        "label": "Readiness is measured, not assumed"
+                    },
+                    {
+                        "done": false,
+                        "label": "Every leader has a development plan"
+                    }
+                ],
+                "title": "Leadership bench checklist"
+            },
+            "description": "A quick check of how your organization assesses leaders today, from competencies to succession, and where evidence can add even more value."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "talent-services",
+        "config": {
+            "items": [
+                {
+                    "get": "Leadership competency framework",
+                    "flow": [
+                        "Strategic thinking",
+                        "Leading people",
+                        "Driving results",
+                        "Leading change"
+                    ],
+                    "icon": "target",
+                    "title": "Leadership competency frameworks",
+                    "caption": "Target ranges for each leadership level",
+                    "summary": "Define the competencies that matter at each leadership level, so every leader is assessed against a clear standard.",
+                    "flow_style": "bars",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "High-potential talent pool",
+                    "flow": [
+                        "Talent pool",
+                        "Potential assessment",
+                        "High-potential pool"
+                    ],
+                    "icon": "trending-up",
+                    "title": "High-potential identification",
+                    "caption": "Potential measured, not assumed",
+                    "summary": "Combine learning agility, drive and judgment to identify high-potential employees and future first-time managers early and fairly.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Succession readiness map",
+                    "flow": [
+                        "Ready now",
+                        "Ready in 1 to 2 years",
+                        "Develop in role"
+                    ],
+                    "icon": "users",
+                    "title": "Succession readiness assessment",
+                    "caption": "Every successor placed on evidence",
+                    "summary": "Assess successors for critical roles and place each one as ready now, ready later or developing in role.",
+                    "flow_style": "tags",
+                    "flow_highlight": 0
+                },
+                {
+                    "get": "Executive assessment report",
+                    "flow": [
+                        "Leadership tools",
+                        "Structured interview",
+                        "Practitioner review",
+                        "Recommendation"
+                    ],
+                    "icon": "user-check",
+                    "title": "Executive assessment",
+                    "caption": "Several sources, one clear recommendation",
+                    "summary": "Assess senior and external leadership candidates with validated tools, structured interviews and practitioner interpretation.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Individual development plans",
+                    "flow": [
+                        "Assess",
+                        "Debrief",
+                        "Development plan"
+                    ],
+                    "icon": "layers",
+                    "title": "Leadership development diagnostics",
+                    "caption": "Every result ends in a plan",
+                    "summary": "Turn assessment results into focused development plans, programs and coaching goals for each leader.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Coaching focus areas",
+                    "flow": [
+                        "Leadership profile",
+                        "Coaching goals",
+                        "Progress check"
+                    ],
+                    "icon": "message",
+                    "title": "Executive coaching inputs",
+                    "caption": "Coaching that starts from evidence",
+                    "summary": "Give coaches an evidence-based starting point, including the derailers and blind spots each leader can work on.",
+                    "flow_style": "arrows",
+                    "flow_highlight": 1
+                }
+            ],
+            "heading": "Edstellar leadership assessment services, <span>end to end.</span>",
+            "get_label": "You get:",
+            "section_id": "services",
+            "description": "From defining the leadership standard to coaching each leader, Edstellar covers every part of a leadership assessment program."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "methodology",
+        "config": {
+            "cta": [],
+            "steps": [
+                {
+                    "chips": [
+                        "Leadership competencies",
+                        "Critical roles"
+                    ],
+                    "title": "Scope",
+                    "duration": "Week 1",
+                    "deliverable": "Leadership success profiles",
+                    "description": "Agree on the leadership roles, decisions and competencies that define success."
+                },
+                {
+                    "chips": [
+                        "Tool selection",
+                        "Pilot"
+                    ],
+                    "title": "Design",
+                    "duration": "Weeks 1 to 2",
+                    "deliverable": "Configured leadership battery",
+                    "description": "Select the leadership tools, exercises and feedback sources, then pilot them."
+                },
+                {
+                    "chips": [
+                        "Online assessment",
+                        "360 feedback"
+                    ],
+                    "title": "Assess",
+                    "duration": "Weeks 2 to 4",
+                    "deliverable": "Completed leadership profiles",
+                    "description": "Leaders complete online leadership assessments, with 360 feedback or exercises where needed."
+                },
+                {
+                    "chips": [
+                        "Interpretation",
+                        "Talent review"
+                    ],
+                    "title": "Debrief",
+                    "duration": "Weeks 4 to 5",
+                    "deliverable": "Leader and bench reports",
+                    "description": "Practitioners interpret results and debrief leaders, their managers and talent panels."
+                },
+                {
+                    "chips": [
+                        "Development plans",
+                        "Coaching goals"
+                    ],
+                    "title": "Develop",
+                    "duration": "Weeks 5 to 6",
+                    "deliverable": "Development and succession plans",
+                    "description": "Turn insights into succession decisions, development plans and coaching goals."
+                },
+                {
+                    "chips": [
+                        "Bench tracking",
+                        "Refresh"
+                    ],
+                    "title": "Review",
+                    "duration": "Ongoing",
+                    "deliverable": "Bench review",
+                    "description": "Track promotions, readiness and progress, and refresh the bench each cycle."
+                }
+            ],
+            "heading": "The Edstellar leadership assessment <span>process.</span>",
+            "subheading": "Edstellar runs leadership assessment in six steps, from defining the leadership standard to reviewing the bench. A typical cohort takes about six weeks from kickoff to development plans."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "output",
+        "config": {
+            "cta": {
+                "heading": "Build a leadership bench you can rely on.",
+                "primary": {
+                    "href": "#apply",
+                    "label": "Plan your leadership assessment"
+                },
+                "secondary": {
+                    "href": "/tool/talent-assessment-services",
+                    "label": "Take the readiness check"
+                },
+                "description": "Scope your leadership assessment with an Edstellar specialist."
+            },
+            "columns": [
+                {
+                    "items": [
+                        {
+                            "icon": "file",
+                            "stage": "Step 4: Debrief",
+                            "title": "Individual leadership reports",
+                            "description": "Each leader’s capability, potential and derailers, explained in plain language."
+                        },
+                        {
+                            "icon": "list-check",
+                            "stage": "Step 5: Develop",
+                            "title": "Development and coaching plans",
+                            "description": "Practical goals and next steps agreed in the debrief."
+                        }
+                    ],
+                    "title": "Leaders and coaches",
+                    "subtitle": "Self-awareness and growth"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "users",
+                            "stage": "Step 4: Debrief",
+                            "title": "Succession readiness map",
+                            "description": "Ready-now and ready-later successors for each critical role."
+                        },
+                        {
+                            "icon": "grid",
+                            "stage": "Step 4: Debrief",
+                            "title": "Talent review summaries",
+                            "description": "Bench strength across a function or level, with shared strengths and gaps."
+                        }
+                    ],
+                    "title": "Senior leaders and talent panels",
+                    "subtitle": "Confident succession decisions"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "target",
+                            "stage": "Step 1: Scope",
+                            "title": "Leadership success profiles",
+                            "description": "The competencies and potential each leadership role needs, ready to reuse."
+                        },
+                        {
+                            "icon": "layers",
+                            "stage": "Step 5: Develop",
+                            "title": "Links to leadership development",
+                            "description": "Each finding mapped to programs, coaching or further assessment."
+                        }
+                    ],
+                    "title": "HR and L&D",
+                    "subtitle": "A system that lasts"
+                }
+            ],
+            "heading": "Ready-to-use outputs for <span>every decision.</span>",
+            "section_id": "outputs",
+            "description": "Every Edstellar engagement ends with leadership assessment reports and outputs that people can read quickly and act on right away."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "ld_why_edstellar",
+        "config": {
+            "cta": [],
+            "items": [
+                {
+                    "icon": "link",
+                    "title": "Assessment to development, one partner",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Assess",
+                            "Debrief",
+                            "Develop"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "One team, from measurement to development"
+                    },
+                    "difference": "Many assessment providers stop at the report. Edstellar connects it to development.",
+                    "description": "Insight turns into action, because the team that assesses your leaders also maps every result to programs, coaching or OD work."
+                },
+                {
+                    "icon": "chip",
+                    "title": "Runs on the Capability Intelligence Platform",
+                    "visual": {
+                        "type": "signal",
+                        "items": [
+                            "Profiled:74",
+                            "Debriefed:56",
+                            "Developing:63"
+                        ],
+                        "title": "Capability signal",
+                        "status": "Live",
+                        "caption": null
+                    },
+                    "difference": "Your skills data stays live, not frozen in a PDF.",
+                    "description": "You always know who is ready and where the gaps sit, with a live picture of verified skills between assessment cycles."
+                },
+                {
+                    "icon": "chart",
+                    "title": "Expert interpretation, every time",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Tools",
+                            "Role profile",
+                            "Practitioner"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Every score read in context"
+                    },
+                    "difference": "Insight people act on, not a score they guess at.",
+                    "description": "Trained practitioners read every leadership profile against the role and explain it in plain language, so leaders understand and act on their results."
+                },
+                {
+                    "icon": "globe",
+                    "title": "Certified assessors, wherever your people are",
+                    "visual": {
+                        "type": "regions",
+                        "items": [
+                            "APAC",
+                            "Middle East",
+                            "Europe",
+                            "Americas"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Online · in-person · blended"
+                    },
+                    "difference": "The same standard in every country you assess.",
+                    "description": "Leadership assessments run online, in person or blended across 100+ locations, with norm groups suited to each region."
+                },
+                {
+                    "icon": "list",
+                    "title": "A proven method, not improvisation",
+                    "visual": {
+                        "type": "steps",
+                        "items": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Scope · Design · Assess · Debrief · Develop · Review"
+                    },
+                    "difference": "A repeatable system, not a bespoke experiment each time.",
+                    "description": "Every engagement runs the same six steps, from scope to review, with validated tools chosen for the leadership decision at hand."
+                },
+                {
+                    "icon": "sliders",
+                    "title": "The right tool for every leadership role",
+                    "visual": {
+                        "type": "tiers",
+                        "items": [
+                            "Talogy InView",
+                            "Hogan",
+                            "Talogy Caliper™",
+                            "Diamond Leadership"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Chosen from leading publishers"
+                    },
+                    "difference": "The tool fits the leadership role, not the other way round.",
+                    "description": "Edstellar is not tied to a single test publisher, so each leadership role and decision gets the tool that fits it best."
+                }
+            ],
+            "trust": {
+                "caption": "clients served worldwide",
+                "heading": "Trusted across industries and regions",
+                "regions": [
+                    "APAC",
+                    "Middle East",
+                    "Europe",
+                    "Americas"
+                ],
+                "industries": [
+                    {
+                        "icon": "landmark",
+                        "label": "Financial services"
+                    },
+                    {
+                        "icon": "monitor",
+                        "label": "Technology"
+                    },
+                    {
+                        "icon": "cross",
+                        "label": "Healthcare"
+                    },
+                    {
+                        "icon": "factory",
+                        "label": "Manufacturing"
+                    },
+                    {
+                        "icon": "bag",
+                        "label": "Retail & consumer"
+                    },
+                    {
+                        "icon": "airoplane",
+                        "label": "Aviation & maritime"
+                    }
+                ],
+                "more_label": "20+ in all",
+                "regions_label": "Delivered across",
+                "caption_strong": "Fortune 500"
+            },
+            "heading": "Why choose Edstellar for <span>leadership assessment.</span>",
+            "description": "Edstellar chooses the right tools for each leadership role, has trained practitioners interpret every result, and connects the insight to development and succession, so leadership decisions are data-driven and defensible.",
+            "difference_label": "The difference"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "talent_related_services",
+        "config": {
+            "items": [
+                {
+                    "href": "/talent-assessment-services/organizational-alignment-consulting",
+                    "icon": "network",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "360-Degree Feedback",
+                    "description": "See how behavior is experienced by manager, peers and reports."
+                },
+                {
+                    "href": "/talent-assessment-services/assessment-development-centers-consulting",
+                    "icon": "clipboard",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Assessment & Development Centers",
+                    "description": "Combine live exercises with psychometrics for high-stakes decisions."
+                },
+                {
+                    "href": "/talent-assessment-services/psychometric-assessment",
+                    "icon": "layers",
+                    "tags": [
+                        "Hiring",
+                        "Development",
+                        "Promotion"
+                    ],
+                    "title": "Psychometric Assessment",
+                    "description": "Profile personality, work style and motivation for hiring and development."
+                },
+                {
+                    "href": "/talent-assessment-services/emotional-intelligence-assessment",
+                    "icon": "heart",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Emotional Intelligence Assessment",
+                    "description": "Measure self-awareness, empathy and resilience at work."
+                },
+                {
+                    "href": "/talent-assessment-services/cognitive-ability-assessment",
+                    "icon": "brain",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Promotion"
+                    ],
+                    "title": "Cognitive Ability & Aptitude Testing",
+                    "description": "Measure reasoning, problem solving and learning ability."
+                },
+                {
+                    "href": "/talent-assessment-services/team-effectiveness-assessment-services",
+                    "icon": "smile",
+                    "tags": [
+                        "Onboarding",
+                        "First-time managers",
+                        "Team"
+                    ],
+                    "title": "Team Effectiveness Assessment",
+                    "description": "Strengthen how teams trust, work and deliver together."
+                },
+                {
+                    "href": "/talent-assessment-services/behavioral-assessment-services",
+                    "icon": "users",
+                    "tags": [
+                        "Onboarding",
+                        "Development",
+                        "Team"
+                    ],
+                    "title": "Behavioral Assessment",
+                    "description": "Profile behavioral style, strengths and career direction."
+                },
+                {
+                    "href": "/talent-assessment-services/culture-assessment",
+                    "icon": "building",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Culture Assessment",
+                    "description": "Understand the culture people experience every day."
+                },
+                {
+                    "href": "/talent-assessment-services/employee-engagement-survey",
+                    "icon": "star",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Employee Engagement Survey",
+                    "description": "Measure engagement and act on what drives it."
+                },
+                {
+                    "href": "/talent-assessment-services/pre-employment-assessment",
+                    "icon": "user-check",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Safety"
+                    ],
+                    "title": "Pre-employment Assessment",
+                    "description": "Screen early-career and high-volume hiring quickly and fairly."
+                },
+                {
+                    "href": "/talent-assessment-services/skill-gap-competency-assessment",
+                    "icon": "wrench",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "Skills Assessment",
+                    "description": "Verify role-specific skills and see where to develop next."
+                },
+                {
+                    "href": "/talent-assessment-services/language-proficiency-assessment",
+                    "icon": "languages",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "English Proficiency Assessment",
+                    "description": "Verify English proficiency for each role, on CEFR levels."
+                }
+            ],
+            "heading": "Complete the picture with <span>related assessments.</span>",
+            "hub_link": {
+                "href": "/talent-assessment-services#services",
+                "label": "Explore all 58 assessments in 14 families"
+            },
+            "cta_label": "Explore",
+            "section_id": "related",
+            "tags_label": "Best for",
+            "description": "Leadership insight is strongest alongside other evidence. These Edstellar assessments complete the view."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "faqs",
+        "config": {
+            "cta": [
+                {
+                    "href": "#apply",
+                    "cta_text": "Talk through your questions with an Edstellar assessment specialist.",
+                    "btn_label": "Ask us directly"
+                }
+            ],
+            "items": [
+                {
+                    "question": "What is a leadership assessment?",
+                    "answer": "A leadership assessment is a structured way to measure a leader’s capability, potential and derailment risk using validated leadership tests, exercises and feedback. Results are compared with clear leadership competencies, so promotion, succession and development decisions rest on consistent evidence."
+                },
+                {
+                    "question": "Which leadership skills and competencies does a leadership assessment measure?",
+                    "answer": "Edstellar’s leadership assessment measures leadership skills across capability, potential and risk: how a leader sets direction, builds teams and delivers results; the learning agility, drive and judgment behind leadership potential; and the derailers that can surface under pressure. Edstellar’s own Zenith assessment covers twelve leadership competencies in four clusters, from leading strategy to leading results, and tools such as Diamond Leadership add use of power and influence."
+                },
+                {
+                    "question": "Which leadership assessment tools does Edstellar use?",
+                    "answer": "Edstellar selects from tools including Talogy InView Leadership, Talogy Caliper, Saville Wave, Hogan (HPI, HDS and MVPI), Talogy VirtualAC, Talogy 360, Diamond Leadership, Everything DiSC Work of Leaders and EIP3, alongside its own Zenith leadership assessment. Each tool is chosen for the leadership role and the decision it supports."
+                },
+                {
+                    "question": "How do leadership assessments support succession planning?",
+                    "answer": "Leadership assessments combine capability, potential and derailment risk for each successor, so you can see who is ready now, who is ready later and what each person needs to develop for a critical role."
+                },
+                {
+                    "question": "How does Edstellar identify high-potential employees?",
+                    "answer": "Edstellar looks beyond current performance to learning agility, drive and judgment, using validated potential tools and structured evidence, so high-potential identification is fair and consistent across the business."
+                },
+                {
+                    "question": "Can leadership assessments be used to hire senior leaders?",
+                    "answer": "Yes. Tools such as Talogy InView Leadership, Talogy Caliper and Hogan suit leadership selection, executive selection and executive recruitment when combined with structured interviews. Development tools such as Diamond Leadership and Everything DiSC Work of Leaders are used for growth and coaching rather than selection."
+                },
+                {
+                    "question": "What are leadership derailers?",
+                    "answer": "Derailers are tendencies that can surface under pressure, such as overconfidence or excessive caution, and limit a leader’s effectiveness. Instruments such as Hogan identify them early, so they can be addressed through coaching and development."
+                },
+                {
+                    "question": "How is a leadership assessment different from 360-degree feedback?",
+                    "answer": "A leadership assessment measures capability, potential and risk with tests and exercises. 360-degree feedback shows how a leader’s behavior is experienced by their manager, peers and reports. Edstellar often combines both, and covers 360-degree feedback on its own page."
+                },
+                {
+                    "question": "How do you keep leadership assessments fair and free from bias?",
+                    "answer": "Edstellar uses tools with published reliability and validity evidence, standardized administration, several sources of evidence and trained interpretation, and reviews results for adverse impact between groups. No leadership decision rests on a single score."
+                },
+                {
+                    "question": "How long does a leadership assessment take?",
+                    "answer": "Leaders complete most online leadership assessments in a single sitting, remotely or on site. A typical leadership assessment engagement takes about six weeks from scoping to development plans, depending on the number of leaders and the tools used."
+                },
+                {
+                    "question": "How is leadership assessment data protected?",
+                    "answer": "Leadership assessment data is collected only for the agreed purpose, access is limited to agreed stakeholders, and individual results are reported under the confidentiality terms set at scoping. Edstellar holds ISO/IEC 27001:2022 certification for information security management."
+                },
+                {
+                    "question": "How much does a leadership assessment cost?",
+                    "answer": "Cost depends on the number of leaders assessed, the tools chosen, whether exercises or 360 feedback are included, and how much debriefing and coaching you need. Edstellar scopes each engagement before quoting, so you pay only for the evidence your decision requires."
+                }
+            ],
+            "heading": "Leadership assessment <span>FAQs.</span>"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "leadForm",
+        "config": {
+            "heading": "Plan your leadership assessment <span>with Edstellar.</span>",
+            "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+            "description": "Tell Edstellar the leadership roles and decisions you want evidence for. A specialist replies within one business day with a scoped response, no automated sales sequence.",
+            "Button_Label": "Book a consultation"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/leadership-assessment",
+        "slug": "stickyFooter",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "label": "Request a consultation"
+            },
+            "Brochure": [
+                {
+                    "href": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "Label": "Download brochure"
+                }
+            ],
+            "messages": [
+                {
+                    "suffix": "capability, potential and readiness for every leadership decision",
+                    "highlight": "Leadership assessment"
+                }
+            ],
+            "form_anchor_id": "apply"
+        }
+    }
+]

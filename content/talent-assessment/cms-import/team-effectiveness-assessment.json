@@ -1,0 +1,1111 @@
+[
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "seo",
+        "config": {
+            "og_image": null,
+            "og_title": "Team Effectiveness Assessment Services",
+            "meta_title": "Team Effectiveness Assessment Services",
+            "og_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_card": "summary_large_image",
+            "twitter_site": "@edstellar",
+            "canonical_url": "https://www.edstellar.com/talent-assessment-services/team-effectiveness-assessment-services",
+            "meta_keywords": null,
+            "twitter_title": "Team Effectiveness Assessment Services",
+            "og_description": "Edstellar team effectiveness assessments use Polaris, The Five Behaviors and CliftonStrengths Team Grid to build trust, alignment and results in teams.",
+            "twitter_creator": "@edstellar",
+            "Meta_description": "Edstellar team effectiveness assessments use Polaris, The Five Behaviors and CliftonStrengths Team Grid to build trust, alignment and results in teams.",
+            "twitter_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_description": "Edstellar team effectiveness assessments use Polaris, The Five Behaviors and CliftonStrengths Team Grid to build trust, alignment and results in teams."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "consulting_Hero",
+        "config": {
+            "heroLeft": {
+                "title": "Team Effectiveness Assessment Services",
+                "tagline": "Help teams build trust, alignment and results.",
+                "showMeta": true,
+                "description": "Edstellar runs team effectiveness assessments for intact teams, leadership teams and project teams. Edstellar’s own Polaris team diagnostic, The Five Behaviors Team Development and CliftonStrengths Team Grid show how a team works today, and facilitated sessions turn that insight into trust, healthy debate and shared commitment.",
+                "primaryBtnLink": "#apply",
+                "primaryBtnText": "Book a team assessment consultation",
+                "secondaryBtnLink": "#instruments",
+                "secondaryBtnText": "Explore the tools"
+            },
+            "heroRight": {
+                "skill_matrix": {
+                    "note": null,
+                    "rows": [],
+                    "label": null,
+                    "views": [],
+                    "columns": [],
+                    "req_label": null,
+                    "aria_label": null,
+                    "gap_levels": [],
+                    "req_levels": null,
+                    "req_caption": null
+                },
+                "learning_system": [
+                    {
+                        "items": [
+                            {
+                                "icon": "Users",
+                                "title": "New or merged teams",
+                                "description": "A strong start together"
+                            },
+                            {
+                                "icon": "Network",
+                                "title": "Leadership teams",
+                                "description": "Aligned at the top"
+                            },
+                            {
+                                "icon": "Heart",
+                                "title": "Trust and conflict",
+                                "description": "Debate that builds trust"
+                            },
+                            {
+                                "icon": "Target",
+                                "title": "Team performance",
+                                "description": "Shared goals and accountability"
+                            }
+                        ],
+                        "title": "One team assessment, four moments",
+                        "footer_text": "The whole team, assessed and developed together."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "breadcrumbs",
+        "config": {
+            "items": [
+                {
+                    "href": "/",
+                    "label": "Home"
+                },
+                {
+                    "href": "/talent-assessment-services",
+                    "label": "Talent Assessment Services"
+                },
+                {
+                    "href": null,
+                    "label": "Team Effectiveness Assessment"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "generalProof",
+        "config": {
+            "tone": "dark",
+            "items": [
+                {
+                    "Label": "Ready to help your teams work better together?",
+                    "primary_btn_link": "#apply",
+                    "primary_btn_text": "Book a consultation",
+                    "secondary_btn_link": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "secondary_btn_text": "Download the assessments brochure (PDF)"
+                }
+            ],
+            "stats": [
+                {
+                    "label": "Assessments",
+                    "value": "13,650+"
+                },
+                {
+                    "label": "Clients",
+                    "value": "300+"
+                },
+                {
+                    "label": "Industries",
+                    "value": "20+"
+                },
+                {
+                    "label": "Certified",
+                    "value": "ISO 9001 & 27001"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "stickyNavbar",
+        "config": {
+            "cta": {
+                "text": "Book a consultation",
+                "title": "Click Here to Book a Consultation",
+                "targetId": "apply"
+            },
+            "logo": {
+                "alt": "Edstellar",
+                "src": "/course/Edstellar.svg"
+            },
+            "tabs": [
+                {
+                    "id": "concept",
+                    "label": "Method",
+                    "active": true
+                },
+                {
+                    "id": "benefits",
+                    "label": "Benefits",
+                    "active": false
+                },
+                {
+                    "id": "instruments",
+                    "label": "Tools",
+                    "active": false
+                },
+                {
+                    "id": "services",
+                    "label": "Services",
+                    "active": false
+                },
+                {
+                    "id": "process",
+                    "label": "Process",
+                    "active": false
+                },
+                {
+                    "id": "outputs",
+                    "label": "Outputs",
+                    "active": false
+                },
+                {
+                    "id": "why",
+                    "label": "Why Edstellar",
+                    "active": false
+                },
+                {
+                    "id": "faq",
+                    "label": "FAQ",
+                    "active": false
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "concepts",
+        "config": {
+            "art": "team-radar",
+            "grid": {
+                "rows": [],
+                "caption": null,
+                "columns": []
+            },
+            "heading": "A clear picture of how your team <span>works together.</span>",
+            "principles": [
+                {
+                    "title": "The whole team, not just individuals",
+                    "description": "The team is assessed as a unit, with every member’s view counted."
+                },
+                {
+                    "title": "Several perspectives",
+                    "description": "The sponsor’s view before the session and the team’s in-room pulse show where views match and where they differ."
+                },
+                {
+                    "title": "A facilitated conversation",
+                    "description": "Results are explored together in a structured session, not just sent as a report."
+                },
+                {
+                    "title": "Agreements and follow-up",
+                    "description": "The team leaves with clear agreements and a plan, and checks its progress over time."
+                }
+            ],
+            "section_id": "concept",
+            "description": "A team effectiveness assessment looks at how a team works as a whole, from trust and alignment to decisions and results. Edstellar combines team diagnostics with facilitated sessions, around four principles."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "benifits",
+        "config": {
+            "items": [
+                {
+                    "icon": "heart",
+                    "title": "Stronger trust",
+                    "description": "Team members understand each other better and build the trust and team cohesion that open teamwork depends on."
+                },
+                {
+                    "icon": "message",
+                    "title": "Productive debate",
+                    "description": "Teams learn to disagree about ideas openly and constructively, and still commit to one decision."
+                },
+                {
+                    "icon": "target",
+                    "title": "Aligned priorities",
+                    "description": "Teams agree on what matters most, who decides what and how they will work together."
+                },
+                {
+                    "icon": "user-check",
+                    "title": "Clear accountability",
+                    "description": "Shared commitments make it easier for team members to hold each other to agreed standards."
+                },
+                {
+                    "icon": "rocket",
+                    "title": "A faster start for new teams",
+                    "description": "New, merged and project teams agree on goals, roles and ways of working from the outset."
+                },
+                {
+                    "icon": "trending-up",
+                    "title": "Progress the team can see",
+                    "description": "Follow-up sessions and reassessment show how the team has grown over time."
+                }
+            ],
+            "heading": "Edstellar team assessments that build <span>high-performing teams.</span>",
+            "section_id": "benefits",
+            "description": "Edstellar’s team effectiveness assessments give teams and their leaders a shared, honest picture of how they work, so team development and team building focus on what will lift team performance and collaboration most."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "instruments",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "heading": "Get a recommended team program for your team.",
+                "btn_label": "Talk to a specialist",
+                "description": "An Edstellar specialist will match diagnostics to your team and its goals."
+            },
+            "groups": [
+                {
+                    "label": "Edstellar’s own tool",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                2,
+                                2,
+                                2
+                            ],
+                            "name": "Polaris",
+                            "note": "Trust, alignment, communication, decision making, leadership and performance",
+                            "best_used": "For team offsites, conflict resolution and new or merged teams, with the sponsor’s view before and an in-room pulse during the session"
+                        }
+                    ]
+                },
+                {
+                    "label": "Team development",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                2,
+                                2
+                            ],
+                            "name": "The Five Behaviors® Team Development",
+                            "note": "Trust, conflict, commitment, accountability and results",
+                            "best_used": "For team workshops and ongoing team programs, with a facilitated debrief"
+                        }
+                    ]
+                },
+                {
+                    "label": "Team composition and styles",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                0,
+                                1
+                            ],
+                            "name": "Gallup’s CliftonStrengths (Team Grid)",
+                            "note": "The team’s combined strengths",
+                            "best_used": "For seeing the strengths across the team and who to lean on for what"
+                        },
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                1,
+                                0
+                            ],
+                            "name": "Everything DiSC® Workplace",
+                            "note": "Behavioral styles and team communication",
+                            "best_used": "For team communication workshops with a shared style language"
+                        },
+                        {
+                            "fit": [
+                                0,
+                                1,
+                                2,
+                                0
+                            ],
+                            "name": "FIRO-B",
+                            "note": "Interpersonal needs and team dynamics",
+                            "best_used": "For team diagnostics on what drives disagreement, as a development tool"
+                        }
+                    ]
+                }
+            ],
+            "columns": [
+                "New & merged teams",
+                "Leadership teams",
+                "Trust & conflict",
+                "Alignment & performance"
+            ],
+            "heading": "Proven team effectiveness tools, <span>chosen for each team.</span>",
+            "lifecycle": {
+                "title": "Where Edstellar team effectiveness assessment fits in the employee lifecycle",
+                "stages": [
+                    {
+                        "label": "Campus & pre-hire",
+                        "active": false
+                    },
+                    {
+                        "label": "Hiring decisions",
+                        "active": false
+                    },
+                    {
+                        "label": "Onboarding",
+                        "active": true
+                    },
+                    {
+                        "label": "Individual development",
+                        "active": false
+                    },
+                    {
+                        "label": "First-time managers",
+                        "active": true
+                    },
+                    {
+                        "label": "Promotion & succession",
+                        "active": false
+                    },
+                    {
+                        "label": "Leadership & coaching",
+                        "active": false
+                    },
+                    {
+                        "label": "Team & culture",
+                        "active": true
+                    },
+                    {
+                        "label": "Safety & compliance",
+                        "active": false
+                    }
+                ],
+                "audiences": [
+                    "Intact teams",
+                    "Leadership teams",
+                    "Project teams",
+                    "Cross-functional groups"
+                ]
+            },
+            "fit_legend": {
+                "none": "Not used for this",
+                "strong": "Strong fit",
+                "supporting": "Supporting evidence"
+            },
+            "section_id": "instruments",
+            "description": "Edstellar combines its own Polaris team diagnostic with validated team tools from leading publishers, choosing the right tool for each team and the moment it is in.",
+            "table_label": "Team effectiveness tool fit",
+            "table_caption": "Team effectiveness tools and how well each fits new or merged teams, leadership teams, trust and conflict, and alignment and performance"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "Inside",
+        "config": {
+            "cta": null,
+            "tabs": [],
+            "heading": null,
+            "section_id": "inside",
+            "description": null
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "readinessData",
+        "config": {
+            "cta": {
+                "href": "https://www.edstellar.com/tool/talent-assessment-services",
+                "label": "Take the free readiness check →"
+            },
+            "points": [
+                "Trust, debate and commitment",
+                "Alignment, roles and decision rights",
+                "Follow-up that keeps agreements alive"
+            ],
+            "heading": "Assess your teams against the <span>essentials.</span>",
+            "checklist": {
+                "items": [
+                    {
+                        "done": true,
+                        "label": "The team agrees on its priorities"
+                    },
+                    {
+                        "done": true,
+                        "label": "Disagreement is open and constructive"
+                    },
+                    {
+                        "done": true,
+                        "label": "Decision rights are clear"
+                    },
+                    {
+                        "done": false,
+                        "label": "Commitments are followed through"
+                    },
+                    {
+                        "done": false,
+                        "label": "Progress is reviewed together"
+                    }
+                ],
+                "title": "Team effectiveness checklist"
+            },
+            "description": "A quick check of how your teams work today, from trust and alignment to follow-through, and where a team effectiveness assessment can add even more value."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "talent-services",
+        "config": {
+            "items": [
+                {
+                    "get": "Team profile",
+                    "flow": [
+                        "Polaris",
+                        "Five Behaviors",
+                        "Team Grid",
+                        "DiSC Workplace",
+                        "FIRO-B"
+                    ],
+                    "icon": "target",
+                    "title": "Team diagnostics",
+                    "caption": "Diagnostics chosen for each team",
+                    "summary": "Assess the team with Polaris, The Five Behaviors Team Development or CliftonStrengths Team Grid, chosen for the team and its goals.",
+                    "flow_style": "tags",
+                    "flow_highlight": 0
+                },
+                {
+                    "get": "Facilitated session and team agreements",
+                    "flow": [
+                        "Team results",
+                        "Facilitated session",
+                        "Team agreements"
+                    ],
+                    "icon": "message",
+                    "title": "Facilitated team sessions",
+                    "caption": "Insight the whole team owns",
+                    "summary": "Experienced facilitators guide the team through its results and help it agree on what to change.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Leadership team charter",
+                    "flow": [
+                        "Priorities",
+                        "Decision rights",
+                        "Team charter"
+                    ],
+                    "icon": "user-check",
+                    "title": "Leadership team alignment",
+                    "caption": "Aligned at the top",
+                    "summary": "Help leadership teams agree on priorities, decision rights and how they work together.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Trust and conflict agreements",
+                    "flow": [
+                        "Trust",
+                        "Healthy debate",
+                        "Commitment"
+                    ],
+                    "icon": "scale",
+                    "title": "Trust and conflict sessions",
+                    "caption": "Disagreement that builds trust",
+                    "summary": "Build trust and turn disagreement into productive debate, with practical tools the team uses every day.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Team launch plan",
+                    "flow": [
+                        "Goals",
+                        "Roles",
+                        "Ways of working"
+                    ],
+                    "icon": "users",
+                    "title": "New and merged team launches",
+                    "caption": "A strong start together",
+                    "summary": "Give new, merged and project teams a strong start, with shared goals, roles and ways of working.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Progress review",
+                    "flow": [
+                        "Agreements",
+                        "Team coaching",
+                        "Reassessment"
+                    ],
+                    "icon": "trending-up",
+                    "title": "Team coaching and follow-up",
+                    "caption": "Progress the team can see",
+                    "summary": "Follow-up sessions and team coaching keep agreements alive and track progress over time.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                }
+            ],
+            "heading": "Edstellar team effectiveness services, <span>end to end.</span>",
+            "get_label": "You get:",
+            "section_id": "services",
+            "description": "From team diagnostics to follow-up coaching, Edstellar covers every part of a team effectiveness program."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "methodology",
+        "config": {
+            "cta": [],
+            "steps": [
+                {
+                    "chips": [
+                        "Sponsor view",
+                        "Team goals"
+                    ],
+                    "title": "Scope",
+                    "duration": "Week 1",
+                    "deliverable": "Team brief",
+                    "description": "Agree with the sponsor on the team, its goals and what success looks like."
+                },
+                {
+                    "chips": [
+                        "Tool choice",
+                        "Session design"
+                    ],
+                    "title": "Design",
+                    "duration": "Weeks 1 to 2",
+                    "deliverable": "Session plan",
+                    "description": "Choose the diagnostics and design the facilitated session."
+                },
+                {
+                    "chips": [
+                        "Team survey",
+                        "Sponsor input"
+                    ],
+                    "title": "Assess",
+                    "duration": "Weeks 2 to 3",
+                    "deliverable": "Team profile",
+                    "description": "Team members complete the online team effectiveness survey, and the sponsor shares their view."
+                },
+                {
+                    "chips": [
+                        "Facilitated session",
+                        "In-room pulse"
+                    ],
+                    "title": "Debrief",
+                    "duration": "Weeks 3 to 4",
+                    "deliverable": "Shared team picture and agreements",
+                    "description": "A facilitated session explores the results, with an in-room pulse to test what the team sees."
+                },
+                {
+                    "chips": [
+                        "Team agreements",
+                        "Team coaching"
+                    ],
+                    "title": "Develop",
+                    "duration": "Following weeks",
+                    "deliverable": "Team action plan in use",
+                    "description": "The team acts on its agreements, with follow-up sessions and team coaching."
+                },
+                {
+                    "chips": [
+                        "Reassessment",
+                        "Progress review"
+                    ],
+                    "title": "Review",
+                    "duration": "Ongoing",
+                    "deliverable": "Progress review",
+                    "description": "The team reassesses to see what has changed and refresh its plan."
+                }
+            ],
+            "heading": "The Edstellar team effectiveness <span>process.</span>",
+            "subheading": "Edstellar runs team effectiveness assessments in six steps, from scope to review. Most teams reach their facilitated session within about four weeks of kickoff."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "output",
+        "config": {
+            "cta": {
+                "heading": "Build a team that works at its best.",
+                "primary": {
+                    "href": "#apply",
+                    "label": "Plan your team program"
+                },
+                "secondary": {
+                    "href": "/tool/talent-assessment-services",
+                    "label": "Take the readiness check"
+                },
+                "description": "Scope your team effectiveness program with an Edstellar specialist."
+            },
+            "columns": [
+                {
+                    "items": [
+                        {
+                            "icon": "grid",
+                            "stage": "Step 3: Assess",
+                            "title": "Team profile",
+                            "description": "How the team works across each dimension, and where views differ."
+                        },
+                        {
+                            "icon": "file",
+                            "stage": "Step 3: Assess",
+                            "title": "Individual insight",
+                            "description": "Each person’s strengths or style, and what it brings to the team."
+                        }
+                    ],
+                    "title": "Team members",
+                    "subtitle": "A shared picture"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "target",
+                            "stage": "Step 4: Debrief",
+                            "title": "Team agreements and charter",
+                            "description": "Agreed ways of working, decision rights and commitments."
+                        },
+                        {
+                            "icon": "list-check",
+                            "stage": "Step 4: Debrief",
+                            "title": "Team action plan",
+                            "description": "Practical priorities with owners and timelines."
+                        }
+                    ],
+                    "title": "Team leaders and sponsors",
+                    "subtitle": "Clear priorities"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "user-cog",
+                            "stage": "Step 5: Develop",
+                            "title": "Team coaching plan",
+                            "description": "Focus areas for follow-up sessions and team coaching."
+                        },
+                        {
+                            "icon": "trending-up",
+                            "stage": "Step 6: Review",
+                            "title": "Progress review",
+                            "description": "What has changed since the session and where to focus next."
+                        }
+                    ],
+                    "title": "HR and L&D",
+                    "subtitle": "Progress you can track"
+                }
+            ],
+            "heading": "Ready-to-use outputs for <span>every decision.</span>",
+            "section_id": "outputs",
+            "description": "Every Edstellar team effectiveness assessment ends with outputs the team can read quickly and act on right away."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "ld_why_edstellar",
+        "config": {
+            "cta": [],
+            "items": [
+                {
+                    "icon": "link",
+                    "title": "Assessment to development, one partner",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Assess",
+                            "Debrief",
+                            "Develop"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "One team, from measurement to development"
+                    },
+                    "difference": "Many test providers stop at the report. Edstellar connects it to development.",
+                    "description": "Insight turns into action, because the team that assesses your teams also delivers the coaching, training and OD work that follows."
+                },
+                {
+                    "icon": "chip",
+                    "title": "Runs on the Capability Intelligence Platform",
+                    "visual": {
+                        "type": "signal",
+                        "items": [
+                            "Profiled:74",
+                            "Debriefed:56",
+                            "Developing:63"
+                        ],
+                        "title": "Capability signal",
+                        "status": "Live",
+                        "caption": null
+                    },
+                    "difference": "Your skills data stays live, not frozen in a PDF.",
+                    "description": "You always know who is ready and where the gaps sit, with a live picture of verified skills between assessment cycles."
+                },
+                {
+                    "icon": "chart",
+                    "title": "Expert interpretation, every time",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Team diagnostic",
+                            "Team context",
+                            "Practitioner"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Every score read in context"
+                    },
+                    "difference": "Insight people act on, not a score they guess at.",
+                    "description": "Experienced facilitators read every team profile in context and explore it with the team, so people understand and act on their results."
+                },
+                {
+                    "icon": "globe",
+                    "title": "Certified assessors, wherever your people are",
+                    "visual": {
+                        "type": "regions",
+                        "items": [
+                            "APAC",
+                            "Middle East",
+                            "Europe",
+                            "Americas"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Online · in-person · blended"
+                    },
+                    "difference": "The same standard in every country you assess.",
+                    "description": "Team assessments and facilitated sessions run online, in person or blended across 100+ locations, including team offsites."
+                },
+                {
+                    "icon": "list",
+                    "title": "A proven method, not improvisation",
+                    "visual": {
+                        "type": "steps",
+                        "items": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Scope · Design · Assess · Debrief · Develop · Review"
+                    },
+                    "difference": "A repeatable system, not a bespoke experiment each time.",
+                    "description": "Every engagement runs the same six steps, from scope to review, with diagnostics chosen for the team at hand."
+                },
+                {
+                    "icon": "sliders",
+                    "title": "The right diagnostic for every team",
+                    "visual": {
+                        "type": "tiers",
+                        "items": [
+                            "Polaris",
+                            "Five Behaviors®",
+                            "Team Grid",
+                            "DiSC®"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Including Edstellar’s own Polaris"
+                    },
+                    "difference": "The diagnostic fits the team, not the other way round.",
+                    "description": "Edstellar is not tied to a single test publisher, so each team gets the diagnostic that fits it best, including Edstellar’s own Polaris."
+                }
+            ],
+            "trust": {
+                "caption": "clients served worldwide",
+                "heading": "Trusted across industries and regions",
+                "regions": [
+                    "APAC",
+                    "Middle East",
+                    "Europe",
+                    "Americas"
+                ],
+                "industries": [
+                    {
+                        "icon": "landmark",
+                        "label": "Financial services"
+                    },
+                    {
+                        "icon": "monitor",
+                        "label": "Technology"
+                    },
+                    {
+                        "icon": "cross",
+                        "label": "Healthcare"
+                    },
+                    {
+                        "icon": "factory",
+                        "label": "Manufacturing"
+                    },
+                    {
+                        "icon": "bag",
+                        "label": "Retail & consumer"
+                    },
+                    {
+                        "icon": "airoplane",
+                        "label": "Aviation & maritime"
+                    }
+                ],
+                "more_label": "20+ in all",
+                "regions_label": "Delivered across",
+                "caption_strong": "Fortune 500"
+            },
+            "heading": "Why choose Edstellar for <span>team effectiveness assessment.</span>",
+            "description": "Edstellar assesses the whole team with the right diagnostic, facilitates every results session, and connects the insight to team coaching and OD work, so better teamwork lasts.",
+            "difference_label": "The difference"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "talent_related_services",
+        "config": {
+            "items": [
+                {
+                    "href": "/talent-assessment-services/behavioral-assessment-services",
+                    "icon": "users",
+                    "tags": [
+                        "Onboarding",
+                        "Development",
+                        "Team"
+                    ],
+                    "title": "Behavioral Assessment",
+                    "description": "Profile behavioral style, strengths and career direction."
+                },
+                {
+                    "href": "/talent-assessment-services/leadership-assessment",
+                    "icon": "star",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Leadership Assessment",
+                    "description": "Assess leadership capability, potential and succession readiness."
+                },
+                {
+                    "href": "/talent-assessment-services/organizational-alignment-consulting",
+                    "icon": "network",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "360-Degree Feedback",
+                    "description": "See how behavior is experienced by manager, peers and reports."
+                },
+                {
+                    "href": "/talent-assessment-services/emotional-intelligence-assessment",
+                    "icon": "heart",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Emotional Intelligence Assessment",
+                    "description": "Measure self-awareness, empathy and resilience at work."
+                },
+                {
+                    "href": "/talent-assessment-services/culture-assessment",
+                    "icon": "building",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Culture Assessment",
+                    "description": "Understand the culture people experience every day."
+                },
+                {
+                    "href": "/talent-assessment-services/employee-engagement-survey",
+                    "icon": "star",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Employee Engagement Survey",
+                    "description": "Measure engagement and act on what drives it."
+                },
+                {
+                    "href": "/talent-assessment-services/psychometric-assessment",
+                    "icon": "layers",
+                    "tags": [
+                        "Hiring",
+                        "Development",
+                        "Promotion"
+                    ],
+                    "title": "Psychometric Assessment",
+                    "description": "Profile personality, work style and motivation for hiring and development."
+                },
+                {
+                    "href": "/talent-assessment-services/assessment-development-centers-consulting",
+                    "icon": "clipboard",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Assessment & Development Centers",
+                    "description": "Combine live exercises with psychometrics for high-stakes decisions."
+                },
+                {
+                    "href": "/talent-assessment-services/skill-gap-competency-assessment",
+                    "icon": "wrench",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "Skills Assessment",
+                    "description": "Verify role-specific skills and see where to develop next."
+                },
+                {
+                    "href": "/talent-assessment-services/cognitive-ability-assessment",
+                    "icon": "brain",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Promotion"
+                    ],
+                    "title": "Cognitive Ability & Aptitude Testing",
+                    "description": "Measure reasoning, problem solving and learning ability."
+                },
+                {
+                    "href": "/talent-assessment-services/pre-employment-assessment",
+                    "icon": "user-check",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Safety"
+                    ],
+                    "title": "Pre-employment Assessment",
+                    "description": "Screen early-career and high-volume hiring quickly and fairly."
+                },
+                {
+                    "href": "/talent-assessment-services/language-proficiency-assessment",
+                    "icon": "languages",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "English Proficiency Assessment",
+                    "description": "Verify English proficiency for each role, on CEFR levels."
+                }
+            ],
+            "heading": "Complete the picture with <span>related assessments.</span>",
+            "hub_link": {
+                "href": "/talent-assessment-services#services",
+                "label": "Explore all 58 assessments in 14 families"
+            },
+            "cta_label": "Explore",
+            "section_id": "related",
+            "tags_label": "Best for",
+            "description": "Team insight is strongest alongside other assessments. These Edstellar services complete the view."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "faqs",
+        "config": {
+            "cta": [
+                {
+                    "href": "#apply",
+                    "cta_text": "Talk through your questions with an Edstellar assessment specialist.",
+                    "btn_label": "Ask us directly"
+                }
+            ],
+            "items": [
+                {
+                    "question": "What is a team effectiveness assessment?",
+                    "answer": "A team effectiveness assessment, sometimes run as a team effectiveness survey, looks at how a team works as a whole, including trust, alignment, collaboration, communication, decision making, leadership and performance. Edstellar combines team diagnostics with facilitated sessions, so the team agrees on what to change and acts on it."
+                },
+                {
+                    "question": "What is Polaris?",
+                    "answer": "Polaris is Edstellar's own team diagnostic. It assesses a team across six dimensions: trust, alignment, communication, decision making, leadership and performance, combining the sponsor's view before the session with an in-room pulse during it."
+                },
+                {
+                    "question": "Which team assessment tools does Edstellar use?",
+                    "answer": "Depending on the team and its goals, Edstellar uses Polaris, The Five Behaviors Team Development, Gallup's CliftonStrengths Team Grid, Everything DiSC Workplace and FIRO-B."
+                },
+                {
+                    "question": "What does The Five Behaviors Team Development measure?",
+                    "answer": "The Five Behaviors Team Development, based on Patrick Lencioni's model, looks at trust, conflict, commitment, accountability and results, the building blocks of team cohesion. Edstellar uses it for team workshops, team building and ongoing team programs, with a facilitated debrief."
+                },
+                {
+                    "question": "Which teams benefit most?",
+                    "answer": "Intact teams, leadership teams, project teams, and new or merged teams benefit most, especially when a team is going through change, preparing for an offsite or working through conflict."
+                },
+                {
+                    "question": "What happens in a facilitated team session?",
+                    "answer": "An experienced facilitator walks the team through its results, uses an in-room pulse to test what the team sees, and guides the conversation toward clear agreements and a practical action plan."
+                },
+                {
+                    "question": "How are individual responses handled?",
+                    "answer": "Team results are reported at team level, and how individual responses are shared is agreed with the sponsor at scoping, so team members can answer openly."
+                },
+                {
+                    "question": "Can a team assessment help with conflict?",
+                    "answer": "Yes. Tools such as FIRO-B and The Five Behaviors help teams understand the team dynamics that drive disagreement and turn it into productive debate, with agreements the team commits to."
+                },
+                {
+                    "question": "How long does a team effectiveness assessment take?",
+                    "answer": "Most teams reach their facilitated session within about four weeks of kickoff. Follow-up sessions and team coaching then run over the following weeks, depending on the program."
+                },
+                {
+                    "question": "How is team assessment data protected?",
+                    "answer": "Data is collected only for the agreed purpose, access is limited to agreed stakeholders, and reports are shared under the confidentiality terms set at scoping. Edstellar holds ISO/IEC 27001:2022 certification for information security management."
+                },
+                {
+                    "question": "How much does a team effectiveness assessment cost?",
+                    "answer": "Cost depends on the size and number of teams, the diagnostics used, and how many facilitated sessions and coaching follow-ups you need. Edstellar scopes each program before quoting, so you pay only for what your teams require."
+                }
+            ],
+            "heading": "Team effectiveness assessment <span>FAQs.</span>"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "leadForm",
+        "config": {
+            "heading": "Plan your team effectiveness assessment <span>with Edstellar.</span>",
+            "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+            "description": "Tell Edstellar about the team you want to develop. A specialist replies within one business day with a scoped response, no automated sales sequence.",
+            "Button_Label": "Book a consultation"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/team-effectiveness-assessment-services",
+        "slug": "stickyFooter",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "label": "Request a consultation"
+            },
+            "Brochure": [
+                {
+                    "href": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "Label": "Download brochure"
+                }
+            ],
+            "messages": [
+                {
+                    "suffix": "team diagnostics and facilitated sessions that build trust and results",
+                    "highlight": "Team effectiveness assessment"
+                }
+            ],
+            "form_anchor_id": "apply"
+        }
+    }
+]

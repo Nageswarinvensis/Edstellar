@@ -1,0 +1,1185 @@
+[
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "seo",
+        "config": {
+            "og_image": null,
+            "og_title": "Psychometric Assessment & Testing Services",
+            "meta_title": "Psychometric Assessment & Testing Services",
+            "og_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_card": "summary_large_image",
+            "twitter_site": "@edstellar",
+            "canonical_url": "https://www.edstellar.com/talent-assessment-services/psychometric-assessment",
+            "meta_keywords": null,
+            "twitter_title": "Psychometric Assessment & Testing Services",
+            "og_description": "Edstellar's psychometric assessment and testing services use validated personality tests for recruitment, employee development and succession planning.",
+            "twitter_creator": "@edstellar",
+            "Meta_description": "Edstellar's psychometric assessment and testing services use validated personality tests for recruitment, employee development and succession planning.",
+            "twitter_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_description": "Edstellar's psychometric assessment and testing services use validated personality tests for recruitment, employee development and succession planning."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "consulting_Hero",
+        "config": {
+            "heroLeft": {
+                "title": "Psychometric Assessment Services",
+                "tagline": "Understand how people work, before you decide.",
+                "showMeta": true,
+                "description": "Edstellar’s psychometric testing and assessment services measure personality, work style and motivation with validated instruments. Trained practitioners interpret every profile and link it to a clear decision, whether that is a hire, a promotion or a development plan.",
+                "primaryBtnLink": "#apply",
+                "primaryBtnText": "Book a psychometric consultation",
+                "secondaryBtnLink": "#instruments",
+                "secondaryBtnText": "Explore the instruments"
+            },
+            "heroRight": {
+                "skill_matrix": {
+                    "note": null,
+                    "rows": [],
+                    "label": null,
+                    "views": [],
+                    "columns": [],
+                    "req_label": null,
+                    "aria_label": null,
+                    "gap_levels": [],
+                    "req_levels": null,
+                    "req_caption": null
+                },
+                "learning_system": [
+                    {
+                        "items": [
+                            {
+                                "icon": "Users",
+                                "title": "Hiring",
+                                "description": "Role fit alongside interviews and skills evidence"
+                            },
+                            {
+                                "icon": "RotateCw",
+                                "title": "Development",
+                                "description": "Self-awareness, coaching and growth plans"
+                            },
+                            {
+                                "icon": "Target",
+                                "title": "Promotion & succession",
+                                "description": "Readiness for bigger roles"
+                            },
+                            {
+                                "icon": "Network",
+                                "title": "Career planning",
+                                "description": "Internal moves and career conversations"
+                            }
+                        ],
+                        "title": "One psychometric profile, four decisions",
+                        "footer_text": "Personality, work style and motivation, interpreted by experts."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "breadcrumbs",
+        "config": {
+            "items": [
+                {
+                    "href": "/",
+                    "label": "Home"
+                },
+                {
+                    "href": "/talent-assessment-services",
+                    "label": "Talent Assessment Services"
+                },
+                {
+                    "href": null,
+                    "label": "Psychometric Assessment"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "generalProof",
+        "config": {
+            "tone": "dark",
+            "items": [
+                {
+                    "Label": "Ready to understand your people in depth?",
+                    "primary_btn_link": "#apply",
+                    "primary_btn_text": "Book a consultation",
+                    "secondary_btn_link": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "secondary_btn_text": "Download the assessments brochure (PDF)"
+                }
+            ],
+            "stats": [
+                {
+                    "label": "Assessments",
+                    "value": "13,650+"
+                },
+                {
+                    "label": "Clients",
+                    "value": "300+"
+                },
+                {
+                    "label": "Industries",
+                    "value": "20+"
+                },
+                {
+                    "label": "Certified",
+                    "value": "ISO 9001 & 27001"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "stickyNavbar",
+        "config": {
+            "cta": {
+                "text": "Book a consultation",
+                "title": "Click Here to Book a Consultation",
+                "targetId": "apply"
+            },
+            "logo": {
+                "alt": "Edstellar",
+                "src": "/course/Edstellar.svg"
+            },
+            "tabs": [
+                {
+                    "id": "layers",
+                    "label": "Insight",
+                    "active": true
+                },
+                {
+                    "id": "benefits",
+                    "label": "Benefits",
+                    "active": false
+                },
+                {
+                    "id": "instruments",
+                    "label": "Instruments",
+                    "active": false
+                },
+                {
+                    "id": "services",
+                    "label": "Services",
+                    "active": false
+                },
+                {
+                    "id": "process",
+                    "label": "Process",
+                    "active": false
+                },
+                {
+                    "id": "outputs",
+                    "label": "Outputs",
+                    "active": false
+                },
+                {
+                    "id": "why",
+                    "label": "Why Edstellar",
+                    "active": false
+                },
+                {
+                    "id": "faq",
+                    "label": "FAQ",
+                    "active": false
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "concepts",
+        "config": {
+            "art": "iceberg",
+            "grid": {
+                "rows": [],
+                "caption": null,
+                "columns": []
+            },
+            "heading": "Three layers of insight into <span>every person.</span>",
+            "principles": [
+                {
+                    "title": "Everyday strengths",
+                    "description": "How a person typically works, plans, communicates and relates to others when things are going well."
+                },
+                {
+                    "title": "Behavior under pressure",
+                    "description": "The tendencies that appear under stress or high stakes, so they can be recognized early and coached well."
+                },
+                {
+                    "title": "Values and motivation",
+                    "description": "What energizes a person, what they value at work and the environments where they do their best work."
+                }
+            ],
+            "section_id": "layers",
+            "description": "A psychometric assessment uses personality tests, personality questionnaires and work-style assessments to look beyond the CV and the interview. Edstellar profiles three layers of each person, so every talent decision rests on the whole picture."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "benifits",
+        "config": {
+            "items": [
+                {
+                    "icon": "user-check",
+                    "title": "Hire for fit with confidence",
+                    "description": "Bring evidence into recruitment: match candidates to the real demands of the role, alongside interviews and skills evidence, so offers go to people with the right role fit and culture fit."
+                },
+                {
+                    "icon": "trending-up",
+                    "title": "Promote proven potential",
+                    "description": "Identify high-potential employees with the style and drivers for a bigger role before the promotion, so new leaders start ready."
+                },
+                {
+                    "icon": "globe",
+                    "title": "One battery across the business",
+                    "description": "Use the same validated instruments and standards in every function and region, so results compare fairly."
+                },
+                {
+                    "icon": "eye",
+                    "title": "Insights people act on",
+                    "description": "Clear reports and one-to-one debriefs turn each profile into strengths to use and habits to build."
+                },
+                {
+                    "icon": "shield",
+                    "title": "Decisions you can defend",
+                    "description": "Validated instruments, trained interpretation and fairness reviews give every decision a documented rationale."
+                },
+                {
+                    "icon": "rocket",
+                    "title": "Faster onboarding through self-awareness",
+                    "description": "New hires and their managers learn early how each person works best, so they build a productive working relationship sooner."
+                }
+            ],
+            "heading": "Edstellar psychometric assessment that turns insight into <span>better decisions.</span>",
+            "section_id": "benefits",
+            "description": "Edstellar’s psychometric assessment services give HR and business leaders a consistent, objective view of people, so recruitment, candidate assessment, employee development and succession planning all build on the same reliable evidence."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "instruments",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "heading": "Get a recommended battery for your roles.",
+                "btn_label": "Talk to a specialist",
+                "description": "An Edstellar specialist will match instruments to your roles and decisions."
+            },
+            "groups": [
+                {
+                    "label": "Trait personality",
+                    "tools": [
+                        {
+                            "fit": [
+                                1,
+                                0,
+                                2,
+                                0,
+                                0
+                            ],
+                            "name": "16PF",
+                            "note": "Personality and work behavior traits",
+                            "best_used": "With job mapping, trained interpreters and other evidence for selection"
+                        },
+                        {
+                            "fit": [
+                                0,
+                                0,
+                                2,
+                                0,
+                                0
+                            ],
+                            "name": "16 PF Management",
+                            "note": "Personality profile for people managers",
+                            "best_used": "In manager development and coaching conversations"
+                        },
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                2,
+                                2,
+                                0
+                            ],
+                            "name": "Saville (Wave® Professional / Focus Styles)",
+                            "note": "Personality, competency potential, motives and culture fit",
+                            "best_used": "For selection and development with job profiling and trained interpretation"
+                        },
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                2,
+                                0,
+                                2
+                            ],
+                            "name": "Factors (Talogy)",
+                            "note": "Personality, work style and potential",
+                            "best_used": "As part of a broader battery with role benchmarks"
+                        }
+                    ]
+                },
+                {
+                    "label": "Personality, derailers and values",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                2,
+                                2,
+                                0
+                            ],
+                            "name": "Hogan (HPI/HDS/MVPI)",
+                            "note": "Personality, derailers, values and motivators",
+                            "best_used": "With role profiling and qualified interpretation, especially for managers, leaders and succession"
+                        }
+                    ]
+                },
+                {
+                    "label": "Work style and motivation",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                2,
+                                0,
+                                2
+                            ],
+                            "name": "PAPI",
+                            "note": "Work style and motivation",
+                            "best_used": "For role-fit discussions, with norms validated for your region"
+                        },
+                        {
+                            "fit": [
+                                0,
+                                0,
+                                2,
+                                0,
+                                0
+                            ],
+                            "name": "Saville Workplace Profile",
+                            "note": "Work preferences",
+                            "best_used": "In individual development planning"
+                        },
+                        {
+                            "fit": [
+                                1,
+                                2,
+                                2,
+                                0,
+                                2
+                            ],
+                            "name": "Work Style Lens",
+                            "note": "Work habits and preferences",
+                            "best_used": "For development and team alignment, with supporting data in hiring"
+                        }
+                    ]
+                },
+                {
+                    "label": "Type and preferences",
+                    "tools": [
+                        {
+                            "fit": [
+                                0,
+                                2,
+                                2,
+                                0,
+                                0
+                            ],
+                            "name": "MBTI",
+                            "note": "Personality type and preferences",
+                            "best_used": "For self-awareness, coaching and team dialogue"
+                        }
+                    ]
+                },
+                {
+                    "label": "Personality and job fit",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                1,
+                                2,
+                                0
+                            ],
+                            "name": "Talogy Caliper™",
+                            "note": "Personality plus cognitive predictor of job fit",
+                            "best_used": "With role benchmarking and trained feedback"
+                        }
+                    ]
+                }
+            ],
+            "columns": [
+                "Hiring",
+                "Onboarding",
+                "Development",
+                "Promotion & succession",
+                "Career planning"
+            ],
+            "heading": "Proven psychometric tests, <span>chosen for each role.</span>",
+            "lifecycle": {
+                "title": "Where Edstellar psychometric assessment fits in the employee lifecycle",
+                "stages": [
+                    {
+                        "label": "Campus & pre-hire",
+                        "active": false
+                    },
+                    {
+                        "label": "Hiring decisions",
+                        "active": true
+                    },
+                    {
+                        "label": "Onboarding",
+                        "active": true
+                    },
+                    {
+                        "label": "Individual development",
+                        "active": true
+                    },
+                    {
+                        "label": "First-time managers",
+                        "active": false
+                    },
+                    {
+                        "label": "Promotion & succession",
+                        "active": true
+                    },
+                    {
+                        "label": "Leadership & coaching",
+                        "active": false
+                    },
+                    {
+                        "label": "Team & culture",
+                        "active": false
+                    },
+                    {
+                        "label": "Safety & compliance",
+                        "active": false
+                    }
+                ],
+                "audiences": [
+                    "Professional roles",
+                    "Managers",
+                    "Leaders"
+                ]
+            },
+            "fit_legend": {
+                "none": "Not used for this",
+                "strong": "Strong fit",
+                "supporting": "Supporting evidence"
+            },
+            "section_id": "instruments",
+            "description": "Edstellar selects from leading psychometric tools, choosing validated, reliable personality assessments and work-style instruments for the decision each one supports. Use the table to see where each instrument adds the most value.",
+            "table_label": "Psychometric instrument fit",
+            "table_caption": "Psychometric instruments and how well each fits hiring, onboarding, development, promotion and succession, and career planning decisions, in employee lifecycle order"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "Inside",
+        "config": {
+            "cta": null,
+            "tabs": [],
+            "heading": null,
+            "section_id": "inside",
+            "description": null
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "readinessData",
+        "config": {
+            "cta": {
+                "href": "https://www.edstellar.com/tool/talent-assessment-services",
+                "label": "Take the free readiness check →"
+            },
+            "points": [
+                "Role profiles and instrument choice",
+                "Use of results in hiring and development decisions",
+                "Debriefs and follow-through on development"
+            ],
+            "heading": "Assess your psychometric readiness against the <span>essentials.</span>",
+            "checklist": {
+                "items": [
+                    {
+                        "done": true,
+                        "label": "Roles have clear success profiles"
+                    },
+                    {
+                        "done": true,
+                        "label": "Instruments are matched to each decision"
+                    },
+                    {
+                        "done": true,
+                        "label": "Results combine with other evidence"
+                    },
+                    {
+                        "done": false,
+                        "label": "Every participant gets a debrief"
+                    },
+                    {
+                        "done": false,
+                        "label": "Insights feed development plans"
+                    }
+                ],
+                "title": "Psychometric readiness checklist"
+            },
+            "description": "A quick check of how your organization uses psychometric assessment today, from role profiles to debriefs, and where it can add even more value."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "talent-services",
+        "config": {
+            "items": [
+                {
+                    "get": "Configured instrument battery",
+                    "flow": [
+                        "Sales manager role",
+                        "PAPI · Saville Wave® · Talogy Caliper™",
+                        "Battery"
+                    ],
+                    "icon": "layers",
+                    "title": "Battery design",
+                    "caption": "Role and decision in, the right battery out",
+                    "summary": "Choose and combine the right instruments for each role and decision, with norm groups that match your workforce.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Success profile per role",
+                    "flow": [
+                        "Drive",
+                        "Collaboration",
+                        "Structure",
+                        "Resilience"
+                    ],
+                    "icon": "target",
+                    "title": "Role success profiles",
+                    "caption": "Target ranges set from job analysis",
+                    "summary": "Define what good looks like in each role through job analysis, so every result is read against the real standard.",
+                    "flow_style": "bars",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Interview guides per role",
+                    "flow": [
+                        "Application",
+                        "Psychometric",
+                        "Structured interview",
+                        "Decision"
+                    ],
+                    "icon": "users",
+                    "title": "Hiring integration",
+                    "caption": "One clear place in your selection process",
+                    "summary": "Build psychometrics into your selection stages, with interview guides that explore each result with the candidate.",
+                    "flow_style": "arrows",
+                    "flow_highlight": 1
+                },
+                {
+                    "get": "Individual action plans",
+                    "flow": [
+                        "Profile",
+                        "One-to-one debrief",
+                        "Action plan"
+                    ],
+                    "icon": "message",
+                    "title": "Development debriefs",
+                    "caption": "Every profile ends in agreed next steps",
+                    "summary": "Trained practitioners walk each person through their profile and agree on practical next steps.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Validation and fairness report",
+                    "flow": [
+                        "Group A",
+                        "Group B"
+                    ],
+                    "icon": "scale",
+                    "title": "Validation and adverse-impact studies",
+                    "caption": "Comparable outcomes across groups",
+                    "summary": "Confirm that results relate to performance in your roles and stay fair across candidate and employee groups.",
+                    "flow_style": "bars",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Confident in-house interpreters",
+                    "flow": [
+                        "Learn the instrument",
+                        "Practice debriefs",
+                        "Use it in-house"
+                    ],
+                    "icon": "book",
+                    "title": "Interpreter training",
+                    "caption": "Insight that keeps working after the engagement",
+                    "summary": "Prepare your HR team to read and use psychometric reports responsibly, so the insight keeps working after the engagement.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                }
+            ],
+            "heading": "Edstellar psychometric assessment services, <span>end to end.</span>",
+            "get_label": "You get:",
+            "section_id": "services",
+            "description": "From choosing the instruments to training your team to use the results, Edstellar covers every part of a psychometric testing program."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "methodology",
+        "config": {
+            "cta": [],
+            "steps": [
+                {
+                    "chips": [
+                        "Job analysis",
+                        "Success profiles"
+                    ],
+                    "title": "Scope",
+                    "duration": "Week 1",
+                    "deliverable": "Scope and role profiles",
+                    "description": "Run a job analysis and agree on the decision, the roles and the success profile."
+                },
+                {
+                    "chips": [
+                        "Battery design",
+                        "Pilot"
+                    ],
+                    "title": "Design",
+                    "duration": "Weeks 1 to 2",
+                    "deliverable": "Configured psychometric battery",
+                    "description": "Select the instruments and norm groups, then pilot them with a small group."
+                },
+                {
+                    "chips": [
+                        "Online delivery",
+                        "Completion tracking"
+                    ],
+                    "title": "Assess",
+                    "duration": "Weeks 2 to 4",
+                    "deliverable": "Completed profiles",
+                    "description": "Participants complete online psychometric tests in their language, with support throughout."
+                },
+                {
+                    "chips": [
+                        "Interpretation",
+                        "Debriefs"
+                    ],
+                    "title": "Debrief",
+                    "duration": "Weeks 4 to 5",
+                    "deliverable": "Individual and group reports",
+                    "description": "Practitioners interpret the results and debrief individuals, managers and panels."
+                },
+                {
+                    "chips": [
+                        "Action plans",
+                        "Coaching goals"
+                    ],
+                    "title": "Develop",
+                    "duration": "Weeks 5 to 6",
+                    "deliverable": "Development plans",
+                    "description": "Turn insights into hiring decisions, development plans and coaching goals."
+                },
+                {
+                    "chips": [
+                        "Outcome tracking",
+                        "Refinement"
+                    ],
+                    "title": "Review",
+                    "duration": "Ongoing",
+                    "deliverable": "Impact review",
+                    "description": "Track outcomes such as hiring quality and progression, and refine the battery."
+                }
+            ],
+            "heading": "The Edstellar psychometric assessment <span>process.</span>",
+            "subheading": "Edstellar runs psychometric assessment in six steps, from scoping the roles to reviewing the outcomes. A typical cohort takes about six weeks from kickoff to development plans."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "output",
+        "config": {
+            "cta": {
+                "heading": "Build the right psychometric battery for your roles.",
+                "primary": {
+                    "href": "#apply",
+                    "label": "Plan your psychometric assessment"
+                },
+                "secondary": {
+                    "href": "/tool/talent-assessment-services",
+                    "label": "Take the readiness check"
+                },
+                "description": "Scope your psychometric assessment with an Edstellar specialist."
+            },
+            "columns": [
+                {
+                    "items": [
+                        {
+                            "icon": "file",
+                            "stage": "Step 4: Debrief",
+                            "title": "Individual profile reports",
+                            "description": "A clear summary of each person’s style, strengths and development areas."
+                        },
+                        {
+                            "icon": "list-check",
+                            "stage": "Step 5: Develop",
+                            "title": "Development action plans",
+                            "description": "Practical goals and next steps agreed in the debrief."
+                        }
+                    ],
+                    "title": "Participants and coaches",
+                    "subtitle": "Self-awareness and growth"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "users",
+                            "stage": "Step 4: Debrief",
+                            "title": "Hiring panel summaries",
+                            "description": "Role-fit highlights with interview questions that explore each result."
+                        },
+                        {
+                            "icon": "grid",
+                            "stage": "Step 4: Debrief",
+                            "title": "Team and cohort summaries",
+                            "description": "Patterns across a team or intake that show shared strengths and gaps."
+                        }
+                    ],
+                    "title": "Managers and hiring panels",
+                    "subtitle": "Confident decisions"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "target",
+                            "stage": "Step 1: Scope",
+                            "title": "Role success profiles",
+                            "description": "The personality and work-style profile each role needs, ready to reuse."
+                        },
+                        {
+                            "icon": "layers",
+                            "stage": "Step 5: Develop",
+                            "title": "Links to development",
+                            "description": "Each finding mapped to programs, coaching or further assessment."
+                        }
+                    ],
+                    "title": "HR and L&D",
+                    "subtitle": "A system that lasts"
+                }
+            ],
+            "heading": "Ready-to-use outputs for <span>every decision.</span>",
+            "section_id": "outputs",
+            "description": "Every Edstellar engagement ends with psychometric reports and outputs that people can read quickly and act on right away."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "ld_why_edstellar",
+        "config": {
+            "cta": [],
+            "items": [
+                {
+                    "icon": "link",
+                    "title": "Assessment to development, one partner",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Profile",
+                            "Debrief",
+                            "Develop"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "One team, from measurement to development"
+                    },
+                    "difference": "Many test providers stop at the report. Edstellar connects it to development.",
+                    "description": "Insight turns into action, because the team that profiles your people also maps every result to training, coaching or OD work."
+                },
+                {
+                    "icon": "chip",
+                    "title": "Runs on the Capability Intelligence Platform",
+                    "visual": {
+                        "type": "signal",
+                        "items": [
+                            "Profiled:74",
+                            "Debriefed:56",
+                            "Developing:63"
+                        ],
+                        "title": "Capability signal",
+                        "status": "Live",
+                        "caption": null
+                    },
+                    "difference": "Your skills data stays live, not frozen in a PDF.",
+                    "description": "You always know who is ready and where the gaps sit, with a live picture of verified skills between assessment cycles."
+                },
+                {
+                    "icon": "chart",
+                    "title": "Expert interpretation, every time",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Instrument",
+                            "Role profile",
+                            "Practitioner"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Every score read in context"
+                    },
+                    "difference": "Insight people act on, not a score they guess at.",
+                    "description": "Trained practitioners read every profile against the role and explain it in plain language, so people understand and use their results."
+                },
+                {
+                    "icon": "globe",
+                    "title": "Certified assessors, wherever your people are",
+                    "visual": {
+                        "type": "regions",
+                        "items": [
+                            "APAC",
+                            "Middle East",
+                            "Europe",
+                            "Americas"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Online · in-person · blended"
+                    },
+                    "difference": "The same standard in every country you assess.",
+                    "description": "Psychometric assessments run online, in person or blended across 100+ locations, with norm groups suited to each region."
+                },
+                {
+                    "icon": "list",
+                    "title": "A proven method, not improvisation",
+                    "visual": {
+                        "type": "steps",
+                        "items": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Scope · Design · Assess · Debrief · Develop · Review"
+                    },
+                    "difference": "A repeatable system, not a bespoke experiment each time.",
+                    "description": "Every engagement runs the same six steps, from scope to review, with validated instruments chosen for the decision at hand."
+                },
+                {
+                    "icon": "sliders",
+                    "title": "The right instrument for every role",
+                    "visual": {
+                        "type": "tiers",
+                        "items": [
+                            "16PF",
+                            "PAPI",
+                            "Saville Wave®",
+                            "MBTI"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Chosen from leading publishers"
+                    },
+                    "difference": "The instrument fits the role, not the other way round.",
+                    "description": "Edstellar is not tied to a single test publisher, so each role and decision gets the instrument that fits it best."
+                }
+            ],
+            "trust": {
+                "caption": "clients served worldwide",
+                "heading": "Trusted across industries and regions",
+                "regions": [
+                    "APAC",
+                    "Middle East",
+                    "Europe",
+                    "Americas"
+                ],
+                "industries": [
+                    {
+                        "icon": "landmark",
+                        "label": "Financial services"
+                    },
+                    {
+                        "icon": "monitor",
+                        "label": "Technology"
+                    },
+                    {
+                        "icon": "cross",
+                        "label": "Healthcare"
+                    },
+                    {
+                        "icon": "factory",
+                        "label": "Manufacturing"
+                    },
+                    {
+                        "icon": "bag",
+                        "label": "Retail & consumer"
+                    },
+                    {
+                        "icon": "airoplane",
+                        "label": "Aviation & maritime"
+                    }
+                ],
+                "more_label": "20+ in all",
+                "regions_label": "Delivered across",
+                "caption_strong": "Fortune 500"
+            },
+            "heading": "Why choose Edstellar for <span>psychometric assessment.</span>",
+            "description": "Edstellar chooses the right instruments for each role, has trained practitioners interpret every profile, and connects the insight to development, so psychometric results lead to better decisions.",
+            "difference_label": "The difference"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "talent_related_services",
+        "config": {
+            "items": [
+                {
+                    "href": "/talent-assessment-services/cognitive-ability-assessment",
+                    "icon": "brain",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Promotion"
+                    ],
+                    "title": "Cognitive Ability & Aptitude Testing",
+                    "description": "Measure reasoning, problem solving and learning ability."
+                },
+                {
+                    "href": "/talent-assessment-services/emotional-intelligence-assessment",
+                    "icon": "heart",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Emotional Intelligence Assessment",
+                    "description": "Measure self-awareness, empathy and resilience at work."
+                },
+                {
+                    "href": "/talent-assessment-services/behavioral-assessment-services",
+                    "icon": "users",
+                    "tags": [
+                        "Onboarding",
+                        "Development",
+                        "Team"
+                    ],
+                    "title": "Behavioral Assessment",
+                    "description": "Profile behavioral style, strengths and career direction."
+                },
+                {
+                    "href": "/talent-assessment-services/leadership-assessment",
+                    "icon": "star",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Leadership Assessment",
+                    "description": "Assess leadership capability, potential and succession readiness."
+                },
+                {
+                    "href": "/talent-assessment-services/assessment-development-centers-consulting",
+                    "icon": "clipboard",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Assessment & Development Centers",
+                    "description": "Combine live exercises with psychometrics for high-stakes decisions."
+                },
+                {
+                    "href": "/talent-assessment-services/organizational-alignment-consulting",
+                    "icon": "network",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "360-Degree Feedback",
+                    "description": "See how behavior is experienced by manager, peers and reports."
+                },
+                {
+                    "href": "/talent-assessment-services/pre-employment-assessment",
+                    "icon": "user-check",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Safety"
+                    ],
+                    "title": "Pre-employment Assessment",
+                    "description": "Screen early-career and high-volume hiring quickly and fairly."
+                },
+                {
+                    "href": "/talent-assessment-services/skill-gap-competency-assessment",
+                    "icon": "wrench",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "Skills Assessment",
+                    "description": "Verify role-specific skills and see where to develop next."
+                },
+                {
+                    "href": "/talent-assessment-services/team-effectiveness-assessment-services",
+                    "icon": "smile",
+                    "tags": [
+                        "Onboarding",
+                        "First-time managers",
+                        "Team"
+                    ],
+                    "title": "Team Effectiveness Assessment",
+                    "description": "Strengthen how teams trust, work and deliver together."
+                },
+                {
+                    "href": "/talent-assessment-services/language-proficiency-assessment",
+                    "icon": "languages",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "English Proficiency Assessment",
+                    "description": "Verify English proficiency for each role, on CEFR levels."
+                },
+                {
+                    "href": "/talent-assessment-services/culture-assessment",
+                    "icon": "building",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Culture Assessment",
+                    "description": "Understand the culture people experience every day."
+                },
+                {
+                    "href": "/talent-assessment-services/employee-engagement-survey",
+                    "icon": "star",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Employee Engagement Survey",
+                    "description": "Measure engagement and act on what drives it."
+                }
+            ],
+            "heading": "Complete the picture with <span>related assessments.</span>",
+            "hub_link": {
+                "href": "/talent-assessment-services",
+                "label": "See all talent assessment services"
+            },
+            "cta_label": "Explore",
+            "section_id": "related",
+            "tags_label": "Best for",
+            "description": "Psychometric insight is strongest alongside other evidence. These Edstellar assessments complete the view."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "faqs",
+        "config": {
+            "cta": [
+                {
+                    "href": "#apply",
+                    "cta_text": "Talk through your questions with an Edstellar assessment specialist.",
+                    "btn_label": "Ask us directly"
+                }
+            ],
+            "items": [
+                {
+                    "question": "What is a psychometric assessment or test?",
+                    "answer": "A psychometric assessment, or psychometric test, is a standardized questionnaire or test that measures psychological characteristics such as personality, work style and motivation. Results are compared with a relevant norm group, which makes them objective and comparable across people. Edstellar uses psychometric assessments to support hiring, development, promotion and career decisions."
+                },
+                {
+                    "question": "How is a psychometric test different from an aptitude or skills test?",
+                    "answer": "A psychometric personality assessment describes how a person tends to work: their style, preferences and motivation. An aptitude test measures how well they reason and solve problems, and a skills test checks what they can already do. Edstellar often combines them, and covers aptitude on its cognitive ability and aptitude testing page."
+                },
+                {
+                    "question": "Which psychometric instruments does Edstellar use?",
+                    "answer": "Edstellar selects from instruments including 16PF, 16 PF Management, PAPI, Saville Wave Professional and Focus Styles, Saville Workplace Profile, Factors, MBTI, Work Style Lens, Talogy Caliper and Hogan (HPI, HDS and MVPI). Each one is chosen for the role and the decision it supports."
+                },
+                {
+                    "question": "Which personality traits does a psychometric assessment measure?",
+                    "answer": "A psychometric personality assessment measures personality traits across three layers: everyday strengths and work style, behavior under pressure, and the values and motivation that drive a person. Edstellar compares each profile with the demands of the role, so the results support role fit, culture fit and development."
+                },
+                {
+                    "question": "Can psychometric tests be used for recruitment and hiring?",
+                    "answer": "Yes, when the instrument suits selection and the results are combined with interviews and skills evidence, which reduces reliance on gut feel in recruitment. Instruments such as PAPI, Saville Wave, Factors and Talogy Caliper are well suited to hiring. Type-based tools such as MBTI are used for self-awareness, coaching and team development rather than selection."
+                },
+                {
+                    "question": "Can Edstellar assess existing employees as well as candidates?",
+                    "answer": "Yes. Psychometric assessments for existing employees support development plans, coaching, team building, promotion readiness and career conversations. Participants receive a debrief so the results lead to practical next steps."
+                },
+                {
+                    "question": "How does Edstellar choose between instruments such as MBTI and 16PF?",
+                    "answer": "MBTI describes type preferences and suits self-awareness, coaching and team dialogue. Trait-based instruments such as 16PF and Saville Wave measure personality traits on scales, broadly in line with the widely used Big Five model, and compare them with norm groups, which suits selection and development decisions. Edstellar chooses based on the decision, the role, language and norm-group availability."
+                },
+                {
+                    "question": "How do you keep psychometric assessments fair and defensible?",
+                    "answer": "Edstellar uses instruments with published reliability and validity evidence, compares results with relevant norm groups, reviews results for adverse impact between groups, and never relies on a personality profile alone for a high-stakes decision. Standardized administration and trained interpretation reduce reliance on gut feel and keep decisions free from avoidable bias."
+                },
+                {
+                    "question": "How long does a psychometric assessment take?",
+                    "answer": "Participants complete most questionnaires online in a single sitting. A typical psychometric engagement takes about six weeks from scoping to development plans, depending on the number of people and instruments."
+                },
+                {
+                    "question": "How is psychometric assessment data protected?",
+                    "answer": "Psychometric data is collected only for the agreed purpose, access is limited to agreed stakeholders, and individual results are reported under the confidentiality terms set at scoping. Edstellar holds ISO/IEC 27001:2022 certification for information security management."
+                },
+                {
+                    "question": "How much does a psychometric assessment cost?",
+                    "answer": "Cost depends on the number of people assessed, the instruments chosen, the reports required and how much debriefing and development planning you need. Edstellar scopes each engagement before quoting, so you pay only for the evidence your decision requires."
+                },
+                {
+                    "question": "Do participants see their own results?",
+                    "answer": "Edstellar recommends sharing results with every participant. Development engagements include a one-to-one debrief, and confidentiality terms for hiring and promotion decisions are agreed at scoping."
+                }
+            ],
+            "heading": "Psychometric assessment <span>FAQs.</span>"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "leadForm",
+        "config": {
+            "heading": "Plan your psychometric assessment <span>with Edstellar.</span>",
+            "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+            "description": "Tell Edstellar the roles and decisions you want psychometric insight for. A specialist replies within one business day with a scoped response, no automated sales sequence.",
+            "Button_Label": "Book a consultation"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/psychometric-assessment",
+        "slug": "stickyFooter",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "label": "Request a consultation"
+            },
+            "Brochure": [
+                {
+                    "href": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "Label": "Download brochure"
+                }
+            ],
+            "messages": [
+                {
+                    "suffix": "personality and work-style insight for hiring and development",
+                    "highlight": "Psychometric assessment"
+                }
+            ],
+            "form_anchor_id": "apply"
+        }
+    }
+]

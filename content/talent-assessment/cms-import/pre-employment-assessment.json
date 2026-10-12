@@ -1,0 +1,1137 @@
+[
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "seo",
+        "config": {
+            "og_image": null,
+            "og_title": "Pre-employment Assessment & Testing Services",
+            "meta_title": "Pre-employment Assessment & Testing Services",
+            "og_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_card": "summary_large_image",
+            "twitter_site": "@edstellar",
+            "canonical_url": "https://www.edstellar.com/talent-assessment-services/pre-employment-assessment",
+            "meta_keywords": null,
+            "twitter_title": "Pre-employment Assessment & Testing Services",
+            "og_description": "Edstellar's pre-employment assessment and testing services help you screen and select candidates for campus, high-volume and professional hiring, fairly.",
+            "twitter_creator": "@edstellar",
+            "Meta_description": "Edstellar's pre-employment assessment and testing services help you screen and select candidates for campus, high-volume and professional hiring, fairly.",
+            "twitter_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_description": "Edstellar's pre-employment assessment and testing services help you screen and select candidates for campus, high-volume and professional hiring, fairly."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "consulting_Hero",
+        "config": {
+            "heroLeft": {
+                "title": "Pre-employment Assessment Services",
+                "tagline": "Hire the right people, faster and fairly.",
+                "showMeta": true,
+                "description": "Edstellar’s pre-employment assessment and testing services help you screen and select candidates with validated hiring assessments, situational judgment tests and structured interviews, so every offer rests on consistent evidence.",
+                "primaryBtnLink": "#apply",
+                "primaryBtnText": "Book a hiring assessment consultation",
+                "secondaryBtnLink": "#instruments",
+                "secondaryBtnText": "Explore the tools"
+            },
+            "heroRight": {
+                "skill_matrix": {
+                    "note": null,
+                    "rows": [],
+                    "label": null,
+                    "views": [],
+                    "columns": [],
+                    "req_label": null,
+                    "aria_label": null,
+                    "gap_levels": [],
+                    "req_levels": null,
+                    "req_caption": null
+                },
+                "learning_system": [
+                    {
+                        "items": [
+                            {
+                                "icon": "Users",
+                                "title": "Campus hiring",
+                                "description": "Early-career potential and readiness"
+                            },
+                            {
+                                "icon": "Network",
+                                "title": "High-volume hiring",
+                                "description": "Fast, fair screening at scale"
+                            },
+                            {
+                                "icon": "Target",
+                                "title": "Professional hires",
+                                "description": "Judgment and fit for the role"
+                            },
+                            {
+                                "icon": "Heart",
+                                "title": "Safety-critical roles",
+                                "description": "Safety attitudes and reliability"
+                            }
+                        ],
+                        "title": "One hiring assessment, four hiring routes",
+                        "footer_text": "Screening and selection, interpreted by experts."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "breadcrumbs",
+        "config": {
+            "items": [
+                {
+                    "href": "/",
+                    "label": "Home"
+                },
+                {
+                    "href": "/talent-assessment-services",
+                    "label": "Talent Assessment Services"
+                },
+                {
+                    "href": null,
+                    "label": "Pre-employment Assessment"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "generalProof",
+        "config": {
+            "tone": "dark",
+            "items": [
+                {
+                    "Label": "Ready to hire with more confidence?",
+                    "primary_btn_link": "#apply",
+                    "primary_btn_text": "Book a consultation",
+                    "secondary_btn_link": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "secondary_btn_text": "Download the assessments brochure (PDF)"
+                }
+            ],
+            "stats": [
+                {
+                    "label": "Assessments",
+                    "value": "13,650+"
+                },
+                {
+                    "label": "Clients",
+                    "value": "300+"
+                },
+                {
+                    "label": "Industries",
+                    "value": "20+"
+                },
+                {
+                    "label": "Certified",
+                    "value": "ISO 9001 & 27001"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "stickyNavbar",
+        "config": {
+            "cta": {
+                "text": "Book a consultation",
+                "title": "Click Here to Book a Consultation",
+                "targetId": "apply"
+            },
+            "logo": {
+                "alt": "Edstellar",
+                "src": "/course/Edstellar.svg"
+            },
+            "tabs": [
+                {
+                    "id": "concept",
+                    "label": "Funnel",
+                    "active": true
+                },
+                {
+                    "id": "benefits",
+                    "label": "Benefits",
+                    "active": false
+                },
+                {
+                    "id": "instruments",
+                    "label": "Tools",
+                    "active": false
+                },
+                {
+                    "id": "services",
+                    "label": "Services",
+                    "active": false
+                },
+                {
+                    "id": "process",
+                    "label": "Process",
+                    "active": false
+                },
+                {
+                    "id": "outputs",
+                    "label": "Outputs",
+                    "active": false
+                },
+                {
+                    "id": "why",
+                    "label": "Why Edstellar",
+                    "active": false
+                },
+                {
+                    "id": "faq",
+                    "label": "FAQ",
+                    "active": false
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "concepts",
+        "config": {
+            "art": "hiring-funnel",
+            "grid": {
+                "rows": [],
+                "caption": null,
+                "columns": []
+            },
+            "heading": "A hiring funnel built on <span>evidence.</span>",
+            "principles": [
+                {
+                    "title": "Self-select",
+                    "description": "Candidates see the role and values clearly and decide whether it fits them, which strengthens the candidate pool from the start."
+                },
+                {
+                    "title": "Screen",
+                    "description": "Short, mobile-friendly screening assessments identify the candidates with the potential, reliability and readiness the role needs."
+                },
+                {
+                    "title": "Assess",
+                    "description": "Situational judgment tests and role-specific assessments show how each candidate approaches real work situations and their job fit."
+                },
+                {
+                    "title": "Interview and decide",
+                    "description": "Structured, competency-based interviews explore every result, so the final hiring decision is consistent and defensible."
+                }
+            ],
+            "section_id": "concept",
+            "description": "A pre-employment assessment brings structure to every stage of recruitment and talent acquisition, from the first application to the final interview. Edstellar designs each stage so the right candidates move forward and every hiring decision is consistent and fair."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "benifits",
+        "config": {
+            "items": [
+                {
+                    "icon": "star",
+                    "title": "Improve quality of hire",
+                    "description": "Select candidates on the potential, judgment and fit the role needs, alongside interviews and skills evidence."
+                },
+                {
+                    "icon": "rocket",
+                    "title": "Hire faster at scale",
+                    "description": "Screen large applicant pools quickly with short online pre-employment screening, so recruiters spend their time on a shortlist of the strongest candidates."
+                },
+                {
+                    "icon": "shield",
+                    "title": "Fairer, more consistent decisions",
+                    "description": "Standardized assessments and structured interviews reduce bias and give every candidate the same opportunity to show what they can do."
+                },
+                {
+                    "icon": "heart",
+                    "title": "A better candidate experience",
+                    "description": "Mobile-friendly assessments and realistic job previews help candidates understand the role and show their best."
+                },
+                {
+                    "icon": "users",
+                    "title": "Stronger campus hiring",
+                    "description": "Identify early-career potential and readiness in campus recruitment, so graduate and intern programs start with the right people."
+                },
+                {
+                    "icon": "clipboard",
+                    "title": "Safer, more reliable teams",
+                    "description": "For safety-critical and frontline roles, assess safety attitudes and reliability before the offer."
+                }
+            ],
+            "heading": "Edstellar pre-employment assessment that turns applicants into <span>great hires.</span>",
+            "section_id": "benefits",
+            "description": "Edstellar’s pre-employment assessment services give recruitment teams and hiring managers consistent, objective candidate assessment and candidate screening, so campus, high-volume and professional hiring all build on the same reliable evidence."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "instruments",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "heading": "Get a recommended hiring assessment for your roles.",
+                "btn_label": "Talk to a specialist",
+                "description": "An Edstellar specialist will match tools to your roles and hiring volumes."
+            },
+            "groups": [
+                {
+                    "label": "Early careers and campus",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                1,
+                                0,
+                                0
+                            ],
+                            "name": "Talogy Spotlight",
+                            "note": "Early-career potential, strengths and future readiness",
+                            "best_used": "Alongside structured interviews and realistic job previews"
+                        }
+                    ]
+                },
+                {
+                    "label": "High-volume screening",
+                    "tools": [
+                        {
+                            "fit": [
+                                0,
+                                2,
+                                0,
+                                2
+                            ],
+                            "name": "Talogy I-Grade",
+                            "note": "Reliability, work readiness and safety risk for entry-level and hourly roles",
+                            "best_used": "Early in the funnel for entry-level and hourly roles, combined with skills or ability tests"
+                        },
+                        {
+                            "fit": [
+                                1,
+                                2,
+                                1,
+                                0
+                            ],
+                            "name": "Capture (Talogy)",
+                            "note": "Values alignment and culture fit",
+                            "best_used": "At the top of the funnel, with employer branding and realistic job previews"
+                        },
+                        {
+                            "fit": [
+                                1,
+                                2,
+                                2,
+                                0
+                            ],
+                            "name": "Talogy Hire",
+                            "note": "Configurable screening and selection battery",
+                            "best_used": "As a screen-and-select battery aligned to each role’s requirements"
+                        }
+                    ]
+                },
+                {
+                    "label": "Judgment and structured interviews",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                1,
+                                2,
+                                0
+                            ],
+                            "name": "Dilemmas Series™ (Talogy)",
+                            "note": "Situational judgment and behavioral fit",
+                            "best_used": "As an early screen of judgment and job fit, paired with cognitive or skills tests and structured interviews"
+                        },
+                        {
+                            "fit": [
+                                1,
+                                1,
+                                2,
+                                0
+                            ],
+                            "name": "CBI Smart",
+                            "note": "Competency-based interview guides and structured scoring",
+                            "best_used": "To build structured interviews mapped to competencies, with trained interviewers"
+                        }
+                    ]
+                },
+                {
+                    "label": "Safety and risk",
+                    "tools": [
+                        {
+                            "fit": [
+                                0,
+                                0,
+                                0,
+                                2
+                            ],
+                            "name": "Safety DNA",
+                            "note": "Safety attitudes, risk and compliance behavior",
+                            "best_used": "For safety-critical roles in manufacturing, oil and gas, and logistics"
+                        }
+                    ]
+                }
+            ],
+            "columns": [
+                "Campus hiring",
+                "High-volume hiring",
+                "Professional hires",
+                "Safety-critical roles"
+            ],
+            "heading": "Proven pre-employment assessment tools, <span>chosen for each role.</span>",
+            "lifecycle": {
+                "title": "Where Edstellar pre-employment assessment fits in the employee lifecycle",
+                "stages": [
+                    {
+                        "label": "Campus & pre-hire",
+                        "active": true
+                    },
+                    {
+                        "label": "Hiring decisions",
+                        "active": true
+                    },
+                    {
+                        "label": "Onboarding",
+                        "active": false
+                    },
+                    {
+                        "label": "Individual development",
+                        "active": true
+                    },
+                    {
+                        "label": "First-time managers",
+                        "active": false
+                    },
+                    {
+                        "label": "Promotion & succession",
+                        "active": false
+                    },
+                    {
+                        "label": "Leadership & coaching",
+                        "active": false
+                    },
+                    {
+                        "label": "Team & culture",
+                        "active": false
+                    },
+                    {
+                        "label": "Safety & compliance",
+                        "active": true
+                    }
+                ],
+                "audiences": [
+                    "Graduates & interns",
+                    "Entry-level & hourly roles",
+                    "Professional roles",
+                    "Safety-critical roles"
+                ]
+            },
+            "fit_legend": {
+                "none": "Not used for this",
+                "strong": "Strong fit",
+                "supporting": "Supporting evidence"
+            },
+            "section_id": "instruments",
+            "description": "Edstellar selects from leading pre-employment tests, pre-employment screening and hiring assessment tools, choosing validated, reliable instruments for each hiring route and role.",
+            "table_label": "Pre-employment assessment tool fit",
+            "table_caption": "Pre-employment assessment tools and how well each fits campus hiring, high-volume hiring, professional hires and safety-critical roles"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "Inside",
+        "config": {
+            "cta": null,
+            "tabs": [],
+            "heading": null,
+            "section_id": "inside",
+            "description": null
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "readinessData",
+        "config": {
+            "cta": {
+                "href": "https://www.edstellar.com/tool/talent-assessment-services",
+                "label": "Take the free readiness check →"
+            },
+            "points": [
+                "Role profiles and screening criteria",
+                "Structured interviews and decision rules",
+                "Fairness monitoring and candidate experience"
+            ],
+            "heading": "Assess your hiring process against the <span>essentials.</span>",
+            "checklist": {
+                "items": [
+                    {
+                        "done": true,
+                        "label": "Roles have clear success profiles"
+                    },
+                    {
+                        "done": true,
+                        "label": "Screening is consistent for every candidate"
+                    },
+                    {
+                        "done": true,
+                        "label": "Interviews follow a structured guide"
+                    },
+                    {
+                        "done": false,
+                        "label": "Pass rates are monitored for fairness"
+                    },
+                    {
+                        "done": false,
+                        "label": "Candidates get a clear, mobile-friendly experience"
+                    }
+                ],
+                "title": "Hiring assessment checklist"
+            },
+            "description": "A quick check of how your organization screens and selects candidates today, from role profiles to interviews, and where assessment can add even more value."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "talent-services",
+        "config": {
+            "items": [
+                {
+                    "get": "Success profile per role",
+                    "flow": [
+                        "Potential",
+                        "Judgment",
+                        "Reliability",
+                        "Culture fit"
+                    ],
+                    "icon": "target",
+                    "title": "Role success profiles",
+                    "caption": "Target ranges set from job analysis",
+                    "summary": "Define the potential, behaviors and skills each role needs through job analysis, so every candidate is assessed against the real standard.",
+                    "flow_style": "bars",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Configured hiring battery",
+                    "flow": [
+                        "Role profile",
+                        "Screening",
+                        "SJT",
+                        "Interview"
+                    ],
+                    "icon": "layers",
+                    "title": "Hiring battery design",
+                    "caption": "The right steps for each hiring route",
+                    "summary": "Choose and combine screening tests, situational judgment tests and interviews for each hiring route and volume.",
+                    "flow_style": "arrows",
+                    "flow_highlight": 2
+                },
+                {
+                    "get": "Ranked shortlists",
+                    "flow": [
+                        "Applicants",
+                        "Online screening",
+                        "Ranked shortlist"
+                    ],
+                    "icon": "users",
+                    "title": "High-volume and campus screening",
+                    "caption": "Recruiters focus on the strongest candidates",
+                    "summary": "Run short, mobile-friendly online assessments that screen large applicant pools quickly and consistently.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Interview guides and scoring rules",
+                    "flow": [
+                        "Competencies",
+                        "Interview guide",
+                        "Consistent scoring"
+                    ],
+                    "icon": "list",
+                    "title": "Structured interview design",
+                    "caption": "Every interview follows the same standard",
+                    "summary": "Build competency-based interview guides and scoring, so every interviewer assesses candidates the same way.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Confident hiring panels",
+                    "flow": [
+                        "Learn the method",
+                        "Practice interviews",
+                        "Hire with confidence"
+                    ],
+                    "icon": "book",
+                    "title": "Interviewer and recruiter training",
+                    "caption": "Better interviews from the first week",
+                    "summary": "Prepare hiring managers and recruiters to use assessment results and structured interviews well.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Fairness and outcome report",
+                    "flow": [
+                        "Group A",
+                        "Group B"
+                    ],
+                    "icon": "scale",
+                    "title": "Fairness and outcome monitoring",
+                    "caption": "Comparable pass rates across groups",
+                    "summary": "Track pass rates across candidate groups and link results to new-hire outcomes, so the process stays fair and keeps improving.",
+                    "flow_style": "bars",
+                    "flow_highlight": null
+                }
+            ],
+            "heading": "Edstellar pre-employment assessment services, <span>end to end.</span>",
+            "get_label": "You get:",
+            "section_id": "services",
+            "description": "From defining what good looks like to monitoring fairness after launch, Edstellar covers every part of a pre-employment assessment program."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "methodology",
+        "config": {
+            "cta": [],
+            "steps": [
+                {
+                    "chips": [
+                        "Job analysis",
+                        "Hiring volumes"
+                    ],
+                    "title": "Scope",
+                    "duration": "Week 1",
+                    "deliverable": "Role success profiles",
+                    "description": "Run a job analysis and agree on the roles, hiring volumes and success profile."
+                },
+                {
+                    "chips": [
+                        "Battery design",
+                        "Pilot"
+                    ],
+                    "title": "Design",
+                    "duration": "Weeks 1 to 2",
+                    "deliverable": "Configured hiring battery",
+                    "description": "Select the screening tools, tests and interview guides, then pilot them."
+                },
+                {
+                    "chips": [
+                        "Online testing",
+                        "Candidate support"
+                    ],
+                    "title": "Assess",
+                    "duration": "Weeks 2 to 4",
+                    "deliverable": "Completed assessments",
+                    "description": "Candidates complete online pre-employment tests on any device, with clear guidance throughout."
+                },
+                {
+                    "chips": [
+                        "Shortlisting",
+                        "Panel briefings"
+                    ],
+                    "title": "Debrief",
+                    "duration": "Weeks 4 to 5",
+                    "deliverable": "Shortlists and candidate reports",
+                    "description": "Practitioners interpret results and brief recruiters and hiring panels."
+                },
+                {
+                    "chips": [
+                        "Structured interviews",
+                        "Decision rules"
+                    ],
+                    "title": "Decide",
+                    "duration": "Weeks 5 to 6",
+                    "deliverable": "Hiring decisions",
+                    "description": "Structured interviews and decision rules turn evidence into consistent offers."
+                },
+                {
+                    "chips": [
+                        "Fairness monitoring",
+                        "Refinement"
+                    ],
+                    "title": "Review",
+                    "duration": "Ongoing",
+                    "deliverable": "Hiring outcome review",
+                    "description": "Monitor pass rates, fairness and new-hire outcomes, and refine the process."
+                }
+            ],
+            "heading": "The Edstellar pre-employment assessment <span>process.</span>",
+            "subheading": "Edstellar runs pre-employment assessment in six steps, from defining the role to reviewing hiring outcomes. A typical program is ready to launch in about six weeks, depending on the number of roles and tools."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "output",
+        "config": {
+            "cta": {
+                "heading": "Build a hiring process you can rely on.",
+                "primary": {
+                    "href": "#apply",
+                    "label": "Plan your hiring assessment"
+                },
+                "secondary": {
+                    "href": "/tool/talent-assessment-services",
+                    "label": "Take the readiness check"
+                },
+                "description": "Scope your pre-employment assessment with an Edstellar specialist."
+            },
+            "columns": [
+                {
+                    "items": [
+                        {
+                            "icon": "list-check",
+                            "stage": "Step 4: Debrief",
+                            "title": "Ranked shortlists",
+                            "description": "Candidates ordered by fit to the role, ready for the next stage."
+                        },
+                        {
+                            "icon": "file",
+                            "stage": "Step 4: Debrief",
+                            "title": "Candidate reports",
+                            "description": "A clear summary of each candidate’s strengths and areas to explore."
+                        }
+                    ],
+                    "title": "Recruiters",
+                    "subtitle": "Faster, focused shortlisting"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "layers",
+                            "stage": "Step 2: Design",
+                            "title": "Structured interview guides",
+                            "description": "Questions and scoring that explore each candidate’s results."
+                        },
+                        {
+                            "icon": "target",
+                            "stage": "Step 5: Decide",
+                            "title": "Decision summaries",
+                            "description": "Evidence from every stage in one place for the final decision."
+                        }
+                    ],
+                    "title": "Hiring managers and panels",
+                    "subtitle": "Confident, consistent offers"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "grid",
+                            "stage": "Step 1: Scope",
+                            "title": "Role success profiles",
+                            "description": "The potential, behaviors and skills each role needs, ready to reuse."
+                        },
+                        {
+                            "icon": "trending-up",
+                            "stage": "Step 6: Review",
+                            "title": "Fairness and outcome reports",
+                            "description": "Pass rates across groups and links to new-hire outcomes."
+                        }
+                    ],
+                    "title": "HR and talent acquisition",
+                    "subtitle": "A process that lasts"
+                }
+            ],
+            "heading": "Ready-to-use outputs for <span>every decision.</span>",
+            "section_id": "outputs",
+            "description": "Every Edstellar engagement ends with pre-employment assessment reports and outputs that recruiters and hiring managers can act on right away."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "ld_why_edstellar",
+        "config": {
+            "cta": [],
+            "items": [
+                {
+                    "icon": "link",
+                    "title": "Assessment to development, one partner",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Screen",
+                            "Select",
+                            "Onboard"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "One team, from hiring to development"
+                    },
+                    "difference": "Many test providers stop at the shortlist. Edstellar connects it to development.",
+                    "description": "Hiring evidence keeps working after the offer, because the team that assesses your candidates also maps results to onboarding, training and development."
+                },
+                {
+                    "icon": "chip",
+                    "title": "Runs on the Capability Intelligence Platform",
+                    "visual": {
+                        "type": "signal",
+                        "items": [
+                            "Profiled:74",
+                            "Debriefed:56",
+                            "Developing:63"
+                        ],
+                        "title": "Capability signal",
+                        "status": "Live",
+                        "caption": null
+                    },
+                    "difference": "Your skills data stays live, not frozen in a PDF.",
+                    "description": "You always know who is ready and where the gaps sit, with a live picture of verified skills between assessment cycles."
+                },
+                {
+                    "icon": "chart",
+                    "title": "Expert interpretation, every time",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Tools",
+                            "Role profile",
+                            "Practitioner"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Every score read in context"
+                    },
+                    "difference": "Insight people act on, not a score they guess at.",
+                    "description": "Trained practitioners read every candidate’s results against the role and brief hiring panels in plain language, so decisions are clear and consistent."
+                },
+                {
+                    "icon": "globe",
+                    "title": "Certified assessors, wherever your people are",
+                    "visual": {
+                        "type": "regions",
+                        "items": [
+                            "APAC",
+                            "Middle East",
+                            "Europe",
+                            "Americas"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Online · in-person · blended"
+                    },
+                    "difference": "The same standard in every country you assess.",
+                    "description": "Pre-employment assessments run online, in person or blended across 100+ locations, with norm groups suited to each region and local hiring rules."
+                },
+                {
+                    "icon": "list",
+                    "title": "A proven method, not improvisation",
+                    "visual": {
+                        "type": "steps",
+                        "items": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Scope · Design · Assess · Debrief · Decide · Review"
+                    },
+                    "difference": "A repeatable system, not a bespoke experiment each time.",
+                    "description": "Every engagement runs the same six steps, from scope to review, with validated tools chosen for each hiring route."
+                },
+                {
+                    "icon": "sliders",
+                    "title": "The right tool for every hiring route",
+                    "visual": {
+                        "type": "tiers",
+                        "items": [
+                            "Talogy Spotlight",
+                            "Dilemmas Series™",
+                            "Talogy I-Grade",
+                            "CBI Smart"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Chosen from leading publishers"
+                    },
+                    "difference": "The tool fits the role, not the other way round.",
+                    "description": "Edstellar is not tied to a single test publisher, so each role and hiring route gets the tool that fits it best."
+                }
+            ],
+            "trust": {
+                "caption": "clients served worldwide",
+                "heading": "Trusted across industries and regions",
+                "regions": [
+                    "APAC",
+                    "Middle East",
+                    "Europe",
+                    "Americas"
+                ],
+                "industries": [
+                    {
+                        "icon": "landmark",
+                        "label": "Financial services"
+                    },
+                    {
+                        "icon": "monitor",
+                        "label": "Technology"
+                    },
+                    {
+                        "icon": "cross",
+                        "label": "Healthcare"
+                    },
+                    {
+                        "icon": "factory",
+                        "label": "Manufacturing"
+                    },
+                    {
+                        "icon": "bag",
+                        "label": "Retail & consumer"
+                    },
+                    {
+                        "icon": "airoplane",
+                        "label": "Aviation & maritime"
+                    }
+                ],
+                "more_label": "20+ in all",
+                "regions_label": "Delivered across",
+                "caption_strong": "Fortune 500"
+            },
+            "heading": "Why choose Edstellar for <span>pre-employment assessment.</span>",
+            "description": "Edstellar chooses the right tools for each hiring route, has trained practitioners interpret every result, and connects hiring evidence to onboarding and development, so every offer rests on evidence.",
+            "difference_label": "The difference"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "talent_related_services",
+        "config": {
+            "items": [
+                {
+                    "href": "/talent-assessment-services/psychometric-assessment",
+                    "icon": "layers",
+                    "tags": [
+                        "Hiring",
+                        "Development",
+                        "Promotion"
+                    ],
+                    "title": "Psychometric Assessment",
+                    "description": "Profile personality, work style and motivation for hiring and development."
+                },
+                {
+                    "href": "/talent-assessment-services/cognitive-ability-assessment",
+                    "icon": "brain",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Promotion"
+                    ],
+                    "title": "Cognitive Ability & Aptitude Testing",
+                    "description": "Measure reasoning, problem solving and learning ability."
+                },
+                {
+                    "href": "/talent-assessment-services/skill-gap-competency-assessment",
+                    "icon": "wrench",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "Skills Assessment",
+                    "description": "Verify role-specific skills and see where to develop next."
+                },
+                {
+                    "href": "/talent-assessment-services/language-proficiency-assessment",
+                    "icon": "languages",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "English Proficiency Assessment",
+                    "description": "Verify English proficiency for each role, on CEFR levels."
+                },
+                {
+                    "href": "/talent-assessment-services/behavioral-assessment-services",
+                    "icon": "users",
+                    "tags": [
+                        "Onboarding",
+                        "Development",
+                        "Team"
+                    ],
+                    "title": "Behavioral Assessment",
+                    "description": "Profile behavioral style, strengths and career direction."
+                },
+                {
+                    "href": "/talent-assessment-services/assessment-development-centers-consulting",
+                    "icon": "clipboard",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Assessment & Development Centers",
+                    "description": "Combine live exercises with psychometrics for high-stakes decisions."
+                },
+                {
+                    "href": "/talent-assessment-services/leadership-assessment",
+                    "icon": "star",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Leadership Assessment",
+                    "description": "Assess leadership capability, potential and succession readiness."
+                },
+                {
+                    "href": "/talent-assessment-services/emotional-intelligence-assessment",
+                    "icon": "heart",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Emotional Intelligence Assessment",
+                    "description": "Measure self-awareness, empathy and resilience at work."
+                },
+                {
+                    "href": "/talent-assessment-services/organizational-alignment-consulting",
+                    "icon": "network",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "360-Degree Feedback",
+                    "description": "See how behavior is experienced by manager, peers and reports."
+                },
+                {
+                    "href": "/talent-assessment-services/team-effectiveness-assessment-services",
+                    "icon": "smile",
+                    "tags": [
+                        "Onboarding",
+                        "First-time managers",
+                        "Team"
+                    ],
+                    "title": "Team Effectiveness Assessment",
+                    "description": "Strengthen how teams trust, work and deliver together."
+                },
+                {
+                    "href": "/talent-assessment-services/culture-assessment",
+                    "icon": "building",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Culture Assessment",
+                    "description": "Understand the culture people experience every day."
+                },
+                {
+                    "href": "/talent-assessment-services/employee-engagement-survey",
+                    "icon": "star",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Employee Engagement Survey",
+                    "description": "Measure engagement and act on what drives it."
+                }
+            ],
+            "heading": "Complete the picture with <span>related assessments.</span>",
+            "hub_link": {
+                "href": "/talent-assessment-services#services",
+                "label": "Explore all 58 assessments in 14 families"
+            },
+            "cta_label": "Explore",
+            "section_id": "related",
+            "tags_label": "Best for",
+            "description": "Hiring evidence is strongest when it is combined. These Edstellar assessments complete the view."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "faqs",
+        "config": {
+            "cta": [
+                {
+                    "href": "#apply",
+                    "cta_text": "Talk through your questions with an Edstellar assessment specialist.",
+                    "btn_label": "Ask us directly"
+                }
+            ],
+            "items": [
+                {
+                    "question": "What is a pre-employment assessment?",
+                    "answer": "A pre-employment assessment, also called a pre-hire assessment, pre-employment test or pre-employment testing, is a structured way to measure candidates’ potential, judgment, behaviors and fit for a role before an offer is made. It brings consistent evidence into recruitment alongside interviews and CVs."
+                },
+                {
+                    "question": "Which pre-employment assessment tools does Edstellar use?",
+                    "answer": "Edstellar selects from tools including Talogy Spotlight, Talogy I-Grade, Capture, Talogy Hire, Dilemmas Series, CBI Smart and Safety DNA. Each tool is chosen for the role, the hiring route and the hiring volume."
+                },
+                {
+                    "question": "What is a situational judgment test?",
+                    "answer": "A situational judgment test presents realistic work scenarios and asks candidates how they would respond. It shows job-relevant judgment and behavioral fit, and works well as an early screen alongside cognitive or skills tests and structured interviews."
+                },
+                {
+                    "question": "Can pre-employment assessments handle high-volume hiring?",
+                    "answer": "Yes. Short, mobile-friendly online screening assessments make candidate assessment for large applicant pools quick and consistent, with ranked shortlists for each role, so recruiters focus their time on the strongest candidates."
+                },
+                {
+                    "question": "How does Edstellar support campus hiring?",
+                    "answer": "For graduate, intern and early-career hiring, Edstellar uses early-careers assessments such as Talogy Spotlight alongside situational judgment tests, structured interviews and realistic job previews, so campus recruitment identifies potential rather than experience alone."
+                },
+                {
+                    "question": "Are pre-employment tests fair to all candidates?",
+                    "answer": "Edstellar uses tools with published reliability and validity evidence, standardized administration and structured interviews, monitors pass rates across candidate groups, and aligns every process with local hiring rules. This reduces bias and gives every candidate the same opportunity."
+                },
+                {
+                    "question": "How do pre-employment assessments affect the candidate experience?",
+                    "answer": "Well-designed assessments improve it. Short, mobile-friendly tests, clear instructions and realistic job previews help candidates understand the role and show their best, and give them a fair, consistent process."
+                },
+                {
+                    "question": "How long does it take to set up pre-employment testing?",
+                    "answer": "A typical program is ready to launch in about six weeks, from job analysis to configured tools, interview guides and decision rules. Most candidates complete their online assessments in a single sitting."
+                },
+                {
+                    "question": "Can Edstellar assess candidates for safety-critical roles?",
+                    "answer": "Yes. For manufacturing, oil and gas, logistics and other safety-critical roles, Edstellar uses Safety DNA and Talogy I-Grade to assess safety attitudes, reliability and risk behavior before the offer."
+                },
+                {
+                    "question": "How is candidate data protected?",
+                    "answer": "Candidate data is collected only for the agreed hiring purpose, access is limited to agreed stakeholders, and results are reported under the confidentiality terms set at scoping. Edstellar holds ISO/IEC 27001:2022 certification for information security management."
+                },
+                {
+                    "question": "How much does a pre-employment assessment cost?",
+                    "answer": "Cost depends on the number of roles and candidates, the tools chosen, whether structured interview design and training are included, and how much reporting you need. Edstellar scopes each program before quoting, so you pay only for what your hiring requires."
+                }
+            ],
+            "heading": "Pre-employment assessment <span>FAQs.</span>"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "leadForm",
+        "config": {
+            "heading": "Plan your pre-employment assessment <span>with Edstellar.</span>",
+            "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+            "description": "Tell Edstellar the roles and hiring volumes you want better evidence for. A specialist replies within one business day with a scoped response, no automated sales sequence.",
+            "Button_Label": "Book a consultation"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/pre-employment-assessment",
+        "slug": "stickyFooter",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "label": "Request a consultation"
+            },
+            "Brochure": [
+                {
+                    "href": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "Label": "Download brochure"
+                }
+            ],
+            "messages": [
+                {
+                    "suffix": "fair, consistent screening and selection for every hiring route",
+                    "highlight": "Pre-employment assessment"
+                }
+            ],
+            "form_anchor_id": "apply"
+        }
+    }
+]

@@ -1,0 +1,1091 @@
+[
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "seo",
+        "config": {
+            "og_image": null,
+            "og_title": "360-Degree Feedback Services & 360 Assessment",
+            "meta_title": "360-Degree Feedback Services & 360 Assessment",
+            "og_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_card": "summary_large_image",
+            "twitter_site": "@edstellar",
+            "canonical_url": "https://www.edstellar.com/talent-assessment-services/organizational-alignment-consulting",
+            "meta_keywords": null,
+            "twitter_title": "360-Degree Feedback Services & 360 Assessment",
+            "og_description": "Edstellar's 360-degree feedback services run confidential multi-rater 360 surveys with managers, peers and reports, plus expert debriefs and development plans.",
+            "twitter_creator": "@edstellar",
+            "Meta_description": "Edstellar's 360-degree feedback services run confidential multi-rater 360 surveys with managers, peers and reports, plus expert debriefs and development plans.",
+            "twitter_image_url": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+            "twitter_description": "Edstellar's 360-degree feedback services run confidential multi-rater 360 surveys with managers, peers and reports, plus expert debriefs and development plans."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "consulting_Hero",
+        "config": {
+            "heroLeft": {
+                "title": "360-Degree Feedback Services",
+                "tagline": "See yourself as others see you.",
+                "showMeta": true,
+                "description": "Edstellar’s 360-degree feedback services gather confidential multi-rater feedback from a person’s manager, peers and direct reports. Trained practitioners debrief every report, so the insight turns into focused development.",
+                "primaryBtnLink": "#apply",
+                "primaryBtnText": "Book a 360 feedback consultation",
+                "secondaryBtnLink": "#instruments",
+                "secondaryBtnText": "Explore the tools"
+            },
+            "heroRight": {
+                "skill_matrix": {
+                    "note": null,
+                    "rows": [],
+                    "label": null,
+                    "views": [],
+                    "columns": [],
+                    "req_label": null,
+                    "aria_label": null,
+                    "gap_levels": [],
+                    "req_levels": null,
+                    "req_caption": null
+                },
+                "learning_system": [
+                    {
+                        "items": [
+                            {
+                                "icon": "Target",
+                                "title": "Leadership development",
+                                "description": "Clear priorities for every leader"
+                            },
+                            {
+                                "icon": "RotateCw",
+                                "title": "Individual development",
+                                "description": "Plans built on real feedback"
+                            },
+                            {
+                                "icon": "Network",
+                                "title": "Succession",
+                                "description": "Behavior evidence for readiness"
+                            },
+                            {
+                                "icon": "Heart",
+                                "title": "Culture and inclusion",
+                                "description": "How behaviors are experienced"
+                            }
+                        ],
+                        "title": "One 360 report, four uses",
+                        "footer_text": "Multi-rater feedback, interpreted by experts."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "breadcrumbs",
+        "config": {
+            "items": [
+                {
+                    "href": "/",
+                    "label": "Home"
+                },
+                {
+                    "href": "/talent-assessment-services",
+                    "label": "Talent Assessment Services"
+                },
+                {
+                    "href": null,
+                    "label": "360-Degree Feedback"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "generalProof",
+        "config": {
+            "tone": "dark",
+            "items": [
+                {
+                    "Label": "Ready to give every leader a clear picture?",
+                    "primary_btn_link": "#apply",
+                    "primary_btn_text": "Book a consultation",
+                    "secondary_btn_link": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "secondary_btn_text": "Download the assessments brochure (PDF)"
+                }
+            ],
+            "stats": [
+                {
+                    "label": "Assessments",
+                    "value": "13,650+"
+                },
+                {
+                    "label": "Clients",
+                    "value": "300+"
+                },
+                {
+                    "label": "Industries",
+                    "value": "20+"
+                },
+                {
+                    "label": "Certified",
+                    "value": "ISO 9001 & 27001"
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "stickyNavbar",
+        "config": {
+            "cta": {
+                "text": "Book a consultation",
+                "title": "Click Here to Book a Consultation",
+                "targetId": "apply"
+            },
+            "logo": {
+                "alt": "Edstellar",
+                "src": "/course/Edstellar.svg"
+            },
+            "tabs": [
+                {
+                    "id": "concept",
+                    "label": "Perspectives",
+                    "active": true
+                },
+                {
+                    "id": "benefits",
+                    "label": "Benefits",
+                    "active": false
+                },
+                {
+                    "id": "instruments",
+                    "label": "Tools",
+                    "active": false
+                },
+                {
+                    "id": "services",
+                    "label": "Services",
+                    "active": false
+                },
+                {
+                    "id": "process",
+                    "label": "Process",
+                    "active": false
+                },
+                {
+                    "id": "outputs",
+                    "label": "Outputs",
+                    "active": false
+                },
+                {
+                    "id": "why",
+                    "label": "Why Edstellar",
+                    "active": false
+                },
+                {
+                    "id": "faq",
+                    "label": "FAQ",
+                    "active": false
+                }
+            ]
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "concepts",
+        "config": {
+            "art": "rater-perspectives",
+            "grid": {
+                "rows": [],
+                "caption": null,
+                "columns": []
+            },
+            "heading": "Four perspectives, <span>one clear picture.</span>",
+            "principles": [
+                {
+                    "title": "Self",
+                    "description": "The person completes a self-assessment, rating their own behavior against the same competencies, which sets the baseline for comparison."
+                },
+                {
+                    "title": "Manager",
+                    "description": "The manager’s view shows how behavior lines up with the expectations of the role."
+                },
+                {
+                    "title": "Peers",
+                    "description": "Peer feedback from colleagues at the same level shows how the person collaborates, influences and works across teams."
+                },
+                {
+                    "title": "Direct reports",
+                    "description": "The people they lead show how they communicate, coach and support others day to day."
+                }
+            ],
+            "section_id": "concept",
+            "description": "A 360-degree feedback assessment, also called a 360 assessment, 360 review or multi-rater feedback survey, compares a person’s self-assessment with how others experience their behavior. Edstellar brings four perspectives together into one report."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "benifits",
+        "config": {
+            "items": [
+                {
+                    "icon": "eye",
+                    "title": "Reveal blind spots and hidden strengths",
+                    "description": "Show where self-view and others’ view differ, so people see strengths to use and habits to build."
+                },
+                {
+                    "icon": "target",
+                    "title": "Focus leadership development",
+                    "description": "Target programs and coaching on each leader’s development needs, the behaviors they most need to build."
+                },
+                {
+                    "icon": "shield",
+                    "title": "Honest, confidential feedback",
+                    "description": "Ratings and comments are grouped by rater type, so people give candid feedback with confidence."
+                },
+                {
+                    "icon": "clipboard",
+                    "title": "Development plans people own",
+                    "description": "One-to-one debriefs turn every report into practical goals the person agrees with."
+                },
+                {
+                    "icon": "trending-up",
+                    "title": "Measure progress over time",
+                    "description": "Repeat the 360 review after a development cycle and see how behavior has changed against the baseline, for every participant and high-potential cohort."
+                },
+                {
+                    "icon": "message",
+                    "title": "Build a feedback culture",
+                    "description": "Regular, well-run 360 feedback makes open, constructive feedback part of how leaders grow."
+                }
+            ],
+            "heading": "Edstellar 360-degree feedback that turns insight into <span>better leaders.</span>",
+            "section_id": "benefits",
+            "description": "Edstellar’s 360-degree feedback services give leaders and HR a consistent, honest view of behavior at work, so leadership development, employee development and succession planning all build on the same reliable evidence."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "instruments",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "heading": "Get a recommended 360 feedback approach for your leaders.",
+                "btn_label": "Talk to a specialist",
+                "description": "An Edstellar specialist will match tools and questionnaires to your leaders and goals."
+            },
+            "groups": [
+                {
+                    "label": "Edstellar’s own tool",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                2,
+                                0
+                            ],
+                            "name": "Orbit",
+                            "note": "Manager, peer, report and self ratings, with anonymous comments by rater type",
+                            "best_used": "For leadership development, development planning and progress checks between cycles"
+                        }
+                    ]
+                },
+                {
+                    "label": "360-degree feedback",
+                    "tools": [
+                        {
+                            "fit": [
+                                0,
+                                2,
+                                2,
+                                0
+                            ],
+                            "name": "Talogy 360",
+                            "note": "Multi-rater feedback on leadership behavior",
+                            "best_used": "For leadership development and succession conversations, not for pay decisions"
+                        }
+                    ]
+                },
+                {
+                    "label": "Inclusive behavior feedback",
+                    "tools": [
+                        {
+                            "fit": [
+                                2,
+                                0,
+                                2,
+                                2
+                            ],
+                            "name": "Talogy Perceptions™",
+                            "note": "Inclusive behaviors, as others experience them",
+                            "best_used": "In leadership and inclusion programs with clear behavior goals and psychological safety"
+                        }
+                    ]
+                }
+            ],
+            "columns": [
+                "Individual development",
+                "Succession",
+                "Leadership development",
+                "Culture & inclusion"
+            ],
+            "heading": "Proven 360-degree feedback tools, <span>chosen for each purpose.</span>",
+            "lifecycle": {
+                "title": "Where Edstellar 360-degree feedback fits in the employee lifecycle",
+                "stages": [
+                    {
+                        "label": "Campus & pre-hire",
+                        "active": false
+                    },
+                    {
+                        "label": "Hiring decisions",
+                        "active": false
+                    },
+                    {
+                        "label": "Onboarding",
+                        "active": false
+                    },
+                    {
+                        "label": "Individual development",
+                        "active": true
+                    },
+                    {
+                        "label": "First-time managers",
+                        "active": false
+                    },
+                    {
+                        "label": "Promotion & succession",
+                        "active": true
+                    },
+                    {
+                        "label": "Leadership & coaching",
+                        "active": true
+                    },
+                    {
+                        "label": "Team & culture",
+                        "active": true
+                    },
+                    {
+                        "label": "Safety & compliance",
+                        "active": false
+                    }
+                ],
+                "audiences": [
+                    "Managers",
+                    "Leaders",
+                    "High potentials",
+                    "All employees"
+                ]
+            },
+            "fit_legend": {
+                "none": "Not used for this",
+                "strong": "Strong fit",
+                "supporting": "Supporting evidence"
+            },
+            "section_id": "instruments",
+            "description": "Edstellar selects from leading 360 feedback tools and multi-rater surveys, choosing validated, reliable instruments for the purpose each one supports, alongside Edstellar’s own Orbit 360-degree feedback tool.",
+            "table_label": "360-degree feedback tool fit",
+            "table_caption": "360-degree feedback tools and how well each fits individual development, succession, leadership development, and culture and inclusion, in employee lifecycle order"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "Inside",
+        "config": {
+            "cta": null,
+            "tabs": [],
+            "heading": null,
+            "section_id": "inside",
+            "description": null
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "readinessData",
+        "config": {
+            "cta": {
+                "href": "https://www.edstellar.com/tool/talent-assessment-services",
+                "label": "Take the free readiness check →"
+            },
+            "points": [
+                "Purpose, competencies and questionnaire design",
+                "Rater selection and confidentiality",
+                "Debriefs, development plans and follow-up"
+            ],
+            "heading": "Assess your 360 feedback approach against the <span>essentials.</span>",
+            "checklist": {
+                "items": [
+                    {
+                        "done": true,
+                        "label": "Leadership competencies are defined"
+                    },
+                    {
+                        "done": true,
+                        "label": "The purpose is development, not pay"
+                    },
+                    {
+                        "done": true,
+                        "label": "Raters are chosen for each person"
+                    },
+                    {
+                        "done": false,
+                        "label": "Every participant gets a debrief"
+                    },
+                    {
+                        "done": false,
+                        "label": "Progress is measured after development"
+                    }
+                ],
+                "title": "360 feedback readiness checklist"
+            },
+            "description": "A quick check of how your organization runs 360-degree feedback today, from purpose and raters to debriefs, and where it can add even more value."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "talent-services",
+        "config": {
+            "items": [
+                {
+                    "get": "Competency-based 360 questionnaire",
+                    "flow": [
+                        "Strategic thinking",
+                        "Leading people",
+                        "Collaboration",
+                        "Communication"
+                    ],
+                    "icon": "list",
+                    "title": "360 questionnaire design",
+                    "caption": "Questions mapped to your competencies",
+                    "summary": "Build a competency-based 360 questionnaire aligned with your leadership framework and the behaviors that matter.",
+                    "flow_style": "bars",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Balanced rater groups",
+                    "flow": [
+                        "Self",
+                        "Manager",
+                        "Peers",
+                        "Direct reports"
+                    ],
+                    "icon": "users",
+                    "title": "Rater selection and communication",
+                    "caption": "Every perspective represented",
+                    "summary": "Help each person choose a balanced set of raters for manager, peer feedback and direct-report views, and explain the 360 review process clearly, so feedback is honest and complete.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Completed 360 feedback",
+                    "flow": [
+                        "Invite",
+                        "Remind",
+                        "Close"
+                    ],
+                    "icon": "globe",
+                    "title": "Online 360 administration",
+                    "caption": "Simple for every rater",
+                    "summary": "Run the 360 survey online on any device, with reminders and response tracking throughout.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Individual 360 reports",
+                    "flow": [
+                        "Self view",
+                        "Others’ view"
+                    ],
+                    "icon": "message",
+                    "title": "360 reports and debriefs",
+                    "caption": "A clear focus for development",
+                    "summary": "Trained practitioners walk each person through their report, comparing self-view with others’ view.",
+                    "flow_style": "bars",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Development plans",
+                    "flow": [
+                        "360 report",
+                        "Debrief",
+                        "Development plan"
+                    ],
+                    "icon": "user-check",
+                    "title": "Development planning and coaching",
+                    "caption": "Every report ends in a plan",
+                    "summary": "Turn each report into focused development goals, coaching priorities and learning actions.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                },
+                {
+                    "get": "Group heatmap and progress review",
+                    "flow": [
+                        "Baseline 360",
+                        "Development",
+                        "Follow-up 360"
+                    ],
+                    "icon": "trending-up",
+                    "title": "Group insights and progress tracking",
+                    "caption": "Progress measured, not assumed",
+                    "summary": "Combine results into group heatmaps and repeat the 360 after development to measure change.",
+                    "flow_style": "arrows",
+                    "flow_highlight": null
+                }
+            ],
+            "heading": "Edstellar 360-degree feedback services, <span>end to end.</span>",
+            "get_label": "You get:",
+            "section_id": "services",
+            "description": "From designing the questionnaire to measuring progress, Edstellar covers every part of a 360-degree feedback program."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "methodology",
+        "config": {
+            "cta": [],
+            "steps": [
+                {
+                    "chips": [
+                        "Purpose",
+                        "Competencies"
+                    ],
+                    "title": "Scope",
+                    "duration": "Week 1",
+                    "deliverable": "360 scope and competency map",
+                    "description": "Agree on the purpose, the participants and the competencies the 360 will cover."
+                },
+                {
+                    "chips": [
+                        "Questionnaire",
+                        "Rater groups"
+                    ],
+                    "title": "Design",
+                    "duration": "Weeks 1 to 2",
+                    "deliverable": "Configured 360 survey",
+                    "description": "Configure the questionnaire, agree on rater groups and brief participants."
+                },
+                {
+                    "chips": [
+                        "Online survey",
+                        "Response tracking"
+                    ],
+                    "title": "Assess",
+                    "duration": "Weeks 2 to 4",
+                    "deliverable": "Completed 360 feedback",
+                    "description": "Raters complete the online 360 survey, with reminders and response tracking."
+                },
+                {
+                    "chips": [
+                        "Interpretation",
+                        "Debriefs"
+                    ],
+                    "title": "Debrief",
+                    "duration": "Weeks 4 to 5",
+                    "deliverable": "Individual and group reports",
+                    "description": "Practitioners interpret each report and debrief participants one to one."
+                },
+                {
+                    "chips": [
+                        "Development plans",
+                        "Coaching goals"
+                    ],
+                    "title": "Develop",
+                    "duration": "Weeks 5 to 6",
+                    "deliverable": "Development plans",
+                    "description": "Turn feedback into development plans, coaching goals and learning actions."
+                },
+                {
+                    "chips": [
+                        "Follow-up 360",
+                        "Progress review"
+                    ],
+                    "title": "Review",
+                    "duration": "Ongoing",
+                    "deliverable": "Progress review",
+                    "description": "Run a follow-up 360 after the development cycle and compare it with the baseline."
+                }
+            ],
+            "heading": "The Edstellar 360-degree feedback <span>process.</span>",
+            "subheading": "Edstellar runs 360-degree feedback in six steps, from agreeing the purpose to measuring progress. A typical cohort takes about six weeks from kickoff to development plans."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "output",
+        "config": {
+            "cta": {
+                "heading": "Give every leader a clear picture.",
+                "primary": {
+                    "href": "#apply",
+                    "label": "Plan your 360 feedback"
+                },
+                "secondary": {
+                    "href": "/tool/talent-assessment-services",
+                    "label": "Take the readiness check"
+                },
+                "description": "Scope your 360-degree feedback program with an Edstellar specialist."
+            },
+            "columns": [
+                {
+                    "items": [
+                        {
+                            "icon": "file",
+                            "stage": "Step 4: Debrief",
+                            "title": "Individual 360 reports",
+                            "description": "Self-view and others’ view compared, with anonymous comments by rater type."
+                        },
+                        {
+                            "icon": "list-check",
+                            "stage": "Step 5: Develop",
+                            "title": "Development plans",
+                            "description": "Practical goals and next steps agreed in the debrief."
+                        }
+                    ],
+                    "title": "Participants and coaches",
+                    "subtitle": "Self-awareness and growth"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "user-cog",
+                            "stage": "Step 5: Develop",
+                            "title": "Manager conversation guides",
+                            "description": "Clear pointers for supporting each person’s development goals."
+                        },
+                        {
+                            "icon": "users",
+                            "stage": "Step 4: Debrief",
+                            "title": "Team summaries",
+                            "description": "Shared strengths and development themes across a team."
+                        }
+                    ],
+                    "title": "Managers and leaders",
+                    "subtitle": "Better conversations"
+                },
+                {
+                    "items": [
+                        {
+                            "icon": "grid",
+                            "stage": "Step 4: Debrief",
+                            "title": "Group heatmaps",
+                            "description": "Strengths and gaps across a cohort, function or level."
+                        },
+                        {
+                            "icon": "trending-up",
+                            "stage": "Step 6: Review",
+                            "title": "Progress reviews",
+                            "description": "Change in behavior measured against the first 360."
+                        }
+                    ],
+                    "title": "HR and L&D",
+                    "subtitle": "A system that lasts"
+                }
+            ],
+            "heading": "Ready-to-use outputs for <span>every decision.</span>",
+            "section_id": "outputs",
+            "description": "Every Edstellar engagement ends with 360 feedback reports and outputs that people can read quickly and act on right away."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "ld_why_edstellar",
+        "config": {
+            "cta": [],
+            "items": [
+                {
+                    "icon": "link",
+                    "title": "Assessment to development, one partner",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "360 feedback",
+                            "Debrief",
+                            "Develop"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "One team, from measurement to development"
+                    },
+                    "difference": "Many 360 providers stop at the report. Edstellar connects it to development.",
+                    "description": "Feedback turns into action, because the team that runs your 360 also maps every result to programs, coaching or OD work."
+                },
+                {
+                    "icon": "chip",
+                    "title": "Runs on the Capability Intelligence Platform",
+                    "visual": {
+                        "type": "signal",
+                        "items": [
+                            "Profiled:74",
+                            "Debriefed:56",
+                            "Developing:63"
+                        ],
+                        "title": "Capability signal",
+                        "status": "Live",
+                        "caption": null
+                    },
+                    "difference": "Your skills data stays live, not frozen in a PDF.",
+                    "description": "You always know who is ready and where the gaps sit, with a live picture of verified skills between assessment cycles."
+                },
+                {
+                    "icon": "chart",
+                    "title": "Expert interpretation, every time",
+                    "visual": {
+                        "type": "flow",
+                        "items": [
+                            "Ratings",
+                            "Comments",
+                            "Practitioner"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Every report explained in context"
+                    },
+                    "difference": "Feedback people act on, not a report they file away.",
+                    "description": "Trained practitioners walk each person through their 360 report in plain language, so feedback feels useful, not overwhelming."
+                },
+                {
+                    "icon": "globe",
+                    "title": "Certified assessors, wherever your people are",
+                    "visual": {
+                        "type": "regions",
+                        "items": [
+                            "APAC",
+                            "Middle East",
+                            "Europe",
+                            "Americas"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Online · in-person · blended"
+                    },
+                    "difference": "The same standard in every country you assess.",
+                    "description": "360-degree feedback runs online across 100+ locations, with debriefs in person or virtually and questionnaires suited to each region."
+                },
+                {
+                    "icon": "list",
+                    "title": "A proven method, not improvisation",
+                    "visual": {
+                        "type": "steps",
+                        "items": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Scope · Design · Assess · Debrief · Develop · Review"
+                    },
+                    "difference": "A repeatable system, not a bespoke experiment each time.",
+                    "description": "Every engagement runs the same six steps, from scope to review, with validated 360 tools chosen for the purpose at hand."
+                },
+                {
+                    "icon": "sliders",
+                    "title": "The right 360 tool for every purpose",
+                    "visual": {
+                        "type": "tiers",
+                        "items": [
+                            "Talogy 360",
+                            "Talogy Perceptions™",
+                            "Orbit"
+                        ],
+                        "title": null,
+                        "status": null,
+                        "caption": "Chosen from leading publishers"
+                    },
+                    "difference": "The tool fits the purpose, not the other way round.",
+                    "description": "Edstellar is not tied to a single publisher, so each 360 program gets the tool that fits its purpose best."
+                }
+            ],
+            "trust": {
+                "caption": "clients served worldwide",
+                "heading": "Trusted across industries and regions",
+                "regions": [
+                    "APAC",
+                    "Middle East",
+                    "Europe",
+                    "Americas"
+                ],
+                "industries": [
+                    {
+                        "icon": "landmark",
+                        "label": "Financial services"
+                    },
+                    {
+                        "icon": "monitor",
+                        "label": "Technology"
+                    },
+                    {
+                        "icon": "cross",
+                        "label": "Healthcare"
+                    },
+                    {
+                        "icon": "factory",
+                        "label": "Manufacturing"
+                    },
+                    {
+                        "icon": "bag",
+                        "label": "Retail & consumer"
+                    },
+                    {
+                        "icon": "airoplane",
+                        "label": "Aviation & maritime"
+                    }
+                ],
+                "more_label": "20+ in all",
+                "regions_label": "Delivered across",
+                "caption_strong": "Fortune 500"
+            },
+            "heading": "Why choose Edstellar for <span>360-degree feedback.</span>",
+            "description": "Edstellar chooses the right 360 tool for each purpose, has trained practitioners debrief every report, and connects the feedback to development, so 360 results lead to real change.",
+            "difference_label": "The difference"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "talent_related_services",
+        "config": {
+            "items": [
+                {
+                    "href": "/talent-assessment-services/leadership-assessment",
+                    "icon": "star",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Leadership Assessment",
+                    "description": "Assess leadership capability, potential and succession readiness."
+                },
+                {
+                    "href": "/talent-assessment-services/assessment-development-centers-consulting",
+                    "icon": "clipboard",
+                    "tags": [
+                        "Hiring",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Assessment & Development Centers",
+                    "description": "Combine live exercises with psychometrics for high-stakes decisions."
+                },
+                {
+                    "href": "/talent-assessment-services/emotional-intelligence-assessment",
+                    "icon": "heart",
+                    "tags": [
+                        "Development",
+                        "Promotion",
+                        "Coaching"
+                    ],
+                    "title": "Emotional Intelligence Assessment",
+                    "description": "Measure self-awareness, empathy and resilience at work."
+                },
+                {
+                    "href": "/talent-assessment-services/psychometric-assessment",
+                    "icon": "layers",
+                    "tags": [
+                        "Hiring",
+                        "Development",
+                        "Promotion"
+                    ],
+                    "title": "Psychometric Assessment",
+                    "description": "Profile personality, work style and motivation for hiring and development."
+                },
+                {
+                    "href": "/talent-assessment-services/team-effectiveness-assessment-services",
+                    "icon": "smile",
+                    "tags": [
+                        "Onboarding",
+                        "First-time managers",
+                        "Team"
+                    ],
+                    "title": "Team Effectiveness Assessment",
+                    "description": "Strengthen how teams trust, work and deliver together."
+                },
+                {
+                    "href": "/talent-assessment-services/culture-assessment",
+                    "icon": "building",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Culture Assessment",
+                    "description": "Understand the culture people experience every day."
+                },
+                {
+                    "href": "/talent-assessment-services/employee-engagement-survey",
+                    "icon": "star",
+                    "tags": [
+                        "Onboarding",
+                        "Coaching",
+                        "Culture"
+                    ],
+                    "title": "Employee Engagement Survey",
+                    "description": "Measure engagement and act on what drives it."
+                },
+                {
+                    "href": "/talent-assessment-services/behavioral-assessment-services",
+                    "icon": "users",
+                    "tags": [
+                        "Onboarding",
+                        "Development",
+                        "Team"
+                    ],
+                    "title": "Behavioral Assessment",
+                    "description": "Profile behavioral style, strengths and career direction."
+                },
+                {
+                    "href": "/talent-assessment-services/cognitive-ability-assessment",
+                    "icon": "brain",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Promotion"
+                    ],
+                    "title": "Cognitive Ability & Aptitude Testing",
+                    "description": "Measure reasoning, problem solving and learning ability."
+                },
+                {
+                    "href": "/talent-assessment-services/pre-employment-assessment",
+                    "icon": "user-check",
+                    "tags": [
+                        "Campus",
+                        "Hiring",
+                        "Safety"
+                    ],
+                    "title": "Pre-employment Assessment",
+                    "description": "Screen early-career and high-volume hiring quickly and fairly."
+                },
+                {
+                    "href": "/talent-assessment-services/skill-gap-competency-assessment",
+                    "icon": "wrench",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "Skills Assessment",
+                    "description": "Verify role-specific skills and see where to develop next."
+                },
+                {
+                    "href": "/talent-assessment-services/language-proficiency-assessment",
+                    "icon": "languages",
+                    "tags": [
+                        "Hiring",
+                        "Onboarding",
+                        "Development"
+                    ],
+                    "title": "English Proficiency Assessment",
+                    "description": "Verify English proficiency for each role, on CEFR levels."
+                }
+            ],
+            "heading": "Complete the picture with <span>related assessments.</span>",
+            "hub_link": {
+                "href": "/talent-assessment-services#services",
+                "label": "Explore all 58 assessments in 14 families"
+            },
+            "cta_label": "Explore",
+            "section_id": "related",
+            "tags_label": "Best for",
+            "description": "360 feedback is strongest alongside other evidence. These Edstellar assessments complete the view."
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "faqs",
+        "config": {
+            "cta": [
+                {
+                    "href": "#apply",
+                    "cta_text": "Talk through your questions with an Edstellar assessment specialist.",
+                    "btn_label": "Ask us directly"
+                }
+            ],
+            "items": [
+                {
+                    "question": "What is 360-degree feedback?",
+                    "answer": "360-degree feedback, also called a 360 assessment or multi-rater feedback, gathers ratings and comments on a person’s behavior from their manager, peers and direct reports, and compares them with the person’s own self-rating. It shows strengths, blind spots and clear priorities for development."
+                },
+                {
+                    "question": "Which 360 feedback tools does Edstellar use?",
+                    "answer": "Edstellar selects from tools including Talogy 360 and Talogy Perceptions, alongside its own Orbit 360-degree feedback tool. Each is chosen for the purpose of the program, from leadership development to inclusive behavior."
+                },
+                {
+                    "question": "Is 360 feedback anonymous?",
+                    "answer": "Yes, rater anonymity is built in. Ratings and comments are grouped by rater type, so individual peers and direct reports cannot be identified. The manager’s view is usually shown on its own. Edstellar agrees the confidentiality rules with you at scoping."
+                },
+                {
+                    "question": "How many raters should each person have?",
+                    "answer": "Each person needs a balanced mix: their manager, several peers and several direct reports, with enough people in each group to protect anonymity. Edstellar agrees the exact mix for your program at scoping."
+                },
+                {
+                    "question": "Can the 360 follow an existing competency framework?",
+                    "answer": "Yes. Edstellar can align the 360 questionnaire with your leadership competencies or existing competency framework, or help you define one, so feedback reflects the behaviors your organization values."
+                },
+                {
+                    "question": "Should 360 feedback be used for performance reviews or pay?",
+                    "answer": "360-degree feedback works best for development. Keeping it separate from pay and performance ratings helps raters give honest feedback and helps participants act on it."
+                },
+                {
+                    "question": "Can 360 feedback support succession planning and high-potential programs?",
+                    "answer": "Yes. Tools such as Talogy 360 suit leadership development and succession conversations, so 360 feedback adds how others experience a successor’s or high-potential employee’s behavior to the wider evidence. Edstellar keeps 360 results for development rather than pay, and pairs them with leadership assessment for succession decisions."
+                },
+                {
+                    "question": "How is 360 feedback different from a leadership assessment?",
+                    "answer": "360-degree feedback shows how a person’s behavior is experienced by others. A leadership assessment measures capability, potential and risk with tests and exercises. Edstellar often combines both, and covers leadership assessment on its own page."
+                },
+                {
+                    "question": "How often should we run 360 feedback?",
+                    "answer": "Most organizations repeat a 360 after a full development cycle, so progress can be measured against the first baseline. Edstellar can also run shorter follow-up checks between cycles."
+                },
+                {
+                    "question": "How do you make 360 feedback fair and useful?",
+                    "answer": "Edstellar uses validated 360 tools, clear competencies, balanced rater groups, confidential reporting and a one-to-one debrief for every participant. This reduces bias and helps people focus on a few clear development priorities."
+                },
+                {
+                    "question": "How is 360 feedback data protected?",
+                    "answer": "360 feedback data is collected only for the agreed purpose, access is limited to agreed stakeholders, and reports are shared under the confidentiality terms set at scoping. Edstellar holds ISO/IEC 27001:2022 certification for information security management."
+                },
+                {
+                    "question": "How much does a 360 feedback program cost?",
+                    "answer": "Cost depends on the number of participants and raters, the tool chosen, whether the questionnaire is customized, and how much debriefing and coaching you need. Edstellar scopes each program before quoting, so you pay only for what your program requires."
+                }
+            ],
+            "heading": "360-degree feedback <span>FAQs.</span>"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "leadForm",
+        "config": {
+            "heading": "Plan your 360-degree feedback <span>with Edstellar.</span>",
+            "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+            "description": "Tell Edstellar who you want to give 360 feedback to and why. A specialist replies within one business day with a scoped response, no automated sales sequence.",
+            "Button_Label": "Book a consultation"
+        }
+    },
+    {
+        "site_page_slug": "talent-assessment-services/organizational-alignment-consulting",
+        "slug": "stickyFooter",
+        "config": {
+            "cta": {
+                "href": "#apply",
+                "label": "Request a consultation"
+            },
+            "Brochure": [
+                {
+                    "href": "https://www.edstellar.com/brochures/talent-assessment-services",
+                    "Label": "Download brochure"
+                }
+            ],
+            "messages": [
+                {
+                    "suffix": "confidential multi-rater feedback that turns into development",
+                    "highlight": "360-degree feedback"
+                }
+            ],
+            "form_anchor_id": "apply"
+        }
+    }
+]
