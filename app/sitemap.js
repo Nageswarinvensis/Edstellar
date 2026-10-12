@@ -5,6 +5,7 @@ import {
   CONSULTING_PILLARS,
   getConsultingServiceSlugs,
 } from "@/lib/content/consulting";
+import { getTalentAssessmentServiceSlugs } from "@/lib/content/talent-assessment";
 import { RESOURCE_TYPES } from "@/lib/content/resources";
 
 /**
@@ -28,17 +29,19 @@ export default async function sitemap() {
     priority,
   });
 
-  const [trainingSlugs, coursePaths, servicePaths] = await Promise.all([
-    getTrainingSlugs(),
-    getAllCoursePaths(),
-    Promise.all(
-      CONSULTING_PILLARS.map(async ({ slug: pillar }) =>
-        (await getConsultingServiceSlugs(pillar)).map(
-          (slug) => `/${pillar}/${slug}`,
+  const [trainingSlugs, coursePaths, servicePaths, talentAssessmentSlugs] =
+    await Promise.all([
+      getTrainingSlugs(),
+      getAllCoursePaths(),
+      Promise.all(
+        CONSULTING_PILLARS.map(async ({ slug: pillar }) =>
+          (await getConsultingServiceSlugs(pillar)).map(
+            (slug) => `/${pillar}/${slug}`,
+          ),
         ),
-      ),
-    ).then((paths) => paths.flat()),
-  ]);
+      ).then((paths) => paths.flat()),
+      getTalentAssessmentServiceSlugs(),
+    ]);
 
   return [
     entry("/", 1, "daily"),
@@ -49,6 +52,9 @@ export default async function sitemap() {
     ),
     ...CONSULTING_PILLARS.map(({ slug }) => entry(`/${slug}`, 0.7)),
     ...servicePaths.map((path) => entry(path, 0.6)),
+    ...talentAssessmentSlugs.map((slug) =>
+      entry(`/talent-assessment-services/${slug}`, 0.6),
+    ),
     entry("/resources", 0.6),
     ...RESOURCE_TYPES.map(({ slug }) => entry(`/resources/${slug}`, 0.5)),
     entry("/blog", 0.6, "daily"),
