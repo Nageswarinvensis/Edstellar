@@ -62,15 +62,10 @@ const iconVariants = {
   red: "bg-[#FDEBEB] text-[#B91C1C]",
 };
 
-const BUNDLE_TEST_IMAGES = [
-  "/images/bundles/bundle-card-1.png",
-  "/images/bundles/bundle-card-2.png",
-];
-
-function BundleCard({ bundle, onOpen, index }) {
+function BundleCard({ bundle, onOpen }) {
   const Icon = bundleIcons[bundle.icon] ?? Package;
   const iconClass = iconVariants[bundle.icon_variant] ?? iconVariants.orange;
-  const imageSrc = BUNDLE_TEST_IMAGES[index] ?? DOMAIN_CARD_IMAGE;
+  const imageSrc = bundle.image ?? DOMAIN_CARD_IMAGE;
 
   return (
     <Box
@@ -475,9 +470,9 @@ export default function Bundles({ data }) {
             role="list"
             className="grid list-none grid-cols-4 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1"
           >
-            {shownBundles.map((bundle, i) => (
+            {shownBundles.map((bundle) => (
               <Box as="li" key={bundle.name} className="h-full">
-                <BundleCard bundle={bundle} onOpen={setOpenBundle} index={i} />
+                <BundleCard bundle={bundle} onOpen={setOpenBundle} />
               </Box>
             ))}
           </Box>
