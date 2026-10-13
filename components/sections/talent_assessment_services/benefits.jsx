@@ -110,7 +110,7 @@ export default function Benefits({ data }) {
                 as="span"
                 aria-hidden="true"
                 className={cn(
-                  "absolute top-5 left-5 font-serif italic leading-none transition-[font-size,color] duration-400",
+                  "absolute top-5 left-5 font-serif italic leading-none transition-[font-size,color] duration-400 max-[860px]:top-3.5 max-[860px]:lining-nums",
                   isOpen
                     ? "text-[88px] text-navy max-[860px]:text-[30px]"
                     : "text-[44px] text-lime/75 max-[860px]:text-[30px]",
@@ -124,7 +124,10 @@ export default function Benefits({ data }) {
                 as="span"
                 aria-hidden="true"
                 className={cn(
-                  "absolute bottom-6 left-5.5 whitespace-nowrap font-display text-[17px] font-semibold text-paper [writing-mode:vertical-rl] [transform:rotate(180deg)]",
+                  // Spans from below the 44px index (top-23) to the card's foot, so a
+                  // long title breaks onto a second vertical line instead of
+                  // running into the number.
+                  "absolute top-23 bottom-6 left-5.5 font-display text-[17px] min-[861px]:leading-[1.25] min-[861px]:text-balance font-semibold text-paper [writing-mode:vertical-rl] [transform:rotate(180deg)]",
                   "max-[860px]:static max-[860px]:block max-[860px]:whitespace-normal max-[860px]:pt-1 max-[860px]:[writing-mode:horizontal-tb] max-[860px]:[transform:none]",
                   isOpen && "opacity-0 max-[860px]:hidden",
                 )}

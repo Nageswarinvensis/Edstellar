@@ -13,11 +13,11 @@ import {
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
+import CourseImage from "@/components/common/course-image";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
-import { DOMAIN_CARD_IMAGE } from "@/lib/constants";
 
 const COURSES_PER_PAGE = 9;
 
@@ -94,7 +94,7 @@ function DeliveryBadge({ delivery, data }) {
   );
 }
 
-function CourseImage({ course, data }) {
+function CourseMedia({ course, data }) {
   const cardData = data.catalog.card;
 
   if (course.proposed) {
@@ -114,20 +114,15 @@ function CourseImage({ course, data }) {
     );
   }
 
-  // Card image is hardcoded for every course (not from the CMS) — see
-  // DOMAIN_CARD_IMAGE. The CMS `course.image.src` is intentionally ignored.
-  const imageSrc = DOMAIN_CARD_IMAGE;
-
   return (
     <Box className="relative h-51 overflow-hidden bg-paper-warm">
-      {imageSrc ? (
-        <img
-          src={imageSrc}
-          alt={course.image?.alt || course.title}
-          title={course.image?.title || course.title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-        />
-      ) : null}
+      {/* The CMS image (`course.image.src`), or the default course image */}
+      <CourseImage
+        src={course.image?.src}
+        alt={course.image?.alt || course.title}
+        title={course.image?.title || course.title}
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+      />
 
       <div className="absolute inset-0 bg-black/5" />
 
@@ -189,7 +184,7 @@ function CourseCard({ course, data }) {
 
   return (
     <Box className={cardClasses}>
-      <CourseImage course={course} data={data} />
+      <CourseMedia course={course} data={data} />
 
       <Box className="flex min-h-35 flex-col px-4 py-3">
         <div className="mb-1.25 flex min-h-3 items-center gap-2.5">
@@ -632,14 +627,12 @@ export default function Program({ data }) {
         {/* ================= FILTERS ================= */}
         <Box className="mt-5">
           {/* ================= DISCIPLINE ================= */}
-          <Box className="flex flex-col gap-2.5 md:flex-row md:items-center">
-            <Text
-              as="span"
-              className="w-17 shrink-0 whitespace-nowrap text-[10px] font-medium uppercase tracking-[1.5px] text-ink-muted]"
-            >
-              DISCIPLINE
-            </Text>
-
+          {/* No visible label — the group is named for screen readers only. */}
+          <Box
+            role="group"
+            aria-label="Discipline"
+            className="flex flex-col gap-2.5 md:flex-row md:items-center"
+          >
             <Box className="flex flex-col gap-2.5">
               <Box className="flex flex-wrap gap-1.5">
                 <FilterButton

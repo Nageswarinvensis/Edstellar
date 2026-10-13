@@ -6,6 +6,7 @@ import { X, Mail, Download } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/common/cta-button";
+import { newTabProps } from "@/lib/links";
 
 const ROTATE_MS = 5200;
 
@@ -187,6 +188,12 @@ export default function StickyFooter({ data }) {
           {brochure?.href ? (
             <a
               href={brochure.href}
+              // The talent-assessment pages use this slot for the readiness
+              // check, which opens the tool in a new tab; brochures elsewhere
+              // keep their current behavior.
+              {...(/readiness/i.test(brochure.label ?? "")
+                ? newTabProps(brochure.href)
+                : {})}
               aria-label={brochure.label}
               className={PILL_CLASS}
             >

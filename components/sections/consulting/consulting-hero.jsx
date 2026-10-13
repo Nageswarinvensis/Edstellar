@@ -9,7 +9,8 @@ import SkillMatrix from "./skill-matrix";
 import LearningSystemCard from "./learning-system-card";
 import { cn } from "@/lib/utils";
 
-/** The hero meta row — the same on every page that shows it (`showMeta: true`). */
+/** The hero meta row on every page that shows it (`showMeta: true`). The
+ * first item is overridden per page by `heroLeft.small_text`. */
 const HERO_META = [
   "Consulting & delivery",
   "Onsite / virtual / hybrid",
@@ -106,7 +107,13 @@ export default function ConsultingHero({
             {shouldShowMeta && (
               <Reveal delay={3}>
                 <HeroMeta
-                  items={HERO_META}
+                  // The first item is per page: the CMS sends it as
+                  // `heroLeft.small_text`; pages without one keep the default.
+                  items={
+                    left.small_text
+                      ? [left.small_text, ...HERO_META.slice(1)]
+                      : HERO_META
+                  }
                   className={cn("mt-6 tracking-[0.12em]", weightClass, colorClass)}
                 />
               </Reveal>

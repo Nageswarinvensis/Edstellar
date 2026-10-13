@@ -16,6 +16,7 @@ import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
+import { newTabProps } from "@/lib/links";
 
 const ICONS = {
   file: FileText,
@@ -60,9 +61,9 @@ export default function Outputs({ data }) {
 
       <Box className="grid grid-cols-3 gap-5 max-[1100px]:grid-cols-2 max-[600px]:grid-cols-1">
         {columns.map((col, index) => (
-          <Reveal key={col.title} delay={Math.min(index + 1, 4)} className="max-[1100px]:last:col-span-2 max-[600px]:last:col-auto">
-            <Box className="overflow-hidden rounded-2xl border border-ink/12 bg-white">
-              <Box className="bg-navy px-6.5 py-5.5">
+          <Reveal key={col.title} delay={Math.min(index + 1, 4)} className="h-full max-[1100px]:last:col-span-2 max-[600px]:last:col-auto">
+            <Box className="h-full overflow-hidden rounded-2xl border border-ink/12 bg-white">
+              <Box className="bg-navy px-6.5 py-5.5 max-[600px]:px-5 max-[600px]:py-4.5">
                 <Text as="h3" className="font-display text-[18px] font-bold text-paper">
                   {col.title}
                 </Text>
@@ -76,7 +77,9 @@ export default function Outputs({ data }) {
                 return (
                   <Box
                     key={item.title}
-                    className="flex gap-3.5 border-t border-ink/12 px-6.5 py-5.5"
+                    // Below 600px the icon stacks above the title so the text
+                    // gets the card's full width.
+                    className="flex gap-3.5 border-t border-ink/12 px-6.5 py-5.5 max-[600px]:flex-col max-[600px]:gap-3 max-[600px]:px-5 max-[600px]:py-4.5"
                   >
                     <Box className="grid size-10 flex-none place-items-center rounded-[10px] bg-lime-soft text-navy">
                       <Icon size={20} strokeWidth={1.7} aria-hidden="true" />
@@ -134,7 +137,8 @@ export default function Outputs({ data }) {
                 <CtaButton
                   variant="ghost"
                   arrow
-                  render={<Link href={cta.secondary.href} />}
+                  // The readiness check — opens the tool in a new tab.
+                  render={<Link href={cta.secondary.href} {...newTabProps(cta.secondary.href)} />}
                 >
                   {cta.secondary.label}
                 </CtaButton>
