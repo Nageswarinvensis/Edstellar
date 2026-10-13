@@ -243,7 +243,7 @@ function ProgramCard({ program }) {
   );
 }
 
-export default function Topics({ data }) {
+export default function Topics({ data, courseCount }) {
   if (!data) return null;
 
   const popular = data.popular;
@@ -293,7 +293,7 @@ export default function Topics({ data }) {
             role="list"
             className="grid list-none grid-cols-3 gap-3 max-[900px]:grid-cols-2 max-sm:grid-cols-1"
           >
-            {data.topics?.map((topic) => (
+            {data.topics?.slice(0, 6).map((topic) => (
               <TopicCard key={topic.name} topic={topic} />
             ))}
           </Box>
@@ -320,7 +320,7 @@ export default function Topics({ data }) {
                   </Text>
                 </Box>
 
-                <AllLink link={popular.all_link} />
+                <AllLink link={{ label: courseCount ? `All ${courseCount} programs` : (popular.all_link?.label || "All programs"), href: popular.all_link?.href || "#by-topic" }} />
               </Box>
             </Reveal>
 

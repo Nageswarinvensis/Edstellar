@@ -95,7 +95,7 @@ const DEFAULT_SECTIONS = [
 // `dynamicParams = false` makes any slug not in that list a 404 instead of being
 // rendered on demand. The CMS is read once at build, so nothing revalidates.
 export const dynamicParams = false;
-export const revalidate = false;
+export const revalidate = 30;
 
 export async function generateStaticParams() {
   const slugs = await getTalentAssessmentServiceSlugs();

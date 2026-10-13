@@ -15,6 +15,7 @@ import Certificate from "@/components/sections/course/certificate";
 import DeliveryModes from "@/components/common/delivery-modes";
 
 import WhyEdstellar from "@/components/sections/course/why-edstellar";
+import AlsoFromEdstellar from "@/components/sections/course/also-from-edstellar";
 
 import GroupQuote from "@/components/forms/group-quote";
 import LeadForm from "@/components/forms/lead-form";
@@ -61,6 +62,7 @@ export default function CoursePage({ course }) {
 
       <WhyEdstellar data={course.WhyEds} relatedCourses={course.related_courses} />
       <MapSection data={course.mapsectionData} />
+      <AlsoFromEdstellar />
       <GroupQuote />
       <LeadForm data={course.leadForm} />
       <StickyFooter data={course.stickyFooter} />

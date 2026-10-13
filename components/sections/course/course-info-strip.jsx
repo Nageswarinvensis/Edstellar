@@ -281,7 +281,7 @@ function CourseInfoStrip({ stats = [], delivery, trainers, actions = [] }) {
           {trainers && <TrainersStat trainers={trainers} />}
         </Box>
 
-        {actions.length > 0 && (
+        {actions.filter((a) => a.type !== "preview").length > 0 && (
           <Box
             className={cn(
               "flex flex-none items-center gap-2.5",
@@ -291,9 +291,11 @@ function CourseInfoStrip({ stats = [], delivery, trainers, actions = [] }) {
               "max-sm:flex-col max-sm:items-stretch",
             )}
           >
-            {actions.map((action) => (
-              <ActionLink key={action.label} action={action} />
-            ))}
+            {actions
+              .filter((a) => a.type !== "preview")
+              .map((action) => (
+                <ActionLink key={action.label} action={action} />
+              ))}
           </Box>
         )}
       </Box>

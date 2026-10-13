@@ -147,15 +147,23 @@ export default function ConsultingHero({
 
           {/* Right Side Conditional Rendering per page. Each panel needs actual
               content — the CMS sends empty placeholders (e.g. `learning_system: []`
-              on the TNA page) that would otherwise win and render blank. */}
+              on the TNA page) that would otherwise win and render blank.
+              When the CMS sends `hero_right_image`, show that image alone. */}
           <Box className="min-w-0">
-            {rightSideComponent ? (
+            {data.hero_right_image ? (
+              <img
+                src={data.hero_right_image}
+                alt={data.hero_right_image_alt || left.title || ""}
+                width={800}
+                height={600}
+                loading="eager"
+                className="h-auto w-full rounded-xl object-contain"
+              />
+            ) : rightSideComponent ? (
               rightSideComponent
             ) : learningSystem?.items?.length ? (
-              /* Image 2 Card */
               <LearningSystemCard data={learningSystem} />
             ) : right.skill_matrix?.rows?.length ? (
-              /* Image 1 Card */
               <SkillMatrix data={right.skill_matrix} />
             ) : null}
           </Box>

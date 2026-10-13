@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { ArrowLeft, Check, Minus, Plus, Search } from "lucide-react";
+import { searchCourses } from "@/lib/actions/course-search";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -18,10 +19,7 @@ import {
   EMAIL_PATTERN,
   FREE_MAIL_DOMAINS,
 } from "@/lib/constants";
-import {
-  GROUP_QUOTE_CATALOG,
-  LICENSE_PACKAGES,
-} from "@/content/group-quote-catalog";
+import { LICENSE_PACKAGES } from "@/content/group-quote-catalog";
 
 const TABS = [
   { id: "one-time", label: "One-time training" },
@@ -106,6 +104,8 @@ export default function GroupQuote({ heading }) {
 
   const [programMode, setProgramMode] = useState("catalog");
   const [query, setQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, startSearchTransition] = useTransition();
   const [selected, setSelected] = useState(
     () => new Set([SECTION_DATA.lockedProgram]),
   );
@@ -114,15 +114,21 @@ export default function GroupQuote({ heading }) {
   const path = useMemo(() => pathFor(mode), [mode]);
   const currentStep = path[stepIndex];
 
-  const filteredCatalog = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return GROUP_QUOTE_CATALOG.map((group) => ({
-      group: group.group,
-      items: group.items.filter(
-        (item) => !q || item.name.toLowerCase().includes(q),
-      ),
-    })).filter((group) => group.items.length > 0);
-  }, [query]);
+  const searchTimerRef = useRef(null);
+  const handleSearchChange = useCallback((value) => {
+    setQuery(value);
+    clearTimeout(searchTimerRef.current);
+    if (!value.trim()) {
+      setSearchResults([]);
+      return;
+    }
+    searchTimerRef.current = setTimeout(() => {
+      startSearchTransition(async () => {
+        const { results } = await searchCourses(value);
+        setSearchResults(results);
+      });
+    }, 350);
+  }, []);
 
   const [dialCountry, setDialCountry] = useState("United States");
   useEffect(() => {
@@ -364,7 +370,7 @@ export default function GroupQuote({ heading }) {
               <input
                 type="search"
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => handleSearchChange(e.target.value)}
                 placeholder="Search 2,000+ programs by name"
                 aria-label="Search programs"
                 className="w-full rounded-full border border-ink/15 bg-white py-2.75 pr-4 pl-9.5 text-[13.5px] text-ink outline-none transition-colors focus:border-navy"
@@ -387,54 +393,42 @@ export default function GroupQuote({ heading }) {
               ) : null}
             </Box>
 
-            <Box className="max-h-[266px] overflow-y-auto rounded-xl border border-ink/12 bg-white">
-              {filteredCatalog.length ? (
-                filteredCatalog.map((group) => (
-                  <Box key={group.group}>
-                    <Text
-                      as="p"
-                      className="bg-paper-warm px-3.5 py-2 font-mono text-[10px] tracking-[0.12em] text-ink/50 uppercase"
+            <Box className={cn("max-h-[266px] overflow-y-auto rounded-xl border border-ink/12 bg-white", isSearching && "opacity-50")}>
+              {query.trim() && searchResults.length ? (
+                searchResults.map((item) => {
+                  const locked = item.title === SECTION_DATA.lockedProgram;
+                  const checked = selected.has(item.title);
+                  return (
+                    <Box
+                      as="label"
+                      key={item.id}
+                      className={cn(
+                        "flex cursor-pointer items-start gap-2.75 border-b border-ink/10 px-3.5 py-2.5 text-[13.5px] text-ink transition-colors duration-150 last:border-b-0 hover:bg-paper-warm",
+                        locked && "cursor-default bg-paper-warm/70",
+                      )}
                     >
-                      {group.group}
-                    </Text>
-                    {group.items.map((item) => {
-                      const locked = item.name === SECTION_DATA.lockedProgram;
-                      const checked = selected.has(item.name);
-                      return (
-                        <Box
-                          as="label"
-                          key={item.name}
-                          className={cn(
-                            "flex cursor-pointer items-start gap-2.75 border-b border-ink/10 px-3.5 py-2.5 text-[13.5px] text-ink transition-colors duration-150 last:border-b-0 hover:bg-paper-warm",
-                            locked && "cursor-default bg-paper-warm/70",
-                          )}
-                        >
-                          <input
-                            type="checkbox"
-                            checked={checked}
-                            disabled={locked}
-                            onChange={() => toggleProgram(item.name)}
-                            className="mt-0.5 size-4.25 flex-none accent-lime"
-                          />
-                          <Box>
-                            {stripTrainingSuffix(item.name)}
-                            {item.hours || locked ? (
-                              <Text
-                                as="span"
-                                className="mt-0.5 block font-mono text-[10px] tracking-[0.05em] text-ink/45"
-                              >
-                                {[item.hours, locked ? "this course" : null]
-                                  .filter(Boolean)
-                                  .join(" · ")}
-                              </Text>
-                            ) : null}
-                          </Box>
-                        </Box>
-                      );
-                    })}
-                  </Box>
-                ))
-              ) : (
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        disabled={locked}
+                        onChange={() => toggleProgram(item.title)}
+                        className="mt-0.5 size-4.25 flex-none accent-lime"
+                      />
+                      <Box>
+                        {stripTrainingSuffix(item.title)}
+                        {locked ? (
+                          <Text
+                            as="span"
+                            className="mt-0.5 block font-mono text-[10px] tracking-[0.05em] text-ink/45"
+                          >
+                            this course
+                          </Text>
+                        ) : null}
+                      </Box>
+                    </Box>
+                  );
+                })
+              ) : query.trim() && !isSearching ? (
                 <Text
                   as="p"
                   className="p-4 text-center text-[13px] leading-[1.6] text-ink/60"
@@ -443,7 +437,14 @@ export default function GroupQuote({ heading }) {
                   <b className="text-ink">Upload a list</b> and send us the full
                   set, or add it in the message field on the form.
                 </Text>
-              )}
+              ) : !query.trim() ? (
+                <Text
+                  as="p"
+                  className="p-4 text-center text-[13px] leading-[1.6] text-ink/60"
+                >
+                  Type a program name to search the catalog.
+                </Text>
+              ) : null}
             </Box>
           </Box>
         ) : (

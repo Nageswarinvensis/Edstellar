@@ -22,6 +22,8 @@ import Suite from "@/components/sections/talent_assessment_services/suite";
 import Centers from "@/components/sections/talent_assessment_services/centers";
 import RelatedLinks from "@/components/sections/talent_assessment_services/related-links";
 
+export const revalidate = 30;
+
 const PATH = "/talent-assessment-services";
 
 // Minimal metadata default. The hub's `seo` comes from the CMS; this only keeps

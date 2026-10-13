@@ -274,6 +274,19 @@ function PaginationButton({ disabled, active, onClick, children, ariaLabel }) {
   );
 }
 
+function getPaginationRange(current, total) {
+  const range = [1];
+  const start = Math.max(2, current - 1);
+  const end = Math.min(total - 1, current + 1);
+
+  if (start > 2) range.push("ellipsis-start");
+  for (let n = start; n <= end; n++) range.push(n);
+  if (end < total - 1) range.push("ellipsis-end");
+  if (total > 1) range.push(total);
+
+  return range;
+}
+
 function Pagination({ currentPage, totalPages, onPageChange, data }) {
   const paginationData = data.catalog.pagination;
 
@@ -288,10 +301,7 @@ function Pagination({ currentPage, totalPages, onPageChange, data }) {
     });
   };
 
-  const pages = useMemo(
-    () => Array.from({ length: totalPages }, (_, index) => index + 1),
-    [totalPages],
-  );
+  const range = getPaginationRange(currentPage, totalPages);
 
   return (
     <div className="mt-3.5 flex flex-wrap items-center justify-center gap-1.25">
@@ -303,15 +313,24 @@ function Pagination({ currentPage, totalPages, onPageChange, data }) {
         <ChevronLeft size={14} strokeWidth={1.5} />
       </PaginationButton>
 
-      {pages.map((page) => (
-        <PaginationButton
-          key={page}
-          active={currentPage === page}
-          onClick={() => handlePageChange(page)}
-        >
-          {page}
-        </PaginationButton>
-      ))}
+      {range.map((n) =>
+        typeof n === "number" ? (
+          <PaginationButton
+            key={n}
+            active={currentPage === n}
+            onClick={() => handlePageChange(n)}
+          >
+            {n}
+          </PaginationButton>
+        ) : (
+          <span
+            key={n}
+            className="flex h-8 w-8 items-center justify-center text-[14px] text-[#727984]"
+          >
+            &hellip;
+          </span>
+        ),
+      )}
 
       <PaginationButton
         ariaLabel={paginationData.next}
@@ -320,22 +339,6 @@ function Pagination({ currentPage, totalPages, onPageChange, data }) {
       >
         <ChevronRight size={14} strokeWidth={1.5} />
       </PaginationButton>
-
-      {/* ================= ALL PROGRAMS ================= */}
-      <Text
-        as="span"
-        className={[
-          "ml-1.5",
-          paginationTextBase,
-          "text-[#727984]",
-          "underline underline-offset-[3px]",
-          "transition-colors duration-200",
-          "hover:text-[#07182C]",
-          "hover:cursor-pointer",
-        ].join(" ")}
-      >
-        All {data.catalog.courseCount} →
-      </Text>
     </div>
   );
 }

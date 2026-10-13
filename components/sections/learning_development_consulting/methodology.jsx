@@ -62,7 +62,7 @@ export default function Methodology({ data }) {
             <div className="lg:hidden absolute left-4 top-4 bottom-8 w-0.5 bg-[#0a162838]" />
 
             {/* Steps Container */}
-            <Box className="flex flex-col lg:grid lg:grid-cols-5 gap-4 relative z-10">
+            <Box className={`flex flex-col lg:grid gap-4 relative z-10 ${content.steps.length >= 6 ? "lg:grid-cols-6" : "lg:grid-cols-5"}`}>
               {content.steps.map((step, idx) => (
                 <Reveal key={idx} delay={idx * 0.1} className="w-full h-full">
                   <Box className="flex flex-row lg:flex-col items-start h-full gap-4 lg:gap-0">

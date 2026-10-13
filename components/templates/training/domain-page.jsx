@@ -45,7 +45,7 @@ export default function DomainPage({ domain }) {
 
       <StickyNavbar data={domain.sticky_nav} />
       <About about={domain.about} ctaBannerData={domain.about?.cta_banner} />
-      <Topics data={domain.topicsData} />
+      <Topics data={domain.topicsData} courseCount={domain.programData?.catalog?.courseCount} />
       <Program
         data={{ ...domain.programData, defaultDelivery: domain.delivery }}
       />

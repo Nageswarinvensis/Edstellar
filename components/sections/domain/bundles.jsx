@@ -62,9 +62,15 @@ const iconVariants = {
   red: "bg-[#FDEBEB] text-[#B91C1C]",
 };
 
-function BundleCard({ bundle, onOpen }) {
+const BUNDLE_TEST_IMAGES = [
+  "/images/bundles/bundle-card-1.png",
+  "/images/bundles/bundle-card-2.png",
+];
+
+function BundleCard({ bundle, onOpen, index }) {
   const Icon = bundleIcons[bundle.icon] ?? Package;
   const iconClass = iconVariants[bundle.icon_variant] ?? iconVariants.orange;
+  const imageSrc = BUNDLE_TEST_IMAGES[index] ?? DOMAIN_CARD_IMAGE;
 
   return (
     <Box
@@ -74,11 +80,9 @@ function BundleCard({ bundle, onOpen }) {
       className="group flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-[14px] border border-ink/12 bg-white text-left shadow-[0_1px_0_rgba(10,22,40,0.04)] transition-[transform,border-color,box-shadow] duration-[250ms] hover:-translate-y-1 hover:border-ink/22 hover:shadow-[0_24px_48px_-30px_rgba(10,22,40,0.45)]"
     >
       <Box className="relative block aspect-[16/9] overflow-hidden bg-paper-warm">
-        {/* Card image is hardcoded for every bundle (not from the CMS) — see
-            DOMAIN_CARD_IMAGE. `bundle.image` is intentionally ignored. */}
-        {DOMAIN_CARD_IMAGE ? (
+        {imageSrc ? (
           <img
-            src={DOMAIN_CARD_IMAGE}
+            src={imageSrc}
             alt={bundle.image_alt || bundle.name || ""}
             width={800}
             height={450}
@@ -255,7 +259,7 @@ function BundleDrawer({ bundle, onClose }) {
               {bundle.description}
             </Text>
 
-            <Box className="mt-[14px] flex flex-wrap gap-[22px]">
+            <Box className="mt-[14px] flex flex-col gap-1.5">
               <Box
                 as="span"
                 className="flex items-center gap-1.5 text-[13px] font-semibold text-ink"
@@ -316,39 +320,46 @@ function BundleDrawer({ bundle, onClose }) {
                   >
                     {program.title}
                   </Text>
-                  <Text
-                    as="span"
-                    className="mt-[3px] line-clamp-2 block text-[13px] leading-[1.55] text-ink-muted"
-                  >
-                    {program.description}
-                  </Text>
-                </Box>
 
-                <Box className="flex flex-none flex-col items-start gap-[5px]">
-                  <Box
-                    as="span"
-                    className="flex items-center gap-1.5 whitespace-nowrap text-[11.5px] font-semibold text-ink"
-                  >
-                    <Clock
-                      size={15}
-                      strokeWidth={1.8}
-                      aria-hidden="true"
-                      className="flex-none text-ink-muted"
-                    />
-                    {program.duration}
+                  <Box className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1">
+                    {program.duration ? (
+                      <Box
+                        as="span"
+                        className="flex items-center gap-1.5 whitespace-nowrap text-[11.5px] font-semibold text-ink"
+                      >
+                        <Clock
+                          size={15}
+                          strokeWidth={1.8}
+                          aria-hidden="true"
+                          className="flex-none text-ink-muted"
+                        />
+                        {typeof program.duration === "string" ? program.duration.replace(/Hours/g, "hours") : program.duration}
+                      </Box>
+                    ) : null}
+                    {program.audience ? (
+                      <Box
+                        as="span"
+                        className="flex items-center gap-1.5 whitespace-nowrap text-[11.5px] font-semibold text-ink"
+                      >
+                        <Users
+                          size={15}
+                          strokeWidth={1.8}
+                          aria-hidden="true"
+                          className="flex-none text-ink-muted"
+                        />
+                        {program.audience}
+                      </Box>
+                    ) : null}
                   </Box>
-                  <Box
-                    as="span"
-                    className="flex items-center gap-1.5 whitespace-nowrap text-[11.5px] font-semibold text-ink"
-                  >
-                    <Users
-                      size={15}
-                      strokeWidth={1.8}
-                      aria-hidden="true"
-                      className="flex-none text-ink-muted"
-                    />
-                    {program.audience}
-                  </Box>
+
+                  {program.description ? (
+                    <Text
+                      as="span"
+                      className="mt-1.5 line-clamp-2 block text-[13px] leading-[1.55] text-ink-muted"
+                    >
+                      {program.description}
+                    </Text>
+                  ) : null}
                 </Box>
 
                 <ChevronRight
@@ -395,9 +406,8 @@ export default function Bundles({ data }) {
   // How many cards are revealed; grows by `PAGE_SIZE` on each "view more".
   const [shownCount, setShownCount] = useState(PAGE_SIZE);
 
-  if (!data) return null;
-
-  const bundles = data.bundles ?? [];
+  const bundles = data?.bundles ?? [];
+  if (!data || !bundles.length) return null;
   const visible =
     activeCat === "all"
       ? bundles
@@ -465,9 +475,9 @@ export default function Bundles({ data }) {
             role="list"
             className="grid list-none grid-cols-4 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1"
           >
-            {shownBundles.map((bundle) => (
+            {shownBundles.map((bundle, i) => (
               <Box as="li" key={bundle.name} className="h-full">
-                <BundleCard bundle={bundle} onOpen={setOpenBundle} />
+                <BundleCard bundle={bundle} onOpen={setOpenBundle} index={i} />
               </Box>
             ))}
           </Box>
