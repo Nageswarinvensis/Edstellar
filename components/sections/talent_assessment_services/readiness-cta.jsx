@@ -6,6 +6,7 @@ import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
+import { newTabProps } from "@/lib/links";
 
 /**
  * Dark, centered band pointing to the live readiness-check tool, with the five
@@ -61,7 +62,7 @@ export default function ReadinessCta({ data }) {
         ) : null}
 
         <Reveal delay={3}>
-          <CtaButton color="lime" arrow render={<Link href={cta.href} />} className="focus-visible:outline-lime">
+          <CtaButton color="lime" arrow render={<Link href={cta.href} {...newTabProps(cta.href)} />} className="focus-visible:outline-lime">
             {cta.label}
           </CtaButton>
         </Reveal>

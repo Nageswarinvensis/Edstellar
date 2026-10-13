@@ -149,7 +149,9 @@ export default function Instruments({ data }) {
           role="region"
           aria-label={tableLabel}
           tabIndex={0}
-          className="no-scrollbar overflow-x-auto rounded-2xl border border-ink/12 bg-white"
+          // `relative` contains the absolutely positioned sr-only caption,
+          // which otherwise escapes this scroller and widens the page on mobile.
+          className="no-scrollbar relative overflow-x-auto rounded-2xl border border-ink/12 bg-white"
         >
           <table className="w-full min-w-230 border-collapse">
             <caption className="sr-only">{tableCaption}</caption>

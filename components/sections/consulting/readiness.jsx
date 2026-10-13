@@ -6,6 +6,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
+import { newTabProps } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
 /** Decorative only — the same points are made in real text beside it. */
@@ -15,7 +16,7 @@ function ChecklistCard({ checklist }) {
   return (
     <Box
       aria-hidden="true"
-      className="w-full max-w-95 rounded-[14px] bg-white p-6 shadow-[0_30px_60px_-34px_rgba(0,0,0,0.7)] max-[900px]:mx-auto"
+      className="w-full max-w-95 rounded-[14px] bg-white p-6 shadow-[0_30px_60px_-34px_rgba(0,0,0,0.7)] max-[900px]:max-w-none"
     >
       <Text
         as="p"
@@ -116,7 +117,7 @@ export default function Readiness({ id, data }) {
               <CtaButton
                 color="lime"
                 arrow
-                render={<Link href={cta.href} />}
+                render={<Link href={cta.href} {...newTabProps(cta.href)} />}
                 className="focus-visible:outline-lime"
               >
                 {cta.label}

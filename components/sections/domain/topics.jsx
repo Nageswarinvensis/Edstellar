@@ -21,7 +21,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
-import { DOMAIN_CARD_IMAGE } from "@/lib/constants";
+import CourseImage from "@/components/common/course-image";
 
 /**
  * "Explore compliance training by topic" — the `#topics` section of the
@@ -141,19 +141,16 @@ function ProgramCard({ program }) {
       className="group flex flex-col overflow-hidden rounded-[14px] border border-ink/12 bg-white transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-ink/22 hover:shadow-[0_24px_48px_-30px_rgba(10,22,40,0.45)]"
     >
       <Box className="relative block aspect-[960/340] overflow-hidden bg-paper-warm">
-        {/* Card image is hardcoded for every program (not from the CMS) — see
-            DOMAIN_CARD_IMAGE. `program.image` is intentionally ignored. */}
-        {DOMAIN_CARD_IMAGE ? (
-          <img
-            src={DOMAIN_CARD_IMAGE}
-            alt={program.image_alt || program.title || ""}
-            width={960}
-            height={340}
-            loading="lazy"
-            decoding="async"
-            className="h-full w-full object-cover transition-transform duration-[450ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105"
-          />
-        ) : null}
+        {/* The CMS image (`program.image`), or the default course image */}
+        <CourseImage
+          src={program.image}
+          alt={program.image_alt || program.title || ""}
+          width={960}
+          height={340}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover transition-transform duration-[450ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105"
+        />
 
         {program.rank_label ? (
           <Box

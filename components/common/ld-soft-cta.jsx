@@ -6,6 +6,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import CtaButton from "@/components/common/cta-button";
+import { newTabProps } from "@/lib/links";
 
 /** The soft CTA's buttons. The CMS sends the second button inside `cta` as
  * `secondary_btn_label` + `seconday_href` (its spelling — `secondary_href` is
@@ -64,7 +65,7 @@ export default function LdSoftCta({ data }) {
             </CtaButton>
             <CtaButton
               variant="secondary"
-              render={<Link href={secondary.href} />}
+              render={<Link href={secondary.href} {...newTabProps(secondary.href)} />}
               className="flex-none border-[1.5px] border-navy px-7 py-4 leading-[1.4] text-navy hover:-translate-y-0.5 hover:border-navy hover:bg-transparent hover:shadow-lift max-[600px]:w-full"
             >
               {secondary.label}

@@ -22,7 +22,6 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-import { DOMAIN_CARD_IMAGE } from "@/lib/constants";
 
 /**
  * "Compliance bundles for whole teams" — the `#bundles` section of the domain

@@ -136,7 +136,7 @@ function BehaviorMap({ map }) {
 export default function Concept({ data }) {
   if (!data?.principles?.length) return null;
 
-  const { section_id, heading, description, principles, art, grid, map } = data;
+  const { section_id, heading, description, principles, art, grid, map, svg_image } = data;
 
   return (
     <Section id={section_id} className="bg-paper-warm">
@@ -159,7 +159,14 @@ export default function Concept({ data }) {
       <Box className="grid grid-cols-[minmax(0,420px)_1fr] items-center gap-12 max-[900px]:grid-cols-1 max-[900px]:gap-7">
         <Reveal>
           <Box as="figure" className="m-0 max-[900px]:mx-auto max-[900px]:max-w-[420px]">
-            {art === "competency-grid" ? (
+            {/* A page's own diagram from the CMS (`svg_image`) wins over the
+                built-in ones picked by `art`. */}
+            {svg_image ? (
+              <Box
+                className="[&_svg]:block [&_svg]:h-auto [&_svg]:w-full"
+                dangerouslySetInnerHTML={{ __html: svg_image }}
+              />
+            ) : art === "competency-grid" ? (
               <CompetencyGrid grid={grid} />
             ) : (
               <BehaviorMap map={map} />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   Users,
@@ -15,6 +15,9 @@ import {
   Languages,
   Building2,
   Smile,
+  Gauge,
+  User,
+  Presentation,
   ArrowRight,
   ChevronLeft,
   ChevronRight,
@@ -32,14 +35,21 @@ const ICONS = {
   heart: Heart,
   star: Star,
   network: Network,
-  "user-check": UserRoundCheck,
+  usercheck: UserRoundCheck,
   clipboard: ClipboardList,
   wrench: Wrench,
   brain: Brain,
   languages: Languages,
   building: Building2,
   smile: Smile,
+  gauge: Gauge,
+  user: User,
+  presentation: Presentation,
 };
+
+/** Hand-typed CMS names arrive as "user-check", "UserCheck" or " usercheck"
+ * — match on letters only. */
+const iconKey = (name) => name?.toLowerCase().replace(/[^a-z]/g, "");
 
 const pad = (n) => String(n).padStart(2, "0");
 
@@ -52,7 +62,25 @@ const pad = (n) => String(n).padStart(2, "0");
  */
 export default function RelatedAssessments({ data }) {
   const trackRef = useRef(null);
+  // Which ends of the track are reached — dims the matching arrow
+  // (design: `.relx-btn:disabled`).
+  const [edges, setEdges] = useState({ start: true, end: false });
   const items = data?.items ?? [];
+
+  const updateEdges = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    setEdges({
+      start: track.scrollLeft <= 2,
+      end: track.scrollLeft + track.clientWidth >= track.scrollWidth - 2,
+    });
+  }, []);
+
+  useEffect(() => {
+    updateEdges();
+    window.addEventListener("resize", updateEdges);
+    return () => window.removeEventListener("resize", updateEdges);
+  }, [updateEdges]);
 
   if (!items.length) return null;
 
@@ -70,7 +98,7 @@ export default function RelatedAssessments({ data }) {
 
   return (
     <Section id={section_id} className="bg-paper">
-      <Box className="mb-5 flex items-end justify-between gap-6">
+      <Box className="mb-5 flex items-end justify-between gap-6 max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-4">
         <Box className="max-w-[760px]">
           <Reveal>
             <RichHeading heading={heading} emphasisClassName="font-normal" />
@@ -87,7 +115,7 @@ export default function RelatedAssessments({ data }) {
           ) : null}
         </Box>
 
-        <Box className="flex flex-none gap-2.5 max-[760px]:hidden">
+        <Box className="flex flex-none gap-2.5 max-[760px]:self-end">
           {[
             { dir: -1, label: "Previous assessments", Icon: ChevronLeft },
             { dir: 1, label: "Next assessments", Icon: ChevronRight },
@@ -97,7 +125,8 @@ export default function RelatedAssessments({ data }) {
               type="button"
               onClick={() => scrollBy(dir)}
               aria-label={label}
-              className="grid size-10.5 place-items-center rounded-full border border-ink/22 bg-white text-navy transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lift"
+              disabled={dir < 0 ? edges.start : edges.end}
+              className="grid size-10.5 cursor-pointer place-items-center rounded-full border border-ink/22 bg-white text-navy transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lift focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy disabled:cursor-default disabled:opacity-35 disabled:hover:translate-y-0 disabled:hover:shadow-none"
             >
               <Icon size={18} aria-hidden="true" />
             </button>
@@ -110,10 +139,11 @@ export default function RelatedAssessments({ data }) {
         role="region"
         aria-label="Related assessments"
         tabIndex={0}
+        onScroll={updateEdges}
         className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto px-0.5 pt-1 pb-2.5"
       >
         {items.map((item, index) => {
-          const Icon = ICONS[item.icon] || Star;
+          const Icon = ICONS[iconKey(item.icon)] || Star;
           return (
             <Box
               as={Link}
@@ -121,29 +151,31 @@ export default function RelatedAssessments({ data }) {
               key={item.title}
               data-card
               title={`Click Here to View ${item.title}`}
-              className="group relative flex shrink-0 basis-[calc((100%-60px)/4)] snap-start flex-col overflow-hidden rounded-[14px] border border-ink/12 bg-white p-7 no-underline transition-[transform,box-shadow] duration-250 hover:-translate-y-1 hover:bg-navy hover:shadow-lift max-[1100px]:basis-[calc((100%-40px)/3)] max-[760px]:basis-[78%]"
+              // Navy fill slides up from the bottom on hover/focus (`.rb::before`),
+              // under the content (`isolate` + `-z-10`).
+              className="group relative isolate flex shrink-0 basis-[calc((100%-60px)/4)] snap-start flex-col overflow-hidden rounded-[14px] border border-ink/12 bg-white p-7 no-underline transition-[transform,box-shadow] duration-250 ease-[cubic-bezier(.2,.7,.2,1)] before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-navy before:transition-transform before:duration-450 before:ease-[cubic-bezier(.2,.7,.2,1)] before:content-[''] hover:-translate-y-1 hover:shadow-lift hover:before:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-lime focus-visible:before:translate-y-0 motion-reduce:before:transition-none max-[1100px]:basis-[calc((100%-20px)/2)] max-[760px]:basis-[78%]"
             >
               <Text
                 as="span"
                 aria-hidden="true"
-                className="pointer-events-none absolute top-3 right-5 font-serif text-[64px] italic leading-none text-ink/8 transition-colors duration-300 group-hover:text-lime/25"
+                className="pointer-events-none absolute top-3 right-5 font-serif text-[64px] italic leading-none text-ink/8 transition-colors duration-300 group-hover:text-lime/25 group-focus-visible:text-lime/25"
               >
                 {pad(index + 1)}
               </Text>
 
-              <Box className="mb-4.5 grid size-11.5 place-items-center rounded-xl bg-lime-soft text-navy transition-colors duration-300 group-hover:bg-lime">
+              <Box className="mb-4.5 grid size-11.5 place-items-center rounded-xl bg-lime-soft text-navy transition-colors duration-300 group-hover:bg-lime group-focus-visible:bg-lime">
                 <Icon size={24} strokeWidth={1.7} aria-hidden="true" />
               </Box>
 
               <Text
                 as="h3"
-                className="mb-2 font-display text-[17px] font-bold leading-[1.3] text-ink transition-colors duration-300 group-hover:text-paper"
+                className="mb-2 font-display text-[17px] font-bold leading-[1.3] text-ink transition-colors duration-300 group-hover:text-paper group-focus-visible:text-paper"
               >
                 {item.title}
               </Text>
               <Text
                 as="p"
-                className="mb-5.5 text-[14.5px] leading-[1.5] text-ink/60 transition-colors duration-300 group-hover:text-paper/72"
+                className="mb-5.5 text-[14.5px] leading-[1.5] text-ink/60 transition-colors duration-300 group-hover:text-paper/72 group-focus-visible:text-paper/72"
               >
                 {item.description}
               </Text>
@@ -152,7 +184,7 @@ export default function RelatedAssessments({ data }) {
                 <Box as="ul" className="mb-0 flex list-none flex-wrap gap-1.5 p-0">
                   <Box
                     as="li"
-                    className="py-1 pr-0 font-body text-[12px] font-medium text-ink/60 transition-colors duration-300 group-hover:text-paper/60"
+                    className="py-1 pr-0 font-body text-[12px] font-medium text-ink/60 transition-colors duration-300 group-hover:text-paper/60 group-focus-visible:text-paper/60"
                   >
                     {tagsLabel}
                   </Box>
@@ -160,7 +192,7 @@ export default function RelatedAssessments({ data }) {
                     <Box
                       as="li"
                       key={tag}
-                      className="rounded-full border border-ink/12 bg-paper-warm px-2.5 py-1 font-body text-[12px] font-semibold text-navy transition-colors duration-300 group-hover:border-paper/30 group-hover:bg-transparent group-hover:text-paper"
+                      className="rounded-full border border-ink/12 bg-paper-warm px-2.5 py-1 font-body text-[12px] font-semibold text-navy transition-colors duration-300 group-hover:border-paper/30 group-hover:bg-transparent group-hover:text-paper group-focus-visible:border-paper/30 group-focus-visible:bg-transparent group-focus-visible:text-paper"
                     >
                       {tag}
                     </Box>
@@ -170,7 +202,7 @@ export default function RelatedAssessments({ data }) {
 
               <Text
                 as="span"
-                className="mt-auto inline-flex items-center gap-2 pt-5.5 text-[14px] font-semibold text-ink transition-colors duration-300 group-hover:text-lime"
+                className="mt-auto inline-flex items-center gap-2 pt-5.5 text-[14px] font-semibold text-ink transition-colors duration-300 group-hover:text-lime group-focus-visible:text-lime"
               >
                 {ctaLabel}
                 <ArrowRight size={16} aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1" />

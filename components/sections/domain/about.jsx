@@ -10,14 +10,13 @@ function CategoryAbout({ about }) {
 
   const contrast = about.inclusions;
 
-  // The CMS may send the whole definition in `body` with no `expanded_body`.
-  // Match the design's definition block: keep the first paragraph visible and
-  // fold the rest under "Read more". When the content already ships a separate
-  // `expanded_body`, use that split as-is.
-  const bodyParagraphs = about.body ?? [];
-  const expanded = about.expanded_body ?? [];
-  const visibleBody = expanded.length ? bodyParagraphs : bodyParagraphs.slice(0, 1);
-  const hiddenBody = expanded.length ? expanded : bodyParagraphs.slice(1);
+  // `body` and `expanded_body` read as one run of paragraphs: the first two
+  // stay visible and everything after folds under "Read more", whichever
+  // field it arrived in.
+  const VISIBLE_PARAGRAPHS = 2;
+  const paragraphs = [...(about.body ?? []), ...(about.expanded_body ?? [])];
+  const visibleBody = paragraphs.slice(0, VISIBLE_PARAGRAPHS);
+  const hiddenBody = paragraphs.slice(VISIBLE_PARAGRAPHS);
 
   return (
     <Section id="about" className="relative border-b border-ink/12 ">
