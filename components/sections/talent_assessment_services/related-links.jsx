@@ -1,11 +1,41 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  ChartColumnIncreasing,
+  GraduationCap,
+  MessagesSquare,
+  Network,
+  RefreshCw,
+  ScanSearch,
+  Smile,
+  Sparkles,
+  Sprout,
+  Users,
+} from "lucide-react";
 
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+
+/** CMS `icon` → lucide icon. Covers the names the CMS sends today and the
+ * suggested ones (scansearch, graduationcap, messagessquare, network, sprout). */
+const ICONS = {
+  scansearch: ScanSearch,
+  graduationcap: GraduationCap,
+  messagessquare: MessagesSquare,
+  network: Network,
+  sprout: Sprout,
+  smile: Smile,
+  users: Users,
+  change: RefreshCw,
+  chart: ChartColumnIncreasing,
+};
+
+/** Hand-typed CMS names arrive as "ScanSearch", "scan-search" or " scansearch"
+ * — match on letters only. */
+const iconKey = (name) => name?.toLowerCase().replace(/[^a-z]/g, "");
 
 /**
  * "Where the evidence goes next" — a grid of cross-links to the sibling services
@@ -30,7 +60,10 @@ export default function RelatedLinks({ data }) {
         </Reveal>
         {lede ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text
+              as="p"
+              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+            >
               {lede}
             </Text>
           </Reveal>
@@ -38,35 +71,59 @@ export default function RelatedLinks({ data }) {
       </Box>
 
       <Box className="grid grid-cols-3 gap-5 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
-        {items.map((item, index) => (
-          <Reveal key={item.title} delay={Math.min((index % 3) + 1, 4)}>
-            <Box
-              as={Link}
-              href={item.href}
-              title={`Click Here to View ${item.title}`}
-              className="group flex h-full flex-col rounded-2xl border border-ink/12 bg-white p-8 no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lift"
-            >
-              {item.kicker ? (
-                <Text as="span" className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink/60">
-                  {item.kicker}
-                </Text>
-              ) : null}
-              <Text as="h3" className="mt-2 mb-2 font-display text-[18px] font-bold leading-[1.3] text-ink">
-                {item.title}
-              </Text>
-              <Text as="p" className="mb-6 text-[15px] leading-[1.5] text-ink/60">
-                {item.description}
-              </Text>
-              <Text
-                as="span"
-                className="mt-auto inline-flex items-center gap-2 text-[14px] font-semibold text-ink"
+        {items.map((item, index) => {
+          const Icon = item.icon ? ICONS[iconKey(item.icon)] || Sparkles : null;
+          return (
+            <Reveal key={item.title} delay={Math.min((index % 3) + 1, 4)}>
+              <Box
+                as={Link}
+                href={item.href}
+                title={`Click Here to View ${item.title}`}
+                className="group flex h-full flex-col rounded-2xl border border-ink/12 bg-white p-8 no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lift"
               >
-                {item.cta ?? item.link}
-                <ArrowRight size={16} aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1" />
-              </Text>
-            </Box>
-          </Reveal>
-        ))}
+                {Icon ? (
+                  <Box
+                    as="span"
+                    className="mb-5 grid size-11 flex-none place-items-center rounded-full bg-lime-soft text-navy"
+                  >
+                    <Icon size={20} strokeWidth={1.7} aria-hidden="true" />
+                  </Box>
+                ) : null}
+                {item.kicker ? (
+                  <Text
+                    as="span"
+                    className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink/60"
+                  >
+                    {item.kicker}
+                  </Text>
+                ) : null}
+                <Text
+                  as="h3"
+                  className="mt-2 mb-2 font-display text-[18px] font-bold leading-[1.3] text-ink"
+                >
+                  {item.title}
+                </Text>
+                <Text
+                  as="p"
+                  className="mb-6 text-[15px] leading-[1.5] text-ink/60"
+                >
+                  {item.description}
+                </Text>
+                <Text
+                  as="span"
+                  className="mt-auto inline-flex items-center gap-2 text-[14px] font-semibold text-ink"
+                >
+                  {item.cta ?? item.link}
+                  <ArrowRight
+                    size={16}
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-x-1"
+                  />
+                </Text>
+              </Box>
+            </Reveal>
+          );
+        })}
       </Box>
     </Section>
   );

@@ -6,6 +6,7 @@ import {
   ShoppingBag,
   Zap,
   Globe,
+  PlaneTakeoff,
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -23,7 +24,15 @@ const INDUSTRY_ICONS = {
   factory: Factory,
   bag: ShoppingBag,
   zap: Zap,
+  plane: PlaneTakeoff,
+  planetakeoff: PlaneTakeoff,
+  airplane: PlaneTakeoff,
+  airoplane: PlaneTakeoff,
 };
+
+/** The CMS's icon names are hand-typed and arrive as " PlaneTakeoff" or
+ * "plane-takeoff" as readily as "plane" — match on letters only. */
+const iconKey = (name) => name?.toLowerCase().replace(/[^a-z]/g, "");
 
 const PILL_MONO = "font-mono leading-[1.7] uppercase";
 
@@ -39,7 +48,7 @@ export function TrustStrip({ trust }) {
 
       <Box className="mx-auto flex max-w-[1000px] flex-wrap justify-center gap-2.5">
         {trust.industries?.map((industry) => {
-          const Icon = INDUSTRY_ICONS[industry.icon] || Globe;
+          const Icon = INDUSTRY_ICONS[iconKey(industry.icon)] || Globe;
           return (
             <Text
               key={industry.label}

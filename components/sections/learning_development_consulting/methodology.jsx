@@ -116,7 +116,7 @@ export default function Methodology({ data }) {
                               <Text
                                 as="span"
                                 key={chip}
-                                className="rounded-md bg-lime-soft px-2 py-0.75 text-[11px] font-semibold leading-[1.3] text-navy"
+                                className="rounded-full border border-ink/22 bg-paper px-2.25 py-0.5 text-[11px] font-medium leading-[1.4] text-ink"
                               >
                                 {chip}
                               </Text>

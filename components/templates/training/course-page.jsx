@@ -60,7 +60,7 @@ export default function CoursePage({ course }) {
         <Faq faqs={course.faqs ?? course.Faqs} collapsible />
       </PageToc>
 
-      <WhyEdstellar data={course.WhyEds} relatedCourses={course.related_courses} />
+      <WhyEdstellar data={course.learning_path ?? course.WhyEds} relatedCourses={course.related_courses} />
       <MapSection data={course.mapsectionData} />
       <AlsoFromEdstellar />
       <GroupQuote />

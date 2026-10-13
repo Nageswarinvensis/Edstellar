@@ -93,6 +93,14 @@ export default function StickyTabs({ data, hasTrainers }) {
     const container = listRef.current;
     if (!activeEl || !container) return;
 
+    // On the last tab, scroll to the very end instead of centering it — below
+    // lg the CTA follows the tabs in this strip, and centering the last tab
+    // would leave the CTA cut off at the right edge.
+    if (activeId === tabKey.split(",").at(-1)) {
+      container.scrollTo({ left: container.scrollWidth, behavior: "smooth" });
+      return;
+    }
+
     const containerRect = container.getBoundingClientRect();
     const activeRect = activeEl.getBoundingClientRect();
     const delta =
@@ -102,9 +110,24 @@ export default function StickyTabs({ data, hasTrainers }) {
       activeRect.width / 2;
 
     container.scrollBy({ left: delta, behavior: "smooth" });
-  }, [activeId]);
+  }, [activeId, tabKey]);
 
   if (!tabs?.length) return null;
+
+  const cta = data?.cta?.text ? (
+    <CtaButton
+      arrow
+      render={
+        <a
+          href={`#${(data.cta.targetId || "form").replace(/^#/, "")}`}
+          onClick={scrollToHash}
+        />
+      }
+      title={data.cta.title}
+    >
+      {data.cta.text}
+    </CtaButton>
+  ) : null;
 
   return (
     <>
@@ -134,11 +157,11 @@ export default function StickyTabs({ data, hasTrainers }) {
             ref={listRef}
             className="flex min-w-0 flex-1 items-center overflow-x-auto no-scrollbar py-1 px-1"
           >
-            {/* Tabs spread end-to-end across the available width on desktop
-                (`sm:w-full sm:justify-between`), whether or not a CTA follows —
-                so they never cluster on the left with a gap. On mobile they
-                keep their natural width and scroll. */}
-            <ul className="flex h-full min-w-max items-center justify-start gap-2 sm:min-w-0 sm:w-full sm:justify-between sm:gap-3">
+            {/* Tabs grow to fill the strip and spread end-to-end from sm
+                (`flex-1 sm:justify-between`), so they never cluster on the
+                left with a gap — but never shrink below their natural width
+                (`min-w-max`), so when they don't fit, the strip scrolls. */}
+            <ul className="flex h-full min-w-max flex-1 items-center justify-start gap-2 sm:justify-between sm:gap-3">
               {tabs.map((tab) => {
                 // Active only when scroll-spy has reached this tab's section.
                 const isActive = tab.id === activeId;
@@ -174,25 +197,20 @@ export default function StickyTabs({ data, hasTrainers }) {
                 );
               })}
             </ul>
+
+            {/* Below lg the CTA sits at the end of the scroll strip, so the
+                tabs keep the full width instead of being squeezed by it. */}
+            {cta ? (
+              <Box className="flex shrink-0 items-center pl-2 pr-0.5 lg:hidden [&_[data-slot=cta-button]]:px-4 [&_[data-slot=cta-button]]:py-2.5 [&_[data-slot=cta-button]]:text-[13px]">
+                {cta}
+              </Box>
+            ) : null}
           </Box>
 
-          {/* Conditional CTA Button */}
-          {data?.cta?.text && (
-            <Box className="pl-1 sm:pl-2 flex shrink-0 items-center">
-              <CtaButton
-                arrow
-                render={
-                  <a
-                    href={`#${(data.cta.targetId || "form").replace(/^#/, "")}`}
-                    onClick={scrollToHash}
-                  />
-                }
-                title={data.cta.title}
-              >
-                {data.cta.text}
-              </CtaButton>
-            </Box>
-          )}
+          {/* CTA, pinned right on desktop (below lg it scrolls with the tabs) */}
+          {cta ? (
+            <Box className="hidden shrink-0 items-center pl-2 lg:flex">{cta}</Box>
+          ) : null}
         </Box>
       </Box>
     </>

@@ -28,6 +28,7 @@ import Process from "@/components/sections/talent_assessment_services/process";
 import Methodology from "@/components/sections/learning_development_consulting/methodology";
 import Outputs from "@/components/sections/talent_assessment_services/outputs";
 import RelatedAssessments from "@/components/sections/talent_assessment_services/related-assessments";
+import Suite from "@/components/sections/talent_assessment_services/suite";
 
 const PILLAR = "talent-assessment-services";
 
@@ -45,6 +46,7 @@ const SECTIONS = {
   inside: (data) => <Inside data={data} />,
   readiness: (data) => <Readiness id="readiness" data={data} />,
   services: (data) => <Services data={data} />,
+  suite: (data) => <Suite data={data} />,
   process: (data) => <Process data={data} />,
   // Shared L&D methodology section (TASTE.md §6.1), driven by the CMS
   // `methodology` component. Takes the "process" slot/anchor on CMS-backed
@@ -84,6 +86,7 @@ const DEFAULT_SECTIONS = [
   "inside",
   "readiness",
   "services",
+  "suite",
   "methodology",
   "outputs",
   "why",

@@ -1,4 +1,13 @@
-import { UserX, TrendingUp, BarChart3, Gauge, Lock, Hourglass } from "lucide-react";
+import {
+  UserX,
+  TrendingUp,
+  TrendingDown,
+  BarChart3,
+  Gauge,
+  Lock,
+  Hourglass,
+  ShieldAlert,
+} from "lucide-react";
 
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
@@ -7,13 +16,19 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 
 const ICONS = {
-  "user-x": UserX,
-  "trending-up": TrendingUp,
-  "bar-chart": BarChart3,
+  userx: UserX,
+  trendingup: TrendingUp,
+  trendingdown: TrendingDown,
+  barchart: BarChart3,
   gauge: Gauge,
   lock: Lock,
   hourglass: Hourglass,
+  shieldalert: ShieldAlert,
 };
+
+/** Hand-typed CMS names arrive as "user-x", "UserX" or " userx" — match on
+ * letters only. */
+const iconKey = (name) => name?.toLowerCase().replace(/[^a-z]/g, "");
 
 /**
  * Positioning: the case for assessment, as a split with a lede, a supporting
@@ -59,7 +74,7 @@ export default function Positioning({ data }) {
 
         <Box className="flex flex-col gap-3.5">
           {issues.map((issue, index) => {
-            const Icon = ICONS[issue.icon] || BarChart3;
+            const Icon = ICONS[iconKey(issue.icon)] || BarChart3;
             return (
               <Reveal key={issue.title} delay={Math.min(index + 1, 4)}>
                 <Box className="flex items-start gap-4 rounded-2xl border border-ink/12 bg-white px-6 py-5.5 transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lift">

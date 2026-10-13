@@ -1,4 +1,4 @@
-import { Clock3 } from "lucide-react";
+import { ArrowRight, Clock3 } from "lucide-react";
 import Image from "next/image";
 
 import Box from "@/components/ui/Box";
@@ -14,11 +14,17 @@ function formatDuration(duration) {
   return /^\d+$/.test(String(duration).trim()) ? `${duration} hrs` : duration;
 }
 
+function resolveHref(href) {
+  if (!href) return "#";
+  if (href.startsWith("/") || href.startsWith("http")) return href;
+  return `/corporate-training/${href}`;
+}
+
 function ProgramCard({ program }) {
   return (
     <Box
       as="a"
-      href={program.href}
+      href={resolveHref(program.href)}
       title={`Click Here to View ${program.title}`}
       className={[
         "group relative block min-w-0 overflow-hidden rounded-[16px] border",
@@ -37,14 +43,16 @@ function ProgramCard({ program }) {
           program.is_featured ? "bg-navy-soft" : "bg-[#F0EEE6]",
         ].join(" ")}
       >
-        <Image
-          src={program.image}
-          alt={program.image_alt}
-          title={program.image_title}
-          fill
-          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-        />
+        {program.image ? (
+          <Image
+            src={program.image}
+            alt={program.image_alt || program.title || ""}
+            title={program.image_title}
+            fill
+            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+          />
+        ) : null}
       </Box>
 
       <Box className="flex min-h-51.25 flex-col px-3.5 pb-4 pt-3">
@@ -109,7 +117,9 @@ function ProgramConnector() {
 }
 
 function RelatedCourseCard({ course }) {
-  const duration = formatDuration(course.duration);
+  // The CMS does not send durations for related courses yet (`null`), so
+  // they fall back to the typical range until it does.
+  const duration = formatDuration(course.duration ?? "16 - 24");
 
   return (
     <Box
@@ -118,37 +128,44 @@ function RelatedCourseCard({ course }) {
       // cost a 308 redirect on every click.
       href={`/corporate-training/${String(course.slug).replace(/\/+$/, "")}`}
       title={`Click Here to View ${course.name}`}
-      className="group relative flex h-full min-h-27.5 flex-col rounded-[12px] border border-ink/12 bg-white px-4 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#0a162838] hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.5)]"
+      className="group flex h-full flex-col rounded-[14px] border border-ink/12 bg-white p-6 no-underline transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-ink/22 hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.5)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 max-[600px]:p-5"
     >
       <Text
         as="h3"
-        className="pr-4 text-[14px] font-semibold leading-[1.25] tracking-[-0.02em] text-ink transition-colors duration-200"
+        className="text-[16px] font-semibold leading-[1.35] tracking-[-0.015em] text-ink"
       >
         {course.name}
       </Text>
 
-      <Box className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
-        <Text
-          as="span"
-          className="font-mono text-[8px] uppercase tracking-[0.14em] text-ink/60"
-        >
-          Instructor-led
-        </Text>
+      <Box className="mt-auto pt-4">
+        {/* Meta: quiet mono facts, dot-separated */}
+        <Box className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[11px] uppercase leading-[1.4] tracking-[0.14em] text-ink/60">
+          {duration ? (
+            <>
+              <span>{duration}</span>
+              <span aria-hidden="true" className="size-1 rounded-full bg-ink/30" />
+            </>
+          ) : null}
+          <span>Instructor-led</span>
+        </Box>
 
-        {duration && (
-          <Box className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-[0.14em] text-ink/60">
-            <Clock3 size={10} strokeWidth={1.5} className="shrink-0" />
-            <span>{duration}</span>
-          </Box>
-        )}
+        {/* Action: body type, ink, set off by a rule — reads as a link,
+            not as more meta */}
+        <Box className="mt-4 border-t border-ink/12 pt-3.5">
+          <Text
+            as="span"
+            className="inline-flex items-center gap-1.5 font-body text-[14px] font-semibold leading-[1.4] text-ink transition-colors duration-200 group-hover:text-olive"
+          >
+            View course
+            <ArrowRight
+              size={15}
+              strokeWidth={2.25}
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            />
+          </Text>
+        </Box>
       </Box>
-
-      <Text
-        as="span"
-        className="mt-auto pt-4 font-mono text-[8px] uppercase tracking-[0.14em] text-ink/60"
-      >
-        View course
-      </Text>
     </Box>
   );
 }
@@ -156,7 +173,11 @@ function RelatedCourseCard({ course }) {
 export default function WhyEds({ data, relatedCourses }) {
   if (!data) return null;
 
+  const programs = data.dynamic_data ?? data.programs;
+  const description = data.subhead ?? data.description;
   const relatedCourseItems = relatedCourses?.dynamic_data;
+
+  if (!programs?.length) return null;
 
   return (
     <Section
@@ -168,23 +189,25 @@ export default function WhyEds({ data, relatedCourses }) {
           <RichHeading heading={data.heading} className="mb-4 max-w-[20ch]" />
         </Reveal>
 
-        <Reveal delay={1}>
-          <Text
-            as="p"
-            className="mb-10 max-w-[72ch] text-[15px] leading-[1.65]]"
-          >
-            {data.description}
-          </Text>
-        </Reveal>
+        {description && (
+          <Reveal delay={1}>
+            <Text
+              as="p"
+              className="mb-10 max-w-[72ch] text-[15px] leading-[1.65]]"
+            >
+              {description}
+            </Text>
+          </Reveal>
+        )}
 
         <Box className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-[1fr_48px_1fr_48px_1fr_48px_1fr] lg:items-stretch lg:gap-0">
-          {data.programs.map((program, index) => (
+          {programs.map((program, index) => (
             <Box key={program.id} className="contents">
               <Reveal delay={2}>
                 <ProgramCard program={program} />
               </Reveal>
 
-              {index < data.programs.length - 1 && <ProgramConnector />}
+              {index < programs.length - 1 && <ProgramConnector />}
             </Box>
           ))}
         </Box>
@@ -194,12 +217,12 @@ export default function WhyEds({ data, relatedCourses }) {
             <RichHeading
               as="h3"
               heading={relatedCourses.heading}
-              className="mb-5 text-[16px] font-semibold tracking-[-0.02em]"
+              className="mb-7 text-[22px] font-bold leading-[1.2] tracking-[-0.02em] max-[600px]:mb-5 max-[600px]:text-[20px] max-[600px]:leading-[1.2]"
             />
 
-            <Box className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
+            <Box className="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-3">
               {relatedCourseItems.map((course) => (
-                <Reveal key={course.slug} delay={3}>
+                <Reveal key={course.slug} delay={3} className="h-full">
                   <RelatedCourseCard course={course} />
                 </Reveal>
               ))}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
@@ -24,6 +24,24 @@ export default function AssessmentExplorer({ data }) {
   const tabsRef = useRef(null);
   const [family, setFamily] = useState(0);
   const [segment, setSegment] = useState(0);
+  // Which ends of the tab strip are reached — dims the matching arrow
+  // (design: `.ax4-arr[disabled]`).
+  const [edges, setEdges] = useState({ start: true, end: false });
+
+  const updateEdges = useCallback(() => {
+    const track = tabsRef.current;
+    if (!track) return;
+    setEdges({
+      start: track.scrollLeft <= 1,
+      end: track.scrollLeft + track.clientWidth >= track.scrollWidth - 1,
+    });
+  }, []);
+
+  useEffect(() => {
+    updateEdges();
+    window.addEventListener("resize", updateEdges);
+    return () => window.removeEventListener("resize", updateEdges);
+  }, [updateEdges]);
 
   const families = data?.families ?? [];
   if (!families.length) return null;
@@ -60,7 +78,7 @@ export default function AssessmentExplorer({ data }) {
       </Box>
 
       {/* Scroll controls */}
-      <Box className="mb-3 flex justify-end gap-2 max-[600px]:hidden">
+      <Box className="mb-3 flex justify-end gap-2">
         {[
           { dir: -1, label: "Scroll assessment families left", Icon: ChevronLeft },
           { dir: 1, label: "Scroll assessment families right", Icon: ChevronRight },
@@ -70,7 +88,8 @@ export default function AssessmentExplorer({ data }) {
             type="button"
             onClick={() => scrollTabs(dir)}
             aria-label={label}
-            className="grid size-10 place-items-center rounded-full border border-ink/22 bg-white text-navy transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lift"
+            disabled={dir < 0 ? edges.start : edges.end}
+            className="grid size-10 cursor-pointer place-items-center rounded-full border border-ink/22 bg-white text-navy transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lift focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-navy disabled:cursor-default disabled:opacity-35 disabled:hover:translate-y-0 disabled:hover:shadow-none motion-reduce:transition-none max-[600px]:size-9"
           >
             <Icon size={16} aria-hidden="true" />
           </button>
@@ -80,6 +99,7 @@ export default function AssessmentExplorer({ data }) {
       {/* Family tabs */}
       <Box
         ref={tabsRef}
+        onScroll={updateEdges}
         role="tablist"
         aria-label="Assessment families"
         className="no-scrollbar mb-1 flex snap-x gap-2 overflow-x-auto pb-3"

@@ -7,14 +7,75 @@ import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import CtaButton from "@/components/common/cta-button";
 
+/** The soft CTA's buttons. The CMS sends the second button inside `cta` as
+ * `secondary_btn_label` + `seconday_href` (its spelling — `secondary_href` is
+ * read too, should it be corrected). A second button with a label but no link
+ * yet falls back to the primary's link, so it is never a dead button. */
+function buttonsOf({ cta }) {
+  if (!cta?.href) return [];
+
+  const secondaryHref = cta.seconday_href || cta.secondary_href || cta.href;
+  return [
+    cta,
+    { label: cta.secondary_btn_label, href: secondaryHref },
+  ].filter((button) => button.label);
+}
+
 /**
- * Soft mid-page CTA — a white card with a lime left edge: a short heading
- * and line on the left, one button on the right (stacked below 600px).
+ * Soft mid-page CTA.
+ *
+ * - **One button** → a white card with a lime left edge: a short heading and
+ *   line on the left, the button on the right (stacked below 600px).
+ * - **Two buttons** → the centered row from the talent-assessment design
+ *   (`.cta-row.cta-center`): heading and line centered above a primary and a
+ *   bordered secondary button.
  */
 export default function LdSoftCta({ data }) {
   if (!data?.heading) return null;
 
-  const { heading, description, cta } = data;
+  const { heading, description } = data;
+  const buttons = buttonsOf(data);
+
+  if (buttons.length > 1) {
+    const [primary, secondary] = buttons;
+    return (
+      <Reveal className="w-full">
+        <Box className="flex w-full flex-col items-center gap-6 rounded-[14px] border border-ink/12 bg-white px-7 py-9 text-center max-[600px]:p-5">
+          <Box>
+            <Text
+              as="h3"
+              className="mb-1 text-[24px] font-bold leading-[1.2] tracking-[-0.01em] text-ink max-[600px]:text-[20px] max-[600px]:leading-[1.2]"
+            >
+              {heading}
+            </Text>
+            {description ? (
+              <Text as="p" className="m-0 text-[15px] leading-[1.5] text-ink/60">
+                {description}
+              </Text>
+            ) : null}
+          </Box>
+
+          <Box className="flex flex-none flex-wrap justify-center gap-3 max-[600px]:w-full">
+            <CtaButton
+              render={<Link href={primary.href} />}
+              className="flex-none px-7 py-4 leading-[1.4] max-[600px]:w-full"
+            >
+              {primary.label}
+            </CtaButton>
+            <CtaButton
+              variant="secondary"
+              render={<Link href={secondary.href} />}
+              className="flex-none border-[1.5px] border-navy px-7 py-4 leading-[1.4] text-navy hover:-translate-y-0.5 hover:border-navy hover:bg-transparent hover:shadow-lift max-[600px]:w-full"
+            >
+              {secondary.label}
+            </CtaButton>
+          </Box>
+        </Box>
+      </Reveal>
+    );
+  }
+
+  const cta = buttons[0];
 
   return (
     <Reveal className="w-full">
@@ -33,7 +94,7 @@ export default function LdSoftCta({ data }) {
           ) : null}
         </Box>
 
-        {cta?.href ? (
+        {cta ? (
           <CtaButton
             arrow
             render={<Link href={cta.href} />}
