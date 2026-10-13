@@ -11,5 +11,9 @@
  * merged over `DOMAIN_DEFAULTS`.
  */
 export const DOMAINS = {
-  "artificial-intelligence": { cmsSlug: "ai", name: "Artificial Intelligence" },
+  "artificial-intelligence": {
+    cmsSlug: "ai",
+    name: "Artificial Intelligence",
+    heroImage: "/category/Welcoming Corporate Training Workshop.png",
+  },
 };

@@ -37,9 +37,22 @@ export default function DomainPage({ domain }) {
     (domain.trainers?.dynamic_data ?? domain.trainers?.people)?.length,
   );
 
+  // Use the CMS image if provided; fall back to the shared category banner.
+  // Video is suppressed — banners are image-only on domain pages.
+  const hero = {
+    ...domain.hero,
+    media: {
+      ...domain.hero?.media,
+      video: undefined,
+      image:
+        domain.hero?.media?.image ??
+        "https://media.edstellar.com/Category-banner.webp",
+    },
+  };
+
   return (
     <>
-      <Hero hero={domain.hero} breadcrumbs={domain.breadcrumbs} />
+      <Hero hero={hero} breadcrumbs={domain.breadcrumbs} />
       <DomainProof proof={domain.proof} />
       <ClientLogos />
 
