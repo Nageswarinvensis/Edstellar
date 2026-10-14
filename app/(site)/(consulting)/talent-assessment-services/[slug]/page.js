@@ -6,8 +6,7 @@ import {
   getTalentAssessmentServiceSlugs,
 } from "@/lib/content/talent-assessment";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo/json-ld";
-import JsonLd from "@/components/seo/json-ld";
+import SchemaOrg from "@/components/seo/schema-org";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -126,17 +125,9 @@ export default async function TalentAssessmentServicePage({ params }) {
 
   return (
     <>
-      <JsonLd
-        data={[
-          serviceJsonLd({
-            name: service.name,
-            description: service.seo.description,
-            path: `/${PILLAR}/${slug}`,
-            serviceType: service.name,
-          }),
-          breadcrumbJsonLd(service.breadcrumbs),
-          faqJsonLd(service.faqs?.items),
-        ]}
+      <SchemaOrg
+        breadcrumbs={service.breadcrumbs}
+        faqs={service.faqs?.items}
       />
 
       <ConsultingHero data={service.hero} breadcrumbItems={service.breadcrumbs} />

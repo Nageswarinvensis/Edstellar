@@ -3,7 +3,7 @@ import path from "node:path";
 import { notFound } from "next/navigation";
 import { getBlogPost } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { blogPostingJsonLd } from "@/lib/seo/json-ld";
+import SchemaOrg from "@/components/seo/schema-org";
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Breadcrumbs from "@/components/common/breadcrumbs";
@@ -135,21 +135,19 @@ export default async function BlogPostPage({ params }) {
     { label: blog.title },
   ];
 
-  const jsonLd = blogPostingJsonLd({
-    title: blog.title,
-    description: blog.excerpt,
-    path: `/blog/${blog.slug}`,
-    image: blog.cover_image,
-    datePublished: blog.published_at,
-    dateModified: blog.meta?.site_published_at,
-    authorName: author?.name,
-  });
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <SchemaOrg
+        blogPosting={{
+          title: blog.title,
+          description: blog.excerpt,
+          path: `/blog/${blog.slug}`,
+          image: blog.cover_image,
+          datePublished: blog.published_at,
+          dateModified: blog.meta?.site_published_at,
+          authorName: author?.name,
+        }}
+        breadcrumbs={breadcrumb}
       />
       <BlogDetailHero
         title={blog.title}

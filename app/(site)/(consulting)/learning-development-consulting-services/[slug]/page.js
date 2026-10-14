@@ -6,8 +6,7 @@ import {
   getConsultingServiceSlugs,
 } from "@/lib/content/consulting";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo/json-ld";
-import JsonLd from "@/components/seo/json-ld";
+import SchemaOrg from "@/components/seo/schema-org";
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
 import ClientLogos from "@/components/common/client-logos";
@@ -157,17 +156,9 @@ export default async function LearningDevelopmentServicePage({ params }) {
 
   return (
     <>
-      <JsonLd
-        data={[
-          serviceJsonLd({
-            name: service.name,
-            description: service.seo.description,
-            path: `/${PILLAR}/${slug}`,
-            serviceType: service.name,
-          }),
-          breadcrumbJsonLd(service.BreadcrumbData),
-          faqJsonLd(service.faqData?.items),
-        ]}
+      <SchemaOrg
+        breadcrumbs={service.BreadcrumbData}
+        faqs={service.faqData?.items}
       />
       <ConsultingHero
         data={service.heroData}

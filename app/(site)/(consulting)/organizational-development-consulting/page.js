@@ -2,8 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
-import JsonLd from "@/components/seo/json-ld";
-import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo/json-ld";
+import SchemaOrg from "@/components/seo/schema-org";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -53,17 +52,9 @@ export default async function OrganizationalDevelopmentConsultingPage() {
 
   return (
     <>
-      <JsonLd
-        data={[
-          serviceJsonLd({
-            name,
-            description: cms.seo?.Meta_description,
-            path: PATH,
-            serviceType: name,
-          }),
-          breadcrumbJsonLd(cms.breadcrumbs?.items),
-          faqJsonLd(cms.faqs?.items),
-        ]}
+      <SchemaOrg
+        breadcrumbs={cms.breadcrumbs?.items}
+        faqs={cms.faqs?.items}
       />
 
       <ConsultingHero
