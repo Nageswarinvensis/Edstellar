@@ -18,6 +18,8 @@ import {
   ClipboardCheck,
   UserCheck,
   GraduationCap,
+  Globe,
+  Search,
   ArrowRight,
 } from "lucide-react";
 
@@ -51,9 +53,12 @@ const serviceIcons = {
   usercheck: UserCheck,
   graduationcap: GraduationCap,
   graduation: GraduationCap,
+  globe: Globe,
+  search: Search,
 };
 
-export default function RelatedServices({ id, bgColor, data }) {
+/** `columns={4}` lays the cards four across on desktop; the default is three. */
+export default function RelatedServices({ id, bgColor, data, columns = 3 }) {
   if (!data?.items?.length) return null;
 
   // Section ID and background: the page's props first, then local-content
@@ -87,7 +92,11 @@ export default function RelatedServices({ id, bgColor, data }) {
       </Box>
 
       <Reveal delay={0.1}>
-        <Box className="grid grid-cols-3 gap-5 max-[901px]:grid-cols-2 max-[601px]:grid-cols-1">
+        <Box
+          className={`grid gap-5 max-[901px]:grid-cols-2 max-[601px]:grid-cols-1 ${
+            columns === 4 ? "grid-cols-4" : "grid-cols-3"
+          }`}
+        >
           {data.items.map((item) => {
             const Icon = serviceIcons[(item.icon || "").trim().toLowerCase()];
             return (

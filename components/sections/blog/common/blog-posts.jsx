@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { format } from "date-fns";
-import { ArrowRight, ChevronLeft, ChevronRight, Eye } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Eye } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import Box from "@/components/ui/Box";
@@ -41,6 +41,7 @@ function PaginationButton({
   onClick,
   title,
   ariaLabel,
+  round = false,
   children,
 }) {
   return (
@@ -51,17 +52,112 @@ function PaginationButton({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "flex h-8 w-8 items-center justify-center rounded-[7px] border transition-all duration-200",
+        "flex items-center justify-center border transition-all duration-200",
+        round
+          ? "size-9 rounded-full font-mono text-[12px]"
+          : "h-8 w-8 rounded-[7px]",
         active
           ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
-          : "border-[#D7DADF] bg-white text-[#07182C]",
+          : round
+            ? "border-ink/22 bg-transparent text-ink"
+            : "border-[#D7DADF] bg-white text-[#07182C]",
         disabled
           ? "cursor-not-allowed opacity-40"
-          : "cursor-pointer hover:border-[#07182C]",
+          : round && !active
+            ? "cursor-pointer hover:border-olive hover:text-olive"
+            : "cursor-pointer hover:border-[#07182C]",
       )}
     >
       {children}
     </button>
+  );
+}
+
+/**
+ * The author page's article card (Blog Author Template `.acard`): 2:1 cover
+ * with a lime bar that draws in on hover, optional category tag, Sora title,
+ * "Updated on" date, then "Read More ↗" with the view count on the right.
+ */
+function AuthorPostCard({ post }) {
+  const href = `/blog/${post.slug}`;
+  const linkTitle = `Click Here to Read ${post.title}`;
+
+  return (
+    <Box
+      as="article"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/12 bg-white transition-[transform,box-shadow,border-color] duration-250 hover:-translate-y-1.5 hover:border-ink/22 hover:shadow-[0_18px_40px_-18px_rgba(10,22,40,0.25)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+    >
+      <Link
+        href={href}
+        title={linkTitle}
+        className="relative block aspect-[2/1] flex-none overflow-hidden bg-paper-cream after:absolute after:inset-x-0 after:bottom-0 after:h-0.75 after:origin-left after:scale-x-0 after:bg-lime after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100"
+      >
+        {post.cover_image ? (
+          <img
+            src={post.cover_image}
+            alt={post.title}
+            loading="lazy"
+            className="size-full object-cover"
+          />
+        ) : null}
+      </Link>
+
+      <Box className="flex flex-1 flex-col gap-2.5 px-5.5 pt-5 pb-5.5">
+        {post.category_name ? (
+          <Text
+            as="span"
+            className="self-start rounded-full border border-olive/25 bg-lime/22 px-2.75 py-1 font-mono text-[9.5px] uppercase leading-none tracking-[0.16em] text-olive"
+          >
+            {post.category_name}
+          </Text>
+        ) : null}
+
+        <Text
+          as="h3"
+          className="text-[16.5px] leading-[1.35] font-semibold tracking-[-0.02em] text-ink"
+        >
+          <Link href={href} title={linkTitle} className="transition-colors hover:text-olive">
+            {post.title}
+          </Link>
+        </Text>
+
+        {post.published_at ? (
+          <Text as="span" className="text-[13px] leading-[1.5] text-ink/60">
+            Updated on:{" "}
+            <time dateTime={post.published_at}>
+              {format(new Date(post.published_at), "MMMM d, yyyy")}
+            </time>
+          </Text>
+        ) : null}
+
+        <Box className="mt-auto flex items-center justify-between gap-3 pt-6">
+          <Link
+            href={href}
+            title={linkTitle}
+            className="inline-flex items-center gap-2 text-[15px] font-semibold text-navy transition-colors hover:text-olive"
+          >
+            Read More
+            <ArrowUpRight
+              size={18}
+              strokeWidth={2}
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </Link>
+
+          {typeof post.views === "number" ? (
+            <Text
+              as="span"
+              className="inline-flex items-center gap-1.5 text-[14px] font-medium text-ink/60"
+              aria-label={`${post.views.toLocaleString()} views`}
+            >
+              <Eye size={17} aria-hidden="true" />
+              {post.views.toLocaleString()}
+            </Text>
+          ) : null}
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
@@ -79,8 +175,10 @@ export default function BlogPosts({
   paginationLabel = "Blog articles pagination",
   searchQuery = "",
   onClearSearch,
+  variant = "default",
 }) {
   const trimmedQuery = searchQuery.trim();
+  const isAuthor = variant === "author";
 
   return (
     <Box>
@@ -115,11 +213,15 @@ export default function BlogPosts({
           <Box
             aria-busy={isPending}
             className={cn(
-              "grid grid-cols-1 gap-8 transition-opacity sm:grid-cols-2",
+              "grid grid-cols-1 transition-opacity sm:grid-cols-2",
+              isAuthor ? "gap-6" : "gap-8",
               isPending && "opacity-40",
             )}
           >
-            {posts.map((post) => (
+            {posts.map((post) =>
+              isAuthor ? (
+                <AuthorPostCard key={post.slug} post={post} />
+              ) : (
               <Box
                 key={post.slug}
                 className="flex flex-col overflow-hidden rounded-lg bg-white shadow-[1px_4px_10px_rgba(0,0,0,0.06)]"
@@ -186,16 +288,18 @@ export default function BlogPosts({
                   </Box>
                 </Box>
               </Box>
-            ))}
+              ),
+            )}
           </Box>
         </Reveal>
       )}
 
       {pagination && pagination.last_page > 1 && (
-        <Pagination aria-label={paginationLabel} className="mt-15 justify-end">
+        <Pagination aria-label={paginationLabel} className={cn("mt-15", isAuthor ? "justify-center" : "justify-end")}>
           <PaginationContent className="gap-2">
             <PaginationItem>
               <PaginationButton
+                round={isAuthor}
                 disabled={isPending || pagination.current_page === 1}
                 onClick={() => onPageChange(pagination.current_page - 1)}
                 title="Click Here to View Previous Page"
@@ -212,6 +316,7 @@ export default function BlogPosts({
               typeof n === "number" ? (
                 <PaginationItem key={n}>
                   <PaginationButton
+                round={isAuthor}
                     active={n === pagination.current_page}
                     disabled={isPending}
                     onClick={() => onPageChange(n)}
@@ -229,6 +334,7 @@ export default function BlogPosts({
 
             <PaginationItem>
               <PaginationButton
+                round={isAuthor}
                 disabled={
                   isPending || pagination.current_page === pagination.last_page
                 }

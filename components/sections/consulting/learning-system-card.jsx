@@ -1,4 +1,18 @@
-import { Target, Network, Heart, Users, RotateCw, Search, Flag, TrendingUp } from "lucide-react";
+import {
+  Target,
+  Network,
+  Heart,
+  Users,
+  RotateCw,
+  Search,
+  Flag,
+  TrendingUp,
+  Calendar,
+  Presentation,
+  Layers,
+  MessageCircle,
+  RefreshCw,
+} from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -18,7 +32,21 @@ import Text from "@/components/ui/Text";
  */
 
 // CMS `icon` names (lucide-react) → component. Extend as the CMS uses more.
-const LUCIDE_ICONS = { Target, Network, Heart, Users, RotateCw, Search, Flag, TrendingUp };
+const LUCIDE_ICONS = {
+  Target,
+  Network,
+  Heart,
+  Users,
+  RotateCw,
+  Search,
+  Flag,
+  TrendingUp,
+  Calendar,
+  Presentation,
+  Layers,
+  MessageCircle,
+  RefreshCw,
+};
 
 // The lucide icon for a row, or null when `item.icon` isn't a lucide name
 // (then the inline `ICON_PATHS` strokes are used). `.trim()` because the CMS

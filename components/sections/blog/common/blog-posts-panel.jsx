@@ -47,6 +47,9 @@ export default function BlogPostsPanel({
   scrollTargetId = "blogs",
   paginationLabel = "Blog articles pagination",
   searchPlaceholder = "Search articles",
+  // "author" switches the cards and pagination to the author-page design;
+  // the sidebar is the same for every variant.
+  variant = "default",
 }) {
   const [posts, setPosts] = useState(initialPosts);
   const [pagination, setPagination] = useState(initialPagination);
@@ -103,6 +106,7 @@ export default function BlogPostsPanel({
           paginationLabel={paginationLabel}
           searchQuery={query}
           onClearSearch={() => setQuery("")}
+          variant={variant}
         />
       </Box>
 

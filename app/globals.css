@@ -355,6 +355,59 @@ h2 span {
     z-index: 1;
   }
 }
+/* The same arc motif at hero scale — the blog post hero (Blog page v2
+   `.art-hero.arcs`: rings at 300/388/476px, 40px wide, centred 62% down,
+   faint at .35). */
+@utility arc-rings-hero {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background:
+      radial-gradient(
+        circle at 100% 62%,
+        transparent 0 300px,
+        rgba(146, 180, 234, 0.2) 300px 340px,
+        transparent 340px
+      ),
+      radial-gradient(
+        circle at 100% 62%,
+        transparent 0 388px,
+        rgba(119, 157, 216, 0.24) 388px 428px,
+        transparent 428px
+      ),
+      radial-gradient(
+        circle at 100% 62%,
+        transparent 0 476px,
+        rgba(37, 95, 255, 0.29) 476px 516px,
+        transparent 516px
+      );
+    -webkit-mask-image: conic-gradient(
+      from 180deg at 100% 62%,
+      #000 0 180deg,
+      transparent 180deg
+    );
+    mask-image: conic-gradient(
+      from 180deg at 100% 62%,
+      #000 0 180deg,
+      transparent 180deg
+    );
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 @keyframes logoSlide {
   from {
     transform: translateX(0%);

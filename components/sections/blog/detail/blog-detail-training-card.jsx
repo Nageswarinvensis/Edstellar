@@ -45,27 +45,30 @@ const courses = [
   },
 ];
 
+/**
+ * Rail card — explore courses: warm card, olive accents, white link rows.
+ */
 export default function BlogDetailTrainingCard() {
   return (
-    <Box className="w-full max-w-67.5 rounded-2xl border border-blue-300 bg-[#eef5ff] p-5">
+    <Box className="w-full rounded-2xl border border-ink/12 bg-paper-warm p-6 transition-[transform,box-shadow,border-color] duration-250 hover:-translate-y-1.25 hover:border-ink/22 hover:shadow-[0_22px_46px_-28px_rgba(10,22,40,0.5)]">
       <Reveal>
         <Box>
           <Text
             as="h2"
-            className="mb-2.5 text-[20px] font-medium leading-[1.15] text-[#3A3A3A]"
+            className="mb-2.5 text-[17px] leading-[1.32] font-semibold tracking-[-0.02em] text-ink"
           >
             Explore{" "}
-            <span className="text-[#215aff] not-italic! font-medium!">
-              High-impact instructor-led training
-            </span>{" "}
-            for your teams.
+            <em className="font-serif font-normal text-olive">
+              High-impact
+            </em>{" "}
+            instructor-led training for your teams.
           </Text>
 
-          <Text className="mb-5 space-y-2 text-[12px] text-ink">
+          <Text className="mb-4 font-mono text-[10.5px] leading-[1.9] tracking-[0.1em] text-olive">
             #On-site #Virtual #GroupTraining #Customized
           </Text>
 
-          <Box className="space-y-2.5">
+          <Box className="space-y-2">
             {courses.map((course) => {
               const Icon = course.icon;
 
@@ -74,24 +77,24 @@ export default function BlogDetailTrainingCard() {
                   key={course.name}
                   href={course.href}
                   title={`Click Here to View ${course.name}`}
-                  className="group flex cursor-pointer items-center justify-between rounded-md bg-white px-2 py-1.5 text-[#215aff] transition"
+                  className="group flex cursor-pointer items-center justify-between gap-2.5 rounded-xl border border-ink/12 bg-white px-3.5 py-3 transition-colors duration-200 hover:border-navy hover:bg-ink/4"
                 >
-                  <Box className="flex min-w-0 items-center gap-2">
-                    <Box className="flex h-8 w-8 shrink-0 items-center justify-center">
-                      <Icon size={20} />
-                    </Box>
+                  <Box className="flex min-w-0 items-center gap-2.5">
+                    <Icon size={16} className="shrink-0 text-ink/60" aria-hidden="true" />
 
                     <Text
                       as="span"
-                      className="whitespace-nowrap text-[14px] font-semibold text-[#215aff] transition-colors group-hover:text-[#22295A]"
+                      className="font-display text-[13px] font-semibold tracking-[-0.01em] text-ink"
                     >
                       {course.name}
                     </Text>
                   </Box>
 
                   <ChevronRight
-                    size={20}
-                    className="shrink-0 text-[#215aff] transition-colors group-hover:text-[#22295A]"
+                    size={16}
+                    strokeWidth={2.25}
+                    className="shrink-0 text-olive transition-transform duration-200 group-hover:translate-x-0.5"
+                    aria-hidden="true"
                   />
                 </a>
               );

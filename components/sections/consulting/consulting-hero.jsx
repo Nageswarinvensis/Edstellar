@@ -107,12 +107,15 @@ export default function ConsultingHero({
             {shouldShowMeta && (
               <Reveal delay={3}>
                 <HeroMeta
-                  // The first item is per page: the CMS sends it as
-                  // `heroLeft.small_text`; pages without one keep the default.
+                  // A page can replace the whole row (`heroLeft.meta_items`,
+                  // HeroMeta's own item shape) or just its first item
+                  // (`heroLeft.small_text`); otherwise the default row.
                   items={
-                    left.small_text
-                      ? [left.small_text, ...HERO_META.slice(1)]
-                      : HERO_META
+                    left.meta_items?.length
+                      ? left.meta_items
+                      : left.small_text
+                        ? [left.small_text, ...HERO_META.slice(1)]
+                        : HERO_META
                   }
                   className={cn("mt-6 tracking-[0.12em]", weightClass, colorClass)}
                 />

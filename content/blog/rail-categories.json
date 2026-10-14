@@ -1,0 +1,415 @@
+{
+  "categories": [
+    {
+      "key": "it",
+      "label": "IT & AI",
+      "domains": [
+        {
+          "name": "Artificial Intelligence",
+          "course_count": 130,
+          "href": "/category/artificial-intelligence-training"
+        },
+        {
+          "name": "Big Data",
+          "course_count": 40,
+          "href": "/category/big-data-training"
+        },
+        {
+          "name": "Blockchain and Cryptocurrency",
+          "course_count": 16,
+          "href": "/category/blockchain-and-cryptocurrency-training"
+        },
+        {
+          "name": "Business Analytics",
+          "course_count": 8,
+          "href": "/topic/business-analytics-training"
+        },
+        {
+          "name": "Business Intelligence",
+          "course_count": 7,
+          "href": "/topic/business-intelligence-training"
+        },
+        {
+          "name": "Cloud Computing",
+          "course_count": 110,
+          "href": "/category/cloud-computing-training"
+        },
+        {
+          "name": "Cloud Security",
+          "course_count": 4,
+          "href": "/topic/cloud-security-training"
+        },
+        {
+          "name": "CRM",
+          "course_count": 6,
+          "href": "/topic/crm-training"
+        },
+        {
+          "name": "Cybersecurity",
+          "course_count": 38,
+          "href": "/category/cybersecurity-training"
+        },
+        {
+          "name": "Data Analytics",
+          "course_count": 54,
+          "href": "/category/data-analytics-training"
+        },
+        {
+          "name": "Data Engineering",
+          "course_count": 7,
+          "href": "/topic/data-engineering-training"
+        },
+        {
+          "name": "Data Science",
+          "course_count": 18,
+          "href": "/category/data-science-training"
+        },
+        {
+          "name": "Data Visualization",
+          "course_count": 15,
+          "href": "/topic/data-visualization-training"
+        },
+        {
+          "name": "Database",
+          "course_count": 43,
+          "href": "/category/database-training"
+        },
+        {
+          "name": "Design",
+          "course_count": 51,
+          "href": "/category/design-training"
+        },
+        {
+          "name": "DevOps",
+          "course_count": 37,
+          "href": "/category/devops-training"
+        },
+        {
+          "name": "Embedded Systems",
+          "course_count": 8,
+          "href": "/topic/embedded-systems-training"
+        },
+        {
+          "name": "ERP",
+          "course_count": 22,
+          "href": "/topic/erp-training"
+        },
+        {
+          "name": "Geospatial Technologies",
+          "course_count": 34,
+          "href": "/category/geospatial-technologies-training"
+        },
+        {
+          "name": "Graphic Design",
+          "course_count": 8,
+          "href": "/topic/graphic-design-training"
+        },
+        {
+          "name": "IoT",
+          "course_count": 18,
+          "href": "/category/iot-training"
+        },
+        {
+          "name": "IT Operations",
+          "course_count": 55,
+          "href": "/category/it-operations-training"
+        },
+        {
+          "name": "IT Service Management",
+          "course_count": 8,
+          "href": "/topic/it-service-management-training"
+        },
+        {
+          "name": "Machine Learning",
+          "course_count": 19,
+          "href": "/topic/machine-learning-training"
+        },
+        {
+          "name": "Microsoft Office Tools",
+          "course_count": 5,
+          "href": "/topic/microsoft-office-tools-training"
+        },
+        {
+          "name": "Mobile App Development",
+          "course_count": 33,
+          "href": "/category/mobile-app-development-training"
+        },
+        {
+          "name": "Network Security",
+          "course_count": 25,
+          "href": "/topic/network-security-training"
+        },
+        {
+          "name": "Networking",
+          "course_count": 45,
+          "href": "/category/networking-training"
+        },
+        {
+          "name": "Operating Systems",
+          "course_count": 24,
+          "href": "/category/operating-systems-training"
+        },
+        {
+          "name": "Productivity Tools",
+          "course_count": 80,
+          "href": "/category/productivity-tools-training"
+        },
+        {
+          "name": "Programming and Frameworks",
+          "course_count": 21,
+          "href": "/topic/programming-and-frameworks-training"
+        },
+        {
+          "name": "Quantum Computing",
+          "course_count": 4,
+          "href": "/topic/quantum-computing-training"
+        },
+        {
+          "name": "Robotic Process Automation",
+          "course_count": 20,
+          "href": "/topic/robotic-process-automation-rpa-training"
+        },
+        {
+          "name": "Salesforce",
+          "course_count": 12,
+          "href": "/topic/salesforce-training"
+        },
+        {
+          "name": "Software Development",
+          "course_count": 58,
+          "href": "/category/software-development-training"
+        },
+        {
+          "name": "Software Testing",
+          "course_count": 45,
+          "href": "/category/software-testing-training"
+        },
+        {
+          "name": "Telecommunications",
+          "course_count": 5,
+          "href": "/topic/telecommunications-training"
+        },
+        {
+          "name": "UI/UX Design",
+          "course_count": 5,
+          "href": "/topic/ui-ux-design-training"
+        },
+        {
+          "name": "Virtualization",
+          "course_count": 24,
+          "href": "/category/virtualization-training"
+        },
+        {
+          "name": "Web Development",
+          "course_count": 70,
+          "href": "/category/web-development-training"
+        },
+        {
+          "name": "Workflow Automation",
+          "course_count": 25,
+          "href": "/category/workflow-automation-training"
+        }
+      ]
+    },
+    {
+      "key": "mgmt",
+      "label": "Management",
+      "domains": [
+        {
+          "name": "Agile",
+          "course_count": 12,
+          "href": "/topic/agile-training"
+        },
+        {
+          "name": "Customer Service",
+          "course_count": 10,
+          "href": "/topic/customer-service-training"
+        },
+        {
+          "name": "Digital Marketing",
+          "course_count": 14,
+          "href": "/topic/digital-marketing-training"
+        },
+        {
+          "name": "Finance and Accounting",
+          "course_count": 63,
+          "href": "/category/finance-and-accounting-training"
+        },
+        {
+          "name": "Financial Analysis",
+          "course_count": 9,
+          "href": "/topic/financial-analysis-training"
+        },
+        {
+          "name": "Human Resource",
+          "course_count": 28,
+          "href": "/category/human-resource-training"
+        },
+        {
+          "name": "Lean",
+          "course_count": 7,
+          "href": "/topic/lean-training"
+        },
+        {
+          "name": "Logistics",
+          "course_count": 9,
+          "href": "/topic/logistics-training"
+        },
+        {
+          "name": "Marketing",
+          "course_count": 27,
+          "href": "/category/marketing-training"
+        },
+        {
+          "name": "Operations Management",
+          "course_count": 74,
+          "href": "/category/operations-management-training"
+        },
+        {
+          "name": "Product Management",
+          "course_count": 16,
+          "href": "/category/product-management-training"
+        },
+        {
+          "name": "Project Management",
+          "course_count": 24,
+          "href": "/category/project-management-training"
+        },
+        {
+          "name": "Quality Management",
+          "course_count": 34,
+          "href": "/category/quality-management-training"
+        },
+        {
+          "name": "Recruitment and Staffing",
+          "course_count": 7,
+          "href": "/topic/recruitment-and-staffing-training"
+        },
+        {
+          "name": "Risk Management",
+          "course_count": 22,
+          "href": "/category/risk-management-training"
+        },
+        {
+          "name": "Sales",
+          "course_count": 51,
+          "href": "/category/sales-training"
+        },
+        {
+          "name": "Six Sigma",
+          "course_count": 10,
+          "href": "/topic/six-sigma-training"
+        },
+        {
+          "name": "Supply Chain Management",
+          "course_count": 12,
+          "href": "/topic/supply-chain-management-training"
+        },
+        {
+          "name": "Talent Management",
+          "course_count": 9,
+          "href": "/topic/talent-management-training"
+        },
+        {
+          "name": "Taxation",
+          "course_count": 6,
+          "href": "/topic/taxation-training"
+        }
+      ]
+    },
+    {
+      "key": "beh",
+      "label": "Behavioral",
+      "domains": [
+        {
+          "name": "Interpersonal Skills",
+          "course_count": 42,
+          "href": "/category/interpersonal-skills-training"
+        },
+        {
+          "name": "Soft Skills",
+          "course_count": 23,
+          "href": "/category/soft-skills-training"
+        }
+      ]
+    },
+    {
+      "key": "lead",
+      "label": "Leadership",
+      "domains": [
+        {
+          "name": "Decision Making",
+          "course_count": 9,
+          "href": "/category/decision-making-training"
+        },
+        {
+          "name": "Leadership Communication",
+          "course_count": 13,
+          "href": "/category/leadership-communication-training"
+        },
+        {
+          "name": "People Management",
+          "course_count": 29,
+          "href": "/category/people-management-training"
+        },
+        {
+          "name": "Strategic Leadership",
+          "course_count": 66,
+          "href": "/category/strategic-leadership-training"
+        },
+        {
+          "name": "Strategic Planning",
+          "course_count": 8,
+          "href": "/topic/strategic-planning-training"
+        }
+      ]
+    },
+    {
+      "key": "comp",
+      "label": "Compliance",
+      "domains": [
+        {
+          "name": "Data Privacy and Security",
+          "course_count": 14,
+          "href": "/category/data-privacy-and-security-training"
+        },
+        {
+          "name": "Governance, Risk and Compliance",
+          "course_count": 8,
+          "href": "/topic/grc-training"
+        },
+        {
+          "name": "ISO and Other Standards",
+          "course_count": 19,
+          "href": "/category/iso-and-other-standards-training"
+        },
+        {
+          "name": "Workplace Safety",
+          "course_count": 19,
+          "href": "/category/workplace-safety-training"
+        }
+      ]
+    },
+    {
+      "key": "social",
+      "label": "Social Impact",
+      "domains": [
+        {
+          "name": "Environmental Sustainability",
+          "course_count": 59,
+          "href": "/category/environmental-sustainability-training"
+        },
+        {
+          "name": "Health and Well-Being",
+          "course_count": 9,
+          "href": "/category/health-and-well-being-training"
+        },
+        {
+          "name": "Workplace Diversity and Inclusion",
+          "course_count": 13,
+          "href": "/category/workplace-diversity-and-inclusion-training"
+        }
+      ]
+    }
+  ]
+}
