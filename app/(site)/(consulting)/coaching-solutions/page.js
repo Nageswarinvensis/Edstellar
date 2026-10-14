@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 import { getCoachingHub } from "@/lib/content/coaching";
 import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
@@ -20,50 +22,58 @@ import CoachingSchedules from "@/components/sections/coaching/coaching-schedules
 import CoachingReadiness from "@/components/sections/coaching/coaching-readiness";
 import CoachingWhy from "@/components/sections/coaching/coaching-why";
 
-// Static page: its content is local JSON, so it is fully prerendered (SSG).
-export const dynamic = "force-static";
+export const revalidate = 3600;
 
-export function generateMetadata() {
-  const { seo } = getCoachingHub();
+const PATH = "/coaching-solutions";
 
-  // The JSON title carries the brand suffix the root layout's title template
+export async function generateMetadata() {
+  const page = await getCoachingHub();
+  if (!page) return {};
+  const { seo } = page;
+
+  // The CMS title carries the brand suffix the root layout's title template
   // adds — stripped so it does not render twice.
   return buildMetadata({
-    title: seo.title.replace(/\s*\|\s*Edstellar\s*$/i, "").trim(),
-    description: seo.description,
-    path: seo.path,
+    title: seo?.meta_title?.replace(/\s*\|\s*Edstellar\s*$/i, "").trim(),
+    description: seo?.Meta_description,
+    path: PATH,
+    image: seo?.og_image_url,
   });
 }
 
 /**
- * Coaching Solutions hub — a static page built from local JSON
- * (`content/coaching/coaching-hub.json`, via `lib/content/coaching.js`).
+ * Coaching Solutions hub — the frame (SEO, breadcrumbs, proof bar, section
+ * nav, sticky footer) comes from the CMS, the rest from local JSON; see
+ * `lib/content/coaching.js` for the split.
  * The family frame (proof bar, logos, section nav, FAQ, lead form, sticky
  * footer) reuses the consulting components; the coaching sections live in
  * `components/sections/coaching/`.
  *
  * Design: `coaching-hub 24.html`.
  */
-export default function CoachingSolutionsPage() {
-  const page = getCoachingHub();
+export default async function CoachingSolutionsPage() {
+  const page = await getCoachingHub();
+  if (!page) notFound();
+
+  const breadcrumbs = page.breadcrumbs?.items;
 
   return (
     <>
       <SchemaOrg
         service={{
           name: "Corporate Coaching",
-          description: page.seo.description,
-          path: page.seo.path,
+          description: page.seo?.Meta_description,
+          path: PATH,
           serviceType: "Corporate coaching",
         }}
-        breadcrumbs={page.hero.breadcrumbs}
+        breadcrumbs={breadcrumbs}
         faqs={page.faqs.items}
       />
 
-      <CoachingHero data={page.hero} />
-      <ProofStats data={page.proof} />
+      <CoachingHero data={{ ...page.hero, breadcrumbs }} />
+      <ProofStats data={page.generalProof} />
       <ClientLogos />
-      <StickyTabs data={page.sticky_nav} />
+      <StickyTabs data={page.stickyNavbar} />
 
       <CoachingPaths data={page.paths} />
       <CoachingCtaBand data={page.paths_cta} label="Find the right coaching path" />
@@ -83,7 +93,7 @@ export default function CoachingSolutionsPage() {
         showCta={false}
       />
       <LeadForm id="contact" background="navy" data={page.lead_form} />
-      <StickyFooter data={page.sticky_footer} />
+      <StickyFooter data={page.stickyFooter && { ...page.stickyFooter, email: true }} />
     </>
   );
 }

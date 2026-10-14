@@ -32,7 +32,7 @@ const SERVICES = [
     title: "Managed training services",
     description:
       "Training outsourcing, vendor management, logistics and administration.",
-    href: "/managed-training-services",
+    href: "/managed-learning-services/managed-training",
   },
   {
     title: "Coaching solutions",

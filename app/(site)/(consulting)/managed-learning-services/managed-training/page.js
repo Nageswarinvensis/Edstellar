@@ -22,7 +22,7 @@ import StickyFooter from "@/components/common/sticky-footer";
 
 export const revalidate = 3600;
 
-const PATH = "/managed-learning-services/managed-training-services";
+const PATH = "/managed-learning-services/managed-training";
 
 export async function generateMetadata() {
   const page = await getManagedTrainingPage();
