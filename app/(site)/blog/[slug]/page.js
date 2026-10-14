@@ -1,12 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import { notFound } from "next/navigation";
-import { getBlogPost } from "@/lib/content/blog";
+import { getBlogMain, getBlogPost } from "@/lib/content/blog";
+import { getBlogRailCategories } from "@/lib/content/blog-rail";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { SITE } from "@/lib/constants";
 import SchemaOrg from "@/components/seo/schema-org";
 import Section from "@/components/ui/Section";
-import Box from "@/components/ui/Box";
 import Breadcrumbs from "@/components/common/breadcrumbs";
+import Box from "@/components/ui/Box";
 import BlogDetailAccordionInteractivity from "@/components/sections/blog/detail/blog-detail-accordion-interactivity";
 import BlogDetailWhatsNewInteractivity from "@/components/sections/blog/detail/blog-detail-whats-new-interactivity";
 import BlogDetailHighlightReveal from "@/components/sections/blog/detail/blog-detail-highlight-reveal";
@@ -16,13 +18,9 @@ import BlogDetailAuthorCard from "@/components/sections/blog/detail/blog-detail-
 import BlogDetailContinueReading from "@/components/sections/blog/detail/blog-detail-continue-reading";
 import BlogDetailSubscribeCta from "@/components/sections/blog/detail/blog-detail-subscribe-cta";
 import BlogDetailToc from "@/components/sections/blog/detail/blog-detail-toc";
-import BlogDetailTrainingCard from "@/components/sections/blog/detail/blog-detail-training-card";
-import BlogDetailTrainingCatalogCta from "@/components/sections/blog/detail/blog-detail-training-catalog-cta";
-import BlogDetailCoachingCta from "@/components/sections/blog/detail/blog-detail-coaching-cta";
-import BlogDetailSkillMatrixCta from "@/components/sections/blog/detail/blog-detail-skill-matrix-cta";
-import BlogDetailTrainingCta from "@/components/sections/blog/detail/blog-detail-training-cta";
-import BlogDetailRelated from "@/components/sections/blog/detail/blog-detail-related";
 import BlogDetailCategories from "@/components/sections/blog/detail/blog-detail-categories";
+import BlogDetailMoreInsights from "@/components/sections/blog/detail/blog-detail-more-insights";
+import BlogRail from "@/components/sections/blog/detail/rail/blog-rail";
 
 import "@/components/sections/blog/detail/blog-content/Global.css";
 
@@ -121,6 +119,12 @@ export default async function BlogPostPage({ params }) {
 
   const { blog, author, category } = post;
 
+  // "More Blog Insights": the newest posts from the listing, minus this one.
+  const latest = await getBlogMain(1);
+  const morePosts = (latest?.blogs?.data ?? [])
+    .filter((item) => item.slug !== blog.slug)
+    .slice(0, 6);
+
   const breadcrumb = [
     { label: "Home", href: "/" },
     { label: "Blog", href: "/blog" },
@@ -157,13 +161,13 @@ export default async function BlogPostPage({ params }) {
         authorName={author?.name}
         authorSlug={author?.slug}
         authorAvatar={author?.avatar}
-        authorLinkedin={author?.linkedin}
         authorDesignation={author?.designation}
         authorVerifiedExpert={author?.verified_expert}
         publishedAt={blog.meta?.site_published_at}
         readMinutes={post.readMinutes}
         showsWhatsNew={blog.meta?.shows_whats_new}
         layoutVariant={blog.meta?.layout_variant}
+        shareUrl={`${SITE.url}/blog/${blog.slug}`}
       />
 
       <Section className="bg-white lg:py-5">
@@ -171,7 +175,7 @@ export default async function BlogPostPage({ params }) {
       </Section>
 
       <Section className="bg-white pt-0 lg:pt-0">
-        <Box className="mx-auto grid max-w-7xl grid-cols-1 gap-4 lg:grid-cols-[200px_minmax(0,1fr)_270px]">
+        <Box className="mx-auto grid max-w-7xl grid-cols-1 gap-4 lg:grid-cols-[200px_minmax(0,1fr)_300px]">
           {/* LEFT - Table of Contents */}
           <Box className="hidden lg:block">
             <BlogDetailToc />
@@ -226,53 +230,21 @@ export default async function BlogPostPage({ params }) {
             </Box>
           </Box>
 
-          {/* RIGHT - CTA Cards */}
-          <Box className="relative hidden h-full lg:block">
-            <Box className="mb-4 h-[16.58%]">
-              <Box className="sticky top-20">
-                <BlogDetailTrainingCard />
-              </Box>
-            </Box>
-
-            <Box className="mb-4 h-[16.58%]">
-              <Box className="sticky top-20">
-                <BlogDetailTrainingCatalogCta />
-              </Box>
-            </Box>
-
-            <Box className="mb-4 h-[16.58%]">
-              <Box className="sticky top-20">
-                <BlogDetailCoachingCta />
-              </Box>
-            </Box>
-
-            <Box className="mb-4 h-[16.58%]">
-              <Box className="sticky top-20">
-                <BlogDetailSkillMatrixCta />
-              </Box>
-            </Box>
-
-            <Box className="mb-4 h-[16.58%]">
-              <Box className="sticky top-20">
-                <BlogDetailTrainingCta />
-              </Box>
-            </Box>
-
-            <Box className="mb-4 h-[16.58%]">
-              <Box className="sticky top-20">
-                <BlogDetailRelated
-                  categoryName={post.relatedBlogs?.category_name}
-                  blogs={post.relatedBlogs?.blogs}
-                />
-              </Box>
-            </Box>
+          {/* RIGHT - training rail (explore, catalog, quote, coaching) */}
+          <Box className="hidden h-full lg:block">
+            <BlogRail categories={getBlogRailCategories()} />
           </Box>
         </Box>
       </Section>
 
       <BlogDetailSubscribeCta />
 
-      <BlogDetailCategories categories={post.categories} />
+      <BlogDetailMoreInsights posts={morePosts} />
+
+      <BlogDetailCategories
+        categories={post.categories}
+        currentSlug={category?.slug}
+      />
 
       {post.styleBlocks.some((block) => INTERACTIVE_BLOCKS.includes(block)) && (
         <BlogDetailAccordionInteractivity />

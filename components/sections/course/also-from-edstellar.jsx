@@ -14,7 +14,7 @@ const SERVICES = [
     title: "Training needs analysis",
     description:
       "Needs analysis, gap identification, and a training roadmap.",
-    href: "/training-needs-analysis",
+    href: "/training-needs-analysis-solutions",
   },
   {
     title: "L&D consulting",

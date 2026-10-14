@@ -256,9 +256,10 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
                     htmlFor="lf-consent"
                     className="text-[12.5px] leading-normal text-ink/60"
                   >
-                    I agree that Edstellar may use my details to respond to my
-                    training request and provide relevant training solutions, as
-                    described in the{" "}
+                    {/* `consent_text` (optional) replaces the default wording
+                        up to the privacy-policy link. */}
+                    {data.consent_text ||
+                      "I agree that Edstellar may use my details to respond to my training request and provide relevant training solutions, as described in the"}{" "}
                     <a
                       href="/privacy-policy"
                       title="Click Here to View Privacy Policy"

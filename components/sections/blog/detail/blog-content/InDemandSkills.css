@@ -1,114 +1,155 @@
+/* ==========================================================================
+   Edstellar — "In-demand Skills" category components
+   Brand source: Edstellar_Brand_Guidelines.html (Course Page Design System v1.0)
+
+   Second layer: assumes Global.css is loaded, which supplies the tokens
+   (--navy, --lime, --lime-ink, --paper-warm, --rule, --muted …) on
+   `.blog-content`, plus the typography, FAQ, tables and CTA panel.
+
+   Selectors are bare: the blog page wraps this sheet in
+   `@scope (.blog-content.blog-content-richtext)`, so they only reach the
+   article body. Every class and id below already exists in the live Webflow
+   embeds — nothing is renamed.
+
+   Brand rules honoured throughout:
+     · Lime #C8F135 is never text on light — olive (--lime-ink) is.
+     · Navy #0A1628 is the darkest ink. No pure black, no cobalt, no teal.
+     · Sora headings · DM Sans body · DM Mono labels.
+     · Pills at 100px; cards 14–18px.
+     · Hovers: lift −4px with a soft navy shadow, 0.2–0.3s.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   A · Info box & industry block
+   -------------------------------------------------------------------------- */
+
 .info-box {
-  background: #ebf8ff;
-  border-left: 4px solid #4299e1;
-  padding: 1.25rem;
-  margin: 1.5rem 0;
-  border-radius: 6px;
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--lime);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin: 24px 0;
+  color: var(--muted);
 }
 
 .industry-block {
-  background: #f7fafc;
-  padding: 1.5rem;
-  margin: 1rem 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border-left: 3px solid #667eea;
-  border-right: 1px solid #e5e7eb;
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--navy);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: 0 1px 2px rgba(10, 22, 40, 0.06);
 }
 
 .industry-block h3 {
   margin-top: 0;
-  color: #2d3748;
+  font-family: var(--display);
+  letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
-.info-box {
-  background: #ebf8ff;
-  border-left: 4px solid #4299e1;
-  padding: 1.25rem;
-  margin: 1.5rem 0;
-  border-radius: 6px;
-}
+/* --------------------------------------------------------------------------
+   B · Sources grid — .sources-grid / .source-tile
+   -------------------------------------------------------------------------- */
+
 .sources-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+  margin: 24px 0;
 }
 
 .source-tile {
   display: flex;
   flex-direction: column;
   min-height: 160px;
-  padding: 20px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  color: #374151;
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  color: var(--muted);
   text-decoration: none;
-  transition: 0.2s ease;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s;
 }
 
 .source-tile:hover {
-  border-color: #0d9488;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  border-color: var(--rule-strong);
+  box-shadow: 0 22px 46px -28px rgba(10, 22, 40, 0.5);
 }
 
 .source-tile-type {
-  font-weight: 700;
-  font-size: 14px;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid transparent;
 }
 
 .source-tile-type.gov {
-  color: #0d9488;
+  color: var(--navy);
+  background: var(--paper-warm);
+  border-color: var(--rule);
 }
 
 .source-tile-type.industry {
-  color: #f47920;
+  color: var(--lime-ink);
+  background: var(--lime-soft);
 }
 
 .source-tile-type.hiring {
-  color: #1a3c6e;
+  color: var(--lime);
+  background: var(--navy);
 }
 
 .source-tile > p:nth-of-type(1) {
+  margin: 12px 0 8px;
+  font-family: var(--display);
+  font-size: 19px;
   font-weight: 700;
-  font-size: 20px;
-  color: #1a3c6e;
-  margin: 10px 0;
-  line-height: 28px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .source-tile-report {
-  font-size: 14px;
-  color: #6b7280;
   margin-bottom: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--muted-soft);
 }
 
 .source-tile > p:nth-of-type(2) {
-  margin: 0 0 12px 0;
-  font-size: 16px;
-  color: #4b5563;
-  line-height: 1.6;
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
 }
 
 .source-tile-link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   margin-top: auto;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  color: #0d9488;
-  transition: color 0.2s;
+  color: var(--navy);
   text-decoration: none !important;
+  transition: color 0.2s;
 }
 
 .source-tile-link:hover {
-  color: #f47920;
+  color: var(--lime-ink);
 }
 
 @media (max-width: 568px) {
@@ -118,19 +159,23 @@
 
   .source-tile {
     min-height: auto;
-    padding: 16px;
+    padding: 18px;
   }
 }
-/* Skill Cards */
+
+/* --------------------------------------------------------------------------
+   C · Skill cards — .skill-card / #skill-n
+   -------------------------------------------------------------------------- */
+
 .skill-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 36px 32px;
-  margin-bottom: 36px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e5e7eb;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: 36px 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 2px rgba(10, 22, 40, 0.06);
 }
 
 .skill-header {
@@ -141,10 +186,12 @@
 }
 
 .skill-number {
+  position: relative;
+  font-family: var(--display);
   font-size: 110px;
   font-weight: 800;
   line-height: 1;
-  position: relative;
+  letter-spacing: -0.04em;
   -webkit-text-stroke: 2px transparent;
 }
 
@@ -154,22 +201,27 @@
 }
 
 .skill-title {
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+  font-family: var(--display) !important;
   font-size: 28px !important;
-  font-weight: 800 !important;
-  margin-bottom: 8px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.03em;
+  color: var(--ink) !important;
 }
 
 .skill-tag {
   display: inline-block;
-  background: #0d9488;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 2px 10px;
-  border-radius: 8px;
-  letter-spacing: 0.5px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lime);
+  background: var(--navy);
+  padding: 4px 12px;
+  border-radius: 100px;
 }
 
 .skill-body p {
@@ -177,11 +229,13 @@
 }
 
 .skill-body h4 {
-  font-size: 16px;
-  font-weight: 700;
+  margin-top: 22px;
   margin-bottom: 8px;
-  margin-top: 20px;
-  color: #1a3c6e;
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
 .sub-skills-list {
@@ -192,51 +246,82 @@
 }
 
 .sub-skill-chip {
-  background: #fff;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  padding: 4px 14px;
-  font-size: 14px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 13px;
   font-weight: 500;
-  color: #374151;
+  line-height: 1.3;
+  color: var(--ink);
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.sub-skill-chip:hover {
+  border-color: var(--navy);
+  background: var(--paper);
 }
 
 .skill-links {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
 }
 
 .skill-links p {
-  font-size: 16px;
-  font-weight: 600;
-  color: #1a3c6e;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-/* Pattern: Green, Blue, Orange repeat */
-/* 1,4,7,10 */
+.skill-links a {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 10px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4 !important;
+  color: var(--navy) !important;
+  background-color: var(--lime-soft) !important;
+  text-decoration: none;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.skill-links a:hover {
+  color: var(--lime) !important;
+  background-color: var(--navy) !important;
+}
+
+/* Three-tone rhythm across the list: lime, paper, warm — repeating */
 #skill-1,
 #skill-4,
 #skill-7,
 #skill-10 {
-  background: #f0f9f4;
+  background: #f7fbe9;
 }
 
-/* 2,5,8,11 */
 #skill-2,
 #skill-5,
 #skill-8,
 #skill-11 {
-  background: #f0f4f9;
+  background: var(--paper);
 }
 
-/* 3,6,9,12 */
 #skill-3,
 #skill-6,
 #skill-9,
 #skill-12 {
-  background: #fff7ed;
+  background: var(--paper-warm);
 }
 
 #skill-1 .skill-number,
@@ -245,10 +330,10 @@
 #skill-10 .skill-number {
   background: repeating-linear-gradient(
     45deg,
-    #0d9488,
-    #0d9488 4px,
-    #0fb9aa 4px,
-    #0fb9aa 8px
+    #6f8c0f,
+    #6f8c0f 4px,
+    #8fae1a 4px,
+    #8fae1a 8px
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -261,10 +346,10 @@
 #skill-11 .skill-number {
   background: repeating-linear-gradient(
     45deg,
-    #1a3c6e,
-    #1a3c6e 4px,
-    #2a5a9e 4px,
-    #2a5a9e 8px
+    #0a1628,
+    #0a1628 4px,
+    #2a3a57 4px,
+    #2a3a57 8px
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -277,10 +362,10 @@
 #skill-12 .skill-number {
   background: repeating-linear-gradient(
     45deg,
-    #f47920,
-    #f47920 4px,
-    #f99b4e 4px,
-    #f99b4e 8px
+    #a16207,
+    #a16207 4px,
+    #ca8a04 4px,
+    #ca8a04 8px
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -289,62 +374,28 @@
 
 .skill-image-placeholder {
   width: 100%;
-  background: #e5e7eb;
-  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  background: var(--paper-warm);
+  border-radius: 14px;
   font-size: 14px;
-  color: #6b7280;
   font-weight: 500;
+  color: var(--muted);
 }
 
 .skill-image-placeholder img {
-  border-radius: 8px;
-}
-
-.skill-links a {
-  font-size: 14px;
-  display: inline-block;
-  margin-right: 8px;
-  margin-bottom: 10px;
-  color: #22295a !important;
-  background-color: #acc8ff !important;
-  text-decoration: none;
-  padding: 4px 10px;
-  border-radius: 8px;
-  line-height: 22px !important;
-}
-
-.skill-links a:hover {
-  color: white !important;
-  background-color: #22295a !important;
+  border-radius: 14px;
 }
 
 @media (max-width: 900px) {
-  .sidebar {
-    display: none;
-  }
-
-  .toc-mobile-toggle {
-    display: block;
-  }
-
-  .content-wrapper {
-    padding-top: 24px;
-  }
-
-  .main-content {
-    max-width: 100%;
-  }
-
   .skill-number {
     font-size: 72px;
   }
 
   .skill-title {
-    font-size: 22px;
+    font-size: 22px !important;
   }
 
   .skill-header {
@@ -352,11 +403,7 @@
   }
 
   .skill-card {
-    padding: 16px 10px;
-  }
-
-  .hero {
-    padding: 40px 0 36px;
+    padding: 22px 18px;
   }
 }
 
@@ -366,30 +413,29 @@
   }
 
   .skill-title {
-    font-size: 20px;
+    font-size: 20px !important;
   }
 
   .skill-title-block {
     padding-top: 10px;
   }
-
-  .pull-quote {
-    font-size: 16px;
-    padding: 16px 18px;
-  }
 }
 
+/* --------------------------------------------------------------------------
+   D · Develop card — .develop-card
+   -------------------------------------------------------------------------- */
+
 .develop-card {
-  background: #fff;
-  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
   padding: 36px 32px;
-  margin-bottom: 36px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e5e7eb;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 2px rgba(10, 22, 40, 0.06);
 }
 
 .develop-card h2 {
-  margin-top: 0px !important;
+  margin-top: 0 !important;
 }
 
 .develop-card p {
@@ -405,24 +451,34 @@
 }
 
 .faq h2 {
-  margin-top: 0px !important;
+  margin-top: 0 !important;
 }
 
 @media (max-width: 568px) {
   .develop-card {
-    padding: 20px;
+    padding: 22px 20px;
   }
 }
 
+/* --------------------------------------------------------------------------
+   E · Insight / expert quote — .insight / .insight-icon / .ename
+   -------------------------------------------------------------------------- */
+
 .insight {
   display: flex;
-  gap: 16px;
-  background: linear-gradient(135deg, #fefce8, #fef9c3);
-  border: 1px solid #fde68a;
-  border-radius: 10px;
-  padding: 24px;
-  margin: 30px 0;
   flex-direction: column;
+  gap: 16px;
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--lime);
+  border-radius: 16px;
+  padding: 24px 26px;
+  margin: 28px 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
 }
 
 .expert-label {
@@ -437,58 +493,59 @@
 }
 
 .insight-icon {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: #f59e0b;
+  background: var(--navy);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--lime);
   flex-shrink: 0;
 }
 
-.insight {
-  font-size: 14px;
-  font-style: italic;
-  line-height: 20px;
-  color: #3a3a3a;
-  margin-bottom: 6px;
-}
-
 .insight .ename {
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 0px !important;
-  color: #92400e;
+  margin-bottom: 0 !important;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lime-ink);
 }
 
 .author-del {
+  margin-bottom: 0 !important;
   padding: 4px;
-  font-size: 12px;
-  line-height: 20px;
-  color: #059669;
+  font-size: 12.5px;
+  line-height: 1.6;
   font-weight: 600;
-  margin-bottom: 0px !important;
+  color: var(--lime-ink);
 }
 
+/* --------------------------------------------------------------------------
+   F · Video box — .video-border-box / .watch-btn
+   -------------------------------------------------------------------------- */
+
 .section-video {
-  margin: 20px 0px;
+  margin: 20px 0;
 }
 
 .video-border-box {
-  background: #fff;
-  border: 1px solid #e2e2dd;
-  border-left: 4px solid #c8e130;
-  border-radius: 14px;
-  padding: 18px 20px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--lime);
+  border-radius: 16px;
+  padding: 18px 22px;
+  box-shadow: 0 1px 2px rgba(10, 22, 40, 0.06);
 }
 
 .border-box-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   margin-bottom: 12px;
 }
 
@@ -496,11 +553,14 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  font-family: var(--display);
   font-size: 16px;
-  font-weight: 700;
-  color: #1a3c6e;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
+/* YouTube's own red stays — it is their mark, not a page color. */
 .yt-icon {
   width: 24px;
   height: 17px;
@@ -519,23 +579,24 @@
 }
 
 .watch-btn {
-  background: linear-gradient(135deg, #1a3c6e, #0d9488) !important;
-  color: #fff !important;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 7px 14px;
-  border-radius: 8px;
-  text-decoration: none !important;
   display: flex;
   align-items: center;
-  gap: 5px;
-  transition: all 0.2s;
-  box-shadow: 0 2px 8px rgba(26, 60, 110, 0.2);
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  background: var(--navy) !important;
+  color: var(--lime) !important;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .watch-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(26, 60, 110, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -12px rgba(10, 22, 40, 0.5);
 }
 
 .watch-btn svg {
@@ -544,6 +605,7 @@
 }
 
 .border-box-desc {
+  margin-bottom: 0 !important;
   font-size: 14px;
-  margin-bottom: 0px !important;
+  color: var(--muted);
 }

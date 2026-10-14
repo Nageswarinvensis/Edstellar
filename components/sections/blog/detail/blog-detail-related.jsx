@@ -11,40 +11,40 @@ export default function BlogDetailRelated({ categoryName, blogs = [] }) {
   if (blogs.length === 0) return null;
 
   return (
-    <Box>
-      <Box className="relative w-full px-2 py-0">
-        <Text as="h2" className="mb-4 text-2xl font-bold text-[#3b3b3b]">
-          Related Posts
-        </Text>
+    <Box className="rounded-2xl border border-ink/12 bg-white p-6">
+      <Text
+        as="h2"
+        className="mb-3.5 border-b border-ink/12 pb-3 font-mono text-[10px] font-normal uppercase leading-[1.6] tracking-[0.2em] text-ink/45"
+      >
+        Related Posts
+      </Text>
 
-        <Box className="space-y-5">
-          {blogs.map((post) => (
-            <Box
-              as="article"
-              key={post.id}
-              className="border-l border-black pl-4"
+      <Box>
+        {blogs.map((post) => (
+          <Box as="article" key={post.id}>
+            <Link
+              href={`/blog/${post.slug}`}
+              title={`Click Here to View ${post.name}`}
+              className="block cursor-pointer border-l-2 border-ink/12 py-3 pl-3.75 transition-colors duration-250 hover:border-lime"
             >
               {categoryName && (
-                <Text className=" mb-0.5 text-sm text-[#333]">
+                <Text
+                  as="span"
+                  className="mb-1.25 block font-mono text-[9.5px] uppercase leading-[1.5] tracking-[0.18em] text-olive"
+                >
                   {categoryName}
                 </Text>
               )}
 
-              <Link
-                href={`/blog/${post.slug}`}
-                title={`Click Here to View ${post.name}`}
-                className="cursor-pointer"
+              <Text
+                as="h3"
+                className="text-[14px] leading-[1.4] font-semibold tracking-[-0.01em] text-ink"
               >
-                <Text
-                  as="h3"
-                  className="text-[16px] font-semibold leading-[1.35] text-[#202020] transition-colors duration-300 hover:text-blue-600"
-                >
-                  {post.name}
-                </Text>
-              </Link>
-            </Box>
-          ))}
-        </Box>
+                {post.name}
+              </Text>
+            </Link>
+          </Box>
+        ))}
       </Box>
     </Box>
   );

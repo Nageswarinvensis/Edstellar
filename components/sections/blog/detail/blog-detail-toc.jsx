@@ -77,7 +77,7 @@ export default function BlogDetailToc() {
 
   return (
     <aside className="toc-wrapper sticky top-24 h-[80vh] w-50 min-w-50 self-start overflow-y-auto">
-      <h3 className="mb-5 text-[18px] font-semibold leading-5 text-[#1B40A9]">
+      <h3 className="mb-5 text-[18px] font-semibold leading-5 text-navy">
         Content
       </h3>
 
@@ -90,8 +90,8 @@ export default function BlogDetailToc() {
               item.level === "h3" ? "ml-3" : ""
             } ${
               activeId === item.id
-                ? "border-l-[#1B40A9] bg-[rgba(41,98,255,0.1)] text-[#1B40A9]"
-                : "border-transparent text-[#1d1d1d] hover:border-l-black hover:bg-[rgba(41,98,255,0.1)]"
+                ? "border-l-olive bg-lime/15 text-navy"
+                : "border-transparent text-ink/70 hover:border-l-olive hover:bg-lime/15 hover:text-navy"
             }`}
           >
             {item.text}

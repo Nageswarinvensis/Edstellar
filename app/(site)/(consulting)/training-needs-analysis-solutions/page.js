@@ -21,7 +21,7 @@ import StickyFooter from "@/components/common/sticky-footer";
 
 export const revalidate = 3600;
 
-const CMS_SLUG = "training-needs-analysis";
+const CMS_SLUG = "training-needs-analysis-solutions";
 
 export async function generateMetadata() {
   const tna = await getSitePage(CMS_SLUG);
@@ -35,7 +35,7 @@ export async function generateMetadata() {
   return buildMetadata({
     title,
     description: seo?.Meta_description,
-    path: "/training-needs-analysis",
+    path: "/training-needs-analysis-solutions",
     image: seo?.og_image_url,
   });
 }

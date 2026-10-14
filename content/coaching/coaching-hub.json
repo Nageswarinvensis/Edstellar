@@ -1,0 +1,1051 @@
+{
+  "seo": {
+    "title": "Corporate Coaching Services & Solutions | Edstellar",
+    "description": "Corporate coaching services for executives, leaders, new managers and teams. Enterprise coaching run on Meridian, Edstellar's AI-assisted coaching platform.",
+    "path": "/coaching-solutions"
+  },
+  "hero": {
+    "heading": "Corporate coaching services, <span>run on Meridian.</span>",
+    "description": "Edstellar’s corporate coaching services match each leader with a vetted coach, on an AI-assisted platform built for coaching. One-on-one and team coaching that builds leadership capability across your organization, from first-time managers to executives, with progress you can see and conversations that stay private.",
+    "primary_cta": {
+      "label": "Book a coaching consultation",
+      "href": "#contact"
+    },
+    "secondary_cta": {
+      "label": "See how Meridian works",
+      "href": "#meridian"
+    },
+    "meta": [
+      {
+        "icon": "video",
+        "label": "Virtual sessions across time zones"
+      },
+      {
+        "icon": "heart-handshake",
+        "label": "Free chemistry session"
+      },
+      {
+        "icon": "lock",
+        "label": "Confidential by design"
+      }
+    ],
+    "art_svg": "<svg viewBox=\"0 0 560 500\" role=\"img\" aria-labelledby=\"art-t\">\n        <title id=\"art-t\">Illustration of a one-on-one coaching session on Meridian: a leader and a coach on a video call, with the leader's focus for the session and a drafted session report.</title>\n        <defs><clipPath id=\"art-clip\"><rect x=\"0\" y=\"0\" width=\"560\" height=\"500\" rx=\"28\"/></clipPath></defs>\n        <rect x=\"0\" y=\"0\" width=\"560\" height=\"500\" rx=\"28\" fill=\"#F2F0E8\"/>\n        <circle cx=\"470\" cy=\"70\" r=\"120\" fill=\"#EDE9DD\" clip-path=\"url(#art-clip)\"/>\n        <!-- window -->\n        <rect x=\"40\" y=\"70\" width=\"480\" height=\"330\" rx=\"20\" fill=\"#0A1628\"/>\n        <circle cx=\"66\" cy=\"94\" r=\"5\" fill=\"#14233D\"/><circle cx=\"82\" cy=\"94\" r=\"5\" fill=\"#14233D\"/><circle cx=\"98\" cy=\"94\" r=\"5\" fill=\"#14233D\"/>\n        <rect x=\"380\" y=\"86\" width=\"116\" height=\"18\" rx=\"9\" fill=\"#14233D\"/>\n        <circle cx=\"394\" cy=\"95\" r=\"4\" fill=\"#C8F135\"/>\n        <text x=\"404\" y=\"99\" font-family=\"DM Mono, monospace\" font-size=\"10\" letter-spacing=\"1\" fill=\"#C8F135\">IN SESSION</text>\n        <!-- leader tile -->\n        <rect x=\"60\" y=\"118\" width=\"214\" height=\"200\" rx=\"14\" fill=\"#EDE9DD\"/>\n        <rect x=\"60\" y=\"118\" width=\"214\" height=\"200\" rx=\"14\" fill=\"none\" stroke=\"#C8F135\" stroke-width=\"2\"/>\n        <path d=\"M110 318c0-46 26-74 57-74s57 28 57 74z\" fill=\"#14233D\"/>\n        <path d=\"M150 248h34l-4 18h-26z\" fill=\"#E4F89A\"/>\n        <circle cx=\"167\" cy=\"206\" r=\"30\" fill=\"#C9A98A\"/>\n        <path d=\"M137 202c0-22 14-34 31-34 18 0 30 12 30 30-10-8-24-12-40-8-8 2-15 6-21 12z\" fill=\"#0A1628\"/>\n        <rect x=\"70\" y=\"290\" width=\"70\" height=\"20\" rx=\"10\" fill=\"#0A1628\"/>\n        <text x=\"80\" y=\"304\" font-family=\"DM Sans, sans-serif\" font-size=\"11\" font-weight=\"600\" fill=\"#FAFAF7\">Leader</text>\n        <!-- coach tile -->\n        <rect x=\"286\" y=\"118\" width=\"214\" height=\"200\" rx=\"14\" fill=\"#E4F89A\"/>\n        <path d=\"M336 318c0-46 26-74 57-74s57 28 57 74z\" fill=\"#FAFAF7\"/>\n        <path d=\"M376 250l17 22 17-22\" fill=\"none\" stroke=\"#0A1628\" stroke-width=\"2\"/>\n        <circle cx=\"393\" cy=\"206\" r=\"30\" fill=\"#8C6A52\"/>\n        <path d=\"M363 210c-2-26 12-42 30-42 19 0 32 14 31 40-4-12-14-20-31-20-14 0-24 8-30 22z\" fill=\"#14233D\"/>\n        <rect x=\"296\" y=\"290\" width=\"62\" height=\"20\" rx=\"10\" fill=\"#0A1628\"/>\n        <text x=\"306\" y=\"304\" font-family=\"DM Sans, sans-serif\" font-size=\"11\" font-weight=\"600\" fill=\"#FAFAF7\">Coach</text>\n        <!-- controls -->\n        <rect x=\"200\" y=\"336\" width=\"160\" height=\"44\" rx=\"22\" fill=\"#14233D\"/>\n        <circle cx=\"236\" cy=\"358\" r=\"13\" fill=\"#0A1628\"/><rect x=\"232\" y=\"350\" width=\"8\" height=\"12\" rx=\"4\" fill=\"#FAFAF7\"/>\n        <circle cx=\"280\" cy=\"358\" r=\"13\" fill=\"#0A1628\"/><rect x=\"273\" y=\"352\" width=\"11\" height=\"12\" rx=\"2\" fill=\"#FAFAF7\"/><path d=\"M284 355l5-3v12l-5-3z\" fill=\"#FAFAF7\"/>\n        <circle cx=\"324\" cy=\"358\" r=\"13\" fill=\"#C8F135\"/><path d=\"M318 358h12\" stroke=\"#0A1628\" stroke-width=\"2.4\" stroke-linecap=\"round\"/>\n        <!-- focus card -->\n        <g>\n          <rect x=\"16\" y=\"22\" width=\"300\" height=\"72\" rx=\"16\" fill=\"#FFFFFF\" stroke=\"rgba(10,22,40,.12)\"/>\n          <text x=\"36\" y=\"48\" font-family=\"DM Mono, monospace\" font-size=\"10\" letter-spacing=\"1.2\" fill=\"rgba(10,22,40,.6)\">LEADER&#8217;S FOCUS TODAY</text>\n          <text x=\"36\" y=\"75\" font-family=\"Cormorant Garamond, serif\" font-style=\"italic\" font-size=\"20\" fill=\"#0A1628\">Delegating the regional launch.</text>\n        </g>\n        <!-- report card -->\n        <g>\n          <rect x=\"300\" y=\"404\" width=\"244\" height=\"76\" rx=\"16\" fill=\"#FFFFFF\" stroke=\"rgba(10,22,40,.12)\"/>\n          <rect x=\"318\" y=\"422\" width=\"40\" height=\"40\" rx=\"12\" fill=\"#E4F89A\"/>\n          <path d=\"M330 432h10l6 6v14h-16z M340 432v6h6 M334 446h8 M334 451h6\" fill=\"none\" stroke=\"#0A1628\" stroke-width=\"1.7\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/>\n          <text x=\"370\" y=\"438\" font-family=\"DM Sans, sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#0A1628\">Session report drafted</text>\n          <text x=\"370\" y=\"457\" font-family=\"DM Sans, sans-serif\" font-size=\"12\" fill=\"rgba(10,22,40,.6)\">Ready for coach approval</text>\n        </g>\n        <!-- AI chip -->\n        <g>\n          <rect x=\"24\" y=\"416\" width=\"190\" height=\"40\" rx=\"20\" fill=\"#0A1628\"/>\n          <path d=\"M48 426l2.4 6.8 6.8 2.4-6.8 2.4-2.4 6.8-2.4-6.8-6.8-2.4 6.8-2.4z\" fill=\"#C8F135\"/>\n          <text x=\"66\" y=\"441\" font-family=\"DM Sans, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#FAFAF7\">AI-assisted on Meridian</text>\n        </g>\n      </svg>",
+    "art_label": "Leader and coach in a Meridian coaching session",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Coaching Solutions",
+        "href": null
+      }
+    ]
+  },
+  "proof": {
+    "tone": "dark",
+    "stats": [
+      {
+        "value": "300+",
+        "label": "Clients"
+      },
+      {
+        "value": "20+",
+        "label": "Industries"
+      },
+      {
+        "value": "300+",
+        "label": "Consultants"
+      },
+      {
+        "value": "ISO 9001 & 27001",
+        "label": "Certified"
+      }
+    ],
+    "items": [
+      {
+        "Label": "Ready to build leaders who deliver?",
+        "primary_btn_text": "Book a coaching consultation",
+        "primary_btn_link": "#contact",
+        "secondary_btn_text": "Download the coaching brochure (PDF)",
+        "secondary_btn_link": "https://www.edstellar.com/brochures/coaching-solutions"
+      }
+    ]
+  },
+  "sticky_nav": {
+    "logo": {
+      "src": "/course/Edstellar.svg",
+      "alt": "Edstellar"
+    },
+    "tabs": [
+      {
+        "id": "paths",
+        "label": "Coaching paths"
+      },
+      {
+        "id": "benefits",
+        "label": "Benefits"
+      },
+      {
+        "id": "meridian",
+        "label": "Meridian"
+      },
+      {
+        "id": "process",
+        "label": "How it runs"
+      },
+      {
+        "id": "confidential",
+        "label": "Confidentiality"
+      },
+      {
+        "id": "schedules",
+        "label": "Flexibility"
+      },
+      {
+        "id": "why",
+        "label": "Why Edstellar"
+      },
+      {
+        "id": "faq",
+        "label": "FAQs"
+      },
+      {
+        "id": "contact",
+        "label": "Contact"
+      }
+    ],
+    "cta": {
+      "text": "Book a coaching consultation",
+      "title": "Click Here to Book a Coaching Consultation",
+      "targetId": "#contact"
+    }
+  },
+  "paths": {
+    "section_id": "paths",
+    "heading": "Edstellar’s corporate coaching services for every <span>leadership stage.</span>",
+    "description": "Each coaching path supports leadership development at a specific career stage, building the capabilities the business needs from the leader next. Every path runs on Meridian, with the same matching, confidentiality and reporting.",
+    "items": [
+      {
+        "featured": true,
+        "icon": "crown",
+        "audience": "C-suite and senior leaders",
+        "title": "Executive coaching",
+        "description": "A confidential thinking partner for leaders who set direction, carry the strategy and lead other leaders.",
+        "focus": [
+          "Executive Presence",
+          "Strategic Decision-Making",
+          "Leading Through Change",
+          "Influence & Stakeholders",
+          "Board & Investor Relationships",
+          "Resilience at the Top"
+        ],
+        "cta": {
+          "label": "Explore executive coaching",
+          "href": "/executive-coaching"
+        }
+      },
+      {
+        "featured": false,
+        "icon": "compass",
+        "audience": "Mid-level leaders, high-potentials",
+        "title": "Leadership coaching",
+        "description": "For directors, senior managers and high-potential talent getting ready for bigger roles and wider scope.",
+        "focus": [
+          "Leadership Identity",
+          "Delegation & Trust",
+          "Difficult Conversations",
+          "Building the Team",
+          "Leading Change",
+          "Influence Without Authority"
+        ],
+        "cta": {
+          "label": "Explore leadership coaching",
+          "href": "/leadership-coaching"
+        }
+      },
+      {
+        "featured": false,
+        "icon": "sprout",
+        "audience": "New people managers",
+        "title": "First-time manager coaching",
+        "description": "Support through the first step from strong individual contributor to manager of people.",
+        "focus": [
+          "From Peer to Manager",
+          "Managing Former Colleagues",
+          "The First 90 Days",
+          "Feedback & Accountability",
+          "Delegation & Letting Go",
+          "Managing Upwards"
+        ],
+        "cta": {
+          "label": "Explore first-time manager coaching",
+          "href": "/first-time-manager-coaching"
+        }
+      },
+      {
+        "featured": false,
+        "icon": "arrow-left-right",
+        "audience": "Leaders changing role or direction",
+        "title": "Career and transition coaching",
+        "description": "Coaching through promotions, role changes, restructures and returns to work, so leaders find their direction and land well in what comes next.",
+        "focus": [
+          "Role Transition",
+          "Career Direction",
+          "Reinvention",
+          "Onboarding into Seniority",
+          "Returning to Work",
+          "Purpose & Direction"
+        ],
+        "cta": {
+          "label": "Explore career and transition coaching",
+          "href": "/career-transition-coaching"
+        }
+      },
+      {
+        "featured": false,
+        "icon": "target",
+        "audience": "Leaders building one capability",
+        "title": "Performance coaching",
+        "description": "Focused coaching on one personal capability to build, from confidence and focus to staying clear under pressure.",
+        "focus": [
+          "Confidence & Self-Belief",
+          "Focus & Prioritization",
+          "Resilience",
+          "Communication Under Pressure",
+          "Time & Energy",
+          "Overcoming Setbacks"
+        ],
+        "cta": {
+          "label": "Explore performance coaching",
+          "href": "/performance-coaching"
+        }
+      },
+      {
+        "featured": false,
+        "icon": "users",
+        "audience": "Intact and cross-functional teams",
+        "title": "Team coaching",
+        "description": "Facilitated coaching for leadership teams and cross-functional groups that need to align and deliver together.",
+        "focus": [
+          "Team alignment",
+          "Collaboration",
+          "Shared goals"
+        ],
+        "cta": {
+          "label": "Explore team coaching",
+          "href": "/team-coaching"
+        }
+      }
+    ]
+  },
+  "paths_cta": {
+    "heading": "Not sure which coaching path fits?",
+    "description": "Tell us about the leaders you want to support. An Edstellar coaching consultant will recommend the right mix of paths for your program.",
+    "buttons": [
+      {
+        "label": "Book a coaching consultation →",
+        "href": "#contact",
+        "variant": "primary"
+      }
+    ]
+  },
+  "meridian_cta": {
+    "heading": "See Meridian with your own leaders.",
+    "description": "A 30-minute walkthrough of coach matching, the session room and the reports your program admin sees, set up around your leaders.",
+    "buttons": [
+      {
+        "label": "Book a Meridian walkthrough",
+        "href": "#contact",
+        "variant": "primary"
+      }
+    ]
+  },
+  "benefits": {
+    "section_id": "benefits",
+    "heading": "Edstellar’s corporate coaching benefits build leaders who <span>deliver.</span>",
+    "description": "Edstellar coaching builds leadership capability across your organization, one leader at a time. Every program is designed around six benefits.",
+    "items": [
+      {
+        "title": "Capability tied to the business objective",
+        "description": "Each leader’s objective is agreed at nomination and linked to a capability your organization needs. As more leaders complete coaching, those capabilities add up across teams and levels, so the organization builds leadership bench strength, not only stronger individuals.",
+        "points": [
+          "Objective, focus areas and target capability set for every leader",
+          "Progress reviewed at the mid-point and at the end"
+        ],
+        "link": null,
+        "art_svg": "<svg viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><circle cx=\"450\" cy=\"250\" r=\"118\" fill=\"#FFFFFF\"></circle><circle cx=\"450\" cy=\"250\" r=\"88\" fill=\"#E4F89A\"></circle><circle cx=\"450\" cy=\"250\" r=\"58\" fill=\"#FFFFFF\"></circle><circle cx=\"450\" cy=\"250\" r=\"30\" fill=\"#0A1628\"></circle><circle cx=\"450\" cy=\"250\" r=\"9\" fill=\"#C8F135\"></circle><path d=\"M300 400L440 260\" stroke=\"#0A1628\" stroke-width=\"6\" stroke-linecap=\"round\"></path><path d=\"M440 260l-6 26M440 260l-26 6\" stroke=\"#0A1628\" stroke-width=\"6\" stroke-linecap=\"round\"></path><path d=\"M296 404l-18 4 4-18M310 412l-22 6 6-22\" stroke=\"#0A1628\" stroke-width=\"4\" fill=\"none\" stroke-linecap=\"round\"></path></svg>"
+      },
+      {
+        "title": "A confidential space to think",
+        "description": "Leaders speak openly because session content never leaves the room. Your organization sees outcomes and attendance, never the conversation.",
+        "points": [
+          "Notes, answers and observations stay private",
+          "Leaders choose what the final report shares"
+        ],
+        "link": null,
+        "art_svg": "<svg viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><rect x=\"440\" y=\"80\" width=\"110\" height=\"250\" rx=\"10\" fill=\"#14233D\"></rect><rect x=\"452\" y=\"92\" width=\"86\" height=\"226\" rx=\"6\" fill=\"#0A1628\"></rect><circle cx=\"522\" cy=\"210\" r=\"6\" fill=\"#C8F135\"></circle><rect x=\"474\" y=\"190\" width=\"40\" height=\"34\" rx=\"6\" fill=\"#E4F89A\"></rect><path d=\"M482 190v-10a12 12 0 0124 0v10\" stroke=\"#E4F89A\" stroke-width=\"5\" fill=\"none\"></path><rect x=\"300\" y=\"300\" width=\"70\" height=\"70\" rx=\"14\" fill=\"#0A1628\"></rect><rect x=\"300\" y=\"250\" width=\"18\" height=\"120\" rx=\"9\" fill=\"#0A1628\"></rect><rect x=\"390\" y=\"300\" width=\"70\" height=\"70\" rx=\"14\" fill=\"#E4F89A\"></rect><rect x=\"442\" y=\"250\" width=\"18\" height=\"120\" rx=\"9\" fill=\"#E4F89A\"></rect><rect x=\"345\" y=\"380\" width=\"70\" height=\"10\" rx=\"5\" fill=\"#0A1628\"></rect><rect x=\"330\" y=\"200\" width=\"70\" height=\"40\" rx=\"12\" fill=\"#FFFFFF\"></rect><circle cx=\"350\" cy=\"220\" r=\"4\" fill=\"#0A1628\"></circle><circle cx=\"365\" cy=\"220\" r=\"4\" fill=\"#0A1628\"></circle><circle cx=\"380\" cy=\"220\" r=\"4\" fill=\"#0A1628\"></circle></svg>"
+      },
+      {
+        "title": "The right coach for each leader",
+        "description": "Every leader is matched with a coach chosen for their objective, focus and working style, and meets that coach in a free chemistry session before committing.",
+        "points": [
+          "A shortlist of coaches suited to each leader",
+          "Chosen together by the leader and your admin"
+        ],
+        "link": {
+          "label": "See how coach matching works",
+          "href": "#meridian"
+        },
+        "art_svg": "<svg viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><g><rect x=\"300\" y=\"80\" width=\"230\" height=\"74\" rx=\"14\" fill=\"#FFFFFF\"></rect><circle cx=\"336\" cy=\"117\" r=\"20\" fill=\"#EDE9DD\"></circle><rect x=\"368\" y=\"104\" width=\"110\" height=\"10\" rx=\"5\" fill=\"#0A1628\" opacity=\".25\"></rect><rect x=\"368\" y=\"122\" width=\"76\" height=\"8\" rx=\"4\" fill=\"#0A1628\" opacity=\".15\"></rect></g><g><rect x=\"330\" y=\"172\" width=\"250\" height=\"84\" rx=\"16\" fill=\"#0A1628\"></rect><circle cx=\"372\" cy=\"214\" r=\"24\" fill=\"#14233D\"></circle><circle cx=\"372\" cy=\"206\" r=\"9\" fill=\"#E4F89A\"></circle><path d=\"M356 228c4-10 28-10 32 0\" fill=\"#E4F89A\"></path><rect x=\"408\" y=\"200\" width=\"110\" height=\"10\" rx=\"5\" fill=\"#FFFFFF\"></rect><rect x=\"408\" y=\"218\" width=\"70\" height=\"8\" rx=\"4\" fill=\"#FFFFFF\" opacity=\".5\"></rect><circle cx=\"548\" cy=\"214\" r=\"16\" fill=\"#C8F135\"></circle><path d=\"M540 214l6 6 10-12\" stroke=\"#0A1628\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g><rect x=\"300\" y=\"274\" width=\"230\" height=\"74\" rx=\"14\" fill=\"#FFFFFF\"></rect><circle cx=\"336\" cy=\"311\" r=\"20\" fill=\"#EDE9DD\"></circle><rect x=\"368\" y=\"298\" width=\"110\" height=\"10\" rx=\"5\" fill=\"#0A1628\" opacity=\".25\"></rect><rect x=\"368\" y=\"316\" width=\"76\" height=\"8\" rx=\"4\" fill=\"#0A1628\" opacity=\".15\"></rect></g></svg>"
+      },
+      {
+        "title": "Progress your organization can see",
+        "description": "Admins track sessions, attendance and program health in one view, with alerts when a leader needs a nudge.",
+        "points": [
+          "Pattern alerts for missed or moved sessions",
+          "Shared final summaries for each leader"
+        ],
+        "link": null,
+        "art_svg": "<svg viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><path d=\"M300 380H570M300 380V110\" stroke=\"#0A1628\" stroke-width=\"3\" opacity=\".3\"></path><rect x=\"320\" y=\"310\" width=\"36\" height=\"70\" rx=\"6\" fill=\"#0A1628\" opacity=\".35\"></rect><rect x=\"370\" y=\"280\" width=\"36\" height=\"100\" rx=\"6\" fill=\"#0A1628\" opacity=\".5\"></rect><rect x=\"420\" y=\"240\" width=\"36\" height=\"140\" rx=\"6\" fill=\"#0A1628\" opacity=\".7\"></rect><rect x=\"470\" y=\"190\" width=\"36\" height=\"190\" rx=\"6\" fill=\"#0A1628\"></rect><rect x=\"520\" y=\"140\" width=\"36\" height=\"240\" rx=\"6\" fill=\"#C8F135\"></rect><path d=\"M338 290L388 258 438 222 488 170 538 120\" stroke=\"#0A1628\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"></path><circle cx=\"538\" cy=\"120\" r=\"9\" fill=\"#FFFFFF\" stroke=\"#0A1628\" stroke-width=\"3\"></circle></svg>"
+      },
+      {
+        "title": "Consistency at any scale",
+        "description": "Every program follows the same structured coaching approach, so ten leaders or two hundred get the same quality of experience.",
+        "points": [
+          "One onboarding process for every leader",
+          "A clear structure behind every session"
+        ],
+        "link": {
+          "label": "Explore first-time manager coaching",
+          "href": "/first-time-manager-coaching"
+        },
+        "art_svg": "<svg viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><g transform=\"translate(330,110)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(415,110)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(500,110)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(330,205)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(415,205)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(500,205)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(330,300)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(415,300)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(500,300)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g></svg>"
+      },
+      {
+        "title": "Continuity through change",
+        "description": "Leave, travel, restructures and role changes are built into the rules, so coaching bends instead of breaking.",
+        "points": [
+          "Pauses, stand-in coaches and confidential coach changes",
+          "Sessions a coach moves never count against the leader"
+        ],
+        "link": {
+          "label": "Explore career and transition coaching",
+          "href": "/career-transition-coaching"
+        },
+        "art_svg": "<svg viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><path d=\"M290 410C360 380 330 320 400 300S520 290 500 220 420 160 480 110 560 80 600 70\" stroke=\"#FFFFFF\" stroke-width=\"34\" fill=\"none\" stroke-linecap=\"round\"></path><path d=\"M290 410C360 380 330 320 400 300S520 290 500 220 420 160 480 110 560 80 600 70\" stroke=\"#0A1628\" stroke-width=\"3\" stroke-dasharray=\"10 12\" fill=\"none\" opacity=\".45\"></path><g transform=\"translate(392,240)\"><rect x=\"0\" y=\"0\" width=\"4\" height=\"58\" fill=\"#0A1628\"></rect><path d=\"M4 2h34l-8 10 8 10H4z\" fill=\"#C8F135\"></path></g><g transform=\"translate(492,160)\"><rect x=\"0\" y=\"0\" width=\"4\" height=\"58\" fill=\"#0A1628\"></rect><path d=\"M4 2h34l-8 10 8 10H4z\" fill=\"#E4F89A\"></path></g><circle cx=\"470\" cy=\"272\" r=\"20\" fill=\"#0A1628\"></circle><rect x=\"463\" y=\"262\" width=\"5\" height=\"20\" rx=\"2\" fill=\"#C8F135\"></rect><rect x=\"472\" y=\"262\" width=\"5\" height=\"20\" rx=\"2\" fill=\"#C8F135\"></rect></svg>"
+      }
+    ]
+  },
+  "meridian": {
+    "section_id": "meridian",
+    "tag": "Built by Edstellar",
+    "heading": "Meridian, Edstellar’s AI-assisted coaching <span>platform.</span>",
+    "description": "Meridian brings the whole coaching program into one place, for the leader, the coach and your program admin. AI handles the preparation and paperwork, so every session is spent on the conversation that matters.",
+    "buttons": [
+      {
+        "label": "Explore Meridian",
+        "href": "/meridian",
+        "variant": "primary"
+      },
+      {
+        "label": "Book a Meridian walkthrough",
+        "href": "#contact",
+        "variant": "ghost"
+      }
+    ],
+    "tabs": [
+      {
+        "icon": "users",
+        "title": "Meridian recommends the right coaches",
+        "role": "Admin and leader",
+        "panel": {
+          "title": "Coach matching",
+          "role": "Admin and leader",
+          "type": "match",
+          "brief": {
+            "label": "Leader brief",
+            "title": "Regional sales head",
+            "fields": [
+              {
+                "label": "Objective",
+                "value": "Lead a larger region without being in every decision",
+                "tags": []
+              },
+              {
+                "label": "Focus areas",
+                "value": null,
+                "tags": [
+                  "Delegation",
+                  "Decision-making",
+                  "Team building"
+                ]
+              },
+              {
+                "label": "Language and time zone",
+                "value": "English, GMT+5:30",
+                "tags": []
+              }
+            ]
+          },
+          "list_label": "Recommended by Meridian",
+          "coaches": [
+            {
+              "initials": "AR",
+              "name": "Anita Rao",
+              "focus": "Leadership transitions, sales leaders",
+              "tags": [
+                "Delegation",
+                "Same time zone"
+              ],
+              "score": 84,
+              "selected": false
+            },
+            {
+              "initials": "DL",
+              "name": "Daniel Lim",
+              "focus": "Scaling teams, regional roles",
+              "tags": [
+                "Delegation",
+                "Decision-making"
+              ],
+              "score": 92,
+              "selected": true
+            },
+            {
+              "initials": "SK",
+              "name": "Sara Kemp",
+              "focus": "Change leadership",
+              "tags": [
+                "Team building"
+              ],
+              "score": 78,
+              "selected": false
+            }
+          ],
+          "match_label": "match",
+          "foot": "Chosen together, then a free chemistry session"
+        }
+      },
+      {
+        "icon": "sparkles",
+        "title": "Meridian suggests questions in the session",
+        "role": "Coach, in session",
+        "panel": {
+          "title": "Session 4 of 10 · In session",
+          "role": "Coach view",
+          "type": "questions",
+          "focus_label": "Leader’s focus for today",
+          "focus": "Delegating the regional launch without losing sight of it.",
+          "chat_label": "From the discussion",
+          "chat": [
+            {
+              "side": "leader",
+              "text": "I still review every update from the regional team before it goes out."
+            },
+            {
+              "side": "coach",
+              "text": "What happens if you don’t?"
+            },
+            {
+              "side": "leader",
+              "text": "Honestly, probably nothing. But I’d feel out of the loop."
+            }
+          ],
+          "ai_label": "AI suggested",
+          "questions": [
+            {
+              "text": "What would you need to see to stop checking in daily?",
+              "status": "Use",
+              "used": false
+            },
+            {
+              "text": "Who on the team is ready for more than you have given them?",
+              "status": "Use",
+              "used": false
+            },
+            {
+              "text": "What does staying in the loop cost you each week?",
+              "status": "Asked",
+              "used": true
+            }
+          ],
+          "note": "Only the questions the coach asks reach the leader.",
+          "track": "Track: Delegation & Trust",
+          "track_steps": [
+            "done",
+            "done",
+            "now",
+            "todo",
+            "todo",
+            "todo"
+          ]
+        }
+      },
+      {
+        "icon": "file-text",
+        "title": "Meridian drafts every session report",
+        "role": "Coach approves",
+        "panel": {
+          "title": "Session 4 report · Draft",
+          "role": "Coach approves",
+          "type": "report",
+          "doc_label": "Drafted by Meridian",
+          "doc_title": "Delegating the regional launch",
+          "summary": "The leader explored why they still review every regional update and recognized it is about feeling informed rather than quality. They agreed to hand weekly reporting to the regional lead and move to a fortnightly review.",
+          "questions_label": "Questions that moved the conversation",
+          "questions": [
+            "What does staying in the loop cost you each week?",
+            "Who on the team is ready for more than you have given them?"
+          ],
+          "assignment_label": "Assignment",
+          "assignment": "Name one decision to hand over this week, and tell the regional lead why.",
+          "stats": [
+            {
+              "value": "6",
+              "label": "questions used"
+            },
+            {
+              "value": "2",
+              "label": "resources shared"
+            },
+            {
+              "value": "60",
+              "label": "minutes"
+            }
+          ],
+          "resources_label": "Resources",
+          "resources": [
+            "Delegation conversation guide",
+            "Weekly review template"
+          ],
+          "approve": "Approve and send to leader",
+          "edit": "Edit before sending"
+        }
+      },
+      {
+        "icon": "eye",
+        "title": "Meridian gives the leader the final say",
+        "role": "Leader decides",
+        "panel": {
+          "title": "Final report · Choose what to share",
+          "role": "Leader view",
+          "type": "share",
+          "program_label": "Your program",
+          "stats": [
+            {
+              "value": "10",
+              "label": "sessions"
+            },
+            {
+              "value": "Delegation & Trust",
+              "label": "track"
+            }
+          ],
+          "goal_label": "Your goal, in your own words",
+          "goal": "Lead the region through my team, not around it.",
+          "toggles_label": "Choose what your organization sees",
+          "toggles": [
+            {
+              "label": "Attendance",
+              "on": true
+            },
+            {
+              "label": "Progress against objective",
+              "on": true
+            },
+            {
+              "label": "Goal in my own words",
+              "on": true
+            },
+            {
+              "label": "Commitments",
+              "on": false
+            }
+          ],
+          "preview_label": "What your program admin will see",
+          "preview": [
+            {
+              "label": "Attendance",
+              "value": "10 of 10 sessions",
+              "shared": true
+            },
+            {
+              "label": "Progress",
+              "value": "Objective met",
+              "shared": true
+            },
+            {
+              "label": "Goal",
+              "value": "“Lead the region through my team”",
+              "shared": true
+            },
+            {
+              "label": "Commitments",
+              "value": "Not shared",
+              "shared": false
+            }
+          ],
+          "note": "Session notes and conversations are never shared.",
+          "button": "Share summary"
+        }
+      }
+    ]
+  },
+  "process": {
+    "section_id": "process",
+    "heading": "How an Edstellar coaching program runs on <span>Meridian.</span>",
+    "description": "Six steps take each leader from nomination to a final report they control. Your program admin sees progress at every step; the coaching itself stays between leader and coach.",
+    "steps": [
+      {
+        "icon": "users",
+        "label": "Nominate leaders",
+        "kicker": "Step 1 of 6",
+        "title": "Nominate leaders",
+        "description": "Your admin adds leaders one by one or in bulk, with each leader’s role, objective and focus areas. Each leader agrees to take part.",
+        "who": "Admin and leader",
+        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
+      },
+      {
+        "icon": "user-search",
+        "label": "Match the coach",
+        "kicker": "Step 2 of 6",
+        "title": "Match the coach",
+        "description": "In a 30-minute video session, the admin and leader review the coaches Meridian recommends and choose one together.",
+        "who": "Admin and leader · live on video",
+        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
+      },
+      {
+        "icon": "heart-handshake",
+        "label": "Chemistry session",
+        "kicker": "Step 3 of 6",
+        "title": "Chemistry session",
+        "description": "A free 30-minute session to test the fit, confirm the objective, choose the coaching track and agree the schedule.",
+        "who": "Leader and coach · live on video",
+        "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
+      },
+      {
+        "icon": "video",
+        "label": "Coaching sessions",
+        "kicker": "Step 4 of 6",
+        "title": "Coaching sessions",
+        "description": "Sessions on Meridian. The leader sets the focus, the coach prepares, and an assignment carries the work forward.",
+        "who": "Leader and coach · live on video",
+        "image": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
+      },
+      {
+        "icon": "chart-line",
+        "label": "Mid-point check-in",
+        "kicker": "Step 5 of 6",
+        "title": "Mid-point check-in",
+        "description": "Halfway through, leader and coach review progress against the objective and adjust the plan for the sessions ahead.",
+        "who": "Leader and coach · live on video",
+        "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
+      },
+      {
+        "icon": "file-text",
+        "label": "Final review and summary",
+        "kicker": "Step 6 of 6",
+        "title": "Final review and summary",
+        "description": "The coach reviews progress, the final session agrees what the leader will keep doing, and the leader chooses what to share.",
+        "who": "Leader shares with admin",
+        "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
+      }
+    ]
+  },
+  "confidential": {
+    "section_id": "confidential",
+    "heading": "Meridian keeps coaching confidential and progress <span>visible.</span>",
+    "description": "Leaders open up when they know the conversation is theirs. Sponsors invest when they can see the program working. Meridian is built to give both.",
+    "columns": [
+      {
+        "icon": "chart-line",
+        "title": "Your organization sees",
+        "subtitle": "Everything needed to run and fund the program.",
+        "items": [
+          "Who is in coaching, with session dates and attendance",
+          "Each session’s outcome: delivered, rescheduled or paused",
+          "Alerts when a program needs attention, such as missed sessions in a row",
+          "The parts of the final report each leader chooses to share"
+        ],
+        "private": false
+      },
+      {
+        "icon": "lock",
+        "title": "Stays between leader and coach",
+        "subtitle": "Never visible to your organization, or to Edstellar’s operations team.",
+        "items": [
+          "What is said in each session",
+          "The leader’s private notes and answers",
+          "The coach’s observations and preparation",
+          "The reason behind any reschedule, pause or coach change"
+        ],
+        "private": true
+      }
+    ],
+    "note": "Session recordings and transcripts are used only when the leader agrees to recording.",
+    "link": {
+      "label": "See what your program admin sees in a Meridian walkthrough",
+      "href": "#contact"
+    }
+  },
+  "schedules": {
+    "section_id": "schedules",
+    "heading": "Coaching on Meridian, built for real <span>schedules.</span>",
+    "description": "Leaders travel, teams restructure and coaches take leave. Meridian handles each case with clear rules your admin sets, so programs keep moving without awkward conversations.",
+    "items": [
+      {
+        "icon": "calendar",
+        "title": "Move a session with notice",
+        "description": "Leaders pick a new time from the coach’s open slots. Your admin sets the notice period."
+      },
+      {
+        "icon": "circle-pause",
+        "title": "Pause for leave or busy periods",
+        "description": "A leader can ask for a pause, with the reason kept private. Sessions are held and the end date moves."
+      },
+      {
+        "icon": "arrow-right-left",
+        "title": "Change coach in confidence",
+        "description": "If the fit is not right, the leader asks Edstellar directly. Your organization is told a change is under way, not why."
+      },
+      {
+        "icon": "users",
+        "title": "Stand-in coaches",
+        "description": "When a coach plans extended leave, Edstellar offers each leader a stand-in coach or holds their sessions."
+      },
+      {
+        "icon": "wifi",
+        "title": "Fair rebooking",
+        "description": "Sessions a coach moves or cancels are rebooked and never count against the leader or your organization."
+      },
+      {
+        "icon": "building-2",
+        "title": "Company-wide pauses",
+        "description": "During a restructure, merger or holiday period, your admin can pause the whole group and resume it later."
+      }
+    ]
+  },
+  "readiness": {
+    "section_id": "ready",
+    "heading": "Signs your leaders are ready for Edstellar <span>coaching.</span>",
+    "description": "Tick the statements that describe your organization. If most apply, coaching is likely to pay off quickly; an Edstellar consultant can help you shape the rest.",
+    "cta": {
+      "label": "Book a coaching consultation",
+      "href": "#contact"
+    },
+    "legend": "Tick the statements that describe your organization",
+    "statements": [
+      "Leaders are stepping into new or bigger roles",
+      "You can name a clear objective for each leader",
+      "Sponsors are comfortable supporting without seeing session content",
+      "Leaders can commit time between sessions for assignments",
+      "Development needs to go further than a classroom program"
+    ],
+    "messages": {
+      "none": "Tick what applies to see how ready your leaders are.",
+      "few": "A focused pilot with a few leaders is a good place to start.",
+      "most": "Your leaders are well placed for a coaching program.",
+      "all": "Your organization is ready. Coaching is likely to pay off quickly."
+    }
+  },
+  "why": {
+    "section_id": "why",
+    "heading": "Why organizations choose Edstellar for corporate <span>coaching.</span>",
+    "description": "Edstellar’s corporate coaching connects to the rest of your leadership development, and runs on technology we built for it.",
+    "difference_label": "The difference",
+    "items": [
+      {
+        "icon": "sparkles",
+        "title": "Meridian, built in-house",
+        "description": "Matching, sessions, reports and program tracking in one AI-assisted platform, designed by Edstellar for coaching.",
+        "visual": {
+          "type": "app",
+          "title": "Meridian",
+          "menu": [
+            "Match",
+            "Sessions",
+            "Reports",
+            "Tracking"
+          ],
+          "active": 0
+        },
+        "difference": "Coaching runs on technology built for it, not stitched together."
+      },
+      {
+        "icon": "shield-check",
+        "title": "Vetted, well-matched coaches",
+        "description": "Every coach is vetted before they join, matched to each leader, and met in a free chemistry session before anyone commits.",
+        "visual": {
+          "type": "match",
+          "avatars": [
+            "AR",
+            "MK",
+            "JL"
+          ],
+          "selected": 1,
+          "steps": [
+            {
+              "label": "Shortlist",
+              "state": "done"
+            },
+            {
+              "label": "Chemistry",
+              "state": "now"
+            },
+            {
+              "label": "Agree",
+              "state": "todo"
+            }
+          ]
+        },
+        "difference": "Fit is tested before the first session, not after."
+      },
+      {
+        "icon": "link",
+        "title": "Connected to assessments",
+        "description": "Coaching objectives can draw on Edstellar’s talent assessments and 360-degree feedback, so coaching closes the capability gaps your assessments find.",
+        "visual": {
+          "type": "flow",
+          "nodes": [
+            {
+              "label": "360",
+              "kind": "bars"
+            },
+            {
+              "label": "Goal",
+              "icon": "target"
+            },
+            {
+              "label": "Coach",
+              "icon": "message-square",
+              "active": true
+            }
+          ]
+        },
+        "difference": "Objectives come from evidence, not guesswork."
+      },
+      {
+        "icon": "lock",
+        "title": "Confidential by design",
+        "description": "Session content stays between leader and coach. Your organization sees attendance, outcomes and what the leader chooses to share.",
+        "visual": {
+          "type": "privacy",
+          "vault": [
+            "Leader",
+            "Coach"
+          ],
+          "shared": [
+            {
+              "label": "Attendance",
+              "shared": true
+            },
+            {
+              "label": "Outcomes",
+              "shared": true
+            },
+            {
+              "label": "Session notes",
+              "shared": false
+            }
+          ]
+        },
+        "difference": "Leaders open up, sponsors still see progress."
+      },
+      {
+        "icon": "globe",
+        "title": "Coaching across time zones",
+        "description": "Coaches are matched on language and time zone, and leaders see every session in their own local time.",
+        "visual": {
+          "type": "zones",
+          "caption": "One session, five local times",
+          "zones": [
+            {
+              "zone": "SGT",
+              "time": "21:00"
+            },
+            {
+              "zone": "GST",
+              "time": "17:00"
+            },
+            {
+              "zone": "IST",
+              "time": "18:30",
+              "active": true
+            },
+            {
+              "zone": "CET",
+              "time": "14:00"
+            },
+            {
+              "zone": "EST",
+              "time": "08:00"
+            }
+          ]
+        },
+        "difference": "One program for a global leadership team."
+      },
+      {
+        "icon": "layers",
+        "title": "One partner for development",
+        "description": "Coaching, corporate training and L&D and OD consulting from one team, so every program points the same way.",
+        "visual": {
+          "type": "venn",
+          "svg": "<svg viewBox=\"0 0 260 124\" width=\"260\" height=\"124\"><circle cx=\"96\" cy=\"46\" r=\"42\" fill=\"#0A1628\"/><circle cx=\"164\" cy=\"46\" r=\"42\" fill=\"#E4F89A\" fill-opacity=\".9\"/><circle cx=\"130\" cy=\"80\" r=\"42\" fill=\"#fff\" fill-opacity=\".75\" stroke=\"rgba(10,22,40,.22)\"/><circle cx=\"130\" cy=\"58\" r=\"10\" fill=\"#C8F135\" stroke=\"#0A1628\" stroke-width=\"2\"/><text x=\"86\" y=\"38\" fill=\"#C8F135\" text-anchor=\"middle\">COACHING</text><text x=\"174\" y=\"38\" fill=\"#0A1628\" text-anchor=\"middle\">TRAINING</text><text x=\"130\" y=\"108\" fill=\"#0A1628\" text-anchor=\"middle\">CONSULTING</text></svg>"
+        },
+        "difference": "One conversation instead of several vendors."
+      }
+    ],
+    "cta": {
+      "heading": "Start with the leaders who need it most.",
+      "description": "Share your leaders and objectives. A coaching consultant comes back with recommended coaching paths and a Meridian walkthrough.",
+      "buttons": [
+        {
+          "label": "Download the brochure",
+          "href": "/brochures/coaching-solutions",
+          "variant": "ghost"
+        },
+        {
+          "label": "Book a coaching consultation",
+          "href": "#contact",
+          "variant": "primary"
+        }
+      ]
+    },
+    "related": {
+      "heading": "Related Edstellar services",
+      "description": "Coaching works best alongside the rest of how you develop people.",
+      "items": [
+        {
+          "icon": "chart-line",
+          "title": "Talent Assessments",
+          "description": "Measure leaders against the competency model with 360-degree feedback, psychometrics and assessment centers, and give coaching objectives an evidence base.",
+          "link": "Measure leaders",
+          "href": "/talent-assessment-services"
+        },
+        {
+          "icon": "layers",
+          "title": "OD Consulting",
+          "description": "When change reaches structure, culture and leadership across the organization, OD consulting designs it and helps it land.",
+          "link": "Shape the organization",
+          "href": "/organizational-development-consulting"
+        },
+        {
+          "icon": "compass",
+          "title": "L&D Consulting",
+          "description": "When the gap is skills across teams rather than one leader, L&D consulting builds the capability your strategy needs.",
+          "link": "Build capability",
+          "href": "/learning-development-consulting-services"
+        },
+        {
+          "icon": "book-open",
+          "title": "Corporate Training Catalog",
+          "description": "Pair coaching with instructor-led programs across leadership, management and functional skills, delivered onsite, virtual or hybrid.",
+          "link": "Browse programs",
+          "href": "/corporate-training-catalog"
+        }
+      ]
+    }
+  },
+  "faqs": {
+    "heading": "Corporate coaching <span>FAQs.</span>",
+    "items": [
+      {
+        "question": "What is corporate coaching?",
+        "answer": "Corporate coaching, also called enterprise coaching, is professional one-on-one or team coaching that an organization provides for its leaders and managers, tied to business objectives. Edstellar’s corporate coaching services cover executive, leadership, first-time manager, career and transition, performance and team coaching, with every program run on Meridian."
+      },
+      {
+        "question": "How does corporate coaching build capability across the organization?",
+        "answer": "Each leader’s objective is linked to a capability the business needs, such as delegation, decision-making or stakeholder influence. When several leaders are coached against shared priorities, those gains add up across teams and levels. Program reporting on Meridian lets your admin follow progress across every leader in the program, while session content stays private."
+      },
+      {
+        "question": "What is the difference between executive coaching and leadership coaching?",
+        "answer": "<a href=\"https://www.edstellar.com/executive-coaching\">Executive coaching</a> is for C-suite and senior leaders who set direction and lead other leaders, with focus areas such as executive presence, strategic decisions and board relationships. <a href=\"https://www.edstellar.com/leadership-coaching\">Leadership coaching</a> is for directors, senior managers and high-potentials growing into bigger roles, with focus areas such as delegation, difficult conversations and influence without authority."
+      },
+      {
+        "question": "How does Edstellar match a coach to each leader?",
+        "answer": "Meridian recommends three coaches for each leader with a match score based on the leader’s objective, focus areas, seniority, domain, preferred coaching style, language and time zone, and coach availability. The leader and your program admin review the recommendations together in a 30-minute video session and choose one. The leader then meets the coach in a free chemistry session before coaching begins."
+      },
+      {
+        "question": "Who can see what is discussed in a coaching session?",
+        "answer": "Only the leader and the coach. Your organization sees attendance, session outcomes and the parts of the final report the leader chooses to share. Edstellar’s operations team sees what is needed to run the service, never the session content."
+      },
+      {
+        "question": "What is Meridian?",
+        "answer": "Meridian is Edstellar’s AI-assisted coaching platform. It runs coach matching, scheduling, video sessions, coaching tracks, assignments and reports in one place, with separate views for the leader, the coach and your program admin. AI recommends coaches, suggests questions for the coach during sessions and drafts session reports for the coach to approve."
+      },
+      {
+        "question": "How long does a coaching program run?",
+        "answer": "One-on-one coaching programs typically run over six to twelve months. The number of sessions, their length and how often they happen are agreed for each leader in the chemistry session and set in Meridian."
+      },
+      {
+        "question": "Which coaching path is right for our leaders?",
+        "answer": "It depends on the leader’s stage and the change they face. <a href=\"https://www.edstellar.com/first-time-manager-coaching\">First-time manager coaching</a> supports new people managers, <a href=\"https://www.edstellar.com/leadership-coaching\">leadership coaching</a> supports mid-level leaders and high-potentials, and <a href=\"https://www.edstellar.com/executive-coaching\">executive coaching</a> supports senior leaders. Career and transition coaching, performance coaching and team coaching can support leaders at any level. An Edstellar consultant can recommend the right mix."
+      },
+      {
+        "question": "Can coaching run virtually across countries and time zones?",
+        "answer": "Yes. Edstellar delivers virtual coaching on Meridian, with every session on video and leaders seeing available times in their own time zone. Language and time zone are part of how coaches are matched."
+      },
+      {
+        "question": "What happens if a leader needs to pause or change coach?",
+        "answer": "A leader can ask for a pause during leave or a busy period, and sessions are held until they return. If the fit is not right, the leader can ask Edstellar for a different coach in confidence. Your organization is told that a change is under way, not why."
+      },
+      {
+        "question": "How do we know coaching is working?",
+        "answer": "Each leader’s objective is set at nomination and reviewed at the mid-point and before the final session. Your admin sees attendance and program health throughout, and each leader can share their progress, goal and commitments in the final report."
+      },
+      {
+        "question": "How are Edstellar coaches vetted?",
+        "answer": "Every coach passes the same steps before they can be recommended to a leader: credentials verified and two references checked, a background check, a structured interview, a shadow session with a senior coach, a coaching agreement, and training on Meridian."
+      },
+      {
+        "question": "How is corporate coaching priced?",
+        "answer": "Corporate coaching programs are priced per session. The total depends on the number of leaders, the number and length of sessions, and the coaching path, and the chemistry session is free. <a href=\"#contact\">Book a coaching consultation</a> for a scoped proposal."
+      },
+      {
+        "question": "How does Meridian use AI, and how is our data protected?",
+        "answer": "Meridian uses AI to recommend coaches, suggest questions to the coach during sessions and draft session reports. The coach decides which questions to use and approves every report before the leader sees it. Sessions are recorded or transcribed only with the leader’s consent, session content is never shared with your organization, and Edstellar is ISO 27001 certified for information security."
+      }
+    ],
+    "footer_cta": {
+      "text": "Still have a question?",
+      "label": "Book a coaching consultation",
+      "href": "#contact"
+    }
+  },
+  "lead_form": {
+    "heading": "Book a coaching <span>consultation.</span>",
+    "description": "Tell us about the leaders you want to support and we will shape a corporate coaching program around them. We reply within one business day with a scoped response, no automated sales sequence.",
+    "requirements_label": "Your requirements",
+    "requirements_placeholder": "Tell us about the leaders you want to coach: how many, their roles, the coaching paths you are considering, and the outcomes you want.",
+    "consent_text": "I agree that Edstellar may contact me about this request and store my details as described in the",
+    "sla_note": "We reply within one business day with a scoped response, no automated sales sequence.",
+    "Button_Label": "Book a coaching consultation"
+  },
+  "sticky_footer": {
+    "messages": [
+      {
+        "highlight": "Corporate coaching",
+        "suffix": "for every leadership stage, run on Meridian"
+      }
+    ],
+    "email": "hello@edstellar.com",
+    "Brochure": [
+      {
+        "href": "https://www.edstellar.com/brochures/coaching-solutions",
+        "Label": "Brochure"
+      }
+    ],
+    "cta": {
+      "href": "#contact",
+      "label": "Book a coaching consultation"
+    },
+    "form_anchor_id": "#contact"
+  }
+}
