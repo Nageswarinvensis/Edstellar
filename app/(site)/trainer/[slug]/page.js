@@ -16,11 +16,10 @@ import TrainerAccreditations from "@/components/sections/trainers details/traine
 import CtaTrainer from "@/components/sections/trainers details/ctatrainer";
 import Trainers from "@/components/common/trainers";
 import Faq from "@/components/common/faq";
-import JsonLd from "@/components/seo/json-ld";
+import SchemaOrg from "@/components/seo/schema-org";
 import { parseCoursesWithStart } from "@/lib/trainer-history";
 import { fillTemplate } from "@/lib/template";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { breadcrumbJsonLd, faqJsonLd, personJsonLd } from "@/lib/seo/json-ld";
 
 /** "A", "A and B", "A, B, and C". */
 function formatList(items) {
@@ -135,23 +134,21 @@ export default async function TrainerPage({ params }) {
     }),
   };
 
-  const jsonLd = [
-    personJsonLd({
-      name: trainer.name,
-      jobTitle: trainer.profile_title,
-      image: trainer.profile_image_url,
-      path: `/trainer/${trainer.slug}`,
-      city: trainer.city,
-      country: trainer.country,
-      languages: TRAINERS_DATA.sharedData.languages.map((lang) => lang.name),
-    }),
-    breadcrumbJsonLd(breadcrumbItems),
-    faqJsonLd(faq.items),
-  ];
-
   return (
     <>
-      <JsonLd data={jsonLd} />
+      <SchemaOrg
+        person={{
+          name: trainer.name,
+          jobTitle: trainer.profile_title,
+          image: trainer.profile_image_url,
+          path: `/trainer/${trainer.slug}`,
+          city: trainer.city,
+          country: trainer.country,
+          languages: TRAINERS_DATA.sharedData.languages.map((lang) => lang.name),
+        }}
+        breadcrumbs={breadcrumbItems}
+        faqs={faq.items}
+      />
       <TrainerHero trainer={trainer} breadcrumbItems={breadcrumbItems} />
       <StickyTabs data={TRAINERS_DATA.stickyNavbarData} />
       <TrainerAbout trainer={trainer} data={TRAINERS_DATA.aboutData} />
