@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
+import SchemaOrg from "@/components/seo/schema-org";
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import TnaInfo from "@/components/sections/training_needs_analysis/tnainfo";
 import ClientLogos from "@/components/common/client-logos";
@@ -46,6 +47,10 @@ export default async function TrainingNeedsAnalysisPage() {
 
   return (
     <>
+      <SchemaOrg
+        breadcrumbs={tna.breadcrumbs?.items}
+        faqs={tna.faqs?.items}
+      />
       <ConsultingHero
         data={tna.consulting_Hero}
         breadcrumbItems={tna.breadcrumbs?.items}
