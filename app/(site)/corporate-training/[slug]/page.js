@@ -6,6 +6,7 @@ import {
 } from "@/lib/content/taxonomy";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
+import SchemaOrg from "@/components/seo/schema-org";
 import DomainPage from "@/components/templates/training/domain-page";
 
 /** Same fix as the blog author page: the CMS's `meta_title` already ends in
@@ -70,5 +71,13 @@ export default async function TrainingPage({ params }) {
 
   if (!Template) notFound();
 
-  return <Template domain={entry.data} />;
+  return (
+    <>
+      <SchemaOrg
+        breadcrumbs={entry.data.breadcrumbs}
+        faqs={entry.data.faqs?.items}
+      />
+      <Template domain={entry.data} />
+    </>
+  );
 }

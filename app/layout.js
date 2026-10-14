@@ -1,6 +1,7 @@
 import { Sora, Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 
 import { SITE } from "@/lib/constants";
+import SchemaOrg from "@/components/seo/schema-org";
 import "./globals.css";
 
 /**
@@ -60,6 +61,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${sora.variable} ${cormorant.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
       >
+        <SchemaOrg website />
         {children}
       </body>
     </html>

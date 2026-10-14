@@ -2,11 +2,8 @@ import { notFound } from "next/navigation";
 
 import { getCourse, getPrerenderedCoursePaths } from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { breadcrumbJsonLd, courseJsonLd } from "@/lib/seo/json-ld";
-import JsonLd from "@/components/seo/json-ld";
-import CoursePage, {
-  courseWorkload,
-} from "@/components/templates/training/course-page";
+import SchemaOrg from "@/components/seo/schema-org";
+import CoursePage from "@/components/templates/training/course-page";
 
 /**
  * `/corporate-training/{domain}/{course-slug}` — a course page.
@@ -63,16 +60,16 @@ export default async function CourseRoute({ params }) {
 
   return (
     <>
-      <JsonLd
-        data={[
-          courseJsonLd({
-            name: course.name,
-            description: course.seo?.Meta_description,
-            path: `/corporate-training/${slug}/${courseSlug}`,
-            workload: courseWorkload(course),
-          }),
-          breadcrumbJsonLd(course.breadcrumbs?.items),
-        ]}
+      <SchemaOrg
+        course={{
+          name: course.name,
+          description: course.seo?.Meta_description,
+          path: `/corporate-training/${slug}/${courseSlug}`,
+          image: course.seo?.og_image_url,
+          audience: course.audience?.[0],
+        }}
+        breadcrumbs={course.breadcrumbs?.items}
+        faqs={course.faqs?.items ?? course.Faqs?.items}
       />
       <CoursePage course={course} />
     </>
