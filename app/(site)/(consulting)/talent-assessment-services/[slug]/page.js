@@ -29,6 +29,7 @@ import Methodology from "@/components/sections/learning_development_consulting/m
 import Outputs from "@/components/sections/talent_assessment_services/outputs";
 import RelatedAssessments from "@/components/sections/talent_assessment_services/related-assessments";
 import Suite from "@/components/sections/talent_assessment_services/suite";
+import ToolSpotlight from "@/components/sections/talent_assessment_services/tool-spotlight";
 
 const PILLAR = "talent-assessment-services";
 
@@ -47,6 +48,8 @@ const SECTIONS = {
   readiness: (data) => <Readiness id="readiness" data={data} />,
   services: (data) => <Services data={data} />,
   suite: (data) => <Suite data={data} />,
+  // One Edstellar tool (e.g. Polaris); only pages whose CMS sends it.
+  tool: (data) => <ToolSpotlight data={data} />,
   process: (data) => <Process data={data} />,
   // Shared L&D methodology section (TASTE.md §6.1), driven by the CMS
   // `methodology` component. Takes the "process" slot/anchor on CMS-backed
@@ -87,6 +90,7 @@ const DEFAULT_SECTIONS = [
   "readiness",
   "services",
   "suite",
+  "tool",
   "methodology",
   "outputs",
   "why",
