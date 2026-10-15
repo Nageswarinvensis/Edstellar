@@ -54,7 +54,8 @@ These URLs are the public contract. They are load-bearing for SEO — **never ch
 /trainers                    · /trainers/{slug}
 /about-us  /contact-us  /training-management-software  /skill-based-organization
 /privacy-policy  /terms-and-conditions
-/thank-you/{slug}  /enquiry-now                         No site shell
+/thank-you/{slug}                                       Site shell (nav + footer)
+/enquiry-now                                            No site shell
 ```
 
 **Blog is not a resource type.** `/blog/{slug}` is the canonical URL for every post. `/resources` lists five types and never duplicates a post under a second URL.
@@ -131,13 +132,14 @@ app/
 │   │   ├── training-management-software/page.js
 │   │   └── skill-based-organization/page.js
 │   │
+│   ├── thank-you/[slug]/page.js           post-form confirmation, inside the site shell
+│   │
 │   └── (legal)/                           add layout.js ONLY if these share a design
 │       ├── privacy-policy/page.js
 │       └── terms-and-conditions/page.js
 │
 ├── (bare)/                                LAYOUT BOUNDARY — no nav, no footer
 │   ├── layout.js
-│   ├── thank-you/[slug]/page.js
 │   └── enquiry-now/page.js
 │
 ├── api/

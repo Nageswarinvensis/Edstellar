@@ -4,7 +4,7 @@ import ClientLogos from "@/components/common/client-logos";
 import About from "@/components/sections/course/about";
 import Trainers from "@/components/common/trainers";
 import Faq from "@/components/common/faq";
-import MapSection from "@/components/common/map-section";
+import CourseMapSection from "@/components/sections/course/course-map-section";
 import StickyFooter from "@/components/common/sticky-footer";
 
 import PageToc from "@/components/sections/course/page-toc";
@@ -61,7 +61,7 @@ export default function CoursePage({ course }) {
       </PageToc>
 
       <WhyEdstellar data={course.learning_path ?? course.WhyEds} relatedCourses={course.related_courses} />
-      <MapSection data={course.mapsectionData} />
+      <CourseMapSection data={course.mapsectionData} />
       <AlsoFromEdstellar />
       <GroupQuote />
       <LeadForm data={course.leadForm} />

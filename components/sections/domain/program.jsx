@@ -17,7 +17,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
-import { courseUrl } from "@/lib/course-url";
+import { courseDescription, courseUrl } from "@/lib/course-url";
 import { approxDuration } from "@/lib/duration";
 
 const COURSES_PER_PAGE = 15;
@@ -50,10 +50,10 @@ function catalogCourses(cms, staticCourses = []) {
       href,
       discipline: topic,
       disciplineTags: topic ? [topic] : [],
-      description:
-        course.description ||
-        descriptionByHref.get(href) ||
-        `Instructor-led training on ${course.title}, scoped to your team's level and use cases.`,
+      description: courseDescription({
+        ...course,
+        description: course.description || descriptionByHref.get(href),
+      }),
     };
   });
 }
@@ -135,7 +135,7 @@ function durationLabel(duration, cardData) {
   }
   if (duration?.type === "request") return cardData.durationOnRequest;
   if (duration?.type === "range" && duration.min !== undefined && duration.max !== undefined) {
-    return `${duration.min} - ${duration.max} ${cardData.hoursSuffix}`;
+    return `~ ${duration.min} - ${duration.max} ${cardData.hoursSuffix}`;
   }
   return null;
 }
@@ -618,12 +618,14 @@ export default function Program({ data, courses: cmsCourses }) {
             emphasisClassName="font-serif font-normal tracking-[-1px]"
           />
 
-          <Text
-            as="p"
-            className="mt-3 max-w-125 text-[12px] leading-[1.45] text-ink-muted"
-          >
-            {data.description}
-          </Text>
+          {data.description ? (
+            <Text
+              as="p"
+              className="mt-3 max-w-125 text-[12px] leading-[1.45] text-ink-muted"
+            >
+              {data.description}
+            </Text>
+          ) : null}
         </Box>
 
         {/* ================= FILTERS ================= */}
