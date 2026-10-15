@@ -1,0 +1,88 @@
+{
+  "verified_trainer_Data": {
+    "badge": "BENEFITS",
+    "heading": "Unlock a World of Benefits as an *Edstellar-Verified* Trainer",
+    "description": "Onboard with Edstellar and unlock the door to the right training opportunities across the globe.",
+    "cards": [
+      {
+        "id": "global-reach",
+        "badge": "GLOBAL REACH",
+        "title": "Work with Edstellar’s Global Customers",
+        "description": "Train Edstellar's global customers, expanding your reach in diverse markets and industries.",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
+        "image_alt": "Trainer speaking to global corporate team"
+      },
+      {
+        "id": "visibility",
+        "badge": "VISIBILITY",
+        "title": "Get your Profile Globally Presented",
+        "description": "Edstellar connects you to companies around the world based on your skill sets and offerings matching the organizations' requirements.",
+        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+        "image_alt": "Two professionals in discussion"
+      },
+      {
+        "id": "growth",
+        "badge": "GROWTH",
+        "title": "Maximise your Growth Potential",
+        "description": "Receive regular updates on training opportunities to collaborate with organizations and get post training feedback.",
+        "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
+        "image_alt": "Professional working at laptop"
+      },
+      {
+        "id": "revenue",
+        "badge": "REVENUE",
+        "title": "Get Access to More Revenue Opportunities",
+        "description": "Discover high-yield training opportunities and leverage our support to cultivate your brand and generate revenue streams.",
+        "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+        "image_alt": "Trainer talking on headset"
+      }
+    ]
+  },
+  "review_cards_Data": {
+    "badge": "TRAINER STORIES",
+    "heading": "Reviews from our *Stellar* Trainers",
+    "description": "Gain insights from our trainers as they share their experiences and perspectives",
+    "reviews": [
+      {
+        "id": "shan",
+        "quote": "Edstellar Training Trainers Platform is a game-changer in the corporate learning and development sphere. It swiftly resolves training issues, providing instant solutions. This platform is poised to revolutionize the way companies approach employee education, offering a powerful tool for upskilling and problem-solving. A vital asset for the corporate world.",
+        "author": {
+          "name": "Shan",
+          "role": "EDSTELLAR TRAINER",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+          "avatar_alt": "Shan portrait"
+        }
+      },
+      {
+        "id": "vasant",
+        "quote": "Edstellar Training Platform has proven to be an invaluable B2B partner for trainers like myself. Collaborating with Edstellar has opened up exceptional opportunities for me to deliver high-quality training programs to organizations worldwide. I highly endorse their platform for businesses seeking to enhance their performance through comprehensive training solutions.",
+        "author": {
+          "name": "Vasant",
+          "role": "EDSTELLAR TRAINER",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+          "avatar_alt": "Vasant portrait"
+        }
+      },
+      {
+        "id": "amol",
+        "quote": "As a trainer at Edstellar Platform, I take immense pride in being associated with a premier learning centre that embodies excellence. Edstellar's commitment to empowering organizations with practical skills and industry-relevant knowledge is commendable. Additionally, the platform focus on personalized attention ensures that each client receives tailored guidance. The experience of imparting knowledge and witnessing the growth of aspiring professionals is truly fulfilling.",
+        "author": {
+          "name": "Amol",
+          "role": "EDSTELLAR TRAINER",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+          "avatar_alt": "Amol portrait"
+        }
+      },
+      {
+        "id": "siva",
+        "quote": "Edstellar ILT Platform is a game-changer, offering a user-friendly interface, diverse courses, and end-to-end training management platform. Highly recommended for trainers and organizations seeking a rewarding learning experience.",
+        "author": {
+          "name": "Siva",
+          "role": "EDSTELLAR TRAINER",
+          "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
+          "avatar_alt": "Siva portrait"
+        }
+      }
+    ]
+  }
+}
