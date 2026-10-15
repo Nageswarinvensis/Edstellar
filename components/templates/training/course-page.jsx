@@ -64,7 +64,7 @@ export default function CoursePage({ course }) {
       <CourseMapSection data={course.mapsectionData} />
       <AlsoFromEdstellar />
       <GroupQuote />
-      <LeadForm data={course.leadForm} />
+      <LeadForm data={course.leadForm} thankYou="course" />
       <StickyFooter data={course.stickyFooter} />
     </>
   );

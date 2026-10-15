@@ -41,6 +41,7 @@ export default function EnquiryNowPage() {
         aside={
           <EnquiryForm
             data={page.form}
+            thankYou="enquire"
             className="scroll-mt-20 shadow-[0_18px_50px_rgba(5,13,26,0.28)]"
           />
         }

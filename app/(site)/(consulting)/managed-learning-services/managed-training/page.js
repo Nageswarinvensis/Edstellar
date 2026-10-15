@@ -17,7 +17,7 @@ import WhyUs from "@/components/sections/consulting/why-us";
 import CtaBand from "@/components/sections/consulting/cta-band";
 import Faq from "@/components/common/faq";
 import RelatedServices from "@/components/sections/consulting/related-services";
-import LeadForm from "@/components/forms/lead-form";
+import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
 export const revalidate = 3600;
@@ -95,7 +95,7 @@ export default async function ManagedTrainingServicesPage() {
         showCta={false}
       />
       <RelatedServices id="related" data={page.relatedServices} columns={4} />
-      <LeadForm id="apply" background="navy" data={page.leadForm} />
+      <ConsultingForm id="apply" background="navy" data={page.leadForm} />
       <StickyFooter data={page.stickyFooter && { ...page.stickyFooter, email: true }} />
     </>
   );

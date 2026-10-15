@@ -1,27 +1,43 @@
-import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
-import Reveal from "@/components/common/reveal";
+import { getPricingPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
+import SchemaOrg from "@/components/seo/schema-org";
+import PricingPage from "@/components/templates/pricing-page";
 
-export const metadata = buildMetadata({
-  title: "Corporate Training Prices and Packages",
-  description:
-    "Edstellar offers customized corporate training packages to organizations to meet their upskilling needs. Find out corporate training pricing and the capabilities of Edstellar.",
-  path: "/corporate-training-pricing",
-});
-function page() {
-  return (
-    <Section>
-      <Reveal delay={1} className="flex justify-center items-center">
-        <RichHeading
-          as="h1"
-          heading="Corporate Training <span>Pricing</span>"
-          emphasisClassName="font-normal text-olive"
-          className="mb-2.5 text-center max-lg:text-[clamp(32px,5vw,50px)]"
-        />
-      </Reveal>
-    </Section>
-  );
+export function generateMetadata() {
+  const { seo } = getPricingPage();
+  return buildMetadata(seo);
 }
 
-export default page;
+/**
+ * Corporate Training Pricing — a static page built from local JSON
+ * (`content/company/corporate-training-pricing.json`, via
+ * `lib/content/company.js`). The packages also go into the Service JSON-LD
+ * as its offer catalog.
+ *
+ * Design: `corporate-training-pricing-v2.html`.
+ */
+export default function CorporateTrainingPricingPage() {
+  const page = getPricingPage();
+  const { plans } = page;
+
+  return (
+    <>
+      <SchemaOrg
+        service={{
+          name: "Corporate Training Packages",
+          description: page.seo.description,
+          path: page.seo.path,
+          serviceType: "Instructor-led corporate training",
+          offers: plans.items.map((plan) => ({
+            name: plan.name,
+            description: plan.description.all,
+          })),
+        }}
+        breadcrumbs={page.breadcrumbs}
+        faqs={page.faqs.items}
+      />
+
+      <PricingPage page={page} />
+    </>
+  );
+}

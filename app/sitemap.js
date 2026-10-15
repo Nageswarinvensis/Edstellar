@@ -63,6 +63,7 @@ export default async function sitemap() {
     entry("/contact-us", 0.4, "monthly"),
     entry("/become-a-guest-author", 0.4, "monthly"),
     entry("/corporate-training-pricing", 0.6, "monthly"),
+    entry("/trainer-platform", 0.5, "monthly"),
     entry("/privacy-policy", 0.1, "yearly"),
     entry("/terms-conditions", 0.1, "yearly"),
     entry("/modern-slavery-statement", 0.1, "yearly"),

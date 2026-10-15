@@ -98,6 +98,8 @@ export async function generateMetadata({ params }) {
     path: `/trainer/${trainer.slug}`,
     image: trainer.profile_image_url,
     type: "profile",
+    // Trainer profiles are kept out of search (noindex, nofollow).
+    noIndex: true,
   });
 }
 

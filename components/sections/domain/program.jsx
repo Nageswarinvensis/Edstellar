@@ -614,7 +614,7 @@ export default function Program({ data, courses: cmsCourses }) {
           <RichHeading
             as="h2"
             heading={data.heading}
-            className="max-w-110 font-semibold tracking-[-1.8px] text-ink"
+            className="max-w-200 text-balance font-semibold tracking-[-1.8px] text-ink"
             emphasisClassName="font-serif font-normal tracking-[-1px]"
           />
 

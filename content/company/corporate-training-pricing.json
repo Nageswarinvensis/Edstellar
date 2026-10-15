@@ -1,0 +1,1149 @@
+{
+  "seo": {
+    "title": "Corporate Training Prices & Packages 2026",
+    "description": "Transparent corporate training pricing for instructor-led programs. Compare Starter, Growth, Enterprise and Custom packages, virtual or onsite, across 2,000+ programs.",
+    "path": "/corporate-training-pricing"
+  },
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Corporate Training Pricing",
+      "href": null
+    }
+  ],
+  "hero": {
+    "heading": "Corporate Training <span>Prices and Packages</span>",
+    "description": "Supercharge your upskilling initiatives with customized corporate training packages!",
+    "cta": {
+      "label": "View Pricing Options",
+      "href": "#table"
+    },
+    "features": [
+      {
+        "icon": "instructor",
+        "title": "Instructor-led",
+        "text": "Expert-led learning"
+      },
+      {
+        "icon": "delivery",
+        "title": "Onsite + Virtual",
+        "text": "Flexible delivery"
+      },
+      {
+        "icon": "programs",
+        "title": "2000+ Programs",
+        "text": "Across all domains"
+      },
+      {
+        "icon": "flexible",
+        "title": "Flexible Packages",
+        "text": "Built for your goals"
+      }
+    ],
+    "cards": [
+      {
+        "name": "Starter",
+        "text": "For limited training requirements"
+      },
+      {
+        "name": "Growth",
+        "text": "For moderate training requirements",
+        "badge": "Most Popular"
+      },
+      {
+        "name": "Enterprise",
+        "text": "For higher training requirements"
+      }
+    ]
+  },
+  "clients": {
+    "heading": "Globally Trusted by Clientele as a <span>Top Corporate Training Partner</span>",
+    "visible_count": 24,
+    "more_label": "View More",
+    "less_label": "View Less",
+    "logos": [
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5873a89529b86f470b686_Microsoft.webp",
+        "alt": "Microsoft: A Leading Company in Software, Cloud Computing, and Technology Solutions Worldwide"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698469c6a91cef644870febe_Amazon%201%20(1).webp",
+        "alt": "Amazon: A Leading Company in Cloud, E-commerce & Retail"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b587b637a6028400026a71_Intel2.webp",
+        "alt": "Intel: A Leading Company in Software & Technology"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b587f256c7ca56ef383708_Adobe.webp",
+        "alt": "Adobe: A Leading Company In Digital Media and Creative Software Solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b588572d0fd67c6424af0a_MediaTek.webp",
+        "alt": "MediaTek: Leading company in advanced semiconductor solutions, MediaTek connects and enriches the modern digital world."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5887637a6028400031b44_Tata_Chemicals.webp",
+        "alt": "Tata Chemicals Ltd: A Leading Company in Chemical Industry"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846266b0acf082e648fdb0_Johnson%26Johnson%201.webp",
+        "alt": "Johnson & Johnson: A Leading Company in Pharmaceuticals"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a94748156eb2b452d94e_godrej.webp",
+        "alt": "Godrej: A Leading Company in FMCG"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9601c7bda326efbe969_nrsc.webp",
+        "alt": "NRSC (National Remote Sensing Centre): A Leading Company in Scientific Research"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846830ede4cc2aea05d48a_Sportskeeda%201.webp",
+        "alt": "Sportskeeda: A Global Sports and Entertainment Content Platform"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a98ed7f1555ba95a94c2_Total.webp",
+        "alt": "Total: A Leading Company in Energy & Petroleum"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b9218334a6bbb7e0046a57_visa.webp",
+        "alt": "VISA: Global digital payments technology company"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9c115c2a0faf78d5187_Abb.webp",
+        "alt": "ABB: A Leading Company in Industrial Automation & Electrical Equipment"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9d8e0dd2f35457d1311_Emerson.webp",
+        "alt": "Emerson : A Leading Company in Industrial Automation and Climate Solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aa7c4dc52f902b965f86_Aditya%20Birla%20Group.webp",
+        "alt": "Aditya Birla Group: A global business group with impact across diverse sectors"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aa97d7f1555ba95b5394_AutoDesk.webp",
+        "alt": "Autodesk: A Leading Company in Software & Technology"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/690d7e851806fc8beeda2a35_Cummins_logo.svg%201.png",
+        "alt": "Cummins Inc : Global leader in power and zero-emission tech."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aab9cd873260637e0cd0_Kellogg%27s.webp",
+        "alt": "Kellogg's: A Leading Company in Food & Beverages"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9add7f1555ba95aaf7e_NIIT.webp",
+        "alt": "NIIT : A Leading Company in Learning and Talent Development"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aaf334d711034f22972a_TVS.webp",
+        "alt": "TVS Electronics: A Leading Company in Supply Chain & Manufacturing"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab0a47fbf42da4da29c7_Uworld.webp",
+        "alt": "UWorld: A Leading Company in Education & Test Preparation"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6915869cdab78133f5efe19d_Uber.svg",
+        "alt": "UBER: Global ride-hailing and mobility platform."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab2b0863f7665b9a12a2_Coromandel.webp",
+        "alt": "Coromandel: A Leading Company in Agriculture & Chemicals"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab432414a486365f6106_Invensis.webp",
+        "alt": "Invensis: A Leading Company in Software & Technology"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab5a41900232a1dd34be_khazana%20jewellery.webp",
+        "alt": "Khazana Jewellery: Trusted Name in Fine Jewellery Craftsmanship"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab6f0863f7665b9a2e3f_Dev%20on.webp",
+        "alt": "Devon: A Leading Company in IT Services and IT Consulting"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab892414a486365f975f_spartan.webp",
+        "alt": "Spartan: A Leading Company in Manufacturing"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aba1cd873260637eb8c5_Currax.webp",
+        "alt": "Currax Pharmaceuticals LLC: A Leading Company in Pharmaceuticals"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6abb60863f7665b9a5664_shanmukha.webp",
+        "alt": "ShanMukha: A Leading Company in Biotechnology / Diagnostics"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6abcd0863f7665b9a67da_devstring.webp",
+        "alt": "Devstringx: A Leading Company in Software & Technology"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6abe82414a486365fccdb_Excitel.webp",
+        "alt": "Excitel: A Leading Company in Telecommunications"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ac002414a486365fe1c7_Auro.webp",
+        "alt": "Auro: A Leading Company in Real Estate"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ace041900232a1ded168_industryarc.webp",
+        "alt": "IndustryARC: A Leading Company in Market Research & Consulting"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6acf78891fb464361bd61_Motorq.webp",
+        "alt": "MOTORQ: Vehicle Data and Insights Software Company"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ad0d46b637354ab74a8b_littlefuse.webp",
+        "alt": "Littelfuse: A Leading Company in Manufacturing"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ad4e41900232a1df5a4f_Taylor%20%26%20Francis%20Group%20(1).webp",
+        "alt": "Taylor & Francis: A Leading Company in Academic Publishing"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ad6a25828ad600e00916_Sandvik%20Coromant.webp",
+        "alt": "Sandvik: A Leading Company in Supply Chain & Manufacturing"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6adaa6930e7fcdb2f60a5_Boston%20consulting%20group.webp",
+        "alt": "Boston Consulting Group: A Global Consulting Firm Specializing in Business Strategy"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69da6cd8732606378f13f_Mio%20amore.webp",
+        "alt": "Mio Amore: A Leading Comapany in Food & Beverages"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69d8a48156eb2b44dffdb_Thryve.webp",
+        "alt": "Thryve: A Leading Company in Healthcare"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aad529883283bf589fb9_Blu%20Smart%20Mobility.webp",
+        "alt": "BLU Smart Mobility: A Leading Company in Electric Vehicles & Mobility"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69d591c7bda326ef313d7_Bombay%20Metrics.webp",
+        "alt": "Bombay Metrics: A Leading Company in Supply Chain & Manufacturing"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69d221c7bda326ef2dad2_ByNaric.webp",
+        "alt": "ByNaric: A Leading Company in Software & Technology"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69d011bbe04f59b03d29a_HALCON.webp",
+        "alt": "HALCON: A Leading Company in System Manufactures"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69ce048156eb2b44d7149_SIS.webp",
+        "alt": "SIS: A Leading Company in Security and Logistics Services"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69cbfabd2c8f8c9a5ed7f_CanFinHomes%20Ltd.webp",
+        "alt": "CanFinHomes Ltd: A Leading Company in Financial Services"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69c7d3a6fc65a62294bc8_edifecs.webp",
+        "alt": "Edifecs: A Leading Company in Healthcare Technology"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69c5e0863f7665b93a031_Brevo.webp",
+        "alt": "Brevo: A Leading Company in Software & Technology"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69c470863f7665b9390df_BOLD%20Group.webp",
+        "alt": "BCLD Group: A Leading Company in Real Estate"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69c0d217d054cf8895ac0_Emiza%20Inc.webp",
+        "alt": "Emiza Inc: A Leading Company in Logistics and Supply Chain"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69bf4627903746ff82874_Indobevs.webp",
+        "alt": "IndoBevs : A Leading Company in Beverage Manufacturing and Distribution"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69bb125828ad600d72424_Shravas%20Technologies.webp",
+        "alt": "Shravas Technologies : A Leading Company in Software Testing and Quality Assurance"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b9b1bbe04f59b02fcde_GreenCell%20Mobility.webp",
+        "alt": "GreenCell Mobility: A Leading Green-Tech Company"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b79ed0c9a9f74697320_Garware%20Technical%20Fibres.webp",
+        "alt": "Garware Technical Fibres: A Leading Company In the Technical Textile Sector"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b605e9f3bff548d61bd_Bry-Air.webp",
+        "alt": "Bry-Air : A Leading Company in Dehumidification and Environmental Control Solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b351bbe04f59b02cb69_eClinical%20Solutions.webp",
+        "alt": "eClinical Solutions : A Leading Company in Intelligent Clinical Research Data Solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b1d1c7bda326ef0cf67_ycp%20.webp",
+        "alt": "YCP | Global Expertise, Asian Insight: A Leading Company in Management Consulting and Principal Investments Across Asia"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b063a6fc65a62285d06_Social%20Discovery%20group.webp",
+        "alt": "Social Discovery group: A Leading Global Company in Social Discovery and Online Entertainment"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69aed627903746ff74ef4_Smarsh.webp",
+        "alt": "Smarsh: Leading company in digital compliance and communications archiving solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69ad48891fb4643588a94_Greystar.webp",
+        "alt": "Greystar: A Global Leader in Rental Housing Investment, Development, and Management"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69ac01c7bda326ef0672c_Global%20North.webp",
+        "alt": "Global North: Global Experts in Investment Advisory for Citizenship and Residency Solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69a9c1bbe04f59b027b95_Indian%20Hospitality%20Mart.webp",
+        "alt": "INDIA HOSPITALITY MART: Pioneers in the Hospitality Services"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69a34627903746ff6a0b2_SRF%20Limited.webp",
+        "alt": "SRF Limited: Global Leader in Chemicals, Textiles, and Packaging Solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69a171c7bda326eefbf51_AMPIN%20Energy%20Transition.webp",
+        "alt": "AMPIN Energy Transition: Renewable energy solution provider for Commercial & Industrial (C&I) and utility customers"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b699fc627903746ff66d49_Indo%20British%20Garments%20Pvt.%20Ltd.%20.webp",
+        "alt": "BG (Brahmaputra Group): A Leading Company in Construction & Infrastructure"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b699590863f7665b9232a0_Endeavor%20.webp",
+        "alt": "Endeavor: A Leading Company in Media & Entertainment"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69944627903746ff59fe8_Neovia.webp",
+        "alt": "Neovia: A Leading Company in Logistics"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6992add5a30d131e00340_Market99.webp",
+        "alt": "Market99: Affordable Home & Lifestyle Shopping in India"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69901ed0c9a9f7467ea78_Mankiewicz%20India%20Private%20Limited.webp",
+        "alt": "Mankiewicz India Private Limited: World leader in high-quality coating systems for industry, aviation, and automotive."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b698e8627903746ff54c71_Uplers.webp",
+        "alt": "Uplers: AI hiring platform connecting SaaS companies with top product & engineering talent"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b698cb6e2ced8072728601_Oswaal%20Books%20and%20Learning%20.webp",
+        "alt": "Oswaal Books and Learning (P) Ltd: India’s No.1 educational publisher"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b698b3627903746ff512d9_ERGO%20Technology%20%26%20Services.webp",
+        "alt": "ERGO Technology & Services: A Hub of Innovation and Digital Excellence"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6989f1c7bda326eeef7f5_Maharana%20Pratap%20Group%20of%20Institutions.webp",
+        "alt": "Maharana Pratap Group of Institutions (MPGI): A Center of Academic Excellence and Holistic Learning"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6988c1066bcaedfdd4fd4_Circle%20K.webp",
+        "alt": "Circle K: A Globally Recognized Convenience Store"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b698733113639a0ad6ce56_ETP%20International.webp",
+        "alt": "ETP International: A leading unified commerce software company"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6985e5e9f3bff548c43f9_EPL%20Global.webp",
+        "alt": "EPL Global: Specialized packaging solutions for the world’s leading FMCG brands"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69823182f0ea9428accc2_KMK%20Ventures.webp",
+        "alt": "KMK Ventures: A Leading Outsourced Accounting and Tax Service Provider"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69810fca38e523d3bed67_Ideal%20Solutions.webp",
+        "alt": "Ideal Solutions: A leading smart solutions and services provider"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697f9217d054cf887a6d2_KPMG.webp",
+        "alt": "KPMG: A leading professional services firm"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697e748156eb2b44c5b56_Royal%26quot.webp",
+        "alt": "West African Ceramics Limited: The company markets its products under the \"Royal\" brand"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697cc182f0ea9428a9a52_Dayforce.webp",
+        "alt": "Dayforce: All-in-one software to manage every stage of the employee journey"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697ba0e503093b25852dd_Bechtel.webp",
+        "alt": "Bechtel: A leading global engineering, construction, and project management company"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697a61bbe04f59b01b193_SPI%20Pharma.webp",
+        "alt": "SPI Pharma: Global leader in pharmaceutical manufacturing"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697940863f7665b91f3d5_Sunstone.webp",
+        "alt": "Sunstone: Industry-aligned education service provider"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6978238bd77d7c8dda4e9_Hudson%20Link.webp",
+        "alt": "Hudson Link: Prison education and reentry nonprofit"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69770b06f3b861a29e479_Regeneron%20Science%20to%20Medicine.webp",
+        "alt": "Regeneron Pharmaceuticals: A science-driven biotechnology company"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69759dd5a30d131df353f_KIET%20Group%20of%20Institution.webp",
+        "alt": "KIET Group of Institution: A technical higher-education institution"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69d70ed0c9a9f746adf74_QuadGen.webp",
+        "alt": "QuadGen: A Leading Company in Telecommunications"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6971e1828140bcb44aa59_D%20B%20Corp%20Ltd.webp",
+        "alt": "DB Corp Ltd: Indian print and media company"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69701dd5a30d131df00b6_Majestic%20Asset%20Management%2C%20Inc%20Management%20Team.webp",
+        "alt": "Majestic Asser Management, INC.: Real estate investment and property management company"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697300863f7665b91d3a9_Ujjivan%20Small%20Finance%20Bank.webp",
+        "alt": "Ujjivan: Indian Small Finance Bank"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/690d7ce65759ed100fe3b324_DERIV_LOGO_COL_RGB-1%201.png",
+        "alt": "Deriv: One of the world’s largest online brokers"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691586b3517572e80932c330_CIPS.svg",
+        "alt": "C.I.P.S: Indigenous-owned consulting and engagement firm."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691586c3db5397d1ba02d311_Jet%20parts.svg",
+        "alt": "Jet Parts Engineering: Aerospace aftermarket manufacturer & repair provider"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691586daf8ed7c99116d17a6_ADB%20SAFE%20Gate.svg",
+        "alt": "ADB SAFEGATE: Global airport and airside technology provider."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691ab8ac26bd3fb446ebd95a_cloudify.svg",
+        "alt": "Cloudify: Open-source multi-cloud and edge orchestration platform"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691ab91f52bd56eb1142a9e8_Fito.svg",
+        "alt": "Semillas Fitó: Global seed breeding and agriculture innovator"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691acb69455d5fe1bf5890d1_national%20Bank%20of%20Iraq.svg",
+        "alt": "The National Bank of Iraq: Iraq-based full-service regional bank"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691abb9a62dfb2e1c49e8950_PIE.svg",
+        "alt": "Pierian Services: Global business-services and consulting provider"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691abbcf115cb4e22eede0da_digit%20life%20insurance.svg",
+        "alt": "Go Digit Life Insurance: Digital-first life insurance company"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691abc1b33ac9e302a1b6d04_Datawrkz.svg",
+        "alt": "Datawrkz: Omnichannel digital advertising and ad-tech platform"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691ff72a2785a3247ce4e54f_Sangam.svg",
+        "alt": "Sangam Group: Integrated textile manufacturer and global exporter."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba87fb678c4c60a4e6beea_JICA%20(Japan%20International%20Cooperation%20Agency).webp",
+        "alt": "JICA : is a Japanese government agency providing aid and technical support for global development."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba886f9090297e6e7ded85_Nike.webp",
+        "alt": "Nike: A global company designing and selling athletic footwear, apparel, and equipment"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba88b3692907aca41227c6_Ecozen.webp",
+        "alt": "Ecozen: An agritech company providing solar-powered cold storage and irrigation solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba88e8ae238fdf8c7ca4aa_International%20Solar%20Alliance%20Secretariat.webp",
+        "alt": "ISA: is a global organization accelerating solar energy adoption for worldwide energy security."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8925a2fbb0127cad676a_Knolscape%20.webp",
+        "alt": "KNOLSKAPE: A company providing experiential learning and gamified training solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8961c028fb6c90142c88_Silverline%20IT%20Solutions.webp",
+        "alt": "Silverline: A consulting firm delivering cloud and digital transformation solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba898283a1d5c58b8c4b0c_Assetz%20Soho%20%26%20Sky.webp",
+        "alt": "Assetz Property Group: A real estate company developing residential and commercial properties"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba89aed69e59234b4a8585_PCAPI%20Region%204A%20Chapter%20.webp",
+        "alt": "PCAPI (Pollution Control Association of the Philippines): A non-profit organization dedicated to environmental protection and compliance through professional training."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba89dc625657df5a56d81f_Agratas.webp",
+        "alt": "Agratas: A global battery technology company"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8a160b8fa3f3b77eda83_KNS%20Logistics%20Service.webp",
+        "alt": "KNS Express: A logistics provider offering specialized delivery and shipping solutions."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8a38fc15022a31bbd4ff_Artha%20Bharath.webp",
+        "alt": "Artha Bharat: An investment firm focused on infrastructure and development projects"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8a5ebfb09ef05b0369f8_WiredScore.webp",
+        "alt": "WiredScore: A company certifying digital connectivity standards for buildings"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8a82d771ddca7f30afd5_Evident%20Scientific.webp",
+        "alt": "Eviden: A global leader in digital transformation, advanced computing, and cybersecurity."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8abe9204ffc948d26c2c_Medsynaptic%20Pvt.%20Ltd..webp",
+        "alt": "Medsynaptic: A healthcare technology company specializing in medical imaging solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8b131e2f9df6310b0e09_Tadmur%20Holding.webp",
+        "alt": "Tadmur Holding: A diversified business group operating across multiple industries"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8b3f580b335d46adbf61_Daund%20Sugar%20Limited.webp",
+        "alt": "Daund Sugar: A company producing sugar and related agro-based products"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8b63c8445eaa18979265_ZS%20Associates.webp",
+        "alt": "ZS Associates: A global management consulting and technology firm focused on transforming healthcare and other industries."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8b90ec75de960cd4d62c_Renishaw%20Technologies.webp",
+        "alt": "Renishaw: A company providing precision measurement and healthcare technologies"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8bb93f4f5cde1bcb0c6d_Cloyes.webp",
+        "alt": "Cloyes: A manufacturer of timing drive systems and automotive components"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8bf86f3c09ef5c145c36_S%26P%20Global%20Inc..webp",
+        "alt": "S&P Global: A company providing financial data, analytics, and market intelligence"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8c5dfc15022a31bc5af4_Transunion.webp",
+        "alt": "TransUnion: A company offering credit information and risk management solutions"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8cacd86cff2dd6c1b49c_Cenovus.webp",
+        "alt": "Cenovus Energy: An energy company focused on oil production and refining operations"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8cd0c02d0401555dccd2_Solflare.webp",
+        "alt": "Solflare: A secure digital wallet for managing, staking, and trading assets on the Solana blockchain."
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8d1cefeeaa00e51e4cde_Vedanta.webp",
+        "alt": "Vedanta Limited: A natural resources company operating in mining, oil, and gas sectors"
+      },
+      {
+        "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8d44a2876948866ef288_Vesuvius.webp",
+        "alt": "Vesuvius plc: A company providing solutions for molten metal processing in industries"
+      }
+    ]
+  },
+  "how_it_works": {
+    "heading": "Pay for the training your teams <span>actually attend</span>",
+    "description": "Instructor-led training priced by trainee licenses, used across any program, delivered virtually or onsite.",
+    "steps": [
+      {
+        "title": "Choose your licenses",
+        "parts": [
+          {
+            "text": "One license",
+            "strong": true
+          },
+          {
+            "text": " = one trainee for one 8-hour training day. A half-day session uses half a license."
+          }
+        ]
+      },
+      {
+        "title": "Pick any program",
+        "parts": [
+          {
+            "text": "Use your licenses across "
+          },
+          {
+            "text": "2,000+ programs",
+            "strong": true
+          },
+          {
+            "text": " in Technical, Management, Leadership, Behavioral and Compliance domains."
+          }
+        ]
+      },
+      {
+        "title": "Train virtually or onsite",
+        "parts": [
+          {
+            "text": "Virtual",
+            "strong": true
+          },
+          {
+            "text": " is the package price. "
+          },
+          {
+            "text": "Onsite",
+            "strong": true
+          },
+          {
+            "text": " at your location is +30%, including trainer travel and stay."
+          }
+        ]
+      }
+    ],
+    "example": {
+      "label": "Example",
+      "text": "20 employees × a 2-day program = ",
+      "result": "40 licenses"
+    }
+  },
+  "plans": {
+    "heading": "Customized Instructor-led Corporate Training <span>Prices and Packages</span> for Organizations Globally",
+    "tabs": [
+      {
+        "key": "all",
+        "label": "All Included"
+      },
+      {
+        "key": "it",
+        "label": "IT & Technical Training"
+      },
+      {
+        "key": "nt",
+        "label": "Non-Technical Training"
+      }
+    ],
+    "programs": {
+      "href": "/corporate-training",
+      "link_label": "Training programs",
+      "by_tab": {
+        "all": {
+          "count": "2000+",
+          "domains": "available across Technical, Management, Behavioral, Leadership, Compliance and Social Impact domains"
+        },
+        "it": {
+          "count": "1000+",
+          "domains": "available across IT & Technical Skills domain"
+        },
+        "nt": {
+          "count": "1000+",
+          "domains": "available across Management, Behavioral, Leadership, Compliance and Social Impact domains"
+        }
+      }
+    },
+    "cta_label": "Enquire Now",
+    "cta_href": "#quote",
+    "items": [
+      {
+        "name": "Starter",
+        "flags": [],
+        "validity": "Validity: 6 Months",
+        "description": {
+          "all": "Starter package is for organizations with limited training requirements.",
+          "it": "Starter package is for organizations with limited training requirements.",
+          "nt": "Starter package is for organizations with limited training requirements."
+        }
+      },
+      {
+        "name": "Growth",
+        "popular": true,
+        "flags": [
+          {
+            "label": "Most Popular"
+          },
+          {
+            "label": "Save upto 10%",
+            "ghost": true
+          }
+        ],
+        "validity": "Validity: 9 Months",
+        "description": {
+          "all": "Growth package is for organizations with moderate training requirements.",
+          "it": "Growth package is for organizations with moderate training requirements.",
+          "nt": "Growth package is for organizations with moderate training requirements."
+        }
+      },
+      {
+        "name": "Enterprise",
+        "flags": [
+          {
+            "label": "Save upto 20%"
+          }
+        ],
+        "validity": "Validity: 12 Months",
+        "description": {
+          "all": "Enterprise package is for large organizations with higher number of training requirements.",
+          "it": "Enterprise package is for large organizations with higher number of annual training requirements.",
+          "nt": "Enterprise package is for large organizations with higher number of annual training requirements."
+        }
+      },
+      {
+        "name": "Custom",
+        "flags": [],
+        "validity": "Validity: 12 Months",
+        "description": {
+          "all": "Custom package is for large organizations which have higher training requirements.",
+          "it": "Custom package is for large organizations which have significantly higher number of training requirements.",
+          "nt": "Custom package is for large organizations which have higher training requirements."
+        }
+      }
+    ],
+    "rows": [
+      {
+        "label": "Trainee Licenses",
+        "footnote": "1",
+        "tip": "One 8 hour session for one trainee is considered one license",
+        "values": [
+          {
+            "big": "120"
+          },
+          {
+            "big": "320"
+          },
+          {
+            "big": "800"
+          },
+          {
+            "big": "Unlimited",
+            "footnote": "5",
+            "tip": "The Custom Package is priced on a cost per-employee basis and the cost includes unlimited number of training sessions, allowing for a tailored experience to meet specific organizational needs"
+          }
+        ]
+      },
+      {
+        "label": "Training Duration",
+        "footnote": "2",
+        "tip": "One 8 hour session for one trainee is considered as 1 slot. 4 hours of training for one trainee is half a slot. Half-day training lasts for 4 hours and full-day training lasts for 8 hours",
+        "note": "(In-person Onsite*/Virtual Instructor-led Training)",
+        "values": [
+          {
+            "text": "64 hours of Group Training",
+            "footnote": "3",
+            "sub": "Upto 10 training sessions"
+          },
+          {
+            "text": "160 hours of Group Training",
+            "footnote": "3",
+            "sub": "Upto 25 training sessions"
+          },
+          {
+            "text": "400 hours of Group Training",
+            "footnote": "3",
+            "sub": "Upto 60 training sessions"
+          },
+          {
+            "big": "Unlimited",
+            "footnote": "5",
+            "tip": "The Custom Package is priced on a cost per-employee basis and the cost includes unlimited number of training sessions, allowing for a tailored experience to meet specific organizational needs"
+          }
+        ]
+      },
+      {
+        "label": "Training Programs",
+        "value": {
+          "programs": true
+        }
+      },
+      {
+        "label": "Training Delivery Mode",
+        "footnote": "4",
+        "value": {
+          "text": "(In-person Onsite",
+          "footnote": "4.1",
+          "after": "/Virtual Instructor-led Training)"
+        }
+      },
+      {
+        "label": "Domain Expert Trainers On-demand",
+        "value": {
+          "included": true
+        }
+      },
+      {
+        "label": "Dedicated Learning Services Manager",
+        "value": {
+          "included": true
+        }
+      },
+      {
+        "label": "Trial Training Sessions",
+        "value": {
+          "text": "Paid Trial Available"
+        }
+      },
+      {
+        "label": "Retrospective Sessions",
+        "note": "(2 hrs. per Training)",
+        "value": {
+          "included": true
+        }
+      },
+      {
+        "label": "Add-Ons",
+        "value": {
+          "list": [
+            "Additional Trainee Licenses",
+            "Additional day of training"
+          ]
+        }
+      },
+      {
+        "label": "Additional Services",
+        "value": {
+          "list": [
+            "Training Needs Analysis",
+            "Coaching (One-to-one or small team size and min. 8 hrs.)",
+            "Mentoring (min. 8 hrs.)",
+            "Content Development",
+            "Exam & Certification",
+            "Training at external venue"
+          ]
+        }
+      }
+    ],
+    "valid_note": "Pricing valid for 2026",
+    "notes": {
+      "label": "Points to note",
+      "items": [
+        {
+          "key": "1",
+          "title": "Trainee Licenses",
+          "points": [
+            "8 hour session for one trainee is considered as 1 license",
+            "4 hours of training for one trainee is considered as half a license"
+          ]
+        },
+        {
+          "key": "2",
+          "title": "Training Duration and Training Session Utilization",
+          "points": [
+            "Half-day training lasts for 4 hours and full-day training lasts for 8 hours",
+            "In a 1-day session of 8 hours with 20 Trainees, the utilization is 8 hours and 20 licenses",
+            "In a 2-day session of 8 hours with 20 Trainees, the utilization is 16 hours and 40 licenses"
+          ]
+        },
+        {
+          "key": "3",
+          "title": "Group size",
+          "text": "You have the flexibility to select the size of the group training by taking into account the package and the allotted trainee licenses"
+        },
+        {
+          "key": "4",
+          "title": "Training Delivery Mode",
+          "points": [
+            "*In-person onsite training is provided at the client’s location for a group. Onsite Training will be charged 30% extra",
+            "*The cost of onsite training includes the trainer’s travel and accommodation expenses (Note: Additional fees may apply for remote locations)"
+          ]
+        },
+        {
+          "key": "4.1",
+          "title": "This pricing is for instructor-led virtual training only."
+        },
+        {
+          "key": "5",
+          "text": "The Custom Package is priced on a cost per-employee basis. The cost includes an unlimited number of training sessions, allowing for a tailored experience to meet specific organizational needs."
+        }
+      ]
+    },
+    "exclusions": {
+      "label": "Exclusions",
+      "heading": "What is not included?",
+      "items": [
+        "Certification/exam fees, post-training support, and labs are not included in the pricing and will be billed separately",
+        "The pricing for onsite training does not cover facilities and catering services",
+        "Certain customized and advanced training sessions are not included within the package and may incur additional charges"
+      ]
+    }
+  },
+  "price_factors": {
+    "heading": "What shapes your <span>training price</span>",
+    "description": "Six things decide what your organization pays for instructor-led training with Edstellar.",
+    "items": [
+      {
+        "icon": "team",
+        "title": "Team size",
+        "text": "More trainees use more licenses. Bigger packages save up to 20%."
+      },
+      {
+        "icon": "clock",
+        "title": "Program length",
+        "text": "Half-day, full-day or multi-day programs use licenses differently."
+      },
+      {
+        "icon": "monitor",
+        "title": "Delivery mode",
+        "text": "Virtual instructor-led is the package price. Onsite at your location is +30%."
+      },
+      {
+        "icon": "cap",
+        "title": "Program type",
+        "text": "Specialist technical and compliance programs need niche trainers, which can vary the price."
+      },
+      {
+        "icon": "pen",
+        "title": "Customisation",
+        "text": "Programs built around your tools, cases and processes take extra design time."
+      },
+      {
+        "icon": "award",
+        "title": "Certification & labs",
+        "text": "Exam fees and hands-on lab environments are billed separately."
+      }
+    ]
+  },
+  "options": {
+    "heading": "Which option <span>fits your team</span>",
+    "cta_label": "Enquire Now",
+    "cta_href": "#quote",
+    "items": [
+      {
+        "who": "1–2 programs a year",
+        "title": "One-off training",
+        "text": "No package commitment. Start with a paid trial session."
+      },
+      {
+        "who": "A steady training plan",
+        "title": "Starter / Growth",
+        "text": "Fixed licenses for a few teams, with 6–9 months to use them."
+      },
+      {
+        "who": "Year-round, company-wide",
+        "title": "Enterprise",
+        "text": "800 licenses across departments and locations, with up to 20% savings."
+      },
+      {
+        "who": "Large workforces",
+        "title": "Custom",
+        "text": "Per-employee pricing with unlimited training sessions."
+      }
+    ]
+  },
+  "delivery": {
+    "heading": "Virtual or <span>onsite</span> training",
+    "items": [
+      {
+        "label": "Virtual instructor-led",
+        "title": "Live online training",
+        "rows": [
+          {
+            "term": "Price",
+            "price": "Package price"
+          },
+          {
+            "term": "Includes",
+            "text": "Live trainer, course materials, dedicated Learning Services Manager"
+          },
+          {
+            "term": "Best for",
+            "text": "Distributed and global teams"
+          },
+          {
+            "term": "Not included",
+            "text": "—"
+          }
+        ]
+      },
+      {
+        "label": "Onsite at your office",
+        "title": "In-person training",
+        "highlight": true,
+        "rows": [
+          {
+            "term": "Price",
+            "price": "+30%"
+          },
+          {
+            "term": "Includes",
+            "text": "Everything in virtual, plus the trainer’s travel and accommodation"
+          },
+          {
+            "term": "Best for",
+            "text": "Hands-on workshops and team programs"
+          },
+          {
+            "term": "Not included",
+            "text": "Venue, facilities and catering"
+          }
+        ]
+      }
+    ]
+  },
+  "regions": {
+    "heading": "Corporate training pricing <span>in your region</span>",
+    "columns": [
+      "Region",
+      "Virtual, per training day",
+      "Onsite"
+    ],
+    "rows": [
+      {
+        "region": "USA",
+        "virtual": "[$X–$Y]",
+        "onsite": "+30%"
+      },
+      {
+        "region": "UK",
+        "virtual": "[£X–£Y]",
+        "onsite": "+30%"
+      },
+      {
+        "region": "India",
+        "virtual": "[₹X–₹Y]",
+        "onsite": "+30%"
+      },
+      {
+        "region": "Middle East",
+        "virtual": "[X–Y]",
+        "onsite": "+30%"
+      }
+    ],
+    "note": "Final price depends on program, group size and trainer seniority.",
+    "cta": {
+      "label": "Get your regional quote",
+      "href": "#quote"
+    }
+  },
+  "included": {
+    "heading": "What every package <span>includes</span>",
+    "items": [
+      "Domain-expert trainers on demand",
+      "Dedicated Learning Services Manager",
+      "Retrospective session after each training (2 hrs)",
+      "Training dashboard and analytics",
+      "Participation certificates",
+      "Paid trial available"
+    ]
+  },
+  "benefits": {
+    "heading": "Benefits of Our <span>Customized</span> Corporate Training Packages",
+    "items": [
+      {
+        "icon": "budget",
+        "title": "Optimize Training Budget",
+        "text": "Optimize your corporate training investment by saving big on your customized training and improve training effectiveness with our unique packages."
+      },
+      {
+        "icon": "grid",
+        "title": "All-in-One Solution",
+        "text": "We are a one-stop corporate training solution since we combine technology, training expertise and a diverse course portfolio to deliver the best experience."
+      },
+      {
+        "icon": "calendar",
+        "title": "Effective Planning",
+        "text": "Create effective training plans to meet all your organizational skilling needs for various projects."
+      },
+      {
+        "icon": "clock",
+        "title": "On-Demand Training",
+        "text": "Get instructor-led training from an expert trainer at any time of the year."
+      }
+    ]
+  },
+  "faqs": {
+    "heading": "Frequently Asked <span>Questions</span>",
+    "items": [
+      {
+        "question": "What is included in the Corporate Training Packages?",
+        "answer": "Training packages include trainer fee, course material, handouts etc. Some customized and premium training programs and onsite training in remote locations are not part of the package and can incur additional charges."
+      },
+      {
+        "question": "How much do corporate training packages cost?",
+        "answer": "Please contact us to know more about the pricing structure for each corporate training package. Contact us by filling the form or writing an email to us at contact@edstellar.com"
+      },
+      {
+        "question": "What are the charges of onsite training?",
+        "answer": "Onsite training comes at an additional cost that covers the trainer's travel and accommodation expenses. Please get in touch with us for the pricing options."
+      },
+      {
+        "question": "Can I customize a training package to suit my organization's specific needs?",
+        "answer": "The custom package is specially designed for organizations with specific training needs. Contact us to discuss your training requirements and we will help you with more information about our packages."
+      },
+      {
+        "question": "How can I purchase a corporate training package for my organization?",
+        "answer": "Please fill the form or write to us at contact@edstellar.com and our consultant will support you in purchasing a corporate training package that meets your needs."
+      },
+      {
+        "question": "What is the role of the Dedicated Learning Services Manager mentioned in the packages?",
+        "answer": "The dedicated learning services manager will be your single point of contact who will support you and your teams throughout the engagement."
+      },
+      {
+        "question": "What additional services can we request as part of our training package?",
+        "answer": "Coaching, Mentoring, Training Needs Analysis, Content Development for training, and training at an external venue are offered as additional services with an additional cost."
+      },
+      {
+        "question": "What is not included in the corporate training rates?",
+        "answer": "Certification/exam fees, post-training support, labs, facilities, and catering services for onsite training are not included in the corporate training pricing and will be billed separately."
+      },
+      {
+        "question": "I have discrete training requirements. Can I take training without opting for any package?",
+        "answer": "Absolutely! We provide training options for individual employees or small groups without requiring you to commit to any of our packages. Additionally, you can explore our paid trial session to experience our training."
+      },
+      {
+        "question": "How much does corporate training cost per employee?",
+        "answer": "Each employee uses one license per 8-hour training day. The Custom package is priced per employee, with unlimited sessions."
+      },
+      {
+        "question": "Is pricing per day or per person?",
+        "answer": "Both. Licenses count each trainee for each training day, so you pay only for training delivered."
+      },
+      {
+        "question": "How much extra is onsite training?",
+        "answer": "30% more than virtual. This covers the trainer’s travel and accommodation. Venue and catering are not included."
+      },
+      {
+        "question": "Are there hidden costs?",
+        "answer": "No. Certification, labs, post-training support, venue and catering are listed separately before you sign."
+      }
+    ]
+  },
+  "quote": {
+    "id": "quote",
+    "label": "Get a quote",
+    "heading": "Request a Training Quote",
+    "ask": "Get a quote in [X] business days. Tell us:",
+    "ask_items": [
+      "Topics or skills",
+      "Number of employees",
+      "Virtual or onsite",
+      "Location & dates",
+      "Certification or labs"
+    ],
+    "requirements_placeholder": "Tell Us about your Training Requirements",
+    "submit_label": "Submit"
+  }
+}

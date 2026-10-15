@@ -178,6 +178,57 @@
   /* Warm sand of the client-logo band. */
   --color-sand: #f5f3eb;
 
+  /* Pricing hero — a brighter blue banner than the navy family. */
+  --color-pricing-deep: #011737;
+  --color-pricing-mid: #001f50;
+  --color-pricing-bright: #003291;
+  --color-pricing-glow: #1062d6;
+  --color-pricing-card: #194887;
+  --color-pricing-sky: #7accff;
+  --color-pricing-azure: #2f86ec;
+  --color-pricing-kicker: #79b2e6;
+  --color-pricing-mist: #d6e3f5;
+
+  /* The featured package card in the pricing hero bobs gently. */
+  --animate-pricing-float: pricing-float 6s ease-in-out infinite;
+
+  @keyframes pricing-float {
+    0%, 100% { transform: rotate(0.9deg) translateY(0); }
+    50% { transform: rotate(0.9deg) translateY(-8px); }
+  }
+
+  /* Thank-you badge: the disc pops in, the tick draws itself, one ring
+     ripples out. All one-shot; skipped under reduced motion. */
+  --animate-badge-pop: badge-pop 0.5s cubic-bezier(0.2, 0.8, 0.2, 1.25) both;
+  --animate-check-draw: check-draw 0.45s cubic-bezier(0.65, 0, 0.45, 1) 0.35s both;
+  --animate-ring-ripple: ring-ripple 1.4s ease-out 0.55s both;
+
+  @keyframes badge-pop {
+    from { opacity: 0; transform: scale(0.6); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes check-draw {
+    from { stroke-dashoffset: 1; }
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes ring-ripple {
+    from { opacity: 0.6; transform: scale(0.85); }
+    to { opacity: 0; transform: scale(1.45); }
+  }
+
+  /* Trainer-platform hero photo wall: columns drift up / down. Each column
+     holds its photos twice, so -50% (less half the 14px gap) loops cleanly. */
+  --animate-wall-up: wall-up 36s linear infinite;
+  --animate-wall-down: wall-down 42s linear infinite;
+
+  @keyframes wall-up {
+    to { transform: translateY(calc(-50% - 7px)); }
+  }
+  @keyframes wall-down {
+    from { transform: translateY(calc(-50% - 7px)); }
+    to { transform: none; }
+  }
+
   /* Resting card elevation from the designs' elevation scale. */
   --shadow-rest: 0 1px 2px rgba(10, 22, 40, 0.06), 0 8px 24px rgba(10, 22, 40, 0.06);
   --shadow-lift: 0 2px 4px rgba(10, 22, 40, 0.08), 0 18px 40px rgba(10, 22, 40, 0.12);

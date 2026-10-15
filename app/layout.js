@@ -2,10 +2,13 @@ import { Sora, Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 
 import { SITE } from "@/lib/constants";
 import SchemaOrg from "@/components/seo/schema-org";
+import ZohoSalesIq from "@/components/layout/zoho-salesiq";
 import "./globals.css";
 
 /**
- * Root layout. Fonts, `metadataBase`, and the document shell — nothing else.
+ * Root layout. Fonts, `metadataBase`, the document shell, and the Zoho
+ * SalesIQ chat widget (here rather than in the footer so `(bare)` pages get it
+ * too).
  *
  * The header and footer live in `(site)/layout.js` rather than here, so a page
  * can opt out of them by living in `(bare)/` instead. There is exactly one
@@ -63,6 +66,7 @@ export default function RootLayout({ children }) {
       >
         <SchemaOrg website />
         {children}
+        <ZohoSalesIq />
       </body>
     </html>
   );

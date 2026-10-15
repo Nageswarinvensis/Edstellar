@@ -28,6 +28,8 @@ export async function generateMetadata({ params }) {
       author.short_description ||
       `Articles and insights written by ${author.name}.`,
     path: `/blog/author/${author.slug}`,
+    // Author pages are kept out of search (noindex, nofollow).
+    noIndex: true,
     image: author.avatar || author.meta?.detail_page_image,
     type: "profile",
   });

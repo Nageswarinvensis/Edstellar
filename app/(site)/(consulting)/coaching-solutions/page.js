@@ -8,7 +8,7 @@ import ProofStats from "@/components/sections/consulting/proof-stats";
 import ClientLogos from "@/components/common/client-logos";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import Faq from "@/components/common/faq";
-import LeadForm from "@/components/forms/lead-form";
+import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
 import CoachingHero from "@/components/sections/coaching/coaching-hero";
@@ -92,7 +92,7 @@ export default async function CoachingSolutionsPage() {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <LeadForm id="apply" background="navy" data={page.lead_form} />
+      <ConsultingForm id="apply" background="navy" data={page.lead_form} />
       <StickyFooter data={page.stickyFooter && { ...page.stickyFooter, email: true }} />
     </>
   );

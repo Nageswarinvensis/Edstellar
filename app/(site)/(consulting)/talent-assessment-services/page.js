@@ -8,7 +8,7 @@ import ClientLogos from "@/components/common/client-logos";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import WhyUs from "@/components/sections/consulting/why-us";
 import Faq from "@/components/common/faq";
-import LeadForm from "@/components/forms/lead-form";
+import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
 import Methodology from "@/components/sections/learning_development_consulting/methodology";
 import Transform from "@/components/sections/learning_development_consulting/transform";
@@ -117,7 +117,7 @@ export default async function TalentAssessmentServicesPage() {
         showCta={false}
       />
 
-      <LeadForm id="apply" background="navy" data={cms?.leadForm} />
+      <ConsultingForm id="apply" background="navy" data={cms?.leadForm} />
       <StickyFooter data={cms?.stickyFooter} />
     </>
   );
