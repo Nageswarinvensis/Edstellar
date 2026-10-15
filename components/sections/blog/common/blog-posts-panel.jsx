@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useTransition } from "react";
 
 import Box from "@/components/ui/Box";
+import Reveal from "@/components/common/reveal";
 import BlogPosts from "@/components/sections/blog/common/blog-posts";
 import BlogSidebar from "@/components/sections/blog/common/blog-sidebar";
 
@@ -112,12 +113,14 @@ export default function BlogPostsPanel({
 
       <Box className="order-1 mb-8 lg:order-2 lg:mb-0">
         <Box className="lg:sticky lg:top-20">
-          <BlogSidebar
-            categories={categories}
-            searchValue={query}
-            onSearchChange={setQuery}
-            searchPlaceholder={searchPlaceholder}
-          />
+          <Reveal delay={2}>
+            <BlogSidebar
+              categories={categories}
+              searchValue={query}
+              onSearchChange={setQuery}
+              searchPlaceholder={searchPlaceholder}
+            />
+          </Reveal>
         </Box>
       </Box>
     </Box>

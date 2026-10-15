@@ -4,6 +4,7 @@ import Text from "@/components/ui/Text";
 import RichHeading from "@/components/common/rich-heading";
 import { fillTemplate } from "@/lib/template";
 
+import Reveal from "@/components/common/reveal";
 const parseEducationData = (educationRaw) => {
   if (!educationRaw) return [];
 
@@ -34,123 +35,125 @@ export default function CertificationsAndEducation({ trainer, data }) {
 
   return (
     <Section id="accreditations" className="bg-paper">
-      <Box>
-        {/* TOP BLOCK: Certifications & Accreditations */}
+      <Reveal>
         <Box>
-          {/* Section Heading */}
-          <RichHeading
-            heading={data.heading}
-            className="mb-3 tracking-tight text-ink"
-            emphasisClassName="font-normal"
-          />
+          {/* TOP BLOCK: Certifications & Accreditations */}
+          <Box>
+            {/* Section Heading */}
+            <RichHeading
+              heading={data.heading}
+              className="mb-3 tracking-tight text-ink"
+              emphasisClassName="font-normal"
+            />
 
-          {/* Subtitle */}
-          <Text as="p" className="mb-10 max-w-2xl text-[16px] text-black/60">
-            {data.description}
-          </Text>
-
-          {/* Certifications Cards Grid */}
-          <Box className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {data.certifications.map((item, index) => (
-              <Box
-                key={index}
-                className="flex flex-col justify-between rounded-2xl border border-black/5 bg-white p-5 lg:p-6 shadow-sm transition-all hover:shadow-md"
-              >
-                <Box className="flex flex-col gap-3">
-                  <Box className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f0eee9] text-ink">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5"
-                    >
-                      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-                    </svg>
-                  </Box>
-
-                  <Text
-                    as="h3"
-                    className="text-[16px] font-medium leading-snug text-ink"
-                  >
-                    {item.title}
-                  </Text>
-
-                  <Text
-                    as="p"
-                    className="text-[12px] font-medium text-black/50"
-                  >
-                    {item.subtitle}
-                  </Text>
-                </Box>
-
-                <Text
-                  as="span"
-                  className="mt-2 text-[10px] font-medium tracking-wide text-black/40"
-                >
-                  {item.issuer} · {item.year}
-                </Text>
-              </Box>
-            ))}
-          </Box>
-
-          {/* Disclaimer Note Box */}
-          <Box className="mb-12 flex items-start gap-2.5 rounded-xl border border-black/5 bg-[#ecebe4] p-4 text-[12px] text-black/60">
-            <span className="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-black/30 text-[10px] font-bold">
-              !
-            </span>
-            <Text as="p">{data.note}</Text>
-          </Box>
-        </Box>
-
-        {/* BOTTOM BLOCK: Education */}
-        {educationList.length > 0 && (
-          <Box id="education">
-            <Text as="h2" className="tracking-tight text-ink">
-              {data.education_heading}
+            {/* Subtitle */}
+            <Text as="p" className="mb-10 max-w-2xl text-[16px] text-black/60">
+              {data.description}
             </Text>
 
-            <Box className="mt-8 grid gap-4 sm:grid-cols-2">
-              {educationList.map((item, index) => (
+            {/* Certifications Cards Grid */}
+            <Box className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {data.certifications.map((item, index) => (
                 <Box
                   key={index}
-                  className="flex flex-col justify-between rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition-all hover:shadow-md"
+                  className="flex flex-col justify-between rounded-2xl border border-black/5 bg-white p-5 lg:p-6 shadow-sm transition-all hover:shadow-md"
                 >
-                  <Box>
+                  <Box className="flex flex-col gap-3">
+                    <Box className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f0eee9] text-ink">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-5 w-5"
+                      >
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                      </svg>
+                    </Box>
+
                     <Text
                       as="h3"
-                      className="text-[18px] font-bold leading-snug text-ink"
+                      className="text-[16px] font-medium leading-snug text-ink"
                     >
-                      {item.institution}
+                      {item.title}
                     </Text>
 
-                    {item.degree && (
-                      <Text
-                        as="p"
-                        className="mt-1.5 text-[14px] font-medium text-black/60"
-                      >
-                        {item.degree}
-                      </Text>
-                    )}
+                    <Text
+                      as="p"
+                      className="text-[12px] font-medium text-black/50"
+                    >
+                      {item.subtitle}
+                    </Text>
                   </Box>
 
-                  {item.years && (
-                    <Text
-                      as="span"
-                      className="mt-4 text-[12px] font-medium tracking-wide text-black/40"
-                    >
-                      {item.years}
-                    </Text>
-                  )}
+                  <Text
+                    as="span"
+                    className="mt-2 text-[10px] font-medium tracking-wide text-black/40"
+                  >
+                    {item.issuer} · {item.year}
+                  </Text>
                 </Box>
               ))}
             </Box>
+
+            {/* Disclaimer Note Box */}
+            <Box className="mb-12 flex items-start gap-2.5 rounded-xl border border-black/5 bg-[#ecebe4] p-4 text-[12px] text-black/60">
+              <span className="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-black/30 text-[10px] font-bold">
+                !
+              </span>
+              <Text as="p">{data.note}</Text>
+            </Box>
           </Box>
-        )}
-      </Box>
+
+          {/* BOTTOM BLOCK: Education */}
+          {educationList.length > 0 && (
+            <Box id="education">
+              <Text as="h2" className="tracking-tight text-ink">
+                {data.education_heading}
+              </Text>
+
+              <Box className="mt-8 grid gap-4 sm:grid-cols-2">
+                {educationList.map((item, index) => (
+                  <Box
+                    key={index}
+                    className="flex flex-col justify-between rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition-all hover:shadow-md"
+                  >
+                    <Box>
+                      <Text
+                        as="h3"
+                        className="text-[18px] font-bold leading-snug text-ink"
+                      >
+                        {item.institution}
+                      </Text>
+
+                      {item.degree && (
+                        <Text
+                          as="p"
+                          className="mt-1.5 text-[14px] font-medium text-black/60"
+                        >
+                          {item.degree}
+                        </Text>
+                      )}
+                    </Box>
+
+                    {item.years && (
+                      <Text
+                        as="span"
+                        className="mt-4 text-[12px] font-medium tracking-wide text-black/40"
+                      >
+                        {item.years}
+                      </Text>
+                    )}
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          )}
+        </Box>
+      </Reveal>
     </Section>
   );
 }

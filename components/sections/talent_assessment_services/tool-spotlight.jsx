@@ -5,7 +5,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
-import CtaButton from "@/components/common/cta-button";
 
 /**
  * One Edstellar tool in the spotlight (e.g. Polaris on the team effectiveness
@@ -15,10 +14,11 @@ import CtaButton from "@/components/common/cta-button";
  * with a heading.
  *
  * CMS fields (snake_case, read verbatim): `section_id`, `heading` (emphasis in
- * `<span>`), `description`, `use_cases` (string[]), `audience`, `cta`
- * `{ label, href }`, optional `link` `{ label, href }` beside it, and
- * `svg_image` (inline SVG markup). `use_cases_label` / `audience_label`
- * override the default "Use cases" / "Audience".
+ * `<span>`), `description`, `use_cases` (string[]), `audience`, an optional
+ * `link` `{ label, href }`, and `svg_image` (inline SVG markup).
+ * `use_cases_label` / `audience_label` override the default "Use cases" /
+ * "Audience". The CMS `cta` ("Explore Zenith / Orbit / Polaris") is
+ * deliberately not rendered: those tool pages do not exist yet.
  *
  * Design: `#tool`, `.tsp`, `.tsp-g`, `.tsp-meta`, `.tsp-v`.
  */
@@ -31,7 +31,6 @@ export default function ToolSpotlight({ data }) {
     description,
     use_cases,
     audience,
-    cta,
     link,
     svg_image,
   } = data;
@@ -113,19 +112,9 @@ export default function ToolSpotlight({ data }) {
             </Reveal>
           ) : null}
 
-          {cta?.href || link?.href ? (
+          {link?.href ? (
             <Reveal delay={3}>
               <Box className={`flex flex-wrap items-center gap-x-5 gap-y-3 ${hasMeta ? "" : "mt-6"}`}>
-                {cta?.href ? (
-                  <CtaButton
-                    color="lime"
-                    arrow
-                    render={<Link href={cta.href} />}
-                    className="px-6 py-3.5 focus-visible:outline-lime"
-                  >
-                    {cta.label}
-                  </CtaButton>
-                ) : null}
                 {link?.href ? (
                   <Link
                     href={link.href}

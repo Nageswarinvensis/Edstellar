@@ -1,4 +1,5 @@
 import Box from "@/components/ui/Box";
+import Reveal from "@/components/common/reveal";
 import CategoryExplorer from "./category-explorer";
 import CatalogRail from "./catalog-rail";
 import QuoteRail from "./quote-rail";
@@ -23,7 +24,9 @@ export default function BlogRail({ categories, featuredDomain }) {
     <Box as="aside" aria-label="Explore Edstellar training" className="relative flex h-full min-w-0 flex-col">
       {segments.map((card) => (
         <Box key={card.key} className="min-h-0 flex-1 basis-0 pb-50 last:pb-0">
-          <Box className="sticky top-24">{card}</Box>
+          <Box className="sticky top-24">
+            <Reveal>{card}</Reveal>
+          </Box>
         </Box>
       ))}
     </Box>

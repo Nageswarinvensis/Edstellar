@@ -7,6 +7,7 @@ import BlogDetailCopyLinkButton from "@/components/sections/blog/detail/blog-det
 import { SOCIAL_LINKS, SocialIcon } from "@/components/sections/blog/common/social-icon";
 import { SITE } from "@/lib/constants";
 
+import Reveal from "@/components/common/reveal";
 export default function BlogDetailAuthorCard({
   name,
   slug,
@@ -29,7 +30,7 @@ export default function BlogDetailAuthorCard({
   );
 
   return (
-    <Box className="rounded-2xl border border-ink/10 bg-white p-4">
+    <Reveal className="rounded-2xl border border-ink/10 bg-white p-4">
       <Box className="flex items-center gap-4">
         <Box className="flex size-14 flex-none items-center justify-center overflow-hidden rounded-full bg-navy text-lime">
           {avatar ? (
@@ -88,6 +89,6 @@ export default function BlogDetailAuthorCard({
           {shortDescription}
         </Text>
       )}
-    </Box>
+    </Reveal>
   );
 }

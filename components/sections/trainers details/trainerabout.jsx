@@ -6,6 +6,7 @@ import RichHeading from "@/components/common/rich-heading";
 import { fillTemplate } from "@/lib/template";
 import { TRAINERS_DATA } from "@/content/trainers/trainersdata";
 
+import Reveal from "@/components/common/reveal";
 export default function TrainerAbout({ trainer, data }) {
   const trainerFirstName = trainer.name.split(" ")[0];
   const copy = { name: trainerFirstName };
@@ -57,64 +58,66 @@ export default function TrainerAbout({ trainer, data }) {
 
   return (
     <Section id="about" className="bg-[#f9fafb] py-16 text-ink">
-      <Box>
-        <Box className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_380px] lg:gap-16">
-          {/* Left Side: About Bio Text */}
-          <Box className="flex flex-col space-y-6">
-            <RichHeading
-              heading={fillTemplate(data.heading, copy)}
-              className="tracking-tight text-ink"
-              emphasisClassName="font-normal"
-            />
+      <Reveal>
+        <Box>
+          <Box className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_380px] lg:gap-16">
+            {/* Left Side: About Bio Text */}
+            <Box className="flex flex-col space-y-6">
+              <RichHeading
+                heading={fillTemplate(data.heading, copy)}
+                className="tracking-tight text-ink"
+                emphasisClassName="font-normal"
+              />
 
-            {paragraphs.length > 0 && (
-              <Box className="flex flex-col space-y-5">
-                {paragraphs.map((paragraph, index) => (
-                  <Text
-                    key={index}
-                    as="p"
-                    className="text-[16px] leading-[1.75] text-[#334155]"
-                  >
-                    {paragraph}
-                  </Text>
-                ))}
-              </Box>
-            )}
-          </Box>
-
-          {/* Right Side: Sticky "At a glance" Card */}
-          <Box className="sticky top-16 self-start h-fit rounded-[16px] border border-[#e2e8f0] bg-white p-5 shadow-sm sm:p-6">
-            <Text
-              as="h3"
-              className="text-[20px] font-bold tracking-tight text-ink"
-            >
-              {data.glance_heading}
-            </Text>
-
-            <Box className="mt-4 flex flex-col divide-y divide-[#f1f5f9]">
-              {glanceDetails.map((item, index) => (
-                <Box
-                  key={index}
-                  className="flex items-center justify-between py-2.5 text-[14px]"
-                >
-                  <Text as="span" className="text-[#64748b]">
-                    {item.label}
-                  </Text>
-                  <Text as="span" className="font-bold text-ink">
-                    {item.value}
-                  </Text>
+              {paragraphs.length > 0 && (
+                <Box className="flex flex-col space-y-5">
+                  {paragraphs.map((paragraph, index) => (
+                    <Text
+                      key={index}
+                      as="p"
+                      className="text-[16px] leading-[1.75] text-[#334155]"
+                    >
+                      {paragraph}
+                    </Text>
+                  ))}
                 </Box>
-              ))}
+              )}
             </Box>
 
-            <Box className="mt-4">
-              <CtaButton block arrow render={<a href={data.cta.href} />}>
-                {data.cta.text}
-              </CtaButton>
+            {/* Right Side: Sticky "At a glance" Card */}
+            <Box className="sticky top-16 self-start h-fit rounded-[16px] border border-[#e2e8f0] bg-white p-5 shadow-sm sm:p-6">
+              <Text
+                as="h3"
+                className="text-[20px] font-bold tracking-tight text-ink"
+              >
+                {data.glance_heading}
+              </Text>
+
+              <Box className="mt-4 flex flex-col divide-y divide-[#f1f5f9]">
+                {glanceDetails.map((item, index) => (
+                  <Box
+                    key={index}
+                    className="flex items-center justify-between py-2.5 text-[14px]"
+                  >
+                    <Text as="span" className="text-[#64748b]">
+                      {item.label}
+                    </Text>
+                    <Text as="span" className="font-bold text-ink">
+                      {item.value}
+                    </Text>
+                  </Box>
+                ))}
+              </Box>
+
+              <Box className="mt-4">
+                <CtaButton block arrow render={<a href={data.cta.href} />}>
+                  {data.cta.text}
+                </CtaButton>
+              </Box>
             </Box>
           </Box>
         </Box>
-      </Box>
+      </Reveal>
     </Section>
   );
 }

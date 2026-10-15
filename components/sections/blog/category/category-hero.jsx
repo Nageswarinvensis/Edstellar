@@ -25,29 +25,29 @@ export default function CategoryHero({ name, heading, description }) {
 
   return (
     <Box as="header" className="border-b-4 border-lime bg-navy px-5 lg:px-10">
-      <Box className="mx-auto max-w-7xl pb-11">
-        <Box
+      <Box className="mx-auto max-w-7xl py-10 lg:py-20">
+        <Reveal
           as="nav"
           aria-label="Breadcrumb"
-          className="flex flex-wrap gap-2 pt-5.5 font-mono text-[11px] uppercase tracking-[0.08em] text-paper/50"
+          className="flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-paper/50"
         >
-          <Link href="/" className="text-paper/65 transition-colors hover:text-lime">
+          <Link href="/" title="Click Here to View Home" className="text-paper/65 transition-colors hover:text-lime">
             Home
           </Link>
           <span aria-hidden="true">/</span>
-          <Link href="/blog" className="text-paper/65 transition-colors hover:text-lime">
+          <Link href="/blog" title="Click Here to View Blog" className="text-paper/65 transition-colors hover:text-lime">
             Blog
           </Link>
           <span aria-hidden="true">/</span>
           <span aria-current="page" className="font-medium text-lime">
             {name}
           </span>
-        </Box>
+        </Reveal>
 
-        <Reveal>
+        <Reveal delay={1}>
           <Text
             as="h1"
-            className="mt-4.5 max-w-[22ch] text-[clamp(26px,4vw,40px)] leading-[1.15] tracking-[-0.03em] text-paper"
+            className="mt-4.5 max-w-[22ch] text-paper"
           >
             {before}
             <em className="font-serif font-normal text-lime">{name}</em>
@@ -56,7 +56,7 @@ export default function CategoryHero({ name, heading, description }) {
         </Reveal>
 
         {description ? (
-          <Reveal delay={1}>
+          <Reveal delay={2}>
             <Text
               as="p"
               className="mt-4 max-w-[74ch] text-[15.5px] leading-[1.7] text-paper/75"
