@@ -22,7 +22,8 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
 import CourseImage from "@/components/common/course-image";
-import { courseUrl } from "@/lib/course-url";
+import { courseDescription, courseUrl } from "@/lib/course-url";
+import { approxDuration } from "@/lib/duration";
 
 /**
  * "Explore compliance training by topic" — the `#topics` section of the
@@ -110,7 +111,7 @@ function TopicCard({ topic }) {
 
         <Text
           as="span"
-          className="col-start-2 self-start font-mono text-[11px] uppercase leading-none tracking-[0.08em] text-ink-muted"
+          className="col-start-2 mt-1.5 self-start font-mono text-[11px] uppercase leading-none tracking-[0.08em] text-ink-muted"
         >
           {topic.count}
         </Text>
@@ -181,7 +182,7 @@ function ProgramCard({ program }) {
 
         <Text
           as="h4"
-          className="mb-3 text-[15px] font-semibold leading-[1.2] tracking-[-0.25px] text-ink"
+          className="mb-3 line-clamp-3 text-[15px] font-semibold leading-[1.2] tracking-[-0.25px] text-ink sm:min-h-[3.6em]"
         >
           {program.title}
         </Text>
@@ -195,7 +196,7 @@ function ProgramCard({ program }) {
                 aria-hidden="true"
                 className="shrink-0 text-ink-muted"
               />
-              {program.duration}
+              {approxDuration(program.duration)}
             </Box>
           ) : null}
 
@@ -220,12 +221,14 @@ function ProgramCard({ program }) {
           ) : null}
         </Box>
 
-        <Text
-          as="p"
-          className="mb-[18px] text-[13.5px] leading-[1.55] text-ink-muted"
-        >
-          {program.description}
-        </Text>
+        {program.description ? (
+          <Text
+            as="p"
+            className="mb-[18px] line-clamp-3 text-[13px] leading-[1.55] text-ink-muted"
+          >
+            {program.description}
+          </Text>
+        ) : null}
 
         <Box className="mt-auto flex items-center gap-2.5">
           <CtaButton
@@ -257,41 +260,89 @@ function findCourse(courses, title) {
 }
 
 /**
- * `courses` is the CMS `courses` component (`courses`, `sub_categories`).
- * When present it supplies the topic grid (biggest topics first, live counts)
- * and, for each popular card, the matching course's real thumbnail and link —
- * the popular block itself carries neither. Popular cards render in rank
- * order (`#1`, `#2`…).
+ * Popular cards when the CMS sends no `popular` list: the first course of
+ * each of the four biggest topics, tagged with its topic. The `courses`
+ * component carries no popularity signal, so no rank badge is invented.
  */
-export default function Topics({ data, courseCount, courses }) {
-  if (!data) return null;
+function popularFromCourses(courses, topics) {
+  const picked = topics.slice(0, 4).flatMap((topic) => {
+    const course = courses.courses.find((item) => item.sub_category_id === topic.id);
+    return course
+      ? [{
+          title: course.title,
+          href: courseUrl(course.href),
+          image: course.image,
+          duration: course.duration,
+          description: courseDescription(course),
+          delivery: "Instructor-led",
+          tag: topic.name,
+          tag_variant: ["orange", "blue", "green"][topic.index % 3],
+        }]
+      : [];
+  });
+  return picked.length ? picked : null;
+}
+
+/**
+ * `courses` is the CMS `courses` component (`courses`, `sub_categories`,
+ * `bundles`) — on its own it is enough to render the whole section: the
+ * topic grid (biggest topics first, live counts), and the popular cards.
+ * Its `config` carries the copy: `by_topic_heading` / `by_topic_desc` and
+ * `popular_programs_heading` / `popular_programs_desc`. `data` is the
+ * optional CMS `topics` component; when present it wins, and supplies topic
+ * icons and a hand-ranked `popular` list (each card matched to its course
+ * for the real thumbnail and link). A heading or lede neither sends is not
+ * rendered — no generated copy.
+ */
+export default function Topics({ data: topicsData, courseCount, courses }) {
+  const data = {
+    heading: courses?.by_topic_heading,
+    lede: courses?.by_topic_desc,
+    ...topicsData,
+  };
 
   // With the CMS `courses` component, the grid is its biggest topics by
   // course count, keeping each topic's CMS icon where the names match;
   // otherwise the hand-entered `topics` list.
-  const iconByName = new Map((data.topics ?? []).map((topic) => [topic.name, topic.icon]));
-  const topics = courses?.sub_categories?.length
-    ? [...courses.sub_categories]
-        .filter((topic) => topic.course_count > 0)
-        .sort((a, b) => b.course_count - a.course_count)
-        .map((topic) => ({
-          name: topic.name,
-          icon: iconByName.get(topic.name),
-          count: `${topic.course_count} programs`,
-        }))
-    : data.topics ?? [];
+  const iconByName = new Map((topicsData?.topics ?? []).map((topic) => [topic.name, topic.icon]));
+  const ranked = [...(courses?.sub_categories ?? [])]
+    .filter((topic) => topic.course_count > 0)
+    .sort((a, b) => b.course_count - a.course_count)
+    .map((topic, index) => ({ ...topic, index }));
+  const topics = ranked.length
+    ? ranked.map((topic) => ({
+        name: topic.name,
+        icon: iconByName.get(topic.name),
+        count: `${topic.course_count} Instructor-led Programs`,
+      }))
+    : topicsData?.topics ?? [];
+  if (!topics.length) return null;
 
-  const popular = data.popular && {
-    ...data.popular,
-    programs: [...(data.popular.programs ?? [])]
-      .sort((a, b) => rankOf(a) - rankOf(b))
-      .map((program) => {
-        const course = findCourse(courses?.courses ?? [], program.title);
-        return course
-          ? { ...program, href: program.href ?? courseUrl(course.href), image: course.image }
-          : program;
-      }),
-  };
+  const popular = topicsData?.popular?.programs?.length
+    ? {
+        ...topicsData.popular,
+        programs: [...topicsData.popular.programs]
+          .sort((a, b) => rankOf(a) - rankOf(b))
+          .map((program) => {
+            const course = findCourse(courses?.courses ?? [], program.title);
+            return course
+              ? {
+                  ...program,
+                  href: program.href ?? courseUrl(course.href),
+                  image: course.image,
+                  description: courseDescription({ ...course, description: program.description }),
+                }
+              : program;
+          }),
+      }
+    : courses?.courses?.length && popularFromCourses(courses, ranked)
+      ? {
+          heading: courses.popular_programs_heading,
+          lede: courses.popular_programs_desc,
+          ...topicsData?.popular,
+          programs: popularFromCourses(courses, ranked),
+        }
+      : null;
 
   return (
     <Section id="topics" className="bg-paper-warm">
@@ -316,12 +367,14 @@ export default function Topics({ data, courseCount, courses }) {
                 emphasisClassName="font-serif font-normal tracking-[-1px]"
               />
 
-              <Text
-                as="p"
-                className="mb-0 max-w-[56ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink-muted"
-              >
-                {data.lede}
-              </Text>
+              {data.lede ? (
+                <Text
+                  as="p"
+                  className="mb-0 max-w-[56ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink-muted"
+                >
+                  {data.lede}
+                </Text>
+              ) : null}
             </Box>
 
             {/* Fixed navigational affordance: jump to the full catalog
@@ -357,12 +410,14 @@ export default function Topics({ data, courseCount, courses }) {
                     emphasisClassName="font-serif font-normal tracking-[-1px]"
                   />
 
-                  <Text
-                    as="p"
-                    className="text-[15px] leading-[1.6] text-ink-muted"
-                  >
-                    {popular.lede}
-                  </Text>
+                  {popular.lede ? (
+                    <Text
+                      as="p"
+                      className="text-[15px] leading-[1.6] text-ink-muted"
+                    >
+                      {popular.lede}
+                    </Text>
+                  ) : null}
                 </Box>
 
                 <AllLink link={{ label: courseCount ? `All ${courseCount} programs` : (popular.all_link?.label || "All programs"), href: popular.all_link?.href || "#by-topic" }} />

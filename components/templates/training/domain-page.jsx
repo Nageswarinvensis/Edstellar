@@ -9,7 +9,7 @@ import Bundles from "@/components/sections/domain/bundles";
 import ByRole from "@/components/sections/domain/byrole";
 import ExploreCategories from "@/components/sections/domain/explore-categories";
 import Trainers from "@/components/common/trainers";
-import MapSection from "@/components/common/map-section";
+import DomainMapSection from "@/components/sections/domain/domain-map-section";
 import Delivered from "@/components/sections/domain/delivered";
 import DeliveryModes from "@/components/common/delivery-modes";
 import StickyFooter from "@/components/common/sticky-footer";
@@ -50,21 +50,11 @@ export default function DomainPage({ domain }) {
     },
   };
 
-  // The catalog heading and intro come from the CMS `programData`; a domain
-  // whose catalog is only the `courses` component gets them generated from
-  // its name and counts.
-  const courseCount = domain.coursesData?.courses?.length;
-  const topicCount = domain.coursesData?.sub_categories?.filter((topic) => topic.course_count > 0).length;
-  const programHeading = `Instructor-led <span>${domain.name} programs</span> by topic.`;
-  const programDescription = courseCount
-    ? `Browse all ${courseCount} ${domain.name} programs across ${topicCount} topics. Filter by topic and delivery format, then request a tailored proposal.`
-    : undefined;
-
   return (
     <>
       <Hero hero={hero} breadcrumbs={domain.breadcrumbs} />
       <DomainProof proof={domain.proof} />
-      <ClientLogos />
+      <ClientLogos heading="Trusted as a Leading Corporate Training Provider by" />
 
       <StickyNavbar data={domain.sticky_nav} />
       <About about={domain.about} ctaBannerData={domain.about?.cta_banner} />
@@ -73,10 +63,12 @@ export default function DomainPage({ domain }) {
         courses={domain.coursesData}
         courseCount={domain.coursesData?.courses?.length ?? domain.programData?.catalog?.courseCount}
       />
+      {/* Catalog heading and intro: the CMS `programData`, else the `courses`
+          config (`programs_heading` / `programs_desc`); neither → not rendered. */}
       <Program
         data={{
-          heading: programHeading,
-          description: programDescription,
+          heading: domain.coursesData?.programs_heading,
+          description: domain.coursesData?.programs_desc,
           ...domain.programData,
           defaultDelivery: domain.delivery,
         }}
@@ -85,7 +77,6 @@ export default function DomainPage({ domain }) {
       <Bundles
         data={domain.bundlesData}
         courses={domain.coursesData}
-        domainName={domain.name}
       />
       <ByRole data={domain.byRoleData} />
       <ExploreCategories data={domain.exploreCategoriesData} />
@@ -97,7 +88,7 @@ export default function DomainPage({ domain }) {
       />
       <Trainers trainers={domain.trainers} desktopCards={4} />
 
-      <MapSection data={domain.mapsectionData} className="bg-paper-warm" />
+      <DomainMapSection data={domain.mapsectionData} className="bg-paper-warm" />
       <Delivered data={domain.deliveredData} />
       <FromEdstellar data={domain.fromedstellarData} />
       <Faq

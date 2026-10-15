@@ -98,7 +98,7 @@ export const DOMAIN_DEFAULTS = {
    */
   programData: {
     filters: {
-      allDisciplines: "All disciplines",
+      allDisciplines: "All topics",
       // "View all topics" overflow modal (domain catalog). `{count}` in the
       // subtitle is replaced with the number of topics at render time.
       viewAllTopics: "View all topics",

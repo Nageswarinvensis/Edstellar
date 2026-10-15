@@ -9,7 +9,6 @@ import {
   FileText,
   Coins,
   Network,
-  Layers,
   Users,
   Clock,
   ChevronRight,
@@ -64,8 +63,6 @@ const iconVariants = {
 };
 
 function BundleCard({ bundle, onOpen }) {
-  const Icon = bundleIcons[bundle.icon] ?? Package;
-  const iconClass = iconVariants[bundle.icon_variant] ?? iconVariants.orange;
   const imageSrc = bundle.image ?? DOMAIN_CARD_IMAGE;
 
   return (
@@ -87,24 +84,9 @@ function BundleCard({ bundle, onOpen }) {
             className="h-full w-full object-cover transition-transform duration-[450ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105"
           />
         ) : null}
-
-        {bundle.badge ? (
-          <Text
-            as="span"
-            className="absolute right-2.5 top-2.5 rounded-[6px] bg-lime px-[9px] py-[5px] font-mono text-[10px] font-medium uppercase tracking-[0.1em] text-navy"
-          >
-            {bundle.badge}
-          </Text>
-        ) : null}
       </Box>
 
-      <Box className="relative flex flex-1 flex-col gap-2.5 px-[18px] pb-[18px]">
-        <Box
-          as="span"
-          className={`-mt-[22px] grid size-11 place-items-center rounded-[11px] border-[3px] border-white shadow-[0_6px_16px_-8px_rgba(10,22,40,0.35)] ${iconClass}`}
-        >
-          <Icon size={20} strokeWidth={1.7} aria-hidden="true" />
-        </Box>
+      <Box className="relative flex flex-1 flex-col gap-2.5 px-[18px] pt-[18px] pb-[18px]">
 
         <Text
           as="span"
@@ -125,34 +107,23 @@ function BundleCard({ bundle, onOpen }) {
             as="span"
             className="flex items-center gap-2 text-[12.5px] font-medium text-ink"
           >
-            <Layers
-              size={16}
-              strokeWidth={1.8}
-              aria-hidden="true"
-              className="flex-none text-ink-muted"
-            />
-            {bundle.program_count}
+            {bundle.program_count}{" "}
+            {Number(bundle.program_count) === 1 ? "Program" : "Programs"}
           </Box>
 
           <Box
             as="span"
             className="flex items-center gap-2 text-[12.5px] font-medium text-ink"
           >
-            <Users
-              size={16}
-              strokeWidth={1.8}
-              aria-hidden="true"
-              className="flex-none text-ink-muted"
-            />
             {bundle.audience}
           </Box>
         </Box>
 
         <Box
           as="span"
-          className="mt-1 inline-flex items-center gap-[7px] text-[13.5px] font-semibold text-navy"
+          className="mt-4 inline-flex items-center gap-[7px] self-end text-[13.5px] font-semibold text-navy underline-offset-4 hover:underline"
         >
-          View bundle
+          View program topics
           <ArrowRight
             size={15}
             strokeWidth={2.2}
@@ -329,7 +300,7 @@ function BundleDrawer({ bundle, onClose }) {
                           aria-hidden="true"
                           className="flex-none text-ink-muted"
                         />
-                        {typeof program.duration === "string" ? program.duration.replace(/Hours/g, "hours") : program.duration}
+                        {typeof program.duration === "string" ? approxDuration(program.duration).replace(/Hours/g, "hours") : program.duration}
                       </Box>
                     ) : null}
                     {program.audience ? (
@@ -443,10 +414,11 @@ function bundlesFromCourses(courses, extra) {
 /**
  * `data` is the CMS `bundles` component (heading, lede, and optionally its own
  * bundle list); `courses` is the CMS `courses` component. When `courses`
- * carries bundles they are the source of truth; `domainName` fills the
- * heading and lede when the domain has no `bundles` component.
+ * carries bundles they are the source of truth. The heading and lede come
+ * from the `courses` config (`bundel_heading` / `bundel_desc` — the CMS's
+ * spelling); either one the CMS does not send is not rendered.
  */
-export default function Bundles({ data: bundlesData, courses, domainName }) {
+export default function Bundles({ data: bundlesData, courses }) {
   const [activeCat, setActiveCat] = useState("all");
   const [openBundle, setOpenBundle] = useState(null);
   // How many cards are revealed; grows by `PAGE_SIZE` on each "view more".
@@ -454,8 +426,8 @@ export default function Bundles({ data: bundlesData, courses, domainName }) {
 
   const fromCourses = courses?.bundles?.length ? bundlesFromCourses(courses, bundlesData) : null;
   const data = {
-    heading: domainName ? `${domainName} <span>bundles</span> for whole teams` : undefined,
-    lede: "Curated training packs that onboard a function at once, drawn from how these programs are grouped.",
+    heading: courses?.bundel_heading,
+    lede: courses?.bundel_desc,
     ...bundlesData,
     ...fromCourses,
   };
@@ -480,12 +452,14 @@ export default function Bundles({ data: bundlesData, courses, domainName }) {
               emphasisClassName="font-serif font-normal tracking-[-1px]"
             />
 
-            <Text
-              as="p"
-              className="mb-0 text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink-muted"
-            >
-              {data.lede}
-            </Text>
+            {data.lede ? (
+              <Text
+                as="p"
+                className="mb-0 text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink-muted"
+              >
+                {data.lede}
+              </Text>
+            ) : null}
           </Box>
         </Reveal>
 

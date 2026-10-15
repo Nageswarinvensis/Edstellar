@@ -16,12 +16,22 @@ import { cn } from "@/lib/utils";
 
 /**
  * Meridian spotlight — header with CTAs, then a tab list of four features on
- * the left and the matching product screen on the right (ARIA tabs with
- * arrow-key movement). Every panel is rendered (inactive ones `hidden`), so
+ * the left and, on the right, each tab's CMS image (or, until a tab has one,
+ * its built-in product screen). ARIA tabs with arrow-key movement. Every panel is rendered (inactive ones `hidden`), so
  * the copy is in the HTML.
  *
  * Design: coaching-hub `#meridian`, `.mer-head`, `.m2`, `.m2-t`, `.m2-stage`.
  */
+/** A tab's right-side image from the CMS — `image` as a URL string or
+ * `{ src, alt }` (also read as `image_url`), with `image_alt` — or `null`,
+ * in which case the built-in product panel (`tab.panel`) is drawn instead. */
+function tabImage(tab) {
+  const image = tab.image ?? tab.image_url;
+  const src = typeof image === "string" ? image : image?.src;
+  if (!src) return null;
+  return { src, alt: (typeof image === "object" && image?.alt) || tab.image_alt || tab.title };
+}
+
 export default function MeridianShowcase({ data }) {
   const [active, setActive] = useState(0);
   const tabRefs = useRef([]);
@@ -150,7 +160,17 @@ export default function MeridianShowcase({ data }) {
               hidden={index !== active}
               className="min-h-0 flex-1 [&:not([hidden])]:flex"
             >
-              <MeridianWindow panel={tab.panel} />
+              {tabImage(tab) ? (
+                <img
+                  src={tabImage(tab).src}
+                  alt={tabImage(tab).alt}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="block h-auto w-full self-start rounded-[14px] object-contain"
+                />
+              ) : (
+                <MeridianWindow panel={tab.panel} />
+              )}
             </Box>
           ))}
         </Box>

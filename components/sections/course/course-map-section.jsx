@@ -98,7 +98,13 @@ function ApproachStep({ step, Icon }) {
   );
 }
 
-export default function MapSection({ data, className }) {
+/**
+ * Course page "why Edstellar" map section. The stats and the map are fixed
+ * for every course — only the heading and description come from the course's
+ * `mapsectionData`. Domain pages use their own CMS-driven copy,
+ * `components/sections/domain/domain-map-section.jsx`.
+ */
+export default function CourseMapSection({ data, className }) {
   if (!data) return null;
 
   return (
@@ -111,7 +117,7 @@ export default function MapSection({ data, className }) {
       )}
     >
       <Box>
-        <Box className="relative grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start lg:gap-12">
+        <Box className="relative grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_560px] lg:items-center lg:gap-12">
           {/* Left content */}
           <Box className="max-w-162">
             {/* Heading */}
@@ -134,14 +140,14 @@ export default function MapSection({ data, className }) {
           </Box>
 
           {/* World map — static asset, not CMS-driven */}
-          <Box className="flex w-full items-start justify-center lg:justify-end">
-            <Box className="relative mt-1 h-37.5 w-full max-w-97.5 overflow-hidden">
+          <Box className="flex w-full items-center justify-center lg:justify-end">
+            <Box className="relative aspect-[719/292] w-full max-w-[560px] overflow-hidden">
               <Image
                 src="/course/map1.png"
                 alt="Global delivery map"
                 fill
                 priority
-                sizes="390px"
+                sizes="(max-width: 1024px) 100vw, 560px"
                 className="
                   object-contain
                   object-center

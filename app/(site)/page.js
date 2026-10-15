@@ -83,7 +83,7 @@ const SITE_MAP = [
   {
     kicker: "Conversion",
     title: "Thank you page",
-    links: ["/thank-you/example"],
+    links: ["/thank-you/category"],
   },
   {
     kicker: "Company",
