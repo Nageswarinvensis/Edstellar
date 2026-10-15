@@ -16,7 +16,7 @@ import CoachingBenefits from "@/components/sections/coaching/coaching-benefits";
 import CoachingProcess from "@/components/sections/coaching/coaching-process";
 import CoachingConfidentialCompare from "@/components/sections/coaching/coaching-confidential-compare";
 import CoachingWhy from "@/components/sections/coaching/coaching-why";
-import CoachingSubHero from "@/components/sections/coaching/coaching-sub-hero";
+import CoachingHero from "@/components/sections/coaching/coaching-hero";
 import CoachingWhoFor from "@/components/sections/coaching/coaching-who-for";
 import CoachingTracks from "@/components/sections/coaching/coaching-tracks";
 import CoachingRelated from "@/components/sections/coaching/coaching-related";
@@ -64,7 +64,7 @@ export default async function CoachingSubPage({ params }) {
 
   return (
     <>
-      <CoachingSubHero data={page.hero} />
+      <CoachingHero cms={page.consulting_Hero} />
       <ProofStats data={PROOF_STATS} />
       <ClientLogos />
       <StickyTabs data={page.stickyNavbar} />

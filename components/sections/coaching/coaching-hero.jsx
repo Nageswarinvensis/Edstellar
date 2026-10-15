@@ -46,11 +46,9 @@ export default function CoachingHero({ cms, breadcrumbs }) {
       <Box className="mx-auto grid max-w-7xl grid-cols-[1.1fr_0.9fr] items-center gap-14 max-[1200px]:grid-cols-1 max-[1200px]:gap-10">
         <Box>
           <Reveal>
-            {breadcrumbs?.length ? (
-              <Box className=" my-6">
-                <Breadcrumbs items={breadcrumbs} />
-              </Box>
-            ) : null}
+            <Box className="my-6">
+              <Breadcrumbs items={breadcrumbs} />
+            </Box>
             <RichHeading
               as="h1"
               heading={heading}
