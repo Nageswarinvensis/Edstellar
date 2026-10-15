@@ -43,7 +43,7 @@ export default function CoachingPaths({ data }) {
             <Reveal key={item.title} delay={Math.min((index % 3) + 1, 4)} className="h-full">
               <Box
                 as={Link}
-                href={item.cta?.href ?? "#contact"}
+                href={item.cta?.href ?? "#apply"}
                 title={`Click Here to View ${item.title}`}
                 className={cn(
                   "group flex h-full flex-col rounded-[14px] border p-7 no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lift motion-reduce:hover:translate-y-0 max-[600px]:p-6",

@@ -42,6 +42,7 @@ const COACHING_ICONS = {
   layers: Layers,
   link: Link2,
   lock: Lock,
+  shield: ShieldCheck,
   "shield-check": ShieldCheck,
   sparkles: Sparkles,
   sprout: Sprout,

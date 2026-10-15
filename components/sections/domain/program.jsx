@@ -13,18 +13,50 @@ import {
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
-import CourseImage from "@/components/common/course-image";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
+import { courseUrl } from "@/lib/course-url";
+import { approxDuration } from "@/lib/duration";
 
-const COURSES_PER_PAGE = 9;
+const COURSES_PER_PAGE = 15;
 
 // How many discipline chips show inline (after "All disciplines") before the
 // rest collapse behind the "View all topics" modal — roughly two rows on a
 // desktop width. The modal always lists every topic.
 const INLINE_DISCIPLINE_COUNT = 10;
+
+/**
+ * The catalog's courses. With the CMS `courses` component (`courses`,
+ * `sub_categories`) it is the live list: each course keeps its CMS fields,
+ * gains an absolute `href`, and takes its topic (`discipline`) from
+ * `sub_categories` by `sub_category_id`. Its description is the course's own
+ * `description` when the CMS sends one, else the matching `programData`
+ * course's, else the generic line the CMS uses for courses without copy.
+ * Without the `courses` component, the static `programData.catalog.courses`.
+ */
+function catalogCourses(cms, staticCourses = []) {
+  if (!cms?.courses?.length) return staticCourses;
+
+  const topicName = new Map((cms.sub_categories ?? []).map((topic) => [topic.id, topic.name]));
+  const descriptionByHref = new Map(staticCourses.map((course) => [course.href, course.description]));
+
+  return cms.courses.map((course) => {
+    const href = courseUrl(course.href);
+    const topic = topicName.get(course.sub_category_id);
+    return {
+      ...course,
+      href,
+      discipline: topic,
+      disciplineTags: topic ? [topic] : [],
+      description:
+        course.description ||
+        descriptionByHref.get(href) ||
+        `Instructor-led training on ${course.title}, scoped to your team's level and use cases.`,
+    };
+  });
+}
 
 const paginationButtonBase =
   "flex h-8 w-8 items-center justify-center rounded-[7px] border transition-all duration-200";
@@ -73,9 +105,9 @@ function DeliveryBadge({ delivery, data }) {
   }
 
   return (
-    <div className="absolute bottom-2.25 left-2.5 z-10">
-      <div className="flex items-center gap-1.25 rounded-[5px] bg-[#B8F500] px-1.25 py-1">
-        <span className="h-1.25 w-1.25 shrink-0 rounded-full bg-[#07182C]" />
+    <div className="mb-2 flex">
+      <div className="flex items-center gap-1.25">
+        <span className="h-1.25 w-1.25 shrink-0 rounded-full bg-olive" />
 
         <Text
           as="span"
@@ -94,61 +126,22 @@ function DeliveryBadge({ delivery, data }) {
   );
 }
 
-function CourseMedia({ course, data }) {
-  const cardData = data.catalog.card;
-
-  if (course.proposed) {
-    return (
-      <Box className="relative h-51 overflow-hidden bg-[radial-gradient(circle_at_75%_20%,#33452A_0%,#18251E_30%,#07182C_72%)]">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(7,24,44,0.1),rgba(7,24,44,0.65))]" />
-
-        <div className="relative flex h-full items-center justify-center">
-          <Text
-            as="span"
-            className="text-[9px] font-medium uppercase tracking-[2px] text-[#B8F500]"
-          >
-            {cardData.proposedProgramLabel}
-          </Text>
-        </div>
-      </Box>
-    );
+function durationLabel(duration, cardData) {
+  if (typeof duration === "string") {
+    const text = approxDuration(duration);
+    return text
+      ? text.replace(/\s*Hours?\b/i, ` ${cardData.hoursSuffix}`).toUpperCase()
+      : cardData.durationOnRequest;
   }
-
-  return (
-    <Box className="relative h-51 overflow-hidden bg-paper-warm">
-      {/* The CMS image (`course.image.src`), or the default course image */}
-      <CourseImage
-        src={course.image?.src}
-        alt={course.image?.alt || course.title}
-        title={course.image?.title || course.title}
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-      />
-
-      <div className="absolute inset-0 bg-black/5" />
-
-      <DeliveryBadge
-        delivery={course.delivery ?? data.defaultDelivery}
-        data={data}
-      />
-    </Box>
-  );
+  if (duration?.type === "request") return cardData.durationOnRequest;
+  if (duration?.type === "range" && duration.min !== undefined && duration.max !== undefined) {
+    return `${duration.min} - ${duration.max} ${cardData.hoursSuffix}`;
+  }
+  return null;
 }
 
 function Duration({ duration, data }) {
-  const cardData = data.catalog.card;
-
-  if (!duration) {
-    return null;
-  }
-
-  const durationText =
-    duration.type === "request"
-      ? cardData.durationOnRequest
-      : duration.type === "range" &&
-          duration.min !== undefined &&
-          duration.max !== undefined
-        ? `${duration.min} - ${duration.max} ${cardData.hoursSuffix}`
-        : null;
+  const durationText = durationLabel(duration, data.catalog.card);
 
   if (!durationText) {
     return null;
@@ -172,7 +165,7 @@ function CourseCard({ course, data }) {
   const cardData = data.catalog.card;
 
   const cardClasses = [
-    "group block overflow-hidden rounded-[12px]",
+    "group flex h-full flex-col overflow-hidden rounded-[12px]",
     course.proposed
       ? "border border-dashed border-[#D7DADF] hover:border-[#0A1628]"
       : "border border-solid border-[#D7DADF]",
@@ -184,26 +177,23 @@ function CourseCard({ course, data }) {
 
   return (
     <Box className={cardClasses}>
-      <CourseMedia course={course} data={data} />
+      <Box className="flex min-h-35 flex-1 flex-col px-4 py-4">
+        {course.proposed ? null : (
+          <DeliveryBadge delivery={course.delivery ?? data.defaultDelivery} data={data} />
+        )}
 
-      <Box className="flex min-h-35 flex-col px-4 py-3">
-        <div className="mb-1.25 flex min-h-3 items-center gap-2.5">
-          <Text
-            as="span"
-            className="text-[9px] font-medium uppercase tracking-[1.4px] text-[#4F5863]"
-          >
-            {course.discipline}
-          </Text>
-
-          {course.proposed && (
+        {/* The topic is not shown on the card (it is the catalog's filter);
+            only a proposed program carries a tag here. */}
+        {course.proposed && (
+          <div className="mb-1.25 flex items-center">
             <Text
               as="span"
               className="rounded-lg bg-lime px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.5px] text-[#0A1628]"
             >
               {cardData.proposedLabel}
             </Text>
-          )}
-        </div>
+          </div>
+        )}
 
         <a href={course.href}>
           <Text
@@ -480,7 +470,7 @@ function TopicsModal({
   );
 }
 
-export default function Program({ data }) {
+export default function Program({ data, courses: cmsCourses }) {
   const [selectedDiscipline, setSelectedDiscipline] = useState(null);
 
   const [topicsOpen, setTopicsOpen] = useState(false);
@@ -489,14 +479,26 @@ export default function Program({ data }) {
 
   const [currentPage, setCurrentPage] = useState(1);
 
+  const courses = useMemo(
+    () => catalogCourses(cmsCourses, data?.catalog?.courses),
+    [cmsCourses, data?.catalog?.courses],
+  );
+
   /*
    * DISCIPLINE
    * Generated from course disciplineTags.
    */
   const disciplines = useMemo(() => {
+    // The CMS topic list, in its own order, when it sends one.
+    if (cmsCourses?.sub_categories?.length) {
+      return cmsCourses.sub_categories
+        .filter((topic) => topic.course_count > 0)
+        .map((topic) => topic.name);
+    }
+
     const unique = new Set();
 
-    (data?.catalog?.courses ?? []).forEach((course) => {
+    courses.forEach((course) => {
       course.disciplineTags?.forEach((tag) => {
         if (tag) {
           unique.add(tag);
@@ -505,7 +507,7 @@ export default function Program({ data }) {
     });
 
     return Array.from(unique);
-  }, [data?.catalog?.courses]);
+  }, [cmsCourses?.sub_categories, courses]);
 
   /*
    * DISCIPLINE + SEARCH
@@ -513,7 +515,7 @@ export default function Program({ data }) {
   const filteredCourses = useMemo(() => {
     const query = search.trim().toLowerCase();
 
-    return (data?.catalog?.courses ?? []).filter((course) => {
+    return courses.filter((course) => {
       const matchesDiscipline =
         !selectedDiscipline ||
         course.disciplineTags?.includes(selectedDiscipline);
@@ -538,7 +540,7 @@ export default function Program({ data }) {
 
       return searchableText.includes(query);
     });
-  }, [data?.catalog?.courses, search, selectedDiscipline]);
+  }, [courses, search, selectedDiscipline]);
 
   const totalPages = Math.max(
     1,
@@ -702,7 +704,7 @@ export default function Program({ data }) {
                     "hover:cursor-pointer",
                   ].join(" ")}
                 >
-                  {data.catalog.courseCount} {data.catalog.liveCatalogLabel}
+                  {courses.length || data.catalog.courseCount} {data.catalog.liveCatalogLabel}
                 </a>
               </>
             )}

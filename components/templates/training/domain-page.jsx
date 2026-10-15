@@ -50,6 +50,16 @@ export default function DomainPage({ domain }) {
     },
   };
 
+  // The catalog heading and intro come from the CMS `programData`; a domain
+  // whose catalog is only the `courses` component gets them generated from
+  // its name and counts.
+  const courseCount = domain.coursesData?.courses?.length;
+  const topicCount = domain.coursesData?.sub_categories?.filter((topic) => topic.course_count > 0).length;
+  const programHeading = `Instructor-led <span>${domain.name} programs</span> by topic.`;
+  const programDescription = courseCount
+    ? `Browse all ${courseCount} ${domain.name} programs across ${topicCount} topics. Filter by topic and delivery format, then request a tailored proposal.`
+    : undefined;
+
   return (
     <>
       <Hero hero={hero} breadcrumbs={domain.breadcrumbs} />
@@ -58,11 +68,25 @@ export default function DomainPage({ domain }) {
 
       <StickyNavbar data={domain.sticky_nav} />
       <About about={domain.about} ctaBannerData={domain.about?.cta_banner} />
-      <Topics data={domain.topicsData} courseCount={domain.programData?.catalog?.courseCount} />
-      <Program
-        data={{ ...domain.programData, defaultDelivery: domain.delivery }}
+      <Topics
+        data={domain.topicsData}
+        courses={domain.coursesData}
+        courseCount={domain.coursesData?.courses?.length ?? domain.programData?.catalog?.courseCount}
       />
-      <Bundles data={domain.bundlesData} />
+      <Program
+        data={{
+          heading: programHeading,
+          description: programDescription,
+          ...domain.programData,
+          defaultDelivery: domain.delivery,
+        }}
+        courses={domain.coursesData}
+      />
+      <Bundles
+        data={domain.bundlesData}
+        courses={domain.coursesData}
+        domainName={domain.name}
+      />
       <ByRole data={domain.byRoleData} />
       <ExploreCategories data={domain.exploreCategoriesData} />
       <Outcome data={domain.outcomeData} />

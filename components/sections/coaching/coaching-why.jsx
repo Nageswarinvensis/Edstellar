@@ -263,9 +263,12 @@ export default function CoachingWhy({ data }) {
       {related?.items?.length ? (
         <>
           <Box className="mt-18 mb-6">
-            <Text as="h3" className="mb-1.5 text-[22px] leading-[1.3] font-semibold tracking-[-0.02em] text-ink">
-              {related.heading}
-            </Text>
+            <RichHeading
+              as="h3"
+              heading={related.heading}
+              className="mb-1.5 text-[22px] leading-[1.3] font-semibold tracking-[-0.02em] text-ink"
+              emphasisClassName="font-normal"
+            />
             {related.description ? (
               <Text as="p" className="m-0 text-[16px] text-ink/60">
                 {related.description}

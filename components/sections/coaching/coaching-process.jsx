@@ -127,7 +127,7 @@ export default function CoachingProcess({ data }) {
                 {step.image ? (
                   <img
                     src={step.image}
-                    alt={step.image_alt || ""}
+                    alt={step.image_alt || step.title || ""}
                     width={1200}
                     height={800}
                     loading="lazy"

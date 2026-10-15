@@ -52,7 +52,7 @@ const SITE_MAP = [
   {
     kicker: "Coaching",
     title: "Coaching services",
-    links: ["/coaching-services"],
+    links: ["/coaching-solutions"],
   },
   {
     kicker: "Platform",
@@ -93,7 +93,7 @@ const SITE_MAP = [
   {
     kicker: "Legal",
     title: "Privacy & terms",
-    links: ["/privacy-policy", "/terms-and-conditions"],
+    links: ["/privacy-policy", "/terms-conditions"],
   },
 ];
 
