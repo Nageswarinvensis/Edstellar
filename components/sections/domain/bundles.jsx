@@ -22,6 +22,8 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import { courseUrl } from "@/lib/course-url";
+import { approxDuration } from "@/lib/duration";
 
 /**
  * "Compliance bundles for whole teams" — the `#bundles` section of the domain
@@ -296,7 +298,7 @@ function BundleDrawer({ bundle, onClose }) {
             {programs.map((program) => (
               <Box
                 as="a"
-                href={program.href || "#"}
+                href={courseUrl(program.href)}
                 key={program.number || program.title}
                 className="group flex cursor-pointer items-center gap-[14px] rounded-[12px] border border-ink/12 bg-white px-4 py-[14px] transition-[border-color,background-color] duration-200 hover:border-ink hover:bg-paper-warm"
               >
@@ -394,14 +396,71 @@ function BundleDrawer({ bundle, onClose }) {
 
 const PAGE_SIZE = 8;
 
-export default function Bundles({ data }) {
+/**
+ * Bundles built from the CMS `courses` component alone: `courses.bundles`
+ * for the cards, each bundle's programs from the courses whose `bundle_ids`
+ * include it, and the filter pills from the bundles' `cat`. When the domain
+ * also has a `bundles` component, its programs' `description` / `audience`
+ * are kept (matched by link) for the drawer.
+ */
+function bundlesFromCourses(courses, extra) {
+  const details = new Map(
+    (extra?.bundles ?? [])
+      .flatMap((bundle) => bundle.programs ?? [])
+      .map((program) => [courseUrl(program.href), program]),
+  );
+
+  const bundles = courses.bundles.map((bundle) => ({
+    ...bundle,
+    href: bundle.anchor,
+    program_count: bundle.course_count,
+    programs: courses.courses
+      .filter((course) => course.bundle_ids?.includes(bundle.id))
+      .map((course, index) => {
+        const href = courseUrl(course.href);
+        const detail = details.get(href);
+        return {
+          href,
+          title: course.title,
+          number: String(index + 1).padStart(2, "0"),
+          duration: approxDuration(course.duration || detail?.duration) || null,
+          description: detail?.description,
+          audience: detail?.audience,
+        };
+      }),
+  }));
+
+  const perCat = new Map();
+  bundles.forEach((bundle) => perCat.set(bundle.cat, (perCat.get(bundle.cat) ?? 0) + 1));
+  const filters = [
+    { cat: "all", label: "All bundles", count: bundles.length },
+    ...[...perCat].sort(([a], [b]) => a.localeCompare(b)).map(([cat, count]) => ({ cat, label: cat, count })),
+  ];
+
+  return { bundles, filters };
+}
+
+/**
+ * `data` is the CMS `bundles` component (heading, lede, and optionally its own
+ * bundle list); `courses` is the CMS `courses` component. When `courses`
+ * carries bundles they are the source of truth; `domainName` fills the
+ * heading and lede when the domain has no `bundles` component.
+ */
+export default function Bundles({ data: bundlesData, courses, domainName }) {
   const [activeCat, setActiveCat] = useState("all");
   const [openBundle, setOpenBundle] = useState(null);
   // How many cards are revealed; grows by `PAGE_SIZE` on each "view more".
   const [shownCount, setShownCount] = useState(PAGE_SIZE);
 
-  const bundles = data?.bundles ?? [];
-  if (!data || !bundles.length) return null;
+  const fromCourses = courses?.bundles?.length ? bundlesFromCourses(courses, bundlesData) : null;
+  const data = {
+    heading: domainName ? `${domainName} <span>bundles</span> for whole teams` : undefined,
+    lede: "Curated training packs that onboard a function at once, drawn from how these programs are grouped.",
+    ...bundlesData,
+    ...fromCourses,
+  };
+  const bundles = data.bundles ?? [];
+  if (!bundles.length) return null;
   const visible =
     activeCat === "all"
       ? bundles

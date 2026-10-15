@@ -166,9 +166,12 @@ function ReportPanel({ panel }) {
         <Text as="p" className="mb-2.5 text-[13px] leading-[1.6] text-ink/60">{panel.summary}</Text>
         <Text as="p" className="mt-1 mb-2 font-display text-[13px] font-semibold text-ink">{panel.questions_label}</Text>
         <Box as="ul" className="m-0 mb-2.5 pl-4.5 text-[13px] leading-[1.6] text-ink">
-          {panel.questions.map((question) => (
-            <li key={question}>{question}</li>
-          ))}
+          {/* A question is a string, or `{ text, used, status }` as the CMS
+              sends it for the questions panel. */}
+          {panel.questions.map((question) => {
+            const text = typeof question === "string" ? question : question?.text;
+            return <li key={text}>{text}</li>;
+          })}
         </Box>
         <Text as="p" className="mt-1 mb-2 font-display text-[13px] font-semibold text-ink">{panel.assignment_label}</Text>
         <Text as="p" className="m-0 rounded-lg bg-lime-soft px-3 py-2.5 text-[13px] leading-[1.5] text-ink">{panel.assignment}</Text>

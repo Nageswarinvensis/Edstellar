@@ -19,10 +19,6 @@ const SEARCH_DEBOUNCE_MS = 400;
  * pagination — `BlogPosts` and `BlogSidebar` are siblings in the layout, so
  * the state has to live here rather than in either of them.
  *
- * Not to be confused with `components/sections/blog/common/listing-hero.jsx` — that's
- * the heading/description banner above this panel on the author/category
- * pages, a different component with a similarly-generic name.
- *
  * `fetchAction` is a Server Action (lib/actions/blog-main.js,
  * lib/actions/blog-author.js, lib/actions/blog-category.js) called as
  * `fetchAction(identifier, page, q)`; every one returns the same

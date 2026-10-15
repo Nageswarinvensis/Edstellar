@@ -142,12 +142,15 @@ export default function CoachingBenefits({ data }) {
                     ))}
                   </Box>
                 ) : null}
-                {item.link?.href ? (
+                {/* `link` is `{ label, href }`, or just the href as a string
+                    (how the CMS currently sends it) with a default label. */}
+                {(typeof item.link === "string" ? item.link : item.link?.href) ? (
                   <Link
-                    href={item.link.href}
+                    href={typeof item.link === "string" ? item.link : item.link.href}
+                    title={`Click Here to View ${item.title}`}
                     className="mt-4.5 inline-flex items-center gap-2 self-start text-[14px] font-semibold text-navy underline-offset-3 hover:underline"
                   >
-                    {item.link.label}
+                    {(typeof item.link === "string" ? null : item.link.label) || "Learn more"}
                     <ArrowRight size={16} aria-hidden="true" />
                   </Link>
                 ) : null}

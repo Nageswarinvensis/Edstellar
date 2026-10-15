@@ -98,10 +98,59 @@ function Block({ block }) {
   }
 }
 
+const LETTERED = /^[a-z]\)\s+/;
+const BULLET = /^[•\-–]\s+/;
+const EMAIL = /([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/gi;
+
+/** Plain CMS text → the inline markup `InlineHtml` renders: escapes `<`/`>`
+ * and turns email addresses into mailto links. */
+function linkify(text) {
+  return text
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(EMAIL, '<a href="mailto:$1">$1</a>');
+}
+
+/** One blank-line-separated chunk of CMS `text` as a block: every line
+ * `a) …` → a lettered list; every line `• …` / `- …` → a bullet list; an
+ * all-capitals paragraph (the legal disclaimer clauses) → `emphasis`; a short
+ * single line with no closing punctuation ("Our policies and procedures") →
+ * a sub-heading; anything else → a paragraph. */
+function chunkToBlock(chunk) {
+  const lines = chunk.split("\n").map((line) => line.trim()).filter(Boolean);
+  if (lines.length && lines.every((line) => LETTERED.test(line))) {
+    return { type: "list", style: "lettered", items: lines.map((line) => linkify(line.replace(LETTERED, ""))) };
+  }
+  if (lines.length && lines.every((line) => BULLET.test(line))) {
+    return { type: "list", style: "bullet", items: lines.map((line) => linkify(line.replace(BULLET, ""))) };
+  }
+  const letters = chunk.replace(/[^a-z]/gi, "");
+  if (letters.length > 40 && letters === letters.toUpperCase()) {
+    return { type: "emphasis", text: linkify(chunk) };
+  }
+  if (lines.length === 1 && chunk.length <= 60 && !/[.:;,!?]$/.test(chunk)) {
+    return { type: "h3", text: chunk };
+  }
+  return { type: "p", text: linkify(lines.join(" ")) };
+}
+
+/** A section's blocks: typed `blocks` (local content), or the CMS's plain
+ * `text`, split on blank lines and read with `chunkToBlock`. */
+function blocksOf(section) {
+  if (section.blocks?.length) return section.blocks;
+  return (section.text ?? "")
+    .split(/\n\s*\n/)
+    .map((chunk) => chunk.trim())
+    .filter(Boolean)
+    .map(chunkToBlock);
+}
+
 /**
  * The body of a legal page: a narrow column of `sections`, each an optional
- * heading and its typed blocks, with a hairline between sections. `backToTop` is the id
- * of the element to link back to after the last section (the page hero).
+ * heading and its blocks (see `blocksOf`), with a hairline between sections.
+ * A section without an `id` (the CMS sends none) gets `s1`, `s2`… by
+ * position. `backToTop` is the id of the element to link back to after the
+ * last section (the page hero).
  *
  * Design: terms-conditions `.content`; modern-slavery-statement `.content`,
  * `.policy-list`, `.callout`.
@@ -111,28 +160,27 @@ export default function LegalBody({ sections, backToTop }) {
 
   return (
     <Box as="article" className="mx-auto max-w-230 px-5 py-12 lg:px-0 lg:py-24">
-      {sections.map((section) => (
-        <Reveal
-          as="section"
-          key={section.id}
-          id={section.id}
-          aria-labelledby={section.heading ? `h-${section.id}` : undefined}
-          className="scroll-mt-21 [&+&]:mt-10 [&+&]:border-t [&+&]:border-ink/12 [&+&]:pt-10"
-        >
-          {section.heading ? (
-            <Text
-              as="h2"
-              id={`h-${section.id}`}
-              className="mb-6"
-            >
-              <InlineHtml text={section.heading} />
-            </Text>
-          ) : null}
-          {section.blocks.map((block, index) => (
-            <Block key={index} block={block} />
-          ))}
-        </Reveal>
-      ))}
+      {sections.map((section, index) => {
+        const id = section.id ?? `s${index + 1}`;
+        return (
+          <Reveal
+            as="section"
+            key={id}
+            id={id}
+            aria-labelledby={section.heading ? `h-${id}` : undefined}
+            className="scroll-mt-21 [&+&]:mt-10 [&+&]:border-t [&+&]:border-ink/12 [&+&]:pt-10"
+          >
+            {section.heading ? (
+              <Text as="h2" id={`h-${id}`} className="mb-6">
+                <InlineHtml text={section.heading} />
+              </Text>
+            ) : null}
+            {blocksOf(section).map((block, blockIndex) => (
+              <Block key={blockIndex} block={block} />
+            ))}
+          </Reveal>
+        );
+      })}
 
       {backToTop ? (
         <Text as="p" className="mt-8">

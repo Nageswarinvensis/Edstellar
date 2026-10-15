@@ -42,9 +42,9 @@ export async function generateMetadata() {
 }
 
 /**
- * Coaching Solutions hub — the frame (SEO, breadcrumbs, proof bar, section
- * nav, sticky footer) comes from the CMS, the rest from local JSON; see
- * `lib/content/coaching.js` for the split.
+ * Coaching Solutions hub — every section comes from the CMS page
+ * `site-pages/coaching-solutions`; see `lib/content/coaching.js` for which
+ * CMS component feeds which section.
  * The family frame (proof bar, logos, section nav, FAQ, lead form, sticky
  * footer) reuses the consulting components; the coaching sections live in
  * `components/sections/coaching/`.
@@ -67,10 +67,10 @@ export default async function CoachingSolutionsPage() {
           serviceType: "Corporate coaching",
         }}
         breadcrumbs={breadcrumbs}
-        faqs={page.faqs.items}
+        faqs={page.faqs?.items}
       />
 
-      <CoachingHero data={{ ...page.hero, breadcrumbs }} />
+      <CoachingHero cms={page.consulting_Hero} breadcrumbs={breadcrumbs} />
       <ProofStats data={page.generalProof} />
       <ClientLogos />
       <StickyTabs data={page.stickyNavbar} />
@@ -92,7 +92,7 @@ export default async function CoachingSolutionsPage() {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <LeadForm id="contact" background="navy" data={page.lead_form} />
+      <LeadForm id="apply" background="navy" data={page.lead_form} />
       <StickyFooter data={page.stickyFooter && { ...page.stickyFooter, email: true }} />
     </>
   );

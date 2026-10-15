@@ -22,6 +22,7 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
 import CourseImage from "@/components/common/course-image";
+import { courseUrl } from "@/lib/course-url";
 
 /**
  * "Explore compliance training by topic" — the `#topics` section of the
@@ -240,10 +241,57 @@ function ProgramCard({ program }) {
   );
 }
 
-export default function Topics({ data, courseCount }) {
+/** "#1 Most Popular" → 1; unranked cards sort last. */
+const rankOf = (program) => Number(program.rank_label?.match(/#(\d+)/)?.[1] ?? Infinity);
+
+/** The CMS course a popular card stands for: the same title, or the title
+ * plus " Corporate Training" ("ChatGPT" → "ChatGPT Corporate Training"). */
+function findCourse(courses, title) {
+  if (!title) return null;
+  const wanted = title.trim().toLowerCase();
+  return (
+    courses.find((course) => course.title.trim().toLowerCase() === wanted) ??
+    courses.find((course) => course.title.trim().toLowerCase() === `${wanted} corporate training`) ??
+    null
+  );
+}
+
+/**
+ * `courses` is the CMS `courses` component (`courses`, `sub_categories`).
+ * When present it supplies the topic grid (biggest topics first, live counts)
+ * and, for each popular card, the matching course's real thumbnail and link —
+ * the popular block itself carries neither. Popular cards render in rank
+ * order (`#1`, `#2`…).
+ */
+export default function Topics({ data, courseCount, courses }) {
   if (!data) return null;
 
-  const popular = data.popular;
+  // With the CMS `courses` component, the grid is its biggest topics by
+  // course count, keeping each topic's CMS icon where the names match;
+  // otherwise the hand-entered `topics` list.
+  const iconByName = new Map((data.topics ?? []).map((topic) => [topic.name, topic.icon]));
+  const topics = courses?.sub_categories?.length
+    ? [...courses.sub_categories]
+        .filter((topic) => topic.course_count > 0)
+        .sort((a, b) => b.course_count - a.course_count)
+        .map((topic) => ({
+          name: topic.name,
+          icon: iconByName.get(topic.name),
+          count: `${topic.course_count} programs`,
+        }))
+    : data.topics ?? [];
+
+  const popular = data.popular && {
+    ...data.popular,
+    programs: [...(data.popular.programs ?? [])]
+      .sort((a, b) => rankOf(a) - rankOf(b))
+      .map((program) => {
+        const course = findCourse(courses?.courses ?? [], program.title);
+        return course
+          ? { ...program, href: program.href ?? courseUrl(course.href), image: course.image }
+          : program;
+      }),
+  };
 
   return (
     <Section id="topics" className="bg-paper-warm">
@@ -290,7 +338,7 @@ export default function Topics({ data, courseCount }) {
             role="list"
             className="grid list-none grid-cols-3 gap-3 max-[900px]:grid-cols-2 max-sm:grid-cols-1"
           >
-            {data.topics?.slice(0, 6).map((topic) => (
+            {topics.slice(0, 6).map((topic) => (
               <TopicCard key={topic.name} topic={topic} />
             ))}
           </Box>
