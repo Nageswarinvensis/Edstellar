@@ -22,11 +22,11 @@ export default function CoachingWhoFor({ data }) {
 
   if (!data?.tabs?.length) return null;
 
-  const { section_id, heading, description, tabs, panels } = data;
+  const { heading, description, tabs, panels } = data;
   const activePanel = panels?.[active];
 
   return (
-    <Section id={section_id}>
+    <Section id="who">
       {/* Section heading */}
       <Box className="mb-12 max-w-205 max-[600px]:mb-8">
         <Reveal>

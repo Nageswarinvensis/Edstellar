@@ -1,5 +1,7 @@
+import { notFound } from "next/navigation";
+
+import { getCoachingSubPage, getCoachingSubPageSlugs } from "@/lib/content/coaching";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { getTeamCoaching } from "@/lib/content/coaching";
 
 import ClientLogos from "@/components/common/client-logos";
 import Faq from "@/components/common/faq";
@@ -7,6 +9,7 @@ import LeadForm from "@/components/forms/lead-form";
 import StickyFooter from "@/components/common/sticky-footer";
 import ProofStats from "@/components/sections/consulting/proof-stats";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
+import MeridianShowcase from "@/components/sections/coaching/meridian-showcase";
 import CoachingMeridianSoon from "@/components/sections/coaching/coaching-meridian-soon";
 import CoachingCtaBand from "@/components/sections/coaching/coaching-cta-band";
 import CoachingBenefits from "@/components/sections/coaching/coaching-benefits";
@@ -18,9 +21,7 @@ import CoachingWhoFor from "@/components/sections/coaching/coaching-who-for";
 import CoachingTracks from "@/components/sections/coaching/coaching-tracks";
 import CoachingRelated from "@/components/sections/coaching/coaching-related";
 
-export const revalidate = 3600;
-
-const PATH = "/coaching-solutions/team-coaching";
+const PILLAR = "coaching-solutions";
 
 const PROOF_STATS = {
   stats: [
@@ -36,18 +37,30 @@ const PROOF_STATS = {
   secondaryBtnHref: "#contact",
 };
 
-export async function generateMetadata() {
-  const page = await getTeamCoaching();
+// SSG: all slugs prerendered at build; anything else → 404.
+export const dynamicParams = false;
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  return getCoachingSubPageSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const page = await getCoachingSubPage(slug);
+  if (!page) return {};
   return buildMetadata({
     title: page.seo?.meta_title?.replace(/\s*\|\s*Edstellar\s*$/i, "").trim(),
     description: page.seo?.Meta_description,
-    path: PATH,
+    path: `/${PILLAR}/${slug}`,
     image: page.seo?.og_image_url,
   });
 }
 
-export default async function TeamCoachingPage() {
-  const page = await getTeamCoaching();
+export default async function CoachingSubPage({ params }) {
+  const { slug } = await params;
+  const page = await getCoachingSubPage(slug);
+  if (!page) notFound();
 
   return (
     <>
@@ -59,9 +72,13 @@ export default async function TeamCoachingPage() {
       <CoachingWhoFor data={page.who} />
       <CoachingTracks data={page.tracks} />
       <CoachingBenefits data={page.benefits} />
-      <CoachingMeridianSoon data={page.meridian_soon} />
+
+      {page.meridian_soon
+        ? <CoachingMeridianSoon data={page.meridian_soon} />
+        : <MeridianShowcase data={page.meridian} />}
+
       <CoachingProcess data={page.process} />
-      <CoachingCtaBand data={page.process_cta} label="Plan a team coaching program" />
+      <CoachingCtaBand data={page.process_cta} />
       <CoachingConfidentialCompare data={page.confidential} />
       <CoachingWhy data={page.why} />
       <CoachingRelated data={page.related} />
