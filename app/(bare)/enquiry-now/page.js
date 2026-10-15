@@ -1,30 +1,53 @@
-import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
-import Reveal from "@/components/common/reveal";
+import { getEnquiryPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
+import SchemaOrg from "@/components/seo/schema-org";
 
-export const metadata = buildMetadata({
-  title: "Enquire Now",
-  description:
-    "Tell us which teams you are training and what they need to be able to do. We reply within one business day.",
-  path: "/enquiry-now",
-});
-function page() {
-  return (
-    <Section>
-      <Reveal delay={1} className="flex justify-center items-center">
-        <RichHeading
-          as="h1"
-          parts={[
-            { text: "Enquiry Now main" },
-            { text: " Page", highlighted: true },
-          ]}
-          emphasisClassName="color-ink"
-          className="mb-2.5 text-center max-lg:text-[clamp(32px,5vw,50px)]"
-        />
-      </Reveal>
-    </Section>
-  );
+import CompanyHero from "@/components/sections/company/company-hero";
+import EnquiryIntro from "@/components/sections/company/enquiry-intro";
+import EnquiryFallback from "@/components/sections/company/enquiry-fallback";
+import EnquiryForm from "@/components/forms/enquiry-form";
+
+export function generateMetadata() {
+  const { seo } = getEnquiryPage();
+  return buildMetadata(seo);
 }
 
-export default page;
+/**
+ * Enquire Now — a standalone landing page (the `(bare)` shell: no header or
+ * footer) built from local JSON (`content/company/enquiry-now.json`, via
+ * `lib/content/company.js`). The form sits in the hero's right column.
+ *
+ * Design: `Edstellar Static Pages/enquiry-form.html`.
+ */
+export default function EnquiryNowPage() {
+  const page = getEnquiryPage();
+  const { hero } = page;
+
+  return (
+    <>
+      <SchemaOrg
+        webpage={{
+          name: page.seo.title,
+          description: page.seo.description,
+          path: page.seo.path,
+        }}
+        breadcrumbs={hero.breadcrumbs}
+      />
+
+      <CompanyHero
+        heading={hero.heading}
+        description={hero.description}
+        breadcrumbs={hero.breadcrumbs}
+        aside={
+          <EnquiryForm
+            data={page.form}
+            className="scroll-mt-20 shadow-[0_18px_50px_rgba(5,13,26,0.28)]"
+          />
+        }
+      >
+        <EnquiryIntro points={hero.points} badges={hero.badges} />
+      </CompanyHero>
+      <EnquiryFallback data={page.fallback} />
+    </>
+  );
+}

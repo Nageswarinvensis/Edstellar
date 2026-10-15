@@ -4,13 +4,14 @@ import { Link2 } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 
+import Reveal from "@/components/common/reveal";
 /** CMS field name kept verbatim (CLAUDE.md #10): each item is
  * `{ link, orphan_title }`, where `link` is a bare blog slug. */
 export default function BlogDetailContinueReading({ orphanLinks = [] }) {
   if (orphanLinks.length === 0) return null;
 
   return (
-    <Box className="mt-8 rounded-[12px] border border-olive/25 bg-olive/5 p-5 lg:p-6">
+    <Reveal className="mt-8 rounded-[12px] border border-olive/25 bg-olive/5 p-5 lg:p-6">
       <Box className="flex items-center gap-2.5">
         <Box
           aria-hidden="true"
@@ -44,6 +45,6 @@ export default function BlogDetailContinueReading({ orphanLinks = [] }) {
           </Box>
         ))}
       </Box>
-    </Box>
+    </Reveal>
   );
 }

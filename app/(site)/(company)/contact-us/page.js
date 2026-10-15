@@ -1,30 +1,51 @@
-import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
-import Reveal from "@/components/common/reveal";
+import { getContactPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
+import SchemaOrg from "@/components/seo/schema-org";
 
-export const metadata = buildMetadata({
-  title: "Contact Us",
-  description:
-    "Talk to our team about instructor-led training and consulting for your organization. We reply within one business day.",
-  path: "/contact-us",
-});
-function page() {
-  return (
-    <Section>
-      <Reveal delay={1} className="flex justify-center items-center">
-        <RichHeading
-          as="h1"
-          parts={[
-            { text: "Contact Us main" },
-            { text: " Page", highlighted: true },
-          ]}
-          emphasisClassName="color-ink"
-          className="mb-2.5 text-center max-lg:text-[clamp(32px,5vw,50px)]"
-        />
-      </Reveal>
-    </Section>
-  );
+import CompanyHero from "@/components/sections/company/company-hero";
+import ContactReach from "@/components/sections/company/contact-reach";
+
+export function generateMetadata() {
+  const { seo } = getContactPage();
+  return buildMetadata(seo);
 }
 
-export default page;
+/**
+ * Contact Us — a static page built from local JSON
+ * (`content/company/contact-us.json`, via `lib/content/company.js`).
+ *
+ * Design: `Edstellar Static Pages/contact-us.html`.
+ */
+export default function ContactUsPage() {
+  const page = getContactPage();
+  const { hero } = page;
+
+  return (
+    <>
+      <SchemaOrg
+        webpage={{
+          name: page.seo.title,
+          description: page.seo.description,
+          path: page.seo.path,
+        }}
+        breadcrumbs={hero.breadcrumbs}
+      />
+
+      <CompanyHero
+        heading={hero.heading}
+        description={hero.description}
+        breadcrumbs={hero.breadcrumbs}
+        image={hero.image}
+      >
+        <a
+          href={`mailto:${hero.email}`}
+          title="Click Here to Email Edstellar"
+          className="border-b-2 border-transparent font-display text-[clamp(20px,2.4vw,28px)] font-semibold text-lime transition-colors hover:border-lime"
+        >
+          {hero.email}
+        </a>
+      </CompanyHero>
+      <ContactReach data={page.reach} form={page.form} />
+    </>
+  );
+}

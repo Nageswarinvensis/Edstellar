@@ -1,6 +1,7 @@
 "use client";
 
 import { startTransition, useEffect, useState } from "react";
+import Reveal from "@/components/common/reveal";
 
 export default function BlogDetailToc() {
   const [headings, setHeadings] = useState([]);
@@ -77,27 +78,29 @@ export default function BlogDetailToc() {
 
   return (
     <aside className="toc-wrapper sticky top-24 h-[80vh] w-50 min-w-50 self-start overflow-y-auto">
-      <h3 className="mb-5 text-[18px] font-semibold leading-5 text-navy">
-        Content
-      </h3>
+      <Reveal>
+        <h3 className="mb-5 text-[18px] font-semibold leading-5 text-navy">
+          Content
+        </h3>
 
-      <nav>
-        {headings.map((item) => (
-          <a
-            key={item.id}
-            href={`#${item.id}`}
-            className={`block cursor-pointer border-l-2 px-2 py-1.25 text-[12px] leading-4 transition-all ${
-              item.level === "h3" ? "ml-3" : ""
-            } ${
-              activeId === item.id
-                ? "border-l-olive bg-lime/15 text-navy"
-                : "border-transparent text-ink/70 hover:border-l-olive hover:bg-lime/15 hover:text-navy"
-            }`}
-          >
-            {item.text}
-          </a>
-        ))}
-      </nav>
+        <nav>
+          {headings.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={`block cursor-pointer border-l-2 px-2 py-1.25 text-[12px] leading-4 transition-all ${
+                item.level === "h3" ? "ml-3" : ""
+              } ${
+                activeId === item.id
+                  ? "border-l-olive bg-lime/15 text-navy"
+                  : "border-transparent text-ink/70 hover:border-l-olive hover:bg-lime/15 hover:text-navy"
+              }`}
+            >
+              {item.text}
+            </a>
+          ))}
+        </nav>
+      </Reveal>
     </aside>
   );
 }

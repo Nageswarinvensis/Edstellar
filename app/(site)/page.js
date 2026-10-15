@@ -18,7 +18,7 @@ const SITE_MAP = [
   {
     kicker: "Trainers",
     title: "Meet our trainers",
-    links: ["/trainers", "/trainers/example"],
+    links: ["/trainer", "/trainer/example"],
   },
   {
     kicker: "Assessments",

@@ -17,7 +17,7 @@ export default function CategoryPageContent({ category, slug, categories }) {
         description={category.description}
       />
 
-      <Section className="scroll-mt-24 pt-10 lg:pt-10" id="blogs">
+      <Section className="scroll-mt-24" id="blogs">
         <BlogPostsPanel
           identifier={slug}
           initialPosts={category.blogs?.data || []}

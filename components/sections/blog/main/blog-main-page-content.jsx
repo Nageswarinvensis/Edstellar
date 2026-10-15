@@ -4,13 +4,16 @@ import BlogPostsPanel from "@/components/sections/blog/common/blog-posts-panel";
 import { fetchMainPosts } from "@/lib/actions/blog-main";
 
 /** Same layout as blog/author/author-page-content.jsx and
- * blog/category/category-page-content.jsx — hero +
- * paginated, searchable post grid, backed by the real blog index API
- * (lib/content/blog.js#getBlogMain, `/api/v2/blog`). */
+ * blog/category/category-page-content.jsx — navy hero + paginated, searchable
+ * post grid with the same cards and pagination (`variant="author"`), backed by
+ * the real blog index API (lib/content/blog.js#getBlogMain, `/api/v2/blog`). */
 export default function BlogMainPageContent({ posts, categories }) {
   return (
     <>
-      <BlogMainHero />
+      <BlogMainHero
+        articleCount={posts?.pagination?.total}
+        categoryCount={categories?.length}
+      />
 
       <Section className="scroll-mt-24" id="blogs">
         <BlogPostsPanel
@@ -20,6 +23,7 @@ export default function BlogMainPageContent({ posts, categories }) {
           fetchAction={fetchMainPosts}
           categories={categories}
           paginationLabel="Blog articles pagination"
+          variant="author"
         />
       </Section>
     </>

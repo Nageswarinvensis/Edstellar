@@ -39,11 +39,11 @@ export default function AuthorPageContent({ author, slug, categories }) {
         articleCount={author.blogs?.pagination?.total}
       />
 
-      <Section className="scroll-mt-24 pt-10 lg:pt-10" id="blogs">
+      <Section className="scroll-mt-24" id="blogs">
         <RichHeading
           as="h2"
           heading={`Articles By ${emphasizeLastWord(author.name)}`}
-          className="mb-6.5 text-[22px] leading-[1.25] tracking-[-0.02em]"
+          className="mb-6.5"
           emphasisClassName="font-normal text-olive"
         />
 

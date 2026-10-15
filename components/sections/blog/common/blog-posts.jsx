@@ -41,7 +41,6 @@ function PaginationButton({
   onClick,
   title,
   ariaLabel,
-  round = false,
   children,
 }) {
   return (
@@ -52,20 +51,13 @@ function PaginationButton({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "flex items-center justify-center border transition-all duration-200",
-        round
-          ? "size-9 rounded-full font-mono text-[12px]"
-          : "h-8 w-8 rounded-[7px]",
+        "flex h-8 w-8 items-center justify-center rounded-[7px] border transition-all duration-200",
         active
           ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
-          : round
-            ? "border-ink/22 bg-transparent text-ink"
-            : "border-[#D7DADF] bg-white text-[#07182C]",
+          : "border-[#D7DADF] bg-white text-[#07182C]",
         disabled
           ? "cursor-not-allowed opacity-40"
-          : round && !active
-            ? "cursor-pointer hover:border-olive hover:text-olive"
-            : "cursor-pointer hover:border-[#07182C]",
+          : "cursor-pointer hover:border-[#07182C]",
       )}
     >
       {children}
@@ -203,7 +195,7 @@ export default function BlogPosts({
           </Text>
         )
       ) : (
-        <Reveal as="div" delay={1} className="relative">
+        <Box className="relative">
           {isPending && (
             <Box className="absolute inset-0 z-10 flex items-start justify-center bg-paper/60 pt-24">
               <Spinner className="size-8 text-olive" />
@@ -218,9 +210,13 @@ export default function BlogPosts({
               isPending && "opacity-40",
             )}
           >
-            {posts.map((post) =>
+            {posts.map((post, index) =>
               isAuthor ? (
-                <AuthorPostCard key={post.slug} post={post} />
+                // Staggered per card, by column, so a new page of results
+                // reveals in reading order.
+                <Reveal key={post.slug} delay={(index % 2) + 1} className="h-full">
+                  <AuthorPostCard post={post} />
+                </Reveal>
               ) : (
               <Box
                 key={post.slug}
@@ -291,15 +287,14 @@ export default function BlogPosts({
               ),
             )}
           </Box>
-        </Reveal>
+        </Box>
       )}
 
       {pagination && pagination.last_page > 1 && (
-        <Pagination aria-label={paginationLabel} className={cn("mt-15", isAuthor ? "justify-center" : "justify-end")}>
-          <PaginationContent className="gap-2">
+        <Pagination aria-label={paginationLabel} className="mt-15 justify-center">
+          <PaginationContent className="flex-wrap gap-1.25">
             <PaginationItem>
               <PaginationButton
-                round={isAuthor}
                 disabled={isPending || pagination.current_page === 1}
                 onClick={() => onPageChange(pagination.current_page - 1)}
                 title="Click Here to View Previous Page"
@@ -316,7 +311,6 @@ export default function BlogPosts({
               typeof n === "number" ? (
                 <PaginationItem key={n}>
                   <PaginationButton
-                round={isAuthor}
                     active={n === pagination.current_page}
                     disabled={isPending}
                     onClick={() => onPageChange(n)}
@@ -334,7 +328,6 @@ export default function BlogPosts({
 
             <PaginationItem>
               <PaginationButton
-                round={isAuthor}
                 disabled={
                   isPending || pagination.current_page === pagination.last_page
                 }

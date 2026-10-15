@@ -7,7 +7,7 @@ export const metadata = buildMetadata({
   title: "Our Trainers",
   description:
     "Meet the instructors who deliver Edstellar programs — practitioners with production experience in the subjects they teach.",
-  path: "/trainers",
+  path: "/trainer",
 });
 function page() {
   return (

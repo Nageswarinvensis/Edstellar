@@ -58,10 +58,13 @@ export default async function sitemap() {
     entry("/resources", 0.6),
     ...RESOURCE_TYPES.map(({ slug }) => entry(`/resources/${slug}`, 0.5)),
     entry("/blog", 0.6, "daily"),
-    entry("/trainers", 0.5),
+    entry("/trainer", 0.5),
     entry("/about-us", 0.4, "monthly"),
     entry("/contact-us", 0.4, "monthly"),
+    entry("/become-a-guest-author", 0.4, "monthly"),
+    entry("/corporate-training-pricing", 0.6, "monthly"),
     entry("/privacy-policy", 0.1, "yearly"),
     entry("/terms-and-conditions", 0.1, "yearly"),
+    entry("/modern-slavery-statement", 0.1, "yearly"),
   ];
 }

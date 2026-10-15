@@ -1,4 +1,3 @@
-import Link from "next/link";
 
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
@@ -133,20 +132,6 @@ function Spotlight({ data, tool }) {
             </Box>
           </Reveal>
 
-          {tool.cta?.href ? (
-            <Reveal delay={3}>
-              <Box className="mt-6">
-                <Box
-                  as={Link}
-                  href={tool.cta.href}
-                  title={`Click Here to Explore ${tool.name}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3.5 font-display text-[14px] font-semibold text-navy no-underline transition-transform duration-200 hover:-translate-y-0.5"
-                >
-                  {tool.cta.label} <span aria-hidden="true">→</span>
-                </Box>
-              </Box>
-            </Reveal>
-          ) : null}
         </Box>
 
         {tool.svg_image ? (
@@ -290,16 +275,6 @@ function Grid({ data }) {
                 ) : null}
               </Box>
 
-              {tool.cta?.href ? (
-                <Box
-                  as={Link}
-                  href={tool.cta.href}
-                  title={`Click Here to Explore ${tool.name}`}
-                  className="mt-auto inline-flex items-center gap-2 self-start rounded-full border-[1.5px] border-transparent bg-lime px-5.5 py-3 font-body text-[14px] font-semibold leading-[1.4] text-navy no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lg motion-reduce:hover:translate-y-0"
-                >
-                  {tool.cta.label} <span aria-hidden="true">&rarr;</span>
-                </Box>
-              ) : null}
             </Box>
           </Reveal>
         ))}
