@@ -146,7 +146,7 @@ export default function StickyTabs({ data, hasTrainers }) {
             className="flex shrink-0 items-center pr-1"
           >
             <img
-              src={data?.logo?.src}
+              src={data?.logo?.src ?? "/course/Edstellar.svg"}
               alt={data?.logo?.alt || "Edstellar"}
               className="h-6 sm:h-7 w-auto object-contain"
             />

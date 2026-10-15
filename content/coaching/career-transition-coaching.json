@@ -76,7 +76,9 @@
           "current": false
         }
       ]
-    }
+    },
+    "art_svg": "<svg viewBox=\"0 0 560 500\" role=\"img\" aria-labelledby=\"art-t\">\n        <title id=\"art-t\">Illustration of a career and transition coaching session on Meridian: an employee and a coach on a video call, with the employee's focus for the session and a drafted session report.</title>\n        <defs><clipPath id=\"art-clip\"><rect x=\"0\" y=\"0\" width=\"560\" height=\"500\" rx=\"28\"/></clipPath></defs>\n        <rect x=\"0\" y=\"0\" width=\"560\" height=\"500\" rx=\"28\" fill=\"#F2F0E8\"/>\n        <circle cx=\"470\" cy=\"70\" r=\"120\" fill=\"#EDE9DD\" clip-path=\"url(#art-clip)\"/>\n        <!-- window -->\n        <rect x=\"40\" y=\"70\" width=\"480\" height=\"330\" rx=\"20\" fill=\"#0A1628\"/>\n        <circle cx=\"66\" cy=\"94\" r=\"5\" fill=\"#14233D\"/><circle cx=\"82\" cy=\"94\" r=\"5\" fill=\"#14233D\"/><circle cx=\"98\" cy=\"94\" r=\"5\" fill=\"#14233D\"/>\n        <rect x=\"380\" y=\"86\" width=\"116\" height=\"18\" rx=\"9\" fill=\"#14233D\"/>\n        <circle cx=\"394\" cy=\"95\" r=\"4\" fill=\"#C8F135\"/>\n        <text x=\"404\" y=\"99\" font-family=\"DM Mono, monospace\" font-size=\"10\" letter-spacing=\"1\" fill=\"#C8F135\">IN SESSION</text>\n        <!-- leader tile -->\n        <rect x=\"60\" y=\"118\" width=\"214\" height=\"200\" rx=\"14\" fill=\"#EDE9DD\"/>\n        <rect x=\"60\" y=\"118\" width=\"214\" height=\"200\" rx=\"14\" fill=\"none\" stroke=\"#C8F135\" stroke-width=\"2\"/>\n        <path d=\"M110 318c0-46 26-74 57-74s57 28 57 74z\" fill=\"#14233D\"/>\n        <path d=\"M150 248h34l-4 18h-26z\" fill=\"#E4F89A\"/>\n        <circle cx=\"167\" cy=\"206\" r=\"30\" fill=\"#C9A98A\"/>\n        <path d=\"M137 202c0-22 14-34 31-34 18 0 30 12 30 30-10-8-24-12-40-8-8 2-15 6-21 12z\" fill=\"#0A1628\"/>\n        <rect x=\"70\" y=\"290\" width=\"84\" height=\"20\" rx=\"10\" fill=\"#0A1628\"/>\n        <text x=\"80\" y=\"304\" font-family=\"DM Sans, sans-serif\" font-size=\"11\" font-weight=\"600\" fill=\"#FAFAF7\">Employee</text>\n        <!-- coach tile -->\n        <rect x=\"286\" y=\"118\" width=\"214\" height=\"200\" rx=\"14\" fill=\"#E4F89A\"/>\n        <path d=\"M336 318c0-46 26-74 57-74s57 28 57 74z\" fill=\"#FAFAF7\"/>\n        <path d=\"M376 250l17 22 17-22\" fill=\"none\" stroke=\"#0A1628\" stroke-width=\"2\"/>\n        <circle cx=\"393\" cy=\"206\" r=\"30\" fill=\"#8C6A52\"/>\n        <path d=\"M363 210c-2-26 12-42 30-42 19 0 32 14 31 40-4-12-14-20-31-20-14 0-24 8-30 22z\" fill=\"#14233D\"/>\n        <rect x=\"296\" y=\"290\" width=\"62\" height=\"20\" rx=\"10\" fill=\"#0A1628\"/>\n        <text x=\"306\" y=\"304\" font-family=\"DM Sans, sans-serif\" font-size=\"11\" font-weight=\"600\" fill=\"#FAFAF7\">Coach</text>\n        <!-- controls -->\n        <rect x=\"200\" y=\"336\" width=\"160\" height=\"44\" rx=\"22\" fill=\"#14233D\"/>\n        <circle cx=\"236\" cy=\"358\" r=\"13\" fill=\"#0A1628\"/><rect x=\"232\" y=\"350\" width=\"8\" height=\"12\" rx=\"4\" fill=\"#FAFAF7\"/>\n        <circle cx=\"280\" cy=\"358\" r=\"13\" fill=\"#0A1628\"/><rect x=\"273\" y=\"352\" width=\"11\" height=\"12\" rx=\"2\" fill=\"#FAFAF7\"/><path d=\"M284 355l5-3v12l-5-3z\" fill=\"#FAFAF7\"/>\n        <circle cx=\"324\" cy=\"358\" r=\"13\" fill=\"#C8F135\"/><path d=\"M318 358h12\" stroke=\"#0A1628\" stroke-width=\"2.4\" stroke-linecap=\"round\"/>\n        <!-- focus card -->\n        <g>\n          <rect x=\"16\" y=\"22\" width=\"300\" height=\"72\" rx=\"16\" fill=\"#FFFFFF\" stroke=\"rgba(10,22,40,.12)\"/>\n          <text x=\"36\" y=\"48\" font-family=\"DM Mono, monospace\" font-size=\"10\" letter-spacing=\"1.2\" fill=\"rgba(10,22,40,.6)\">EMPLOYEE&#8217;S FOCUS TODAY</text>\n          <text x=\"36\" y=\"75\" font-family=\"Cormorant Garamond, serif\" font-style=\"italic\" font-size=\"20\" fill=\"#0A1628\">Letting go of the previous role.</text>\n        </g>\n        <!-- report card -->\n        <g>\n          <rect x=\"300\" y=\"404\" width=\"244\" height=\"76\" rx=\"16\" fill=\"#FFFFFF\" stroke=\"rgba(10,22,40,.12)\"/>\n          <rect x=\"318\" y=\"422\" width=\"40\" height=\"40\" rx=\"12\" fill=\"#E4F89A\"/>\n          <path d=\"M330 432h10l6 6v14h-16z M340 432v6h6 M334 446h8 M334 451h6\" fill=\"none\" stroke=\"#0A1628\" stroke-width=\"1.7\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/>\n          <text x=\"370\" y=\"438\" font-family=\"DM Sans, sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#0A1628\">Session report drafted</text>\n          <text x=\"370\" y=\"457\" font-family=\"DM Sans, sans-serif\" font-size=\"12\" fill=\"rgba(10,22,40,.6)\">Ready for coach approval</text>\n        </g>\n        <!-- AI chip -->\n        <g>\n          <rect x=\"24\" y=\"416\" width=\"190\" height=\"40\" rx=\"20\" fill=\"#0A1628\"/>\n          <path d=\"M48 426l2.4 6.8 6.8 2.4-6.8 2.4-2.4 6.8-2.4-6.8-6.8-2.4 6.8-2.4z\" fill=\"#C8F135\"/>\n          <text x=\"66\" y=\"441\" font-family=\"DM Sans, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#FAFAF7\">AI-assisted on Meridian</text>\n        </g>\n      </svg>",
+    "art_label": "Illustration of a career and transition coaching session on Meridian: an employee and a coach on a video call, with the employee's focus for the session and a drafted session report."
   },
   "stickyNavbar": {
     "tabs": [
@@ -272,7 +274,8 @@
         "points": [
           "Objective and track agreed for every person",
           "Progress reviewed at the mid-point and at the end"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><circle cx=\"450\" cy=\"250\" r=\"118\" fill=\"#FFFFFF\"></circle><circle cx=\"450\" cy=\"250\" r=\"88\" fill=\"#E4F89A\"></circle><circle cx=\"450\" cy=\"250\" r=\"58\" fill=\"#FFFFFF\"></circle><circle cx=\"450\" cy=\"250\" r=\"30\" fill=\"#0A1628\"></circle><circle cx=\"450\" cy=\"250\" r=\"9\" fill=\"#C8F135\"></circle><path d=\"M300 400L440 260\" stroke=\"#0A1628\" stroke-width=\"6\" stroke-linecap=\"round\"></path><path d=\"M440 260l-6 26M440 260l-26 6\" stroke=\"#0A1628\" stroke-width=\"6\" stroke-linecap=\"round\"></path><path d=\"M296 404l-18 4 4-18M310 412l-22 6 6-22\" stroke=\"#0A1628\" stroke-width=\"4\" fill=\"none\" stroke-linecap=\"round\"></path></svg>"
       },
       {
         "title": "A confidential space to think clearly",
@@ -280,7 +283,8 @@
         "points": [
           "Session content never shared with the organization",
           "The person chooses what the final summary shares"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><rect x=\"440\" y=\"80\" width=\"110\" height=\"250\" rx=\"10\" fill=\"#14233D\"></rect><rect x=\"452\" y=\"92\" width=\"86\" height=\"226\" rx=\"6\" fill=\"#0A1628\"></rect><circle cx=\"522\" cy=\"210\" r=\"6\" fill=\"#C8F135\"></circle><rect x=\"474\" y=\"190\" width=\"40\" height=\"34\" rx=\"6\" fill=\"#E4F89A\"></rect><path d=\"M482 190v-10a12 12 0 0124 0v10\" stroke=\"#E4F89A\" stroke-width=\"5\" fill=\"none\"></path><rect x=\"300\" y=\"300\" width=\"70\" height=\"70\" rx=\"14\" fill=\"#0A1628\"></rect><rect x=\"300\" y=\"250\" width=\"18\" height=\"120\" rx=\"9\" fill=\"#0A1628\"></rect><rect x=\"390\" y=\"300\" width=\"70\" height=\"70\" rx=\"14\" fill=\"#E4F89A\"></rect><rect x=\"442\" y=\"250\" width=\"18\" height=\"120\" rx=\"9\" fill=\"#E4F89A\"></rect><rect x=\"345\" y=\"380\" width=\"70\" height=\"10\" rx=\"5\" fill=\"#0A1628\"></rect><rect x=\"330\" y=\"200\" width=\"70\" height=\"40\" rx=\"12\" fill=\"#FFFFFF\"></rect><circle cx=\"350\" cy=\"220\" r=\"4\" fill=\"#0A1628\"></circle><circle cx=\"365\" cy=\"220\" r=\"4\" fill=\"#0A1628\"></circle><circle cx=\"380\" cy=\"220\" r=\"4\" fill=\"#0A1628\"></circle></svg>"
       },
       {
         "title": "A certified coach, well matched",
@@ -288,7 +292,8 @@
         "points": [
           "Certified and vetted before they are recommended",
           "A free chemistry session before anyone commits"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><g><rect x=\"300\" y=\"80\" width=\"230\" height=\"74\" rx=\"14\" fill=\"#FFFFFF\"></rect><circle cx=\"336\" cy=\"117\" r=\"20\" fill=\"#EDE9DD\"></circle><rect x=\"368\" y=\"104\" width=\"110\" height=\"10\" rx=\"5\" fill=\"#0A1628\" opacity=\".25\"></rect><rect x=\"368\" y=\"122\" width=\"76\" height=\"8\" rx=\"4\" fill=\"#0A1628\" opacity=\".15\"></rect></g><g><rect x=\"330\" y=\"172\" width=\"250\" height=\"84\" rx=\"16\" fill=\"#0A1628\"></rect><circle cx=\"372\" cy=\"214\" r=\"24\" fill=\"#14233D\"></circle><circle cx=\"372\" cy=\"206\" r=\"9\" fill=\"#E4F89A\"></circle><path d=\"M356 228c4-10 28-10 32 0\" fill=\"#E4F89A\"></path><rect x=\"408\" y=\"200\" width=\"110\" height=\"10\" rx=\"5\" fill=\"#FFFFFF\"></rect><rect x=\"408\" y=\"218\" width=\"70\" height=\"8\" rx=\"4\" fill=\"#FFFFFF\" opacity=\".5\"></rect><circle cx=\"548\" cy=\"214\" r=\"16\" fill=\"#C8F135\"></circle><path d=\"M540 214l6 6 10-12\" stroke=\"#0A1628\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g><rect x=\"300\" y=\"274\" width=\"230\" height=\"74\" rx=\"14\" fill=\"#FFFFFF\"></rect><circle cx=\"336\" cy=\"311\" r=\"20\" fill=\"#EDE9DD\"></circle><rect x=\"368\" y=\"298\" width=\"110\" height=\"10\" rx=\"5\" fill=\"#0A1628\" opacity=\".25\"></rect><rect x=\"368\" y=\"316\" width=\"76\" height=\"8\" rx=\"4\" fill=\"#0A1628\" opacity=\".15\"></rect></g></svg>"
       },
       {
         "title": "Retention through the hardest moments",
@@ -296,7 +301,8 @@
         "points": [
           "Coaching offered at the moments of highest attrition risk",
           "One program view for your CHRO on Meridian"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><path d=\"M300 380H570M300 380V110\" stroke=\"#0A1628\" stroke-width=\"3\" opacity=\".3\"></path><rect x=\"320\" y=\"310\" width=\"36\" height=\"70\" rx=\"6\" fill=\"#0A1628\" opacity=\".35\"></rect><rect x=\"370\" y=\"280\" width=\"36\" height=\"100\" rx=\"6\" fill=\"#0A1628\" opacity=\".5\"></rect><rect x=\"420\" y=\"240\" width=\"36\" height=\"140\" rx=\"6\" fill=\"#0A1628\" opacity=\".7\"></rect><rect x=\"470\" y=\"190\" width=\"36\" height=\"190\" rx=\"6\" fill=\"#0A1628\"></rect><rect x=\"520\" y=\"140\" width=\"36\" height=\"240\" rx=\"6\" fill=\"#C8F135\"></rect><path d=\"M338 290L388 258 438 222 488 170 538 120\" stroke=\"#0A1628\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"></path><circle cx=\"538\" cy=\"120\" r=\"9\" fill=\"#FFFFFF\" stroke=\"#0A1628\" stroke-width=\"3\"></circle></svg>"
       },
       {
         "title": "Promotions that stick",
@@ -304,7 +310,8 @@
         "points": [
           "Tracks for onboarding into seniority and role transition",
           "Coaching paced across six to eight months"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><g transform=\"translate(330,110)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(415,110)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(500,110)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(330,205)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(415,205)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(500,205)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(330,300)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(415,300)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(500,300)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g></svg>"
       },
       {
         "title": "People who return with confidence",
@@ -312,7 +319,8 @@
         "points": [
           "Track designed specifically for returning to work",
           "A certified coach matched to the person's situation"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><path d=\"M290 410C360 380 330 320 400 300S520 290 500 220 420 160 480 110 560 80 600 70\" stroke=\"#FFFFFF\" stroke-width=\"34\" fill=\"none\" stroke-linecap=\"round\"></path><path d=\"M290 410C360 380 330 320 400 300S520 290 500 220 420 160 480 110 560 80 600 70\" stroke=\"#0A1628\" stroke-width=\"3\" stroke-dasharray=\"10 12\" fill=\"none\" opacity=\".45\"></path><g transform=\"translate(392,240)\"><rect x=\"0\" y=\"0\" width=\"4\" height=\"58\" fill=\"#0A1628\"></rect><path d=\"M4 2h34l-8 10 8 10H4z\" fill=\"#C8F135\"></path></g><g transform=\"translate(492,160)\"><rect x=\"0\" y=\"0\" width=\"4\" height=\"58\" fill=\"#0A1628\"></rect><path d=\"M4 2h34l-8 10 8 10H4z\" fill=\"#E4F89A\"></path></g><circle cx=\"470\" cy=\"272\" r=\"20\" fill=\"#0A1628\"></circle><rect x=\"463\" y=\"262\" width=\"5\" height=\"20\" rx=\"2\" fill=\"#C8F135\"></rect><rect x=\"472\" y=\"262\" width=\"5\" height=\"20\" rx=\"2\" fill=\"#C8F135\"></rect></svg>"
       }
     ]
   },
@@ -404,14 +412,15 @@
           ],
           "match_label": "match",
           "foot": "Chosen together, then a free chemistry session"
-        }
+        },
+        "image": "/category/tab-image.png"
       },
       {
         "icon": "sparkles",
         "title": "Meridian suggests questions in the session",
         "role": "Coach, in session",
         "panel": {
-          "title": "Session 4 \u00b7 In session",
+          "title": "Session 4 · In session",
           "role": "Coach view",
           "type": "questions",
           "focus_label": "Employee's focus for today",
@@ -459,14 +468,15 @@
             "todo",
             "todo"
           ]
-        }
+        },
+        "image": "/category/tab-image.png"
       },
       {
         "icon": "file-text",
         "title": "Meridian drafts every session report",
         "role": "Coach approves",
         "panel": {
-          "title": "Session 4 report \u00b7 Draft",
+          "title": "Session 4 report · Draft",
           "role": "Coach approves",
           "type": "report",
           "doc_label": "Drafted by Meridian",
@@ -500,14 +510,15 @@
           ],
           "approve": "Approve and send to employee",
           "edit": "Edit before sending"
-        }
+        },
+        "image": "/category/tab-image.png"
       },
       {
         "icon": "eye",
         "title": "Meridian gives the employee the final say",
         "role": "Employee decides",
         "panel": {
-          "title": "Final report \u00b7 Choose what to share",
+          "title": "Final report · Choose what to share",
           "role": "Employee view",
           "type": "share",
           "program_label": "Your program",
@@ -567,7 +578,8 @@
           ],
           "note": "Session notes and conversations are never shared.",
           "button": "Share summary"
-        }
+        },
+        "image": "/category/tab-image.png"
       }
     ]
   },
@@ -582,7 +594,9 @@
         "kicker": "Step 1 of 6",
         "title": "Nominate the person",
         "description": "Your CHRO or program admin adds the person on Meridian with their situation, objective and focus areas. The person agrees to take part.",
-        "who": "CHRO and person"
+        "who": "CHRO and person",
+        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
       },
       {
         "icon": "user-search",
@@ -590,7 +604,9 @@
         "kicker": "Step 2 of 6",
         "title": "Match a coach",
         "description": "In a 30-minute video session, the person reviews the certified coaches Meridian recommends and chooses one. The CHRO can join this session if the person wants them there.",
-        "who": "Person \u00b7 CHRO optional"
+        "who": "Person · CHRO optional",
+        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
       },
       {
         "icon": "heart-handshake",
@@ -598,7 +614,9 @@
         "kicker": "Step 3 of 6",
         "title": "Chemistry session",
         "description": "A free 30-minute session to test the fit, confirm the objective, choose one of the six transition tracks and agree the schedule.",
-        "who": "Person and coach \u00b7 live on video"
+        "who": "Person and coach · live on video",
+        "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
       },
       {
         "icon": "video",
@@ -606,7 +624,9 @@
         "kicker": "Step 4 of 6",
         "title": "Coaching sessions",
         "description": "Ten to twelve hours of one-on-one coaching on Meridian. The person sets the focus, the coach prepares, and an assignment carries the work forward.",
-        "who": "Person and coach \u00b7 live on video"
+        "who": "Person and coach · live on video",
+        "image": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
       },
       {
         "icon": "chart-line",
@@ -614,7 +634,9 @@
         "kicker": "Step 5 of 6",
         "title": "Mid-point check-in",
         "description": "Halfway through, person and coach review progress against the objective and adjust the plan for the hours ahead.",
-        "who": "Person and coach \u00b7 live on video"
+        "who": "Person and coach · live on video",
+        "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
       },
       {
         "icon": "file-text",
@@ -622,7 +644,36 @@
         "kicker": "Step 6 of 6",
         "title": "Final review and summary",
         "description": "The final session agrees what the person will keep doing, and they choose what the CHRO sees in the final summary.",
-        "who": "Person shares with CHRO"
+        "who": "Person shares with CHRO",
+        "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
+      }
+    ],
+    "stats": [
+      {
+        "icon": "clock",
+        "value": "10 to 12 hours",
+        "label": "of one-on-one coaching"
+      },
+      {
+        "icon": "calendar",
+        "value": "6 to 8 months",
+        "label": "from nomination to final review"
+      },
+      {
+        "icon": "heart-handshake",
+        "value": "Free",
+        "label": "30-minute chemistry session"
+      },
+      {
+        "icon": "award",
+        "value": "ICF · ICC · EMCC",
+        "label": "certified coaches"
+      },
+      {
+        "icon": "globe",
+        "value": "Virtual",
+        "label": "on Meridian, in local time"
       }
     ]
   },
@@ -639,35 +690,85 @@
   },
   "confidential": {
     "section_id": "confidential",
-    "heading": "Confidential career and transition coaching, by design on <span>Meridian.</span>",
-    "description": "The coaching stays private. Your organization still sees that the engagement is on track.",
-    "columns": [
+    "heading": "Confidential transition coaching, by design on <span>Meridian.</span>",
+    "description": "The coaching stays private. Your organization still sees that the engagement is on track. Switch views to compare the same Meridian screen.",
+    "view1": "Employee’s view",
+    "view2": "CHRO’s view",
+    "points": [
       {
-        "private": true,
         "icon": "lock",
-        "title": "Private to person and coach",
-        "subtitle": "Session notes, assignments, the coach's preparation and the person's reflections.",
-        "items": [
-          "Session notes and what was said",
-          "Assignments and the person's reflections",
-          "The coach's preparation and questions",
-          "Any coach change the person requests"
-        ]
+        "title": "Private to employee and coach",
+        "text": "Session notes, assignments, the coach’s preparation and the employee’s reflections."
       },
       {
-        "private": false,
         "icon": "eye",
         "title": "Visible to your CHRO",
-        "subtitle": "Objective, track, hours used, progress, check-ins and the final summary the person chooses to share.",
-        "items": [
-          "Sessions held and hours used",
-          "Progress against the agreed objective",
-          "Mid-point and final check-in completed",
-          "Final summary \u2014 in the person's own words"
-        ]
+        "text": "Objective, track, hours used, progress, check-ins and the final summary the employee chooses to share."
+      },
+      {
+        "icon": "users",
+        "title": "Where the CHRO can join",
+        "text": "Only the coach matching session, and only if the employee wants them there."
       }
     ],
-    "note": "Where the CHRO can join: only the coach matching session, and only if the person wants them there."
+    "window": {
+      "title": "Employee’s view",
+      "session": "Meridian · Session 5",
+      "sponsor_label": "CHRO sees",
+      "private_label": "Private",
+      "rows": [
+        {
+          "label": "Objective",
+          "value": "Step cleanly into the operations role",
+          "tag": "sponsor"
+        },
+        {
+          "label": "Track",
+          "value": "Role Transition",
+          "tag": "sponsor"
+        },
+        {
+          "label": "Hours",
+          "value": "6 of 12 used",
+          "tag": "sponsor"
+        },
+        {
+          "label": "Progress",
+          "progress": 50,
+          "tag": "sponsor"
+        },
+        {
+          "label": "Mid-point check-in",
+          "value": "Completed",
+          "tag": "sponsor"
+        },
+        {
+          "label": "Session notes",
+          "value": "Still answering finance questions; agree a clean handover.",
+          "tag": "team"
+        },
+        {
+          "label": "Assignment",
+          "value": "Handover note with the finance lead by month-end.",
+          "tag": "team"
+        },
+        {
+          "label": "Coach’s preparation",
+          "value": "Questions on what the new team needs first.",
+          "tag": "team"
+        },
+        {
+          "label": "Reflections",
+          "value": "Relieved once the old role had a new owner.",
+          "tag": "team"
+        },
+        {
+          "label": "Final summary",
+          "value": "Shared at the end, in the employee’s own words",
+          "tag": "sponsor"
+        }
+      ]
+    }
   },
   "why": {
     "section_id": "why",
@@ -927,17 +1028,7 @@
   },
   "faqs": {
     "section_id": "faq",
-    "heading": {
-      "parts": [
-        {
-          "text": "Career and transition coaching "
-        },
-        {
-          "text": "FAQs.",
-          "is_italic": true
-        }
-      ]
-    },
+    "heading": "Career and transition coaching <span>FAQs.</span>",
     "items": [
       {
         "question": "What is career and transition coaching?",

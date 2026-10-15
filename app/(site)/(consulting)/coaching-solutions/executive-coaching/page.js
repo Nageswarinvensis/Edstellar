@@ -11,7 +11,7 @@ import MeridianShowcase from "@/components/sections/coaching/meridian-showcase";
 import CoachingCtaBand from "@/components/sections/coaching/coaching-cta-band";
 import CoachingBenefits from "@/components/sections/coaching/coaching-benefits";
 import CoachingProcess from "@/components/sections/coaching/coaching-process";
-import CoachingConfidential from "@/components/sections/coaching/coaching-confidential";
+import CoachingConfidentialCompare from "@/components/sections/coaching/coaching-confidential-compare";
 import CoachingWhy from "@/components/sections/coaching/coaching-why";
 import CoachingSubHero from "@/components/sections/coaching/coaching-sub-hero";
 import CoachingWhoFor from "@/components/sections/coaching/coaching-who-for";
@@ -62,7 +62,7 @@ export default async function ExecutiveCoachingPage() {
       <MeridianShowcase data={page.meridian} />
       <CoachingProcess data={page.process} />
       <CoachingCtaBand data={page.process_cta} label="See Meridian with your own executives" />
-      <CoachingConfidential data={page.confidential} />
+      <CoachingConfidentialCompare data={page.confidential} />
       <CoachingWhy data={page.why} />
       <CoachingRelated data={page.related} />
       <Faq

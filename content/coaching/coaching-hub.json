@@ -331,7 +331,8 @@
           ],
           "match_label": "match",
           "foot": "Chosen together, then a free chemistry session"
-        }
+        },
+        "image": "/category/tab-image.png"
       },
       {
         "icon": "sparkles",
@@ -386,7 +387,8 @@
             "todo",
             "todo"
           ]
-        }
+        },
+        "image": "/category/tab-image.png"
       },
       {
         "icon": "file-text",
@@ -427,7 +429,8 @@
           ],
           "approve": "Approve and send to leader",
           "edit": "Edit before sending"
-        }
+        },
+        "image": "/category/tab-image.png"
       },
       {
         "icon": "eye",
@@ -494,7 +497,8 @@
           ],
           "note": "Session notes and conversations are never shared.",
           "button": "Share summary"
-        }
+        },
+        "image": "/category/tab-image.png"
       }
     ]
   },
@@ -562,6 +566,33 @@
         "who": "Leader shares with admin",
         "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=70",
         "image_alt": ""
+      }
+    ],
+    "stats": [
+      {
+        "icon": "clock",
+        "value": "10 to 12 hours",
+        "label": "of one-on-one coaching"
+      },
+      {
+        "icon": "calendar",
+        "value": "6 to 8 months",
+        "label": "from nomination to final review"
+      },
+      {
+        "icon": "heart-handshake",
+        "value": "Free",
+        "label": "30-minute chemistry session"
+      },
+      {
+        "icon": "award",
+        "value": "ICF · ICC · EMCC",
+        "label": "certified coaches"
+      },
+      {
+        "icon": "globe",
+        "value": "Virtual",
+        "label": "on Meridian, in local time"
       }
     ]
   },

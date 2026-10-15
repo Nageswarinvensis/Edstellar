@@ -1,10 +1,12 @@
 import {
   ArrowRightLeft,
+  Award,
   BookOpen,
   Building2,
   Calendar,
   ChartLine,
   CirclePause,
+  Clock,
   Compass,
   Crown,
   Eye,
@@ -28,6 +30,8 @@ import {
 const COACHING_ICONS = {
   "arrow-left-right": ArrowRightLeft,
   "arrow-right-left": ArrowRightLeft,
+  award: Award,
+  clock: Clock,
   "book-open": BookOpen,
   "building-2": Building2,
   calendar: Calendar,

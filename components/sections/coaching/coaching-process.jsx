@@ -29,7 +29,7 @@ export default function CoachingProcess({ data }) {
 
   if (!steps.length) return null;
 
-  const { section_id, heading, description } = data;
+  const { section_id, heading, description, stats } = data;
 
   const onKeyDown = (event) => {
     const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
@@ -156,6 +156,25 @@ export default function CoachingProcess({ data }) {
           ))}
         </Box>
       </Reveal>
+
+      {stats?.length ? (
+        <Box
+          as="ul"
+          aria-label="Engagement at a glance"
+          className="m-0 mt-7 grid list-none grid-cols-5 gap-3 p-0 max-[1100px]:grid-cols-3 max-[600px]:grid-cols-2"
+        >
+          {stats.map((stat) => {
+            const Icon = coachingIcon(stat.icon);
+            return (
+              <Box as="li" key={stat.value} className="flex flex-col gap-1 rounded-[14px] border border-ink/12 bg-white p-5">
+                {Icon ? <Icon size={20} strokeWidth={1.6} className="mb-2 text-navy" aria-hidden="true" /> : null}
+                <Text as="b" className="font-display text-[18px] font-bold leading-[1.2] text-ink">{stat.value}</Text>
+                <Text as="span" className="text-[14px] leading-[1.5] text-ink/55">{stat.label}</Text>
+              </Box>
+            );
+          })}
+        </Box>
+      ) : null}
     </Section>
   );
 }

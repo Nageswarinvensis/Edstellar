@@ -7,11 +7,11 @@ import LeadForm from "@/components/forms/lead-form";
 import StickyFooter from "@/components/common/sticky-footer";
 import ProofStats from "@/components/sections/consulting/proof-stats";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
-import MeridianShowcase from "@/components/sections/coaching/meridian-showcase";
+import CoachingMeridianSoon from "@/components/sections/coaching/coaching-meridian-soon";
 import CoachingCtaBand from "@/components/sections/coaching/coaching-cta-band";
 import CoachingBenefits from "@/components/sections/coaching/coaching-benefits";
 import CoachingProcess from "@/components/sections/coaching/coaching-process";
-import CoachingConfidential from "@/components/sections/coaching/coaching-confidential";
+import CoachingConfidentialCompare from "@/components/sections/coaching/coaching-confidential-compare";
 import CoachingWhy from "@/components/sections/coaching/coaching-why";
 import CoachingSubHero from "@/components/sections/coaching/coaching-sub-hero";
 import CoachingWhoFor from "@/components/sections/coaching/coaching-who-for";
@@ -59,10 +59,10 @@ export default async function TeamCoachingPage() {
       <CoachingWhoFor data={page.who} />
       <CoachingTracks data={page.tracks} />
       <CoachingBenefits data={page.benefits} />
-      <MeridianShowcase data={page.meridian} />
+      <CoachingMeridianSoon data={page.meridian_soon} />
       <CoachingProcess data={page.process} />
       <CoachingCtaBand data={page.process_cta} label="Plan a team coaching program" />
-      <CoachingConfidential data={page.confidential} />
+      <CoachingConfidentialCompare data={page.confidential} />
       <CoachingWhy data={page.why} />
       <CoachingRelated data={page.related} />
       <Faq

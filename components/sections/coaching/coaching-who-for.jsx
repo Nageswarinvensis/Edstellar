@@ -94,7 +94,7 @@ export default function CoachingWhoFor({ data }) {
               role="tabpanel"
               aria-labelledby={`who-tab-${index}`}
               hidden={index !== active}
-              className="rounded-[14px] border border-ink/12 bg-white p-8 max-[600px]:p-6"
+              className="rounded-[14px] bg-paper-warm p-8 max-[600px]:p-6"
             >
               <Text as="h3" className="font-display text-[24px] leading-[1.2] font-bold tracking-[-0.02em] text-ink mb-3">
                 {panel.title}
@@ -107,22 +107,18 @@ export default function CoachingWhoFor({ data }) {
 
               {panel.tracks?.length ? (
                 <>
-                  {panel.tracks_label ? (
-                    <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink/60 mb-3">
-                      {panel.tracks_label}
-                    </Text>
-                  ) : null}
-                  <Box className="flex flex-wrap gap-2">
-                    {panel.tracks.map((track) => (
-                      <Text
-                        as="span"
-                        key={track}
-                        className="inline-block rounded-full bg-lime-soft px-3 py-1.5 font-display text-[14px] font-semibold text-ink"
-                      >
-                        {track}
-                      </Text>
+                  <Box className="my-5 h-px bg-ink/10" />
+                  <Text as="p" className="text-[15px] leading-[1.7] text-ink">
+                    {panel.tracks_label ? (
+                      <span className="text-ink/60">{panel.tracks_label}{" "}</span>
+                    ) : null}
+                    {panel.tracks.map((track, i) => (
+                      <span key={track}>
+                        <span className="font-semibold underline decoration-lime underline-offset-[3px]">{track}</span>
+                        {i < panel.tracks.length - 1 ? <span className="text-ink/50"> and </span> : null}
+                      </span>
                     ))}
-                  </Box>
+                  </Text>
                 </>
               ) : null}
             </Box>

@@ -10,7 +10,6 @@ import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
-import { MeridianWindow } from "@/components/sections/coaching/meridian-panels";
 import { coachingIcon } from "@/components/sections/coaching/icons";
 import { cn } from "@/lib/utils";
 
@@ -150,7 +149,14 @@ export default function MeridianShowcase({ data }) {
               hidden={index !== active}
               className="min-h-0 flex-1 [&:not([hidden])]:flex"
             >
-              <MeridianWindow panel={tab.panel} />
+              {tab.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={tab.image}
+                  alt=""
+                  className="h-full w-full rounded-[12px] object-cover"
+                />
+              ) : null}
             </Box>
           ))}
         </Box>

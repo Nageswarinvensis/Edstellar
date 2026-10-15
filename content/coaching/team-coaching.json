@@ -76,7 +76,9 @@
           "current": true
         }
       ]
-    }
+    },
+    "art_svg": "<svg viewBox=\"0 0 560 500\" role=\"img\" aria-labelledby=\"art-t\">\n        <title id=\"art-t\">Illustration of a facilitated team coaching session: a team and a coach on a video call, with the team's focus for the session and a drafted session report.</title>\n        <defs><clipPath id=\"art-clip\"><rect x=\"0\" y=\"0\" width=\"560\" height=\"500\" rx=\"28\"/></clipPath></defs>\n        <rect x=\"0\" y=\"0\" width=\"560\" height=\"500\" rx=\"28\" fill=\"#F2F0E8\"/>\n        <circle cx=\"470\" cy=\"70\" r=\"120\" fill=\"#EDE9DD\" clip-path=\"url(#art-clip)\"/>\n        <!-- window -->\n        <rect x=\"40\" y=\"70\" width=\"480\" height=\"330\" rx=\"20\" fill=\"#0A1628\"/>\n        <circle cx=\"66\" cy=\"94\" r=\"5\" fill=\"#14233D\"/><circle cx=\"82\" cy=\"94\" r=\"5\" fill=\"#14233D\"/><circle cx=\"98\" cy=\"94\" r=\"5\" fill=\"#14233D\"/>\n        <rect x=\"380\" y=\"86\" width=\"116\" height=\"18\" rx=\"9\" fill=\"#14233D\"/>\n        <circle cx=\"394\" cy=\"95\" r=\"4\" fill=\"#C8F135\"/>\n        <text x=\"404\" y=\"99\" font-family=\"DM Mono, monospace\" font-size=\"10\" letter-spacing=\"1\" fill=\"#C8F135\">IN SESSION</text>\n        <!-- leader tile -->\n        <rect x=\"60\" y=\"118\" width=\"214\" height=\"200\" rx=\"14\" fill=\"#EDE9DD\"/>\n        <rect x=\"60\" y=\"118\" width=\"214\" height=\"200\" rx=\"14\" fill=\"none\" stroke=\"#C8F135\" stroke-width=\"2\"/>\n        <path d=\"M110 318c0-46 26-74 57-74s57 28 57 74z\" fill=\"#14233D\"/>\n        <path d=\"M150 248h34l-4 18h-26z\" fill=\"#E4F89A\"/>\n        <circle cx=\"167\" cy=\"206\" r=\"30\" fill=\"#C9A98A\"/>\n        <path d=\"M137 202c0-22 14-34 31-34 18 0 30 12 30 30-10-8-24-12-40-8-8 2-15 6-21 12z\" fill=\"#0A1628\"/>\n        <rect x=\"70\" y=\"290\" width=\"70\" height=\"20\" rx=\"10\" fill=\"#0A1628\"/>\n        <text x=\"80\" y=\"304\" font-family=\"DM Sans, sans-serif\" font-size=\"11\" font-weight=\"600\" fill=\"#FAFAF7\">Team</text>\n        <!-- coach tile -->\n        <rect x=\"286\" y=\"118\" width=\"214\" height=\"200\" rx=\"14\" fill=\"#E4F89A\"/>\n        <path d=\"M336 318c0-46 26-74 57-74s57 28 57 74z\" fill=\"#FAFAF7\"/>\n        <path d=\"M376 250l17 22 17-22\" fill=\"none\" stroke=\"#0A1628\" stroke-width=\"2\"/>\n        <circle cx=\"393\" cy=\"206\" r=\"30\" fill=\"#8C6A52\"/>\n        <path d=\"M363 210c-2-26 12-42 30-42 19 0 32 14 31 40-4-12-14-20-31-20-14 0-24 8-30 22z\" fill=\"#14233D\"/>\n        <rect x=\"296\" y=\"290\" width=\"62\" height=\"20\" rx=\"10\" fill=\"#0A1628\"/>\n        <text x=\"306\" y=\"304\" font-family=\"DM Sans, sans-serif\" font-size=\"11\" font-weight=\"600\" fill=\"#FAFAF7\">Coach</text>\n        <!-- controls -->\n        <rect x=\"200\" y=\"336\" width=\"160\" height=\"44\" rx=\"22\" fill=\"#14233D\"/>\n        <circle cx=\"236\" cy=\"358\" r=\"13\" fill=\"#0A1628\"/><rect x=\"232\" y=\"350\" width=\"8\" height=\"12\" rx=\"4\" fill=\"#FAFAF7\"/>\n        <circle cx=\"280\" cy=\"358\" r=\"13\" fill=\"#0A1628\"/><rect x=\"273\" y=\"352\" width=\"11\" height=\"12\" rx=\"2\" fill=\"#FAFAF7\"/><path d=\"M284 355l5-3v12l-5-3z\" fill=\"#FAFAF7\"/>\n        <circle cx=\"324\" cy=\"358\" r=\"13\" fill=\"#C8F135\"/><path d=\"M318 358h12\" stroke=\"#0A1628\" stroke-width=\"2.4\" stroke-linecap=\"round\"/>\n        <!-- focus card -->\n        <g>\n          <rect x=\"16\" y=\"22\" width=\"300\" height=\"72\" rx=\"16\" fill=\"#FFFFFF\" stroke=\"rgba(10,22,40,.12)\"/>\n          <text x=\"36\" y=\"48\" font-family=\"DM Mono, monospace\" font-size=\"10\" letter-spacing=\"1.2\" fill=\"rgba(10,22,40,.6)\">TEAM SESSION FOCUS</text>\n          <text x=\"36\" y=\"75\" font-family=\"Cormorant Garamond, serif\" font-style=\"italic\" font-size=\"20\" fill=\"#0A1628\">Who owns the roadmap call.</text>\n        </g>\n        <!-- report card -->\n        <g>\n          <rect x=\"300\" y=\"404\" width=\"244\" height=\"76\" rx=\"16\" fill=\"#FFFFFF\" stroke=\"rgba(10,22,40,.12)\"/>\n          <rect x=\"318\" y=\"422\" width=\"40\" height=\"40\" rx=\"12\" fill=\"#E4F89A\"/>\n          <path d=\"M330 432h10l6 6v14h-16z M340 432v6h6 M334 446h8 M334 451h6\" fill=\"none\" stroke=\"#0A1628\" stroke-width=\"1.7\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/>\n          <text x=\"370\" y=\"438\" font-family=\"DM Sans, sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#0A1628\">Team agreements drafted</text>\n          <text x=\"370\" y=\"457\" font-family=\"DM Sans, sans-serif\" font-size=\"12\" fill=\"rgba(10,22,40,.6)\">Shared with the sponsor</text>\n        </g>\n        <!-- AI chip -->\n        <g>\n          <rect x=\"24\" y=\"416\" width=\"190\" height=\"40\" rx=\"20\" fill=\"#0A1628\"/>\n          <path d=\"M48 426l2.4 6.8 6.8 2.4-6.8 2.4-2.4 6.8-2.4-6.8-6.8-2.4 6.8-2.4z\" fill=\"#C8F135\"/>\n          <text x=\"66\" y=\"441\" font-family=\"DM Sans, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#FAFAF7\">Meridian for teams: soon</text>\n        </g>\n      </svg>",
+    "art_label": "Illustration of a facilitated team coaching session: a team and a coach on a video call, with the team's focus for the session and a drafted session report."
   },
   "stickyNavbar": {
     "tabs": [
@@ -272,7 +274,8 @@
         "points": [
           "Focus area agreed with sponsor and team",
           "Progress reviewed at mid-point and end"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><circle cx=\"450\" cy=\"250\" r=\"118\" fill=\"#FFFFFF\"></circle><circle cx=\"450\" cy=\"250\" r=\"88\" fill=\"#E4F89A\"></circle><circle cx=\"450\" cy=\"250\" r=\"58\" fill=\"#FFFFFF\"></circle><circle cx=\"450\" cy=\"250\" r=\"30\" fill=\"#0A1628\"></circle><circle cx=\"450\" cy=\"250\" r=\"9\" fill=\"#C8F135\"></circle><path d=\"M300 400L440 260\" stroke=\"#0A1628\" stroke-width=\"6\" stroke-linecap=\"round\"></path><path d=\"M440 260l-6 26M440 260l-26 6\" stroke=\"#0A1628\" stroke-width=\"6\" stroke-linecap=\"round\"></path><path d=\"M296 404l-18 4 4-18M310 412l-22 6 6-22\" stroke=\"#0A1628\" stroke-width=\"4\" fill=\"none\" stroke-linecap=\"round\"></path></svg>"
       },
       {
         "title": "Trust established, not assumed",
@@ -280,7 +283,8 @@
         "points": [
           "What is said in sessions stays in the room",
           "Psychological safety built into the process"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><rect x=\"440\" y=\"80\" width=\"110\" height=\"250\" rx=\"10\" fill=\"#14233D\"></rect><rect x=\"452\" y=\"92\" width=\"86\" height=\"226\" rx=\"6\" fill=\"#0A1628\"></rect><circle cx=\"522\" cy=\"210\" r=\"6\" fill=\"#C8F135\"></circle><rect x=\"474\" y=\"190\" width=\"40\" height=\"34\" rx=\"6\" fill=\"#E4F89A\"></rect><path d=\"M482 190v-10a12 12 0 0124 0v10\" stroke=\"#E4F89A\" stroke-width=\"5\" fill=\"none\"></path><rect x=\"300\" y=\"300\" width=\"70\" height=\"70\" rx=\"14\" fill=\"#0A1628\"></rect><rect x=\"300\" y=\"250\" width=\"18\" height=\"120\" rx=\"9\" fill=\"#0A1628\"></rect><rect x=\"390\" y=\"300\" width=\"70\" height=\"70\" rx=\"14\" fill=\"#E4F89A\"></rect><rect x=\"442\" y=\"250\" width=\"18\" height=\"120\" rx=\"9\" fill=\"#E4F89A\"></rect><rect x=\"345\" y=\"380\" width=\"70\" height=\"10\" rx=\"5\" fill=\"#0A1628\"></rect><rect x=\"330\" y=\"200\" width=\"70\" height=\"40\" rx=\"12\" fill=\"#FFFFFF\"></rect><circle cx=\"350\" cy=\"220\" r=\"4\" fill=\"#0A1628\"></circle><circle cx=\"365\" cy=\"220\" r=\"4\" fill=\"#0A1628\"></circle><circle cx=\"380\" cy=\"220\" r=\"4\" fill=\"#0A1628\"></circle></svg>"
       },
       {
         "title": "A certified team coach, well matched",
@@ -288,7 +292,8 @@
         "points": [
           "Certified and vetted before they are recommended",
           "A free discovery session before anyone commits"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><g><rect x=\"300\" y=\"80\" width=\"230\" height=\"74\" rx=\"14\" fill=\"#FFFFFF\"></rect><circle cx=\"336\" cy=\"117\" r=\"20\" fill=\"#EDE9DD\"></circle><rect x=\"368\" y=\"104\" width=\"110\" height=\"10\" rx=\"5\" fill=\"#0A1628\" opacity=\".25\"></rect><rect x=\"368\" y=\"122\" width=\"76\" height=\"8\" rx=\"4\" fill=\"#0A1628\" opacity=\".15\"></rect></g><g><rect x=\"330\" y=\"172\" width=\"250\" height=\"84\" rx=\"16\" fill=\"#0A1628\"></rect><circle cx=\"372\" cy=\"214\" r=\"24\" fill=\"#14233D\"></circle><circle cx=\"372\" cy=\"206\" r=\"9\" fill=\"#E4F89A\"></circle><path d=\"M356 228c4-10 28-10 32 0\" fill=\"#E4F89A\"></path><rect x=\"408\" y=\"200\" width=\"110\" height=\"10\" rx=\"5\" fill=\"#FFFFFF\"></rect><rect x=\"408\" y=\"218\" width=\"70\" height=\"8\" rx=\"4\" fill=\"#FFFFFF\" opacity=\".5\"></rect><circle cx=\"548\" cy=\"214\" r=\"16\" fill=\"#C8F135\"></circle><path d=\"M540 214l6 6 10-12\" stroke=\"#0A1628\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g><rect x=\"300\" y=\"274\" width=\"230\" height=\"74\" rx=\"14\" fill=\"#FFFFFF\"></rect><circle cx=\"336\" cy=\"311\" r=\"20\" fill=\"#EDE9DD\"></circle><rect x=\"368\" y=\"298\" width=\"110\" height=\"10\" rx=\"5\" fill=\"#0A1628\" opacity=\".25\"></rect><rect x=\"368\" y=\"316\" width=\"76\" height=\"8\" rx=\"4\" fill=\"#0A1628\" opacity=\".15\"></rect></g></svg>"
       },
       {
         "title": "Decisions that stick",
@@ -296,7 +301,8 @@
         "points": [
           "Focus area for decision-making if needed",
           "Shared agreements made visible and held"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><path d=\"M300 380H570M300 380V110\" stroke=\"#0A1628\" stroke-width=\"3\" opacity=\".3\"></path><rect x=\"320\" y=\"310\" width=\"36\" height=\"70\" rx=\"6\" fill=\"#0A1628\" opacity=\".35\"></rect><rect x=\"370\" y=\"280\" width=\"36\" height=\"100\" rx=\"6\" fill=\"#0A1628\" opacity=\".5\"></rect><rect x=\"420\" y=\"240\" width=\"36\" height=\"140\" rx=\"6\" fill=\"#0A1628\" opacity=\".7\"></rect><rect x=\"470\" y=\"190\" width=\"36\" height=\"190\" rx=\"6\" fill=\"#0A1628\"></rect><rect x=\"520\" y=\"140\" width=\"36\" height=\"240\" rx=\"6\" fill=\"#C8F135\"></rect><path d=\"M338 290L388 258 438 222 488 170 538 120\" stroke=\"#0A1628\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"></path><circle cx=\"538\" cy=\"120\" r=\"9\" fill=\"#FFFFFF\" stroke=\"#0A1628\" stroke-width=\"3\"></circle></svg>"
       },
       {
         "title": "New teams that form faster",
@@ -304,7 +310,8 @@
         "points": [
           "Focus areas designed for newly formed teams",
           "Sessions paced to match the team's stage"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><g transform=\"translate(330,110)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(415,110)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(500,110)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(330,205)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(415,205)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(500,205)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(330,300)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g><g transform=\"translate(415,300)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#E4F89A\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#E4F89A\"></path></g><g transform=\"translate(500,300)\"><circle cx=\"30\" cy=\"22\" r=\"18\" fill=\"#0A1628\"></circle><path d=\"M0 82c0-26 13-40 30-40s30 14 30 40z\" fill=\"#0A1628\"></path></g></svg>"
       },
       {
         "title": "Cross-functional work that actually works",
@@ -312,7 +319,8 @@
         "points": [
           "Focus area for collaboration across boundaries",
           "Coach experienced with cross-functional teams"
-        ]
+        ],
+        "art_svg": "<svg class=\"bf-art\" viewBox=\"0 0 600 440\" preserveAspectRatio=\"xMaxYMax slice\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"600\" height=\"440\" fill=\"#F2F0E8\"></rect><circle cx=\"470\" cy=\"300\" r=\"190\" fill=\"#EDE9DD\"></circle><path d=\"M290 410C360 380 330 320 400 300S520 290 500 220 420 160 480 110 560 80 600 70\" stroke=\"#FFFFFF\" stroke-width=\"34\" fill=\"none\" stroke-linecap=\"round\"></path><path d=\"M290 410C360 380 330 320 400 300S520 290 500 220 420 160 480 110 560 80 600 70\" stroke=\"#0A1628\" stroke-width=\"3\" stroke-dasharray=\"10 12\" fill=\"none\" opacity=\".45\"></path><g transform=\"translate(392,240)\"><rect x=\"0\" y=\"0\" width=\"4\" height=\"58\" fill=\"#0A1628\"></rect><path d=\"M4 2h34l-8 10 8 10H4z\" fill=\"#C8F135\"></path></g><g transform=\"translate(492,160)\"><rect x=\"0\" y=\"0\" width=\"4\" height=\"58\" fill=\"#0A1628\"></rect><path d=\"M4 2h34l-8 10 8 10H4z\" fill=\"#E4F89A\"></path></g><circle cx=\"470\" cy=\"272\" r=\"20\" fill=\"#0A1628\"></circle><rect x=\"463\" y=\"262\" width=\"5\" height=\"20\" rx=\"2\" fill=\"#C8F135\"></rect><rect x=\"472\" y=\"262\" width=\"5\" height=\"20\" rx=\"2\" fill=\"#C8F135\"></rect></svg>"
       }
     ]
   },
@@ -411,7 +419,7 @@
         "title": "Meridian suggests questions in the session",
         "role": "Coach, in session",
         "panel": {
-          "title": "Session 4 \u00b7 In session",
+          "title": "Session 4 · In session",
           "role": "Coach view",
           "type": "questions",
           "focus_label": "Team's focus for today",
@@ -466,7 +474,7 @@
         "title": "Meridian drafts every session report",
         "role": "Coach approves",
         "panel": {
-          "title": "Session 4 report \u00b7 Draft",
+          "title": "Session 4 report · Draft",
           "role": "Coach approves",
           "type": "report",
           "doc_label": "Drafted by Meridian",
@@ -507,7 +515,7 @@
         "title": "Meridian gives the team the final say",
         "role": "Team decides",
         "panel": {
-          "title": "Final report \u00b7 Choose what to share",
+          "title": "Final report · Choose what to share",
           "role": "Team view",
           "type": "share",
           "program_label": "Your program",
@@ -582,15 +590,19 @@
         "kicker": "Step 1 of 6",
         "title": "Sponsor discovery",
         "description": "The sponsor meets the Edstellar coaching consultant to describe the team, the challenge and what a successful program looks like. The focus area is agreed and the program is scoped.",
-        "who": "Sponsor and Edstellar"
+        "who": "Sponsor and Edstellar",
+        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
       },
       {
         "icon": "user-search",
         "label": "Team diagnostic",
         "kicker": "Step 2 of 6",
         "title": "Team diagnostic",
-        "description": "A short diagnostic with the team \u2014 either a survey or individual conversations \u2014 gives the coach a clear picture of the team's starting point before the first session.",
-        "who": "Coach and team members"
+        "description": "A short diagnostic with the team — either a survey or individual conversations — gives the coach a clear picture of the team's starting point before the first session.",
+        "who": "Coach and team members",
+        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
       },
       {
         "icon": "heart-handshake",
@@ -598,7 +610,9 @@
         "kicker": "Step 3 of 6",
         "title": "Kickoff session",
         "description": "The coach meets the team, shares what the diagnostic found, agrees the focus area and the way of working for sessions together.",
-        "who": "Coach and full team"
+        "who": "Coach and full team",
+        "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
       },
       {
         "icon": "video",
@@ -606,7 +620,9 @@
         "kicker": "Step 4 of 6",
         "title": "Team coaching sessions",
         "description": "Facilitated sessions of 60 to 90 minutes on the agreed focus area. The team does the work; the coach holds the space and the process.",
-        "who": "Coach and full team \u00b7 live"
+        "who": "Coach and full team · live",
+        "image": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
       },
       {
         "icon": "chart-line",
@@ -614,7 +630,9 @@
         "kicker": "Step 5 of 6",
         "title": "Actions between sessions",
         "description": "Each session ends with agreed actions the team takes back into their daily work. The coach follows up at the start of the next session.",
-        "who": "Team between sessions"
+        "who": "Team between sessions",
+        "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
       },
       {
         "icon": "file-text",
@@ -622,7 +640,36 @@
         "kicker": "Step 6 of 6",
         "title": "Review and re-diagnostic",
         "description": "At the end of the program, the team reviews progress against the focus area. A re-diagnostic measures what has changed and agrees the next step.",
-        "who": "Sponsor, coach and team"
+        "who": "Sponsor, coach and team",
+        "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=70",
+        "image_alt": ""
+      }
+    ],
+    "stats": [
+      {
+        "icon": "clock",
+        "value": "60 to 90 minutes",
+        "label": "per facilitated team session"
+      },
+      {
+        "icon": "users",
+        "value": "Whole team",
+        "label": "coached together"
+      },
+      {
+        "icon": "chart-line",
+        "value": "Team diagnostic",
+        "label": "at the start and the end"
+      },
+      {
+        "icon": "award",
+        "value": "ICF · ICC · EMCC",
+        "label": "certified coaches"
+      },
+      {
+        "icon": "target",
+        "value": "One team objective",
+        "label": "agreed with the sponsor"
       }
     ]
   },
@@ -639,35 +686,81 @@
   },
   "confidential": {
     "section_id": "confidential",
-    "heading": "What is said in team coaching stays in the <span>room.</span>",
-    "description": "The coaching stays with the team. Your sponsor sees that the program is on track.",
-    "columns": [
+    "heading": "Confidential team coaching, by <span>design.</span>",
+    "description": "What the team says in sessions stays in the room. The sponsor still sees that the program is on track. Switch views to compare.",
+    "points": [
       {
-        "private": true,
         "icon": "lock",
-        "title": "Private to team and coach",
-        "subtitle": "What is said in sessions, individual contributions and the coach's preparation.",
-        "items": [
-          "What is said in sessions",
-          "Individual contributions and positions taken",
-          "The coach's preparation and questions",
-          "Any coach change the team requests"
-        ]
+        "title": "Stays in the team",
+        "text": "What was said in sessions, individual diagnostic answers, the coach’s notes and each member’s own commitments."
       },
       {
-        "private": false,
         "icon": "eye",
         "title": "Visible to your sponsor",
-        "subtitle": "Focus area, sessions held, progress and the agreed actions the team carries forward.",
-        "items": [
-          "Sessions held and attendance",
-          "Focus area and progress against it",
-          "Agreed actions from sessions",
-          "Final review findings"
-        ]
+        "text": "The team objective, focus area, sessions held, progress, team-level diagnostic results and the agreements the team chooses to share."
+      },
+      {
+        "icon": "users",
+        "title": "Who joins team sessions",
+        "text": "The whole team, including the team leader, with the coach."
       }
     ],
-    "note": "Individual conversations in the diagnostic are confidential. Only themes are shared with the team and sponsor."
+    "window": {
+      "title": "Team’s view",
+      "session": "Team program · Session 4",
+      "rows": [
+        {
+          "label": "Team objective",
+          "value": "Make product decisions once, and make them stick",
+          "tag": "sponsor"
+        },
+        {
+          "label": "Focus area",
+          "value": "Decision-Making",
+          "tag": "sponsor"
+        },
+        {
+          "label": "Sessions held",
+          "value": "4 team sessions",
+          "tag": "sponsor"
+        },
+        {
+          "label": "Progress",
+          "progress": 50,
+          "tag": "sponsor"
+        },
+        {
+          "label": "Team diagnostic",
+          "value": "Team-level results",
+          "tag": "sponsor"
+        },
+        {
+          "label": "What was said",
+          "value": "Disagreement on who owns the roadmap call.",
+          "tag": "team"
+        },
+        {
+          "label": "Individual diagnostic answers",
+          "value": "Anonymous, combined into team results",
+          "tag": "team"
+        },
+        {
+          "label": "Coach’s session notes",
+          "value": "Observations on how the team debates.",
+          "tag": "team"
+        },
+        {
+          "label": "Individual commitments",
+          "value": "Each member’s own actions between sessions.",
+          "tag": "team"
+        },
+        {
+          "label": "Team agreements",
+          "value": "Shared at the end, in the team’s own words",
+          "tag": "sponsor"
+        }
+      ]
+    }
   },
   "why": {
     "section_id": "why",
@@ -927,21 +1020,11 @@
   },
   "faqs": {
     "section_id": "faq",
-    "heading": {
-      "parts": [
-        {
-          "text": "Team coaching "
-        },
-        {
-          "text": "FAQs.",
-          "is_italic": true
-        }
-      ]
-    },
+    "heading": "Team coaching <span>FAQs.</span>",
     "items": [
       {
         "question": "What is team coaching?",
-        "answer": "Team coaching is facilitated coaching with an intact group \u2014 a leadership team, a newly formed team or a cross-functional group \u2014 focused on the shared dynamics, agreements and habits that shape how they work together. Edstellar's team coaching is delivered in facilitated sessions of 60 to 90 minutes by a certified team coach."
+        "answer": "Team coaching is facilitated coaching with an intact group — a leadership team, a newly formed team or a cross-functional group — focused on the shared dynamics, agreements and habits that shape how they work together. Edstellar's team coaching is delivered in facilitated sessions of 60 to 90 minutes by a certified team coach."
       },
       {
         "question": "Who is team coaching for?",
@@ -987,5 +1070,18 @@
         "text": "Team coaching for leadership and cross-functional teams, run on Meridian."
       }
     ]
+  },
+  "meridian_soon": {
+    "section_id": "meridian",
+    "heading": "Team coaching on Meridian, coming <span>soon.</span>",
+    "description": "Meridian already runs Edstellar’s individual coaching paths. Team sessions on Meridian are on the way. Until then, every team coaching session is facilitated live by a certified team coach.",
+    "primary_cta": {
+      "label": "Book a coaching consultation",
+      "href": "#contact"
+    },
+    "secondary_cta": {
+      "label": "Explore Meridian",
+      "href": "https://www.edstellar.com/meridian"
+    }
   }
 }
