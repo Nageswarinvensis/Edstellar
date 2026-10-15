@@ -1,0 +1,991 @@
+{
+  "seo": {
+    "meta_title": "Team Coaching Services for Leadership and Cross-Functional Teams | Edstellar",
+    "Meta_description": "Edstellar's team coaching gives leadership teams and cross-functional groups a certified team coach and a facilitated space to align and deliver together, on Meridian.",
+    "og_image_url": null
+  },
+  "hero": {
+    "heading": "Team coaching services, <span>run on Meridian.</span>",
+    "description": "Edstellar's team coaching gives leadership teams and cross-functional groups a certified team coach and a facilitated space to align and deliver together, on an AI-assisted platform built for coaching. Facilitated sessions of 60 to 90 minutes, focused on the shared work and the dynamics that shape how it gets done.",
+    "primary_cta": {
+      "label": "Book a coaching consultation",
+      "href": "#contact"
+    },
+    "secondary_cta": {
+      "label": "See the six team focus areas",
+      "href": "#tracks"
+    },
+    "meta": [
+      {
+        "icon": "users",
+        "label": "ICF, ICC and EMCC certified coaches"
+      },
+      {
+        "icon": "calendar",
+        "label": "Facilitated sessions of 60 to 90 minutes"
+      },
+      {
+        "icon": "lock",
+        "label": "What is said in sessions stays in the room"
+      }
+    ],
+    "ladder": {
+      "heading": "Leadership-stage coaching",
+      "subtitle": "Choose the path for where your leader is now.",
+      "items": [
+        {
+          "icon": "crown",
+          "title": "Executive coaching",
+          "audience": "C-suite and senior leaders",
+          "href": "/coaching-solutions/executive-coaching",
+          "current": false
+        },
+        {
+          "icon": "compass",
+          "title": "Leadership coaching",
+          "audience": "Directors, senior managers",
+          "href": "/coaching-solutions/leadership-coaching",
+          "current": false
+        },
+        {
+          "icon": "sprout",
+          "title": "First-time manager coaching",
+          "audience": "New people managers",
+          "href": "/coaching-solutions/first-time-manager-coaching",
+          "current": false
+        },
+        {
+          "icon": "arrow-left-right",
+          "title": "Career and transition coaching",
+          "audience": "Leaders changing role or direction",
+          "href": "/coaching-solutions/career-transition-coaching",
+          "current": false
+        },
+        {
+          "icon": "target",
+          "title": "Performance coaching",
+          "audience": "Leaders building one capability",
+          "href": "/coaching-solutions/performance-coaching",
+          "current": false
+        },
+        {
+          "icon": "users",
+          "title": "Team coaching",
+          "audience": "Intact and cross-functional teams",
+          "href": "/coaching-solutions/team-coaching",
+          "current": true
+        }
+      ]
+    }
+  },
+  "stickyNavbar": {
+    "tabs": [
+      {
+        "id": "who",
+        "label": "Who it's for"
+      },
+      {
+        "id": "tracks",
+        "label": "Focus areas"
+      },
+      {
+        "id": "benefits",
+        "label": "Benefits"
+      },
+      {
+        "id": "meridian",
+        "label": "Meridian"
+      },
+      {
+        "id": "process",
+        "label": "How it runs"
+      },
+      {
+        "id": "confidential",
+        "label": "Confidentiality"
+      },
+      {
+        "id": "why",
+        "label": "Why Edstellar"
+      },
+      {
+        "id": "faq",
+        "label": "FAQs"
+      },
+      {
+        "id": "contact",
+        "label": "Contact"
+      }
+    ]
+  },
+  "who": {
+    "section_id": "who",
+    "heading": "Team coaching for the groups that need to work better <span>together.</span>",
+    "description": "Edstellar's team coaching is built for intact leadership teams, newly formed groups and cross-functional teams that need to align, build trust and deliver together.",
+    "tabs": [
+      {
+        "label": "Leadership teams",
+        "icon": "crown"
+      },
+      {
+        "label": "Newly formed teams",
+        "icon": "sprout"
+      },
+      {
+        "label": "Cross-functional and project teams",
+        "icon": "layers"
+      },
+      {
+        "label": "Teams after a merger or restructure",
+        "icon": "arrow-left-right"
+      }
+    ],
+    "panels": [
+      {
+        "title": "Leadership teams",
+        "description": "A leadership team that disagrees in the room and undoes it in the corridor creates noise throughout the organization. Team coaching brings the real conversation into the room and builds the habits of a high-performing leadership team.",
+        "tracks_label": "Focus areas leadership teams often choose:",
+        "tracks": [
+          "Shared Purpose & Goals",
+          "Healthy Conflict"
+        ]
+      },
+      {
+        "title": "Newly formed teams",
+        "description": "A new team needs to build trust, establish ways of working and find a shared direction fast. Team coaching accelerates the forming process so the group can do real work sooner.",
+        "tracks_label": "Focus areas newly formed teams often choose:",
+        "tracks": [
+          "Trust",
+          "Shared Purpose & Goals"
+        ]
+      },
+      {
+        "title": "Cross-functional and project teams",
+        "description": "Teams that cross organizational lines face competing priorities and no shared line management. Team coaching builds the relationships and agreements that let them work well despite the structure.",
+        "tracks_label": "Focus areas cross-functional teams often choose:",
+        "tracks": [
+          "Collaboration Across Boundaries",
+          "Decision-Making"
+        ]
+      },
+      {
+        "title": "Teams after a merger or restructure",
+        "description": "Bringing together people from different organizations or reorganizing an existing team: team coaching helps the new group build a shared identity and find a way forward together.",
+        "tracks_label": "Focus areas teams in transition often choose:",
+        "tracks": [
+          "Trust",
+          "Shared Purpose & Goals"
+        ]
+      }
+    ]
+  },
+  "tracks": {
+    "section_id": "tracks",
+    "heading": "Six Edstellar team coaching focus areas on <span>Meridian.</span>",
+    "description": "The team chooses one focus area with the coach in the discovery session. It shapes the diagnostic, the sessions and the actions that follow.",
+    "center_label": "THE\nTEAM",
+    "items": [
+      {
+        "number": "01",
+        "title": "Shared Purpose & Goals",
+        "tagline": "Knowing what you are trying to do, together.",
+        "work_on": [
+          "Agreeing on the team's purpose and priorities",
+          "Aligning on what success looks like",
+          "Making shared goals visible and meaningful"
+        ],
+        "choose_for": "Teams that are unclear on direction or drifting"
+      },
+      {
+        "number": "02",
+        "title": "Trust",
+        "tagline": "Building the foundation everything else depends on.",
+        "work_on": [
+          "Understanding how trust works in this team",
+          "Building psychological safety in the room",
+          "Recovering trust after a rupture"
+        ],
+        "choose_for": "New teams or teams where trust has broken down"
+      },
+      {
+        "number": "03",
+        "title": "Decision-Making",
+        "tagline": "Deciding well, together.",
+        "work_on": [
+          "Clarifying who decides what",
+          "Making decisions that stick",
+          "Reducing the cost of disagreement in the room"
+        ],
+        "choose_for": "Teams that are slow to decide or often revisit decisions"
+      },
+      {
+        "number": "04",
+        "title": "Healthy Conflict",
+        "tagline": "Disagreeing in a way that makes things better.",
+        "work_on": [
+          "Making it safe to disagree",
+          "Distinguishing productive tension from destructive conflict",
+          "Using disagreement to improve decisions"
+        ],
+        "choose_for": "Teams that avoid conflict or where conflict is destructive"
+      },
+      {
+        "number": "05",
+        "title": "Accountability",
+        "tagline": "Following through on what was agreed.",
+        "work_on": [
+          "Making commitments visible and specific",
+          "Holding each other to account without blame",
+          "Addressing underperformance within the team"
+        ],
+        "choose_for": "Teams where agreements are made but not kept"
+      },
+      {
+        "number": "06",
+        "title": "Collaboration Across Boundaries",
+        "tagline": "Working well with people who report to someone else.",
+        "work_on": [
+          "Building relationships across organizational lines",
+          "Managing competing priorities between functions",
+          "Getting to agreement without shared authority"
+        ],
+        "choose_for": "Cross-functional and matrix teams"
+      }
+    ],
+    "cta": {
+      "heading": "Not sure where your team should start?",
+      "description": "Tell us about the team and what is getting in the way. An Edstellar coaching consultant will recommend a focus area and the coaches who fit.",
+      "button": {
+        "label": "Book a coaching consultation",
+        "href": "#contact"
+      }
+    }
+  },
+  "benefits": {
+    "section_id": "benefits",
+    "heading": "Edstellar's team coaching benefits for the whole <span>organization.</span>",
+    "description": "Team coaching builds the shared habits and relationships that let a group do its best work together. Every Edstellar team coaching program is designed around six benefits.",
+    "items": [
+      {
+        "title": "A team aligned on what matters",
+        "description": "The team's focus area is agreed in the discovery session and shapes every session that follows. Coaching ensures the work stays connected to what the team actually needs.",
+        "points": [
+          "Focus area agreed with sponsor and team",
+          "Progress reviewed at mid-point and end"
+        ]
+      },
+      {
+        "title": "Trust established, not assumed",
+        "description": "Team coaching creates the conditions for honest conversation that most meetings never reach, so trust builds through the work rather than around it.",
+        "points": [
+          "What is said in sessions stays in the room",
+          "Psychological safety built into the process"
+        ]
+      },
+      {
+        "title": "A certified team coach, well matched",
+        "description": "Every team coach is certified by the ICF (PCC or MCC), ICC or EMCC and vetted by Edstellar. Meridian recommends; the sponsor and team choose.",
+        "points": [
+          "Certified and vetted before they are recommended",
+          "A free discovery session before anyone commits"
+        ]
+      },
+      {
+        "title": "Decisions that stick",
+        "description": "Teams that have worked through their decision-making patterns make better decisions, faster, and are less likely to revisit them in the corridor after the meeting.",
+        "points": [
+          "Focus area for decision-making if needed",
+          "Shared agreements made visible and held"
+        ]
+      },
+      {
+        "title": "New teams that form faster",
+        "description": "Team coaching compresses the time it takes for a new team to find its rhythm, establish trust and do meaningful work together.",
+        "points": [
+          "Focus areas designed for newly formed teams",
+          "Sessions paced to match the team's stage"
+        ]
+      },
+      {
+        "title": "Cross-functional work that actually works",
+        "description": "Teams that cross organizational lines often fail on relationships and agreements, not on capability. Team coaching builds the foundations that make the collaboration possible.",
+        "points": [
+          "Focus area for collaboration across boundaries",
+          "Coach experienced with cross-functional teams"
+        ]
+      }
+    ]
+  },
+  "meridian": {
+    "section_id": "meridian",
+    "tag": "Built by Edstellar",
+    "heading": "Coming soon: team coaching on <span>Meridian.</span>",
+    "description": "Meridian already runs Edstellar's individual coaching paths. Team sessions on Meridian are on the way. Until then, every team coaching session is facilitated live by a certified team coach.",
+    "buttons": [
+      {
+        "label": "Explore Meridian",
+        "href": "/meridian",
+        "variant": "primary"
+      },
+      {
+        "label": "Book a coaching consultation",
+        "href": "#contact",
+        "variant": "ghost"
+      }
+    ],
+    "tabs": [
+      {
+        "icon": "users",
+        "title": "Meridian recommends the right coaches",
+        "role": "Team, CHRO optional",
+        "panel": {
+          "title": "Coach matching",
+          "role": "Team, CHRO optional",
+          "type": "match",
+          "brief": {
+            "label": "Team brief",
+            "title": "Leadership Team",
+            "fields": [
+              {
+                "label": "Objective",
+                "value": "Build the leadership capability this role needs most",
+                "tags": []
+              },
+              {
+                "label": "Focus areas",
+                "value": null,
+                "tags": [
+                  "Leadership",
+                  "Communication",
+                  "Decision-making"
+                ]
+              },
+              {
+                "label": "Language and time zone",
+                "value": "English, GMT+5:30",
+                "tags": []
+              }
+            ]
+          },
+          "list_label": "Recommended by Meridian",
+          "coaches": [
+            {
+              "initials": "AR",
+              "name": "Anita Rao",
+              "focus": "Leadership transitions, senior roles",
+              "tags": [
+                "Leadership",
+                "Same time zone"
+              ],
+              "score": 84,
+              "selected": false
+            },
+            {
+              "initials": "DL",
+              "name": "Daniel Lim",
+              "focus": "Scaling teams, decision-making",
+              "tags": [
+                "Leadership",
+                "Decision-making"
+              ],
+              "score": 92,
+              "selected": true
+            },
+            {
+              "initials": "SK",
+              "name": "Sara Kemp",
+              "focus": "Communication, change leadership",
+              "tags": [
+                "Communication"
+              ],
+              "score": 78,
+              "selected": false
+            }
+          ],
+          "match_label": "match",
+          "foot": "Chosen together, then a free chemistry session"
+        }
+      },
+      {
+        "icon": "sparkles",
+        "title": "Meridian suggests questions in the session",
+        "role": "Coach, in session",
+        "panel": {
+          "title": "Session 4 \u00b7 In session",
+          "role": "Coach view",
+          "type": "questions",
+          "focus_label": "Team's focus for today",
+          "focus": "Working through the priority that matters most this month.",
+          "chat_label": "From the discussion",
+          "chat": [
+            {
+              "side": "leader",
+              "text": "I keep getting pulled back into the detail."
+            },
+            {
+              "side": "coach",
+              "text": "What would happen if you didn't?"
+            },
+            {
+              "side": "leader",
+              "text": "Honestly, it would probably still get done."
+            }
+          ],
+          "ai_label": "AI suggested",
+          "questions": [
+            {
+              "text": "What would you need to see to step back with confidence?",
+              "status": "Use",
+              "used": false
+            },
+            {
+              "text": "Who else could own this decision?",
+              "status": "Use",
+              "used": false
+            },
+            {
+              "text": "What does staying in the detail cost you each week?",
+              "status": "Asked",
+              "used": true
+            }
+          ],
+          "note": "Only the questions the coach asks reach the team.",
+          "track": "Track: Session 4 of 10",
+          "track_steps": [
+            "done",
+            "done",
+            "now",
+            "todo",
+            "todo",
+            "todo"
+          ]
+        }
+      },
+      {
+        "icon": "file-text",
+        "title": "Meridian drafts every session report",
+        "role": "Coach approves",
+        "panel": {
+          "title": "Session 4 report \u00b7 Draft",
+          "role": "Coach approves",
+          "type": "report",
+          "doc_label": "Drafted by Meridian",
+          "doc_title": "Working on the priority that matters",
+          "summary": "The team explored what is pulling them back into the detail and recognized it is about reassurance rather than necessity. They agreed to delegate one priority decision this week and review the outcome at the next session.",
+          "questions_label": "Questions that moved the conversation",
+          "questions": [
+            "What does staying in the detail cost you each week?",
+            "Who else could own this decision?"
+          ],
+          "assignment_label": "Assignment",
+          "assignment": "Name one decision to hand over this week and let the team know why.",
+          "stats": [
+            {
+              "value": "5",
+              "label": "questions used"
+            },
+            {
+              "value": "2",
+              "label": "resources shared"
+            },
+            {
+              "value": "60",
+              "label": "minutes"
+            }
+          ],
+          "resources_label": "Resources",
+          "resources": [
+            "Delegation conversation guide",
+            "Weekly review template"
+          ],
+          "approve": "Approve and send to team",
+          "edit": "Edit before sending"
+        }
+      },
+      {
+        "icon": "eye",
+        "title": "Meridian gives the team the final say",
+        "role": "Team decides",
+        "panel": {
+          "title": "Final report \u00b7 Choose what to share",
+          "role": "Team view",
+          "type": "share",
+          "program_label": "Your program",
+          "stats": [
+            {
+              "value": "10",
+              "label": "sessions"
+            },
+            {
+              "value": "Agreed track",
+              "label": "track"
+            }
+          ],
+          "goal_label": "Your goal, in your own words",
+          "goal": "Build the capability this role needs, in a way that feels like me.",
+          "toggles_label": "Choose what your organization sees",
+          "toggles": [
+            {
+              "label": "Attendance",
+              "on": true
+            },
+            {
+              "label": "Progress against objective",
+              "on": true
+            },
+            {
+              "label": "Goal in my own words",
+              "on": true
+            },
+            {
+              "label": "Commitments",
+              "on": false
+            }
+          ],
+          "preview_label": "What your CHRO will see",
+          "preview": [
+            {
+              "label": "Attendance",
+              "value": "10 of 10 sessions",
+              "shared": true
+            },
+            {
+              "label": "Progress",
+              "value": "Objective met",
+              "shared": true
+            },
+            {
+              "label": "Goal",
+              "value": "\"Build the capability this role needs\"",
+              "shared": true
+            },
+            {
+              "label": "Commitments",
+              "value": "Not shared",
+              "shared": false
+            }
+          ],
+          "note": "Session notes and conversations are never shared.",
+          "button": "Share summary"
+        }
+      }
+    ]
+  },
+  "process": {
+    "section_id": "process",
+    "heading": "How an Edstellar team coaching program <span>runs.</span>",
+    "description": "Six steps take the team from sponsor discovery to a review and re-diagnostic. Your sponsor sees progress at every step; what is said in sessions stays in the room.",
+    "steps": [
+      {
+        "icon": "users",
+        "label": "Sponsor discovery",
+        "kicker": "Step 1 of 6",
+        "title": "Sponsor discovery",
+        "description": "The sponsor meets the Edstellar coaching consultant to describe the team, the challenge and what a successful program looks like. The focus area is agreed and the program is scoped.",
+        "who": "Sponsor and Edstellar"
+      },
+      {
+        "icon": "user-search",
+        "label": "Team diagnostic",
+        "kicker": "Step 2 of 6",
+        "title": "Team diagnostic",
+        "description": "A short diagnostic with the team \u2014 either a survey or individual conversations \u2014 gives the coach a clear picture of the team's starting point before the first session.",
+        "who": "Coach and team members"
+      },
+      {
+        "icon": "heart-handshake",
+        "label": "Kickoff session",
+        "kicker": "Step 3 of 6",
+        "title": "Kickoff session",
+        "description": "The coach meets the team, shares what the diagnostic found, agrees the focus area and the way of working for sessions together.",
+        "who": "Coach and full team"
+      },
+      {
+        "icon": "video",
+        "label": "Team coaching sessions",
+        "kicker": "Step 4 of 6",
+        "title": "Team coaching sessions",
+        "description": "Facilitated sessions of 60 to 90 minutes on the agreed focus area. The team does the work; the coach holds the space and the process.",
+        "who": "Coach and full team \u00b7 live"
+      },
+      {
+        "icon": "chart-line",
+        "label": "Actions between sessions",
+        "kicker": "Step 5 of 6",
+        "title": "Actions between sessions",
+        "description": "Each session ends with agreed actions the team takes back into their daily work. The coach follows up at the start of the next session.",
+        "who": "Team between sessions"
+      },
+      {
+        "icon": "file-text",
+        "label": "Review and re-diagnostic",
+        "kicker": "Step 6 of 6",
+        "title": "Review and re-diagnostic",
+        "description": "At the end of the program, the team reviews progress against the focus area. A re-diagnostic measures what has changed and agrees the next step.",
+        "who": "Sponsor, coach and team"
+      }
+    ]
+  },
+  "process_cta": {
+    "heading": "Discuss your team's program.",
+    "description": "Tell us about the team and what they need to do better together. An Edstellar coaching consultant will scope a program and recommend coaches who fit.",
+    "buttons": [
+      {
+        "label": "Book a coaching consultation",
+        "href": "#contact",
+        "variant": "primary"
+      }
+    ]
+  },
+  "confidential": {
+    "section_id": "confidential",
+    "heading": "What is said in team coaching stays in the <span>room.</span>",
+    "description": "The coaching stays with the team. Your sponsor sees that the program is on track.",
+    "columns": [
+      {
+        "private": true,
+        "icon": "lock",
+        "title": "Private to team and coach",
+        "subtitle": "What is said in sessions, individual contributions and the coach's preparation.",
+        "items": [
+          "What is said in sessions",
+          "Individual contributions and positions taken",
+          "The coach's preparation and questions",
+          "Any coach change the team requests"
+        ]
+      },
+      {
+        "private": false,
+        "icon": "eye",
+        "title": "Visible to your sponsor",
+        "subtitle": "Focus area, sessions held, progress and the agreed actions the team carries forward.",
+        "items": [
+          "Sessions held and attendance",
+          "Focus area and progress against it",
+          "Agreed actions from sessions",
+          "Final review findings"
+        ]
+      }
+    ],
+    "note": "Individual conversations in the diagnostic are confidential. Only themes are shared with the team and sponsor."
+  },
+  "why": {
+    "section_id": "why",
+    "heading": "Why organizations choose Edstellar for team <span>coaching.</span>",
+    "description": "Edstellar's team coaching connects to the rest of your leadership development, and is delivered by certified coaches who specialize in group dynamics.",
+    "difference_label": "The difference",
+    "items": [
+      {
+        "icon": "sparkles",
+        "title": "Meridian, built in-house",
+        "description": "Matching, sessions, reports and program tracking in one AI-assisted platform, designed by Edstellar for coaching. Team session support coming soon.",
+        "difference": "Coaching runs on technology built for it, not stitched together.",
+        "visual": {
+          "type": "app",
+          "title": "Meridian",
+          "menu": [
+            "Match",
+            "Sessions",
+            "Reports",
+            "Tracking"
+          ],
+          "active": 0
+        }
+      },
+      {
+        "icon": "heart-handshake",
+        "title": "Certified team coaches",
+        "description": "Every team coach is certified by the ICF (PCC or MCC), ICC or EMCC, experienced in group dynamics and vetted by Edstellar before they are recommended.",
+        "difference": "Fit is tested before the first session, not after.",
+        "visual": {
+          "type": "match",
+          "avatars": [
+            "AN",
+            "MD",
+            "PG",
+            "SH"
+          ],
+          "selected": 0,
+          "steps": [
+            {
+              "label": "Shortlist",
+              "state": "done"
+            },
+            {
+              "label": "Discovery",
+              "state": "now"
+            },
+            {
+              "label": "Agree",
+              "state": "todo"
+            }
+          ]
+        }
+      },
+      {
+        "icon": "chart-line",
+        "title": "Connected to team diagnostics",
+        "description": "The program starts with a diagnostic so the coach and team understand the starting point. Progress is measured against it at the end.",
+        "difference": "Objectives come from evidence, not assumptions.",
+        "visual": {
+          "type": "flow",
+          "nodes": [
+            {
+              "label": "Diagnostic",
+              "icon": "message-square",
+              "active": false,
+              "kind": "icon"
+            },
+            {
+              "label": "Focus",
+              "icon": "target",
+              "active": true,
+              "kind": "bars"
+            },
+            {
+              "label": "Coach",
+              "icon": "message-square",
+              "active": false,
+              "kind": "icon"
+            }
+          ]
+        }
+      },
+      {
+        "icon": "lock",
+        "title": "Confidential by design",
+        "description": "What is said in sessions stays in the room. Your sponsor sees sessions held, focus area and progress.",
+        "difference": "Teams open up, sponsors still see progress.",
+        "visual": {
+          "type": "privacy",
+          "vault": [
+            "What was said",
+            "Individual positions",
+            "Coach preparation"
+          ],
+          "shared": [
+            {
+              "label": "Sessions held",
+              "shared": true
+            },
+            {
+              "label": "Progress",
+              "shared": true
+            },
+            {
+              "label": "What was said",
+              "shared": false
+            }
+          ]
+        }
+      },
+      {
+        "icon": "globe",
+        "title": "Coaching across time zones",
+        "description": "Team sessions are scheduled to accommodate distributed teams, and coaches are matched on language and the team's working languages.",
+        "difference": "One program for a global team.",
+        "visual": {
+          "type": "zones",
+          "caption": "One session, five local times",
+          "zones": [
+            {
+              "zone": "SGT",
+              "time": "21:00",
+              "active": false
+            },
+            {
+              "zone": "GST",
+              "time": "17:00",
+              "active": false
+            },
+            {
+              "zone": "IST",
+              "time": "18:30",
+              "active": true
+            },
+            {
+              "zone": "CET",
+              "time": "14:00",
+              "active": false
+            },
+            {
+              "zone": "EST",
+              "time": "08:00",
+              "active": false
+            }
+          ]
+        }
+      },
+      {
+        "icon": "link",
+        "title": "One partner for development",
+        "description": "Team coaching, individual coaching, corporate training and L&D consulting from one team, so every program points the same way.",
+        "difference": "One conversation instead of several vendors.",
+        "visual": {
+          "type": "venn",
+          "svg": null
+        }
+      }
+    ],
+    "cta": {
+      "heading": "Start with the team that needs to work better together.",
+      "description": "Tell us about the team and what is getting in the way. A coaching consultant scopes a program, recommends certified coaches and talks you through how it runs.",
+      "buttons": [
+        {
+          "label": "Download the brochure",
+          "href": "#contact",
+          "variant": "secondary"
+        },
+        {
+          "label": "Book a coaching consultation",
+          "href": "#contact",
+          "variant": "primary"
+        }
+      ]
+    },
+    "related": {
+      "heading": "Related Edstellar services",
+      "description": "Coaching works best alongside the rest of how you develop people.",
+      "items": [
+        {
+          "icon": "layers",
+          "title": "Talent Assessments",
+          "description": "Measure leaders against the competency model with 360-degree feedback, psychometrics and assessment centers.",
+          "href": "/talent-assessment-services",
+          "link": "Measure leaders"
+        },
+        {
+          "icon": "building-2",
+          "title": "OD Consulting",
+          "description": "When change reaches structure, culture and leadership across the organization, OD consulting designs it and helps it land.",
+          "href": "/organizational-development-consulting",
+          "link": "Shape the organization"
+        },
+        {
+          "icon": "chart-line",
+          "title": "L&D Consulting",
+          "description": "When the gap is skills across teams rather than one leader, L&D consulting builds the capability your strategy needs.",
+          "href": "/learning-development-consulting-services",
+          "link": "Build capability"
+        },
+        {
+          "icon": "book-open",
+          "title": "Corporate Training Catalog",
+          "description": "Pair coaching with instructor-led programs across leadership, management and functional skills.",
+          "href": "/corporate-training",
+          "link": "Browse programs"
+        }
+      ]
+    }
+  },
+  "related": {
+    "section_id": "related",
+    "heading": "Individual coaching for every person in your <span>team.</span>",
+    "description": "Team coaching works alongside individual coaching. Every person on your team can have their own certified coach, run on Meridian.",
+    "items": [
+      {
+        "icon": "crown",
+        "audience": "C-suite and senior leaders",
+        "title": "Executive coaching",
+        "description": "For CEOs, CXOs and senior leaders who need a confidential thinking partner for the decisions and relationships that shape the business.",
+        "href": "/coaching-solutions/executive-coaching",
+        "cta_label": "Explore executive coaching"
+      },
+      {
+        "icon": "compass",
+        "audience": "Mid-level leaders, high-potentials",
+        "title": "Leadership coaching",
+        "description": "For directors, senior managers and high-potential talent getting ready for bigger roles and wider scope.",
+        "href": "/coaching-solutions/leadership-coaching",
+        "cta_label": "Explore leadership coaching"
+      },
+      {
+        "icon": "sprout",
+        "audience": "New people managers",
+        "title": "First-time manager coaching",
+        "description": "Support through the first step from strong individual contributor to manager of people.",
+        "href": "/coaching-solutions/first-time-manager-coaching",
+        "cta_label": "Explore first-time manager coaching"
+      },
+      {
+        "icon": "arrow-left-right",
+        "audience": "Leaders changing role or direction",
+        "title": "Career and transition coaching",
+        "description": "Coaching through promotions, role changes, restructures and returns to work, so leaders find their direction and land well.",
+        "href": "/coaching-solutions/career-transition-coaching",
+        "cta_label": "Explore career and transition coaching"
+      },
+      {
+        "icon": "target",
+        "audience": "Leaders building one capability",
+        "title": "Performance coaching",
+        "description": "Focused coaching on one personal capability to build, from confidence and focus to staying clear under pressure.",
+        "href": "/coaching-solutions/performance-coaching",
+        "cta_label": "Explore performance coaching"
+      }
+    ]
+  },
+  "faqs": {
+    "section_id": "faq",
+    "heading": {
+      "parts": [
+        {
+          "text": "Team coaching "
+        },
+        {
+          "text": "FAQs.",
+          "is_italic": true
+        }
+      ]
+    },
+    "items": [
+      {
+        "question": "What is team coaching?",
+        "answer": "Team coaching is facilitated coaching with an intact group \u2014 a leadership team, a newly formed team or a cross-functional group \u2014 focused on the shared dynamics, agreements and habits that shape how they work together. Edstellar's team coaching is delivered in facilitated sessions of 60 to 90 minutes by a certified team coach."
+      },
+      {
+        "question": "Who is team coaching for?",
+        "answer": "Team coaching is for leadership teams, newly formed teams that need to find their rhythm, cross-functional and project teams that work across organizational lines, and teams navigating a merger or restructure."
+      },
+      {
+        "question": "How many sessions does a team coaching program include?",
+        "answer": "The number of sessions is agreed in the sponsor discovery and depends on the team's focus area and starting point. Most programs run four to six facilitated sessions over three to six months, plus a diagnostic and a final review."
+      },
+      {
+        "question": "What certifications do Edstellar team coaches hold?",
+        "answer": "Every Edstellar team coach is certified by the International Coaching Federation (ICF) at PCC or MCC level, the International Coaching Community (ICC) or the European Mentoring and Coaching Council (EMCC), and is experienced in group coaching and team dynamics."
+      },
+      {
+        "question": "How does Edstellar select a team coach?",
+        "answer": "Edstellar recommends certified team coaches based on the team's focus area, size, industry and the working language of the group. The sponsor reviews the recommendations and chooses a coach in the discovery session."
+      },
+      {
+        "question": "What does our sponsor see during team coaching?",
+        "answer": "The sponsor sees sessions held, the focus area and progress against it, and the agreed actions the team carries forward. What is said in sessions stays between the team and the coach."
+      },
+      {
+        "question": "What are the six team coaching focus areas?",
+        "answer": "Shared Purpose & Goals, Trust, Decision-Making, Healthy Conflict, Accountability and Collaboration Across Boundaries. The focus area is agreed in the discovery and diagnostic."
+      },
+      {
+        "question": "Is team coaching delivered virtually or in person?",
+        "answer": "Edstellar delivers team coaching virtually. Sessions are facilitated live on video, scheduled to accommodate the team's time zones. In-person delivery can be discussed for teams in the same location."
+      }
+    ]
+  },
+  "lead_form": {
+    "heading": "Book a coaching <span>consultation.</span>",
+    "description": "Tell us about the team and what you want them to do better together. We will scope a program and recommend certified team coaches who fit. We reply within one business day with a scoped response, no automated sales sequence."
+  },
+  "stickyFooter": {
+    "form_anchor_id": "contact",
+    "messages": [
+      {
+        "text": "Coaching for leaders and teams, run on Meridian."
+      },
+      {
+        "text": "Team coaching for leadership and cross-functional teams, run on Meridian."
+      }
+    ]
+  }
+}

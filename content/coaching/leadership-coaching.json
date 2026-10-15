@@ -1,0 +1,991 @@
+{
+  "seo": {
+    "meta_title": "Leadership Coaching Services for Directors and Senior Managers | Edstellar",
+    "Meta_description": "Edstellar's leadership coaching gives directors, senior managers and high-potential leaders a certified coach, on Meridian. Ten to twelve hours over six to eight months.",
+    "og_image_url": null
+  },
+  "hero": {
+    "heading": "Leadership coaching services, <span>run on Meridian.</span>",
+    "description": "Edstellar's leadership coaching gives directors, senior managers and high-potential leaders a certified leadership coach and a confidential space to grow, on an AI-assisted platform built for coaching. Ten to twelve hours of one-on-one coaching over six to eight months, focused on leading people, teams and change.",
+    "primary_cta": {
+      "label": "Book a coaching consultation",
+      "href": "#contact"
+    },
+    "secondary_cta": {
+      "label": "See the six leadership tracks",
+      "href": "#tracks"
+    },
+    "meta": [
+      {
+        "icon": "heart-handshake",
+        "label": "ICF, ICC and EMCC certified coaches"
+      },
+      {
+        "icon": "calendar",
+        "label": "10 to 12 hours over 6 to 8 months"
+      },
+      {
+        "icon": "lock",
+        "label": "Confidential by design"
+      }
+    ],
+    "ladder": {
+      "heading": "Leadership-stage coaching",
+      "subtitle": "Choose the path for where your leader is now.",
+      "items": [
+        {
+          "icon": "crown",
+          "title": "Executive coaching",
+          "audience": "C-suite and senior leaders",
+          "href": "/coaching-solutions/executive-coaching",
+          "current": false
+        },
+        {
+          "icon": "compass",
+          "title": "Leadership coaching",
+          "audience": "Directors, senior managers",
+          "href": "/coaching-solutions/leadership-coaching",
+          "current": true
+        },
+        {
+          "icon": "sprout",
+          "title": "First-time manager coaching",
+          "audience": "New people managers",
+          "href": "/coaching-solutions/first-time-manager-coaching",
+          "current": false
+        },
+        {
+          "icon": "arrow-left-right",
+          "title": "Career and transition coaching",
+          "audience": "Leaders changing role or direction",
+          "href": "/coaching-solutions/career-transition-coaching",
+          "current": false
+        },
+        {
+          "icon": "target",
+          "title": "Performance coaching",
+          "audience": "Leaders building one capability",
+          "href": "/coaching-solutions/performance-coaching",
+          "current": false
+        },
+        {
+          "icon": "users",
+          "title": "Team coaching",
+          "audience": "Intact and cross-functional teams",
+          "href": "/coaching-solutions/team-coaching",
+          "current": false
+        }
+      ]
+    }
+  },
+  "stickyNavbar": {
+    "tabs": [
+      {
+        "id": "who",
+        "label": "Who it's for"
+      },
+      {
+        "id": "tracks",
+        "label": "Tracks"
+      },
+      {
+        "id": "benefits",
+        "label": "Benefits"
+      },
+      {
+        "id": "meridian",
+        "label": "Meridian"
+      },
+      {
+        "id": "process",
+        "label": "How it runs"
+      },
+      {
+        "id": "confidential",
+        "label": "Confidentiality"
+      },
+      {
+        "id": "why",
+        "label": "Why Edstellar"
+      },
+      {
+        "id": "faq",
+        "label": "FAQs"
+      },
+      {
+        "id": "contact",
+        "label": "Contact"
+      }
+    ]
+  },
+  "who": {
+    "section_id": "who",
+    "heading": "Leadership coaching for the next level of <span>leaders.</span>",
+    "description": "Edstellar's leadership coaching is built for the people who lead managers and teams, and for the high-potentials preparing to.",
+    "tabs": [
+      {
+        "label": "Newly promoted directors",
+        "icon": "compass"
+      },
+      {
+        "label": "High-potentials in your pipeline",
+        "icon": "sprout"
+      },
+      {
+        "label": "Senior managers taking on wider scope",
+        "icon": "layers"
+      },
+      {
+        "label": "Experts moving into leading leaders",
+        "icon": "users"
+      }
+    ],
+    "panels": [
+      {
+        "title": "Newly promoted directors",
+        "description": "Step up with confidence. Coaching helps newly promoted directors establish authority, build credibility with their teams and navigate the wider organizational stage.",
+        "tracks_label": "Tracks directors in this seat often choose:",
+        "tracks": [
+          "Leadership Identity",
+          "Difficult Conversations"
+        ]
+      },
+      {
+        "title": "High-potentials in your pipeline",
+        "description": "Accelerate readiness for bigger roles. Coaching gives high-potentials the skills, self-awareness and presence to step up before the vacancy opens.",
+        "tracks_label": "Tracks high-potentials often choose:",
+        "tracks": [
+          "Leadership Identity",
+          "Influence Without Authority"
+        ]
+      },
+      {
+        "title": "Senior managers taking on wider scope",
+        "description": "Lead more with the same energy. Coaching helps senior managers delegate well, shape the team they now lead and focus where it matters most.",
+        "tracks_label": "Tracks senior managers in this seat often choose:",
+        "tracks": [
+          "Delegation & Trust",
+          "Building the Team"
+        ]
+      },
+      {
+        "title": "Experts moving into leading leaders",
+        "description": "The hardest transition: from expert individual contributor to leader of people who lead others. Coaching accelerates the shift in identity and approach.",
+        "tracks_label": "Tracks experts in transition often choose:",
+        "tracks": [
+          "Leadership Identity",
+          "Delegation & Trust"
+        ]
+      }
+    ]
+  },
+  "tracks": {
+    "section_id": "tracks",
+    "heading": "Six Edstellar leadership coaching tracks on <span>Meridian.</span>",
+    "description": "Each leader chooses one track with their coach in the chemistry session. It shapes the objective, the coach's preparation on Meridian and every session that follows.",
+    "center_label": "THE\nLEADER",
+    "items": [
+      {
+        "number": "01",
+        "title": "Leadership Identity",
+        "tagline": "Knowing who you are as a leader.",
+        "work_on": [
+          "Your leadership style and what drives it",
+          "The kind of leader you want to be known as",
+          "Closing the gap between intent and impact"
+        ],
+        "choose_for": "A new leadership role or first direct reports"
+      },
+      {
+        "number": "02",
+        "title": "Delegation & Trust",
+        "tagline": "Letting go so the team can grow.",
+        "work_on": [
+          "Giving work away without losing quality",
+          "Building confidence in the people who report to you",
+          "Staying involved without micromanaging"
+        ],
+        "choose_for": "Leaders managing managers for the first time"
+      },
+      {
+        "number": "03",
+        "title": "Difficult Conversations",
+        "tagline": "Saying what needs to be said.",
+        "work_on": [
+          "Performance conversations that change behaviour",
+          "Disagreeing with peers and seniors",
+          "Delivering feedback that lands"
+        ],
+        "choose_for": "Leaders who avoid the hard talk"
+      },
+      {
+        "number": "04",
+        "title": "Building the Team",
+        "tagline": "Making the group into a team.",
+        "work_on": [
+          "Hiring, onboarding and setting standards",
+          "Managing performance and removing blockers",
+          "Creating the conditions for people to do good work"
+        ],
+        "choose_for": "Leaders inheriting or building a new team"
+      },
+      {
+        "number": "05",
+        "title": "Leading Change",
+        "tagline": "Keeping the team moving through uncertainty.",
+        "work_on": [
+          "Setting direction when the path is unclear",
+          "Communicating change with honesty and confidence",
+          "Managing the team's energy through a long transition"
+        ],
+        "choose_for": "A restructure, new strategy or major change"
+      },
+      {
+        "number": "06",
+        "title": "Influence Without Authority",
+        "tagline": "Getting things done across the organization.",
+        "work_on": [
+          "Building peer relationships and alliances",
+          "Navigating competing priorities and agendas",
+          "Getting buy-in without a direct line"
+        ],
+        "choose_for": "Matrix roles and cross-functional projects"
+      }
+    ],
+    "cta": {
+      "heading": "Not sure which track fits your leaders?",
+      "description": "Tell us about the leaders and the step they are taking. An Edstellar coaching consultant will recommend tracks and the coaches who fit.",
+      "button": {
+        "label": "Book a coaching consultation",
+        "href": "#contact"
+      }
+    }
+  },
+  "benefits": {
+    "section_id": "benefits",
+    "heading": "Edstellar's leadership coaching benefits for the whole <span>organization.</span>",
+    "description": "Leadership coaching builds capability in the people who run your teams and shape your culture. Every Edstellar leadership coaching program is designed around six benefits.",
+    "items": [
+      {
+        "title": "A stronger leadership pipeline",
+        "description": "Each leader's objective is linked to a capability the business needs as they move up, from delegation to influencing without authority.",
+        "points": [
+          "Objective and track agreed for every leader",
+          "Progress reviewed at the mid-point and at the end"
+        ]
+      },
+      {
+        "title": "A confidential space to grow",
+        "description": "Leaders grow fastest when they can be honest. Sessions on Meridian stay between leader and coach, so the conversation goes where it needs to.",
+        "points": [
+          "Session content never shared with the organization",
+          "The leader chooses what the final summary shares"
+        ]
+      },
+      {
+        "title": "A certified coach, well matched",
+        "description": "Every coach is certified by the ICF (PCC or MCC), ICC or EMCC and vetted by Edstellar. Meridian recommends; the leader chooses.",
+        "points": [
+          "Certified and vetted before they are recommended",
+          "A free chemistry session before anyone commits"
+        ]
+      },
+      {
+        "title": "Faster promotion readiness",
+        "description": "Coaching high-potentials before a role opens prepares them for the step up and strengthens the leadership bench across the organization.",
+        "points": [
+          "High-potentials coached against the role they are moving into",
+          "Progress your CHRO can follow on Meridian"
+        ]
+      },
+      {
+        "title": "Better people management from day one",
+        "description": "New directors and senior managers build the habits and confidence to lead people well before the early missteps become patterns.",
+        "points": [
+          "Tracks for identity, delegation and difficult conversations",
+          "Coaching paced across six to eight months"
+        ]
+      },
+      {
+        "title": "High-potentials who stay",
+        "description": "Investing in your best people signals that their growth matters. Leaders with a coaching engagement are more likely to stay and to bring others with them.",
+        "points": [
+          "Retention tied to visible investment in their development",
+          "One program view for your CHRO on Meridian"
+        ]
+      }
+    ]
+  },
+  "meridian": {
+    "section_id": "meridian",
+    "tag": "Built by Edstellar",
+    "heading": "Meridian, the AI-assisted platform behind Edstellar leadership <span>coaching.</span>",
+    "description": "Meridian brings the program into one place for the leader, the coach and your CHRO. AI handles the preparation and paperwork, so every hour of leadership coaching is spent on the conversation that matters.",
+    "buttons": [
+      {
+        "label": "Explore Meridian",
+        "href": "/meridian",
+        "variant": "primary"
+      },
+      {
+        "label": "Book a Meridian walkthrough",
+        "href": "#contact",
+        "variant": "ghost"
+      }
+    ],
+    "tabs": [
+      {
+        "icon": "users",
+        "title": "Meridian recommends the right coaches",
+        "role": "Leader, CHRO optional",
+        "panel": {
+          "title": "Coach matching",
+          "role": "Leader, CHRO optional",
+          "type": "match",
+          "brief": {
+            "label": "Leader brief",
+            "title": "Director of Marketing",
+            "fields": [
+              {
+                "label": "Objective",
+                "value": "Build the leadership capability this role needs most",
+                "tags": []
+              },
+              {
+                "label": "Focus areas",
+                "value": null,
+                "tags": [
+                  "Leadership",
+                  "Communication",
+                  "Decision-making"
+                ]
+              },
+              {
+                "label": "Language and time zone",
+                "value": "English, GMT+5:30",
+                "tags": []
+              }
+            ]
+          },
+          "list_label": "Recommended by Meridian",
+          "coaches": [
+            {
+              "initials": "AR",
+              "name": "Anita Rao",
+              "focus": "Leadership transitions, senior roles",
+              "tags": [
+                "Leadership",
+                "Same time zone"
+              ],
+              "score": 84,
+              "selected": false
+            },
+            {
+              "initials": "DL",
+              "name": "Daniel Lim",
+              "focus": "Scaling teams, decision-making",
+              "tags": [
+                "Leadership",
+                "Decision-making"
+              ],
+              "score": 92,
+              "selected": true
+            },
+            {
+              "initials": "SK",
+              "name": "Sara Kemp",
+              "focus": "Communication, change leadership",
+              "tags": [
+                "Communication"
+              ],
+              "score": 78,
+              "selected": false
+            }
+          ],
+          "match_label": "match",
+          "foot": "Chosen together, then a free chemistry session"
+        }
+      },
+      {
+        "icon": "sparkles",
+        "title": "Meridian suggests questions in the session",
+        "role": "Coach, in session",
+        "panel": {
+          "title": "Session 4 \u00b7 In session",
+          "role": "Coach view",
+          "type": "questions",
+          "focus_label": "Leader's focus for today",
+          "focus": "Working through the priority that matters most this month.",
+          "chat_label": "From the discussion",
+          "chat": [
+            {
+              "side": "leader",
+              "text": "I keep getting pulled back into the detail."
+            },
+            {
+              "side": "coach",
+              "text": "What would happen if you didn't?"
+            },
+            {
+              "side": "leader",
+              "text": "Honestly, it would probably still get done."
+            }
+          ],
+          "ai_label": "AI suggested",
+          "questions": [
+            {
+              "text": "What would you need to see to step back with confidence?",
+              "status": "Use",
+              "used": false
+            },
+            {
+              "text": "Who else could own this decision?",
+              "status": "Use",
+              "used": false
+            },
+            {
+              "text": "What does staying in the detail cost you each week?",
+              "status": "Asked",
+              "used": true
+            }
+          ],
+          "note": "Only the questions the coach asks reach the leader.",
+          "track": "Track: Session 4 of 10",
+          "track_steps": [
+            "done",
+            "done",
+            "now",
+            "todo",
+            "todo",
+            "todo"
+          ]
+        }
+      },
+      {
+        "icon": "file-text",
+        "title": "Meridian drafts every session report",
+        "role": "Coach approves",
+        "panel": {
+          "title": "Session 4 report \u00b7 Draft",
+          "role": "Coach approves",
+          "type": "report",
+          "doc_label": "Drafted by Meridian",
+          "doc_title": "Working on the priority that matters",
+          "summary": "The leader explored what is pulling them back into the detail and recognized it is about reassurance rather than necessity. They agreed to delegate one priority decision this week and review the outcome at the next session.",
+          "questions_label": "Questions that moved the conversation",
+          "questions": [
+            "What does staying in the detail cost you each week?",
+            "Who else could own this decision?"
+          ],
+          "assignment_label": "Assignment",
+          "assignment": "Name one decision to hand over this week and let the leader know why.",
+          "stats": [
+            {
+              "value": "5",
+              "label": "questions used"
+            },
+            {
+              "value": "2",
+              "label": "resources shared"
+            },
+            {
+              "value": "60",
+              "label": "minutes"
+            }
+          ],
+          "resources_label": "Resources",
+          "resources": [
+            "Delegation conversation guide",
+            "Weekly review template"
+          ],
+          "approve": "Approve and send to leader",
+          "edit": "Edit before sending"
+        }
+      },
+      {
+        "icon": "eye",
+        "title": "Meridian gives the leader the final say",
+        "role": "Leader decides",
+        "panel": {
+          "title": "Final report \u00b7 Choose what to share",
+          "role": "Leader view",
+          "type": "share",
+          "program_label": "Your program",
+          "stats": [
+            {
+              "value": "10",
+              "label": "sessions"
+            },
+            {
+              "value": "Agreed track",
+              "label": "track"
+            }
+          ],
+          "goal_label": "Your goal, in your own words",
+          "goal": "Build the capability this role needs, in a way that feels like me.",
+          "toggles_label": "Choose what your organization sees",
+          "toggles": [
+            {
+              "label": "Attendance",
+              "on": true
+            },
+            {
+              "label": "Progress against objective",
+              "on": true
+            },
+            {
+              "label": "Goal in my own words",
+              "on": true
+            },
+            {
+              "label": "Commitments",
+              "on": false
+            }
+          ],
+          "preview_label": "What your CHRO will see",
+          "preview": [
+            {
+              "label": "Attendance",
+              "value": "10 of 10 sessions",
+              "shared": true
+            },
+            {
+              "label": "Progress",
+              "value": "Objective met",
+              "shared": true
+            },
+            {
+              "label": "Goal",
+              "value": "\"Build the capability this role needs\"",
+              "shared": true
+            },
+            {
+              "label": "Commitments",
+              "value": "Not shared",
+              "shared": false
+            }
+          ],
+          "note": "Session notes and conversations are never shared.",
+          "button": "Share summary"
+        }
+      }
+    ]
+  },
+  "process": {
+    "section_id": "process",
+    "heading": "How an Edstellar leadership coaching program <span>runs.</span>",
+    "description": "Six steps take each leader from nomination to a final summary they control, over six to eight months. Your CHRO sees progress at every step; the coaching itself stays between leader and coach.",
+    "steps": [
+      {
+        "icon": "users",
+        "label": "Nominate leaders",
+        "kicker": "Step 1 of 6",
+        "title": "Nominate leaders",
+        "description": "Your CHRO or program admin adds each leader on Meridian with their role, objective and focus areas. The leader agrees to take part.",
+        "who": "CHRO and leader"
+      },
+      {
+        "icon": "user-search",
+        "label": "Match a leadership coach",
+        "kicker": "Step 2 of 6",
+        "title": "Match a leadership coach",
+        "description": "In a 30-minute video session, the leader reviews the certified coaches Meridian recommends and chooses one. The CHRO can join this session if the leader wants them there.",
+        "who": "Leader \u00b7 CHRO optional"
+      },
+      {
+        "icon": "heart-handshake",
+        "label": "Chemistry session",
+        "kicker": "Step 3 of 6",
+        "title": "Chemistry session",
+        "description": "A free 30-minute session to test the fit, confirm the objective, choose one of the six leadership tracks and agree the schedule.",
+        "who": "Leader and coach \u00b7 live on video"
+      },
+      {
+        "icon": "video",
+        "label": "Coaching sessions",
+        "kicker": "Step 4 of 6",
+        "title": "Coaching sessions",
+        "description": "Ten to twelve hours of one-on-one coaching on Meridian. The leader sets the focus, the coach prepares, and an assignment carries the work forward.",
+        "who": "Leader and coach \u00b7 live on video"
+      },
+      {
+        "icon": "chart-line",
+        "label": "Mid-point check-in",
+        "kicker": "Step 5 of 6",
+        "title": "Mid-point check-in",
+        "description": "Halfway through, leader and coach review progress against the objective and adjust the plan for the hours ahead.",
+        "who": "Leader and coach \u00b7 live on video"
+      },
+      {
+        "icon": "file-text",
+        "label": "Final review and summary",
+        "kicker": "Step 6 of 6",
+        "title": "Final review and summary",
+        "description": "The final session agrees what the leader will keep doing, and the leader chooses what the CHRO sees in the final summary.",
+        "who": "Leader shares with CHRO"
+      }
+    ]
+  },
+  "process_cta": {
+    "heading": "See Meridian with your own leaders.",
+    "description": "A 30-minute walkthrough of coach matching, the session room and the view your CHRO sees, set up around your leaders.",
+    "buttons": [
+      {
+        "label": "Book a Meridian walkthrough",
+        "href": "#contact",
+        "variant": "primary"
+      }
+    ]
+  },
+  "confidential": {
+    "section_id": "confidential",
+    "heading": "Confidential leadership coaching, by design on <span>Meridian.</span>",
+    "description": "The coaching stays private. Your organization still sees that the engagement is on track.",
+    "columns": [
+      {
+        "private": true,
+        "icon": "lock",
+        "title": "Private to leader and coach",
+        "subtitle": "Session notes, assignments, the coach's preparation and the leader's reflections.",
+        "items": [
+          "Session notes and what was said",
+          "Assignments and the leader's reflections",
+          "The coach's preparation and questions",
+          "Any coach change the leader requests"
+        ]
+      },
+      {
+        "private": false,
+        "icon": "eye",
+        "title": "Visible to your CHRO",
+        "subtitle": "Objective, track, hours used, progress, check-ins and the final summary the leader chooses to share.",
+        "items": [
+          "Sessions held and hours used",
+          "Progress against the agreed objective",
+          "Mid-point and final check-in completed",
+          "Final summary \u2014 in the leader's own words"
+        ]
+      }
+    ],
+    "note": "Where the CHRO can join: only the coach matching session, and only if the leader wants them there."
+  },
+  "why": {
+    "section_id": "why",
+    "heading": "Why organizations choose Edstellar for leadership <span>coaching.</span>",
+    "description": "Edstellar's leadership coaching connects to the rest of your leadership development, and runs on technology we built for it.",
+    "difference_label": "The difference",
+    "items": [
+      {
+        "icon": "sparkles",
+        "title": "Meridian, built in-house",
+        "description": "Matching, sessions, reports and program tracking in one AI-assisted platform, designed by Edstellar for coaching.",
+        "difference": "Coaching runs on technology built for it, not stitched together.",
+        "visual": {
+          "type": "app",
+          "title": "Meridian",
+          "menu": [
+            "Match",
+            "Sessions",
+            "Reports",
+            "Tracking"
+          ],
+          "active": 0
+        }
+      },
+      {
+        "icon": "heart-handshake",
+        "title": "Certified leadership coaches",
+        "description": "Every leadership coach is certified by the ICF (PCC or MCC), ICC or EMCC, vetted by Edstellar, matched to the leader and met in a free chemistry session.",
+        "difference": "Fit is tested before the first session, not after.",
+        "visual": {
+          "type": "match",
+          "avatars": [
+            "PM",
+            "JO",
+            "CV",
+            "RK"
+          ],
+          "selected": 1,
+          "steps": [
+            {
+              "label": "Shortlist",
+              "state": "done"
+            },
+            {
+              "label": "Chemistry",
+              "state": "now"
+            },
+            {
+              "label": "Agree",
+              "state": "todo"
+            }
+          ]
+        }
+      },
+      {
+        "icon": "chart-line",
+        "title": "Connected to assessments",
+        "description": "Coaching objectives can draw on Edstellar's leadership assessments and 360-degree feedback, so coaching closes the capability gaps your assessments find.",
+        "difference": "Objectives come from evidence, not guesswork.",
+        "visual": {
+          "type": "flow",
+          "nodes": [
+            {
+              "label": "360",
+              "icon": "message-square",
+              "active": false,
+              "kind": "icon"
+            },
+            {
+              "label": "Goal",
+              "icon": "target",
+              "active": true,
+              "kind": "bars"
+            },
+            {
+              "label": "Coach",
+              "icon": "message-square",
+              "active": false,
+              "kind": "icon"
+            }
+          ]
+        }
+      },
+      {
+        "icon": "lock",
+        "title": "Confidential by design",
+        "description": "Session content stays between leader and coach. Your CHRO sees attendance, progress and what the leader chooses to share.",
+        "difference": "Leaders open up, sponsors still see progress.",
+        "visual": {
+          "type": "privacy",
+          "vault": [
+            "Session notes",
+            "Assignments",
+            "Reflections"
+          ],
+          "shared": [
+            {
+              "label": "Attendance",
+              "shared": true
+            },
+            {
+              "label": "Outcomes",
+              "shared": true
+            },
+            {
+              "label": "Session notes",
+              "shared": false
+            }
+          ]
+        }
+      },
+      {
+        "icon": "globe",
+        "title": "Coaching across time zones",
+        "description": "Coaches are matched on language and time zone, and leaders see every session in their own local time.",
+        "difference": "One program for a global leadership team.",
+        "visual": {
+          "type": "zones",
+          "caption": "One session, five local times",
+          "zones": [
+            {
+              "zone": "SGT",
+              "time": "21:00",
+              "active": false
+            },
+            {
+              "zone": "GST",
+              "time": "17:00",
+              "active": false
+            },
+            {
+              "zone": "IST",
+              "time": "18:30",
+              "active": true
+            },
+            {
+              "zone": "CET",
+              "time": "14:00",
+              "active": false
+            },
+            {
+              "zone": "EST",
+              "time": "08:00",
+              "active": false
+            }
+          ]
+        }
+      },
+      {
+        "icon": "link",
+        "title": "One partner for development",
+        "description": "Coaching, corporate training and L&D and OD consulting from one team, so every program points the same way.",
+        "difference": "One conversation instead of several vendors.",
+        "visual": {
+          "type": "venn",
+          "svg": null
+        }
+      }
+    ],
+    "cta": {
+      "heading": "Start with the leaders who need it most.",
+      "description": "Share the leaders' roles and objectives. A coaching consultant comes back with recommended tracks, certified coaches who fit and a Meridian walkthrough.",
+      "buttons": [
+        {
+          "label": "Download the brochure",
+          "href": "#contact",
+          "variant": "secondary"
+        },
+        {
+          "label": "Book a coaching consultation",
+          "href": "#contact",
+          "variant": "primary"
+        }
+      ]
+    },
+    "related": {
+      "heading": "Related Edstellar services",
+      "description": "Coaching works best alongside the rest of how you develop people.",
+      "items": [
+        {
+          "icon": "layers",
+          "title": "Talent Assessments",
+          "description": "Measure leaders against the competency model with 360-degree feedback, psychometrics and assessment centers.",
+          "href": "/talent-assessment-services",
+          "link": "Measure leaders"
+        },
+        {
+          "icon": "building-2",
+          "title": "OD Consulting",
+          "description": "When change reaches structure, culture and leadership across the organization, OD consulting designs it and helps it land.",
+          "href": "/organizational-development-consulting",
+          "link": "Shape the organization"
+        },
+        {
+          "icon": "chart-line",
+          "title": "L&D Consulting",
+          "description": "When the gap is skills across teams rather than one leader, L&D consulting builds the capability your strategy needs.",
+          "href": "/learning-development-consulting-services",
+          "link": "Build capability"
+        },
+        {
+          "icon": "book-open",
+          "title": "Corporate Training Catalog",
+          "description": "Pair coaching with instructor-led programs across leadership, management and functional skills.",
+          "href": "/corporate-training",
+          "link": "Browse programs"
+        }
+      ]
+    }
+  },
+  "related": {
+    "section_id": "related",
+    "heading": "More Edstellar coaching for every leadership <span>stage.</span>",
+    "description": "Leadership coaching is one of six coaching paths, all run on Meridian with the same matching, confidentiality and reporting.",
+    "items": [
+      {
+        "icon": "crown",
+        "audience": "C-suite and senior leaders",
+        "title": "Executive coaching",
+        "description": "For CEOs, CXOs and senior leaders who need a confidential thinking partner for the decisions and relationships that shape the business.",
+        "href": "/coaching-solutions/executive-coaching",
+        "cta_label": "Explore executive coaching"
+      },
+      {
+        "icon": "sprout",
+        "audience": "New people managers",
+        "title": "First-time manager coaching",
+        "description": "Support through the first step from strong individual contributor to manager of people.",
+        "href": "/coaching-solutions/first-time-manager-coaching",
+        "cta_label": "Explore first-time manager coaching"
+      },
+      {
+        "icon": "arrow-left-right",
+        "audience": "Leaders changing role or direction",
+        "title": "Career and transition coaching",
+        "description": "Coaching through promotions, role changes, restructures and returns to work, so leaders find their direction and land well.",
+        "href": "/coaching-solutions/career-transition-coaching",
+        "cta_label": "Explore career and transition coaching"
+      },
+      {
+        "icon": "target",
+        "audience": "Leaders building one capability",
+        "title": "Performance coaching",
+        "description": "Focused coaching on one personal capability to build, from confidence and focus to staying clear under pressure.",
+        "href": "/coaching-solutions/performance-coaching",
+        "cta_label": "Explore performance coaching"
+      },
+      {
+        "icon": "users",
+        "audience": "Intact and cross-functional teams",
+        "title": "Team coaching",
+        "description": "Facilitated coaching for leadership teams and cross-functional groups that need to align and deliver together.",
+        "href": "/coaching-solutions/team-coaching",
+        "cta_label": "Explore team coaching"
+      }
+    ]
+  },
+  "faqs": {
+    "section_id": "faq",
+    "heading": {
+      "parts": [
+        {
+          "text": "Leadership coaching "
+        },
+        {
+          "text": "FAQs.",
+          "is_italic": true
+        }
+      ]
+    },
+    "items": [
+      {
+        "question": "What is leadership coaching?",
+        "answer": "Leadership coaching is one-on-one professional coaching for directors, senior managers and high-potential leaders, focused on growing the skills, identity and confidence needed to lead people and teams well. Edstellar's leadership coaching pairs each leader with a certified coach for ten to twelve hours over six to eight months, run on Meridian."
+      },
+      {
+        "question": "Who is leadership coaching for?",
+        "answer": "Leadership coaching is for newly promoted directors, high-potentials in your pipeline, senior managers taking on wider scope and experts transitioning into leading other managers."
+      },
+      {
+        "question": "How long does a leadership coaching engagement last?",
+        "answer": "Ten to twelve hours of one-on-one coaching over six to eight months. The session length and schedule are agreed in the free chemistry session."
+      },
+      {
+        "question": "What certifications do Edstellar leadership coaches hold?",
+        "answer": "Every Edstellar leadership coach is certified by the International Coaching Federation (ICF) at PCC or MCC level, the International Coaching Community (ICC) or the European Mentoring and Coaching Council (EMCC). Coaches are also vetted by Edstellar before Meridian can recommend them."
+      },
+      {
+        "question": "How does Edstellar match a leader with a coach?",
+        "answer": "Meridian recommends certified coaches based on the leader's track, objective, language and time zone. In a 30-minute video session the leader reviews the recommendations and chooses one, then meets the coach in a free chemistry session before anyone commits."
+      },
+      {
+        "question": "What does our organization see during leadership coaching?",
+        "answer": "Your CHRO sees sessions held, hours used, progress against the agreed objective and the parts of the final summary the leader chooses to share. Session content, notes and assignments stay between leader and coach."
+      },
+      {
+        "question": "What are the six leadership coaching tracks?",
+        "answer": "Leadership Identity, Delegation & Trust, Difficult Conversations, Building the Team, Leading Change and Influence Without Authority. The leader chooses one with the coach in the chemistry session."
+      },
+      {
+        "question": "Is leadership coaching delivered virtually?",
+        "answer": "Yes. Edstellar delivers leadership coaching virtually on Meridian, with every session on video and leaders seeing times in their own time zone. Language and time zone are part of how coaches are matched."
+      }
+    ]
+  },
+  "lead_form": {
+    "heading": "Book a coaching <span>consultation.</span>",
+    "description": "Tell us about the leaders you want to support and we will recommend tracks and certified coaches who fit. We reply within one business day with a scoped response, no automated sales sequence."
+  },
+  "stickyFooter": {
+    "form_anchor_id": "contact",
+    "messages": [
+      {
+        "text": "Coaching for leaders and teams, run on Meridian."
+      },
+      {
+        "text": "Leadership coaching for directors and senior managers, run on Meridian."
+      }
+    ]
+  }
+}

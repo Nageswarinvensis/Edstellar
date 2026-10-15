@@ -1,0 +1,991 @@
+{
+  "seo": {
+    "meta_title": "First-Time Manager Coaching Services | Edstellar",
+    "Meta_description": "Edstellar's first-time manager coaching gives new people managers a certified coach and a confidential space to learn, on Meridian. Ten to twelve hours over six to eight months.",
+    "og_image_url": null
+  },
+  "hero": {
+    "heading": "First-time manager coaching, <span>run on Meridian.</span>",
+    "description": "Edstellar's first-time manager coaching gives new people managers a certified coach and a confidential space to learn, on an AI-assisted platform built for coaching. Ten to twelve hours of one-on-one coaching over six to eight months, focused on the hardest transition in a career: from doing the work to leading the people who do it.",
+    "primary_cta": {
+      "label": "Book a coaching consultation",
+      "href": "#contact"
+    },
+    "secondary_cta": {
+      "label": "See the six manager tracks",
+      "href": "#tracks"
+    },
+    "meta": [
+      {
+        "icon": "heart-handshake",
+        "label": "ICF, ICC and EMCC certified coaches"
+      },
+      {
+        "icon": "calendar",
+        "label": "10 to 12 hours over 6 to 8 months"
+      },
+      {
+        "icon": "lock",
+        "label": "Confidential by design"
+      }
+    ],
+    "ladder": {
+      "heading": "Leadership-stage coaching",
+      "subtitle": "Choose the path for where your leader is now.",
+      "items": [
+        {
+          "icon": "crown",
+          "title": "Executive coaching",
+          "audience": "C-suite and senior leaders",
+          "href": "/coaching-solutions/executive-coaching",
+          "current": false
+        },
+        {
+          "icon": "compass",
+          "title": "Leadership coaching",
+          "audience": "Directors, senior managers",
+          "href": "/coaching-solutions/leadership-coaching",
+          "current": false
+        },
+        {
+          "icon": "sprout",
+          "title": "First-time manager coaching",
+          "audience": "New people managers",
+          "href": "/coaching-solutions/first-time-manager-coaching",
+          "current": true
+        },
+        {
+          "icon": "arrow-left-right",
+          "title": "Career and transition coaching",
+          "audience": "Leaders changing role or direction",
+          "href": "/coaching-solutions/career-transition-coaching",
+          "current": false
+        },
+        {
+          "icon": "target",
+          "title": "Performance coaching",
+          "audience": "Leaders building one capability",
+          "href": "/coaching-solutions/performance-coaching",
+          "current": false
+        },
+        {
+          "icon": "users",
+          "title": "Team coaching",
+          "audience": "Intact and cross-functional teams",
+          "href": "/coaching-solutions/team-coaching",
+          "current": false
+        }
+      ]
+    }
+  },
+  "stickyNavbar": {
+    "tabs": [
+      {
+        "id": "who",
+        "label": "Who it's for"
+      },
+      {
+        "id": "tracks",
+        "label": "Tracks"
+      },
+      {
+        "id": "benefits",
+        "label": "Benefits"
+      },
+      {
+        "id": "meridian",
+        "label": "Meridian"
+      },
+      {
+        "id": "process",
+        "label": "How it runs"
+      },
+      {
+        "id": "confidential",
+        "label": "Confidentiality"
+      },
+      {
+        "id": "why",
+        "label": "Why Edstellar"
+      },
+      {
+        "id": "faq",
+        "label": "FAQs"
+      },
+      {
+        "id": "contact",
+        "label": "Contact"
+      }
+    ]
+  },
+  "who": {
+    "section_id": "who",
+    "heading": "Coaching for the hardest step in a career: becoming a <span>manager.</span>",
+    "description": "Edstellar's first-time manager coaching is built for the people making their first move into managing others, and for those facing the sharpest version of that transition.",
+    "tabs": [
+      {
+        "label": "Newly promoted managers",
+        "icon": "sprout"
+      },
+      {
+        "label": "Managers leading former peers",
+        "icon": "users"
+      },
+      {
+        "label": "New managers hired from outside",
+        "icon": "compass"
+      },
+      {
+        "label": "Managers in their first 90 days",
+        "icon": "calendar"
+      }
+    ],
+    "panels": [
+      {
+        "title": "Newly promoted managers",
+        "description": "Your strongest individual contributor is now responsible for others. Coaching helps them make the shift in identity and approach before early missteps become patterns.",
+        "tracks_label": "Tracks newly promoted managers often choose:",
+        "tracks": [
+          "From Peer to Manager",
+          "The First 90 Days"
+        ]
+      },
+      {
+        "title": "Managers leading former peers",
+        "description": "The most uncomfortable version of the transition: managing the people you sat next to yesterday. Coaching builds the authority and boundaries the relationship needs.",
+        "tracks_label": "Tracks managers of former peers often choose:",
+        "tracks": [
+          "Managing Former Colleagues",
+          "Feedback & Accountability"
+        ]
+      },
+      {
+        "title": "New managers hired from outside",
+        "description": "Landing in a new organization and a new management role at the same time. Coaching helps new managers read the culture, earn trust fast and establish credibility.",
+        "tracks_label": "Tracks externally hired managers often choose:",
+        "tracks": [
+          "The First 90 Days",
+          "Managing Upwards"
+        ]
+      },
+      {
+        "title": "Managers in their first 90 days",
+        "description": "The window when first impressions form, authority is established and the team decides whether to follow. Coaching makes the most of the time that matters most.",
+        "tracks_label": "Tracks managers in the first 90 days often choose:",
+        "tracks": [
+          "The First 90 Days",
+          "From Peer to Manager"
+        ]
+      }
+    ]
+  },
+  "tracks": {
+    "section_id": "tracks",
+    "heading": "Six Edstellar first-time manager coaching tracks on <span>Meridian.</span>",
+    "description": "Each new manager chooses one track with their coach in the chemistry session. It shapes the objective, the coach's preparation on Meridian and every session that follows.",
+    "center_label": "NEW\nMANAGER",
+    "items": [
+      {
+        "number": "01",
+        "title": "From Peer to Manager",
+        "tagline": "Becoming a leader, not just a title.",
+        "work_on": [
+          "The shift from doing to leading",
+          "Earning authority in the team",
+          "Building your identity as a manager"
+        ],
+        "choose_for": "A new management role or first direct reports"
+      },
+      {
+        "number": "02",
+        "title": "Managing Former Colleagues",
+        "tagline": "Leading the people who were your peers.",
+        "work_on": [
+          "Establishing appropriate authority and boundaries",
+          "Handling resentment or confusion from the team",
+          "Giving feedback to people who know you well"
+        ],
+        "choose_for": "Managers promoted within their own team"
+      },
+      {
+        "number": "03",
+        "title": "The First 90 Days",
+        "tagline": "Making the most of the window that matters most.",
+        "work_on": [
+          "Reading the team and the culture fast",
+          "Setting expectations and standards early",
+          "Building trust while still learning the role"
+        ],
+        "choose_for": "Any new manager in the first three months"
+      },
+      {
+        "number": "04",
+        "title": "Feedback & Accountability",
+        "tagline": "Saying what needs to be said, consistently.",
+        "work_on": [
+          "Giving feedback that changes behaviour",
+          "Holding the team to standards without micromanaging",
+          "Managing underperformance early"
+        ],
+        "choose_for": "Managers who avoid or delay difficult conversations"
+      },
+      {
+        "number": "05",
+        "title": "Delegation & Letting Go",
+        "tagline": "Trusting the team with the work.",
+        "work_on": [
+          "Handing work over without losing quality",
+          "Building confidence in the people you manage",
+          "Staying involved without doing it yourself"
+        ],
+        "choose_for": "Managers who default to doing rather than leading"
+      },
+      {
+        "number": "06",
+        "title": "Managing Upwards",
+        "tagline": "Working with your own manager as a manager.",
+        "work_on": [
+          "Communicating your team's work and priorities clearly",
+          "Getting what your team needs from leadership",
+          "Navigating the gap between your manager and your team"
+        ],
+        "choose_for": "Managers caught between their team and their own leadership"
+      }
+    ],
+    "cta": {
+      "heading": "Not sure which track fits your new managers?",
+      "description": "Tell us about the new managers and the transition they are in. An Edstellar coaching consultant will recommend tracks and the coaches who fit.",
+      "button": {
+        "label": "Book a coaching consultation",
+        "href": "#contact"
+      }
+    }
+  },
+  "benefits": {
+    "section_id": "benefits",
+    "heading": "Edstellar's first-time manager coaching benefits for the whole <span>organization.</span>",
+    "description": "New manager coaching builds the habits and confidence that carry a career. Every Edstellar first-time manager coaching program is designed around six benefits.",
+    "items": [
+      {
+        "title": "New managers who settle in faster",
+        "description": "Each manager's objective is linked to the transition they are making, from earning authority to managing former peers.",
+        "points": [
+          "Objective and track agreed for every manager",
+          "Progress reviewed at the mid-point and at the end"
+        ]
+      },
+      {
+        "title": "A confidential space to learn",
+        "description": "New managers rarely admit what they don't know. Sessions on Meridian stay between manager and coach, so the conversation goes where it needs to.",
+        "points": [
+          "Session content never shared with the organization",
+          "The manager chooses what the final summary shares"
+        ]
+      },
+      {
+        "title": "A certified coach, well matched",
+        "description": "Every coach is certified by the ICF (PCC or MCC), ICC or EMCC and vetted by Edstellar. Meridian recommends; the manager chooses.",
+        "points": [
+          "Certified and vetted before they are recommended",
+          "A free chemistry session before anyone commits"
+        ]
+      },
+      {
+        "title": "Fewer early missteps",
+        "description": "The habits new managers build in the first year tend to stick. Coaching shapes those habits before they become problems for the team.",
+        "points": [
+          "Coaching starts in the first 90 days where possible",
+          "Tracks for the sharpest transitions"
+        ]
+      },
+      {
+        "title": "Better team performance from the start",
+        "description": "Managers who learn to delegate, give feedback and hold accountability build teams that perform. Coaching gives them the skills before the team feels the absence.",
+        "points": [
+          "Tracks for delegation, feedback and accountability",
+          "Coaching paced across six to eight months"
+        ]
+      },
+      {
+        "title": "A stronger management bench",
+        "description": "Investing in new managers signals that the role matters. Managers with a coaching engagement build stronger teams and stay longer.",
+        "points": [
+          "Retention tied to visible investment in manager development",
+          "One program view for your CHRO on Meridian"
+        ]
+      }
+    ]
+  },
+  "meridian": {
+    "section_id": "meridian",
+    "tag": "Built by Edstellar",
+    "heading": "Meridian, the AI-assisted platform behind Edstellar first-time manager <span>coaching.</span>",
+    "description": "Meridian brings the program into one place for the new manager, the coach and your CHRO. AI handles the preparation and paperwork, so every hour of new manager coaching is spent on the conversation that matters.",
+    "buttons": [
+      {
+        "label": "Explore Meridian",
+        "href": "/meridian",
+        "variant": "primary"
+      },
+      {
+        "label": "Book a Meridian walkthrough",
+        "href": "#contact",
+        "variant": "ghost"
+      }
+    ],
+    "tabs": [
+      {
+        "icon": "users",
+        "title": "Meridian recommends the right coaches",
+        "role": "Manager, CHRO optional",
+        "panel": {
+          "title": "Coach matching",
+          "role": "Manager, CHRO optional",
+          "type": "match",
+          "brief": {
+            "label": "Manager brief",
+            "title": "New People Manager",
+            "fields": [
+              {
+                "label": "Objective",
+                "value": "Build the leadership capability this role needs most",
+                "tags": []
+              },
+              {
+                "label": "Focus areas",
+                "value": null,
+                "tags": [
+                  "Leadership",
+                  "Communication",
+                  "Decision-making"
+                ]
+              },
+              {
+                "label": "Language and time zone",
+                "value": "English, GMT+5:30",
+                "tags": []
+              }
+            ]
+          },
+          "list_label": "Recommended by Meridian",
+          "coaches": [
+            {
+              "initials": "AR",
+              "name": "Anita Rao",
+              "focus": "Leadership transitions, senior roles",
+              "tags": [
+                "Leadership",
+                "Same time zone"
+              ],
+              "score": 84,
+              "selected": false
+            },
+            {
+              "initials": "DL",
+              "name": "Daniel Lim",
+              "focus": "Scaling teams, decision-making",
+              "tags": [
+                "Leadership",
+                "Decision-making"
+              ],
+              "score": 92,
+              "selected": true
+            },
+            {
+              "initials": "SK",
+              "name": "Sara Kemp",
+              "focus": "Communication, change leadership",
+              "tags": [
+                "Communication"
+              ],
+              "score": 78,
+              "selected": false
+            }
+          ],
+          "match_label": "match",
+          "foot": "Chosen together, then a free chemistry session"
+        }
+      },
+      {
+        "icon": "sparkles",
+        "title": "Meridian suggests questions in the session",
+        "role": "Coach, in session",
+        "panel": {
+          "title": "Session 4 \u00b7 In session",
+          "role": "Coach view",
+          "type": "questions",
+          "focus_label": "Manager's focus for today",
+          "focus": "Working through the priority that matters most this month.",
+          "chat_label": "From the discussion",
+          "chat": [
+            {
+              "side": "leader",
+              "text": "I keep getting pulled back into the detail."
+            },
+            {
+              "side": "coach",
+              "text": "What would happen if you didn't?"
+            },
+            {
+              "side": "leader",
+              "text": "Honestly, it would probably still get done."
+            }
+          ],
+          "ai_label": "AI suggested",
+          "questions": [
+            {
+              "text": "What would you need to see to step back with confidence?",
+              "status": "Use",
+              "used": false
+            },
+            {
+              "text": "Who else could own this decision?",
+              "status": "Use",
+              "used": false
+            },
+            {
+              "text": "What does staying in the detail cost you each week?",
+              "status": "Asked",
+              "used": true
+            }
+          ],
+          "note": "Only the questions the coach asks reach the manager.",
+          "track": "Track: Session 4 of 10",
+          "track_steps": [
+            "done",
+            "done",
+            "now",
+            "todo",
+            "todo",
+            "todo"
+          ]
+        }
+      },
+      {
+        "icon": "file-text",
+        "title": "Meridian drafts every session report",
+        "role": "Coach approves",
+        "panel": {
+          "title": "Session 4 report \u00b7 Draft",
+          "role": "Coach approves",
+          "type": "report",
+          "doc_label": "Drafted by Meridian",
+          "doc_title": "Working on the priority that matters",
+          "summary": "The manager explored what is pulling them back into the detail and recognized it is about reassurance rather than necessity. They agreed to delegate one priority decision this week and review the outcome at the next session.",
+          "questions_label": "Questions that moved the conversation",
+          "questions": [
+            "What does staying in the detail cost you each week?",
+            "Who else could own this decision?"
+          ],
+          "assignment_label": "Assignment",
+          "assignment": "Name one decision to hand over this week and let the manager know why.",
+          "stats": [
+            {
+              "value": "5",
+              "label": "questions used"
+            },
+            {
+              "value": "2",
+              "label": "resources shared"
+            },
+            {
+              "value": "60",
+              "label": "minutes"
+            }
+          ],
+          "resources_label": "Resources",
+          "resources": [
+            "Delegation conversation guide",
+            "Weekly review template"
+          ],
+          "approve": "Approve and send to manager",
+          "edit": "Edit before sending"
+        }
+      },
+      {
+        "icon": "eye",
+        "title": "Meridian gives the manager the final say",
+        "role": "Manager decides",
+        "panel": {
+          "title": "Final report \u00b7 Choose what to share",
+          "role": "Manager view",
+          "type": "share",
+          "program_label": "Your program",
+          "stats": [
+            {
+              "value": "10",
+              "label": "sessions"
+            },
+            {
+              "value": "Agreed track",
+              "label": "track"
+            }
+          ],
+          "goal_label": "Your goal, in your own words",
+          "goal": "Build the capability this role needs, in a way that feels like me.",
+          "toggles_label": "Choose what your organization sees",
+          "toggles": [
+            {
+              "label": "Attendance",
+              "on": true
+            },
+            {
+              "label": "Progress against objective",
+              "on": true
+            },
+            {
+              "label": "Goal in my own words",
+              "on": true
+            },
+            {
+              "label": "Commitments",
+              "on": false
+            }
+          ],
+          "preview_label": "What your CHRO will see",
+          "preview": [
+            {
+              "label": "Attendance",
+              "value": "10 of 10 sessions",
+              "shared": true
+            },
+            {
+              "label": "Progress",
+              "value": "Objective met",
+              "shared": true
+            },
+            {
+              "label": "Goal",
+              "value": "\"Build the capability this role needs\"",
+              "shared": true
+            },
+            {
+              "label": "Commitments",
+              "value": "Not shared",
+              "shared": false
+            }
+          ],
+          "note": "Session notes and conversations are never shared.",
+          "button": "Share summary"
+        }
+      }
+    ]
+  },
+  "process": {
+    "section_id": "process",
+    "heading": "How an Edstellar first-time manager coaching program <span>runs.</span>",
+    "description": "Six steps take each new manager from nomination to a final summary they control, over six to eight months. Your CHRO sees progress at every step; the coaching itself stays between manager and coach.",
+    "steps": [
+      {
+        "icon": "users",
+        "label": "Nominate new managers",
+        "kicker": "Step 1 of 6",
+        "title": "Nominate new managers",
+        "description": "Your CHRO or program admin adds each manager on Meridian with their role, the transition they are making and their focus areas. The manager agrees to take part.",
+        "who": "CHRO and manager"
+      },
+      {
+        "icon": "user-search",
+        "label": "Match a coach",
+        "kicker": "Step 2 of 6",
+        "title": "Match a coach",
+        "description": "In a 30-minute video session, the manager reviews the certified coaches Meridian recommends and chooses one. The CHRO can join this session if the manager wants them there.",
+        "who": "Manager \u00b7 CHRO optional"
+      },
+      {
+        "icon": "heart-handshake",
+        "label": "Chemistry session",
+        "kicker": "Step 3 of 6",
+        "title": "Chemistry session",
+        "description": "A free 30-minute session to test the fit, confirm the objective, choose one of the six manager tracks and agree the schedule.",
+        "who": "Manager and coach \u00b7 live on video"
+      },
+      {
+        "icon": "video",
+        "label": "Coaching sessions",
+        "kicker": "Step 4 of 6",
+        "title": "Coaching sessions",
+        "description": "Ten to twelve hours of one-on-one coaching on Meridian. The manager sets the focus, the coach prepares, and an assignment carries the work forward.",
+        "who": "Manager and coach \u00b7 live on video"
+      },
+      {
+        "icon": "chart-line",
+        "label": "Mid-point check-in",
+        "kicker": "Step 5 of 6",
+        "title": "Mid-point check-in",
+        "description": "Halfway through, manager and coach review progress against the objective and adjust the plan for the hours ahead.",
+        "who": "Manager and coach \u00b7 live on video"
+      },
+      {
+        "icon": "file-text",
+        "label": "Final review and summary",
+        "kicker": "Step 6 of 6",
+        "title": "Final review and summary",
+        "description": "The final session agrees what the manager will keep doing, and the manager chooses what the CHRO sees in the final summary.",
+        "who": "Manager shares with CHRO"
+      }
+    ]
+  },
+  "process_cta": {
+    "heading": "See Meridian with your own new managers.",
+    "description": "A 30-minute walkthrough of coach matching, the session room and the view your CHRO sees, set up around your managers.",
+    "buttons": [
+      {
+        "label": "Book a Meridian walkthrough",
+        "href": "#contact",
+        "variant": "primary"
+      }
+    ]
+  },
+  "confidential": {
+    "section_id": "confidential",
+    "heading": "Confidential first-time manager coaching, by design on <span>Meridian.</span>",
+    "description": "The coaching stays private. Your organization still sees that the engagement is on track.",
+    "columns": [
+      {
+        "private": true,
+        "icon": "lock",
+        "title": "Private to manager and coach",
+        "subtitle": "Session notes, assignments, the coach's preparation and the manager's reflections.",
+        "items": [
+          "Session notes and what was said",
+          "Assignments and the manager's reflections",
+          "The coach's preparation and questions",
+          "Any coach change the manager requests"
+        ]
+      },
+      {
+        "private": false,
+        "icon": "eye",
+        "title": "Visible to your CHRO",
+        "subtitle": "Objective, track, hours used, progress, check-ins and the final summary the manager chooses to share.",
+        "items": [
+          "Sessions held and hours used",
+          "Progress against the agreed objective",
+          "Mid-point and final check-in completed",
+          "Final summary \u2014 in the manager's own words"
+        ]
+      }
+    ],
+    "note": "Where the CHRO can join: only the coach matching session, and only if the manager wants them there."
+  },
+  "why": {
+    "section_id": "why",
+    "heading": "Why organizations choose Edstellar for first-time manager <span>coaching.</span>",
+    "description": "Edstellar's first-time manager coaching connects to the rest of your leadership development, and runs on technology we built for it.",
+    "difference_label": "The difference",
+    "items": [
+      {
+        "icon": "sparkles",
+        "title": "Meridian, built in-house",
+        "description": "Matching, sessions, reports and program tracking in one AI-assisted platform, designed by Edstellar for coaching.",
+        "difference": "Coaching runs on technology built for it, not stitched together.",
+        "visual": {
+          "type": "app",
+          "title": "Meridian",
+          "menu": [
+            "Match",
+            "Sessions",
+            "Reports",
+            "Tracking"
+          ],
+          "active": 0
+        }
+      },
+      {
+        "icon": "heart-handshake",
+        "title": "Certified coaches for new managers",
+        "description": "Every coach is certified by the ICF (PCC or MCC), ICC or EMCC, vetted by Edstellar, matched to the manager's transition and met in a free chemistry session.",
+        "difference": "Fit is tested before the first session, not after.",
+        "visual": {
+          "type": "match",
+          "avatars": [
+            "TA",
+            "LM",
+            "NC",
+            "BK"
+          ],
+          "selected": 0,
+          "steps": [
+            {
+              "label": "Shortlist",
+              "state": "done"
+            },
+            {
+              "label": "Chemistry",
+              "state": "now"
+            },
+            {
+              "label": "Agree",
+              "state": "todo"
+            }
+          ]
+        }
+      },
+      {
+        "icon": "chart-line",
+        "title": "Connected to assessments",
+        "description": "Coaching objectives can draw on Edstellar's leadership assessments and 360-degree feedback, so coaching closes the capability gaps your assessments find.",
+        "difference": "Objectives come from evidence, not guesswork.",
+        "visual": {
+          "type": "flow",
+          "nodes": [
+            {
+              "label": "360",
+              "icon": "message-square",
+              "active": false,
+              "kind": "icon"
+            },
+            {
+              "label": "Goal",
+              "icon": "target",
+              "active": true,
+              "kind": "bars"
+            },
+            {
+              "label": "Coach",
+              "icon": "message-square",
+              "active": false,
+              "kind": "icon"
+            }
+          ]
+        }
+      },
+      {
+        "icon": "lock",
+        "title": "Confidential by design",
+        "description": "Session content stays between manager and coach. Your CHRO sees attendance, progress and what the manager chooses to share.",
+        "difference": "Managers open up, sponsors still see progress.",
+        "visual": {
+          "type": "privacy",
+          "vault": [
+            "Session notes",
+            "Assignments",
+            "Reflections"
+          ],
+          "shared": [
+            {
+              "label": "Attendance",
+              "shared": true
+            },
+            {
+              "label": "Outcomes",
+              "shared": true
+            },
+            {
+              "label": "Session notes",
+              "shared": false
+            }
+          ]
+        }
+      },
+      {
+        "icon": "globe",
+        "title": "Coaching across time zones",
+        "description": "Coaches are matched on language and time zone, and managers see every session in their own local time.",
+        "difference": "One program for a global management cohort.",
+        "visual": {
+          "type": "zones",
+          "caption": "One session, five local times",
+          "zones": [
+            {
+              "zone": "SGT",
+              "time": "21:00",
+              "active": false
+            },
+            {
+              "zone": "GST",
+              "time": "17:00",
+              "active": false
+            },
+            {
+              "zone": "IST",
+              "time": "18:30",
+              "active": true
+            },
+            {
+              "zone": "CET",
+              "time": "14:00",
+              "active": false
+            },
+            {
+              "zone": "EST",
+              "time": "08:00",
+              "active": false
+            }
+          ]
+        }
+      },
+      {
+        "icon": "link",
+        "title": "One partner for development",
+        "description": "Coaching, corporate training and L&D and OD consulting from one team, so every program points the same way.",
+        "difference": "One conversation instead of several vendors.",
+        "visual": {
+          "type": "venn",
+          "svg": null
+        }
+      }
+    ],
+    "cta": {
+      "heading": "Start with the new managers who need it most.",
+      "description": "Share the managers' roles and the transition they are making. A coaching consultant comes back with recommended tracks, certified coaches who fit and a Meridian walkthrough.",
+      "buttons": [
+        {
+          "label": "Download the brochure",
+          "href": "#contact",
+          "variant": "secondary"
+        },
+        {
+          "label": "Book a coaching consultation",
+          "href": "#contact",
+          "variant": "primary"
+        }
+      ]
+    },
+    "related": {
+      "heading": "Related Edstellar services",
+      "description": "Coaching works best alongside the rest of how you develop people.",
+      "items": [
+        {
+          "icon": "layers",
+          "title": "Talent Assessments",
+          "description": "Measure leaders against the competency model with 360-degree feedback, psychometrics and assessment centers.",
+          "href": "/talent-assessment-services",
+          "link": "Measure leaders"
+        },
+        {
+          "icon": "building-2",
+          "title": "OD Consulting",
+          "description": "When change reaches structure, culture and leadership across the organization, OD consulting designs it and helps it land.",
+          "href": "/organizational-development-consulting",
+          "link": "Shape the organization"
+        },
+        {
+          "icon": "chart-line",
+          "title": "L&D Consulting",
+          "description": "When the gap is skills across teams rather than one leader, L&D consulting builds the capability your strategy needs.",
+          "href": "/learning-development-consulting-services",
+          "link": "Build capability"
+        },
+        {
+          "icon": "book-open",
+          "title": "Corporate Training Catalog",
+          "description": "Pair coaching with instructor-led programs across leadership, management and functional skills.",
+          "href": "/corporate-training",
+          "link": "Browse programs"
+        }
+      ]
+    }
+  },
+  "related": {
+    "section_id": "related",
+    "heading": "More Edstellar coaching for every leadership <span>stage.</span>",
+    "description": "First-time manager coaching is one of six coaching paths, all run on Meridian with the same matching, confidentiality and reporting.",
+    "items": [
+      {
+        "icon": "crown",
+        "audience": "C-suite and senior leaders",
+        "title": "Executive coaching",
+        "description": "For CEOs, CXOs and senior leaders who need a confidential thinking partner for the decisions and relationships that shape the business.",
+        "href": "/coaching-solutions/executive-coaching",
+        "cta_label": "Explore executive coaching"
+      },
+      {
+        "icon": "compass",
+        "audience": "Mid-level leaders, high-potentials",
+        "title": "Leadership coaching",
+        "description": "For directors, senior managers and high-potential talent getting ready for bigger roles and wider scope.",
+        "href": "/coaching-solutions/leadership-coaching",
+        "cta_label": "Explore leadership coaching"
+      },
+      {
+        "icon": "arrow-left-right",
+        "audience": "Leaders changing role or direction",
+        "title": "Career and transition coaching",
+        "description": "Coaching through promotions, role changes, restructures and returns to work, so leaders find their direction and land well.",
+        "href": "/coaching-solutions/career-transition-coaching",
+        "cta_label": "Explore career and transition coaching"
+      },
+      {
+        "icon": "target",
+        "audience": "Leaders building one capability",
+        "title": "Performance coaching",
+        "description": "Focused coaching on one personal capability to build, from confidence and focus to staying clear under pressure.",
+        "href": "/coaching-solutions/performance-coaching",
+        "cta_label": "Explore performance coaching"
+      },
+      {
+        "icon": "users",
+        "audience": "Intact and cross-functional teams",
+        "title": "Team coaching",
+        "description": "Facilitated coaching for leadership teams and cross-functional groups that need to align and deliver together.",
+        "href": "/coaching-solutions/team-coaching",
+        "cta_label": "Explore team coaching"
+      }
+    ]
+  },
+  "faqs": {
+    "section_id": "faq",
+    "heading": {
+      "parts": [
+        {
+          "text": "First-time manager coaching "
+        },
+        {
+          "text": "FAQs.",
+          "is_italic": true
+        }
+      ]
+    },
+    "items": [
+      {
+        "question": "What is first-time manager coaching?",
+        "answer": "First-time manager coaching is one-on-one professional coaching for people making their first move into managing others, focused on the identity shift, practical skills and confidence the transition demands. Edstellar's program pairs each new manager with a certified coach for ten to twelve hours over six to eight months, run on Meridian."
+      },
+      {
+        "question": "Who is first-time manager coaching for?",
+        "answer": "First-time manager coaching is for newly promoted managers, managers leading former peers, new managers hired from outside the organization and any manager in their first 90 days in a people management role."
+      },
+      {
+        "question": "How long does a first-time manager coaching engagement last?",
+        "answer": "Ten to twelve hours of one-on-one coaching over six to eight months. The session length and schedule are agreed in the free chemistry session."
+      },
+      {
+        "question": "What certifications do Edstellar coaches hold?",
+        "answer": "Every Edstellar coach is certified by the International Coaching Federation (ICF) at PCC or MCC level, the International Coaching Community (ICC) or the European Mentoring and Coaching Council (EMCC). Coaches are also vetted by Edstellar before Meridian can recommend them."
+      },
+      {
+        "question": "How does Edstellar match a new manager with a coach?",
+        "answer": "Meridian recommends certified coaches based on the manager's track, objective, language and time zone. In a 30-minute video session the manager reviews the recommendations and chooses one, then meets the coach in a free chemistry session before anyone commits."
+      },
+      {
+        "question": "What does our organization see during first-time manager coaching?",
+        "answer": "Your CHRO sees sessions held, hours used, progress against the agreed objective and the parts of the final summary the manager chooses to share. Session content, notes and assignments stay between manager and coach."
+      },
+      {
+        "question": "What are the six first-time manager coaching tracks?",
+        "answer": "From Peer to Manager, Managing Former Colleagues, The First 90 Days, Feedback & Accountability, Delegation & Letting Go and Managing Upwards. The manager chooses one with the coach in the chemistry session."
+      },
+      {
+        "question": "Is first-time manager coaching delivered virtually?",
+        "answer": "Yes. Edstellar delivers first-time manager coaching virtually on Meridian, with every session on video and managers seeing times in their own time zone. Language and time zone are part of how coaches are matched."
+      }
+    ]
+  },
+  "lead_form": {
+    "heading": "Book a coaching <span>consultation.</span>",
+    "description": "Tell us about the new managers you want to support and we will recommend tracks and certified coaches who fit. We reply within one business day with a scoped response, no automated sales sequence."
+  },
+  "stickyFooter": {
+    "form_anchor_id": "contact",
+    "messages": [
+      {
+        "text": "Coaching for leaders and teams, run on Meridian."
+      },
+      {
+        "text": "First-time manager coaching for new people managers, run on Meridian."
+      }
+    ]
+  }
+}
