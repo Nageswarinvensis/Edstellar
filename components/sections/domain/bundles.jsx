@@ -369,10 +369,12 @@ const PAGE_SIZE = 8;
 
 /**
  * Bundles built from the CMS `courses` component alone: `courses.bundles`
- * for the cards, each bundle's programs from the courses whose `bundle_ids`
- * include it, and the filter pills from the bundles' `cat`. When the domain
- * also has a `bundles` component, its programs' `description` / `audience`
- * are kept (matched by link) for the drawer.
+ * for the cards, and the filter pills from the bundles' `cat`. A bundle's
+ * programs are the courses whose own `bundles` list names it — each entry
+ * `{ id, sort_order, description }` — in that entry's `sort_order`, with its
+ * bundle-specific `description`. When the domain also has a `bundles`
+ * component, its programs' `description` / `audience` fill any gaps
+ * (matched by link).
  */
 function bundlesFromCourses(courses, extra) {
   const details = new Map(
@@ -386,8 +388,12 @@ function bundlesFromCourses(courses, extra) {
     href: bundle.anchor,
     program_count: bundle.course_count,
     programs: courses.courses
-      .filter((course) => course.bundle_ids?.includes(bundle.id))
-      .map((course, index) => {
+      .flatMap((course) => {
+        const membership = course.bundles?.find((entry) => entry.id === bundle.id);
+        return membership ? [{ course, membership }] : [];
+      })
+      .sort((a, b) => (a.membership.sort_order ?? Infinity) - (b.membership.sort_order ?? Infinity))
+      .map(({ course, membership }, index) => {
         const href = courseUrl(course.href);
         const detail = details.get(href);
         return {
@@ -395,7 +401,7 @@ function bundlesFromCourses(courses, extra) {
           title: course.title,
           number: String(index + 1).padStart(2, "0"),
           duration: approxDuration(course.duration || detail?.duration) || null,
-          description: detail?.description,
+          description: membership.description || detail?.description,
           audience: detail?.audience,
         };
       }),

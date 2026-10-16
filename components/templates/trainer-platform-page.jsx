@@ -16,14 +16,14 @@ import TrainerCta from "@/components/sections/trainer_platform/trainer-cta";
 export default function TrainerPlatformPage({ page }) {
   return (
     <>
-      <TrainerHero data={page.hero} breadcrumbs={page.breadcrumbs} />
+      <TrainerHero data={page.hero} breadcrumbs={page.breadcrumbs?.items} />
       <TrainerBenefits data={page.benefits} />
       <TrainerReviews data={page.reviews} />
-      <TrainerDashboard data={page.dashboard} />
+      <TrainerDashboard data={page.trainer_dashboard} />
       <TrainerImpact data={page.impact} />
-      <TrainerSteps data={page.how_it_works} />
+      <TrainerSteps data={page.trainers_how_it_works} />
       <TrainerResources data={page.resources} />
-      <TrainerCta data={page.final_cta} />
+      <TrainerCta data={page.trainer_final_cta} />
     </>
   );
 }

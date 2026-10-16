@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Government Training Enquiry",
+    "description": "Enquire about Edstellar's instructor-led training programs for government departments and public-sector teams. Tell us your requirements and our team will get back to you.",
+    "path": "/training-for-government-enquiry"
+  },
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Training for Government",
+      "href": null
+    },
+    {
+      "label": "Training for Government Enquiry",
+      "href": null
+    }
+  ],
+  "hero": {
+    "heading": "Training for Government <span>Enquiry</span>",
+    "description": "Tell us about the program and the officials or teams you want to train. Our team will get back to you with a tailored proposal."
+  },
+  "form": {
+    "heading": "Enquire with us today!",
+    "requirements_placeholder": "Tell Us about your Training Requirements",
+    "submit_label": "Submit"
+  },
+  "reach": {
+    "heading": "Reach Us:",
+    "email": "contact@edstellar.com",
+    "phones": [
+      {
+        "label": "USA +1 682 297 4830",
+        "tel": "+16822974830"
+      },
+      {
+        "label": "UK +44 151 453 4009",
+        "tel": "+441514534009"
+      },
+      {
+        "label": "India +91 636 483 3830",
+        "tel": "+916364833830"
+      }
+    ]
+  }
+}
