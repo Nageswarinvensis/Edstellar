@@ -47,9 +47,11 @@ export async function middleware(request) {
     // No destination → no redirect.
     if (!data?.location) return NextResponse.next();
 
-    // 410 Gone — return bare 410 so crawlers de-index it.
+    // 410 Gone — rewrite to the /gone page so the user sees a branded error,
+    // while { status: 410 } ensures crawlers receive the correct HTTP status
+    // and de-index the URL.
     if (data.status === 410) {
-      return new NextResponse(null, { status: 410 });
+      return NextResponse.rewrite(new URL("/gone", request.url), { status: 410 });
     }
 
     const destPath = data.location.startsWith("/") || data.location.startsWith("http")
