@@ -108,19 +108,25 @@ export async function middleware(request) {
       return NextResponse.next();
     }
 
-    const info = await res.json();
-
-    // 410 Gone — the page has been permanently removed. Return a bare 410 so
-    // crawlers de-index it. (No /gone page exists in this project; add one and
-    // swap NextResponse.json for NextResponse.rewrite if a branded error page
-    // is ever needed.)
-    if (res.status === 410 || !info.to) {
+    // 410 Gone — permanently removed. Return bare 410 so crawlers de-index it.
+    if (res.status === 410) {
       return new NextResponse(null, { status: 410 });
     }
 
-    // Build the destination URL.
-    // "home" is a CMS slug that maps to the root route.
-    const destPath = info.to === "home" ? "/" : `/${info.to}`;
+    // The CMS puts the destination in the Location header as a bare slug
+    // (e.g. "software-development/net-architecture-design-patterns-course"),
+    // not a full URL. Prepend "/" to turn it into an absolute path.
+    const location = res.headers.get("location");
+    if (!location) {
+      // 3xx with no Location — nothing we can do, pass through.
+      return NextResponse.next();
+    }
+
+    const destPath =
+      location.startsWith("/") || location.startsWith("http")
+        ? location
+        : `/${location}`;
+
     const dest = new URL(destPath, request.url);
     // Preserve any query string from the original request.
     dest.search = search;
