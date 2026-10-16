@@ -216,6 +216,14 @@
     to { opacity: 0; transform: scale(1.45); }
   }
 
+  /* Resource hub hero badge: a slow bob. */
+  --animate-bob: bob 3.4s ease-in-out infinite;
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
   /* Trainer-platform hero photo wall: columns drift up / down. Each column
      holds its photos twice, so -50% (less half the 14px gap) loops cleanly. */
   --animate-wall-up: wall-up 36s linear infinite;

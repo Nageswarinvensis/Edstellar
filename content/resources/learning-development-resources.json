@@ -1,0 +1,699 @@
+{
+  "seo": {
+    "title": "Free L&D Resources & HR Toolkits",
+    "description": "Explore 500+ free L&D resources, HR templates and tools, eBooks, podcasts & training guides, your ultimate resources hub for HR and L&D professional growth.",
+    "path": "/learning-development-resources"
+  },
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Learning and Development Resources",
+      "href": null
+    }
+  ],
+  "hero": {
+    "heading": "Get 500+ Free Learning & Development Resources for <span>HR and L&D Teams</span>",
+    "description": "Download ready to use L&D templates, HR toolkits, ebooks, podcasts, and practical guides to plan training, track skills, and improve learning outcomes, without starting from scratch.",
+    "primary_cta": {
+      "label": "Explore Free Resources",
+      "href": "#learning-resources"
+    },
+    "secondary_cta": {
+      "label": "See Editor's Picks",
+      "href": "#editors-picks"
+    },
+    "library": {
+      "label": "In the library",
+      "total": "539",
+      "badge": {
+        "label": "Always free",
+        "text": "Updated weekly"
+      }
+    }
+  },
+  "about": {
+    "heading": "Explore Our Curated L&D Resources that Bring <span>Agility</span> to Your Day to Day Operations",
+    "paragraphs": [
+      "We know how hard it is to find decent training materials that aren't just generic advice or sales pitches. That's why we've put together this L&D Hub. It's a collection of practical tools designed specifically for people running training programs and managing teams.",
+      "While popular course aggregators and online training providers focus heavily on delivering generic courses, they often lack deep expertise in the complex L&D ecosystem. As a leading corporate training and L&D consulting service provider, Edstellar understands the real world pulse of the industry and the specific challenges HR leaders face daily.",
+      "We've moved beyond simple skill-building to address the strategic gaps that aggregators ignore, like building a training budget or mapping out a competency matrix. Edstellar's Learning and Development resources fill that gap with **over 500 hand-picked and expertly created L&D resources**, from TNA templates to guides on HR tech, designed to speed up your daily workflows and help you reach your organization's L&D targets more efficiently.",
+      "Everything here is free to download. We've done the research and the vetting, so you can stop searching and start building better training programs. Join thousands of HR leads who use these tools to keep their teams' skills sharp."
+    ],
+    "facts": [
+      {
+        "value": "500+",
+        "label": "Hand-picked and expertly created resources"
+      },
+      {
+        "value": "9",
+        "label": "Formats, from templates to webinars"
+      },
+      {
+        "value": "$0",
+        "label": "Free to download, no sign-up wall"
+      }
+    ]
+  },
+  "picks": {
+    "heading": "Download Top Rated Free L&D Resources Trusted by <span>HR Teams</span> Globally",
+    "description": "We know how hard it is to find learning and development tools that go beyond generic advice and sales pitches. That's why our editorial team curates a handpicked selection of standout resources that L&D professionals and HR managers have found genuinely useful. Updated regularly, these are our current top picks across formats:",
+    "items": [
+      {
+        "icon": "template",
+        "kind": "Template",
+        "title": "Training Register Template",
+        "href": "/resources/templates/training-register-template",
+        "external": false,
+        "cta_label": "Download Free"
+      },
+      {
+        "icon": "guide",
+        "kind": "Guide + Excel",
+        "title": "Free Organizational Chart Generator",
+        "href": "/resources/templates/free-organizational-chart-generator",
+        "external": false,
+        "cta_label": "Download Free"
+      },
+      {
+        "icon": "ebook",
+        "kind": "Ebook",
+        "title": "The High ROI of Learning",
+        "href": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6989cbf792a5a0374d9b28e9_The-High-ROI-of-Learning.pdf",
+        "external": true,
+        "cta_label": "Download Free"
+      },
+      {
+        "icon": "tool",
+        "kind": "Tool",
+        "title": "Talent Mapping Framework Template",
+        "href": "/resources/templates/6-box-talent-mapping-grid",
+        "external": false,
+        "cta_label": "Download Free"
+      },
+      {
+        "icon": "podcast",
+        "kind": "Podcast",
+        "title": "The Learning & Development Podcast (Apple Podcasts)",
+        "href": "https://podcasts.apple.com/us/podcast/the-learning-development-podcast/id1466927523",
+        "external": true,
+        "cta_label": "Download Free"
+      },
+      {
+        "icon": "check",
+        "kind": "Checklist",
+        "title": "AI Tool Evaluation Scorecard",
+        "href": "/resources/templates/ai-tool-evaluation-scorecard-template",
+        "external": false,
+        "cta_label": "Download Free"
+      }
+    ]
+  },
+  "library": {
+    "heading": "Get Free Learning and Development Resources for Every HR & L&D <span>Workflow</span>",
+    "description": "We update our resources weekly with fresh content. Bookmark this page to stay current with the latest free learning resources for HRs.",
+    "types": [
+      {
+        "key": "all",
+        "label": "All",
+        "count": 539
+      },
+      {
+        "key": "template",
+        "label": "Templates",
+        "count": 27
+      },
+      {
+        "key": "ebook",
+        "label": "Ebooks",
+        "count": 94
+      },
+      {
+        "key": "podcast",
+        "label": "Podcasts",
+        "count": 25
+      },
+      {
+        "key": "blog",
+        "label": "Blogs",
+        "count": 107
+      },
+      {
+        "key": "video",
+        "label": "Videos",
+        "count": 20
+      },
+      {
+        "key": "training",
+        "label": "Trainings",
+        "count": 183
+      },
+      {
+        "key": "webinar",
+        "label": "Webinars",
+        "count": 25
+      },
+      {
+        "key": "workbook",
+        "label": "WorkBooks",
+        "count": 58
+      }
+    ],
+    "browse": {
+      "heading": "Browse All HR & L&D Resources",
+      "description": "Browse the complete collection of **500+ free learning and development resources** curated by Edstellar's L&D experts. Filter by resource type, topic, or publication date to find exactly what you need, whether you're building a training plan from scratch, upgrading your HR tech stack, or preparing for your next L&D strategy review.",
+      "new_count": "1",
+      "new_label": "New resources added"
+    },
+    "last_added": "December 2025",
+    "months": [
+      "January 2024",
+      "February 2024",
+      "March 2024",
+      "April 2024",
+      "May 2024",
+      "June 2024",
+      "July 2024",
+      "August 2024",
+      "October 2025",
+      "November 2025",
+      "December 2025",
+      "February 2026"
+    ],
+    "page_size": 9,
+    "items": [
+      {
+        "type": "template",
+        "tag": "Template",
+        "title": "Free Digital HR Maturity Assessment Template",
+        "description": "Assess where HR really sits across Stage 0–3 with this scored template. Get your maturity stage, what it means, and a practical roadmap to move up.",
+        "date_label": "December 2025",
+        "image": "https://media.edstellar.com/resources/images/free-digital-hr-maturity-assessment-template.webp",
+        "image_alt": "Free Digital HR Maturity Assessment Template",
+        "cta": {
+          "label": "Download Template",
+          "href": "/resources/templates/digital-hr-maturity-assessment-template",
+          "external": false
+        }
+      },
+      {
+        "type": "template",
+        "tag": "Template",
+        "title": "Free Peer Learning Launch Kit Template",
+        "description": "A complete Peer Learning Launch Kit template with charter, roles, cadence planner, case pipeline, and metrics tracker to help teams launch structured peer learning quickly.",
+        "date_label": "November 2025",
+        "image": "https://media.edstellar.com/resources/images/free-peer-learning-launch-kit-template.webp",
+        "image_alt": "Free Peer Learning Launch Kit Template",
+        "cta": {
+          "label": "Download Template",
+          "href": "/resources/templates/peer-learning-launch-kit-template",
+          "external": false
+        }
+      },
+      {
+        "type": "template",
+        "tag": "Template",
+        "title": "Free Organizational Chart Generator",
+        "description": "Generate stunning organizational charts instantly. No registration or fees required. Perfect for HR pros needing fast, secure, and easy chart creation.",
+        "date_label": "November 2025",
+        "image": "https://media.edstellar.com/resources/images/free-organizational-chart-generator.webp",
+        "image_alt": "Free Organizational Chart Generator",
+        "cta": {
+          "label": "Access Tool",
+          "href": "/resources/templates/free-organizational-chart-generator",
+          "external": false
+        }
+      },
+      {
+        "type": "template",
+        "tag": "Template",
+        "title": "Training Register Template",
+        "description": "Track, manage, and analyze employee training with an easy, data-driven system for compliance, skill tracking, and proactive planning.",
+        "date_label": "November 2025",
+        "image": "https://media.edstellar.com/resources/images/training-register-template.webp",
+        "image_alt": "Training Register Template",
+        "cta": {
+          "label": "Access Tool",
+          "href": "/resources/templates/training-register-template",
+          "external": false
+        }
+      },
+      {
+        "type": "template",
+        "tag": "Template",
+        "title": "Learning Portfolio Management (LPM) Toolkit Template",
+        "description": "A practical Excel-based LPM Toolkit Template to help CLOs optimize learning portfolios, reduce waste, and link training spend to measurable business results.",
+        "date_label": "November 2025",
+        "image": "https://media.edstellar.com/resources/images/learning-portfolio-management-toolkit-template.webp",
+        "image_alt": "Learning Portfolio Management (LPM) Toolkit Template",
+        "cta": {
+          "label": "Download Template",
+          "href": "/resources/templates/learning-portfolio-management-toolkit-template",
+          "external": false
+        }
+      },
+      {
+        "type": "template",
+        "tag": "Template",
+        "title": "Learning Culture Ritual Library Template",
+        "description": "A practical Learning Culture Ritual Library Template that helps CHROs and L&D leaders embed continuous, measurable learning rituals aligned with business impact.",
+        "date_label": "November 2025",
+        "image": "https://media.edstellar.com/resources/images/learning-culture-ritual-library-template.webp",
+        "image_alt": "Learning Culture Ritual Library Template",
+        "cta": {
+          "label": "Download Template",
+          "href": "/resources/templates/learning-culture-ritual-library-template",
+          "external": false
+        }
+      },
+      {
+        "type": "template",
+        "tag": "Template",
+        "title": "Employee Performance Review Template for HRs & Managers",
+        "description": "A ready-to-use Employee Performance Review Template that simplifies evaluations, tracks goals, and drives employee growth through structured, two-way feedback.",
+        "date_label": "November 2025",
+        "image": "https://media.edstellar.com/resources/images/employee-performance-review-template-for-hrs-managers.webp",
+        "image_alt": "Employee Performance Review Template for HRs and Managers",
+        "cta": {
+          "label": "Download Template",
+          "href": "/resources/templates/employee-performance-review-template",
+          "external": false
+        }
+      },
+      {
+        "type": "template",
+        "tag": "Template",
+        "title": "Employee Skill Assessment Template",
+        "description": "A powerful, customizable Employee Skill Assessment Template for professionals to assess workforce capabilities with structured evaluations, skill ratings, and actionable insights.",
+        "date_label": "October 2025",
+        "image": "https://media.edstellar.com/resources/images/employee-skill-assessment-template.webp",
+        "image_alt": "Employee Skill Assessment Template",
+        "cta": {
+          "label": "Download Template",
+          "href": "/resources/templates/employee-skill-assessment-template",
+          "external": false
+        }
+      },
+      {
+        "type": "template",
+        "tag": "Template",
+        "title": "Training Evaluation Template",
+        "description": "Download this free Training Evaluation Template for HR, L&D, and managers to measure training effectiveness, track KPIs & ROI, assess feedback, and improve employee development.",
+        "date_label": "October 2025",
+        "image": "https://media.edstellar.com/resources/images/training-evaluation-template.webp",
+        "image_alt": "Training Evaluation Template",
+        "cta": {
+          "label": "Download Template",
+          "href": "/resources/templates/training-evaluation-template",
+          "external": false
+        }
+      },
+      {
+        "type": "ebook",
+        "tag": "Ebook",
+        "title": "Top 10 Trends in Risk & Compliance 2026 eBook (NAVEX)",
+        "description": "Risk/compliance megatrends that intersect HR (policy, reporting, investigations, culture, training) for 2026 planning.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/top-10-trends-in-risk-compliance-2026-ebook-navex.webp",
+        "image_alt": "Top 10 Trends in Risk and Compliance 2026 eBook",
+        "cta": {
+          "label": "Download Ebook",
+          "href": "https://media.edstellar.com/resources/navex_top_ten_trends_risk_compliance_2026_ebook_EN.pdf",
+          "external": true
+        }
+      },
+      {
+        "type": "ebook",
+        "tag": "Ebook",
+        "title": "Work Change Special Report: How Small Businesses Can Win in 2026 (LinkedIn Economic Graph)",
+        "description": "Special report on \"work change\" for small businesses, practical for HR leaders on adaptability, skills, and productivity moves going into 2026.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/work-change-special-report-how-small-businesses-can-win-in-2026-linkedin-economic-graph.webp",
+        "image_alt": "Work Change Special Report",
+        "cta": {
+          "label": "Download Ebook",
+          "href": "https://media.edstellar.com/resources/Work_Change_Small_Business_Report_Dec_2025_Global.pdf",
+          "external": true
+        }
+      },
+      {
+        "type": "ebook",
+        "tag": "Ebook",
+        "title": "The \"What's Trending 2026\" Report",
+        "description": "2026 trend scan touching workplace/culture and broader shifts useful for leadership offsites and people-strategy narrative building.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/the-whats-trending-2026-report.webp",
+        "image_alt": "The What's Trending 2026 Report",
+        "cta": {
+          "label": "Download Ebook",
+          "href": "https://media.edstellar.com/resources/What_s_Trending_2026_English.pdf",
+          "external": true
+        }
+      },
+      {
+        "type": "podcast",
+        "tag": "Podcast",
+        "title": "5 Emerging Leadership Trends in 2026 (That No One's Talking…)",
+        "description": "Leadership development trends episode spotlighting 2026 shifts beyond the obvious \"AI\" headlines.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/5-emerging-leadership-trends-in-2026-that-no-ones-talking.webp",
+        "image_alt": "5 Emerging Leadership Trends in 2026",
+        "cta": {
+          "label": "Listen to Podcast",
+          "href": "https://podcasts.apple.com/us/podcast/5-emerging-leadership-trends-in-2026-that-no-ones-talking/id1169267242",
+          "external": true
+        }
+      },
+      {
+        "type": "podcast",
+        "tag": "Podcast",
+        "title": "The Learning & Development Podcast (Apple Podcasts)",
+        "description": "L&D practitioner show hosted by David James, presented by 360Learning.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/the-learning-development-podcast-apple-podcasts.webp",
+        "image_alt": "The Learning and Development Podcast",
+        "cta": {
+          "label": "Listen to Podcast",
+          "href": "https://podcasts.apple.com/us/podcast/the-learning-development-podcast/id1466927523",
+          "external": true
+        }
+      },
+      {
+        "type": "podcast",
+        "tag": "Podcast",
+        "title": "The Strategic Outlook for Learning Businesses 2026",
+        "description": "Strategy planning episode for learning organizations heading into 2026 (priorities + positioning).",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/the-strategic-outlook-for-learning-businesses-2026.webp",
+        "image_alt": "The Strategic Outlook for Learning Businesses 2026",
+        "cta": {
+          "label": "Listen to Podcast",
+          "href": "https://www.leadinglearning.com/episode-469-the-strategic-outlook-for-learning-businesses-2026/",
+          "external": true
+        }
+      },
+      {
+        "type": "blog",
+        "tag": "Blog",
+        "title": "How to Create an Effective Learning Campaign",
+        "description": "A blog by Growth Engineering shares strategies for launching successful learning campaigns that drive engagement.",
+        "date_label": "August 2024",
+        "image": "https://media.edstellar.com/resources/images/how-to-create-an-effective-learning-campaign.webp",
+        "image_alt": "How to Create an Effective Learning Campaign",
+        "cta": {
+          "label": "Read More",
+          "href": "https://www.growthengineering.co.uk/learning-campaigns/",
+          "external": true
+        }
+      },
+      {
+        "type": "blog",
+        "tag": "Blog",
+        "title": "What is Edgar's Dale's Cone of Experience?",
+        "description": "A blog by Growth Engineering explains Dale's model and its application to creating effective learning experiences.",
+        "date_label": "August 2024",
+        "image": "https://media.edstellar.com/resources/images/what-is-edgars-dales-cone-of-experience.webp",
+        "image_alt": "What is Edgar Dale's Cone of Experience",
+        "cta": {
+          "label": "Read More",
+          "href": "https://www.growthengineering.co.uk/what-is-edgar-dales-cone-of-experience/",
+          "external": true
+        }
+      },
+      {
+        "type": "blog",
+        "tag": "Blog",
+        "title": "What is xAPI? Tracking Performance Beyond The LMS",
+        "description": "A blog by Growth Engineering discusses how xAPI extends tracking capabilities beyond traditional LMS environments.",
+        "date_label": "August 2024",
+        "image": "https://media.edstellar.com/resources/images/what-is-xapi-tracking-performance-beyond-the-lms.webp",
+        "image_alt": "What is xAPI",
+        "cta": {
+          "label": "Read More",
+          "href": "https://www.growthengineering.co.uk/what-is-xapi/",
+          "external": true
+        }
+      },
+      {
+        "type": "video",
+        "tag": "Video",
+        "title": "Marketing for L&D - Leadership Development Program",
+        "description": "Discover effective marketing strategies for L&D programs, enhancing leadership development, and driving organizational success in this video from L&D Academy.",
+        "date_label": "July 2024",
+        "image": "https://media.edstellar.com/resources/images/marketing-for-l-d---leadership-development-program.webp",
+        "image_alt": "Marketing for L&D - Leadership Development Program",
+        "cta": {
+          "label": "Watch Video",
+          "href": "https://www.youtube.com/watch?v=v2DPJMLl-0c",
+          "external": true
+        }
+      },
+      {
+        "type": "video",
+        "tag": "Video",
+        "title": "2023 Learning & Development Trends Webinar",
+        "description": "Explore the latest trends in Learning and Development for 2023, including emerging technologies and innovative practices in this video from the Roundtable.",
+        "date_label": "July 2024",
+        "image": "https://media.edstellar.com/resources/images/2023-learning-development-trends-webinar.webp",
+        "image_alt": "2023 Learning and Development Trends Webinar",
+        "cta": {
+          "label": "Watch Video",
+          "href": "https://www.youtube.com/watch?v=i3tLdd3zYQg",
+          "external": true
+        }
+      },
+      {
+        "type": "video",
+        "tag": "Video",
+        "title": "7 Tips for a winning L&D Strategy",
+        "description": "Learn seven practical tips for creating an effective L&D strategy, from mapping learning plans to defining success metrics and gathering feedback, with this insightful video from L&D Academy.",
+        "date_label": "July 2024",
+        "image": "https://media.edstellar.com/resources/images/7-tips-for-a-winning-l-d-strategy.webp",
+        "image_alt": "7 Tips for a winning L&D Strategy",
+        "cta": {
+          "label": "Watch Video",
+          "href": "https://www.youtube.com/watch?v=ISM5ceu_KO0",
+          "external": true
+        }
+      },
+      {
+        "type": "training",
+        "tag": "Training",
+        "title": "Governance in Family Business Training",
+        "description": "Governance in Family Business training course equips professionals to build governance structures, manage succession, and ensure long-term business sustainability.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/governance-in-family-business-training.webp",
+        "image_alt": "Governance in Family Business Training",
+        "cta": {
+          "label": "View Training",
+          "href": "https://www.edstellar.com/course/governance-in-family-business-training",
+          "external": false
+        }
+      },
+      {
+        "type": "training",
+        "tag": "Training",
+        "title": "Leading Innovation Training",
+        "description": "Leading Innovation training course equips teams with tools and methodologies to manage innovation, unlock creativity, and drive sustainable business growth.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/leading-innovation-training.webp",
+        "image_alt": "Leading Innovation Training",
+        "cta": {
+          "label": "View Training",
+          "href": "https://www.edstellar.com/course/leading-innovation-training",
+          "external": false
+        }
+      },
+      {
+        "type": "training",
+        "tag": "Training",
+        "title": "Leading for Results Training",
+        "description": "Leading for Results training course equips professionals to align team goals, foster high performance, and drive measurable business outcomes.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/leading-for-results-training.webp",
+        "image_alt": "Leading for Results Training",
+        "cta": {
+          "label": "View Training",
+          "href": "https://www.edstellar.com/course/leading-for-results-training",
+          "external": false
+        }
+      },
+      {
+        "type": "webinar",
+        "tag": "Webinar",
+        "title": "Webinar 3: Hiring Season 2026 Readiness with Agentic AI",
+        "description": "Session on preparing hiring teams for 2026 volumes using agentic AI.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/webinar-3-hiring-season-2026-readiness-with-agentic-ai.webp",
+        "image_alt": "Hiring Season 2026 Readiness with Agentic AI",
+        "cta": {
+          "label": "View Webinar",
+          "href": "https://www.youtube.com/watch?v=LLdttKn_UXI",
+          "external": true
+        }
+      },
+      {
+        "type": "webinar",
+        "tag": "Webinar",
+        "title": "How AI Is Reshaping the HR Operating Model (with Volker Jacobs)",
+        "description": "Podcast/webinar-style discussion on AI reshaping HR operating models.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/how-ai-is-reshaping-the-hr-operating-model-with-volker-jacobs.webp",
+        "image_alt": "How AI Is Reshaping the HR Operating Model",
+        "cta": {
+          "label": "View Webinar",
+          "href": "https://www.youtube.com/watch?v=MsZ3C--IARM",
+          "external": true
+        }
+      },
+      {
+        "type": "webinar",
+        "tag": "Webinar",
+        "title": "L&D challenges and trends for 2026",
+        "description": "Webinar on L&D spending, challenges, and planning for 2026.",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/l-d-challenges-and-trends-for-2026.webp",
+        "image_alt": "L&D challenges and trends for 2026",
+        "cta": {
+          "label": "View Webinar",
+          "href": "https://www.youtube.com/watch?v=8ierObjiY2o",
+          "external": true
+        }
+      },
+      {
+        "type": "workbook",
+        "tag": "WorkBook",
+        "title": "Onboarding Checklist (Spreadsheet)",
+        "description": "Step-by-step onboarding tracker",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/onboarding-checklist-spreadsheet.webp",
+        "image_alt": "Onboarding Checklist",
+        "cta": {
+          "label": "View WorkBook",
+          "href": "https://documentero.com/templates/human-resources/spreadsheet/onboarding-checklist/",
+          "external": true
+        }
+      },
+      {
+        "type": "workbook",
+        "tag": "WorkBook",
+        "title": "Payroll Summary (Spreadsheet)",
+        "description": "Payroll and compensation overview",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/payroll-summary-spreadsheet.webp",
+        "image_alt": "Payroll Summary",
+        "cta": {
+          "label": "View WorkBook",
+          "href": "https://documentero.com/templates/human-resources/spreadsheet/payroll-summary/",
+          "external": true
+        }
+      },
+      {
+        "type": "workbook",
+        "tag": "WorkBook",
+        "title": "Promotion Letter",
+        "description": "Announces employee promotion",
+        "date_label": "February 2026",
+        "image": "https://media.edstellar.com/resources/images/promotion-letter.webp",
+        "image_alt": "Promotion Letter",
+        "cta": {
+          "label": "View WorkBook",
+          "href": "https://documentero.com/templates/human-resources/document/promotion-letter/",
+          "external": true
+        }
+      }
+    ]
+  },
+  "testimonial": {
+    "quote": "Edstellar's free competency matrix template saved our HR team weeks of work. A must visit hub for L&D pros.",
+    "name": "Sarah J.",
+    "role": "HR Director"
+  },
+  "faqs": {
+    "heading": "Frequently Asked <span>Questions</span>",
+    "description": "Can't find what you need? Write to contact@edstellar.com and we'll add it to the library.",
+    "items": [
+      {
+        "question": "How can L&D professionals benefit from this collection of L&D resources?",
+        "answer": "HR and L&D leaders can use these learning and development resources to skip the manual work of building training frameworks from scratch. Whether you need to run a skills gap analysis, plan a yearly budget, or set up a competency matrix, these L&D resources provide a vetted starting point that saves hours of research and document creation."
+      },
+      {
+        "question": "Where can I find specific learning and development templates for training planning?",
+        "answer": "You can access our dedicated library of learning and development templates which include customizable Excel and Word files. These L&D resources are designed to help you streamline everything from training registers to skill gap assessments."
+      },
+      {
+        "question": "Why are these L&D resources provided for free?",
+        "answer": "We believe that access to high-quality learning and development resources shouldn't be a barrier to organizational growth. By providing these L&D resources for free, we help L&D managers prove the value of their programs without initial overhead."
+      },
+      {
+        "question": "Can I suggest a specific L&D resource if I can't find it here?",
+        "answer": "Yes, we encourage it. If there is a specific template, checklist, or guide you need that isn't currently in our library of learning and development resources, please reach out to us. We regularly update our L&D resources based on direct feedback from professionals."
+      },
+      {
+        "question": "What corporate training courses can L&D leads access through Edstellar?",
+        "answer": "Beyond our free L&D resources, Edstellar provides instructor-led corporate training. L&D leads can access 5,000+ instructor-led corporate training courses through Edstellar across leadership, management, soft skills, IT, compliance, and sustainability. The programs are customizable and delivered online, onsite, or offsite to fit business needs. Edstellar also supports training with skill gap analysis and end-to-end training management."
+      },
+      {
+        "question": "What L&D consulting services are available for more complex needs?",
+        "answer": "For organizations requiring a more tailored approach, we offer L&D consulting services to help design custom learning journeys and optimize your overall talent development strategy using professional learning and development resources."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Ready to Go Beyond <span>Free Resources?</span>",
+    "description": "Free resources are a great starting point, but the most effective L&D leaders pair great content with structured, expert-led training. Partner with Edstellar to transform your organization's skill development with custom corporate training programs, L&D consulting, and our AI powered skills intelligence platform.",
+    "primary_cta": {
+      "label": "Enquire Now",
+      "href": "/enquiry-now"
+    },
+    "links": [
+      {
+        "label": "Browse corporate training courses",
+        "href": "/corporate-training"
+      },
+      {
+        "label": "Explore L&D consulting",
+        "href": "/learning-development-consulting-services"
+      }
+    ]
+  },
+  "disclaimer": {
+    "heading": "Resource Hub Legal Disclaimer & Copyright Information",
+    "items": [
+      {
+        "title": "No Ownership",
+        "text": "Edstellar does not own, create, host, or hold any intellectual property rights over the third-party resources listed on this page. All content, trademarks, logos, and materials belong exclusively to their respective creators, publishers, and owners."
+      },
+      {
+        "title": "No Endorsement",
+        "text": "Inclusion of any resource does not constitute endorsement, recommendation, or validation by Edstellar of views, opinions, accuracy, or quality. Users are encouraged to evaluate all resources independently."
+      },
+      {
+        "title": "External Links",
+        "text": "Most resource links redirect to external, third-party websites. Edstellar has no control over ongoing availability, content updates, or changes made to these third-party pages."
+      },
+      {
+        "title": "Accuracy & Currency",
+        "text": "Edstellar makes no representations or warranties, express or implied, regarding the accuracy, completeness, or reliability of any third-party resource listed here."
+      },
+      {
+        "title": "Copyright Takedown",
+        "text": "If you believe your work has been listed in a way that violates your rights, please contact us at contact@edstellar.com with the subject \"Resource Takedown Request\"."
+      },
+      {
+        "title": "No Liability",
+        "text": "Edstellar shall not be held liable for any direct or indirect damages, losses, or adverse outcomes arising from using or relying on any third-party resource."
+      },
+      {
+        "title": "Owned Resources",
+        "text": "Resources clearly identified with an \"Edstellar\" badge have been created directly by us and are subject to Edstellar's own copyright and Terms of Use."
+      },
+      {
+        "title": "Updates",
+        "text": "Edstellar reserves the right to add, modify, update, or remove resources from this page at any time without prior notice."
+      }
+    ]
+  }
+}

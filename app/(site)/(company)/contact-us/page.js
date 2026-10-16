@@ -1,51 +1,79 @@
+import { notFound } from "next/navigation";
+
 import { getContactPage } from "@/lib/content/company";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 
 import CompanyHero from "@/components/sections/company/company-hero";
 import ContactReach from "@/components/sections/company/contact-reach";
 
-export function generateMetadata() {
-  const { seo } = getContactPage();
-  return buildMetadata(seo);
+export const revalidate = 3600;
+
+const PATH = "/contact-us";
+
+/** The CMS sends the hero image without alt text. */
+const HERO_IMAGE_ALT = "Two colleagues collaborating at a desk";
+
+export async function generateMetadata() {
+  const page = await getContactPage();
+  if (!page) return {};
+  const { seo } = page;
+
+  return buildMetadata({
+    title: stripSiteSuffix(seo?.meta_title),
+    description: seo?.Meta_description,
+    path: PATH,
+    image: seo?.og_image_url,
+  });
 }
 
 /**
- * Contact Us — a static page built from local JSON
- * (`content/company/contact-us.json`, via `lib/content/company.js`).
+ * Contact Us — everything comes from the CMS site page `contact-us`: its
+ * `seo` component, and `contact_page` for the hero, the phone lines and
+ * offices, and the enquiry form's heading and button. A valid submit goes
+ * to `/thank-you/contact-us`.
  *
  * Design: `Edstellar Static Pages/contact-us.html`.
  */
-export default function ContactUsPage() {
-  const page = getContactPage();
-  const { hero } = page;
+export default async function ContactUsPage() {
+  const page = await getContactPage();
+  const contact = page?.contact_page;
+  if (!contact) notFound();
 
   return (
     <>
       <SchemaOrg
         webpage={{
-          name: page.seo.title,
-          description: page.seo.description,
-          path: page.seo.path,
+          name: stripSiteSuffix(page.seo?.meta_title),
+          description: page.seo?.Meta_description,
+          path: PATH,
         }}
-        breadcrumbs={hero.breadcrumbs}
+        breadcrumbs={contact.breadcrumbs}
       />
 
       <CompanyHero
-        heading={hero.heading}
-        description={hero.description}
-        breadcrumbs={hero.breadcrumbs}
-        image={hero.image}
+        heading={contact.heading}
+        description={contact.description}
+        breadcrumbs={contact.breadcrumbs}
+        image={contact.image?.src ? { alt: HERO_IMAGE_ALT, ...contact.image } : null}
       >
         <a
-          href={`mailto:${hero.email}`}
+          href={`mailto:${contact.email}`}
           title="Click Here to Email Edstellar"
           className="border-b-2 border-transparent font-display text-[clamp(20px,2.4vw,28px)] font-semibold text-lime transition-colors hover:border-lime"
         >
-          {hero.email}
+          {contact.email}
         </a>
       </CompanyHero>
-      <ContactReach data={page.reach} form={page.form} />
+      <ContactReach
+        data={{
+          heading: contact.reach_heading,
+          description: contact.reach_description,
+          phones: contact.phones,
+          offices: contact.offices,
+        }}
+        form={{ heading: contact.form_heading, submit_label: contact.submit_label }}
+      />
     </>
   );
 }

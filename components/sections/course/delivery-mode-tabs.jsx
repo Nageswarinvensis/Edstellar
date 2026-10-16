@@ -5,6 +5,7 @@ import Image from "next/image";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
+import { CtaButton } from "@/components/common/cta-button";
 import { cn } from "@/lib/utils";
 
 /**
@@ -22,6 +23,10 @@ import { cn } from "@/lib/utils";
  * lookup silently drops the image on any course that doesn't use the one
  * id this file happened to be written against. Position (tabs are always
  * authored virtual/onsite/offsite, in that order) is the final fallback.
+ *
+ * Each panel can close with a paragraph (`delivery_format_cta_description`)
+ * and a button (`btn_label` + `btn_link`) under its points — both optional,
+ * rendered only when the CMS sends them.
  *
  * Design: `#modeTabs`, `.tab`, `#modePanels`, `.tab-panel`, `.mode-art`.
  */
@@ -153,6 +158,18 @@ export default function DeliveryModeTabs({ tabs }) {
                   </Reveal>
                 ))}
               </Box>
+
+              {tab.delivery_format_cta_description ? (
+                <Text as="p" className="mt-5 text-[15px] leading-[1.6] text-ink/60">
+                  {tab.delivery_format_cta_description}
+                </Text>
+              ) : null}
+
+              {tab.btn_label && tab.btn_link ? (
+                <CtaButton arrow render={<a href={tab.btn_link} />} className="mt-6">
+                  {tab.btn_label}
+                </CtaButton>
+              ) : null}
             </Box>
 
             <Box

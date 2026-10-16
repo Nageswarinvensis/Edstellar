@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
@@ -14,26 +15,38 @@ import { COUNTRY_DIAL_CODES, EMAIL_PATTERN } from "@/lib/constants";
 const PHONE_PATTERN = /^[\d\s()+-]{6,20}$/;
 
 /**
- * Training enquiry card — the form on `/contact-us` and `/enquiry-now`.
+ * Training enquiry card — the form on `/contact-us`, `/enquiry-now` and
+ * `/training-for-universities-enquiry`.
  * Name, work email, company, job title, country, phone and requirements.
  *
  * There is no submission backend yet: a valid submit goes straight to
  * `/thank-you/{thankYou}` (default `contact-us`).
  *
- * `data`: `heading`, `requirements_placeholder`, `submit_label`.
+ * `data`: `heading`, `requirements_placeholder` (optional), `submit_label`.
  * `inlineIdentity` puts name and email side by side (the contact page) —
- * the enquiry page stacks them.
+ * the enquiry page stacks them. `queryParam` (optional) copies that URL
+ * parameter into a hidden `program` field as `{queryParam}-{value}` — e.g.
+ * `?university-program=x` → `university-program-x` — so the enquiry records
+ * which program link the visitor came from. Read on the client, so the page
+ * itself stays static.
  *
  * Design: contact-us / enquiry-form `.form-card`, `.field`, `.phone-group`.
  */
-export default function EnquiryForm({ data, thankYou = "contact-us", inlineIdentity = false, className }) {
+export default function EnquiryForm({ data, thankYou = "contact-us", inlineIdentity = false, queryParam, className }) {
   const {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm({ defaultValues: { country: "" } });
   const router = useRouter();
+
+  useEffect(() => {
+    if (!queryParam) return;
+    const value = new URLSearchParams(window.location.search).get(queryParam);
+    if (value) setValue("program", `${queryParam}-${value}`);
+  }, [queryParam, setValue]);
 
   const dialCode =
     COUNTRY_DIAL_CODES.find((country) => country.name === watch("country"))
@@ -59,6 +72,8 @@ export default function EnquiryForm({ data, thankYou = "contact-us", inlineIdent
 
 
       <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {queryParam ? <input type="hidden" {...register("program")} /> : null}
+
         <FormField
           label="Full name"
           required
@@ -160,7 +175,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", inlineIdent
           <textarea
             {...register("requirements")}
             rows={4}
-            placeholder={data.requirements_placeholder}
+            placeholder={data.requirements_placeholder || "Tell us about your training requirements."}
             className={cn(formInputClasses, "resize-y")}
           />
         </FormField>
