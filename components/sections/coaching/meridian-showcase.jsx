@@ -11,6 +11,7 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
 import { coachingIcon } from "@/components/sections/coaching/icons";
+import { MeridianWindow } from "@/components/sections/coaching/meridian-panels";
 import { cn } from "@/lib/utils";
 
 /**
