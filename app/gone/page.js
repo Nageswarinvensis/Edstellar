@@ -44,8 +44,8 @@ export default function GonePage() {
             as="p"
             className="max-w-[42ch] text-[clamp(15px,1.1vw,17px)] leading-[1.7] text-paper/55"
           >
-            The content you're looking for has been taken down and is no longer
-            available. It won't be coming back.
+            The content you are looking for has been taken down and is no longer
+            available. It will not be coming back.
           </Text>
         </Box>
 

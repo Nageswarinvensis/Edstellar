@@ -37,7 +37,7 @@ export default function NotFound() {
             as="h1"
             className="font-display text-[clamp(28px,4vw,42px)] font-semibold leading-[1.15] text-paper"
           >
-            This page doesn't exist
+            This page does not exist
           </Text>
           <Text
             as="p"
