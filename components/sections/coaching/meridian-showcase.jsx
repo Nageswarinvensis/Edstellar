@@ -101,14 +101,14 @@ export default function MeridianShowcase({ data }) {
 
       <Reveal
         delay={2}
-        className="grid h-[min(520px,calc(100vh-330px))] min-h-110 grid-cols-[340px_1fr] items-stretch gap-6 max-[1200px]:h-auto max-[1200px]:min-h-0 max-[1200px]:grid-cols-1"
+        className="grid grid-cols-[min(340px,30%)_1fr] items-stretch gap-6 max-[900px]:grid-cols-1"
       >
         <Box
           role="tablist"
           aria-label="Meridian features"
           aria-orientation="vertical"
           onKeyDown={onKeyDown}
-          className="no-scrollbar flex min-w-0 flex-col gap-2 max-[1200px]:flex-row max-[1200px]:overflow-x-auto max-[600px]:-mx-4 max-[600px]:px-4 max-[600px]:pb-1"
+          className="no-scrollbar flex min-w-0 flex-col gap-2 max-[900px]:flex-row max-[900px]:overflow-x-auto max-[600px]:-mx-4 max-[600px]:px-4 max-[600px]:pb-1"
         >
           {tabs.map((tab, index) => {
             const Icon = coachingIcon(tab.icon);
@@ -127,7 +127,7 @@ export default function MeridianShowcase({ data }) {
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setActive(index)}
                 className={cn(
-                  "grid flex-1 cursor-pointer grid-cols-[44px_1fr] items-center gap-3.5 rounded-[14px] border px-4 py-3.5 text-left text-paper transition-transform duration-200 hover:translate-x-1 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-lime max-[1200px]:flex-none max-[600px]:max-w-75",
+                  "grid cursor-pointer grid-cols-[44px_1fr] items-center gap-3.5 rounded-[14px] border px-4 py-3.5 text-left text-paper transition-transform duration-200 hover:translate-x-1 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-lime max-[900px]:flex-none max-[600px]:max-w-75",
                   selected ? "border-lime/50 bg-navy-soft" : "border-paper/10 bg-transparent",
                 )}
               >
@@ -150,7 +150,7 @@ export default function MeridianShowcase({ data }) {
           })}
         </Box>
 
-        <Box className="flex min-h-0 min-w-0 rounded-[20px] bg-navy-soft p-4 max-[600px]:p-3">
+        <Box className="flex min-h-0 min-w-0 rounded-[20px] bg-navy-soft p-4 min-[901px]:min-h-96 max-[600px]:p-3">
           {tabs.map((tab, index) => (
             <Box
               key={tab.title}
@@ -158,7 +158,7 @@ export default function MeridianShowcase({ data }) {
               id={`m2-p${index}`}
               aria-labelledby={`m2-t${index}`}
               hidden={index !== active}
-              className="min-h-0 flex-1 [&:not([hidden])]:flex"
+              className="min-h-0 min-w-0 flex-1 [&:not([hidden])]:flex"
             >
               {tabImage(tab) ? (
                 <img
@@ -166,7 +166,7 @@ export default function MeridianShowcase({ data }) {
                   alt={tabImage(tab).alt}
                   loading={index === 0 ? "eager" : "lazy"}
                   decoding="async"
-                  className="block h-auto w-full self-start rounded-[14px] object-contain"
+                  className="block w-full rounded-[14px] object-contain"
                 />
               ) : (
                 <MeridianWindow panel={tab.panel} />
