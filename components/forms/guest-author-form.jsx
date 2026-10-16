@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 import Box from "@/components/ui/Box";
@@ -12,38 +12,27 @@ import { EMAIL_PATTERN } from "@/lib/constants";
 
 /**
  * Guest-author pitch form on `/become-a-guest-author`: name, email, LinkedIn,
- * job title and the blog idea. No submission backend yet (same as
- * `LeadForm`): a valid submit shows the thank-you message and clears the form.
+ * job title and the blog idea. No submission backend yet: a valid submit
+ * goes straight to `/thank-you/{thankYou}` (default `blog`).
  *
- * `data`: `submit_label`, `note`, `thanks`.
+ * `data`: `submit_label`, `note`.
  *
  * Design: become-a-guest-author `#author-form`, `.form-card`, `.field`.
  */
-export default function GuestAuthorForm({ data }) {
+export default function GuestAuthorForm({ data, thankYou = "blog" }) {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isSubmitting },
   } = useForm();
-  const [sent, setSent] = useState(false);
+  const router = useRouter();
 
   function onSubmit() {
-    setSent(true);
-    reset();
+    router.push(`/thank-you/${thankYou}`);
   }
 
   return (
     <Box className="rounded-[14px] border border-ink/12 bg-white p-6 shadow-[0_6px_24px_rgba(10,22,40,0.08)] sm:p-12">
-      {sent ? (
-        <Text
-          as="p"
-          role="status"
-          className="mb-6 rounded-xl border border-olive/40 bg-lime/15 px-4 py-3.5 text-[15px] leading-[1.6] text-ink"
-        >
-          {data.thanks}
-        </Text>
-      ) : null}
 
       <Text as="p" className="mb-8 font-mono text-[12px] leading-[1.5] tracking-[0.04em] text-ink/60 uppercase">
         Fields marked <Text as="span" className="text-red-600">*</Text> are required

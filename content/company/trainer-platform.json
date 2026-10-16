@@ -1,0 +1,293 @@
+{
+  "seo": {
+    "title": "Join as a Corporate Trainer | Expand Your Training Opportunities",
+    "description": "Join Edstellar as a verified corporate trainer. Get your profile presented to organizations worldwide, receive training opportunities and manage every engagement from one dashboard.",
+    "path": "/trainer-platform"
+  },
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Platform",
+      "href": "/training-management-software"
+    },
+    {
+      "label": "For Trainers",
+      "href": null
+    }
+  ],
+  "hero": {
+    "heading": "Expand your <span>Opportunities</span> with Edstellar",
+    "description": "As a strategic training delivery partner to organizations globally, Edstellar has an ever growing need for stellar trainers from around the world. Join us and expand your visibility to receive more training opportunities.",
+    "cta": {
+      "label": "Join as a Trainer",
+      "href": "https://login.edstellar.com/register"
+    },
+    "badge": {
+      "label": "Global network",
+      "text": "Edstellar-Verified Trainers"
+    },
+    "columns": [
+      [
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1bd0e59d3191f55d1ad41_Group%201000002659.webp",
+          "alt": "Edstellar Trainer Kate"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1bd123b698c2387db2805_Group%201000002657.webp",
+          "alt": "Edstellar Trainer Steve"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1bd16d7acc99e5ef3c698_Group%201000002656.webp",
+          "alt": "Edstellar Trainer Natasha"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1bd19aff4ad96e1e87e9d_Group%201000002651.webp",
+          "alt": "Edstellar Trainer Safina"
+        }
+      ],
+      [
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1bbdeabe5e50b2e9d64b1_Group%201000002660%20(1).webp",
+          "alt": "Edstellar Trainer Anita"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1bbf12cf058e9ad77da7c_Group%201000002658.webp",
+          "alt": "Edstellar Trainer Diana"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1bc08dbffae8a63036c14_Group%201000002655.webp",
+          "alt": "Edstellar Trainer Greta"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1bc173b698c2387da094d_Group%201000002652.webp",
+          "alt": "Edstellar Trainer Devika"
+        }
+      ],
+      [
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1b9714dd1948b86fa1130_Group%201000002661.webp",
+          "alt": "Edstellar Trainer Shriley"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1b9d04dd1948b86fa6473_Group%201000002662.webp",
+          "alt": "Edstellar Trainer Rajveer"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1b9f959d3191f55ce4cdf_Group%201000002663.webp",
+          "alt": "Edstellar Trainer Amol"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64f1ba1afceea2659aa5c2c8_Group%201000002664.webp",
+          "alt": "Edstellar Trainer Fredric"
+        }
+      ]
+    ]
+  },
+  "benefits": {
+    "heading": "Unlock a World of Benefits as an <span>Edstellar-Verified</span> Trainer",
+    "description": "Onboard with Edstellar and unlock the door to the right training opportunities across the globe.",
+    "items": [
+      {
+        "tag": "Global reach",
+        "title": "Work with Edstellar’s Global Customers",
+        "text": "Train Edstellar's global customers, expanding your reach in diverse markets and industries.",
+        "image": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67502f478410c472f14a2360_A%20Powerfull%20TMS%20Banner%20(1).webp"
+      },
+      {
+        "tag": "Visibility",
+        "title": "Get your Profile Globally Presented",
+        "text": "Edstellar connects you to companies around the world based on your skill sets and offerings matching the organizations' requirements.",
+        "image": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/675034bc1c1caccf3b5dc9b0_Get%20your%20Profile%20Globally%20Presented.webp"
+      },
+      {
+        "tag": "Growth",
+        "title": "Maximise your Growth Potential",
+        "text": "Receive regular updates on training opportunities to collaborate with organizations and get post training feedback.",
+        "image": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/675034bc701547303b2b1cf6_Maximise%20your%E2%80%A8Growth%20Potential.webp"
+      },
+      {
+        "tag": "Revenue",
+        "title": "Get Access to More Revenue Opportunities",
+        "text": "Discover high-yield training opportunities and leverage our support to cultivate your brand and generate revenue streams.",
+        "image": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/675034bcb124d78c7ca7f923_Get%20Access%20to%20More%20Revenue%20Opportunities.webp"
+      }
+    ]
+  },
+  "reviews": {
+    "heading": "Reviews from our <span>Stellar</span> Trainers",
+    "description": "Gain insights from our trainers as they share their experiences and perspectives",
+    "items": [
+      {
+        "name": "Shan",
+        "role": "Edstellar Trainer",
+        "image": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/675811f1b73d3e207f780666_SHAN.webp",
+        "quote": "Edstellar Training Trainers Platform is a game-changer in the corporate learning and development sphere. It swiftly resolves training issues, providing instant solutions. This platform is poised to revolutionize the way companies approach employee education, offering a powerful tool for upskilling and problem-solving. A vital asset for the corporate world"
+      },
+      {
+        "name": "Vasant",
+        "role": "Edstellar Trainer",
+        "image": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/675811684355fe5f5a85d07f_VASANT.webp",
+        "quote": "Edstellar Training Platform has proven to be an invaluable B2B partner for trainers like myself. Collaborating with Edstellar has opened up exceptional opportunities for me to deliver high-quality training programs to organizations worldwide. I highly endorse their platform for businesses seeking to enhance their performance through comprehensive training solutions."
+      },
+      {
+        "name": "Amol",
+        "role": "Edstellar Trainer",
+        "image": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67580efb2f4a146ac9e4b5aa_AMOL.webp",
+        "quote": "As a trainer at Edstellar Platform, I take immense pride in being associated with a premier learning centre that embodies excellence. Edstellar's commitment to empowering organizations with practical skills and industry-relevant knowledge is commendable. Additionally, the platform focus on personalized attention ensures that each client receives tailored guidance. The experience of imparting knowledge and witnessing the growth of aspiring professionals is truly fulfilling."
+      },
+      {
+        "name": "Siva",
+        "role": "Edstellar Trainer",
+        "image": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67580f750166e649e9244fc2_SIVA.webp",
+        "quote": "Edstellar ILT Platform is a game-changer, offering a user-friendly interface, diverse courses, and end-to-end training management platform. Highly recommended for trainers and organizations seeking a rewarding learning experience."
+      }
+    ]
+  },
+  "dashboard": {
+    "heading": "Edstellar-Verified Trainers: Dashboard to a world of <span>global opportunities</span>",
+    "description": "Experience the power of Edstellar's dynamic dashboard for growth and success",
+    "items": [
+      {
+        "icon": "profile",
+        "kicker": "Personalize your profile",
+        "title": "Get your Dedicated Trainer Profile",
+        "text": "Showcase your training expertise on your dedicated trainer profile, highlighting your skills, experience and accomplishments"
+      },
+      {
+        "icon": "verified",
+        "kicker": "Get verified",
+        "title": "Become an Edstellar Verified Trainer",
+        "text": "Establish credibility with an Edstellar-verified trainer profile, earning trust from organizations seeking top-tier instructors"
+      },
+      {
+        "icon": "dashboard",
+        "kicker": "Training dashboard",
+        "title": "Access to Training Dedicated Dashboard",
+        "text": "Stay informed, organized, and connected: get shortlist notifications, view schedules, and vital training updates via our dashboard"
+      },
+      {
+        "icon": "chat",
+        "kicker": "Seamless communication",
+        "title": "Streamlined Training Communication",
+        "text": "Effortlessly communicate with our dedicated coordinator for managing all your training operations through the dashboard"
+      }
+    ],
+    "cta": {
+      "label": "Join as a Trainer",
+      "href": "https://login.edstellar.com/register"
+    },
+    "note": "Let’s schedule a demo for technical assistance and product demonstration or send an email to contact@edstellar.com to schedule a call back."
+  },
+  "impact": {
+    "heading": "Expand the <span>Impact</span>",
+    "description": "Become a Thought Leader in Training and Expand Your Impact as part of the Edstellar community.",
+    "image": {
+      "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64c0f5918a27b563b8644876_Group%201000002355.webp",
+      "alt": "Expand the impact"
+    },
+    "items": [
+      {
+        "title": "Reach a Wider Audience",
+        "text": "With Edstellar, your profile reaches far beyond geographical boundaries. Connect with organizations from diverse backgrounds, cultures, and regions, as Edstellar extends your reach to a global audience. Embrace the opportunity to impact lives worldwide, making your training legacy a force for positive change on an international scale."
+      },
+      {
+        "title": "Contribute as a Thought Leader",
+        "text": "Establish yourself as an influential thought leader among organizations by regularly writing compelling blogs in your area of expertise, you can showcase your extensive experience, knowledge, and insights to connect with global organizations who seek your guidance and expertise."
+      },
+      {
+        "title": "Personal Branding for Professional Growth",
+        "text": "Leverage Edstellar's platform to enhance your personal brand as a trainer. Showcase your expertise, credentials, and unique approach to training, positioning yourself as a sought-after authority in your field. Gain recognition and attract new opportunities for professional growth."
+      }
+    ]
+  },
+  "how_it_works": {
+    "heading": "How it <span>Works?</span>",
+    "description": "Utilize our intuitive trainer platform to upskill corporate teams. Increase your visibility and influence as an expert in your field. Let our trainer platform open the door to empowering professionals at leading organizations with in-demand skills.",
+    "count_label": "steps",
+    "steps": [
+      {
+        "title": "Sign Up",
+        "text": "Create your account and register with Edstellar to explore an array of projects."
+      },
+      {
+        "title": "Build your Profile",
+        "text": "Build your profile by highlighting your skills, knowledge and accomplishments."
+      },
+      {
+        "title": "Verification Process",
+        "text": "Upload all your relevant certificates, awards, and recognition to become an Edstellar verified trainer."
+      },
+      {
+        "title": "Get Confirmation",
+        "text": "Once your profile matches the organizational requirement, you will be shortlisted and selected for the specific project. Our coordinator will confirm your availability for the project and share the roster with you."
+      },
+      {
+        "title": "Ready, Set, Train",
+        "text": "After you hit the confirm button, you are all set to find yourself as a trainer to upskill corporate employees with your training skills."
+      }
+    ]
+  },
+  "resources": {
+    "heading": "Edstellar <span>Resources</span>",
+    "description": "Deep dive into industry trends, expert insights, success stories and innovative training practices",
+    "items": [
+      {
+        "slug": "skills-in-demand-in-belgium",
+        "title": "10 Most In-Demand Skills in Belgium for 2026",
+        "cover_image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/677b66f98dd2c944d2e65edf_66cffd4ef4d81c6dc88a128a_Skills%2520in%2520demand%2520in%2520Belgium-.webp",
+        "category_name": "In-Demand Skills",
+        "published_at": "2026-10-01"
+      },
+      {
+        "slug": "corporate-training-companies-denmark",
+        "title": "10 Best Corporate Training Companies in Denmark for 2026",
+        "cover_image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/677b67508e48883b8fb50fc2_65af9907a81dc0a8f9ad64ba_corporate-training-companies-dubai.webp",
+        "category_name": "Popular Training Providers",
+        "published_at": "2026-10-01"
+      },
+      {
+        "slug": "dmaic-process",
+        "title": "Implementing DMAIC in Your Organization: A Step-by-Step Guide",
+        "cover_image": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/67b864c6e9b1d8a3b1ac02b2_1200x600%20How%20to%20Implement%20DMAIC%20Process.webp",
+        "category_name": "Frameworks / Models / Templates",
+        "published_at": "2026-09-22"
+      }
+    ]
+  },
+  "final_cta": {
+    "heading": "Strengthen your Career Prospects as a <span>Corporate Trainer</span>",
+    "description": "Join the Edstellar community where global opportunities await you",
+    "cta": {
+      "label": "Join as a Trainer",
+      "href": "https://login.edstellar.com/register"
+    },
+    "reach": {
+      "label": "Reach Us",
+      "links": [
+        {
+          "label": "contact@edstellar.com",
+          "href": "mailto:contact@edstellar.com",
+          "tag": "Email"
+        },
+        {
+          "label": "+1 682 297 4830",
+          "href": "tel:+16822974830",
+          "tag": "USA"
+        },
+        {
+          "label": "+44 151 453 4009",
+          "href": "tel:+441514534009",
+          "tag": "UK"
+        },
+        {
+          "label": "+91 636 483 3830",
+          "href": "tel:+916364833830",
+          "tag": "India"
+        }
+      ]
+    }
+  }
+}

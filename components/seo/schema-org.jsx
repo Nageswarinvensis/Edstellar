@@ -22,7 +22,7 @@ import JsonLd from "@/components/seo/json-ld";
  * course       object                  { name, description, path, image, audience }
  * breadcrumbs  { label, href }[]       Same array the visible breadcrumb rail renders
  * faqs         { question, answer }[]  Same .items the visible FAQ section renders
- * service      object                  { name, description, path, serviceType? }
+ * service      object                  { name, description, path, serviceType?, offers? }
  * webpage      object                  { name, description, path }
  * blogPosting  object                  { title, description, path, image, datePublished, dateModified, authorName? }
  * person       object                  { name, jobTitle, image, path, city?, country?, languages? }

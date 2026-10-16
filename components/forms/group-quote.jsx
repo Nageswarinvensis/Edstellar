@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
-import { ArrowLeft, Check, Minus, Plus, Search } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ArrowLeft, Minus, Plus, Search } from "lucide-react";
 import { searchCourses } from "@/lib/actions/course-search";
 
 import Box from "@/components/ui/Box";
@@ -86,9 +87,11 @@ function stripTrainingSuffix(name) {
  * Group-quote wizard — qualifies a training request in a few clicks (team
  * size, programs, frequency), then sends it from its own contact form on the
  * last step. This section stands alone and does not hand off to `LeadForm`
- * elsewhere on the page — each has its own independent submit.
+ * elsewhere on the page — each has its own independent submit. No backend
+ * yet: a valid contact step goes straight to `/thank-you/{thankYou}`
+ * (default `course`).
  */
-export default function GroupQuote({ heading }) {
+export default function GroupQuote({ heading, thankYou = "course" }) {
   const cardRef = useRef(null);
 
   const [mode, setMode] = useState("one-time");
@@ -143,12 +146,10 @@ export default function GroupQuote({ heading }) {
     handleSubmit: handleContactSubmit,
     formState: { errors: contactErrors, isSubmitting: contactSubmitting },
   } = useForm();
-  const [contactSubmitted, setContactSubmitted] = useState(false);
-  const [contactCompany, setContactCompany] = useState("");
+  const router = useRouter();
 
-  function onContactSubmit(values) {
-    setContactCompany(values.company);
-    setContactSubmitted(true);
+  function onContactSubmit() {
+    router.push(`/thank-you/${thankYou}`);
   }
 
   function isStepValid(step) {
@@ -726,180 +727,145 @@ export default function GroupQuote({ heading }) {
           </Box>
 
           <Box className="rounded-[14px] border border-ink/15 bg-white p-6 sm:p-6.5">
-            {contactSubmitted ? (
-              <Box className="pt-1 text-center">
-                <Box className="mx-auto mb-4.5 grid size-12 place-items-center rounded-full bg-navy text-lime">
-                  <Check size={22} strokeWidth={2.5} aria-hidden="true" />
-                </Box>
-                <Text
-                  as="h4"
-                  className="mb-1.5 font-display text-lg font-semibold text-ink"
-                >
-                  Request received.
-                </Text>
-                <Text
-                  as="p"
-                  className="mb-5 text-[13.5px] leading-[1.6] text-ink/60"
-                >
-                  Thanks, a training specialist will reply within one business
-                  day with a tailored proposal.
-                </Text>
-                <Box className="rounded-[14px] bg-paper-warm p-4.5 text-left text-[13.5px] leading-[1.7] text-ink">
+            <Text
+              as="h4"
+              className="mb-1 font-display text-lg font-semibold text-ink"
+            >
+              Your contact details
+            </Text>
+            <Text
+              as="p"
+              className="mb-5 text-[13px] leading-[1.6] text-ink/60"
+            >
+              Send this requirement straight from here. A training
+              specialist replies within one business day with a tailored
+              proposal.
+            </Text>
+
+            <Box
+              as="form"
+              noValidate
+              onSubmit={handleContactSubmit(onContactSubmit)}
+              className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+            >
+              <FormField
+                label="Name"
+                required
+                error={contactErrors.name?.message}
+              >
+                <input
+                  {...registerContact("name", {
+                    required: "Please enter your name.",
+                  })}
+                  type="text"
+                  autoComplete="name"
+                  placeholder="Enter your name"
+                  className={formInputClasses}
+                />
+              </FormField>
+
+              <FormField
+                label="Work email"
+                required
+                error={contactErrors.workEmail?.message}
+              >
+                <input
+                  {...registerContact("workEmail", {
+                    required: "Please enter your work email address.",
+                    pattern: {
+                      value: EMAIL_PATTERN,
+                      message: "That email address does not look right.",
+                    },
+                    validate: (value) =>
+                      !FREE_MAIL_DOMAINS.has(
+                        value.split("@")[1]?.toLowerCase(),
+                      ) ||
+                      "Please use your work email so we can identify your organization.",
+                  })}
+                  type="email"
+                  autoComplete="email"
+                  placeholder="Enter your work email"
+                  className={formInputClasses}
+                />
+              </FormField>
+
+              <FormField
+                label="Company name"
+                required
+                error={contactErrors.company?.message}
+              >
+                <input
+                  {...registerContact("company", {
+                    required: "Please enter your company name.",
+                  })}
+                  type="text"
+                  autoComplete="organization"
+                  placeholder="Enter your company name"
+                  className={formInputClasses}
+                />
+              </FormField>
+
+              <FormField label="Phone">
+                <Box className="flex items-stretch overflow-hidden rounded-xl border border-ink/15 focus-within:border-navy focus-within:bg-white">
                   <Text
                     as="span"
-                    className="mb-1.5 block font-mono text-[10px] tracking-[0.15em] text-ink/50 uppercase"
+                    className="flex items-center border-r border-ink/12 px-2.5 font-mono text-[12.5px] text-ink/60"
                   >
-                    What we received
+                    {dialCode}
                   </Text>
-                  {contactCompany}
-                  <br />
-                  {[sizeText(), freqText()].filter(Boolean).join(" · ")}
-                  <br />
-                  {dialCountry}
+                  <input
+                    {...registerContact("phone")}
+                    type="tel"
+                    inputMode="tel"
+                    autoComplete="tel-national"
+                    placeholder="201-555-0123"
+                    className="w-full min-w-0 bg-transparent p-3 text-[13.5px] text-ink outline-none placeholder:text-ink/35"
+                  />
                 </Box>
+              </FormField>
+
+              <Box className="relative flex items-start gap-2.5 sm:col-span-2">
+                <input
+                  {...registerContact("consent", { required: true })}
+                  type="checkbox"
+                  id="gq-consent"
+                  aria-invalid={Boolean(contactErrors.consent)}
+                  className="mt-0.75 size-3.5 flex-none accent-navy"
+                />
+                <Text
+                  as="label"
+                  htmlFor="gq-consent"
+                  className="text-[12px] leading-normal text-ink/60"
+                >
+                  I agree that Edstellar may use my details to respond to my
+                  training request and provide relevant training solutions,
+                  as described in the{" "}
+                  <a
+                    href="/privacy-policy"
+                    title="Click Here to View Privacy Policy"
+                    className="underline hover:text-ink"
+                  >
+                    privacy policy
+                  </a>
+                  .
+                </Text>
+                {contactErrors.consent ? (
+                  <Text
+                    as="span"
+                    role="alert"
+                    className="absolute top-full left-6 mt-0.5 text-[11px] leading-[1.35] text-red-600"
+                  >
+                    Please accept the privacy policy to continue.
+                  </Text>
+                ) : null}
               </Box>
-            ) : (
-              <>
-                <Text
-                  as="h4"
-                  className="mb-1 font-display text-lg font-semibold text-ink"
-                >
-                  Your contact details
-                </Text>
-                <Text
-                  as="p"
-                  className="mb-5 text-[13px] leading-[1.6] text-ink/60"
-                >
-                  Send this requirement straight from here. A training
-                  specialist replies within one business day with a tailored
-                  proposal.
-                </Text>
 
-                <Box
-                  as="form"
-                  noValidate
-                  onSubmit={handleContactSubmit(onContactSubmit)}
-                  className="grid grid-cols-1 gap-4 sm:grid-cols-2"
-                >
-                  <FormField
-                    label="Name"
-                    required
-                    error={contactErrors.name?.message}
-                  >
-                    <input
-                      {...registerContact("name", {
-                        required: "Please enter your name.",
-                      })}
-                      type="text"
-                      autoComplete="name"
-                      placeholder="Enter your name"
-                      className={formInputClasses}
-                    />
-                  </FormField>
-
-                  <FormField
-                    label="Work email"
-                    required
-                    error={contactErrors.workEmail?.message}
-                  >
-                    <input
-                      {...registerContact("workEmail", {
-                        required: "Please enter your work email address.",
-                        pattern: {
-                          value: EMAIL_PATTERN,
-                          message: "That email address does not look right.",
-                        },
-                        validate: (value) =>
-                          !FREE_MAIL_DOMAINS.has(
-                            value.split("@")[1]?.toLowerCase(),
-                          ) ||
-                          "Please use your work email so we can identify your organization.",
-                      })}
-                      type="email"
-                      autoComplete="email"
-                      placeholder="Enter your work email"
-                      className={formInputClasses}
-                    />
-                  </FormField>
-
-                  <FormField
-                    label="Company name"
-                    required
-                    error={contactErrors.company?.message}
-                  >
-                    <input
-                      {...registerContact("company", {
-                        required: "Please enter your company name.",
-                      })}
-                      type="text"
-                      autoComplete="organization"
-                      placeholder="Enter your company name"
-                      className={formInputClasses}
-                    />
-                  </FormField>
-
-                  <FormField label="Phone">
-                    <Box className="flex items-stretch overflow-hidden rounded-xl border border-ink/15 focus-within:border-navy focus-within:bg-white">
-                      <Text
-                        as="span"
-                        className="flex items-center border-r border-ink/12 px-2.5 font-mono text-[12.5px] text-ink/60"
-                      >
-                        {dialCode}
-                      </Text>
-                      <input
-                        {...registerContact("phone")}
-                        type="tel"
-                        inputMode="tel"
-                        autoComplete="tel-national"
-                        placeholder="201-555-0123"
-                        className="w-full min-w-0 bg-transparent p-3 text-[13.5px] text-ink outline-none placeholder:text-ink/35"
-                      />
-                    </Box>
-                  </FormField>
-
-                  <Box className="flex items-start gap-2.5 sm:col-span-2">
-                    <input
-                      {...registerContact("consent", { required: true })}
-                      type="checkbox"
-                      id="gq-consent"
-                      aria-invalid={Boolean(contactErrors.consent)}
-                      className="mt-0.75 size-3.5 flex-none accent-navy"
-                    />
-                    <Text
-                      as="label"
-                      htmlFor="gq-consent"
-                      className="text-[12px] leading-normal text-ink/60"
-                    >
-                      I agree that Edstellar may use my details to respond to my
-                      training request and provide relevant training solutions,
-                      as described in the{" "}
-                      <a
-                        href="/privacy-policy"
-                        title="Click Here to View Privacy Policy"
-                        className="underline hover:text-ink"
-                      >
-                        privacy policy
-                      </a>
-                      .
-                    </Text>
-                  </Box>
-                  {contactErrors.consent ? (
-                    <Text
-                      role="alert"
-                      className="-mt-2.5 text-[11.5px] text-red-600 sm:col-span-2"
-                    >
-                      Please accept the privacy policy to continue.
-                    </Text>
-                  ) : null}
-
-                  <Box className="border-t border-ink/10 pt-4.5 sm:col-span-2">
-                    <CtaButton type="submit" arrow disabled={contactSubmitting}>
-                      Request my quote
-                    </CtaButton>
-                  </Box>
-                </Box>
-              </>
-            )}
+              <Box className="border-t border-ink/10 pt-4.5 sm:col-span-2">
+                <CtaButton type="submit" arrow disabled={contactSubmitting}>
+                  Request my quote
+                </CtaButton>
+              </Box>
+            </Box>
           </Box>
         </Box>
 

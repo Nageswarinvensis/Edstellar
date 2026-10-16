@@ -24,7 +24,7 @@ import WhyUs from "@/components/sections/consulting/why-us";
 import CtaBand from "@/components/sections/consulting/cta-band";
 import Faq from "@/components/common/faq";
 import RelatedServices from "@/components/sections/consulting/related-services";
-import LeadForm from "@/components/forms/lead-form";
+import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
 
@@ -175,7 +175,7 @@ export default async function LearningDevelopmentServicePage({ params }) {
         ) : null;
       })}
 
-      <LeadForm id="apply" background="navy" data={service.leadFormData} />
+      <ConsultingForm id="apply" background="navy" data={service.leadFormData} />
       <StickyFooter
         data={service.stickyFooter && { ...service.stickyFooter, email: true }}
       />

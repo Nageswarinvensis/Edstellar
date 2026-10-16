@@ -19,7 +19,7 @@ import Engagements from "@/components/sections/learning_development_consulting/e
 import WhyUs from "@/components/sections/consulting/why-us";
 import RelatedServices from "@/components/sections/consulting/related-services";
 import Faq from "@/components/common/faq";
-import LeadForm from "@/components/forms/lead-form";
+import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
 export const revalidate = 3600;
@@ -83,7 +83,7 @@ export default async function OrganizationalDevelopmentConsultingPage() {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <LeadForm id="apply" background="navy" data={cms.leadForm} />
+      <ConsultingForm id="apply" background="navy" data={cms.leadForm} />
       <StickyFooter data={{ ...cms.stickyFooter, email: true }} />
     </>
   );

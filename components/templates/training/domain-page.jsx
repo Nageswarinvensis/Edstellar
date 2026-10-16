@@ -98,7 +98,7 @@ export default function DomainPage({ domain }) {
         className="bg-paper-warm"
       />
       <Scope data={domain.scopeData} />
-      <LeadForm data={domain.leadForm} background="paper-warm" />
+      <LeadForm data={domain.leadForm} background="paper-warm" thankYou="category" />
       <StickyFooter data={domain.stickyFooter} />
     </>
   );

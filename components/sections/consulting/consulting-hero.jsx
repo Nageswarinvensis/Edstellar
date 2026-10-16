@@ -68,13 +68,15 @@ export default function ConsultingHero({
 
   return (
     <Section id="top" className="bg-[#f8f7f4]">
-      <Reveal>
-        {breadcrumbItems ? <Breadcrumbs items={breadcrumbItems} /> : null}
-      </Reveal>
       <Box>
-        <Box className="grid grid-cols-[1.15fr_0.85fr] items-center gap-14 max-[901px]:grid-cols-1 max-[901px]:gap-9">
+        <Box className="grid grid-cols-[1.05fr_1fr] items-center gap-12 max-[901px]:grid-cols-1 max-[901px]:gap-9">
           {/* Left Side Content */}
           <Box className="min-w-0">
+            {breadcrumbItems ? (
+              <Reveal>
+                <Breadcrumbs items={breadcrumbItems} className="mt-0" />
+              </Reveal>
+            ) : null}
             <Reveal>
               <Text as="h1" className="mt-4">
                 {left.title}
@@ -159,7 +161,14 @@ export default function ConsultingHero({
               content — the CMS sends empty placeholders (e.g. `learning_system: []`
               on the TNA page) that would otherwise win and render blank.
               When the CMS sends `hero_right_image`, show that image alone. */}
-          <Box className="min-w-0">
+          <Box
+            className={cn(
+              "min-w-0",
+              // The CMS image fills the row's full height (set by the copy on
+              // the left) from 901px; stacked, it keeps its natural size.
+              data.hero_right_image && "min-[901px]:relative min-[901px]:self-stretch",
+            )}
+          >
             {data.hero_right_image ? (
               <img
                 src={data.hero_right_image}
@@ -167,7 +176,7 @@ export default function ConsultingHero({
                 width={800}
                 height={600}
                 loading="eager"
-                className="h-auto w-full rounded-xl object-contain"
+                className="h-auto w-full rounded-xl object-contain min-[901px]:absolute min-[901px]:inset-0 min-[901px]:size-full"
               />
             ) : rightSideComponent ? (
               rightSideComponent

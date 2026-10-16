@@ -21,7 +21,7 @@ import Readiness from "@/components/sections/consulting/readiness";
 import ChangeCtaStrip from "@/components/sections/organizational_development_consulting/change-cta-strip";
 import Faq from "@/components/common/faq";
 import ChangeRelatedSlider from "@/components/sections/organizational_development_consulting/change-related-slider";
-import LeadForm from "@/components/forms/lead-form";
+import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
 const PILLAR = "organizational-development-consulting";
@@ -151,7 +151,7 @@ export default async function OrganizationalDevelopmentServicePage({ params }) {
         ) : null;
       })}
 
-      <LeadForm id="apply" background="navy" data={service.leadFormData} />
+      <ConsultingForm id="apply" background="navy" data={service.leadFormData} />
       <StickyFooter
         data={service.stickyFooter && { ...service.stickyFooter, email: true }}
       />

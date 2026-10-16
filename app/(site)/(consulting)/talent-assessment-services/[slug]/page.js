@@ -15,7 +15,7 @@ import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import Readiness from "@/components/sections/consulting/readiness";
 import WhyUs from "@/components/sections/consulting/why-us";
 import Faq from "@/components/common/faq";
-import LeadForm from "@/components/forms/lead-form";
+import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
 import Concept from "@/components/sections/talent_assessment_services/concept";
@@ -144,7 +144,7 @@ export default async function TalentAssessmentServicePage({ params }) {
         return render ? <Fragment key={key}>{render(service[key])}</Fragment> : null;
       })}
 
-      <LeadForm id="apply" background="navy" data={service.lead_form} />
+      <ConsultingForm id="apply" background="navy" data={service.lead_form} />
       <StickyFooter data={service.sticky_footer} />
     </>
   );

@@ -19,7 +19,7 @@ import WhyUs from "@/components/sections/consulting/why-us";
 import CtaBand from "@/components/sections/consulting/cta-band";
 import RelatedServices from "@/components/sections/consulting/related-services";
 import Faq from "@/components/common/faq";
-import LeadForm from "@/components/forms/lead-form";
+import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
 export const revalidate = 3600;
@@ -81,7 +81,7 @@ export default async function LDConsultingPage() {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <LeadForm
+      <ConsultingForm
         id="apply"
         background="navy"
         data={cms.leadForm}
