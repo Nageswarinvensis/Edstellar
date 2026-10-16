@@ -10,8 +10,8 @@ export function generateMetadata() {
 /**
  * Training for University Enquiry — university program links land here with
  * `?university-program={slug}`. Local JSON
- * (`content/company/university-enquiry.json`); the "Training for University"
- * breadcrumb is plain text until the universities page exists.
+ * (`content/company/university-enquiry.json`); its middle breadcrumb links
+ * to the sector's main page.
  */
 export default function UniversityEnquiryPage() {
   return <ProgramEnquiryPage page={getUniversityEnquiryPage()} queryParam="university-program" />;

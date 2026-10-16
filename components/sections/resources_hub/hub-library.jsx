@@ -1,91 +1,23 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
-import { CtaButton } from "@/components/common/cta-button";
 import StrongText from "@/components/sections/resources_hub/strong-text";
+import ResourceCard from "@/components/sections/resources_hub/resource-card";
+import ResourcePager from "@/components/sections/resources_hub/resource-pager";
 import { cn } from "@/lib/utils";
-
-/** "1 … 4 5 6 … 12" — first, last and a window around the current page. */
-function pageRange(current, total) {
-  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
-  const range = [1];
-  const start = Math.max(2, current - 1);
-  const end = Math.min(total - 1, current + 1);
-  if (start > 2) range.push("…start");
-  for (let n = start; n <= end; n++) range.push(n);
-  if (end < total - 1) range.push("…end");
-  range.push(total);
-  return range;
-}
-
-function ResourceCard({ item, hidden }) {
-  const external = item.cta?.external;
-  return (
-    <Box
-      as="article"
-      className={cn(
-        // A class, not the `hidden` attribute: `flex` would override the
-        // attribute's `display: none`.
-        hidden ? "hidden" : "flex",
-        "group flex-col overflow-hidden rounded-[18px] border border-ink/12 bg-white transition-[transform,box-shadow,border-color] duration-250 hover:-translate-y-1.5 hover:border-ink/22 hover:shadow-[0_26px_54px_-30px_rgba(10,22,40,0.45)]",
-      )}
-    >
-      <Box className="aspect-video overflow-hidden border-b border-ink/12 bg-paper-warm">
-        <Image
-          src={item.image}
-          alt={item.image_alt || item.title}
-          width={640}
-          height={360}
-          sizes="(min-width: 961px) 380px, (min-width: 601px) 50vw, 100vw"
-          className="size-full object-cover transition-transform duration-500 group-hover:scale-104"
-        />
-      </Box>
-      <Box className="flex flex-1 flex-col px-5.5 pt-5 pb-5.5">
-        <Text
-          as="span"
-          className="mb-3.5 self-start rounded-full bg-lime/22 px-2.75 py-1.25 font-mono text-[10px] leading-none tracking-[0.14em] text-olive uppercase"
-        >
-          {item.tag}
-        </Text>
-        <Text as="h3" className="text-[17.5px] leading-[1.35] font-semibold tracking-[-0.02em]">
-          {item.title}
-        </Text>
-        <Text as="p" className="mt-2.5 line-clamp-3 text-[14px] leading-[1.65]">
-          {item.description}
-        </Text>
-        <Box className="mt-auto flex items-center justify-between gap-3 pt-4.5">
-          <Text as="span" className="font-mono text-[10.5px] leading-none tracking-[0.12em] text-ink/45 uppercase">
-            {item.date_label}
-          </Text>
-          {item.cta?.href ? (
-            <CtaButton
-              variant="ghost"
-              render={<a href={item.cta.href} {...(external ? { target: "_blank", rel: "noopener" } : {})} />}
-              title={`Click Here to ${item.cta.label}: ${item.title}`}
-              className="px-4.5 py-2.5 text-[13px] leading-none"
-            >
-              {item.cta.label}
-            </CtaButton>
-          ) : null}
-        </Box>
-      </Box>
-    </Box>
-  );
-}
 
 /**
  * The resource library's interactive body: type pills (with live counts),
  * the "browse" note, a meta row (last added, page x of y, month filter), the
  * card grid and pagination, `data.page_size` cards a page.
  *
- * Every card is in the server-rendered HTML — cards off the current page
- * are only `hidden` — so the whole library stays crawlable. A link to
+ * Only the current page's cards are rendered (the first page in the server
+ * HTML); the full list comes in as data, so filtering and paging need no
+ * request. Rendering all 500+ cards up front made the page ~2.7 MB. A link to
  * `#type-{key}` (the hero's "In the library" rows) opens that type's filter
  * and scrolls here.
  *
@@ -93,7 +25,13 @@ function ResourceCard({ item, hidden }) {
  * `.meta`, `.cards`, `.card`, `.pager`.
  */
 export default function HubLibrary({ data, sectionId }) {
-  const items = useMemo(() => data?.items ?? [], [data]);
+  // Each card's `type` matched to a filter key — the CMS sends the plural
+  // "videos" for the "video" filter, so a plural is folded onto its key.
+  const items = useMemo(() => {
+    const keys = new Set((data?.types ?? []).map((t) => t.key));
+    const keyOf = (type = "") => (keys.has(type) ? type : keys.has(type.replace(/s$/, "")) ? type.replace(/s$/, "") : type);
+    return (data?.items ?? []).map((item) => ({ ...item, type: keyOf(item.type) }));
+  }, [data]);
   const pageSize = data?.page_size ?? 9;
   const [type, setType] = useState("all");
   const [month, setMonth] = useState("");
@@ -115,7 +53,7 @@ export default function HubLibrary({ data, sectionId }) {
   );
   const pages = Math.max(1, Math.ceil(matching.length / pageSize));
   const current = Math.min(page, pages);
-  const visible = new Set(matching.slice((current - 1) * pageSize, current * pageSize).map(({ index }) => index));
+  const shown = matching.slice((current - 1) * pageSize, current * pageSize);
 
   useEffect(() => {
     function fromHash() {
@@ -222,8 +160,8 @@ export default function HubLibrary({ data, sectionId }) {
       </Box>
 
       <Box className="grid gap-5.5 min-[601px]:grid-cols-2 min-[961px]:grid-cols-3">
-        {items.map((item, index) => (
-          <ResourceCard key={`${item.type}-${item.title}`} item={item} hidden={!visible.has(index)} />
+        {shown.map(({ item, index }) => (
+          <ResourceCard key={`${index}-${item.title}`} item={item} />
         ))}
       </Box>
 
@@ -233,48 +171,7 @@ export default function HubLibrary({ data, sectionId }) {
         </Text>
       ) : null}
 
-      {pages > 1 ? (
-        <Box as="nav" aria-label="Pagination" className="mt-11 flex flex-wrap items-center justify-center gap-2">
-          <button
-            type="button"
-            aria-label="Previous page"
-            disabled={current === 1}
-            onClick={() => goTo(current - 1)}
-            className="grid size-10.5 cursor-pointer place-items-center rounded-full border border-ink/22 text-ink/60 transition-colors hover:border-navy hover:text-ink disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            <ChevronLeft size={16} aria-hidden="true" />
-          </button>
-          {pageRange(current, pages).map((n) =>
-            typeof n === "number" ? (
-              <button
-                key={n}
-                type="button"
-                aria-current={n === current ? "page" : undefined}
-                onClick={() => goTo(n)}
-                className={cn(
-                  "grid size-10.5 cursor-pointer place-items-center rounded-full border font-mono text-[12px] transition-colors",
-                  n === current ? "border-navy bg-navy text-lime" : "border-ink/22 text-ink/60 hover:border-navy hover:text-ink",
-                )}
-              >
-                {n}
-              </button>
-            ) : (
-              <Text as="span" key={n} aria-hidden="true" className="px-1 font-mono text-[12px] text-ink/60">
-                …
-              </Text>
-            ),
-          )}
-          <button
-            type="button"
-            aria-label="Next page"
-            disabled={current === pages}
-            onClick={() => goTo(current + 1)}
-            className="grid size-10.5 cursor-pointer place-items-center rounded-full border border-ink/22 text-ink/60 transition-colors hover:border-navy hover:text-ink disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            <ChevronRight size={16} aria-hidden="true" />
-          </button>
-        </Box>
-      ) : null}
+      <ResourcePager current={current} pages={pages} onChange={goTo} />
     </>
   );
 }

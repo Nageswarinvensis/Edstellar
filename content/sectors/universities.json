@@ -1,0 +1,2040 @@
+{
+  "seo": {
+    "title": "Skill Development Courses for University Students & Staff",
+    "description": "Equip students, staff, and alumni with industry skills through Edstellar's instructor-led (virtual/onsite) courses tailored for universities.",
+    "path": "/training-for-universities"
+  },
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Training for Universities",
+      "href": null
+    }
+  ],
+  "hero": {
+    "heading": "<span>Build Future Skills</span> for Students, Staff and Alumni",
+    "description": "In a world ruled by technology and interconnectedness, perpetual and adaptive learning is essential. Partner with Edstellar, to complement academic learning with strategic skill development courses for students and prepare them for real-world challenges.",
+    "primary_cta": {
+      "label": "Explore Our Programs",
+      "href": "#explore-programs"
+    },
+    "secondary_cta": {
+      "label": "Enquire Now",
+      "href": "/enquiry-now"
+    },
+    "image": {
+      "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19a89c56468be19dd08_Rectangle%2027205.webp",
+      "alt": "Build Future Skills for Students, Staff and Alumni",
+      "width": 755,
+      "height": 672
+    }
+  },
+  "proof": {
+    "heading": "Why Choose Edstellar?",
+    "stats": [
+      {
+        "value": "2000+",
+        "label": "Instructor-led Courses"
+      },
+      {
+        "value": "5000+",
+        "label": "Qualified Trainers"
+      },
+      {
+        "value": "50+",
+        "label": "Coaching Program"
+      }
+    ]
+  },
+  "programs": {
+    "section_id": "explore-programs",
+    "heading": "Skill Development Programs for <span>Universities</span>",
+    "description": "Our skill development programs empower students, staff, and alumni with essential skills for professional and personal growth. Universities can enhance the learning outcomes and prepare students for career success. Skill development programs for college students and faculty and staff development programs are designed to address diverse skilling needs.",
+    "delivery_label": "Instructor-led (On-site/Virtual)",
+    "enquire_label": "Enquire Now",
+    "items": [
+      {
+        "slug": "campus-to-corporate-skilling-program",
+        "title": "Campus to Corporate Skilling Program",
+        "description": "To develop skills that transition students to professional roles",
+        "course_count": "40+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19b89c56468be19dda8_Rectangle%2027213.webp",
+          "alt": "Campus to Corporate Skilling Program",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Campus to Corporate Skilling Program",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=campus-to-corporate-skilling-program",
+        "courses": [
+          {
+            "name": "Business Communication Skills",
+            "duration": "12 hours",
+            "description": "Develop essential communication skills for a successful business career."
+          },
+          {
+            "name": "Active Listening",
+            "duration": "6 hours",
+            "description": "Enhance your listening skills to improve understanding and collaboration."
+          },
+          {
+            "name": "Managing Difficult Conversations",
+            "duration": "8 hours",
+            "description": "Learn strategies to handle challenging conversations effectively."
+          },
+          {
+            "name": "Body Language",
+            "duration": "4 hours",
+            "description": "Understand and use body language to communicate confidently."
+          },
+          {
+            "name": "Presentation Skills",
+            "duration": "8 hours",
+            "description": "Master the art of delivering impactful and engaging presentations."
+          },
+          {
+            "name": "Accent Neutralization",
+            "duration": "8 hours",
+            "description": "Reduce accent barriers for clearer and more effective communication."
+          },
+          {
+            "name": "Interview Skills",
+            "duration": "8 hours",
+            "description": "Prepare and excel in job interviews with confidence."
+          },
+          {
+            "name": "Effective Public Speaking",
+            "duration": "8 hours",
+            "description": "Gain confidence and skills for speaking in front of audiences."
+          },
+          {
+            "name": "Business Networking Skills",
+            "duration": "8 hours",
+            "description": "Build valuable connections and professional networks."
+          },
+          {
+            "name": "Influential Communication",
+            "duration": "8 hours",
+            "description": "Learn to communicate persuasively to influence others."
+          },
+          {
+            "name": "Written Communication",
+            "duration": "6 hours",
+            "description": "Improve your writing skills for clear and professional communication."
+          },
+          {
+            "name": "Email Writing Etiquettes",
+            "duration": "6 hours",
+            "description": "Master the dos and don'ts of professional email communication."
+          },
+          {
+            "name": "Minute Taking",
+            "duration": "4 hours",
+            "description": "Develop the skills to take accurate and effective meeting minutes."
+          },
+          {
+            "name": "Time Management",
+            "duration": "6 hours",
+            "description": "Learn techniques to manage your time effectively and efficiently."
+          },
+          {
+            "name": "Managing Multiple Tasks Priorities & Deadlines",
+            "duration": "6 hours",
+            "description": "Optimize your productivity by handling multiple tasks and deadlines."
+          },
+          {
+            "name": "Effective Time Task & Work Planning",
+            "duration": "6 hours",
+            "description": "Plan and organize your work for maximum efficiency."
+          },
+          {
+            "name": "MoSCoW Prioritization",
+            "duration": "2 hours",
+            "description": "Learn the MoSCoW method to prioritize tasks effectively."
+          },
+          {
+            "name": "Creative Problem Solving Skills",
+            "duration": "8 hours",
+            "description": "Enhance your ability to solve problems creatively."
+          },
+          {
+            "name": "Lateral Thinking",
+            "duration": "6 hours",
+            "description": "Develop lateral thinking skills for innovative problem-solving."
+          },
+          {
+            "name": "Risk Taking",
+            "duration": "6 hours",
+            "description": "Understand and manage risks to make better decisions."
+          },
+          {
+            "name": "Adaptable Mindset",
+            "duration": "6 hours",
+            "description": "Cultivate a mindset that adapts to change and challenges."
+          },
+          {
+            "name": "Conflict Resolution",
+            "duration": "6 hours",
+            "description": "Learn techniques to resolve conflicts constructively."
+          },
+          {
+            "name": "Decision Making",
+            "duration": "6 hours",
+            "description": "Improve your decision-making skills for better outcomes."
+          },
+          {
+            "name": "Self-Awareness",
+            "duration": "6 hours",
+            "description": "Increase self-awareness to enhance personal and professional growth."
+          },
+          {
+            "name": "Stress Management",
+            "duration": "6 hours",
+            "description": "Learn strategies to manage and reduce stress effectively."
+          },
+          {
+            "name": "Personal Branding: Step Into Your Spotlight",
+            "duration": "6 hours",
+            "description": "Build and promote your personal brand for career success."
+          },
+          {
+            "name": "Growth Mindset Skill",
+            "duration": "6 hours",
+            "description": "Develop a growth mindset to embrace learning and development."
+          },
+          {
+            "name": "Action Planning",
+            "duration": "6 hours",
+            "description": "Learn to create effective action plans to achieve your goals."
+          },
+          {
+            "name": "Emotional Intelligence",
+            "duration": "6 hours",
+            "description": "Improve your emotional intelligence to build better relationships."
+          },
+          {
+            "name": "Negotiation Skills",
+            "duration": "8 hours",
+            "description": "Master negotiation techniques for win-win outcomes."
+          },
+          {
+            "name": "Influence and Impact",
+            "duration": "6 hours",
+            "description": "Learn to influence others and make a positive impact."
+          },
+          {
+            "name": "Ownership and Accountability",
+            "duration": "6 hours",
+            "description": "Cultivate a sense of ownership and accountability in your work."
+          },
+          {
+            "name": "Dealing with Challenging Situations",
+            "duration": "6 hours",
+            "description": "Develop skills to handle challenging situations with confidence."
+          },
+          {
+            "name": "Creative Thinking",
+            "duration": "6 hours",
+            "description": "Enhance your creativity for innovative thinking and problem-solving."
+          },
+          {
+            "name": "Motivational Skills",
+            "duration": "4 hours",
+            "description": "Learn techniques to stay motivated and inspire others."
+          },
+          {
+            "name": "Executive Presence",
+            "duration": "6 hours",
+            "description": "Develop a commanding presence to lead with confidence."
+          },
+          {
+            "name": "Personality Development",
+            "duration": "8 hours",
+            "description": "Improve your personality traits for personal and professional success."
+          },
+          {
+            "name": "7 Habits of Highly Effective People",
+            "duration": "8 hours",
+            "description": "Adopt the seven habits for effectiveness in all areas of life."
+          },
+          {
+            "name": "Problem Solving",
+            "duration": "6 hours",
+            "description": "Enhance your problem-solving skills for better decision-making."
+          },
+          {
+            "name": "Intercultural Communication",
+            "duration": "6 hours",
+            "description": "Improve communication skills across different cultures."
+          },
+          {
+            "name": "Myers-Briggs Type Indicator",
+            "duration": "8 hours",
+            "description": "Understand your personality type and how it affects your interactions."
+          }
+        ]
+      },
+      {
+        "slug": "emerging-technology-skilling-program",
+        "title": "Emerging Technology Skilling Program",
+        "description": "To expose students and faculty to the fundamentals of emerging technologies",
+        "course_count": "30+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19c89c56468be19de24_emerging.webp",
+          "alt": "Emerging Technology Skilling Program",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Emerging Technology Skilling Program",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=emerging-technology-skilling-program",
+        "courses": [
+          {
+            "name": "Introduction to Machine Learning",
+            "duration": "12 hours",
+            "description": "Gain a foundational understanding of machine learning algorithms and techniques."
+          },
+          {
+            "name": "Introduction to Natural Language Processing",
+            "duration": "10 hours",
+            "description": "Explore the fundamentals of processing and analyzing human language using computational methods."
+          },
+          {
+            "name": "Deep Learning Fundamentals",
+            "duration": "14 hours",
+            "description": "Dive into the principles and applications of deep learning neural networks."
+          },
+          {
+            "name": "Introduction to Computer Vision",
+            "duration": "12 hours",
+            "description": "Learn the basics of computer vision and image processing algorithms."
+          },
+          {
+            "name": "Quantum Computing Essentials",
+            "duration": "10 hours",
+            "description": "Discover the fundamental concepts and principles behind quantum computing."
+          },
+          {
+            "name": "Artificial Intelligence Essentials",
+            "duration": "8 hours",
+            "description": "Explore the core concepts and applications of artificial intelligence."
+          },
+          {
+            "name": "Fundamentals of Big Data",
+            "duration": "10 hours",
+            "description": "Learn the basics of big data technologies and their applications."
+          },
+          {
+            "name": "Introduction to Blockchain and Cryptocurrency",
+            "duration": "8 hours",
+            "description": "Explore the foundational concepts of blockchain technology and cryptocurrencies."
+          },
+          {
+            "name": "AWS Cloud Essentials",
+            "duration": "8 hours",
+            "description": "Gain a basic understanding of key AWS cloud services and their use cases."
+          },
+          {
+            "name": "Microsoft Azure Fundamentals",
+            "duration": "8 hours",
+            "description": "Learn the basics of Microsoft Azure cloud computing services."
+          },
+          {
+            "name": "Google Cloud Fundamentals - Core Infrastructure",
+            "duration": "8 hours",
+            "description": "Explore the core infrastructure components of Google Cloud Platform (GCP)."
+          },
+          {
+            "name": "Cybersecurity Fundamentals",
+            "duration": "10 hours",
+            "description": "Understand the fundamental principles and practices of cybersecurity."
+          },
+          {
+            "name": "Ethical Hacking",
+            "duration": "14 hours",
+            "description": "Learn ethical hacking techniques to identify and address security vulnerabilities."
+          },
+          {
+            "name": "Digital Forensics",
+            "duration": "12 hours",
+            "description": "Gain skills in investigating digital crimes and analyzing digital evidence."
+          },
+          {
+            "name": "Python for Cybersecurity",
+            "duration": "12 hours",
+            "description": "Learn Python programming to support cybersecurity applications."
+          },
+          {
+            "name": "Cryptography",
+            "duration": "10 hours",
+            "description": "Explore the principles and techniques of cryptographic algorithms and protocols."
+          },
+          {
+            "name": "Data Analytics & Visualization Fundamentals",
+            "duration": "10 hours",
+            "description": "Learn the basics of data analysis and visualization techniques."
+          },
+          {
+            "name": "Introduction to Data Science",
+            "duration": "12 hours",
+            "description": "Gain an overview of the data science process and its applications."
+          },
+          {
+            "name": "Business Analytics Fundamentals",
+            "duration": "10 hours",
+            "description": "Learn the basics of applying analytics to business decision-making."
+          },
+          {
+            "name": "Internet of Things (IoT) Fundamentals",
+            "duration": "8 hours",
+            "description": "Understand the core concepts and applications of IoT technology."
+          },
+          {
+            "name": "Introduction and Programming with IoT Boards",
+            "duration": "8 hours",
+            "description": "Learn how to program and interact with IoT boards for various applications."
+          },
+          {
+            "name": "Fundamentals of Android",
+            "duration": "10 hours",
+            "description": "Explore the basics of Android app development."
+          },
+          {
+            "name": "Fundamentals of iOS",
+            "duration": "10 hours",
+            "description": "Learn the basics of iOS app development."
+          },
+          {
+            "name": "Android Security Essentials",
+            "duration": "8 hours",
+            "description": "Understand the fundamentals of securing Android applications."
+          },
+          {
+            "name": "Networking Fundamentals",
+            "duration": "10 hours",
+            "description": "Gain a foundational understanding of computer networking principles."
+          },
+          {
+            "name": "Introduction to Networking and Storage",
+            "duration": "8 hours",
+            "description": "Learn about networking and storage technologies and their integration."
+          },
+          {
+            "name": "Cisco Networking Basics",
+            "duration": "10 hours",
+            "description": "Explore the basics of networking with Cisco devices."
+          },
+          {
+            "name": "Generative AI with Large Language Models (LLMs)",
+            "duration": "12 hours",
+            "description": "Discover how to generate text using large language models like GPT."
+          },
+          {
+            "name": "LiDAR",
+            "duration": "10 hours",
+            "description": "Learn about LiDAR technology and its applications in various fields."
+          },
+          {
+            "name": "Python",
+            "duration": "8 hours",
+            "description": "Gain proficiency in the Python programming language."
+          },
+          {
+            "name": "DevOps Fundamentals",
+            "duration": "12 hours",
+            "description": "Understand the principles and practices of DevOps for software development."
+          },
+          {
+            "name": "DevSecOps",
+            "duration": "10 hours",
+            "description": "Learn how to integrate security practices into the DevOps process."
+          },
+          {
+            "name": "PostgreSQL",
+            "duration": "14 hours",
+            "description": "Gain skills in working with PostgreSQL, a powerful open-source relational database management system."
+          },
+          {
+            "name": "MangoDB",
+            "duration": "14 hours",
+            "description": "Learn about MongoDB, a popular NoSQL database management system."
+          },
+          {
+            "name": "ChatGPT for Excel",
+            "duration": "4 hours",
+            "description": "Learn how to leverage ChatGPT prompts to streamline Excel operations and boost productivity."
+          },
+          {
+            "name": "Introduction to ChatGPT",
+            "duration": "4 hours",
+            "description": "Explore the capabilities and practical applications of ChatGPT in professional settings, facilitating tasks and enhancing workflow efficiency."
+          }
+        ]
+      },
+      {
+        "slug": "student-entrepreneurship-and-innovation-program",
+        "title": "Student Entrepreneurship and Innovation Program",
+        "description": "To nurture entrepreneurial spirits and promote innovation in students",
+        "course_count": "10+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19c89c56468be19de61_student.webp",
+          "alt": "Student Entrepreneurship and Innovation Program",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Student Entrepreneurship and Innovation Program",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=student-entrepreneurship-and-innovation-program",
+        "courses": [
+          {
+            "name": "Business Model Innovation",
+            "duration": "12 hours",
+            "description": "Explore innovative frameworks to redesign business models for competitive advantage."
+          },
+          {
+            "name": "Creative Thinking",
+            "duration": "8 hours",
+            "description": "Develop the ability to think creatively and generate innovative solutions in any scenario."
+          },
+          {
+            "name": "Design Thinking",
+            "duration": "8 hours",
+            "description": "Learn to apply design thinking processes to solve problems creatively and efficiently."
+          },
+          {
+            "name": "Entrepreneurial Leadership",
+            "duration": "12 hours",
+            "description": "Gain leadership skills tailored for entrepreneurial settings to effectively guide startup teams."
+          },
+          {
+            "name": "Financial Management for Entrepreneurs",
+            "duration": "16 hours",
+            "description": "Master key financial principles and tools essential for building and sustaining a successful startup."
+          },
+          {
+            "name": "Market Research",
+            "duration": "12 hours",
+            "description": "Acquire techniques for conducting thorough market research to make data-driven decisions."
+          },
+          {
+            "name": "Product Management Fundamentals",
+            "duration": "12 hours",
+            "description": "Understand the roles and processes of product management from concept to market launch."
+          },
+          {
+            "name": "Startup Fundamentals",
+            "duration": "12 hours",
+            "description": "Learn the critical steps for starting a business, from idea validation to market entry."
+          },
+          {
+            "name": "Venture Capital and Angel Investment",
+            "duration": "12 hours",
+            "description": "Explore the dynamics of securing venture capital and angel investments for startups."
+          },
+          {
+            "name": "Strategic Marketing",
+            "duration": "16 hours",
+            "description": "Develop advanced strategies to identify market opportunities and position your business for growth."
+          },
+          {
+            "name": "Digital Marketing Essentials",
+            "duration": "8 hours",
+            "description": "Grasp the core concepts of digital marketing to enhance online presence and customer engagement."
+          },
+          {
+            "name": "Innovation and Productivity in the Workplace",
+            "duration": "8 hours",
+            "description": "Enhance workplace productivity by fostering an environment of innovation and continuous improvement."
+          }
+        ]
+      },
+      {
+        "slug": "professional-development-programs-for-staff",
+        "title": "Professional Development Programs for Staff",
+        "description": "To develop soft skills and essential behavioral skills in staff",
+        "course_count": "30+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19c89c56468be19de81_professional.webp",
+          "alt": "Professional Development Programs for Staff",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Professional Development Programs for Staff",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=professional-development-programs-for-staff",
+        "courses": [
+          {
+            "name": "Active Listening",
+            "duration": "8 hours",
+            "description": "Master the skills of listening attentively to improve communication and understanding."
+          },
+          {
+            "name": "Body Language",
+            "duration": "8 hours",
+            "description": "Learn to read and convey non-verbal cues effectively to enhance interpersonal interactions."
+          },
+          {
+            "name": "Business Communication Skills",
+            "duration": "8 hours",
+            "description": "Develop professional communication techniques for a business environment."
+          },
+          {
+            "name": "Email Writing and Etiquettes",
+            "duration": "8 hours",
+            "description": "Gain expertise in crafting concise, professional emails and understanding email etiquette."
+          },
+          {
+            "name": "Written Communication",
+            "duration": "8 hours",
+            "description": "Enhance your ability to write clear, effective reports, and documents."
+          },
+          {
+            "name": "Adaptable Mindset",
+            "duration": "8 hours",
+            "description": "Cultivate the ability to adapt to change and maintain flexibility in a dynamic work environment."
+          },
+          {
+            "name": "Being Proactive",
+            "duration": "8 hours",
+            "description": "Learn strategies to anticipate challenges and take initiative in solving problems."
+          },
+          {
+            "name": "Goal Setting",
+            "duration": "8 hours",
+            "description": "Master the art of setting, pursuing, and achieving personal and professional goals."
+          },
+          {
+            "name": "Motivational Skills",
+            "duration": "8 hours",
+            "description": "Develop techniques to inspire and motivate individuals and teams effectively."
+          },
+          {
+            "name": "Positive Mindset",
+            "duration": "8 hours",
+            "description": "Foster a positive attitude and approach to improve resilience and workplace morale."
+          },
+          {
+            "name": "Executive Presence",
+            "duration": "8 hours",
+            "description": "Build the skills to command respect and inspire confidence as a leader."
+          },
+          {
+            "name": "Facilitation Skills",
+            "duration": "8 hours",
+            "description": "Learn to guide discussions and workshops effectively, ensuring productive outcomes."
+          },
+          {
+            "name": "Negotiation Skills",
+            "duration": "8 hours",
+            "description": "Acquire strategies to negotiate successfully and achieve optimal solutions."
+          },
+          {
+            "name": "Persuasion Skills",
+            "duration": "8 hours",
+            "description": "Master the art of influencing others to promote ideas and drive decisions."
+          },
+          {
+            "name": "Risk Taking",
+            "duration": "8 hours",
+            "description": "Understand how to assess and take calculated risks to drive innovation and growth."
+          },
+          {
+            "name": "Team Building",
+            "duration": "8 hours",
+            "description": "Develop and strengthen team cohesion and collaborative skills."
+          },
+          {
+            "name": "Anger Management",
+            "duration": "8 hours",
+            "description": "Learn techniques to control anger and maintain professionalism in high-stress situations."
+          },
+          {
+            "name": "Self Awareness",
+            "duration": "8 hours",
+            "description": "Enhance understanding of your emotions, strengths, and weaknesses to improve personal effectiveness."
+          },
+          {
+            "name": "Emotional Intelligence for Finance Professionals",
+            "duration": "8 hours",
+            "description": "Apply emotional intelligence skills to enhance decision-making in the financial sector."
+          },
+          {
+            "name": "Strategic Internal Communication Skills",
+            "duration": "8 hours",
+            "description": "Learn to communicate strategically within an organization to align teams and objectives."
+          },
+          {
+            "name": "Managing Conflict with Emotional Intelligence",
+            "duration": "8 hours",
+            "description": "Use emotional intelligence to resolve conflicts constructively."
+          },
+          {
+            "name": "Time Management",
+            "duration": "8 hours",
+            "description": "Master techniques to manage time efficiently, enhancing productivity and reducing stress."
+          },
+          {
+            "name": "Getting Things Done (GTD)",
+            "duration": "8 hours",
+            "description": "Implement the GTD productivity method to manage tasks and projects efficiently."
+          },
+          {
+            "name": "Building Team Synergy",
+            "duration": "8 hours",
+            "description": "Cultivate a team environment where synergy boosts collective performance."
+          },
+          {
+            "name": "Workplace Empathy",
+            "duration": "8 hours",
+            "description": "Foster an empathetic workplace that enhances understanding and cooperation among staff."
+          },
+          {
+            "name": "Accent Neutralization",
+            "duration": "8 hours",
+            "description": "Train to reduce non-native accents and improve clarity in spoken English."
+          },
+          {
+            "name": "English Language Elementary Level",
+            "duration": "8 hours",
+            "description": "Build fundamental English language skills for basic communication."
+          },
+          {
+            "name": "English Language - Intermediate Level",
+            "duration": "8 hours",
+            "description": "Expand on basic skills to achieve intermediate competency in English."
+          },
+          {
+            "name": "English Pronunciation",
+            "duration": "8 hours",
+            "description": "Focus on improving pronunciation to enhance clarity and understanding."
+          },
+          {
+            "name": "Train the Trainer",
+            "duration": "8 hours",
+            "description": "Equip potential trainers with the skills to design and deliver effective training sessions."
+          },
+          {
+            "name": "Peer-to-Peer Feedback",
+            "duration": "8 hours",
+            "description": "Learn how to give and receive constructive feedback among peers to foster a growth environment."
+          },
+          {
+            "name": "Ownership and Accountability",
+            "duration": "8 hours",
+            "description": "Cultivate a sense of ownership and accountability in your work."
+          },
+          {
+            "name": "Dealing with Challenging Situations",
+            "duration": "8 hours",
+            "description": "Develop skills to handle challenging situations with confidence."
+          },
+          {
+            "name": "Constructive Feedback",
+            "duration": "8 hours",
+            "description": "Master the skills to provide feedback that motivates and encourages improvement."
+          }
+        ]
+      },
+      {
+        "slug": "compliance-skills-development-program",
+        "title": "Compliance Skills Development Program",
+        "description": "To educate and ensure staff adhere to regulatory standards and follow ethical practices",
+        "course_count": "20+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19d89c56468be19de92_compliance.webp",
+          "alt": "Compliance Skills Development Program",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Compliance Skills Development Program",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=compliance-skills-development-program",
+        "courses": [
+          {
+            "name": "Business Ethics",
+            "duration": "8 hours",
+            "description": "Understand fundamental ethical principles and how to apply them in the workplace to ensure integrity and trust."
+          },
+          {
+            "name": "Code of Conduct",
+            "duration": "6 hours",
+            "description": "Learn the importance of adhering to a code of conduct to maintain professional standards and organizational values."
+          },
+          {
+            "name": "GDPR",
+            "duration": "6 hours",
+            "description": "Gain a thorough understanding of GDPR requirements to manage and protect personal data responsibly."
+          },
+          {
+            "name": "Finance Compliance",
+            "duration": "6 hours",
+            "description": "Explore key financial compliance regulations and how to implement them to avoid financial risks."
+          },
+          {
+            "name": "Regulatory and Compliance",
+            "duration": "8 hours",
+            "description": "Understand the scope of regulatory frameworks and how to ensure compliance in a corporate setting."
+          },
+          {
+            "name": "HR Compliance",
+            "duration": "6 hours",
+            "description": "Dive into human resources laws and regulations to manage employee relations legally and effectively."
+          },
+          {
+            "name": "Prevention of Sexual Harassment (POSH)",
+            "duration": "6 hours",
+            "description": "Learn about preventing sexual harassment in the workplace and creating a safe environment for all employees."
+          },
+          {
+            "name": "Anti-Money Laundering (AML)",
+            "duration": "6 hours",
+            "description": "Understand the processes to prevent, detect, and report money laundering activities effectively."
+          },
+          {
+            "name": "Electronic Communications Compliance",
+            "duration": "6 hours",
+            "description": "Explore the legal standards for managing electronic communications and ensuring privacy and security."
+          },
+          {
+            "name": "Anti-Bribery and Corruption",
+            "duration": "6 hours",
+            "description": "Equip yourself with strategies to prevent bribery and corruption within the organization."
+          },
+          {
+            "name": "Antitrust Compliance",
+            "duration": "6 hours",
+            "description": "Learn to navigate and comply with antitrust laws to ensure fair competition and avoid legal pitfalls."
+          },
+          {
+            "name": "Whistleblowing",
+            "duration": "4 hours",
+            "description": "Learn the significance of whistleblowing mechanisms and protecting those who report misconduct."
+          },
+          {
+            "name": "Emergency Evacuation Procedures",
+            "duration": "4 hours",
+            "description": "Acquire skills to safely manage and execute emergency evacuations in the workplace."
+          },
+          {
+            "name": "Fire Safety",
+            "duration": "6 hours",
+            "description": "Understand fire safety protocols to prevent, detect, and respond to fire emergencies effectively."
+          },
+          {
+            "name": "First Aid and CPR",
+            "duration": "8 hours",
+            "description": "Gain critical skills to provide first aid and CPR in emergencies, enhancing workplace safety."
+          },
+          {
+            "name": "Food Safety",
+            "duration": "6 hours",
+            "description": "Learn about food handling, storage, and safety measures to prevent foodborne illnesses."
+          },
+          {
+            "name": "Work Integrity",
+            "duration": "6 hours",
+            "description": "Cultivate a workplace culture that promotes honesty, integrity, and ethical behavior."
+          },
+          {
+            "name": "Ergonomics at the Workplace",
+            "duration": "6 hours",
+            "description": "Understand ergonomic principles to create a safe and comfortable work environment."
+          },
+          {
+            "name": "ISO 14001-Environmental Management System",
+            "duration": "10 hours",
+            "description": "Master the implementation of environmental management systems according to ISO 14001 standards."
+          },
+          {
+            "name": "Writing Effective Policies and Procedures",
+            "duration": "6 hours",
+            "description": "Develop skills to write clear, comprehensive policies and procedures that enhance organizational operations."
+          },
+          {
+            "name": "Fundamentals of Internal Auditing",
+            "duration": "8 hours",
+            "description": "Learn the basics of conducting internal audits to ensure compliance and efficiency."
+          },
+          {
+            "name": "Information and Documentation Compliance",
+            "duration": "6 hours",
+            "description": "Understand the regulations governing information management and ensure proper documentation compliance."
+          },
+          {
+            "name": "Contract Risk Management and Compliance",
+            "duration": "6 hours",
+            "description": "Learn to identify and mitigate risks in contract management to maintain compliance."
+          },
+          {
+            "name": "Workplace Harassment",
+            "duration": "6 hours",
+            "description": "Understand the dynamics of workplace harassment and strategies to prevent it, ensuring a respectful work environment."
+          },
+          {
+            "name": "Effective Document Control & Record Management",
+            "duration": "8 hours",
+            "description": "Acquire techniques for effective management of business documents and records."
+          },
+          {
+            "name": "Protecting Intellectual Property",
+            "duration": "6 hours",
+            "description": "Learn the importance of intellectual property rights and strategies to protect them within the organization."
+          },
+          {
+            "name": "Information Systems Auditing, Controls and Assurance",
+            "duration": "10 hours",
+            "description": "Dive into the standards for auditing information systems and ensuring controls and assurance in technology environments."
+          }
+        ]
+      },
+      {
+        "slug": "leadership-development-program",
+        "title": "Leadership Development Program",
+        "description": "To develop leadership abilities and managerial skills in staff",
+        "course_count": "70+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19d89c56468be19df24_leadership.webp",
+          "alt": "Leadership Development Program",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Leadership Development Program",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=leadership-development-program",
+        "courses": [
+          {
+            "name": "Lead High Performing Teams",
+            "duration": "16 hours",
+            "description": "Develop the skills to foster and manage high-performing teams in any organizational context."
+          },
+          {
+            "name": "Influence and Impact",
+            "duration": "8 hours",
+            "description": "Develop your ability to influence others and make a significant impact in your organization."
+          },
+          {
+            "name": "Image Management",
+            "duration": "8 hours",
+            "description": "Master the art of personal branding and image management to influence and lead effectively."
+          },
+          {
+            "name": "Managerial Effectiveness",
+            "duration": "16 hours",
+            "description": "Enhance your management skills to drive performance and achieve organizational goals."
+          },
+          {
+            "name": "Analytical Skills",
+            "duration": "8 hours",
+            "description": "Improve your ability to interpret data, solve problems, and make well-informed decisions."
+          },
+          {
+            "name": "Agile Leadership",
+            "duration": "16 hours",
+            "description": "Learn agile methodologies to lead teams flexibly and responsively in dynamic environments."
+          },
+          {
+            "name": "Aspiring Directors",
+            "duration": "16 hours",
+            "description": "Prepare for executive roles with strategic leadership skills and board-level insights."
+          },
+          {
+            "name": "First Time Managers",
+            "duration": "16 hours",
+            "description": "Equip new managers with essential skills for successful leadership and team management."
+          },
+          {
+            "name": "Managing Millennials",
+            "duration": "8 hours",
+            "description": "Understand generational characteristics and tailor management approaches for engaging millennials effectively."
+          },
+          {
+            "name": "Leading Innovation",
+            "duration": "16 hours",
+            "description": "Get formal training to foster creativity and innovation within teams to drive organizational growth through."
+          },
+          {
+            "name": "Delegation Skills",
+            "duration": "8 hours",
+            "description": "Learn how to master the art of effective delegation to enhance team productivity and time management."
+          },
+          {
+            "name": "Driving Change",
+            "duration": "16 hours",
+            "description": "Learn strategies to lead organizational change and overcome resistance effectively."
+          },
+          {
+            "name": "Ownership and Accountability",
+            "duration": "8 hours",
+            "description": "Gain the knowhow to cultivate a culture of responsibility and accountability in the workplace."
+          },
+          {
+            "name": "Problem Solving Skills",
+            "duration": "8 hours",
+            "description": "Develop critical thinking skills to solve complex problems efficiently."
+          },
+          {
+            "name": "Frontline Leaders",
+            "duration": "16 hours",
+            "description": "Equip frontline leaders with the tools and techniques to manage operational challenges and lead teams."
+          },
+          {
+            "name": "Leadership Through Nurturing",
+            "duration": "16 hours",
+            "description": "Learn to support and develop your team through nurturing leadership practices."
+          },
+          {
+            "name": "Leading Effective Meetings",
+            "duration": "8 hours",
+            "description": "Get training to master the techniques to conduct productive and engaging meetings."
+          },
+          {
+            "name": "Transformational Leadership",
+            "duration": "16 hours",
+            "description": "Learn how to cultivate a leadership style to inspire and motivate significant change."
+          },
+          {
+            "name": "Leading for Results",
+            "duration": "16 hours",
+            "description": "Gain exposure to outcome-based leadership methods to achieve and exceed organizational goals."
+          },
+          {
+            "name": "Adaptive Leadership",
+            "duration": "16 hours",
+            "description": "Learn to modify your leadership approach in response to changing organizational and team dynamics."
+          },
+          {
+            "name": "Breakthrough Leadership",
+            "duration": "16 hours",
+            "description": "Acquire skills to challenge conventional boundaries and drive innovation and strategic shifts."
+          },
+          {
+            "name": "Crisis Leadership",
+            "duration": "16 hours",
+            "description": "Develop the ability to navigate and manage effectively during organizational crises and emergencies."
+          },
+          {
+            "name": "Cross-Cultural Leadership",
+            "duration": "16 hours",
+            "description": "Understand how to lead effectively in diverse cultural contexts and enhance global team dynamics."
+          },
+          {
+            "name": "Digital Leadership",
+            "duration": "16 hours",
+            "description": "Master the strategies for leading digital transformation initiatives and managing technology-driven change."
+          },
+          {
+            "name": "Environmental Leadership",
+            "duration": "8 hours",
+            "description": "Gain the skills to lead sustainability efforts and promote environmental stewardship within your organization."
+          },
+          {
+            "name": "Global Leadership",
+            "duration": "16 hours",
+            "description": "Discover how to effectively manage and make strategic decisions in a global business environment."
+          },
+          {
+            "name": "Ethical Leadership",
+            "duration": "8 hours",
+            "description": "Learn to exemplify and promote ethical practices and integrity in all aspects of leadership."
+          },
+          {
+            "name": "Kaizen Leadership",
+            "duration": "8 hours",
+            "description": "Implement and sustain continuous improvement processes to enhance organizational efficiency."
+          },
+          {
+            "name": "Leadership at the Peak",
+            "duration": "16 hours",
+            "description": "Explore advanced leadership strategies to maximize influence at senior levels."
+          },
+          {
+            "name": "Leadership Insights",
+            "duration": "8 hours",
+            "description": "Gain valuable insights into effective leadership practices and their transformative impacts."
+          },
+          {
+            "name": "Digital Innovation Leadership",
+            "duration": "16 hours",
+            "description": "Learn to spearhead innovation and foster a culture of creativity in the digital realm."
+          },
+          {
+            "name": "Leading for Organizational Impact",
+            "duration": "16 hours",
+            "description": "Learn how to strategically make decisions that drive significant organizational impact."
+          },
+          {
+            "name": "Leadership Through Marketing",
+            "duration": "8 hours",
+            "description": "Utilize marketing principles to strengthen your leadership effectiveness and organizational presence."
+          },
+          {
+            "name": "Leading with Trust",
+            "duration": "8 hours",
+            "description": "Develop strategies to build and maintain trust within your team, enhancing organizational culture."
+          },
+          {
+            "name": "Generational Diversity",
+            "duration": "8 hours",
+            "description": "Master managing and valuing diverse generational perspectives within the workplace."
+          },
+          {
+            "name": "Maximizing Your Leadership Potential",
+            "duration": "16 hours",
+            "description": "Uncover and develop strategies to realize the full potential of your leadership capabilities."
+          },
+          {
+            "name": "Mindful Leadership",
+            "duration": "8 hours",
+            "description": "Integrate mindfulness practices to enhance your leadership focus, clarity, and empathy."
+          },
+          {
+            "name": "Remote Leadership",
+            "duration": "8 hours",
+            "description": "Acquire effective strategies for leading distributed teams and managing remote work challenges."
+          },
+          {
+            "name": "Strategic Human Resources Leadership",
+            "duration": "16 hours",
+            "description": "Align human resources strategies with broader organizational goals for maximum impact."
+          },
+          {
+            "name": "The 7 Habits for Managers - Essential Skills and Tools for Leading Teams",
+            "duration": "16 hours",
+            "description": "Develop the essential skills and tools for effective team leadership."
+          },
+          {
+            "name": "Virtual Leadership",
+            "duration": "8 hours",
+            "description": "Develop skills to effectively lead in virtual or hybrid work environments."
+          },
+          {
+            "name": "Leading Through Adversity",
+            "duration": "16 hours",
+            "description": "Learn strategies to navigate and lead your team through challenging times with resilience."
+          },
+          {
+            "name": "Product Leadership",
+            "duration": "8 hours",
+            "description": "Master the skills to lead product development initiatives for market success."
+          },
+          {
+            "name": "Safety Leadership",
+            "duration": "8 hours",
+            "description": "Enhance your ability to promote and ensure workplace safety through proactive leadership."
+          },
+          {
+            "name": "Sustainable Leadership",
+            "duration": "8 hours",
+            "description": "Acquire techniques to lead with a focus on sustainability and long-term organizational health."
+          },
+          {
+            "name": "VUCA Leadership",
+            "duration": "8 hours",
+            "description": "Understand how to navigate the volatile, uncertain, complex, and ambiguous aspects of leadership."
+          },
+          {
+            "name": "Leadership Resilience",
+            "duration": "8 hours",
+            "description": "Build resilience to effectively face and adapt to leadership challenges."
+          },
+          {
+            "name": "Executive Leadership",
+            "duration": "16 hours",
+            "description": "Discover high-level leadership strategies for senior executives to drive organizational success."
+          },
+          {
+            "name": "Servant Leadership",
+            "duration": "16 hours",
+            "description": "Embrace and foster a serve-first mindset to enrich team and organizational culture."
+          },
+          {
+            "name": "Leadership for Managers",
+            "duration": "16 hours",
+            "description": "Gain core leadership skills essential for managers to effectively lead their teams."
+          },
+          {
+            "name": "Emotional Intelligence in Leadership",
+            "duration": "8 hours",
+            "description": "Utilize emotional intelligence to enhance leadership effectiveness and interpersonal relations."
+          },
+          {
+            "name": "Sales Leadership",
+            "duration": "8 hours",
+            "description": "Learn to drive sales team success and revenue growth through effective leadership strategies."
+          },
+          {
+            "name": "Healthcare Leadership",
+            "duration": "8 hours",
+            "description": "Acquire leadership skills to effectively manage healthcare settings with efficiency and compassion."
+          },
+          {
+            "name": "Leadership in the Age of AI",
+            "duration": "8 hours",
+            "description": "Understand how to integrate AI into your leadership practices for enhanced decision-making."
+          },
+          {
+            "name": "Visionary Leadership and Strategic Thinking",
+            "duration": "16 hours",
+            "description": "Develop the ability to think strategically and lead your organization towards a successful future."
+          },
+          {
+            "name": "Data-Driven Leadership",
+            "duration": "8 hours",
+            "description": "Utilize data effectively to inform leadership decisions and shape organizational strategies."
+          },
+          {
+            "name": "Influential Leader",
+            "duration": "8 hours",
+            "description": "Cultivate the ability to inspire and positively influence at all organizational levels."
+          },
+          {
+            "name": "People Development",
+            "duration": "16 hours",
+            "description": "Focus on developing and maximizing the potential of your team members."
+          },
+          {
+            "name": "Leadership Out of the Box",
+            "duration": "16 hours",
+            "description": "Explore innovative leadership strategies that challenge traditional norms."
+          },
+          {
+            "name": "Creative Leadership",
+            "duration": "16 hours",
+            "description": "Encourage creativity and innovation within your team through dynamic and supportive leadership."
+          },
+          {
+            "name": "Communicating with Tact and Diplomacy",
+            "duration": "8 hours",
+            "description": "Enhance your communication skills to effectively manage sensitive discussions with tact and diplomacy."
+          },
+          {
+            "name": "Purpose Driven Resilient Leadership",
+            "duration": "6 hours",
+            "description": "Lead with purpose and resilience, ensuring your organization's success in facing various challenges."
+          },
+          {
+            "name": "Inclusive Leadership",
+            "duration": "8 hours",
+            "description": "Learn to foster an inclusive environment that values diversity within your team or organization."
+          },
+          {
+            "name": "Decisions, Dynamics, and Leadership Styles",
+            "duration": "8 hours",
+            "description": "Understand different leadership styles and their impacts on decision-making and team dynamics."
+          },
+          {
+            "name": "Leadership Without Boundaries",
+            "duration": "16 hours",
+            "description": "Promote an open and innovative culture by embracing a boundary-less approach in leadership."
+          },
+          {
+            "name": "Communication Skills for Leaders in the Digital Age",
+            "duration": "8 hours",
+            "description": "Adapt your leadership communication skills to thrive in the digital era."
+          },
+          {
+            "name": "Leading Beyond Ego",
+            "duration": "8 hours",
+            "description": "Learn to lead with humility and focus on collective goals over personal recognition."
+          },
+          {
+            "name": "Neuroscience of Leadership",
+            "duration": "8 hours",
+            "description": "Apply neuroscience principles to enhance leadership effectiveness and team dynamics."
+          },
+          {
+            "name": "Leading Disruptive Change and Innovation",
+            "duration": "16 hours",
+            "description": "Drive and manage change within your organization through innovative leadership techniques."
+          },
+          {
+            "name": "Data Analytics for Managerial Decision Making",
+            "duration": "8 hours",
+            "description": "Integrate data analytics into managerial decision-making processes."
+          },
+          {
+            "name": "Building Task Leadership Skills",
+            "duration": "8 hours",
+            "description": "Develop practical skills to lead specific tasks and projects effectively."
+          },
+          {
+            "name": "Harnessing the Power of Teams",
+            "duration": "8 hours",
+            "description": "Maximize team productivity through effective leadership and team-building strategies."
+          },
+          {
+            "name": "Women in Leadership",
+            "duration": "8 hours",
+            "description": "Empower female leaders with strategies to overcome challenges and excel in leadership roles."
+          },
+          {
+            "name": "Next Generation Leadership",
+            "duration": "16 hours",
+            "description": "Prepare for future leadership challenges with forward-thinking strategies and skills."
+          },
+          {
+            "name": "Strategies for Effective Board Membership",
+            "duration": "8 hours",
+            "description": "Equip yourself with the skills needed for effective and strategic board membership."
+          },
+          {
+            "name": "Feedback Skills for Leaders",
+            "duration": "8 hours",
+            "description": "Develop skills to provide constructive and effective feedback to enhance team performance."
+          },
+          {
+            "name": "Critical Thinking for Leaders",
+            "duration": "8 hours",
+            "description": "Sharpen your critical thinking skills to improve problem-solving and decision-making."
+          },
+          {
+            "name": "Adversity Intelligence (AQ) for Leaders",
+            "duration": "8 hours",
+            "description": "Strengthen your resilience and capability to lead through adversity."
+          },
+          {
+            "name": "Cultural Intelligence (CQ) for Leaders",
+            "duration": "8 hours",
+            "description": "Enhance your ability to lead across diverse cultures by developing your cultural intelligence."
+          }
+        ]
+      },
+      {
+        "slug": "diversity-and-inclusion-skilling-program",
+        "title": "Diversity and Inclusion Skilling Program",
+        "description": "To create awareness and building an inclusive environment on campus",
+        "course_count": "10+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19d89c56468be19df47_diversity.webp",
+          "alt": "Diversity and Inclusion Skilling Program",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Diversity and Inclusion Skilling Program",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=diversity-and-inclusion-skilling-program",
+        "courses": [
+          {
+            "name": "Cultural Sensitivity",
+            "duration": "8 hours",
+            "description": "Develop an understanding of diverse cultures to foster sensitivity and inclusivity in interactions."
+          },
+          {
+            "name": "Inclusive Leadership",
+            "duration": "8 hours",
+            "description": "Learn leadership strategies that promote inclusivity and diversity within teams and organizations."
+          },
+          {
+            "name": "Unconscious Bias",
+            "duration": "8 hours",
+            "description": "Identify and mitigate unconscious biases to create a fair and equitable workplace."
+          },
+          {
+            "name": "Gender Sensitivity",
+            "duration": "8 hours",
+            "description": "Acquire skills to navigate and respect gender diversity in professional settings."
+          },
+          {
+            "name": "Managing a Multicultural Environment",
+            "duration": "8 hours",
+            "description": "Gain insights into effectively managing and valuing diversity in multicultural settings."
+          },
+          {
+            "name": "Managing Grievances",
+            "duration": "8 hours",
+            "description": "Learn to address and resolve grievances in a fair and constructive manner."
+          },
+          {
+            "name": "Diversity and Inclusion Coaching",
+            "duration": "8 hours",
+            "description": "Master coaching techniques that support diversity and foster an inclusive culture."
+          },
+          {
+            "name": "Cultural Intelligence (CQ) for Leaders",
+            "duration": "8 hours",
+            "description": "Enhance your leadership effectiveness across diverse cultural contexts through improved cultural intelligence."
+          },
+          {
+            "name": "Inclusive Intelligence",
+            "duration": "8 hours",
+            "description": "Cultivate an ability to adapt and thrive in diverse environments by enhancing inclusive intelligence."
+          },
+          {
+            "name": "Lateral Leadership: The New Way to Lead",
+            "duration": "8 hours",
+            "description": "Learn how to embrace lateral leadership to collaborate effectively across diverse groups."
+          },
+          {
+            "name": "Managing Conflict with Emotional Intelligence",
+            "duration": "8 hours",
+            "description": "Gain exposure on using emotional intelligence to manage and resolve conflicts effectively in diverse teams."
+          },
+          {
+            "name": "Emotional Intelligence",
+            "duration": "8 hours",
+            "description": "Develop emotional intelligence to better understand, empathize, and interact positively with diverse individuals."
+          },
+          {
+            "name": "Conflict Management",
+            "duration": "8 hours",
+            "description": "Learn effective strategies to manage and resolve conflicts in a diverse workplace."
+          },
+          {
+            "name": "Collaborative Leadership Skills",
+            "duration": "8 hours",
+            "description": "Acquire skills to lead collaboratively, enhancing participation and innovation among diverse teams."
+          },
+          {
+            "name": "Building Team Synergy",
+            "duration": "8 hours",
+            "description": "Develop skills to enhance synergy and collaboration in diverse teams."
+          }
+        ]
+      },
+      {
+        "slug": "career-advancement-program-for-alumni",
+        "title": "Career Advancement Program for Alumni",
+        "description": "To provide alumni with the resources and skills to advance their careers",
+        "course_count": "40+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19d89c56468be19df6c_career.webp",
+          "alt": "Career Advancement Program for Alumni",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Career Advancement Program for Alumni",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=career-advancement-program-for-alumni",
+        "courses": [
+          {
+            "name": "Career Counseling",
+            "duration": "8 hours",
+            "description": "Explore career paths and develop strategies to navigate the job market effectively."
+          },
+          {
+            "name": "Active Listening",
+            "duration": "8 hours",
+            "description": "Enhance your listening skills to improve understanding and collaboration."
+          },
+          {
+            "name": "Managing Difficult Conversations",
+            "duration": "8 hours",
+            "description": "Learn strategies to handle challenging conversations effectively."
+          },
+          {
+            "name": "Body Language",
+            "duration": "8 hours",
+            "description": "Understand and use body language to communicate confidently."
+          },
+          {
+            "name": "Presentation Skills",
+            "duration": "8 hours",
+            "description": "Master the art of delivering impactful and engaging presentations."
+          },
+          {
+            "name": "Accent Neutralization",
+            "duration": "8 hours",
+            "description": "Reduce accent barriers for clearer and more effective communication."
+          },
+          {
+            "name": "Interview Skills",
+            "duration": "8 hours",
+            "description": "Prepare and excel in job interviews with confidence."
+          },
+          {
+            "name": "Business Networking Skills",
+            "duration": "8 hours",
+            "description": "Build valuable connections and professional networks."
+          },
+          {
+            "name": "Effective Public Speaking",
+            "duration": "8 hours",
+            "description": "Gain confidence and skills for speaking in front of audiences."
+          },
+          {
+            "name": "Influential Communication",
+            "duration": "8 hours",
+            "description": "Learn to communicate persuasively to influence others."
+          },
+          {
+            "name": "Written Communication",
+            "duration": "8 hours",
+            "description": "Improve your writing skills for clear and professional communication."
+          },
+          {
+            "name": "Business Networking Skills",
+            "duration": "8 hours",
+            "description": "Learn to build and maintain professional relationships crucial for career advancement."
+          },
+          {
+            "name": "Business Communication Skills",
+            "duration": "8 hours",
+            "description": "Enhance your ability to communicate clearly and effectively in business settings."
+          },
+          {
+            "name": "Email Writing and Etiquettes",
+            "duration": "8 hours",
+            "description": "Master the art of professional email writing and etiquettes."
+          },
+          {
+            "name": "Effective Public Speaking",
+            "duration": "8 hours",
+            "description": "Develop skills to speak confidently and persuasively in public settings."
+          },
+          {
+            "name": "Written Communication",
+            "duration": "8 hours",
+            "description": "Improve your written communication skills for professional clarity and impact."
+          },
+          {
+            "name": "Goal Setting",
+            "duration": "8 hours",
+            "description": "Learn to set realistic and achievable goals to guide your career progress."
+          },
+          {
+            "name": "Time Management",
+            "duration": "8 hours",
+            "description": "Acquire techniques to manage time effectively, boosting productivity and efficiency."
+          },
+          {
+            "name": "Problem Solving Skills",
+            "duration": "8 hours",
+            "description": "Enhance your ability to solve complex problems with innovative solutions."
+          },
+          {
+            "name": "Negotiation Skills",
+            "duration": "8 hours",
+            "description": "Develop strategies to negotiate effectively and achieve optimal outcomes."
+          },
+          {
+            "name": "Influence and Impact",
+            "duration": "8 hours",
+            "description": "Learn teGain skills to influence others and make impactful contributions in your professional field.chniques to resolve conflicts constructively."
+          },
+          {
+            "name": "Managing Multiple Tasks, Priorities & Deadlines",
+            "duration": "8 hours",
+            "description": "Master techniques to handle multiple responsibilities efficiently."
+          },
+          {
+            "name": "Introduction to Leadership Skills",
+            "duration": "8 hours",
+            "description": "Learn fundamental leadership skills to manage teams and projects effectively."
+          },
+          {
+            "name": "Personal Branding: Step Into Your Spotlight",
+            "duration": "8 hours",
+            "description": "Learn to create and communicate your unique brand value to advance your career."
+          },
+          {
+            "name": "Stress Management",
+            "duration": "8 hours",
+            "description": "Learn strategies to manage stress for better personal and professional well-being."
+          },
+          {
+            "name": "Conflict Management",
+            "duration": "8 hours",
+            "description": "Develop skills to manage and resolve conflicts constructively."
+          },
+          {
+            "name": "Presentation Skills",
+            "duration": "8 hours",
+            "description": "Enhance your ability to deliver compelling and persuasive presentations."
+          },
+          {
+            "name": "Emotional Intelligence",
+            "duration": "8 hours",
+            "description": "Increase your emotional intelligence to improve interpersonal relationships and self-awareness."
+          },
+          {
+            "name": "Building Team Synergy",
+            "duration": "8 hours",
+            "description": "Foster collaboration and synergy within teams to enhance collective performance."
+          },
+          {
+            "name": "Facilitation Skills",
+            "duration": "8 hours",
+            "description": "Learn to facilitate discussions and workshops effectively, ensuring productive outcomes."
+          },
+          {
+            "name": "Strategic Management",
+            "duration": "8 hours",
+            "description": "Understand and apply strategic management principles to drive business success."
+          },
+          {
+            "name": "Customer Excellence",
+            "duration": "8 hours",
+            "description": "Develop skills to deliver outstanding customer service and build customer loyalty."
+          },
+          {
+            "name": "Financial Management",
+            "duration": "8 hours",
+            "description": "Learn fundamental financial management skills to make informed business decisions."
+          },
+          {
+            "name": "Project Management Fundamentals",
+            "duration": "8 hours",
+            "description": "Gain foundational knowledge in managing projects efficiently and effectively."
+          },
+          {
+            "name": "Leadership Through Marketing",
+            "duration": "8 hours",
+            "description": "Utilize marketing principles to enhance leadership effectiveness and organizational impact."
+          },
+          {
+            "name": "Leading Effective Meetings",
+            "duration": "8 hours",
+            "description": "Learn how to conduct meetings that are efficient, productive, and outcome-oriented."
+          },
+          {
+            "name": "Decision Making",
+            "duration": "8 hours",
+            "description": "Develop decision-making skills to choose the best courses of action in complex business situations."
+          },
+          {
+            "name": "Cultural Sensitivity",
+            "duration": "8 hours",
+            "description": "Cultivate sensitivity and awareness towards diverse cultures within professional environments."
+          },
+          {
+            "name": "Mindfulness",
+            "duration": "8 hours",
+            "description": "Integrate mindfulness practices to enhance focus, resilience, and well-being."
+          },
+          {
+            "name": "Adaptable Mindset",
+            "duration": "8 hours",
+            "description": "Develop flexibility and adaptability in your thinking and approach to challenges."
+          },
+          {
+            "name": "Critical Thinking",
+            "duration": "8 hours",
+            "description": "Strengthen your ability to analyze issues and come up with reasoned conclusions effectively."
+          }
+        ]
+      },
+      {
+        "slug": "sustainability-and-social-responsibility-skilling-program",
+        "title": "Sustainability and Social Responsibility Skilling Program",
+        "description": "To educate students about sustainable practices and social responsibility",
+        "course_count": "10+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19d89c56468be19df7e_sustainability.webp",
+          "alt": "Sustainability and Social Responsibility Skilling Program",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Sustainability and Social Responsibility Skilling Program",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=sustainability-and-social-responsibility-skilling-program",
+        "courses": [
+          {
+            "name": "Environmental and Chemical Safety",
+            "duration": "8 hours",
+            "description": "Learn to manage and mitigate risks associated with environmental chemicals and safety hazards."
+          },
+          {
+            "name": "Environmental Awareness",
+            "duration": "8 hours",
+            "description": "Gain knowledge about environmental issues and the importance of sustainability in modern practices."
+          },
+          {
+            "name": "Environmental Compliance",
+            "duration": "8 hours",
+            "description": "Understand legal and regulatory frameworks to ensure compliance with environmental laws."
+          },
+          {
+            "name": "ISO 26000 - Social Responsibility",
+            "duration": "8 hours",
+            "description": "Explore the principles and practices of social responsibility according to ISO 26000."
+          },
+          {
+            "name": "ISO 14001-Environmental Management System",
+            "duration": "8 hours",
+            "description": "Learn to implement and manage an environmental management system based on ISO 14001 standards."
+          },
+          {
+            "name": "ISO 50001 - Energy Management Systems",
+            "duration": "8 hours",
+            "description": "Acquire skills to develop and implement energy management systems that reduce environmental impact."
+          },
+          {
+            "name": "Sustainability and Social Responsibility",
+            "duration": "8 hours",
+            "description": "Understand the interconnections between sustainability practices and social responsibility."
+          },
+          {
+            "name": "Corporate Social Responsibility (CSR)",
+            "duration": "8 hours",
+            "description": "Learn strategies to integrate CSR into business practices to benefit society and the environment."
+          },
+          {
+            "name": "Waste Management & Sustainability",
+            "duration": "8 hours",
+            "description": "Gain insights into effective waste management techniques that promote sustainability."
+          },
+          {
+            "name": "Renewable Energy and Sustainability",
+            "duration": "8 hours",
+            "description": "Explore renewable energy technologies and their role in sustainable development."
+          },
+          {
+            "name": "Sustainable Business Strategy",
+            "duration": "8 hours",
+            "description": "Develop strategies that incorporate sustainability into core business operations."
+          },
+          {
+            "name": "Sustainable Finance",
+            "duration": "8 hours",
+            "description": "Understand how to apply financial principles to foster sustainability in business practices."
+          },
+          {
+            "name": "Environmental, Social, and Governance (ESG)",
+            "duration": "8 hours",
+            "description": "Delve into ESG criteria and their importance in corporate decision-making and sustainability."
+          },
+          {
+            "name": "Disaster Management",
+            "duration": "8 hours",
+            "description": "Acquire skills to effectively manage and mitigate disasters with an emphasis on minimizing environmental impact."
+          },
+          {
+            "name": "Digital Transformation in Financial Services",
+            "duration": "8 hours",
+            "description": "Learn how digital transformation can drive sustainability in financial services."
+          },
+          {
+            "name": "Food Security and Sustainability",
+            "duration": "8 hours",
+            "description": "Understand the challenges and strategies related to achieving sustainable food security."
+          },
+          {
+            "name": "Ergonomics at the Workplace",
+            "duration": "8 hours",
+            "description": "Learn to design workplace environments that ensure safety, comfort, and efficiency, contributing to sustainability."
+          },
+          {
+            "name": "Sustainable Procurement",
+            "duration": "8 hours",
+            "description": "Master the practices and policies for procuring goods and services in an environmentally friendly and socially responsible manner."
+          }
+        ]
+      },
+      {
+        "slug": "health-and-well-being-training-program",
+        "title": "Health and Well-being Training Program",
+        "description": "To promote physical and mental well-being among students and staff",
+        "course_count": "10+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19d89c56468be19dfa3_health.webp",
+          "alt": "Health and Well-being Training Program",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Health and Well-being Training Program",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=health-and-well-being-training-program",
+        "courses": [
+          {
+            "name": "Mental Health Awareness",
+            "duration": "8 hours",
+            "description": "Increase your understanding of mental health issues and learn strategies to support well-being in academic and professional settings."
+          },
+          {
+            "name": "Emotional Intelligence",
+            "duration": "8 hours",
+            "description": "Develop your ability to recognize, understand, and manage your own emotions and those of others to enhance personal and professional relationships."
+          },
+          {
+            "name": "Psychological Safety",
+            "duration": "8 hours",
+            "description": "Learn how to create a safe environment where team members feel comfortable expressing themselves and taking risks without fear of negative consequences."
+          },
+          {
+            "name": "Managing Conflict with Emotional Intelligence",
+            "duration": "8 hours",
+            "description": "Equip staff and students with skills to manage interpersonal conflicts effectively by applying principles of emotional intelligence."
+          },
+          {
+            "name": "Healthy Living",
+            "duration": "8 hours",
+            "description": "Gain insights into healthy lifestyle choices that enhance physical and mental well-being."
+          },
+          {
+            "name": "Stress Management",
+            "duration": "8 hours",
+            "description": "Learn techniques to manage stress effectively and maintain well-being in high-pressure environments."
+          },
+          {
+            "name": "Managing Conflict with Emotional Intelligence",
+            "duration": "8 hours",
+            "description": "Equip staff and students with skills to manage interpersonal conflicts effectively by applying principles of emotional intelligence."
+          },
+          {
+            "name": "Emotional Intelligence for Finance Professionals",
+            "duration": "8 hours",
+            "description": "Tailored for finance professionals, this course enhances your ability to navigate the emotional landscape of the financial sector."
+          },
+          {
+            "name": "Work Life Balance",
+            "duration": "8 hours",
+            "description": "Explore strategies to balance personal and professional life, reducing stress and improving overall happiness."
+          },
+          {
+            "name": "Ergonomics at the Workplace",
+            "duration": "8 hours",
+            "description": "Learn to optimize your work environment to improve comfort and efficiency, reducing the risk of injury."
+          },
+          {
+            "name": "Wellness Coaching",
+            "duration": "8 hours",
+            "description": "Acquire skills to support others in achieving their personal health and wellness goals through effective coaching techniques."
+          },
+          {
+            "name": "Health Mindset Coaching",
+            "duration": "8 hours",
+            "description": "Develop the ability to foster a positive health mindset in others, promoting long-lasting health behavior changes."
+          },
+          {
+            "name": "Workplace Empathy",
+            "duration": "8 hours",
+            "description": "Learn to cultivate empathy in the workplace, leading to more collaborative and supportive work environments."
+          },
+          {
+            "name": "Nutrition and Wellness",
+            "duration": "8 hours",
+            "description": "Understand the basics of nutrition and how dietary choices impact overall health and wellness."
+          }
+        ]
+      },
+      {
+        "slug": "occupational-safety-training-program",
+        "title": "Occupational Safety Training Program",
+        "description": "To enhance campus safety, reduce risks, and ensure a secure learning environment for all.",
+        "course_count": "07 Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ff19f89c56468be19e150_health.webp",
+          "alt": "Occupational Safety Training Program",
+          "width": 558,
+          "height": 221
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Occupational Safety Training Program",
+        "enquiry_href": "/training-for-universities-enquiry?university-program=occupational-safety-training-program",
+        "courses": [
+          {
+            "name": "First Aid and CPR",
+            "duration": "8 hours",
+            "description": "Learn essential life saving skills, including CPR and emergency first aid techniques, to respond effectively in medical emergencies."
+          },
+          {
+            "name": "Fire Safety - 8 hours",
+            "duration": "8 hours",
+            "description": "Gain knowledge on fire prevention practices and emergency response strategies to enhance safety in various settings."
+          },
+          {
+            "name": "Ladder Safety",
+            "duration": "8 hours",
+            "description": "Understand the best practices and safety precautions for using ladders to prevent falls and injuries."
+          },
+          {
+            "name": "Safe Manual Handling",
+            "duration": "8 hours",
+            "description": "Learn techniques for safe lifting and material handling to avoid workplace injuries and enhance ergonomics."
+          },
+          {
+            "name": "Electrical Safety",
+            "duration": "8 hours",
+            "description": "Acquire essential knowledge on preventing electrical hazards and ensuring safety when working with or near electrical installations."
+          },
+          {
+            "name": "Heat Safety",
+            "duration": "8 hours",
+            "description": "Understand how to recognize and prevent heat-related illnesses and injuries, essential for maintaining safety in hot work environments."
+          },
+          {
+            "name": "Hazard Identification and Risk Assessment",
+            "duration": "8 hours",
+            "description": "Develop skills to identify potential hazards and conduct risk assessments to mitigate workplace risks effectively."
+          }
+        ]
+      }
+    ]
+  },
+  "tool_spotlight": {
+    "section_id": "tool",
+    "heading": "Customized Skilling Solutions Tailored to Your <span>Needs</span>",
+    "description": "Edstellar boasts of a diverse portfolio of 2000+ carefully curated training courses across Technical, Management, Leadership, Behavioral, Social Impact and Compliance skilling areas. We can customize a Skill Development program for college students and training programs for faculty members based on their respective needs.",
+    "cta": {
+      "label": "Enquire Now",
+      "href": "/enquiry-now"
+    },
+    "image": {
+      "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67c9223d04cd780435e2b18d_Customized%20Skilling%20(1).webp",
+      "alt": "Customized Skilling Solutions Tailored to Your Needs",
+      "width": 540,
+      "height": 430
+    }
+  },
+  "concept": {
+    "section_id": "concept",
+    "heading": "Edstellar for Universities - <span>Partner and Grow</span>",
+    "svg_image": "<div class=\"rounded-[14px] border border-ink/12 bg-white p-7\"><svg viewBox=\"0 0 360 360\" role=\"img\" aria-label=\"Edstellar for Universities - Partner and Grow\"><circle class=\"stroke-navy\" cx=\"180\" cy=\"180\" r=\"160\" fill=\"none\" stroke-width=\"10\"/><circle class=\"stroke-olive\" cx=\"180\" cy=\"180\" r=\"128\" fill=\"none\" stroke-width=\"8\" stroke-dasharray=\"6 10\"/><circle class=\"stroke-navy-soft\" cx=\"180\" cy=\"180\" r=\"98\" fill=\"none\" stroke-width=\"6\"/><circle class=\"fill-navy\" cx=\"180\" cy=\"180\" r=\"66\"/><path class=\"stroke-lime\" d=\"M150 186l16-16 12 10 14-14 18 18\" fill=\"none\" stroke-width=\"7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><g class=\"fill-lime stroke-navy\" stroke-width=\"3\"><circle cx=\"180\" cy=\"20\" r=\"11\"/><circle cx=\"340\" cy=\"180\" r=\"11\"/><circle cx=\"180\" cy=\"340\" r=\"11\"/><circle cx=\"20\" cy=\"180\" r=\"11\"/><circle cx=\"293\" cy=\"67\" r=\"9\"/><circle cx=\"67\" cy=\"293\" r=\"9\"/></g></svg></div>",
+    "principles": [
+      {
+        "title": "Career Focused Skill Development",
+        "description": "Offer personalized skilling plans for students"
+      },
+      {
+        "title": "Promote Diversity and Inclusion",
+        "description": "Improve collaboration and create a sense of belonging for all"
+      },
+      {
+        "title": "Alumni Engagement",
+        "description": "Make a difference in alumni careers through skilling programs"
+      },
+      {
+        "title": "Improved Industry Relations",
+        "description": "Attract organizations with employable students"
+      },
+      {
+        "title": "Innovation and Adaptability",
+        "description": "Upskill staff and prepare them for change"
+      },
+      {
+        "title": "Improve Health and Well-being",
+        "description": "Improve morale in the campus, and contribute to academic excellence"
+      }
+    ]
+  },
+  "why": {
+    "section_id": "why",
+    "heading": "The Edstellar <span>Edge</span>",
+    "items": [
+      {
+        "icon": "building",
+        "title": "Industry Experience",
+        "description": "Our instructors share industry insights to enrich the learning experience with real-world perspectives"
+      },
+      {
+        "icon": "award",
+        "title": "Subject Matter Expertise",
+        "description": "We have highly qualified trainers who are subject matter experts in their respective fields"
+      },
+      {
+        "icon": "globe",
+        "title": "Delivery Capability",
+        "description": "We offer training in multiple languages to cater to diverse students, staff and alumni"
+      },
+      {
+        "icon": "monitor",
+        "title": "Flexible Delivery Methods",
+        "description": "Our flexible training delivery methods (virtual, online and onsite) accommodate various learning preferences and schedules"
+      },
+      {
+        "icon": "chart",
+        "title": "Skill Management Platform",
+        "description": "Edstellar’s platform enables universities with better skilling administration and reporting capabilities"
+      },
+      {
+        "icon": "sliders",
+        "title": "Custom Programs",
+        "description": "We provide customizable skilling programs tailored to meet specific university needs."
+      }
+    ]
+  },
+  "success_stories": {
+    "section_id": "frameworks",
+    "heading": "Skilling Success Stories of Universities Across the <span>Globe</span>",
+    "items": [
+      {
+        "title": "Agile Methodologies Training Program at a Leading University in France",
+        "flag": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6662bb5b5322a46c0ab7d70e_france-flag.webp",
+        "details": [
+          {
+            "label": "Objective",
+            "text": "Equip MBA students with a comprehensive understanding of agile methodologies and their application in real-world business scenarios."
+          },
+          {
+            "label": "Training Methodology",
+            "text": "Delivered in hybrid mode, which combined interactive online sessions, hands-on workshops, and group projects over several months."
+          },
+          {
+            "label": "Participants",
+            "text": "50+ MBA students from various specializations, including marketing, finance, and operations management."
+          },
+          {
+            "label": "Learning Outcome",
+            "text": "Students learned various agile concepts like Scrum, Kanban, Lean Project Management, Agile Leadership, and Iterative Development Techniques. They applied these methodologies to manage academic projects more effectively and prepare for dynamic business environments."
+          }
+        ],
+        "quote": {
+          "text": "Edstellar's training significantly boosted our students' confidence and project management skills. We look forward to more such learning programs.",
+          "name": "Dr. Pierre Dupont",
+          "role": "Head of Business Studies Department",
+          "organization": "Leading University in France"
+        }
+      },
+      {
+        "title": "Cybersecurity and AI Fundamentals Training at a Leading Technology University in Germany",
+        "flag": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ffb50eef8271ea077c80a_Germany.webp",
+        "details": [
+          {
+            "label": "Objective",
+            "text": "Equip engineering students with a solid understanding of cybersecurity principles and artificial intelligence fundamentals, and their practical applications in the industry."
+          },
+          {
+            "label": "Training Methodology",
+            "text": "Delivered in hybrid mode, combining interactive online sessions, hands-on workshops, and group projects over several weeks."
+          },
+          {
+            "label": "Participants",
+            "text": "60+ engineering students from various branches, including computer science, electrical engineering, and mechanical engineering"
+          },
+          {
+            "label": "Learning Outcome",
+            "text": "Students learned key concepts through multiple courses within the cybersecurity and AI categories. These included network security, ethical hacking, threat management, machine learning, neural networks, and data analysis. The knowledge helped enhance their technical competencies and prepare for innovative roles in the industry."
+          }
+        ],
+        "quote": {
+          "text": "Edstellar's training significantly boosted our students' skills and innovative thinking. We look forward to more collaborations.",
+          "name": "Dr. Anna Müller",
+          "role": "Head of Engineering Programs",
+          "organization": "Leading Technology University in Germany"
+        }
+      },
+      {
+        "title": "Soft Skills and Behavioral Skills Development Program at a Renowned University in Singapore",
+        "flag": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/665ffbb87904c59de311c383_Rectangle%2027299.webp",
+        "details": [
+          {
+            "label": "Objective",
+            "text": "Skill development courses for teachers and staff members aimed to strengthen soft skills and behavioral competencies and improve workplace communication, teamwork, and overall professional effectiveness."
+          },
+          {
+            "label": "Training Methodology",
+            "text": "Delivered through interactive on-site training sessions, hands-on workshops, and role-playing exercises over a three-week period."
+          },
+          {
+            "label": "Participants",
+            "text": "70+ staff members from various departments, including administration, research, and student services."
+          },
+          {
+            "label": "Learning Outcome",
+            "text": "The training programs for teachers and staff members developed key soft skills such as effective communication, conflict resolution, emotional intelligence, and time management. They also enhanced their behavioral skills in areas like teamwork, leadership, and adaptability."
+          }
+        ],
+        "quote": {
+          "text": "Edstellar's training was instrumental in improving our staff's communication and teamwork. We saw immediate benefits in workplace dynamics",
+          "name": "Mr. John Tan",
+          "role": "Head of Human Resources",
+          "organization": "Renowned University in Singapore"
+        }
+      }
+    ]
+  }
+}

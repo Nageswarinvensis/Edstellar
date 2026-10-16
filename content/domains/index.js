@@ -20,4 +20,8 @@ export const DOMAINS = {
     cmsSlug: "software-development",
     name: "Software Development",
   },
+  leadership: {
+    cmsSlug: "leadership",
+    name: "Leadership & Management",
+  },
 };

@@ -10,8 +10,8 @@ export function generateMetadata() {
 /**
  * Training for Government Enquiry — government program links land here with
  * `?government-program={slug}`. Local JSON
- * (`content/company/government-enquiry.json`); the "Training for Government"
- * breadcrumb is plain text until the government page exists.
+ * (`content/company/government-enquiry.json`); its middle breadcrumb links
+ * to the sector's main page.
  */
 export default function GovernmentEnquiryPage() {
   return <ProgramEnquiryPage page={getGovernmentEnquiryPage()} queryParam="government-program" />;

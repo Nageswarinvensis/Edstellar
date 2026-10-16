@@ -9,22 +9,26 @@ import HubDisclaimer from "@/components/sections/resources_hub/hub-disclaimer";
 
 /**
  * Learning and Development Resources hub (`/learning-development-resources`).
- * Takes the page record from `getResourcesHub()` and lays out its sections
- * in the design's order.
+ * Takes the CMS page from `getResourcesHub()` (component slugs verbatim) and
+ * lays out its sections in the design's order.
  *
  * Design: `Learning_Development_Resources_Template.html`.
  */
 export default function ResourcesHubPage({ page }) {
   return (
     <>
-      <HubHero data={page.hero} types={page.library?.types} breadcrumbs={page.breadcrumbs} />
-      <HubAbout data={page.about} />
-      <HubPicks data={page.picks} />
-      <HubLibrarySection data={page.library} />
-      <HubTestimonial data={page.testimonial} />
+      <HubHero
+        data={page.resources_hero}
+        types={page.resources_library?.types}
+        breadcrumbs={page.breadcrumbs?.items}
+      />
+      <HubAbout data={page.resources_about} />
+      <HubPicks data={page.resources_picks} />
+      <HubLibrarySection data={page.resources_library} />
+      <HubTestimonial data={page["resources-testimonial"]} />
       <HubFaq data={page.faqs} />
-      <HubCta data={page.cta} />
-      <HubDisclaimer data={page.disclaimer} />
+      <HubCta data={page.resources_cta} />
+      <HubDisclaimer data={page.resources_disclaimer} />
     </>
   );
 }

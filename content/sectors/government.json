@@ -1,0 +1,1901 @@
+{
+  "seo": {
+    "title": "Skill Development Training Courses for Government Employees",
+    "description": "Discover Edstellar’s top-quality training courses for government employees at the best prices. Available virtually and onsite for individuals and teams.",
+    "path": "/government-employees-training-courses"
+  },
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Training for Government",
+      "href": null
+    }
+  ],
+  "hero": {
+    "heading": "<span>Empowering Public Sector</span> with the Right Skills",
+    "description": "Build essential skills for government employees, equipping them to take on the challenges of the modern world. Edstellar partners with governmental organizations like yours, offering customized skill development solutions. Partner with Edstellar and build a resilient workforce!",
+    "primary_cta": {
+      "label": "Explore Our Programs",
+      "href": "#explore-program"
+    },
+    "secondary_cta": {
+      "label": "Enquire Now",
+      "href": "/enquiry-now"
+    },
+    "image": {
+      "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/666afcfe8c2f5c82d0be74d2_Rectangle%252027205-p-500.webp",
+      "alt": "Empowering Public Sector with the Right Skills",
+      "width": 500,
+      "height": 445
+    }
+  },
+  "proof": {
+    "heading": "Why Choose Edstellar?",
+    "stats": [
+      {
+        "value": "2000+",
+        "label": "Instructor-led Courses"
+      },
+      {
+        "value": "5000+",
+        "label": "Qualified Trainers"
+      },
+      {
+        "value": "50+",
+        "label": "Coaching Program"
+      }
+    ]
+  },
+  "programs": {
+    "section_id": "explore-program",
+    "heading": "Skill Development Programs for <span>Public Sector</span>",
+    "description": "Our programs empower public sector employees to overcome challenges, embrace new technologies faster, and adapt to changes to better meet public needs.",
+    "delivery_label": "Instructor-led (On-site/Virtual)",
+    "enquire_label": "Enquire Now",
+    "items": [
+      {
+        "slug": "leadership-in-public-service",
+        "title": "Leadership in Public Service",
+        "description": "Strong leadership in public services is essential for effective governance, decision-making, and community engagement. Edstellar offers courses to equip public sector leaders with skills in ethical leadership, crisis management, and public welfare strategies.",
+        "course_count": "40+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6672cf4fcadaf188f32ad591_Leadership%20in%20Public%20Service.webp",
+          "alt": "Leadership in Public Service",
+          "width": 372,
+          "height": 147
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Leadership in Public Services",
+        "enquiry_href": "/training-for-government-enquiry?government-program=leadership-in-public-service",
+        "courses": [
+          {
+            "name": "Introduction to Leadership",
+            "duration": "16 hours",
+            "description": "Fundamentals of effective leadership in public service roles."
+          },
+          {
+            "name": "First Time Managers",
+            "duration": "16 hours",
+            "description": "Essential skills for new managers in the public sector."
+          },
+          {
+            "name": "Delegation Skills",
+            "duration": "16 hours",
+            "description": "Learn to delegate tasks effectively and manage team workloads."
+          },
+          {
+            "name": "Problem Solving Skills",
+            "duration": "16 hours",
+            "description": "Develop innovative solutions to public sector challenges."
+          },
+          {
+            "name": "Conflict Management",
+            "duration": "16 hours",
+            "description": "Techniques to resolve conflicts and maintain workplace harmony."
+          },
+          {
+            "name": "Leading Effective Meetings",
+            "duration": "16 hours",
+            "description": "Conduct productive and impactful meetings in public service."
+          },
+          {
+            "name": "Advanced Leadership Communication Strategies",
+            "duration": "16 hours",
+            "description": "Master advanced communication techniques for effective leadership."
+          },
+          {
+            "name": "Leading High Performing Teams",
+            "duration": "16 hours",
+            "description": "Strategies to build and sustain high-performing public sector teams."
+          },
+          {
+            "name": "Leading Cross-Functional Teams",
+            "duration": "16 hours",
+            "description": "Lead and manage diverse, cross-functional teams effectively."
+          },
+          {
+            "name": "Leadership Decision Making",
+            "duration": "16 hours",
+            "description": "Enhance decision-making skills in complex public sector environments."
+          },
+          {
+            "name": "Inspirational Leadership",
+            "duration": "16 hours",
+            "description": "Inspire and motivate your team to achieve exceptional results."
+          },
+          {
+            "name": "Feedback Skills for Leaders",
+            "duration": "16 hours",
+            "description": "Deliver constructive feedback to improve team performance."
+          },
+          {
+            "name": "Women in Leadership",
+            "duration": "16 hours",
+            "description": "Empower women to excel in public sector leadership roles."
+          },
+          {
+            "name": "Leadership in a Diverse, Equitable and Inclusive Culture",
+            "duration": "16 hours",
+            "description": "Promote diversity, equity, and inclusion in leadership practices."
+          },
+          {
+            "name": "Ethical Leadership",
+            "duration": "16 hours",
+            "description": "Foster a culture of integrity and ethical decision-making."
+          },
+          {
+            "name": "Servant Leadership",
+            "duration": "16 hours",
+            "description": "Lead by serving others and prioritizing team needs."
+          },
+          {
+            "name": "Cross-Cultural Leadership",
+            "duration": "16 hours",
+            "description": "Enhance leadership effectiveness in diverse environments."
+          },
+          {
+            "name": "Digital Transformation Leadership",
+            "duration": "24 hours",
+            "description": "Lead digital transformation initiatives in public services."
+          },
+          {
+            "name": "Introduction to ChatGPT",
+            "duration": "24 hours",
+            "description": "Basics of using ChatGPT for public service applications."
+          },
+          {
+            "name": "ChatGPT for Business Intelligence and Reporting",
+            "duration": "16 hours",
+            "description": "Leverage ChatGPT for data analysis and reporting."
+          },
+          {
+            "name": "Leadership in the Age of AI",
+            "duration": "16 hours",
+            "description": "Lead effectively in an AI-driven public sector landscape."
+          },
+          {
+            "name": "ChatGPT for Excel",
+            "duration": "8 hours",
+            "description": "Utilize ChatGPT to enhance Excel functionalities."
+          },
+          {
+            "name": "Agile Leadership",
+            "duration": "16 hours",
+            "description": "Implement Agile principles in public sector leadership."
+          },
+          {
+            "name": "Leading Innovation",
+            "duration": "16 hours",
+            "description": "Drive innovation within public service organizations."
+          },
+          {
+            "name": "VUCA Leadership",
+            "duration": "16 hours",
+            "description": "Navigate and lead through volatility, uncertainty, complexity, and ambiguity."
+          },
+          {
+            "name": "Leading Through Disruption",
+            "duration": "16 hours",
+            "description": "Lead teams effectively during times of disruption."
+          },
+          {
+            "name": "Crisis Leadership",
+            "duration": "16 hours",
+            "description": "Develop skills to lead during crises and emergencies."
+          },
+          {
+            "name": "Adversity Intelligence (AQ) for Leaders",
+            "duration": "16 hours",
+            "description": "Build resilience and adaptability in challenging situations."
+          },
+          {
+            "name": "Hospitality Leadership",
+            "duration": "16 hours",
+            "description": "Lead with excellence in public sector hospitality services."
+          },
+          {
+            "name": "Retail Leadership",
+            "duration": "16 hours",
+            "description": "Apply leadership skills to public sector retail operations."
+          },
+          {
+            "name": "Customer Service Leadership Skills",
+            "duration": "16 hours",
+            "description": "Enhance leadership in public sector customer service."
+          },
+          {
+            "name": "Maritime Leadership",
+            "duration": "16 hours",
+            "description": "Lead effectively in maritime public services."
+          },
+          {
+            "name": "Safety Leadership",
+            "duration": "16 hours",
+            "description": "Promote safety and compliance in public sector operations."
+          },
+          {
+            "name": "Visionary Leadership and Strategic Thinking",
+            "duration": "16 hours",
+            "description": "Develop long-term vision and strategic thinking abilities."
+          },
+          {
+            "name": "Leading Organizational Vision",
+            "duration": "16 hours",
+            "description": "Create and communicate a compelling organizational vision."
+          },
+          {
+            "name": "Transformational Leadership",
+            "duration": "16 hours",
+            "description": "Drive organizational change and transformation."
+          },
+          {
+            "name": "Strategies for Effective Board Membership",
+            "duration": "16 hours",
+            "description": "Learn effective strategies for serving on public sector boards."
+          },
+          {
+            "name": "Kaizen Leadership",
+            "duration": "16 hours",
+            "description": "Implement continuous improvement practices in public services."
+          },
+          {
+            "name": "Data Analytics for Managerial Decision Making",
+            "duration": "16 hours",
+            "description": "Use data analytics to inform managerial decisions."
+          },
+          {
+            "name": "Introduction to Decision Making",
+            "duration": "16 hours",
+            "description": "Basics of effective decision-making processes."
+          },
+          {
+            "name": "Decision Dynamics, and Leadership Styles",
+            "duration": "16 hours",
+            "description": "Explore various decision-making dynamics and leadership styles."
+          },
+          {
+            "name": "Coaching and Mentoring",
+            "duration": "16 hours",
+            "description": "Develop coaching and mentoring skills to support team growth."
+          }
+        ]
+      },
+      {
+        "slug": "public-administration-and-governance",
+        "title": "Public Administration and Governance",
+        "description": "Effective governance requires strong leadership, regulatory knowledge, and policy-making skills. Edstellar's training programs provide management skills, strategic planning, and regulatory compliance skills to enhance your team’s governance capabilities.",
+        "course_count": "60+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/666afcfe8c2f5c82d0be74f1_public.webp",
+          "alt": "Public Administration and Governance",
+          "width": 372,
+          "height": 147
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Public Administration and Governance",
+        "enquiry_href": "/training-for-government-enquiry?government-program=public-administration-and-governance",
+        "courses": [
+          {
+            "name": "Financial Statement Analysis",
+            "duration": "24 hours",
+            "description": "Learn to analyze and interpret financial statements for informed decision-making in the public sector."
+          },
+          {
+            "name": "Financial Risk Management",
+            "duration": "24 hours",
+            "description": "Learn to identify and manage financial risks in public sector organizations."
+          },
+          {
+            "name": "Discounted Cash Flow Modeling",
+            "duration": "16 hours",
+            "description": "Understand the principles and techniques of discounted cash flow modeling."
+          },
+          {
+            "name": "Treasury Management",
+            "duration": "16 hours",
+            "description": "Develop skills in managing public sector treasury functions."
+          },
+          {
+            "name": "Integrating Budgeting, Forecasting & Business Planning",
+            "duration": "16 hours",
+            "description": "Integrate budgeting, forecasting, and business planning for enhanced financial management."
+          },
+          {
+            "name": "Finance and Budgeting",
+            "duration": "24 hours",
+            "description": "Develop comprehensive budgeting skills for public sector finance professionals."
+          },
+          {
+            "name": "Debt Management",
+            "duration": "16 hours",
+            "description": "Gain skills in managing public sector debt effectively."
+          },
+          {
+            "name": "Tax Audit",
+            "duration": "16 hours",
+            "description": "Gain skills in conducting tax audits and ensuring compliance."
+          },
+          {
+            "name": "ISO 14001-Environmental Management System",
+            "duration": "16 hours",
+            "description": "Learn to implement and manage ISO 14001 environmental management systems."
+          },
+          {
+            "name": "GDPR",
+            "duration": "16 hours",
+            "description": "Understand and apply the General Data Protection Regulation (GDPR) requirements."
+          },
+          {
+            "name": "Cybersecurity Risk Management",
+            "duration": "16 hours",
+            "description": "Environmental, Social and Governance (ESG Policy)"
+          },
+          {
+            "name": "Document Control and Records Management",
+            "duration": "16 hours",
+            "description": "Manage and control organizational documents and records efficiently."
+          },
+          {
+            "name": "Security Policy Management",
+            "duration": "16 hours",
+            "description": "Learn to create and manage effective security policies and procedures."
+          },
+          {
+            "name": "Disaster Management",
+            "duration": "16 hours",
+            "description": "Develop skills to manage disasters and emergency situations."
+          },
+          {
+            "name": "Incident and Crisis Response Communication Skills - 16 hours",
+            "duration": "16 hours",
+            "description": "Learn effective communication strategies for handling incidents and crises."
+          },
+          {
+            "name": "Financial Crime Prevention",
+            "duration": "16 hours",
+            "description": "Understand measures to prevent financial crimes in the public sector."
+          },
+          {
+            "name": "Finance Compliance",
+            "duration": "16 hours",
+            "description": "Understand compliance requirements in financial management."
+          },
+          {
+            "name": "ISO 14001-Environmental Management System",
+            "duration": "16 hours",
+            "description": "Learn to implement and manage ISO 14001 environmental management systems."
+          },
+          {
+            "name": "Environmental and Chemical Safety",
+            "duration": "16 hours",
+            "description": "Learn to manage environmental and chemical safety in public sector workplaces."
+          },
+          {
+            "name": "Environmental Awareness",
+            "duration": "16 hours",
+            "description": "Increase awareness of environmental issues and sustainable practices."
+          },
+          {
+            "name": "E-Waste Management",
+            "duration": "16 hours",
+            "description": "Learn best practices for managing electronic waste responsibly."
+          },
+          {
+            "name": "Waste Management & Sustainability",
+            "duration": "16 hours",
+            "description": "Gain skills to develop and implement sustainable waste management programs."
+          },
+          {
+            "name": "Low Carbon Development",
+            "duration": "16 hours",
+            "description": "Develop and implement low carbon projects to reduce environmental impact."
+          },
+          {
+            "name": "Renewable Energy and Sustainability",
+            "duration": "16 hours",
+            "description": "Understand renewable energy technologies and their role in sustainability."
+          },
+          {
+            "name": "Vendor Management",
+            "duration": "16 hours",
+            "description": "Develop skills to manage vendor relationships and ensure compliance."
+          },
+          {
+            "name": "Purchasing Capital Equipment",
+            "duration": "16 hours",
+            "description": "Gain expertise in budgeting and managing capital equipment purchases."
+          },
+          {
+            "name": "Working Capital Management",
+            "duration": "16 hours",
+            "description": "Optimize public sector financial health and liquidity."
+          },
+          {
+            "name": "Foreign Exchange Management",
+            "duration": "16 hours",
+            "description": "Manage foreign exchange risks and transactions effectively."
+          },
+          {
+            "name": "Basics of Statutory Compliance and Taxation",
+            "duration": "14 hours",
+            "description": "Understand compliance and tax regulations."
+          },
+          {
+            "name": "Payroll and Tax Fundamentals",
+            "duration": "24 hours",
+            "description": "Learn payroll processing and tax management essentials."
+          },
+          {
+            "name": "Liabilities and Equity in Accounting",
+            "duration": "24 hours",
+            "description": "Understand public sector liabilities and equity."
+          },
+          {
+            "name": "Tax Crime and Fraud Investigation",
+            "duration": "16 hours",
+            "description": "Develop skills to use and manage Fedora Linux systems."
+          },
+          {
+            "name": "Introduction to International Taxation",
+            "duration": "16 hours",
+            "description": "Basics of international tax laws and practices."
+          },
+          {
+            "name": "Digital Transformation of Tax Administration",
+            "duration": "16 hours",
+            "description": "Modernize tax administration with digital tools."
+          },
+          {
+            "name": "Consumption Tax",
+            "duration": "8 hours",
+            "description": "Learn principles of consumption tax implementation."
+          },
+          {
+            "name": "CybersecuHR Fundamentalsrity Fundamentals",
+            "duration": "16 hours",
+            "description": "Basics of human resource management in the public sector."
+          },
+          {
+            "name": "Introduction to AI in HR",
+            "duration": "16 hours",
+            "description": "Implement AI technologies in HR processes."
+          },
+          {
+            "name": "HR Risk Management",
+            "duration": "16 hours",
+            "description": "Identify and mitigate risks in human resources."
+          },
+          {
+            "name": "Recruitment & Sourcing",
+            "duration": "16 hours",
+            "description": "Efficient techniques for hiring and sourcing talent."
+          },
+          {
+            "name": "Succession Planning",
+            "duration": "16 hours",
+            "description": "Prepare for leadership transitions and workforce continuity."
+          },
+          {
+            "name": "Compensation and Benefits",
+            "duration": "16 hours",
+            "description": "Design and manage compensation and benefit programs."
+          },
+          {
+            "name": "Employee Relations",
+            "duration": "16 hours",
+            "description": "Foster positive relationships within the workforce."
+          },
+          {
+            "name": "Workforce Planning and Budgeting",
+            "duration": "16 hours",
+            "description": "Plan and budget for workforce needs."
+          },
+          {
+            "name": "HR Administration",
+            "duration": "16 hours",
+            "description": "Manage day-to-day HR administrative tasks."
+          },
+          {
+            "name": "Workplace Harassment",
+            "duration": "16 hours",
+            "description": "Recognize and address harassment in the workplace."
+          },
+          {
+            "name": "Prevention of Sexual Harassment (POSH)",
+            "duration": "8 hours",
+            "description": "undefined"
+          },
+          {
+            "name": "Data Privacy",
+            "duration": "8 hours",
+            "description": "Protect sensitive information and ensure data privacy."
+          },
+          {
+            "name": "ISO 9001 Lead Implementer",
+            "duration": "24 hours",
+            "description": "Lead ISO 9001 quality management implementation."
+          },
+          {
+            "name": "ISO 45001: Occupational Health and Safety Management System",
+            "duration": "24 hours",
+            "description": "Ensure workplace health and safety compliance."
+          },
+          {
+            "name": "Document Control and Records Management",
+            "duration": "16 hours",
+            "description": "Manage and control organizational documents."
+          },
+          {
+            "name": "Environmental, Social and Governance (ESG Policy)",
+            "duration": "16 hours",
+            "description": "Develop and implement ESG policies."
+          },
+          {
+            "name": "Energy Isolation: Plan, Procedure and Checklist",
+            "duration": "16 hours",
+            "description": "Ensure safety with energy isolation procedures."
+          },
+          {
+            "name": "Green Office Management",
+            "duration": "8 hours",
+            "description": "Implement sustainable practices in office management."
+          },
+          {
+            "name": "Code of Conduct",
+            "duration": "8 hours",
+            "description": "Establish and enforce workplace ethical standards."
+          },
+          {
+            "name": "Business Ethics",
+            "duration": "8 hours",
+            "description": "Promote ethical behavior in public sector operations."
+          },
+          {
+            "name": "Work Integrity",
+            "duration": "8 hours",
+            "description": "Maintain integrity in public service activities."
+          },
+          {
+            "name": "Supply Chain Operations",
+            "duration": "16 hours",
+            "description": "Optimize supply chain processes and efficiency."
+          },
+          {
+            "name": "Forecasting & Inventory Management",
+            "duration": "16 hours",
+            "description": "Plan and manage inventory effectively."
+          },
+          {
+            "name": "Warehouse Management",
+            "duration": "16 hours",
+            "description": "Oversee and improve warehouse operations."
+          },
+          {
+            "name": "Machine Learning with Python",
+            "duration": "16 hours",
+            "description": "Manage and streamline transportation and logistics operations."
+          }
+        ]
+      },
+      {
+        "slug": "public-safety-and-health-management",
+        "title": "Public Safety and Health Management",
+        "description": "Public safety and health management professionals require up-to-date knowledge in emergency response, community health practices, and crisis management. Edstellar offers specialized training in disaster preparedness, public health administration, and emergency medical services to enhance public safety and health outcomes.",
+        "course_count": "10+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/666afcff8c2f5c82d0be7529_healthcare.webp",
+          "alt": "Public Safety and Health Management",
+          "width": 372,
+          "height": 147
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Public Safety and Health Management",
+        "enquiry_href": "/training-for-government-enquiry?government-program=public-safety-and-health-management",
+        "courses": [
+          {
+            "name": "Workplace Harassment",
+            "duration": "8 hours",
+            "description": "Recognize and address harassment in the workplace."
+          },
+          {
+            "name": "Environmental and Chemical Safety",
+            "duration": "16 hours",
+            "description": "Learn to manage environmental and chemical safety in the workplace."
+          },
+          {
+            "name": "Emergency Evacuation Procedures",
+            "duration": "16 hours",
+            "description": "Learn to develop and implement effective emergency evacuation plans."
+          },
+          {
+            "name": "Disaster Management",
+            "duration": "16 hours",
+            "description": "Develop skills to manage disasters and emergency situations."
+          },
+          {
+            "name": "Confined Spaces",
+            "duration": "16 hours",
+            "description": "Gain skills to manage confined space work safely."
+          },
+          {
+            "name": "Fall Protection and Ladder Safety",
+            "duration": "16 hours",
+            "description": "Learn to implement fall protection and ladder safety measures."
+          },
+          {
+            "name": "First Aid and CPR",
+            "duration": "8 hours",
+            "description": "Learn essential first aid and CPR techniques for emergencies."
+          },
+          {
+            "name": "Fire Safety",
+            "duration": "8 hours",
+            "description": "Understand fire prevention and safety procedures."
+          },
+          {
+            "name": "Heat Safety",
+            "duration": "8 hours",
+            "description": "Learn to prevent and manage heat-related illnesses."
+          },
+          {
+            "name": "Food Safety",
+            "duration": "8 hours",
+            "description": "Ensure safe handling and preparation of food."
+          },
+          {
+            "name": "Machine Safety",
+            "duration": "8 hours",
+            "description": "Implement safety practices for operating machinery."
+          },
+          {
+            "name": "Work Life Balance",
+            "duration": "8 hours",
+            "description": "Strategies to achieve a healthy work-life balance."
+          },
+          {
+            "name": "Healthy Living",
+            "duration": "8 hours",
+            "description": "Promote and maintain a healthy lifestyle."
+          },
+          {
+            "name": "Stress Management",
+            "duration": "8 hours",
+            "description": "Techniques to manage and reduce stress effectively."
+          },
+          {
+            "name": "Psychological Safety",
+            "duration": "8 hours",
+            "description": "Create a psychologically safe workplace environment."
+          },
+          {
+            "name": "Mental Health Awareness",
+            "duration": "8 hours",
+            "description": "Increase awareness and understanding of mental health issues."
+          }
+        ]
+      },
+      {
+        "slug": "communication-and-public-relations",
+        "title": "Communication and Public Relations",
+        "description": "Effective communication and public relations are critical for public sector employees to build trust and engage with the community. Edstellar's training programs provide comprehensive skills in media relations, public speaking, and strategic communication to enhance your team's ability to convey messages clearly, manage public perception, and maintain positive stakeholder relationships.",
+        "course_count": "9+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6672cf9330ef149dac15795b_Communication%20and%20Public%20Relations%20Skills.webp",
+          "alt": "Communication and Public Relations",
+          "width": 372,
+          "height": 147
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Communication and Public Relations",
+        "enquiry_href": "/training-for-government-enquiry?government-program=communication-and-public-relations",
+        "courses": [
+          {
+            "name": "ChatGPT for Public Relations and Crisis Management",
+            "duration": "8 hours",
+            "description": "Utilize ChatGPT to enhance public relations and manage crises effectively."
+          },
+          {
+            "name": "Stakeholder Analysis and Management",
+            "duration": "16 hours",
+            "description": "Learn techniques for analyzing and managing stakeholders."
+          },
+          {
+            "name": "Effective Public Speaking",
+            "duration": "16 hours",
+            "description": "Gain confidence and skills in public speaking."
+          },
+          {
+            "name": "Strategic Internal Communication Skills",
+            "duration": "16 hours",
+            "description": "Develop skills for strategic internal communication."
+          },
+          {
+            "name": "Event and Conference Management",
+            "duration": "16 hours",
+            "description": "Plan, organize, and manage successful public sector events and conferences."
+          },
+          {
+            "name": "Written Communication",
+            "duration": "8 hours",
+            "description": "Improve clarity and effectiveness in official written communications."
+          },
+          {
+            "name": "Business Communication Skills",
+            "duration": "16 hours",
+            "description": "Enhance professional communication skills for effective workplace interactions."
+          },
+          {
+            "name": "Email Writing and Etiquettes",
+            "duration": "8 hours",
+            "description": "Master the art of professional and courteous email writing."
+          },
+          {
+            "name": "Business Storytelling",
+            "duration": "8 hours",
+            "description": "Craft compelling narratives to effectively communicate business messages."
+          }
+        ]
+      },
+      {
+        "slug": "defense-and-national-security",
+        "title": "Defense and National Security",
+        "description": "Defense and national security employees require advanced skills in cybersecurity, threat assessment, and crisis management. Edstellar offers courses in cyber resilience, vulnerability management, and digital forensics to enhance the capabilities of public sector employees in protecting national interests.",
+        "course_count": "10+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6672cfd23d2141eb679943d3_Defense%20and%20National%20Security.webp",
+          "alt": "Defense and National Security",
+          "width": 372,
+          "height": 147
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Defense and National Security",
+        "enquiry_href": "/training-for-government-enquiry?government-program=defense-and-national-security",
+        "courses": [
+          {
+            "name": "Cyber Resilience",
+            "duration": "16 hours",
+            "description": "Learn to build resilient cybersecurity systems and practices."
+          },
+          {
+            "name": "Python for Cybersecurity",
+            "duration": "24 hours",
+            "description": "Learn to use Python for automating and enhancing cybersecurity tasks."
+          },
+          {
+            "name": "Kali Linux",
+            "duration": "24 hours",
+            "description": "Gain expertise in using Kali Linux for penetration testing and security assessments."
+          },
+          {
+            "name": "Parrot Security OS",
+            "duration": "16 hours",
+            "description": "Utilize Parrot Security OS for advanced penetration testing and security analysis."
+          },
+          {
+            "name": "Cybersecurity Fundamentals",
+            "duration": "16 hours",
+            "description": "Learn the basics of cybersecurity to protect sensitive information."
+          },
+          {
+            "name": "Computer Hacking Forensic Investigator",
+            "duration": "16 hours",
+            "description": "Learn to investigate and analyze computer hacking incidents and gather digital evidence."
+          },
+          {
+            "name": "Ethical Hacking",
+            "duration": "24 hours",
+            "description": "Gain skills to understand and counteract hacking techniques."
+          },
+          {
+            "name": "Digital Forensics",
+            "duration": "24 hours",
+            "description": "Gain skills in collecting and analyzing digital evidence for criminal investigations."
+          },
+          {
+            "name": "Information Systems Security",
+            "duration": "24 hours",
+            "description": "Learn to protect information systems from security threats in the public sector."
+          },
+          {
+            "name": "Vulnerability Assessment and Penetration Testing (VAPT)",
+            "duration": "24 hours",
+            "description": "Acquire skills to perform vulnerability assessments and penetration tests."
+          },
+          {
+            "name": "Cybersecurity Risk Management",
+            "duration": "16 hours",
+            "description": "Learn to identify, assess, and manage cybersecurity risks in the public sector."
+          },
+          {
+            "name": "Vulnerability Management",
+            "duration": "16 hours",
+            "description": "Identify and mitigate security vulnerabilities in public sector systems."
+          },
+          {
+            "name": "Check Point - Security Administration",
+            "duration": "16 hours",
+            "description": "Manage and secure networks using Check Point technologies."
+          },
+          {
+            "name": "Open Source Intelligence",
+            "duration": "16 hours",
+            "description": "Utilize open-source tools for effective intelligence gathering and analysis."
+          }
+        ]
+      },
+      {
+        "slug": "information-and-communication-technology-ict",
+        "title": "Information and Communication Technology (ICT)",
+        "description": "Educators and human service workers need skills in teaching methodologies, counseling, and program management. Edstellar's programs focus on developing effective teaching strategies, emotional intelligence, and administrative skills to enhance education and social services.",
+        "course_count": "100+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/66752b8771abf0fc2765f532_Interpersonal%20Intelligence%20for%20Public%20Workforce.webp",
+          "alt": "Information and Communication Technology (ICT)",
+          "width": 372,
+          "height": 147
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Information and Communication Technology (ICT)",
+        "enquiry_href": "/training-for-government-enquiry?government-program=information-and-communication-technology-ict",
+        "courses": [
+          {
+            "name": "Bitcoin Mining",
+            "duration": "8 hours",
+            "description": "Learn Bitcoin mining techniques and industry best practices."
+          },
+          {
+            "name": "Blockchain Technology",
+            "duration": "24 hours",
+            "description": "Understand the principles and applications of blockchain technology for secure and transparent transactions."
+          },
+          {
+            "name": "Blockchain & Smart Contract Security",
+            "duration": "16 hours",
+            "description": "Ensure secure blockchain and smart contract implementations."
+          },
+          {
+            "name": "Blockchain Architecture",
+            "duration": "24 hours",
+            "description": "Design robust blockchain systems for diverse applications."
+          },
+          {
+            "name": "Hyperledger Fabric Administration",
+            "duration": "24 hours",
+            "description": "Gain skills to administer and manage Hyperledger Fabric networks."
+          },
+          {
+            "name": "R3 Corda Blockchain",
+            "duration": "16 hours",
+            "description": "Master R3 Corda for enterprise blockchain solutions."
+          },
+          {
+            "name": "5G and mmWave Antenna Engineering",
+            "duration": "24 hours",
+            "description": "Advanced mmWave antenna design for optimal 5G performance."
+          },
+          {
+            "name": "Voice over 5G Standalone (VoNR)",
+            "duration": "16 hours",
+            "description": "Implement high-quality voice services over 5G networks."
+          },
+          {
+            "name": "5G Architecture and Key Principles",
+            "duration": "16 hours",
+            "description": "Comprehensive understanding of 5G architecture and principles."
+          },
+          {
+            "name": "5G Security",
+            "duration": "16 hours",
+            "description": "Secure 5G networks against emerging cybersecurity threats."
+          },
+          {
+            "name": "5G Citizens Band Radio Services (CBRS)",
+            "duration": "8 hours",
+            "description": "Utilize CBRS for enhanced 5G deployment and services."
+          },
+          {
+            "name": "5G for Non Engineers",
+            "duration": "8 hours",
+            "description": "Simplified 5G concepts for non-technical professionals."
+          },
+          {
+            "name": "WordPress",
+            "duration": "8 hours",
+            "description": "Create and manage websites using WordPress efficiently."
+          },
+          {
+            "name": "Adobe Experience Manager (AEM) Developer",
+            "duration": "16 hours",
+            "description": "Develop and customize sites with Adobe Experience Manager."
+          },
+          {
+            "name": "Adobe Experience Manager (AEM) Admin",
+            "duration": "16 hours",
+            "description": "Administer and manage Adobe Experience Manager environments."
+          },
+          {
+            "name": "Joomla",
+            "duration": "8 hours",
+            "description": "Build and maintain dynamic websites with Joomla."
+          },
+          {
+            "name": "Drupal",
+            "duration": "16 hours",
+            "description": "Design and develop powerful websites using Drupal."
+          },
+          {
+            "name": "Enterprise Architecture",
+            "duration": "16 hours",
+            "description": "Understand how to design and implement effective enterprise architectures in public organizations."
+          },
+          {
+            "name": "TOGAF (The Open Group Architecture Framework)",
+            "duration": "24 hours",
+            "description": "Learn to utilize TOGAF for developing robust enterprise architectures."
+          },
+          {
+            "name": "Cloud Architecture",
+            "duration": "24 hours",
+            "description": "Understand how to design and implement cloud architecture for scalable public sector solutions."
+          },
+          {
+            "name": "Service-Oriented Architecture",
+            "duration": "24 hours",
+            "description": "Design and implement service-oriented architecture solutions."
+          },
+          {
+            "name": "Data Center Management",
+            "duration": "24 hours",
+            "description": "Efficiently manage data centers for optimal performance."
+          },
+          {
+            "name": "Cloud Capacity Planning",
+            "duration": "8 hours",
+            "description": "Plan and manage cloud resources effectively."
+          },
+          {
+            "name": "Hardware Asset Management",
+            "duration": "24 hours",
+            "description": "Track and manage hardware assets in your organization."
+          },
+          {
+            "name": "ArcGIS Enterprise: Administration Workflows",
+            "duration": "16 hours",
+            "description": "Administer ArcGIS Enterprise with best practices."
+          },
+          {
+            "name": "ArcGIS Enterprise: Configuring a Base Deployment",
+            "duration": "16 hours",
+            "description": "Configure and deploy ArcGIS Enterprise efficiently."
+          },
+          {
+            "name": "Location Analytics Using ArcGIS Insights",
+            "duration": "16 hours",
+            "description": "Perform advanced location analytics with ArcGIS Insights."
+          },
+          {
+            "name": "Radar Systems Fundamentals",
+            "duration": "16 hours",
+            "description": "Understand the basics of radar system operations."
+          },
+          {
+            "name": "Fundamentals of Remote Sensing",
+            "duration": "16 hours",
+            "description": "Learn remote sensing techniques and applications."
+          },
+          {
+            "name": "Geospatial Data Analysis with Python",
+            "duration": "24 hours",
+            "description": "Analyze geospatial data using Python programming."
+          },
+          {
+            "name": "Cybersecurity Fundamentals",
+            "duration": "16 hours",
+            "description": "Learn the basics of cybersecurity to protect sensitive information."
+          },
+          {
+            "name": "Ethical Hacking",
+            "duration": "24 hours",
+            "description": "Gain skills to understand and counteract hacking techniques."
+          },
+          {
+            "name": "Cyber Threat Intelligence",
+            "duration": "16 hours",
+            "description": "Learn to gather and analyze cyber threat intelligence to enhance security."
+          },
+          {
+            "name": "Vulnerability Assessment and Penetration Testing (VAPT)",
+            "duration": "24 hours",
+            "description": "Learn techniques to identify and mitigate vulnerabilities in information systems."
+          },
+          {
+            "name": "Cloud Security Essentials",
+            "duration": "16 hours",
+            "description": "Understand fundamental cloud security principles and practices."
+          },
+          {
+            "name": "Cyber Resilience",
+            "duration": "16 hours",
+            "description": "Learn to build resilient cybersecurity systems and practices."
+          },
+          {
+            "name": "Digital Forensics",
+            "duration": "24 hours",
+            "description": "Acquire skills to investigate and analyze digital evidence for cybersecurity incidents."
+          },
+          {
+            "name": "Social Engineering",
+            "duration": "8 hours",
+            "description": "Identify and prevent social engineering attacks."
+          },
+          {
+            "name": "Kali Linux",
+            "duration": "24 hours",
+            "description": "Gain expertise in using Kali Linux for penetration testing and security assessments."
+          },
+          {
+            "name": "HTML",
+            "duration": "8 hours",
+            "description": "Create web pages using HTML."
+          },
+          {
+            "name": "CSS",
+            "duration": "8 hours",
+            "description": "Style websites effectively with CSS."
+          },
+          {
+            "name": "JavaScript",
+            "duration": "16 hours",
+            "description": "Develop dynamic web applications with JavaScript."
+          },
+          {
+            "name": "Node JS",
+            "duration": "16 hours",
+            "description": "Build scalable server-side applications with Node JS."
+          },
+          {
+            "name": "React JS",
+            "duration": "16 hours",
+            "description": "Develop interactive user interfaces with React JS."
+          },
+          {
+            "name": "Angular",
+            "duration": "16 hours",
+            "description": "Create dynamic web apps using Angular framework."
+          },
+          {
+            "name": "Vue JS",
+            "duration": "16 hours",
+            "description": "Build progressive web applications with Vue JS."
+          },
+          {
+            "name": "Nginx Web Server Administration",
+            "duration": "16 hours",
+            "description": "Configure and manage Nginx web servers."
+          },
+          {
+            "name": "Apache Web Server",
+            "duration": "16 hours",
+            "description": "Administer and optimize Apache web servers."
+          },
+          {
+            "name": "Shell Scripting",
+            "duration": "8 hours",
+            "description": "Automate tasks using shell scripting."
+          },
+          {
+            "name": "Alpine Linux",
+            "duration": "8 hours",
+            "description": "Master Alpine Linux for lightweight applications."
+          },
+          {
+            "name": "Linux Administration",
+            "duration": "16 hours",
+            "description": "Comprehensive Linux system administration."
+          },
+          {
+            "name": "Ubuntu Linux Server Administration",
+            "duration": "24 hours",
+            "description": "Acquire skills to administer and manage Ubuntu Linux servers."
+          },
+          {
+            "name": "MySQL",
+            "duration": "16 hours",
+            "description": "Manage and optimize MySQL databases."
+          },
+          {
+            "name": "PostgreSQL",
+            "duration": "16 hours",
+            "description": "Develop and administer PostgreSQL databases."
+          },
+          {
+            "name": "Oracle Database",
+            "duration": "24 hours",
+            "description": "Administer and optimize Oracle databases."
+          },
+          {
+            "name": "Microsoft SQL Server",
+            "duration": "24 hours",
+            "description": "Manage and maintain Microsoft SQL Server databases."
+          },
+          {
+            "name": "IBM Db2",
+            "duration": "16 hours",
+            "description": "Master IBM Db2 database management and optimization."
+          },
+          {
+            "name": "Oracle Autonomous Database",
+            "duration": "16 hours",
+            "description": "Utilize Oracle Autonomous Database for self-managing databases."
+          },
+          {
+            "name": "MongoDB",
+            "duration": "16 hours",
+            "description": "Develop and manage NoSQL databases with MongoDB."
+          },
+          {
+            "name": "Cassandra",
+            "duration": "16 hours",
+            "description": "Implement scalable databases using Apache Cassandra."
+          },
+          {
+            "name": "Apache HBase",
+            "duration": "16 hours",
+            "description": "Manage large datasets with Apache HBase."
+          },
+          {
+            "name": "Couchbase",
+            "duration": "16 hours",
+            "description": "Build and optimize databases with Couchbase."
+          },
+          {
+            "name": "Redis",
+            "duration": "8 hours",
+            "description": "Master in-memory data structures with Redis."
+          },
+          {
+            "name": "Fundamentals of Data Warehousing",
+            "duration": "16 hours",
+            "description": "Understand data warehousing concepts and architectures."
+          },
+          {
+            "name": "Data Warehousing and ETL",
+            "duration": "16 hours",
+            "description": "Implement ETL processes in data warehousing."
+          },
+          {
+            "name": "Amazon Redshift",
+            "duration": "16 hours",
+            "description": "Manage data warehousing using Amazon Redshift."
+          },
+          {
+            "name": "Snowflake",
+            "duration": "16 hours",
+            "description": "Optimize data warehousing with Snowflake."
+          },
+          {
+            "name": "Fundamentals of Big Data Analytics",
+            "duration": "16 hours",
+            "description": "Explore big data analytics tools and techniques."
+          },
+          {
+            "name": "Apache Hadoop",
+            "duration": "16 hours",
+            "description": "Implement big data solutions with Apache Hadoop."
+          },
+          {
+            "name": "Apache Kafka",
+            "duration": "16 hours",
+            "description": "Streamline data processing with Apache Kafka."
+          },
+          {
+            "name": "Python",
+            "duration": "16 hours",
+            "description": "Develop applications and scripts using Python."
+          },
+          {
+            "name": "Java",
+            "duration": "16 hours",
+            "description": "Master Java programming for application development."
+          },
+          {
+            "name": "C Programming",
+            "duration": "16 hours",
+            "description": "Learn the fundamentals of C programming."
+          },
+          {
+            "name": "C++ Programming",
+            "duration": "16 hours",
+            "description": "Develop software solutions using C++ programming."
+          },
+          {
+            "name": "TypeScript",
+            "duration": "16 hours",
+            "description": "Build scalable applications with TypeScript."
+          },
+          {
+            "name": ".NET Framework",
+            "duration": "16 hours",
+            "description": "Create robust applications with the .NET Framework."
+          },
+          {
+            "name": "R Programming",
+            "duration": "16 hours",
+            "description": "Perform statistical computing with R programming."
+          },
+          {
+            "name": "BASH Shell Scripting",
+            "duration": "8 hours",
+            "description": "Automate tasks with BASH shell scripting."
+          },
+          {
+            "name": "COBOL",
+            "duration": "16 hours",
+            "description": "Develop enterprise applications using COBOL."
+          },
+          {
+            "name": "Tableau",
+            "duration": "16 hours",
+            "description": "Create dynamic data visualizations with Tableau."
+          },
+          {
+            "name": "Power BI",
+            "duration": "16 hours",
+            "description": "Develop interactive reports with Power BI."
+          },
+          {
+            "name": "Data Visualization with Python",
+            "duration": "16 hours",
+            "description": "Visualize data using Python libraries."
+          },
+          {
+            "name": "Qlik Sense",
+            "duration": "16 hours",
+            "description": "Build intuitive visualizations with Qlik Sense."
+          },
+          {
+            "name": "Oracle Business Intelligence Enterprise Edition (OBIEE)",
+            "duration": "16 hours",
+            "description": "Implement business intelligence with OBIEE."
+          },
+          {
+            "name": "Grafana",
+            "duration": "8 hours",
+            "description": "Monitor and visualize metrics with Grafana."
+          },
+          {
+            "name": "IBM Cognos Analytics",
+            "duration": "16 hours",
+            "description": "Enhance decision-making with IBM Cognos Analytics."
+          },
+          {
+            "name": "SAS Business Intelligence",
+            "duration": "16 hours",
+            "description": "Perform advanced analytics with SAS Business Intelligence."
+          },
+          {
+            "name": "Selenium",
+            "duration": "16 hours",
+            "description": "Automate web applications testing with Selenium."
+          },
+          {
+            "name": "API Testing using Postman",
+            "duration": "8 hours",
+            "description": "Test APIs efficiently with Postman."
+          },
+          {
+            "name": "Performance, Load, and Stress Testing",
+            "duration": "16 hours",
+            "description": "Ensure system reliability with performance testing."
+          },
+          {
+            "name": "Appium",
+            "duration": "16 hours",
+            "description": "Automate mobile application testing with Appium."
+          },
+          {
+            "name": "API Testing using Newman",
+            "duration": "8 hours",
+            "description": "Automate API testing with Newman."
+          },
+          {
+            "name": "Smoke Testing",
+            "duration": "8 hours",
+            "description": "Perform initial testing to check basic functionalities."
+          },
+          {
+            "name": "Rest Assured: API Testing for REST Services",
+            "duration": "16 hours",
+            "description": "Automate REST API testing with Rest Assured."
+          },
+          {
+            "name": "Microsoft Word",
+            "duration": "8 hours",
+            "description": "Master document creation with Microsoft Word."
+          },
+          {
+            "name": "Microsoft Excel VBA",
+            "duration": "16 hours",
+            "description": "Automate Excel tasks with VBA programming."
+          },
+          {
+            "name": "Microsoft PowerPoint",
+            "duration": "8 hours",
+            "description": "Create impactful presentations with PowerPoint."
+          },
+          {
+            "name": "Excel Macros",
+            "duration": "8 hours",
+            "description": "Automate repetitive tasks in Excel with Macros."
+          },
+          {
+            "name": "Microsoft Excel",
+            "duration": "8 hours",
+            "description": "Perform data analysis with Microsoft Excel."
+          },
+          {
+            "name": "Microsoft Visio",
+            "duration": "8 hours",
+            "description": "Design diagrams and flowcharts with Visio."
+          },
+          {
+            "name": "Managing Microsoft Teams",
+            "duration": "8 hours",
+            "description": "Efficiently manage collaboration with Microsoft Teams."
+          }
+        ]
+      },
+      {
+        "slug": "digital-experience-design-skills-for-public-sector",
+        "title": "Digital Experience Design Skills for Public Sector",
+        "description": "Managing public funds requires expertise in budgeting, financial analysis, and fiscal management. Edstellar provides training in financial statement analysis, budget planning, and financial modeling to ensure public sector financial professionals make informed and effective decisions.",
+        "course_count": "90+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/666afcfe8c2f5c82d0be74f9_information.webp",
+          "alt": "Digital Experience Design Skills for Public Sector",
+          "width": 372,
+          "height": 147
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Digital Experience Design Skills for Public Sector",
+        "enquiry_href": "/training-for-government-enquiry?government-program=digital-experience-design-skills-for-public-sector",
+        "courses": [
+          {
+            "name": "UI/UX",
+            "duration": "16 hours",
+            "description": "Learn the essentials of User Interface and User Experience design."
+          },
+          {
+            "name": "Mobile UI UX Design",
+            "duration": "16 hours",
+            "description": "Design engaging mobile interfaces for optimal user experience."
+          },
+          {
+            "name": "Figma",
+            "duration": "16 hours",
+            "description": "Master Figma for efficient collaborative design projects."
+          },
+          {
+            "name": "Virtual Reality",
+            "duration": "24 hours",
+            "description": "Explore VR design principles and create immersive experiences."
+          },
+          {
+            "name": "Adobe XD",
+            "duration": "8 hours",
+            "description": "Learn Adobe XD for creating interactive prototypes."
+          },
+          {
+            "name": "UX Design Fundamentals",
+            "duration": "16 hours",
+            "description": "Understand key UX principles for creating intuitive designs."
+          }
+        ]
+      },
+      {
+        "slug": "emerging-technology-skills-for-public-sector",
+        "title": "Emerging Technology Skills for Public Sector",
+        "description": "Public sector employees need to stay at the forefront of technological advancements to improve service delivery and operational efficiency. Edstellar's training courses in emerging technology skills, including courses on ChatGPT applications, machine learning, and AI, equip public servants with the expertise to leverage cutting-edge technologies.",
+        "course_count": "10+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6672d12dceecf6e7eccb607a_Emerging%20Technology%20Skills%20for%20Public%20Sector.webp",
+          "alt": "Emerging Technology Skills for Public Sector",
+          "width": 372,
+          "height": 147
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Emerging Technology Skills for Public Sector",
+        "enquiry_href": "/training-for-government-enquiry?government-program=emerging-technology-skills-for-public-sector",
+        "courses": [
+          {
+            "name": "Introduction to ChatGPT",
+            "duration": "8 hours",
+            "description": "Learn the basics of using ChatGPT for various tasks."
+          },
+          {
+            "name": "ChatGPT for Project Management",
+            "duration": "8 hours",
+            "description": "Utilize ChatGPT to enhance project management efficiency and collaboration."
+          },
+          {
+            "name": "ChatGPT for Business Intelligence and Reporting",
+            "duration": "8 hours",
+            "description": "Improve BI and reporting with ChatGPT-driven insights and automation."
+          },
+          {
+            "name": "ChatGPT for Customer Service",
+            "duration": "8 hours",
+            "description": "Enhance customer service with ChatGPT for instant support and solutions."
+          },
+          {
+            "name": "ChatGPT for Content Creation",
+            "duration": "8 hours",
+            "description": "Boost content creation with ChatGPT's assistance for creative writing."
+          },
+          {
+            "name": "ChatGPT for Legal Services",
+            "duration": "8 hours",
+            "description": "Leverage ChatGPT for efficient legal research and documentation."
+          },
+          {
+            "name": "ChatGPT for Public Relations and Crisis Management",
+            "duration": "8 hours",
+            "description": "Strengthen PR and crisis management with ChatGPT's rapid response."
+          },
+          {
+            "name": "ChatGPT for Data Science and Analytics",
+            "duration": "8 hours",
+            "description": "Enhance data analysis and insights with ChatGPT's capabilities."
+          },
+          {
+            "name": "ChatGPT for Excel",
+            "duration": "8 hours",
+            "description": "Maximize Excel functionalities using ChatGPT for automation."
+          },
+          {
+            "name": "ChatGPT Prompt Engineering",
+            "duration": "8 hours",
+            "description": "Master the art of crafting effective prompts for ChatGPT."
+          },
+          {
+            "name": "Introduction to Machine Learning",
+            "duration": "8 hours",
+            "description": "Discover the fundamentals of machine learning and its applications."
+          },
+          {
+            "name": "Introduction to Deep Learning",
+            "duration": "8 hours",
+            "description": "Learn the basics of deep learning and neural networks."
+          },
+          {
+            "name": "Natural Language Processing (NLP) with Python",
+            "duration": "8 hours",
+            "description": "Explore NLP techniques and applications using Python."
+          },
+          {
+            "name": "Computer Vision and Image Processing",
+            "duration": "8 hours",
+            "description": "Understand the principles of computer vision and image processing."
+          },
+          {
+            "name": "AI for Everyone",
+            "duration": "8 hours",
+            "description": "Gain a comprehensive understanding of AI concepts and applications."
+          },
+          {
+            "name": "Machine Learning with Python",
+            "duration": "8 hours",
+            "description": "Learn to implement machine learning models using Python."
+          },
+          {
+            "name": "Generative AI with Large Language Models",
+            "duration": "8 hours",
+            "description": "Explore generative AI and large language model applications."
+          },
+          {
+            "name": "Introduction to Data Science",
+            "duration": "8 hours",
+            "description": "Understand the fundamentals and applications of data science."
+          },
+          {
+            "name": "Data Science with Python",
+            "duration": "8 hours",
+            "description": "Learn data science techniques and tools using Python."
+          },
+          {
+            "name": "Data Science with R",
+            "duration": "8 hours",
+            "description": "Explore data science methodologies and applications with R."
+          },
+          {
+            "name": "GoogleBig Data Analytics Using Spark",
+            "duration": "8 hours",
+            "description": "Harness the power of Spark for big data analytics."
+          },
+          {
+            "name": "Data Architecture",
+            "duration": "8 hours",
+            "description": "Design and manage robust data architectures for enterprises."
+          },
+          {
+            "name": "Web Scraping with Python",
+            "duration": "8 hours",
+            "description": "Master web scraping techniques to extract data using Python."
+          },
+          {
+            "name": "Jupyter for Data Science Teams",
+            "duration": "8 hours",
+            "description": "Enhance team collaboration with Jupyter for data science projects."
+          }
+        ]
+      },
+      {
+        "slug": "essential-skills-for-public-service",
+        "title": "Essential Skills for Public Service",
+        "description": "Public sector employees require a diverse set of essential skills to effectively serve the community and manage their responsibilities. Edstellar's training courses cover key areas such as time management, critical thinking, and constructive feedback.",
+        "course_count": "8+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6672d0e56a81c1ec75ed1bbb_Essential%20Skills%20for%20Public%20Service.webp",
+          "alt": "Essential Skills for Public Service",
+          "width": 372,
+          "height": 147
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Essential Skills for Public Service",
+        "enquiry_href": "/training-for-government-enquiry?government-program=essential-skills-for-public-service",
+        "courses": [
+          {
+            "name": "Time Management",
+            "duration": "8 hours",
+            "description": "Master effective strategies for managing time efficiently."
+          },
+          {
+            "name": "Managing Multiple Tasks Priorities & Deadlines",
+            "duration": "8 hours",
+            "description": "Learn techniques to handle multiple tasks and meet deadlines."
+          },
+          {
+            "name": "Critical Thinking",
+            "duration": "8 hours",
+            "description": "Develop critical thinking skills for better decision-making."
+          },
+          {
+            "name": "Positive Mindset",
+            "duration": "8 hours",
+            "description": "Cultivate a positive mindset for personal and professional growth."
+          },
+          {
+            "name": "Personality Development",
+            "duration": "8 hours",
+            "description": "Enhance your personality traits for overall development."
+          },
+          {
+            "name": "Goal Setting",
+            "duration": "16 hours",
+            "description": "Learn effective techniques for setting and achieving goals."
+          },
+          {
+            "name": "Dealing with Challenging Situations",
+            "duration": "8 hours",
+            "description": "Gain skills to navigate and manage challenging situations."
+          },
+          {
+            "name": "Constructive Feedback",
+            "duration": "8 hours",
+            "description": "Master the art of giving and receiving constructive feedback."
+          },
+          {
+            "name": "Basic Computer Skills",
+            "duration": "8 hours",
+            "description": "Learn essential computer skills for daily tasks and productivity."
+          }
+        ]
+      },
+      {
+        "slug": "interpersonal-intelligence-for-public-workforce",
+        "title": "Interpersonal Intelligence for Public Workforce",
+        "description": "Effective interpersonal skills are crucial for public sector employees to build strong relationships and communicate effectively. Edstellar's training courses in interpersonal intelligence cover essential areas such as minute taking, strategic communication, and managing conflict with emotional intelligence.",
+        "course_count": "10+ Courses",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/6672d06713a437beef63ac53_Interpersonal%20Intelligence%20for%20Public%20Workforce.webp",
+          "alt": "Interpersonal Intelligence for Public Workforce",
+          "width": 372,
+          "height": 147
+        },
+        "catalog_label": "View Catalog",
+        "catalog_title": "Interpersonal Intelligence for Public Workforce",
+        "enquiry_href": "/training-for-government-enquiry?government-program=interpersonal-intelligence-for-public-workforce",
+        "courses": [
+          {
+            "name": "Minute Taking",
+            "duration": "8 hours",
+            "description": "Learn to take accurate and effective meeting minutes."
+          },
+          {
+            "name": "Strategic Internal Communication Skills",
+            "duration": "8 hours",
+            "description": "Enhance internal communication strategies for organizational success."
+          },
+          {
+            "name": "Facilitating Change through Effective Communications",
+            "duration": "8 hours",
+            "description": "Drive change initiatives with strong communication techniques."
+          },
+          {
+            "name": "Managing Conflict with Emotional Intelligencee",
+            "duration": "8 hours",
+            "description": "Resolve conflicts using emotional intelligence strategies."
+          },
+          {
+            "name": "Managing Difficult Conversations",
+            "duration": "8 hours",
+            "description": "Master skills for handling tough conversations professionally."
+          },
+          {
+            "name": "English Grammar and Punctuation",
+            "duration": "8 hours",
+            "description": "Improve your grammar and punctuation for clear communication."
+          },
+          {
+            "name": "Written Communication",
+            "duration": "8 hours",
+            "description": "Enhance your writing skills for professional effectiveness."
+          },
+          {
+            "name": "Business Communication Skills",
+            "duration": "8 hours",
+            "description": "Develop essential communication skills for business success."
+          },
+          {
+            "name": "Effective Public Speaking",
+            "duration": "8 hours",
+            "description": "Learn techniques for confident and impactful public speaking."
+          },
+          {
+            "name": "Email Writing and Etiquettes",
+            "duration": "8 hours",
+            "description": "Master professional email writing and etiquette."
+          },
+          {
+            "name": "Collaboration Skills",
+            "duration": "8 hours",
+            "description": "Build effective collaboration skills for team success."
+          },
+          {
+            "name": "Team Building",
+            "duration": "8 hours",
+            "description": "Strengthen team dynamics and performance through team building."
+          },
+          {
+            "name": "Emotional Intelligence",
+            "duration": "8 hours",
+            "description": "Develop emotional intelligence for personal and professional growth."
+          }
+        ]
+      }
+    ]
+  },
+  "tool_spotlight": {
+    "section_id": "tool",
+    "heading": "Customized Skilling Solutions Tailored to Your <span>Needs</span>",
+    "description": "Edstellar boasts of a diverse portfolio of 2000+ carefully curated training courses across Technical, Management, Leadership, Behavioral, Social Impact and Compliance skilling areas. We can customize a Skill Development program based on the needs of your employees.",
+    "cta": {
+      "label": "Enquire Now",
+      "href": "/enquiry-now"
+    },
+    "image": {
+      "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/666afcff8c2f5c82d0be7567_customized%20skilling.webp",
+      "alt": "Customized Skilling Solutions Tailored to Your Needs",
+      "width": 540,
+      "height": 430
+    }
+  },
+  "concept": {
+    "section_id": "concept",
+    "heading": "Edstellar for Public Sector - <span>Partner, Upskill and Progress</span>",
+    "svg_image": "<div class=\"rounded-[14px] border border-ink/12 bg-white p-7\"><svg viewBox=\"0 0 360 360\" role=\"img\" aria-label=\"Edstellar for Public Sector - Partner, Upskill and Progress\"><circle class=\"stroke-navy\" cx=\"180\" cy=\"180\" r=\"160\" fill=\"none\" stroke-width=\"10\"/><circle class=\"stroke-olive\" cx=\"180\" cy=\"180\" r=\"128\" fill=\"none\" stroke-width=\"8\" stroke-dasharray=\"6 10\"/><circle class=\"stroke-navy-soft\" cx=\"180\" cy=\"180\" r=\"98\" fill=\"none\" stroke-width=\"6\"/><circle class=\"fill-navy\" cx=\"180\" cy=\"180\" r=\"66\"/><path class=\"stroke-lime\" d=\"M150 186l16-16 12 10 14-14 18 18\" fill=\"none\" stroke-width=\"7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><g class=\"fill-lime stroke-navy\" stroke-width=\"3\"><circle cx=\"180\" cy=\"20\" r=\"11\"/><circle cx=\"340\" cy=\"180\" r=\"11\"/><circle cx=\"180\" cy=\"340\" r=\"11\"/><circle cx=\"20\" cy=\"180\" r=\"11\"/><circle cx=\"293\" cy=\"67\" r=\"9\"/><circle cx=\"67\" cy=\"293\" r=\"9\"/></g></svg></div>",
+    "principles": [
+      {
+        "title": "Speed-up tech adoption capacity",
+        "description": "Upskill in new technologies for faster integration"
+      },
+      {
+        "title": "Introduce people-friendly policies and services",
+        "description": "Develop the acumen in your team for effective implementation of policies"
+      },
+      {
+        "title": "Facilitate regulatory compliance",
+        "description": "Create the knowledge base for adherence with regulatory standards"
+      },
+      {
+        "title": "Improve security and management of public assets",
+        "description": "Build the team's competence to ensure the protection of public resources"
+      },
+      {
+        "title": "Build an innovation-driven work culture",
+        "description": "Create a workplace environment that promotes learning and knowledge development"
+      },
+      {
+        "title": "Nurture future-ready talent",
+        "description": "Prepare your team for tomorrow's challenges through continuous upskilling"
+      }
+    ]
+  },
+  "why": {
+    "section_id": "why",
+    "heading": "The Edstellar <span>Edge</span>",
+    "items": [
+      {
+        "icon": "building",
+        "title": "Industry Experience",
+        "description": "Our instructors’ experience of training diverse industries means your team can look forward to enriching learning"
+      },
+      {
+        "icon": "award",
+        "title": "Domain Expertise",
+        "description": "We have highly qualified, certified and verified trainers who are experts in their respective domains"
+      },
+      {
+        "icon": "globe",
+        "title": "Multi-lingual Delivery Capability",
+        "description": "We offer training in multiple languages to cater to diverse staff needs"
+      },
+      {
+        "icon": "monitor",
+        "title": "Flexible Delivery Methods",
+        "description": "Our flexible training delivery methods (virtual, online and onsite) accommodate various learning preferences and schedules"
+      },
+      {
+        "icon": "sliders",
+        "title": "Custom Programs",
+        "description": "We provide customizable skilling programs tailored to meet specific the needs of your team / organization"
+      },
+      {
+        "icon": "chart",
+        "title": "Skill Management Platform",
+        "description": "Edstellar’s platform enables organizations with better skilling administration and reporting capabilities"
+      }
+    ]
+  },
+  "success_stories": {
+    "section_id": "frameworks",
+    "heading": "Our Success <span>Stories</span>",
+    "items": [
+      {
+        "title": "ITSM Training Courses for the US Defense",
+        "flag": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/666afcff8c2f5c82d0be756d_american-flag.webp",
+        "details": [
+          {
+            "label": "Objective",
+            "text": "To enhance the knowledge and skills of IT support personnel in ITSM practices to improve service management and delivery."
+          },
+          {
+            "label": "Training Methodology",
+            "text": "The onsite training in Miami over 6 months combined interactive lectures, group discussions, and hands-on exercises for ITSM concepts."
+          },
+          {
+            "label": "Participants",
+            "text": "170 IT support personnel from the US Defense took up the training."
+          },
+          {
+            "label": "Learning Outcome",
+            "text": "Participants gained a comprehensive understanding of ITSM principles, enabling streamlined IT service management and enhanced operational efficiency."
+          }
+        ],
+        "quote": {
+          "text": "The ITSM training provided by Edstellar was instrumental in equipping our team with the necessary skills to improve our IT management processes. The interactive methodology and practical exercises were particularly beneficial.",
+          "name": "James Anderson",
+          "role": "Director of IT Service Management",
+          "organization": "US Defense"
+        }
+      },
+      {
+        "title": "Agile Project Management and ITSM Training for Renowned Space Agency in India",
+        "flag": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/666be2e4eb06005b7e665408_indian-flag.webp",
+        "details": [
+          {
+            "label": "Objective",
+            "text": "To equip space agency scientists and engineers with leadership skills, project management, ITSM, MS Office proficiency, and DevOps practices."
+          },
+          {
+            "label": "Training Methodology",
+            "text": "The onsite training in Hyderabad included interactive lectures, hands-on exercises, and real-world case studies for practical application of concepts."
+          },
+          {
+            "label": "Participants",
+            "text": "Approximately 50 scientists and engineers from the renowned space agency."
+          },
+          {
+            "label": "Learning Outcome",
+            "text": "The skills helped improve team dynamics, enhanced service quality, streamlined project management, and accelerated software delivery for better overall performance."
+          }
+        ],
+        "quote": {
+          "text": "Edstellar's on-site training greatly helped improve our team's skills and collaboration. Training scheduling challenges were addressed and the support during the training engagement was great.",
+          "name": "Dr. Anil Kumar",
+          "role": "Senior Project Manager",
+          "organization": "Renowned Space Agency"
+        }
+      },
+      {
+        "title": "DevOps and Microsoft Azure Training Programs for US Defense in Japan",
+        "flag": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/666afcff8c2f5c82d0be756d_american-flag.webp",
+        "details": [
+          {
+            "label": "Objective",
+            "text": "To enhance IT administrators' and project managers' skills in DevOps and Azure, improving cloud management and deployment efficiency for military operations."
+          },
+          {
+            "label": "Training Methodology",
+            "text": "Onsite training in Yokohama included interactive lectures, hands-on labs, and group activities for practical DevOps and Azure administration."
+          },
+          {
+            "label": "Participants",
+            "text": "Approximately 100 IT personnel from the US Defense."
+          },
+          {
+            "label": "Learning Outcome",
+            "text": "Participants gained comprehensive DevOps and Azure knowledge, streamlining IT operations, improving cloud management, and enhancing system reliability for critical defense operations."
+          }
+        ],
+        "quote": {
+          "text": "Partnering with Edstellar for DevOps and Azure training significantly upskilled our IT team, improving efficiency in cloud management. The tailored, practical training approach was especially beneficial for the team.",
+          "name": "Michael Thompson",
+          "role": "Chief Information Officer",
+          "organization": "US Defense"
+        }
+      },
+      {
+        "title": "Professional Scrum Training for Educational Department, Ireland",
+        "flag": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/666afd008c2f5c82d0be75b4_ireland-flag.webp",
+        "details": [
+          {
+            "label": "Objective",
+            "text": "To equip project managers and administrators with Agile skills, improving project management and product development practices and outcomes."
+          },
+          {
+            "label": "Training Methodology",
+            "text": "The training, delivered via VILT, used interactive lectures, case studies, and exercises to ensure the team gained practical knowledge of Scrum principles."
+          },
+          {
+            "label": "Participants",
+            "text": "Approximately 120 project managers and education administrators from the Educational Department, Ireland."
+          },
+          {
+            "label": "Learning Outcome",
+            "text": "Participants gained deeper understanding of Agile project management, which helps strengthen the Scrum roles, and improves workflows. The training contributed to better team collaboration, leading to improved project outcomes."
+          }
+        ],
+        "quote": {
+          "text": "Edstellar's Agile project management training was highly impactful. The vILT delivery was engaging, enhancing our team's grasp of Scrum practices and it improved our project management efficiency.",
+          "name": "Sarah Mitchell",
+          "role": "Senior Project Manager",
+          "organization": "Educational Department, Ireland"
+        }
+      }
+    ]
+  }
+}

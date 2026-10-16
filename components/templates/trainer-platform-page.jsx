@@ -8,21 +8,24 @@ import TrainerResources from "@/components/sections/trainer_platform/trainer-res
 import TrainerCta from "@/components/sections/trainer_platform/trainer-cta";
 
 /**
- * Join as a Trainer (`/trainer-platform`). Takes the page record from
- * `getTrainerPlatformPage()` and lays out its sections in the design's order.
+ * Join as a Trainer (`/trainer-platform`). Takes the CMS page from
+ * `getTrainerPlatformPage()` (component slugs verbatim) and lays out its
+ * sections in the design's order.
  *
  * Design: `Join as a Trainer.html`.
  */
 export default function TrainerPlatformPage({ page }) {
   return (
     <>
-      <TrainerHero data={page.hero} breadcrumbs={page.breadcrumbs?.items} />
-      <TrainerBenefits data={page.benefits} />
-      <TrainerReviews data={page.reviews} />
+      <TrainerHero data={page.trainer_platform_hero} breadcrumbs={page.breadcrumbs?.items} />
+      {/* The CMS names this component "Trainer Platform Benefits"; the
+          snake_case name is read too, so renaming it there won't break it. */}
+      <TrainerBenefits data={page.trainer_platform_benefits ?? page["Trainer Platform Benefits"]} />
+      <TrainerReviews data={page.trainer_platform_reviews} />
       <TrainerDashboard data={page.trainer_dashboard} />
-      <TrainerImpact data={page.impact} />
+      <TrainerImpact data={page.trainer_platform_impact} />
       <TrainerSteps data={page.trainers_how_it_works} />
-      <TrainerResources data={page.resources} />
+      <TrainerResources data={page.trainer_platform_resources} />
       <TrainerCta data={page.trainer_final_cta} />
     </>
   );
