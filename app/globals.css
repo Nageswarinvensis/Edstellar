@@ -293,6 +293,15 @@
     0% { transform: scaleX(0); }
     14%, 100% { transform: scaleX(1); }
   }
+
+  /* Who-we-serve logo marquee. The list is duplicated in markup so the
+     strip loops seamlessly — translateX(-50%) moves exactly one copy length. */
+  --animate-marquee: marquee 36s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 }
 
 /* Every heading's CMS `heading`/`title` field is a plain string with its
