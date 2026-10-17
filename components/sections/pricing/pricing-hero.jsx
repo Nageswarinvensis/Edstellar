@@ -136,7 +136,7 @@ export default function PricingHero({ data }) {
             as="h1"
             heading={heading}
             className="text-white"
-            emphasisClassName="block bg-[linear-gradient(90deg,var(--color-pricing-sky)_0%,var(--color-pricing-azure)_100%)] bg-clip-text font-bold tracking-[-0.01em] text-transparent"
+            emphasisClassName="block bg-[linear-gradient(90deg,var(--color-pricing-sky)_0%,var(--color-pricing-azure)_100%)] bg-clip-text font-normal tracking-[-0.01em] text-transparent"
           />
 
           {description ? (

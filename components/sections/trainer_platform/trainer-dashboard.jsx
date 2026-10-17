@@ -47,7 +47,7 @@ export default function TrainerDashboard({ data }) {
               <Text as="p" className="mb-2 font-mono text-[10px] leading-[1.5] tracking-[0.16em] text-lime uppercase">
                 {item.kicker}
               </Text>
-              <Text as="h3" className="mb-2.5 text-[18px] leading-[1.3] font-semibold text-paper">
+              <Text as="h3" className="mb-2.5 text-[18px] leading-[1.3] font-medium text-paper">
                 {item.title}
               </Text>
               <Text as="p" className="text-[14.5px] leading-[1.7] text-paper/72">

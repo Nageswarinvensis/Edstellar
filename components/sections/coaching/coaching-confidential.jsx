@@ -56,7 +56,7 @@ export default function CoachingConfidential({ data }) {
                   dark ? "border-navy bg-navy text-paper" : "border-ink/12 bg-white text-ink",
                 )}
               >
-                <Text as="h3" className={cn("mb-2 flex items-center gap-3 text-[20px] leading-[1.3] font-semibold", dark ? "text-paper" : "text-ink")}>
+                <Text as="h3" className={cn("mb-2 flex items-center gap-3 text-[20px] leading-[1.3] font-medium", dark ? "text-paper" : "text-ink")}>
                   {Icon ? <Icon size={22} strokeWidth={1.7} className={dark ? "text-lime" : "text-navy"} aria-hidden="true" /> : null}
                   {column.title}
                 </Text>

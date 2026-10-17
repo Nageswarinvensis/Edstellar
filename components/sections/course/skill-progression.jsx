@@ -92,7 +92,7 @@ export default function SkillProgression({ progression }) {
         <Box>
           <Text
             as="h3"
-            className="font-body text-[18px] font-bold tracking-[-0.02em] text-ink"
+            className="font-body text-[18px] font-medium tracking-[-0.02em] text-ink"
           >
             {title}
           </Text>

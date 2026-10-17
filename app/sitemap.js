@@ -7,6 +7,7 @@ import {
 } from "@/lib/content/consulting";
 import { getTalentAssessmentServiceSlugs } from "@/lib/content/talent-assessment";
 import { RESOURCE_TYPES } from "@/lib/content/resources";
+import { getCaseStudySlugs } from "@/lib/content/case-studies";
 
 /**
  * Generated from the content layer, never hand-maintained — a new course must
@@ -57,16 +58,23 @@ export default async function sitemap() {
     ),
     entry("/resources", 0.6),
     entry("/learning-development-resources", 0.6, "weekly"),
+    entry("/learning-development-templates", 0.5, "weekly"),
     ...RESOURCE_TYPES.map(({ slug }) => entry(`/resources/${slug}`, 0.5)),
     entry("/blog", 0.6, "daily"),
     entry("/trainer", 0.5),
     entry("/about-us", 0.4, "monthly"),
     entry("/contact-us", 0.4, "monthly"),
     entry("/become-a-guest-author", 0.4, "monthly"),
+    entry("/careers", 0.4, "monthly"),
+    entry("/case-studies", 0.5),
+    ...getCaseStudySlugs().map((slug) => entry(`/case-study/${slug}`, 0.5, "monthly")),
     entry("/corporate-training-pricing", 0.6, "monthly"),
     entry("/trainer-platform", 0.5, "monthly"),
     entry("/training-for-universities-enquiry", 0.4, "monthly"),
     entry("/training-for-government-enquiry", 0.4, "monthly"),
+    entry("/government-employees-training-courses", 0.6, "monthly"),
+    entry("/training-for-universities", 0.6, "monthly"),
+    entry("/partner-program", 0.5, "monthly"),
     entry("/privacy-policy", 0.1, "yearly"),
     entry("/terms-conditions", 0.1, "yearly"),
     entry("/modern-slavery-statement", 0.1, "yearly"),

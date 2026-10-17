@@ -99,7 +99,7 @@ export default function RelatedLinks({ data }) {
                 ) : null}
                 <Text
                   as="h3"
-                  className="mt-2 mb-2 font-display text-[18px] font-bold leading-[1.3] text-ink"
+                  className="mt-2 mb-2 font-display text-[18px] font-medium leading-[1.3] text-ink"
                 >
                   {item.title}
                 </Text>

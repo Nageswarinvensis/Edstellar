@@ -25,7 +25,7 @@ export default function BlogDetailCategories({ categories, currentSlug }) {
         <RichHeading
           as="h2"
           heading="Blog <span>Categories</span>"
-          className="mb-8 text-[clamp(24px,3vw,36px)] leading-[1.15] font-bold tracking-[-0.03em]"
+          className="mb-8 text-[clamp(24px,3vw,36px)] leading-[1.15] font-medium tracking-[-0.03em]"
           emphasisClassName="font-normal text-olive"
         />
       </Reveal>

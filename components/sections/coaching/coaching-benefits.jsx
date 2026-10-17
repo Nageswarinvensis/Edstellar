@@ -125,7 +125,7 @@ export default function CoachingBenefits({ data }) {
                     headingRefs.current[index] = el;
                   }}
                   tabIndex={-1}
-                  className="mt-3 mb-4 max-w-[min(440px,58%)] text-[clamp(22px,2.2vw,28px)] leading-[1.15] font-bold tracking-[-0.02em] outline-none max-[900px]:max-w-none"
+                  className="mt-3 mb-4 max-w-[min(440px,58%)] text-[clamp(22px,2.2vw,28px)] leading-[1.15] font-medium tracking-[-0.02em] outline-none max-[900px]:max-w-none"
                 >
                   {item.title}
                 </Text>

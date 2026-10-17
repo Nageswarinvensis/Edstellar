@@ -27,7 +27,7 @@ export default function BlogDetailMoreInsights({ posts = [] }) {
         <RichHeading
           as="h2"
           heading="More Blog <span>Insights</span>"
-          className="mb-8 text-[clamp(24px,3vw,36px)] leading-[1.15] font-bold tracking-[-0.03em]"
+          className="mb-8 text-[clamp(24px,3vw,36px)] leading-[1.15] font-medium tracking-[-0.03em]"
           emphasisClassName="font-normal text-olive"
         />
 
@@ -50,7 +50,7 @@ export default function BlogDetailMoreInsights({ posts = [] }) {
 
                 <Text
                   as="h3"
-                  className="mb-4 text-[17px] leading-[1.36] font-semibold tracking-[-0.02em] text-ink"
+                  className="mb-4 text-[17px] leading-[1.36] font-medium tracking-[-0.02em] text-ink"
                 >
                   {post.title}
                 </Text>

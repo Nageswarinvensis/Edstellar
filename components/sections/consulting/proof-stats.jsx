@@ -55,7 +55,7 @@ export default function ProofStats({ data }) {
 
           {/* Bottom Section: CTA Banner */}
           <Box className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-            <Text as="h3" className="text-lg font-semibold text-white">
+            <Text as="h3" className="text-lg font-medium text-white">
               {cta.title || "Ready to build a self-sustaining L&D function?"}
             </Text>
 

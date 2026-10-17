@@ -62,7 +62,7 @@ function CardGrid({ items, lineLabel, cols }) {
             <Box className="mb-4 grid size-10.5 place-items-center rounded-[11px] bg-lime-soft text-navy">
               <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
             </Box>
-            <Text as="h3" className="mb-1.5 font-display text-[17px] font-bold leading-[1.3] text-ink">
+            <Text as="h3" className="mb-1.5 font-display text-[17px] font-medium leading-[1.3] text-ink">
               {item.title}
             </Text>
             <Text as="p" className="text-[14px] leading-[1.55] text-ink/60">

@@ -63,14 +63,14 @@ html {
 }
 
 .blog-content h2 {
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(26px, 3vw, 34px);
   letter-spacing: -0.03em;
   margin: 40px 0 16px;
 }
 
 .blog-content h3 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 26px;
   margin: 40px 0 14px;
 }
@@ -81,10 +81,15 @@ html {
   margin: 28px 0 10px;
 }
 
+.blog-content h1 em,
 .blog-content h2 em,
-.blog-content h3 em {
+.blog-content h3 em,
+.blog-content h1 span,
+.blog-content h2 span,
+.blog-content h3 span {
   font-family: var(--serif);
   font-style: italic;
+  font-weight: 400;
   color: var(--lime-ink);
 }
 .blog-content a {
@@ -495,7 +500,7 @@ html {
 .cta-content h2 {
   margin: 0 0 6px;
   font-family: "Sora", sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(20px, 2.2vw, 26px);
   letter-spacing: -0.025em;
   line-height: 1.15;
@@ -824,7 +829,7 @@ html {
 .category-card h3 {
   margin: 0 0 16px;
   font-family: "Sora", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 17px;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -1209,7 +1214,7 @@ blockquote a {
 .cta h3 {
   margin: 0 0 12px !important;
   font-family: var(--display);
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(21px, 2.4vw, 28px);
   letter-spacing: -0.03em;
   line-height: 1.15;

@@ -169,7 +169,7 @@ export default function WhatWeDeliver({ data }) {
               </Text>
               <Text
                 as="h3"
-                className="mb-4.5 font-display text-[22px] leading-[1.2] font-semibold text-ink max-[640px]:text-[19px]"
+                className="mb-4.5 font-display text-[22px] leading-[1.2] font-medium text-ink max-[640px]:text-[19px]"
               >
                 {step.title}
               </Text>

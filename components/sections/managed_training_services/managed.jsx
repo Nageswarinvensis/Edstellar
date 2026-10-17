@@ -50,7 +50,7 @@ function ManagedCard({ cardData, isHighlight = false }) {
       )}
 
       {title && (
-        <Text as="h3" className="text-lg font-bold tracking-tight text-ink mb-4">
+        <Text as="h3" className="text-lg font-medium tracking-tight text-ink mb-4">
           {title}
         </Text>
       )}

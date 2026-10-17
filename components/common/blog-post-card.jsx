@@ -50,7 +50,7 @@ export default function BlogPostCard({ post }) {
 
         <Text
           as="h3"
-          className="text-[16.5px] leading-[1.35] font-semibold tracking-[-0.02em] text-ink"
+          className="text-[16.5px] leading-[1.35] font-medium tracking-[-0.02em] text-ink"
         >
           <Link href={href} title={linkTitle} className="transition-colors hover:text-olive">
             {post.title}

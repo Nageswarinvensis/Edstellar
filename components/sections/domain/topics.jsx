@@ -363,7 +363,7 @@ export default function Topics({ data: topicsData, courseCount, courses }) {
               <RichHeading
                 as="h2"
                 heading={data.heading}
-                className="mb-2.5 max-w-none font-semibold tracking-[-1.8px] text-ink"
+                className="mb-2.5 max-w-none font-medium tracking-[-1.8px] text-ink"
                 emphasisClassName="font-serif font-normal tracking-[-1px]"
               />
 
@@ -406,7 +406,7 @@ export default function Topics({ data: topicsData, courseCount, courses }) {
                   <RichHeading
                     as="h3"
                     heading={popular.heading}
-                    className="mb-2 text-[30px] font-bold leading-[1.12] tracking-[-0.025em] text-ink"
+                    className="mb-2 text-[30px] font-medium leading-[1.12] tracking-[-0.025em] text-ink"
                     emphasisClassName="font-serif font-normal tracking-[-1px]"
                   />
 

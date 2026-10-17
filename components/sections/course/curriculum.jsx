@@ -203,7 +203,7 @@ export default function Curriculum({ curriculum }) {
                 />
                 <Text
                   as="h3"
-                  className="min-w-0 font-display text-[12.5px] leading-[1.3] font-semibold tracking-[-0.01em] text-ink"
+                  className="min-w-0 font-display text-[12.5px] leading-[1.3] font-medium tracking-[-0.01em] text-ink"
                 >
                   {author_credit.title}
                 </Text>

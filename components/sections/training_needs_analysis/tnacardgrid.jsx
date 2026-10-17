@@ -51,7 +51,7 @@ export default function TnaCardGrid({ id, data, columns = 4, background = "paper
             <Box className="h-full rounded-[14px] border border-ink/12 bg-white p-7">
               <Text
                 as="h3"
-                className="mb-2.5 font-display text-[16px] leading-[1.3] font-bold tracking-[-0.01em] text-ink hyphens-none"
+                className="mb-2.5 font-display text-[16px] leading-[1.3] font-medium tracking-[-0.01em] text-ink hyphens-none"
               >
                 {item.title}
               </Text>

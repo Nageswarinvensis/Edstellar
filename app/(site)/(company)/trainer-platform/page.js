@@ -23,10 +23,8 @@ export async function generateMetadata() {
 }
 
 /**
- * Join as a Trainer — the CMS site page `trainer-platform` (SEO,
- * breadcrumbs, dashboard, how it works, closing panel) plus the sections it
- * does not send yet, from `content/company/trainer-platform.json`; see
- * `getTrainerPlatformPage`.
+ * Join as a Trainer — every section from the CMS site page
+ * `trainer-platform`; see `getTrainerPlatformPage`.
  *
  * Design: `Join as a Trainer.html`.
  */

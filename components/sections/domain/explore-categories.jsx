@@ -121,7 +121,7 @@ export default function ExploreCategories({ data }) {
               <RichHeading
                 as="h2"
                 heading={data.heading}
-                className="mb-2.5 max-w-none font-semibold tracking-[-1.8px] text-ink"
+                className="mb-2.5 max-w-none font-medium tracking-[-1.8px] text-ink"
                 emphasisClassName="font-serif font-normal tracking-[-1px]"
               />
 

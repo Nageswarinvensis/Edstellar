@@ -57,7 +57,7 @@ export default function ChallengeGrid({ data }) {
                 </Text>
                 <Text
                   as="h3"
-                  className="font-display text-[19px] leading-[1.2] font-semibold text-navy"
+                  className="font-display text-[19px] leading-[1.2] font-medium text-navy"
                 >
                   {item.title}
                 </Text>

@@ -34,7 +34,7 @@ export default function ByRole({ data }) {
           <RichHeading
             as="h2"
             heading={data.heading}
-            className="max-w-175 font-semibold tracking-[-1.8px] text-ink"
+            className="max-w-175 font-medium tracking-[-1.8px] text-ink"
             emphasisClassName="font-serif font-normal tracking-[-1px]"
           />
         </Reveal>
@@ -127,7 +127,7 @@ export default function ByRole({ data }) {
 
                     <Text
                       as="h3"
-                      className="mt-3 text-[23px] font-semibold leading-[1.05] tracking-[-1px] text-ink md:text-[25px]"
+                      className="mt-3 text-[23px] font-medium leading-[1.05] tracking-[-1px] text-ink md:text-[25px]"
                     >
                       {role.title}
                     </Text>

@@ -66,7 +66,7 @@ export default function LdBlueprint({ data }) {
                   <Box className="flex flex-wrap items-baseline justify-between gap-4">
                     <Text
                       as="h3"
-                      className="font-display text-[18px] leading-[1.3] font-bold tracking-[-0.01em] text-ink"
+                      className="font-display text-[18px] leading-[1.3] font-medium tracking-[-0.01em] text-ink"
                     >
                       {layer.title}
                     </Text>

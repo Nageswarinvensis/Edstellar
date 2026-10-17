@@ -30,7 +30,7 @@ export default function FromEdstellar({ data }) {
                 <Box className="flex items-start justify-between gap-5">
                   <Text
                     as="h3"
-                    className="text-[16px] font-semibold leading-[1.2] tracking-[-0.35px] text-ink"
+                    className="text-[16px] font-medium leading-[1.2] tracking-[-0.35px] text-ink"
                   >
                     {item.title}
                   </Text>

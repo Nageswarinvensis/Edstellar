@@ -40,7 +40,7 @@ export default function Benefits({ id, data }) {
             <Box className="flex flex-col bg-[#EFECE6]/70">
               {/* Column Header */}
               <Box className="border-b border-black/5 px-6 py-5">
-                <Text as="h3" className="text-base font-bold text-ink/80">
+                <Text as="h3" className="text-base font-medium text-ink/80">
                   {traditional.title || "Traditional TNA"}
                 </Text>
               </Box>
@@ -67,7 +67,7 @@ export default function Benefits({ id, data }) {
             <Box className="flex flex-col bg-white">
               {/* Column Header */}
               <Box className="flex items-center justify-between bg-ink px-6 py-4">
-                <Text as="h3" className="text-base font-bold text-white">
+                <Text as="h3" className="text-base font-medium text-white">
                   {automated.title || "Automated TNA"}
                 </Text>
                 {automated.badge && (

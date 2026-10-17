@@ -96,7 +96,7 @@ export default function Scope({ data }) {
 
                     <Text
                       as="h3"
-                      className="mt-5 font-serif text-[24px] font-bold leading-none tracking-[-0.8px] text-ink italic"
+                      className="mt-5 font-serif text-[24px] font-medium leading-none tracking-[-0.8px] text-ink italic"
                     >
                       {tab.title}
                     </Text>

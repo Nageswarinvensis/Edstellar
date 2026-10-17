@@ -79,7 +79,7 @@ export default function BlogDetailToc() {
   return (
     <aside className="toc-wrapper sticky top-24 h-[80vh] w-50 min-w-50 self-start overflow-y-auto">
       <Reveal>
-        <h3 className="mb-5 text-[18px] font-semibold leading-5 text-navy">
+        <h3 className="mb-5 text-[18px] font-medium leading-5 text-navy">
           Content
         </h3>
 

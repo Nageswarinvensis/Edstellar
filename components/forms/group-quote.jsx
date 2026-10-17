@@ -248,7 +248,7 @@ export default function GroupQuote({ heading, thankYou = "course" }) {
       <Box>
         <Text
           as="h3"
-          className="mb-6 text-center font-display text-[clamp(19px,2vw,25px)] font-bold tracking-[-0.025em] text-ink"
+          className="mb-6 text-center font-display text-[clamp(19px,2vw,25px)] font-medium tracking-[-0.025em] text-ink"
         >
           How many team members need training?
         </Text>
@@ -331,7 +331,7 @@ export default function GroupQuote({ heading, thankYou = "course" }) {
       <Box>
         <Text
           as="h3"
-          className="mb-5 text-center font-display text-[clamp(19px,2vw,25px)] font-bold tracking-[-0.025em] text-ink"
+          className="mb-5 text-center font-display text-[clamp(19px,2vw,25px)] font-medium tracking-[-0.025em] text-ink"
         >
           Which programs do you need?
         </Text>
@@ -549,7 +549,7 @@ export default function GroupQuote({ heading, thankYou = "course" }) {
       <Box>
         <Text
           as="h3"
-          className="mb-6 text-center font-display text-[clamp(19px,2vw,25px)] font-bold tracking-[-0.025em] text-ink"
+          className="mb-6 text-center font-display text-[clamp(19px,2vw,25px)] font-medium tracking-[-0.025em] text-ink"
         >
           Is this a one-time program or a recurring one?
         </Text>
@@ -671,7 +671,7 @@ export default function GroupQuote({ heading, thankYou = "course" }) {
       <Box>
         <Text
           as="h3"
-          className="mb-6 text-center font-display text-[clamp(19px,2vw,25px)] font-bold tracking-[-0.025em] text-ink"
+          className="mb-6 text-center font-display text-[clamp(19px,2vw,25px)] font-medium tracking-[-0.025em] text-ink"
         >
           Review and send your request.
         </Text>
@@ -959,7 +959,7 @@ export default function GroupQuote({ heading, thankYou = "course" }) {
         <Box className="mt-12 border-t border-ink/10 pt-9 lg:mt-14">
           <Text
             as="h3"
-            className="mb-2.5 max-w-[26ch] font-display text-[clamp(19px,2vw,24px)] font-bold leading-[1.25] tracking-[-0.025em] text-ink"
+            className="mb-2.5 max-w-[26ch] font-display text-[clamp(19px,2vw,24px)] font-medium leading-[1.25] tracking-[-0.025em] text-ink"
           >
             ML Model Monitoring Training Packages & Pricing
           </Text>

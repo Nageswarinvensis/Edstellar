@@ -52,7 +52,7 @@ export default function LdChallenge({ data }) {
               <Box>
                 <Text
                   as="h3"
-                  className="mb-1.75 font-display text-[20px] leading-[1.2] font-semibold text-navy max-[760px]:text-[18px]"
+                  className="mb-1.75 font-display text-[20px] leading-[1.2] font-medium text-navy max-[760px]:text-[18px]"
                 >
                   {outcome.title}
                 </Text>

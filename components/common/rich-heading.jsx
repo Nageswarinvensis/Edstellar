@@ -42,7 +42,7 @@ function RichHeading({
         return (
           <em
             key={index}
-            className={cn("font-serif italic", emphasisClassName)}
+            className={cn("font-serif font-normal italic", emphasisClassName)}
           >
             {match[1]}
           </em>

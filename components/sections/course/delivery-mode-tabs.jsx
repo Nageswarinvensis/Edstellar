@@ -21,8 +21,10 @@ import { cn } from "@/lib/utils";
  * name this tab differently (`id: "virtual"` on one, `id: "online"` on
  * another, label "In-house" vs "On-site" vs sublabel-only), so an exact-key
  * lookup silently drops the image on any course that doesn't use the one
- * id this file happened to be written against. Position (tabs are always
- * authored virtual/onsite/offsite, in that order) is the final fallback.
+ * id this file happened to be written against. Position (virtual, on-site,
+ * off-site, hybrid) is the final fallback. A hybrid / blended tab gets its
+ * own photo, whichever position it is in (the domain CMS now sends
+ * Onsite, Virtual, Hybrid).
  *
  * Each panel can close with a paragraph (`delivery_format_cta_description`)
  * and a button (`btn_label` + `btn_link`) under its points — both optional,
@@ -31,15 +33,20 @@ import { cn } from "@/lib/utils";
  * Design: `#modeTabs`, `.tab`, `#modePanels`, `.tab-panel`, `.mode-art`.
  */
 const TAB_IMAGE_RULES = [
+  // Hybrid first: a hybrid tab can also mention "virtual" / "online".
+  { image: { src: "/course/hybrid.webp", alt: "Hybrid training" }, match: /hybrid|blended/i },
   { image: { src: "/course/vertual.webp", alt: "Virtual training" }, match: /virtual|online/i },
   { image: { src: "/course/on-site.webp", alt: "On-site training" }, match: /on.?site|in.?house/i },
   { image: { src: "/course/off-site.webp", alt: "Off-site training" }, match: /off.?site|away/i },
 ];
 
+/** By position when no keyword matches: virtual, on-site, off-site, hybrid. */
+const POSITION_FALLBACK = [1, 2, 3, 0].map((rule) => TAB_IMAGE_RULES[rule].image);
+
 function imageForTab(tab, index) {
   const haystack = `${tab.id ?? ""} ${tab.label ?? ""} ${tab.sublabel ?? ""}`;
   const byKeyword = TAB_IMAGE_RULES.find((rule) => rule.match.test(haystack));
-  return byKeyword?.image ?? TAB_IMAGE_RULES[index]?.image;
+  return byKeyword?.image ?? POSITION_FALLBACK[index];
 }
 
 /** Some CMS records (the domain page's `deliveryModes`, unlike a course's)
@@ -127,7 +134,7 @@ export default function DeliveryModeTabs({ tabs }) {
             <Box>
               <Text
                 as="h3"
-                className="mb-3 font-display text-2xl font-semibold tracking-[-0.02em] text-ink"
+                className="mb-3 font-display text-2xl font-medium tracking-[-0.02em] text-ink"
               >
                 {tab.title}
               </Text>
@@ -174,7 +181,7 @@ export default function DeliveryModeTabs({ tabs }) {
 
             <Box
               aria-hidden="true"
-              className="relative flex h-70 items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
+              className="relative flex aspect-video items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
             >
               {image ? (
                 <Image
@@ -183,7 +190,7 @@ export default function DeliveryModeTabs({ tabs }) {
                   title={tab.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               ) : null}
             </Box>

@@ -43,7 +43,7 @@ export default function TrainerImpact({ data }) {
                 {pad(index + 1)}
               </Text>
               <Box>
-                <Text as="h3" className="mb-2 text-[19px] leading-[1.3] font-semibold">
+                <Text as="h3" className="mb-2 text-[19px] leading-[1.3] font-medium">
                   {item.title}
                 </Text>
                 <Text as="p" className="text-[15px] leading-[1.75]">

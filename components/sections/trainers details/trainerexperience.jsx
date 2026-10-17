@@ -48,7 +48,7 @@ export default function TrainerExperience({ trainer, data }) {
                     {/* Role Title (Main Heading) */}
                     <Text
                       as="h3"
-                      className="text-[18px] font-bold tracking-tight text-ink"
+                      className="text-[18px] font-medium tracking-tight text-ink"
                     >
                       {item.role}
                     </Text>

@@ -133,7 +133,7 @@ export default function ChangeRelatedSlider({ id, data }) {
 
                   <Text
                     as="h3"
-                    className="mb-2 font-display text-[18px] leading-[1.3] font-bold text-ink"
+                    className="mb-2 font-display text-[18px] leading-[1.3] font-medium text-ink"
                   >
                     {item.title}
                   </Text>

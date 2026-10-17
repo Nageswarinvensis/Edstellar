@@ -64,7 +64,7 @@ export default function Outputs({ data }) {
           <Reveal key={col.title} delay={Math.min(index + 1, 4)} className="h-full max-[1100px]:last:col-span-2 max-[600px]:last:col-auto">
             <Box className="h-full overflow-hidden rounded-2xl border border-ink/12 bg-white">
               <Box className="bg-navy px-6.5 py-5.5 max-[600px]:px-5 max-[600px]:py-4.5">
-                <Text as="h3" className="font-display text-[18px] font-bold text-paper">
+                <Text as="h3" className="font-display text-[18px] font-medium text-paper">
                   {col.title}
                 </Text>
                 <Text as="p" className="mt-0.5 text-[13.5px] text-lime-soft">

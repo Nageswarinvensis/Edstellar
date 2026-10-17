@@ -73,7 +73,7 @@ export default function OurReach({ trainer, data }) {
                     />
                   </svg>
 
-                  <Text as="h3" className="text-[18px] font-bold">
+                  <Text as="h3" className="text-[18px] font-medium">
                     {data.languages_heading}
                   </Text>
                 </Box>
@@ -133,7 +133,7 @@ export default function OurReach({ trainer, data }) {
                     />
                   </svg>
 
-                  <Text as="h3" className="text-[18px] font-bold">
+                  <Text as="h3" className="text-[18px] font-medium">
                     {data.coverage_heading}
                   </Text>
                 </Box>

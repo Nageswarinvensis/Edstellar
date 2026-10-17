@@ -88,7 +88,7 @@ export default function TrainerAbout({ trainer, data }) {
             <Box className="sticky top-16 self-start h-fit rounded-[16px] border border-[#e2e8f0] bg-white p-5 shadow-sm sm:p-6">
               <Text
                 as="h3"
-                className="text-[20px] font-bold tracking-tight text-ink"
+                className="text-[20px] font-medium tracking-tight text-ink"
               >
                 {data.glance_heading}
               </Text>

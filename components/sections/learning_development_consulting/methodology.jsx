@@ -84,7 +84,7 @@ export default function Methodology({ data }) {
                         {/* Title */}
                         <Text
                           as="h3"
-                          className="font-bold text-lg text-ink tracking-tight"
+                          className="font-medium text-lg text-ink tracking-tight"
                         >
                           {step.title}
                         </Text>

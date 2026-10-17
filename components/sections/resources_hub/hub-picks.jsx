@@ -42,7 +42,7 @@ export default function HubPicks({ data }) {
                   <Text as="span" className="block font-mono text-[10.5px] leading-[1.5] tracking-[0.16em] text-ink/45 uppercase">
                     {item.kind}
                   </Text>
-                  <Text as="h3" className="mt-1.5 mb-4 text-[17px] leading-[1.35] font-semibold tracking-[-0.02em]">
+                  <Text as="h3" className="mt-1.5 mb-4 text-[17px] leading-[1.35] font-medium tracking-[-0.02em]">
                     {item.title}
                   </Text>
                   <Text

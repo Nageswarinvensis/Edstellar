@@ -12,7 +12,7 @@ function Block({ block }) {
   switch (block.type) {
     case "h3":
       return (
-        <Text as="h3" className="mt-10 mb-4 text-[18px] leading-[1.35] font-semibold tracking-normal">
+        <Text as="h3" className="mt-10 mb-4 text-[18px] leading-[1.35] font-medium tracking-normal">
           {block.text}
         </Text>
       );
@@ -60,7 +60,7 @@ function Block({ block }) {
       return (
         <Box className="my-8 rounded-[14px] border border-l-3 border-ink/12 border-l-lime bg-paper-warm p-8 text-[15.5px] leading-[1.7] text-ink">
           {block.heading ? (
-            <Text as="h3" className="mb-2 text-[18px] leading-[1.35] font-semibold tracking-normal">
+            <Text as="h3" className="mb-2 text-[18px] leading-[1.35] font-medium tracking-normal">
               {block.heading}
             </Text>
           ) : null}

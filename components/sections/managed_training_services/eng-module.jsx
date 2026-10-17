@@ -54,7 +54,7 @@ function ModuleCard({ cardData }) {
 
       {/* Card Header & Features */}
       <Box>
-        <Text as="h3" className="font-display text-[18px] font-bold tracking-tight text-ink">
+        <Text as="h3" className="font-display text-[18px] font-medium tracking-tight text-ink">
           {title}
         </Text>
 

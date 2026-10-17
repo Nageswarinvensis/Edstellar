@@ -136,7 +136,7 @@ export default function LdServices({ data }) {
                     {/* Title */}
                     <Text
                       as="h3"
-                      className="mb-2.5 text-[18px] font-bold text-ink"
+                      className="mb-2.5 text-[18px] font-medium text-ink"
                     >
                       {item.title}
                     </Text>

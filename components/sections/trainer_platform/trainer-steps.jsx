@@ -128,7 +128,7 @@ export default function TrainerSteps({ data }) {
                     measured && !on && "translate-x-2.5 opacity-38",
                   )}
                 >
-                  <Text as="h3" className="mb-2.5 text-[18px] leading-[1.3] font-semibold text-paper min-[901px]:text-[21px]">
+                  <Text as="h3" className="mb-2.5 text-[18px] leading-[1.3] font-medium text-paper min-[901px]:text-[21px]">
                     {step.title}
                   </Text>
                   <Text as="p" className="max-w-[52ch] text-[15px] leading-[1.75] text-paper/72">

@@ -30,7 +30,7 @@ export default function Steps({ data }) {
               {String(index + 1).padStart(2, "0")}
             </Box>
             <Box className="pt-1.75">
-              <Text as="h3" className="mb-1.5 text-[17px] leading-[1.3] font-semibold tracking-normal">
+              <Text as="h3" className="mb-1.5 text-[17px] leading-[1.3] font-medium tracking-normal">
                 {step.title}
               </Text>
               <Text as="p" className="max-w-[68ch] text-[15.5px] leading-[1.65]">

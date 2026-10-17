@@ -214,7 +214,7 @@ function BundleDrawer({ bundle, onClose }) {
           <Box>
             <Text
               as="h3"
-              className="mb-2 pr-10 font-display text-[22px] font-bold leading-[1.2] tracking-[-0.02em] text-ink"
+              className="mb-2 pr-10 font-display text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-ink"
             >
               {bundle.name}
             </Text>
@@ -454,7 +454,7 @@ export default function Bundles({ data: bundlesData, courses }) {
             <RichHeading
               as="h2"
               heading={data.heading}
-              className="mb-3 max-w-none font-semibold tracking-[-1.8px] text-ink"
+              className="mb-3 max-w-none font-medium tracking-[-1.8px] text-ink"
               emphasisClassName="font-serif font-normal tracking-[-1px]"
             />
 

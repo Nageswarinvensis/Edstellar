@@ -42,7 +42,7 @@ export default function TrainerBenefits({ data }) {
               <Text as="p" className="mb-2.5 font-mono text-[10px] leading-[1.5] tracking-[0.16em] text-olive uppercase">
                 {item.tag}
               </Text>
-              <Text as="h3" className="mb-2.5 text-[18px] leading-[1.3] font-semibold">
+              <Text as="h3" className="mb-2.5 text-[18px] leading-[1.3] font-medium">
                 {item.title}
               </Text>
               <Text as="p" className="text-[15px] leading-[1.7]">

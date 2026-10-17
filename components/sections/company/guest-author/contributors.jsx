@@ -29,7 +29,7 @@ export default function Contributors({ data }) {
           <Reveal key={role.label} delay={Math.min(index + 1, 4)}>
             <Box className="h-full rounded-[14px] border border-ink/12 bg-white px-4.5 py-6 text-center shadow-[0_1px_2px_rgba(10,22,40,0.06)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.75 hover:shadow-[0_6px_24px_rgba(10,22,40,0.08)]">
               <IconTile name={role.icon} className="mx-auto mb-3.5" />
-              <Text as="h3" className="text-[14.5px] leading-[1.3] font-semibold tracking-normal">
+              <Text as="h3" className="text-[14.5px] leading-[1.3] font-medium tracking-normal">
                 {role.label}
               </Text>
             </Box>

@@ -1,11 +1,15 @@
 import {
   Briefcase,
   GraduationCap,
+  Heart,
   Lightbulb,
   Megaphone,
   Monitor,
   Send,
+  Target,
+  TrendingUp,
   User,
+  Users,
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -18,8 +22,12 @@ const ICONS = {
   lightbulb: Lightbulb,
   megaphone: Megaphone,
   monitor: Monitor,
+  heart: Heart,
   send: Send,
+  target: Target,
+  "trending-up": TrendingUp,
   user: User,
+  users: Users,
 };
 
 /** The navy tile with a lime line icon used on the company pages' cards. */

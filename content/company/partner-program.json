@@ -1,0 +1,341 @@
+{
+  "seo": {
+    "title": "Become an Edstellar Partner | Reseller & Affiliate Programs",
+    "description": "Take advantage of Edstellar's competitive prices, support, and other benefits by reselling our training. Explore your options to expand your business as a Partner.",
+    "path": "/partner-program"
+  },
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Partner Program",
+      "href": null
+    }
+  ],
+  "hero": {
+    "title": "Partner With Edstellar",
+    "description": "Unlock new revenue streams with Edstellar's exclusive Affiliate and Reseller Partnership Programs",
+    "primaryBtnText": "Join as a Partner",
+    "primaryBtnHref": "#contact",
+    "image": {
+      "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67c822bf1136098489607cd0_Partner%20program%20(1).webp",
+      "alt": "A Path To Success For Everyone",
+      "width": 495,
+      "height": 390
+    }
+  },
+  "choice_comparison": {
+    "section_id": "choice",
+    "heading": "Choose a Partnership Model that Aligns with Your <span>Goals</span>",
+    "cards": [
+      {
+        "tag": "Affiliate Partner",
+        "title": "Spread the Word, Reap the Rewards",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67c81f58a31ab193dc5f4a7a_Affiliate-partner%20(1)-p-500.webp",
+          "alt": "Affiliate Partner",
+          "width": 500,
+          "height": 310
+        },
+        "details": [
+          {
+            "label": "Who It's For:",
+            "text": "Ideal for consultants and thought leaders in the HR, compliance and training and development domains"
+          },
+          {
+            "label": "How It Works:",
+            "text": "Simply refer clients to Edstellar and earn a commission for every successful training engagement"
+          }
+        ],
+        "list_label": "Your Benefits:",
+        "benefits": [
+          "Attractive commission rates",
+          "Access to a library of marketing materials",
+          "Continuous support from the Edstellar team",
+          "Real-time tracking and analytics"
+        ],
+        "cta": {
+          "label": "Partner as an Affiliate",
+          "href": "#contact"
+        }
+      },
+      {
+        "tag": "Reseller Partner",
+        "title": "Own the Process, Grow Your Business",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67c82025a5246ab39334010f_Reseller-partner%20(1)-p-500.webp",
+          "alt": "Reseller Partner",
+          "width": 500,
+          "height": 310
+        },
+        "details": [
+          {
+            "label": "Who It's For:",
+            "text": "Perfect for training companies, LMS providers, consultants and entrepreneurs looking to broaden their portfolio"
+          },
+          {
+            "label": "How It Works:",
+            "text": "Resell Edstellar's training programs to your clients and generate revenue with every successful sale"
+          }
+        ],
+        "list_label": "Your Benefits:",
+        "benefits": [
+          "Competitive reseller prices",
+          "Extensive course catalog",
+          "Dedicated account manager for personalized support",
+          "Customized training packages and tailored solutions"
+        ],
+        "cta": {
+          "label": "Partner as a Reseller",
+          "href": "#contact"
+        }
+      }
+    ]
+  },
+  "process_rail": {
+    "section_id": "process",
+    "heading": "Create a New Source of Revenue with Your <span>Network</span>",
+    "description": "Get started in 3 simple steps",
+    "steps": [
+      {
+        "title": "Fill Form",
+        "description": "Fill out your details and we will share the application form"
+      },
+      {
+        "title": "Review",
+        "description": "We will review your application in 2 weeks"
+      },
+      {
+        "title": "Approval",
+        "description": "On approval, we will schedule a call to enroll you into our partner program"
+      }
+    ],
+    "cta": {
+      "label": "Sign up as a Partner",
+      "href": "#contact"
+    }
+  },
+  "services_tabs": {
+    "section_id": "services",
+    "heading": "Edstellar Partnership Models Tailored for <span>You</span>",
+    "items": [
+      {
+        "title": "Trainers/Training Consultants",
+        "icon": "graduation-cap",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67c8236fce0ffbdd993cb529_Training%20consultant%20(1).webp",
+          "alt": "Trainers/Training Consultants",
+          "width": 401,
+          "height": 401
+        },
+        "paragraphs": [
+          "If you're a trainer or training consultant, leverage your network to connect organizations with Edstellar to explore new opportunities with the Edstellar Affiliate and Reseller Partner Program.",
+          "Earn commissions for every successful business outcome or generate revenue through reselling, while simultaneously enhancing your credibility in the dynamic field of training."
+        ]
+      },
+      {
+        "title": "Independent Consultants",
+        "icon": "user",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67c823f43c62a52a386e4ad5_Independent%20consultant%20(1).webp",
+          "alt": "Independent Consultants",
+          "width": 401,
+          "height": 401
+        },
+        "paragraphs": [
+          "The Edstellar Consultant Affiliate and Reseller Partner Program Models are thoughtfully created for independent consultants who recognize the pivotal role of comprehensive training solutions in their client organizations.",
+          "Recommend Edstellar to your clients, and actively contribute to their holistic development, and earn commissions for each successful endorsement that translates into valuable business. You can also create a new source of revenue by reselling our training programs. Join us in advancing training excellence by helping us foster prosperous collaborations."
+        ]
+      },
+      {
+        "title": "HR and Compliance Consultancies",
+        "icon": "shield-check",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67c82484de8881483fcb1f40_HR%20and%20compliance%20consultencies%20(1).webp",
+          "alt": "HR and Compliance Consultancies",
+          "width": 401,
+          "height": 401
+        },
+        "paragraphs": [
+          "The Edstellar HR and Compliance Consultant Affiliate and Reseller Partner Program Models are specifically crafted for HR consultancies, compliance consultancies, and related firms that understand the vital role of comprehensive training solutions for their client organizations.",
+          "Recommend Edstellar to your clients, contributing to their holistic development, and earn commissions for each successful recommendation that results in valuable business. You can also create a new source of revenue by reselling our training programs."
+        ]
+      },
+      {
+        "title": "LMS Platforms",
+        "icon": "monitor",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67c824dd86fb7be12e59e54f_LMS%20Platforms%20(1).webp",
+          "alt": "LMS Platforms",
+          "width": 401,
+          "height": 401
+        },
+        "paragraphs": [
+          "Enhance your training offerings as an LMS provider with Edstellar’s diverse training solutions. By partnering with us, integrate our onsite and virtual instructor-led training with your current catalog for a superior blended learning experience.",
+          "This collaboration not only elevates the learning journey for your clients but also opens up new financial avenues, fostering a robust and mutually rewarding partnership."
+        ]
+      },
+      {
+        "title": "Training Organizations",
+        "icon": "building",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/67c821251d5c8a8ab2408c5f_Partnership-model%20(1).webp",
+          "alt": "Training Organizations",
+          "width": 401,
+          "height": 401
+        },
+        "paragraphs": [
+          "As a partner of Edstellar, your organization can refer your clients to Edstellar’s instructor-led training solutions, thereby expanding your training catalog and elevating your client experience. Each successful client referral that results in an engagement generates commission for your organization.",
+          "This model builds a financially rewarding partnership for your organization, while strengthening your market position and credibility."
+        ]
+      }
+    ]
+  },
+  "challenge_cards": {
+    "section_id": "challenge",
+    "heading": "Become a Partner, Earn and Grow with a Supportive <span>Ecosystem</span>",
+    "items": [
+      {
+        "title": "A Partner Dashboard to Track Your Referrals",
+        "description": "Monitor and manage your referral activities from time-to-time"
+      },
+      {
+        "title": "Partner Support",
+        "description": "We have a partner support team to respond to your queries. Write to us at contact@edstellar.com",
+        "email": "contact@edstellar.com"
+      },
+      {
+        "title": "Ready-to-use Sales Assets",
+        "description": "We have readily available brochures, catalogs and guides to support you with referral activities"
+      }
+    ]
+  },
+  "concept": {
+    "section_id": "concept",
+    "heading": "Benefits of Our Partner <span>Program</span>",
+    "svg_image": "<svg viewBox=\"0 0 400 380\" role=\"img\" aria-label=\"Maximize Effort Maximize Return, Leverage your Network and Grow, Build your Reputation and Expertise\"><circle cx=\"200\" cy=\"130\" r=\"112\" style=\"fill:var(--color-navy)\"/><circle cx=\"138\" cy=\"238\" r=\"112\" fill-opacity=\".9\" style=\"fill:var(--color-olive)\"/><circle cx=\"262\" cy=\"238\" r=\"112\" fill-opacity=\".88\" style=\"fill:var(--color-navy-soft)\"/><path d=\"M200 156 L236 214 L164 214 Z\" style=\"fill:var(--color-lime)\"/><circle cx=\"200\" cy=\"194\" r=\"17\" fill=\"none\" stroke-width=\"3\" style=\"stroke:var(--color-navy)\"/><text x=\"200\" y=\"202\" text-anchor=\"middle\" font-weight=\"700\" font-size=\"20\" style=\"fill:var(--color-navy);font-family:var(--font-display)\">$</text><g font-weight=\"600\" font-size=\"15\" text-anchor=\"middle\" style=\"fill:var(--color-paper);font-family:var(--font-display)\"><text x=\"200\" y=\"82\">Maximize Effort</text><text x=\"200\" y=\"102\">Maximize Return</text><text x=\"118\" y=\"250\">Leverage</text><text x=\"118\" y=\"270\">your Network</text><text x=\"118\" y=\"290\">and Grow</text><text x=\"282\" y=\"250\">Build your</text><text x=\"282\" y=\"270\">Reputation</text><text x=\"282\" y=\"290\">and Expertise</text></g></svg>",
+    "principles": [
+      {
+        "title": "Maximize Effort Maximize Return",
+        "description": "Earn financial rewards for every successful partnership referral you bring to Edstellar"
+      },
+      {
+        "title": "Leverage your Network and Grow",
+        "description": "Pave the way for new opportunities by leveraging your existing network"
+      },
+      {
+        "title": "Build your Reputation and Expertise",
+        "description": "Enhance your credibility by expanding your service offerings with Edstellar"
+      }
+    ]
+  },
+  "contact_form": {
+    "section_id": "contact",
+    "heading": "Are you ready to join hands with us and explore new earning and growth <span>prospects?</span>",
+    "description": "Let us get started",
+    "tabs": [
+      {
+        "id": "business",
+        "label": "For Businesses"
+      },
+      {
+        "id": "individual",
+        "label": "For Individuals"
+      }
+    ],
+    "partnership_types": [
+      "Resellers",
+      "Affiliates"
+    ],
+    "target_segments": [
+      "B2B",
+      "B2C",
+      "B2B and B2C"
+    ],
+    "submit_label": "Submit"
+  },
+  "faq": {
+    "section_id": "faq",
+    "heading": "Frequently Asked <span>Questions</span>",
+    "groups": [
+      {
+        "id": "pay",
+        "label": "Commission and Payouts",
+        "items": [
+          {
+            "question": "What is the commission structure for the partner program?",
+            "answer": "Commission structure is dependent on the training requirement of the referred organization, the number of employees getting the training or the training package opted for by the organization. Write to us at contact@edstellar.com or call us on +1 682 297 4830 / +44 151 453 4009 / +91 6364833830 to know more about the partner program commission structure."
+          },
+          {
+            "question": "How are commissions calculated and what is the payment frequency?",
+            "answer": "Ans. To know the details of calculating the commission and the payment frequency, write to us at contact@edstellar.com or call us on +1 682 297 4830 / +44 151 453 4009 / +91 6364833830."
+          },
+          {
+            "question": "Are there any thresholds or minimums for earning commissions?",
+            "answer": "There are no thresholds or minimums for earning commissions. Partners can start earning on purchases made by every referral organization that requires training."
+          },
+          {
+            "question": "What payment methods are used for commission payouts?",
+            "answer": "Edstellar typically uses bank transfers and electronic payment platforms like PayPal for commission payouts, ensuring secure and convenient transactions for our partners."
+          },
+          {
+            "question": "Can I earn recurring commissions for repeat clients, or is it a one-time payment?",
+            "answer": "At present, our partner program offers a one-time commission for each successful client referral. We do not provide recurring commissions for repeat engagements by the same client."
+          },
+          {
+            "question": "Is it possible to split my commission with a collaborator or the client I'm referring to?",
+            "answer": "Currently, our policy does not allow for the splitting of commission between partners and their collaborators or referred clients. Commissions are awarded solely to the partner who made the referral."
+          }
+        ]
+      },
+      {
+        "id": "sup",
+        "label": "Partnership and Support",
+        "items": [
+          {
+            "question": "What are the terms of termination for the partner contract? Can either party terminate it at any time?",
+            "answer": "Write to us at contact@edstellar.com or call us on +1 682 297 4830 / +44 151 453 4009 / +91 6364833830 to know more about the terms and conditions of the termination of the partner contract."
+          },
+          {
+            "question": "What types of marketing materials and support does Edstellar provide to partners?",
+            "answer": "We equip partners with a comprehensive range of marketing materials and support to aid in their promotional efforts. This includes digital brochures, customizable email templates, and detailed product catalogs. Additionally, we provide access to an online dashboard for tracking referrals and performance, along with dedicated support for any queries or assistance."
+          },
+          {
+            "question": "Is there a dedicated account manager or support team for partners?",
+            "answer": "Though we do not have a dedicated account manager, Edstellar offers partner support by responding to queries via email and phone from time-to-time."
+          },
+          {
+            "question": "How can I track my referrals and commissions?",
+            "answer": "Every partner is provided with a personalized dashboard, where you can easily track your referrals and monitor your commission earnings in real-time."
+          },
+          {
+            "question": "Are there any geographical restrictions or specific markets that the partner program targets?",
+            "answer": "There are no geographical restrictions for our partner program. Edstellar offers on-site and virtual instructor-led corporate training to organizations worldwide, allowing partners to refer clients from any location."
+          },
+          {
+            "question": "How does Edstellar handle client service and satisfaction post-referral?",
+            "answer": "Edstellar upholds a high standard of client service and satisfaction, evidenced by our esteemed and diverse clientele. We provide tailored training solutions and responsive support to meet each client's unique needs."
+          },
+          {
+            "question": "Is there a feedback mechanism for partners to suggest improvements to the program or training content?",
+            "answer": "Yes, Edstellar values the insights of our partners and has a feedback mechanism in place. Partners can easily suggest improvements to the partner program or training, ensuring continuous enhancement and relevance of our offerings."
+          },
+          {
+            "question": "Can I refer to any type of organization, or are there specific industries or sizes that Edstellar focuses on?",
+            "answer": "You can refer almost any type of organization to Edstellar, as we cater to a wide range of industries, bridging skill gaps across various domains. However, there are a few specialized areas outside our scope, so we primarily focus on organizations seeking skill enhancement in the domains we cover. View our training catalog."
+          },
+          {
+            "question": "Is the commission rate/contract adjustable?",
+            "answer": "Sure, we’re open to having any collaboration if you have your special way to promote and have a different opportunity. Let us talk!"
+          },
+          {
+            "question": "Is there anything else I should know?",
+            "answer": "See the full terms of service here. We reserve the right to change the terms of the Partner Program at any time. We look forward to welcoming you to the program."
+          }
+        ]
+      }
+    ]
+  }
+}

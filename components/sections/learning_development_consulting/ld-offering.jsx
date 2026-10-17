@@ -14,7 +14,7 @@ function OfferingPanel({ item }) {
       <Box>
         <Text
           as="h3"
-          className="mb-2 text-[19px] leading-[1.3] font-bold tracking-[-0.01em] text-ink"
+          className="mb-2 text-[19px] leading-[1.3] font-medium tracking-[-0.01em] text-ink"
         >
           {item.title}
         </Text>

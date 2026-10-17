@@ -20,7 +20,7 @@ export default function Benefits({ data }) {
           <Reveal key={item.title} delay={index + 1}>
             <Box className="h-full rounded-[14px] border border-ink/12 bg-white p-10 shadow-[0_1px_2px_rgba(10,22,40,0.06)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.75 hover:shadow-[0_6px_24px_rgba(10,22,40,0.08)]">
               <IconTile name={item.icon} className="mb-6" />
-              <Text as="h3" className="mb-2 text-[19px] leading-[1.3] font-semibold">
+              <Text as="h3" className="mb-2 text-[19px] leading-[1.3] font-medium">
                 {item.title}
               </Text>
               <Text as="p" className="text-[15.5px] leading-[1.65]">

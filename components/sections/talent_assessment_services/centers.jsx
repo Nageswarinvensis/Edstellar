@@ -22,7 +22,7 @@ function CenterColumn({ column }) {
       </Text>
       <Text
         as="h3"
-        className={cn("mt-2 mb-1 font-display text-[26px] font-bold tracking-[-0.02em]", dark ? "text-paper" : "text-ink")}
+        className={cn("mt-2 mb-1 font-display text-[26px] font-medium tracking-[-0.02em]", dark ? "text-paper" : "text-ink")}
       >
         {column.title}
       </Text>
