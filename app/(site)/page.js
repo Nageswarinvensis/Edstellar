@@ -65,7 +65,6 @@ const SITE_MAP = [
     links: [
       "/resources",
       "/resources/brochures/example",
-      "/resources/case-studies/example",
       "/resources/templates/example",
       "/resources/tools/example",
     ],

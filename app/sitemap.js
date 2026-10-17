@@ -7,6 +7,7 @@ import {
 } from "@/lib/content/consulting";
 import { getTalentAssessmentServiceSlugs } from "@/lib/content/talent-assessment";
 import { RESOURCE_TYPES } from "@/lib/content/resources";
+import { getCaseStudySlugs } from "@/lib/content/case-studies";
 
 /**
  * Generated from the content layer, never hand-maintained — a new course must
@@ -65,6 +66,8 @@ export default async function sitemap() {
     entry("/contact-us", 0.4, "monthly"),
     entry("/become-a-guest-author", 0.4, "monthly"),
     entry("/careers", 0.4, "monthly"),
+    entry("/case-studies", 0.5),
+    ...getCaseStudySlugs().map((slug) => entry(`/case-study/${slug}`, 0.5, "monthly")),
     entry("/corporate-training-pricing", 0.6, "monthly"),
     entry("/trainer-platform", 0.5, "monthly"),
     entry("/training-for-universities-enquiry", 0.4, "monthly"),

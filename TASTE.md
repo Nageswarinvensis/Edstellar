@@ -45,10 +45,10 @@ These URLs are the public contract. They are load-bearing for SEO — **never ch
 /coaching-services                                      Consulting pillar
 /resources                                              Resources hub
 /resources/articles          · /resources/articles/{slug}
-/resources/case-studies      · /resources/case-studies/{slug}
 /resources/templates         · /resources/templates/{slug}
 /resources/tools             · /resources/tools/{slug}
 /resources/brochures         · /resources/brochures/{slug}
+/case-studies                · /case-study/{slug}          Live-site URLs, kept as-is
 /blog                        · /blog/{slug}
 /blog/category/{slug}        · /blog/author/{slug}
 /trainers                    · /trainers/{slug}
@@ -58,7 +58,9 @@ These URLs are the public contract. They are load-bearing for SEO — **never ch
 /enquiry-now                                            No site shell
 ```
 
-**Blog is not a resource type.** `/blog/{slug}` is the canonical URL for every post. `/resources` lists five types and never duplicates a post under a second URL.
+**Blog is not a resource type.** `/blog/{slug}` is the canonical URL for every post. `/resources` lists four types and never duplicates a post under a second URL.
+
+**Case studies are not a resource type either.** The live site serves them at `/case-studies` (listing) and `/case-study/{slug}` (detail, singular), and those URLs carry its rankings, so they stay. `/resources/case-studies` and `/resources/case-studies/{slug}` permanently redirect there.
 
 ### 1.2 The Single-Segment Taxonomy
 
@@ -113,10 +115,12 @@ app/
 │   ├── resources/                         one route per type, own design each
 │   │   ├── page.js
 │   │   ├── articles/{page.js, [slug]/page.js}
-│   │   ├── case-studies/{page.js, [slug]/page.js}
 │   │   ├── templates/{page.js, [slug]/page.js}
 │   │   ├── tools/{page.js, [slug]/page.js}
 │   │   └── brochures/{page.js, [slug]/page.js}
+│   │
+│   ├── case-studies/page.js               listing — live URL
+│   ├── case-study/[slug]/page.js          detail — live URL (singular)
 │   │
 │   ├── blog/
 │   │   ├── page.js
@@ -190,10 +194,11 @@ Every page is either fully static (SSG) or statically generated with periodic re
 | `/corporate-training/{domain}/{course}`       | CMS            | **SSG — top N** + ISR tail  | `3600`       |
 | Consulting pillar pages                       | Hardcoded      | Pure SSG                    | —            |
 | Consulting `/{slug}` sub-services             | Content layer  | **SSG + ISR**               | `3600`       |
-| `/resources` hub + five type listings         | Content layer  | ISR                         | `3600`       |
+| `/resources` hub + four type listings         | Content layer  | ISR                         | `3600`       |
 | `/resources/{type}/{slug}`                    | Content layer  | **SSG + ISR**               | `3600`       |
 | `/blog`, `/blog/{slug}`, category, author     | CMS            | **SSG + ISR**               | `300`        |
 | `/trainers`, `/trainers/{slug}`               | Content layer  | **SSG + ISR**               | `3600`       |
+| `/case-studies`, `/case-study/{slug}`         | Content layer  | Pure SSG — all              | —            |
 | Company + legal pages                         | Hardcoded      | Pure SSG                    | —            |
 
 ### 2.3 Prerender Strategy at Scale
@@ -520,7 +525,8 @@ A **template** is the full body of one page design. It is the layer between a ro
 components/templates/
 ├── training/     domain-page · industry-page · vendor-page · course-page
 ├── consulting/   pillar-page · service-page
-├── resources/    article-page · case-study-page · template-page · tool-page · brochure-page
+├── resources/    article-page · template-page · tool-page · brochure-page
+├── case-studies-page · case-study-page
 ├── blog/         post-page · listing-page · author-page
 └── trainers/     directory-page · trainer-page
 ```

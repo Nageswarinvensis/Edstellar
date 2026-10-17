@@ -10,6 +10,9 @@ const nextConfig = {
       ["/coaching-services", "/coaching-solutions"],
       ["/terms-and-conditions", "/terms-conditions"],
       ["/managed-training-services", "/managed-learning-services/managed-training"],
+      // Case studies live at the live site's URLs, not under /resources.
+      ["/resources/case-studies", "/case-studies"],
+      ["/resources/case-studies/:slug", "/case-study/:slug"],
       [
         "/managed-learning-services/managed-training-services",
         "/managed-learning-services/managed-training",
