@@ -1,0 +1,66 @@
+{
+  "component_slug": "template_steps",
+  "component_name": "Template Steps",
+  "sort_order": 6,
+  "is_dynamic": false,
+  "config": {
+    "heading": "How to Use the Free Organization Chart <span>Generator</span>",
+    "items": [
+      {
+        "title": "Configure Your Organization Settings",
+        "points": [
+          "Enter your company/organization name",
+          "Upload your company logo (optional)",
+          "Toggle logo visibility on/off as needed"
+        ]
+      },
+      {
+        "title": "Define Hierarchy Levels",
+        "points": [
+          "Add organizational levels (e.g., CEO, VP, Director, Manager, Employee)",
+          "Assign custom colors to each level for visual distinction",
+          "Add or remove levels based on your organizational structure"
+        ]
+      },
+      {
+        "title": "Import Employee Data",
+        "points": [
+          "Click \"Import Employees\"",
+          "Upload your CSV file with employee information",
+          "Required columns: Name, Position, Department, Manager Name",
+          "The tool automatically maps reporting relationships"
+        ]
+      },
+      {
+        "title": "Review and Edit",
+        "points": [
+          "View your automatically generated organizational chart",
+          "Click on any employee card to edit details",
+          "Update names, positions, departments, or reporting lines as needed",
+          "Add new employees manually if required"
+        ]
+      },
+      {
+        "title": "Customize Export Settings",
+        "points": [
+          {
+            "text": "Choose your preferred canvas size:",
+            "items": [
+              "PowerPoint (4:3 or 16:9)",
+              "Word Document (Portrait or Landscape)",
+              "Auto (Full Size)"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Export Your Chart",
+        "points": [
+          "Click \"Copy to Clipboard\" for instant use in presentations",
+          "Or click \"Export as PDF\" to download a professional document",
+          "Share or present your org chart immediately"
+        ]
+      }
+    ]
+  }
+}

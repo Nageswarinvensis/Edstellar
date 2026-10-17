@@ -57,7 +57,7 @@ export default function LdSoftCta({ data }) {
           </Box>
 
           <Box className="flex flex-none flex-wrap justify-center gap-3 max-[600px]:w-full">
-            <CtaButton
+            <CtaButton arrow
               render={<Link href={primary.href} />}
               className="flex-none px-7 py-4 leading-[1.4] max-[600px]:w-full"
             >

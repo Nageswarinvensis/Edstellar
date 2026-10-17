@@ -1,0 +1,9 @@
+{
+  "component_slug": "templates_detail_about",
+  "component_name": "Templates Detail About",
+  "sort_order": 3,
+  "is_dynamic": false,
+  "config": {
+    "lede": "Create stunning organizational charts in minutes with our intuitive, no-signup-required tool. Simply upload your employee data via CSV, customize hierarchical levels with your brand colors, and generate presentation-ready org charts. Export directly to PowerPoint, Word, or PDF formats. Unlike other solutions that require expensive subscriptions or complex design skills, our tool offers complete functionality at no cost. Perfect for HR professionals, team leaders, and administrators who need quick, professional results without the hassle."
+  }
+}

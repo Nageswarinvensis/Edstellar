@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Link from "next/link";
 
 import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
@@ -86,10 +87,10 @@ export default function StudyArticle({ title, body, promo }) {
               <Text as="p" className="mb-5.5 text-[15px] leading-[1.65] text-paper/75">
                 {promo.description}
               </Text>
-              <CtaButton
+              <CtaButton arrow
                 block
                 className="bg-paper text-navy hover:bg-white"
-                render={<a href={promo.button.href} />}
+                render={<Link href={promo.button.href} />}
               >
                 {promo.button.label}
               </CtaButton>

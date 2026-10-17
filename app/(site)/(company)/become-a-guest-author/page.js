@@ -68,7 +68,7 @@ export default async function BecomeAGuestAuthorPage() {
         image={hero?.image}
       >
         {hero?.cta?.href ? (
-          <CtaButton color="lime" render={<a href={hero.cta.href} />}>
+          <CtaButton arrow color="lime" render={<a href={hero.cta.href} />}>
             {hero.cta.label}
           </CtaButton>
         ) : null}

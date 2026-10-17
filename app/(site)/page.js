@@ -65,7 +65,7 @@ const SITE_MAP = [
     links: [
       "/resources",
       "/resources/brochures/example",
-      "/resources/templates/example",
+      "/templates/free-organizational-chart-generator",
       "/resources/tools/example",
     ],
   },

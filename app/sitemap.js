@@ -8,6 +8,7 @@ import {
 import { getTalentAssessmentServiceSlugs } from "@/lib/content/talent-assessment";
 import { RESOURCE_TYPES } from "@/lib/content/resources";
 import { getCaseStudySlugs } from "@/lib/content/case-studies";
+import { getTemplateSlugs } from "@/lib/content/templates";
 
 /**
  * Generated from the content layer, never hand-maintained — a new course must
@@ -47,6 +48,7 @@ export default async function sitemap() {
   return [
     entry("/", 1, "daily"),
     entry("/corporate-training", 0.8, "daily"),
+    entry("/corporate-training-catalog", 0.8, "daily"),
     ...trainingSlugs.map((slug) => entry(`/corporate-training/${slug}`, 0.7)),
     ...coursePaths.map(({ domain, course }) =>
       entry(`/corporate-training/${domain}/${course}`, 0.8),
@@ -66,6 +68,12 @@ export default async function sitemap() {
     entry("/contact-us", 0.4, "monthly"),
     entry("/become-a-guest-author", 0.4, "monthly"),
     entry("/careers", 0.4, "monthly"),
+    entry("/leadership-retreats", 0.6),
+    entry("/sitemap", 0.3, "weekly"),
+    ...(await getTemplateSlugs()).map((slug) => entry(`/templates/${slug}`, 0.5, "monthly")),
+    entry("/success-stories", 0.5, "monthly"),
+    entry("/exceptional-customer-experience", 0.5, "monthly"),
+    entry("/request-for-proposal", 0.5, "monthly"),
     entry("/case-studies", 0.5),
     ...getCaseStudySlugs().map((slug) => entry(`/case-study/${slug}`, 0.5, "monthly")),
     entry("/corporate-training-pricing", 0.6, "monthly"),

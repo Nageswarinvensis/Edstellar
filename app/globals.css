@@ -177,6 +177,16 @@
   /* Warm sand of the client-logo band. */
   --color-sand: #f5f3eb;
 
+  /* Leadership retreats (Imperium) — the design swaps lime for this gold
+     accent across the page. */
+  --color-gold: #c3a36f;
+
+  /* The three blues of the Edstellar logo's rings, outer to inner — the
+     About Us values and purpose sections use them as accents. */
+  --color-ring-1: #2458f8;
+  --color-ring-2: #7098d8;
+  --color-ring-3: #90b0e8;
+
   /* Pricing hero — a brighter blue banner than the navy family. */
   --color-pricing-deep: #011737;
   --color-pricing-mid: #001f50;

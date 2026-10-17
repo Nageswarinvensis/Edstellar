@@ -45,7 +45,7 @@ These URLs are the public contract. They are load-bearing for SEO — **never ch
 /coaching-services                                      Consulting pillar
 /resources                                              Resources hub
 /resources/articles          · /resources/articles/{slug}
-/resources/templates         · /resources/templates/{slug}
+/resources/templates         · /templates/{slug}            Detail keeps the live URL; /resources/templates/{slug} → 301
 /resources/tools             · /resources/tools/{slug}
 /resources/brochures         · /resources/brochures/{slug}
 /case-studies                · /case-study/{slug}          Live-site URLs, kept as-is

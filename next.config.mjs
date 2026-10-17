@@ -13,6 +13,9 @@ const nextConfig = {
       // Case studies live at the live site's URLs, not under /resources.
       ["/resources/case-studies", "/case-studies"],
       ["/resources/case-studies/:slug", "/case-study/:slug"],
+      // L&D templates keep the live site's /templates/{slug} URL (TASTE.md
+      // §1.1); the CMS templates hub links them under /resources.
+      ["/resources/templates/:slug", "/templates/:slug"],
       [
         "/managed-learning-services/managed-training-services",
         "/managed-learning-services/managed-training",
@@ -61,6 +64,12 @@ const nextConfig = {
     }));
   },
   images: {
+    // Serve images straight from their source (the CMS and Webflow CDNs
+    // already deliver WebP) instead of through Vercel's /_next/image
+    // optimizer. The project's optimization allowance ran out and Vercel
+    // answered every image with 402 OPTIMIZED_IMAGE_REQUEST_PAYMENT_REQUIRED,
+    // so images were missing site-wide.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

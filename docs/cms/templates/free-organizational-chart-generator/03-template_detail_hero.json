@@ -1,0 +1,21 @@
+{
+  "component_slug": "template_detail_hero",
+  "component_name": "Template Detail Hero",
+  "sort_order": 2,
+  "is_dynamic": false,
+  "config": {
+    "title": "Free Organizational Chart Generator",
+    "heading": "Free Organizational Chart <span>Generator</span>",
+    "image": {
+      "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698187fcda2fc1258fbe1586_free-organizational-chart-generator.webp",
+      "alt": "Free Organizational Chart Generator",
+      "width": 1200,
+      "height": 675
+    },
+    "tool": {
+      "label": "Access Tool",
+      "url": "https://orgchart-brown.vercel.app/",
+      "back_label": "Back"
+    }
+  }
+}

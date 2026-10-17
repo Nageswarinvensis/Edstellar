@@ -1,0 +1,22 @@
+{
+  "component_slug": "seo",
+  "component_name": "seo",
+  "sort_order": 0,
+  "is_dynamic": false,
+  "config": {
+    "meta_title": "Free Organizational Chart Generator | No Signup Required",
+    "Meta_description": "Create professional org charts fast and free. No signup, no payment. Upload CSV, customize, and export to PowerPoint, Word, or PDF effortlessly.",
+    "canonical_url": null,
+    "meta_keywords": null,
+    "og_title": "Free Organizational Chart Generator | No Signup Required",
+    "og_description": "Create professional org charts fast and free. No signup, no payment. Upload CSV, customize, and export to PowerPoint, Word, or PDF effortlessly.",
+    "og_image": null,
+    "og_image_url": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698187fcda2fc1258fbe1586_free-organizational-chart-generator.webp",
+    "twitter_card": "summary_large_image",
+    "twitter_site": null,
+    "twitter_creator": null,
+    "twitter_title": "Free Organizational Chart Generator | No Signup Required",
+    "twitter_description": "Create professional org charts fast and free. No signup, no payment. Upload CSV, customize, and export to PowerPoint, Word, or PDF effortlessly.",
+    "twitter_image_url": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698187fcda2fc1258fbe1586_free-organizational-chart-generator.webp"
+  }
+}

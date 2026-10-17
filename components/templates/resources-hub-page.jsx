@@ -14,14 +14,34 @@ import HubDisclaimer from "@/components/sections/resources_hub/hub-disclaimer";
  *
  * Design: `Learning_Development_Resources_Template.html`.
  */
+/**
+ * The hero's "In the library" numbers, counted from the library's actual
+ * cards rather than the CMS's typed `total` and `types[].count`, which drift
+ * (it said 539 with 537 cards, and 94 eBooks with 92). Item types are matched
+ * to the type keys the same way `HubLibrary` does ("videos" → "video"), so
+ * the hero and the filter pills always show the same numbers.
+ */
+function withLiveCounts(hero, library) {
+  if (!hero || !library?.items) return { hero, types: library?.types };
+  const keys = new Set((library.types ?? []).map((type) => type.key));
+  const keyOf = (type = "") => (keys.has(type) ? type : type.replace(/s$/, ""));
+  const counts = {};
+  for (const item of library.items) counts[keyOf(item.type)] = (counts[keyOf(item.type)] ?? 0) + 1;
+
+  return {
+    hero: { ...hero, library: { ...hero.library, total: library.items.length.toLocaleString("en-US") } },
+    types: (library.types ?? [])
+      .map((type) => ({ ...type, count: type.key === "all" ? library.items.length : (counts[type.key] ?? 0) }))
+      .filter((type) => type.key === "all" || type.count > 0),
+  };
+}
+
 export default function ResourcesHubPage({ page }) {
+  const { hero, types } = withLiveCounts(page.resources_hero, page.resources_library);
+
   return (
     <>
-      <HubHero
-        data={page.resources_hero}
-        types={page.resources_library?.types}
-        breadcrumbs={page.breadcrumbs?.items}
-      />
+      <HubHero data={hero} types={types} breadcrumbs={page.breadcrumbs?.items} />
       <HubAbout data={page.resources_about} />
       <HubPicks data={page.resources_picks} />
       <HubLibrarySection data={page.resources_library} />

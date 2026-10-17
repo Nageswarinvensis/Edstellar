@@ -30,18 +30,20 @@ function Answer({ text }) {
  * close with no JavaScript, and every answer is in the HTML. The first
  * question starts open; a plus turns into a minus on a navy disc.
  *
- * `items`: `{ question, answer }[]` (plain-text answers).
+ * `items`: `{ question, answer }[]` (plain-text answers). `startAt` numbers
+ * from a later value and `openFirst={false}` keeps every item closed, for a
+ * list split across columns.
  *
  * Design: corporate-training-pricing-v2 / Learning_Development_Resources
  * `.faq`, `details`, `.q`, `.pm`, `.a`.
  */
-export default function FaqDetails({ items, className }) {
+export default function FaqDetails({ items, className, startAt = 1, openFirst = true }) {
   if (!items?.length) return null;
 
   return (
     <Reveal className={cn("border-t border-ink/12", className)}>
       {items.map((item, index) => (
-        <Box as="details" key={item.question} open={index === 0} className="group border-b border-ink/12">
+        <Box as="details" key={item.question} open={openFirst && index === 0} className="group border-b border-ink/12">
           <Box
             as="summary"
             title={`Click Here to View ${item.question}`}
@@ -52,7 +54,7 @@ export default function FaqDetails({ items, className }) {
               aria-hidden="true"
               className="flex-[0_0_24px] pt-1.25 font-mono text-[11px] leading-none font-medium tracking-[0.1em] text-olive"
             >
-              {pad(index + 1)}
+              {pad(index + startAt)}
             </Text>
             <Text as="h3" className="flex-1 text-[17px] leading-[1.4] font-medium tracking-[-0.015em] text-inherit">
               {item.question}

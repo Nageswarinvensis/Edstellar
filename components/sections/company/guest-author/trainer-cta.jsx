@@ -26,7 +26,7 @@ export default function TrainerCta({ data }) {
             {data.description}
           </Text>
         </Box>
-        <CtaButton color="lime" render={<Link href={data.button.href} />}>
+        <CtaButton arrow color="lime" render={<Link href={data.button.href} />}>
           {data.button.label}
         </CtaButton>
       </Reveal>

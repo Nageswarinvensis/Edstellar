@@ -277,7 +277,9 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                 <CtaButton
                   variant="ghost"
                   arrow
-                  render={<a href="#apply" />}
+                  // A CMS trainer record carries its profile slug; hand-authored
+                  // stand-ins don't, so those still fall back to the page's form.
+                  render={<a href={trainer.slug ? `/trainer/${trainer.slug}` : "#apply"} />}
                   className="mt-4 w-full justify-center border-ink/22 px-4 py-2.5 text-[12.5px] hover:border-navy hover:bg-navy hover:text-lime"
                 >
                   View trainer profile

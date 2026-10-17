@@ -1,0 +1,51 @@
+{
+  "component_slug": "template_features",
+  "component_name": "Template Features",
+  "sort_order": 4,
+  "is_dynamic": false,
+  "config": {
+    "heading": "Key Features <span>Included</span>",
+    "items": [
+      {
+        "title": "Easy CSV Import",
+        "text": "Upload employee data with names, positions, departments, and reporting relationships in bulk"
+      },
+      {
+        "title": "Customizable Hierarchies",
+        "text": "Define unlimited organizational levels (CEO, VP, Manager, etc.) with custom colors for each tier"
+      },
+      {
+        "title": "Visual Customization",
+        "text": "Add your company logo and name for branded organizational charts"
+      },
+      {
+        "title": "Individual Employee Management",
+        "text": "Edit employee details, positions, departments, and reporting structures directly in the app after import"
+      },
+      {
+        "title": "Multiple Export Formats",
+        "text": "Choose from various canvas sizes optimized for PowerPoint (4:3, 16:9), Word (Portrait, Landscape), or Auto (Full Size)"
+      },
+      {
+        "title": "One-Click Export",
+        "text": "Copy charts to the clipboard instantly or export as a PDF for presentations and documentation"
+      },
+      {
+        "title": "Real-Time Preview",
+        "text": "See your organizational structure visualize automatically as you configure and import data"
+      },
+      {
+        "title": "No Account Required",
+        "text": "Start creating immediately without registration, login, or payment information"
+      },
+      {
+        "title": "Completely Free",
+        "text": "Full access to all features with no limitations, trials, or premium tiers"
+      },
+      {
+        "title": "Privacy-Focused",
+        "text": "Your data stays secure with no tracking or third-party sharing"
+      }
+    ]
+  }
+}

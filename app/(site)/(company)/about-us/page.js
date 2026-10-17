@@ -1,30 +1,29 @@
-import Section from "@/components/ui/Section";
-import RichHeading from "@/components/common/rich-heading";
-import Reveal from "@/components/common/reveal";
+import { getAboutUsPage } from "@/lib/content/about-us";
 import { buildMetadata } from "@/lib/seo/metadata";
+import SchemaOrg from "@/components/seo/schema-org";
+import AboutUsPage from "@/components/templates/about-us-page";
 
-export const metadata = buildMetadata({
-  title: "About Edstellar",
-  description:
-    "Who we are, how we scope instructor-led programs, and why enterprises bring capability building in-house with us.",
-  path: "/about-us",
-});
-function page() {
-  return (
-    <Section>
-      <Reveal delay={1} className="flex justify-center items-center">
-        <RichHeading
-          as="h1"
-          parts={[
-            { text: "About Us main" },
-            { text: " Page", highlighted: true },
-          ]}
-          emphasisClassName="color-ink"
-          className="mb-2.5 text-center max-lg:text-[clamp(32px,5vw,50px)]"
-        />
-      </Reveal>
-    </Section>
-  );
+export function generateMetadata() {
+  return buildMetadata(getAboutUsPage().seo);
 }
 
-export default page;
+/**
+ * About Us — local content (`content/company/about-us.js`), so fully
+ * static.
+ *
+ * Design: `Edstellar-New-Lanch SETUP/about-us 59.html`.
+ */
+export default function AboutUsRoute() {
+  const page = getAboutUsPage();
+
+  return (
+    <>
+      <SchemaOrg
+        webpage={{ name: page.seo.title, description: page.seo.description, path: page.seo.path }}
+        breadcrumbs={page.breadcrumbs}
+        faqs={page.faqs.items}
+      />
+      <AboutUsPage page={page} />
+    </>
+  );
+}

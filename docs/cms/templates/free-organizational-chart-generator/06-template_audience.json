@@ -1,0 +1,20 @@
+{
+  "component_slug": "template_audience",
+  "component_name": "Template Audience",
+  "sort_order": 5,
+  "is_dynamic": false,
+  "config": {
+    "heading": "Who Should Use the Free Organization Chart <span>Generator</span>",
+    "items": [
+      "HR Managers",
+      "HRBPs",
+      "Chief Human Resources Officers (CHRO)",
+      "Talent Acquisition Managers",
+      "Learning & Development (L&D) Managers",
+      "Organizational Development Specialists",
+      "HR Business Partners",
+      "People Operations Managers",
+      "Workforce Planning Analysts"
+    ]
+  }
+}

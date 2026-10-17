@@ -1,0 +1,62 @@
+{
+  "component_slug": "template_benefits",
+  "component_name": "Template Benefits",
+  "sort_order": 7,
+  "is_dynamic": false,
+  "config": {
+    "heading": "Benefits of Using Free Organization Chart <span>Generator</span>",
+    "groups": [
+      {
+        "title": "Organizational Benefits:",
+        "items": [
+          {
+            "icon": "network",
+            "title": "Improved Structure Clarity",
+            "text": "Provides instant, visual clarity on roles and reporting relationships across departments."
+          },
+          {
+            "icon": "refresh",
+            "title": "Real-Time Updates",
+            "text": "Ensures organizational charts remain current as team structures evolve, minimizing outdated information."
+          },
+          {
+            "icon": "user-check",
+            "title": "Efficient Resource Planning",
+            "text": "Enables leaders to spot workforce gaps or redundancies for more effective staffing and succession planning."
+          },
+          {
+            "icon": "chat",
+            "title": "Simplified Strategic Communication",
+            "text": "Facilitates faster decision-making by making key contacts and functional hierarchies visible to all stakeholders."
+          }
+        ]
+      },
+      {
+        "title": "Benefits for the Target Audience:",
+        "dark": true,
+        "items": [
+          {
+            "icon": "zap",
+            "title": "Quick Chart Generation",
+            "text": "Let's HR and admin staff create and update charts in minutes, saving significant time over manual methods."
+          },
+          {
+            "icon": "pointer",
+            "title": "User-Friendly Interface",
+            "text": "Offers easy drag-and-drop design, requiring no technical expertise to produce professional-grade org charts."
+          },
+          {
+            "icon": "share",
+            "title": "Collaboration and Sharing",
+            "text": "Allows instant sharing and online collaboration, making charts accessible for meetings, onboarding, and project planning."
+          },
+          {
+            "icon": "layout",
+            "title": "Automated Formatting",
+            "text": "Reduces effort spent on layout and visuals, automatically adapting chart format for the organization's needs."
+          }
+        ]
+      }
+    ]
+  }
+}

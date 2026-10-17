@@ -1,0 +1,304 @@
+{
+  "page": {
+    "title": "Free Organizational Chart Generator",
+    "slug": "templates/free-organizational-chart-generator",
+    "status": "published",
+    "page_type": {
+      "name": "Templates",
+      "slug": "templates"
+    }
+  },
+  "components": [
+    {
+      "component_slug": "seo",
+      "component_name": "seo",
+      "sort_order": 0,
+      "is_dynamic": false,
+      "config": {
+        "meta_title": "Free Organizational Chart Generator | No Signup Required",
+        "Meta_description": "Create professional org charts fast and free. No signup, no payment. Upload CSV, customize, and export to PowerPoint, Word, or PDF effortlessly.",
+        "canonical_url": null,
+        "meta_keywords": null,
+        "og_title": "Free Organizational Chart Generator | No Signup Required",
+        "og_description": "Create professional org charts fast and free. No signup, no payment. Upload CSV, customize, and export to PowerPoint, Word, or PDF effortlessly.",
+        "og_image": null,
+        "og_image_url": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698187fcda2fc1258fbe1586_free-organizational-chart-generator.webp",
+        "twitter_card": "summary_large_image",
+        "twitter_site": null,
+        "twitter_creator": null,
+        "twitter_title": "Free Organizational Chart Generator | No Signup Required",
+        "twitter_description": "Create professional org charts fast and free. No signup, no payment. Upload CSV, customize, and export to PowerPoint, Word, or PDF effortlessly.",
+        "twitter_image_url": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698187fcda2fc1258fbe1586_free-organizational-chart-generator.webp"
+      }
+    },
+    {
+      "component_slug": "template_detail_hero",
+      "component_name": "Template Detail Hero",
+      "sort_order": 1,
+      "is_dynamic": false,
+      "config": {
+        "title": "Free Organizational Chart Generator",
+        "heading": "Free Organizational Chart <span>Generator</span>",
+        "image": {
+          "src": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698187fcda2fc1258fbe1586_free-organizational-chart-generator.webp",
+          "alt": "Free Organizational Chart Generator",
+          "width": 1200,
+          "height": 675
+        },
+        "tool": {
+          "label": "Access Tool",
+          "url": "https://orgchart-brown.vercel.app/",
+          "back_label": "Back"
+        }
+      }
+    },
+    {
+      "component_slug": "templates_detail_about",
+      "component_name": "Templates Detail About",
+      "sort_order": 2,
+      "is_dynamic": false,
+      "config": {
+        "lede": "Create stunning organizational charts in minutes with our intuitive, no-signup-required tool. Simply upload your employee data via CSV, customize hierarchical levels with your brand colors, and generate presentation-ready org charts. Export directly to PowerPoint, Word, or PDF formats. Unlike other solutions that require expensive subscriptions or complex design skills, our tool offers complete functionality at no cost. Perfect for HR professionals, team leaders, and administrators who need quick, professional results without the hassle."
+      }
+    },
+    {
+      "component_slug": "template_features",
+      "component_name": "Template Features",
+      "sort_order": 3,
+      "is_dynamic": false,
+      "config": {
+        "heading": "Key Features <span>Included</span>",
+        "items": [
+          {
+            "title": "Easy CSV Import",
+            "text": "Upload employee data with names, positions, departments, and reporting relationships in bulk"
+          },
+          {
+            "title": "Customizable Hierarchies",
+            "text": "Define unlimited organizational levels (CEO, VP, Manager, etc.) with custom colors for each tier"
+          },
+          {
+            "title": "Visual Customization",
+            "text": "Add your company logo and name for branded organizational charts"
+          },
+          {
+            "title": "Individual Employee Management",
+            "text": "Edit employee details, positions, departments, and reporting structures directly in the app after import"
+          },
+          {
+            "title": "Multiple Export Formats",
+            "text": "Choose from various canvas sizes optimized for PowerPoint (4:3, 16:9), Word (Portrait, Landscape), or Auto (Full Size)"
+          },
+          {
+            "title": "One-Click Export",
+            "text": "Copy charts to the clipboard instantly or export as a PDF for presentations and documentation"
+          },
+          {
+            "title": "Real-Time Preview",
+            "text": "See your organizational structure visualize automatically as you configure and import data"
+          },
+          {
+            "title": "No Account Required",
+            "text": "Start creating immediately without registration, login, or payment information"
+          },
+          {
+            "title": "Completely Free",
+            "text": "Full access to all features with no limitations, trials, or premium tiers"
+          },
+          {
+            "title": "Privacy-Focused",
+            "text": "Your data stays secure with no tracking or third-party sharing"
+          }
+        ]
+      }
+    },
+    {
+      "component_slug": "template_audience",
+      "component_name": "Template Audience",
+      "sort_order": 4,
+      "is_dynamic": false,
+      "config": {
+        "heading": "Who Should Use the Free Organization Chart <span>Generator</span>",
+        "items": [
+          "HR Managers",
+          "HRBPs",
+          "Chief Human Resources Officers (CHRO)",
+          "Talent Acquisition Managers",
+          "Learning & Development (L&D) Managers",
+          "Organizational Development Specialists",
+          "HR Business Partners",
+          "People Operations Managers",
+          "Workforce Planning Analysts"
+        ]
+      }
+    },
+    {
+      "component_slug": "template_steps",
+      "component_name": "Template Steps",
+      "sort_order": 5,
+      "is_dynamic": false,
+      "config": {
+        "heading": "How to Use the Free Organization Chart <span>Generator</span>",
+        "items": [
+          {
+            "title": "Configure Your Organization Settings",
+            "points": [
+              "Enter your company/organization name",
+              "Upload your company logo (optional)",
+              "Toggle logo visibility on/off as needed"
+            ]
+          },
+          {
+            "title": "Define Hierarchy Levels",
+            "points": [
+              "Add organizational levels (e.g., CEO, VP, Director, Manager, Employee)",
+              "Assign custom colors to each level for visual distinction",
+              "Add or remove levels based on your organizational structure"
+            ]
+          },
+          {
+            "title": "Import Employee Data",
+            "points": [
+              "Click \"Import Employees\"",
+              "Upload your CSV file with employee information",
+              "Required columns: Name, Position, Department, Manager Name",
+              "The tool automatically maps reporting relationships"
+            ]
+          },
+          {
+            "title": "Review and Edit",
+            "points": [
+              "View your automatically generated organizational chart",
+              "Click on any employee card to edit details",
+              "Update names, positions, departments, or reporting lines as needed",
+              "Add new employees manually if required"
+            ]
+          },
+          {
+            "title": "Customize Export Settings",
+            "points": [
+              {
+                "text": "Choose your preferred canvas size:",
+                "items": [
+                  "PowerPoint (4:3 or 16:9)",
+                  "Word Document (Portrait or Landscape)",
+                  "Auto (Full Size)"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Export Your Chart",
+            "points": [
+              "Click \"Copy to Clipboard\" for instant use in presentations",
+              "Or click \"Export as PDF\" to download a professional document",
+              "Share or present your org chart immediately"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "component_slug": "template_benefits",
+      "component_name": "Template Benefits",
+      "sort_order": 6,
+      "is_dynamic": false,
+      "config": {
+        "heading": "Benefits of Using Free Organization Chart <span>Generator</span>",
+        "groups": [
+          {
+            "title": "Organizational Benefits:",
+            "items": [
+              {
+                "icon": "network",
+                "title": "Improved Structure Clarity",
+                "text": "Provides instant, visual clarity on roles and reporting relationships across departments."
+              },
+              {
+                "icon": "refresh",
+                "title": "Real-Time Updates",
+                "text": "Ensures organizational charts remain current as team structures evolve, minimizing outdated information."
+              },
+              {
+                "icon": "user-check",
+                "title": "Efficient Resource Planning",
+                "text": "Enables leaders to spot workforce gaps or redundancies for more effective staffing and succession planning."
+              },
+              {
+                "icon": "chat",
+                "title": "Simplified Strategic Communication",
+                "text": "Facilitates faster decision-making by making key contacts and functional hierarchies visible to all stakeholders."
+              }
+            ]
+          },
+          {
+            "title": "Benefits for the Target Audience:",
+            "dark": true,
+            "items": [
+              {
+                "icon": "zap",
+                "title": "Quick Chart Generation",
+                "text": "Let's HR and admin staff create and update charts in minutes, saving significant time over manual methods."
+              },
+              {
+                "icon": "pointer",
+                "title": "User-Friendly Interface",
+                "text": "Offers easy drag-and-drop design, requiring no technical expertise to produce professional-grade org charts."
+              },
+              {
+                "icon": "share",
+                "title": "Collaboration and Sharing",
+                "text": "Allows instant sharing and online collaboration, making charts accessible for meetings, onboarding, and project planning."
+              },
+              {
+                "icon": "layout",
+                "title": "Automated Formatting",
+                "text": "Reduces effort spent on layout and visuals, automatically adapting chart format for the organization's needs."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "component_slug": "faqs",
+      "component_name": "faqs",
+      "sort_order": 7,
+      "is_dynamic": false,
+      "config": {
+        "heading": "Frequently Asked <span>Questions</span>",
+        "items": [
+          {
+            "question": "Is this tool really free to use?",
+            "answer": "Yes, the Organization Chart Generator is completely free with no hidden costs, subscription fees, or limitations on the number of charts you can create."
+          },
+          {
+            "question": "Do I need to create an account or sign up?",
+            "answer": "No registration is required. You can start creating organizational charts immediately without providing any personal information."
+          },
+          {
+            "question": "What file format should my employee data be in?",
+            "answer": "The tool accepts CSV (Comma-Separated Values) files. Your spreadsheet should include columns for Name, Position, Department, and Manager Name."
+          },
+          {
+            "question": "Can I customize the colors and add my company logo?",
+            "answer": "Yes, you can assign custom colors to each hierarchical level and upload your company logo with the option to toggle its visibility."
+          },
+          {
+            "question": "What export formats are available?",
+            "answer": "You can export your chart as a PDF or copy it to your clipboard for use in presentations and documents. Multiple canvas sizes are supported including PowerPoint and Word formats."
+          },
+          {
+            "question": "Is my company data secure?",
+            "answer": "Yes, your data is handled securely and stored safely. We don't share or sell your information to third parties, and you have full control over your data."
+          },
+          {
+            "question": "Can I edit the chart after importing my CSV file?",
+            "answer": "Yes, you can click on any employee card to edit their name, position, department, or reporting relationships. You can also add new employees manually."
+          }
+        ],
+        "cta": []
+      }
+    }
+  ]
+}
