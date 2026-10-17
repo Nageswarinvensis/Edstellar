@@ -166,7 +166,7 @@ export default function CoachingTracks({ data }) {
               </Text>
 
               {/* Title */}
-              <Text as="h3" className="mt-2.5 font-display text-[30px] leading-[1.15] font-bold tracking-[-0.02em] text-ink max-[600px]:text-[24px]">
+              <Text as="h3" className="mt-2.5 font-display text-[30px] leading-[1.15] font-medium tracking-[-0.02em] text-ink max-[600px]:text-[24px]">
                 {item.title}
               </Text>
 

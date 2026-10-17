@@ -169,7 +169,7 @@ export default function RelatedAssessments({ data }) {
 
               <Text
                 as="h3"
-                className="mb-2 font-display text-[17px] font-bold leading-[1.3] text-ink transition-colors duration-300 group-hover:text-paper group-focus-visible:text-paper"
+                className="mb-2 font-display text-[17px] font-medium leading-[1.3] text-ink transition-colors duration-300 group-hover:text-paper group-focus-visible:text-paper"
               >
                 {item.title}
               </Text>

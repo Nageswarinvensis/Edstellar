@@ -132,7 +132,7 @@ export default function AssessmentExplorer({ data }) {
       <Box className="grid grid-cols-[minmax(0,1.2fr)_minmax(0,1.25fr)_210px] overflow-hidden rounded-2xl border border-ink/12 bg-paper-warm max-[1100px]:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] max-[900px]:grid-cols-1">
         {/* Left — overview + segments */}
         <Box className="min-w-0 p-6 sm:p-7">
-          <Text as="h3" className="font-display text-[24px] font-bold leading-[1.15] tracking-[-0.02em] text-ink">
+          <Text as="h3" className="font-display text-[24px] font-medium leading-[1.15] tracking-[-0.02em] text-ink">
             {current.title}
           </Text>
           <Text as="p" className="mt-2 text-[14px] leading-[1.5] text-ink/60">

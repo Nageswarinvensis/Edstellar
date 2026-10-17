@@ -96,7 +96,7 @@ export default function CoachingWhoFor({ data }) {
               hidden={index !== active}
               className="rounded-[14px] bg-paper-warm p-8 max-[600px]:p-6"
             >
-              <Text as="h3" className="font-display text-[24px] leading-[1.2] font-bold tracking-[-0.02em] text-ink mb-3">
+              <Text as="h3" className="font-display text-[24px] leading-[1.2] font-medium tracking-[-0.02em] text-ink mb-3">
                 {panel.title}
               </Text>
               {panel.description ? (

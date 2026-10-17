@@ -1,0 +1,57 @@
+{
+  "seo": {
+    "title": "Careers at Edstellar | Edstellar Jobs",
+    "description": "Browse our open positions and apply today to launch your career with our fast-growing company.",
+    "path": "/careers"
+  },
+  "breadcrumbs": [
+    { "label": "Home", "href": "/" },
+    { "label": "Careers", "href": null }
+  ],
+  "hero": {
+    "heading": "Careers That Make a <span>Difference</span>",
+    "image": {
+      "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64a18953709a48bfa6ef270b_Mask%20group%20(19)-p-500.webp",
+      "alt": "Careers That Make a Difference"
+    }
+  },
+  "why": {
+    "heading": "Why Work with <span>Us?</span>",
+    "description": "Shape the future of learning at Edstellar. Join a collaborative team, tackle impactful projects, and grow personally and professionally in a supportive environment.",
+    "items": [
+      {
+        "icon": "trending-up",
+        "title": "Driving Growth",
+        "description": "Join us in shaping the future of learning and development. At Edstellar, your work will directly contribute to the success of organizations and the growth of individuals. We empower businesses and professionals to unlock their full potential through impactful training programs."
+      },
+      {
+        "icon": "users",
+        "title": "Collaborative Environment",
+        "description": "Experience a dynamic and collaborative work environment where ideas are encouraged, and innovation is valued. We foster a culture of collaboration, open communication, and continuous learning. Your unique perspectives and contributions will be celebrated and embraced."
+      },
+      {
+        "icon": "target",
+        "title": "Impactful Projects",
+        "description": "Be part of exciting and impactful projects that challenge you to think outside the box. We work with a wide range of clients across various industries, offering diverse and stimulating projects. Your work at Edstellar will have a direct impact on shaping the learning experiences of organizations and individuals, globally."
+      },
+      {
+        "icon": "heart",
+        "title": "Supportive Team",
+        "description": "Join a supportive and collaborative team that values teamwork, respect, and inclusivity. At Edstellar, we foster a positive work environment that encourages personal and professional growth. You'll have the opportunity to work alongside talented professionals who share your passion for learning and development."
+      }
+    ]
+  },
+  "trainer": {
+    "heading": "If you are a Trainer, <span>Join us Today!</span>",
+    "subheading": "Join as a Trainer",
+    "description": "Are you an experienced trainer looking for a platform to showcase your expertise and reach a wider audience? Join Edstellar's network of stellar trainers and be part of our mission to transform training experiences. As an Edstellar trainer, you'll have the opportunity to deliver impactful training programs, share your knowledge with professionals from diverse backgrounds, and contribute to their professional growth.",
+    "primary": { "label": "Join as a Trainer", "href": "https://login.edstellar.com/register" },
+    "secondary": { "label": "Know more", "href": "/trainer-platform" },
+    "image": {
+      "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/648be5017006cdce1a2fb3dd_Driving%20Training%20Success-p-500.webp",
+      "alt": "Driving Training Success with Stellar Trainers: Expertise That Sets Us Apart",
+      "width": 500,
+      "height": 566
+    }
+  }
+}

@@ -227,7 +227,7 @@
 }
 .co-hdr h3 {
   font-family: var(--display) !important;
-  font-weight: 700 !important;
+  font-weight: 500!important;
   font-size: clamp(19px, 2.2vw, 24px) !important;
   letter-spacing: -0.03em !important;
   line-height: 1.15 !important;
@@ -415,7 +415,7 @@
 .cta h3 {
   margin: 0 0 12px !important;
   font-family: var(--display);
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(21px, 2.4vw, 28px);
   letter-spacing: -0.03em;
   line-height: 1.15;

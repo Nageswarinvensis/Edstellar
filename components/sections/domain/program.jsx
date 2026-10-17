@@ -198,7 +198,7 @@ function CourseCard({ course, data }) {
         <a href={course.href}>
           <Text
             as="h3"
-            className="text-[15px] font-semibold leading-[1.2] tracking-[-0.25px] text-[#07182C] hover:underline"
+            className="text-[15px] font-medium leading-[1.2] tracking-[-0.25px] text-[#07182C] hover:underline"
           >
             {course.title}
           </Text>
@@ -420,7 +420,7 @@ function TopicsModal({
         <Box className="flex-none border-b border-ink/12 px-[34px] pb-[22px] pt-[34px]">
           <Text
             as="h3"
-            className="mb-2 pr-10 font-display text-[22px] font-bold leading-[1.2] tracking-[-0.02em] text-ink"
+            className="mb-2 pr-10 font-display text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-ink"
           >
             {title}
           </Text>
@@ -614,7 +614,7 @@ export default function Program({ data, courses: cmsCourses }) {
           <RichHeading
             as="h2"
             heading={data.heading}
-            className="max-w-200 text-balance font-semibold tracking-[-1.8px] text-ink"
+            className="max-w-200 text-balance font-medium tracking-[-1.8px] text-ink"
             emphasisClassName="font-serif font-normal tracking-[-1px]"
           />
 

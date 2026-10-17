@@ -152,7 +152,7 @@ export default function Benefits({ data }) {
                   </Box>
                   <Text
                     as="h3"
-                    className="mb-2.5 font-display text-[26px] font-bold leading-[1.2] text-navy max-[860px]:text-[20px]"
+                    className="mb-2.5 font-display text-[26px] font-medium leading-[1.2] text-navy max-[860px]:text-[20px]"
                   >
                     {item.title}
                   </Text>

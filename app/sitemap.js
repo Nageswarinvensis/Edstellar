@@ -64,6 +64,7 @@ export default async function sitemap() {
     entry("/about-us", 0.4, "monthly"),
     entry("/contact-us", 0.4, "monthly"),
     entry("/become-a-guest-author", 0.4, "monthly"),
+    entry("/careers", 0.4, "monthly"),
     entry("/corporate-training-pricing", 0.6, "monthly"),
     entry("/trainer-platform", 0.5, "monthly"),
     entry("/training-for-universities-enquiry", 0.4, "monthly"),

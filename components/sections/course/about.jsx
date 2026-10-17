@@ -35,7 +35,7 @@ function InclusionsCard({ inclusions }) {
         <Reveal delay={1}>
           <Text
             as="h3"
-            className="inline-block border-b-[3px] border-lime pb-2.5 font-display text-[19px] leading-tight font-bold tracking-tight text-ink"
+            className="inline-block border-b-[3px] border-lime pb-2.5 font-display text-[19px] leading-tight font-medium tracking-tight text-ink"
           >
             {inclusions.label}
           </Text>

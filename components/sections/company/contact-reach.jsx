@@ -55,7 +55,7 @@ export default function ContactReach({ data, form }) {
                 <Text as="span" className="mb-2 block font-mono text-[11px] tracking-[0.12em] text-ink/60 uppercase">
                   {office.label}
                 </Text>
-                <Text as="h3" className="mb-1.5 text-base leading-[1.3] font-semibold tracking-normal">
+                <Text as="h3" className="mb-1.5 text-base leading-[1.3] font-medium tracking-normal">
                   {office.name}
                 </Text>
                 <Box as="address" className="text-[15px] leading-[1.6] text-ink not-italic">

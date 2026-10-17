@@ -71,7 +71,7 @@ export default function CoachingPaths({ data }) {
                   </Text>
                 </Box>
 
-                <Text as="h3" className={cn("mb-2.5 text-[20px] leading-[1.3] font-semibold tracking-[-0.01em]", dark ? "text-paper" : "text-ink")}>
+                <Text as="h3" className={cn("mb-2.5 text-[20px] leading-[1.3] font-medium tracking-[-0.01em]", dark ? "text-paper" : "text-ink")}>
                   {item.title}
                 </Text>
                 <Text as="p" className={cn("mb-5 text-[15px] leading-[1.6]", dark ? "text-paper/65" : "text-ink/60")}>

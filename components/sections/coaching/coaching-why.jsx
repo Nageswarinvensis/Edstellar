@@ -235,7 +235,7 @@ export default function CoachingWhy({ data }) {
               <span className="mb-4 grid size-11 place-items-center rounded-xl bg-lime-soft text-navy">
                 {Icon ? <Icon size={20} strokeWidth={1.7} aria-hidden="true" /> : null}
               </span>
-              <Text as="h3" className="mb-2 text-[18px] leading-[1.3] font-semibold text-ink">
+              <Text as="h3" className="mb-2 text-[18px] leading-[1.3] font-medium text-ink">
                 {item.title}
               </Text>
               <Text as="p" className="text-[14.5px] leading-[1.6] text-ink/60">
@@ -266,7 +266,7 @@ export default function CoachingWhy({ data }) {
             <RichHeading
               as="h3"
               heading={related.heading}
-              className="mb-1.5 text-[22px] leading-[1.3] font-semibold tracking-[-0.02em] text-ink"
+              className="mb-1.5 text-[22px] leading-[1.3] font-medium tracking-[-0.02em] text-ink"
               emphasisClassName="font-normal"
             />
             {related.description ? (

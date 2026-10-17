@@ -45,7 +45,7 @@ export default function LdSoftCta({ data }) {
           <Box>
             <Text
               as="h3"
-              className="mb-1 text-[24px] font-bold leading-[1.2] tracking-[-0.01em] text-ink max-[600px]:text-[20px] max-[600px]:leading-[1.2]"
+              className="mb-1 text-[24px] font-medium leading-[1.2] tracking-[-0.01em] text-ink max-[600px]:text-[20px] max-[600px]:leading-[1.2]"
             >
               {heading}
             </Text>
@@ -84,7 +84,7 @@ export default function LdSoftCta({ data }) {
         <Box className="flex-1 max-[600px]:w-full">
           <Text
             as="h3"
-            className="mb-1 text-[clamp(20px,2.2vw,24px)] font-bold leading-[1.2] tracking-[-0.02em] text-ink"
+            className="mb-1 text-[clamp(20px,2.2vw,24px)] font-medium leading-[1.2] tracking-[-0.02em] text-ink"
           >
             {heading}
           </Text>

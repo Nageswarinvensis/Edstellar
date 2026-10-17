@@ -72,7 +72,7 @@ export default function SuccessStories({ data }) {
                 </Text>
                 <Text
                   as="h3"
-                  className="text-[16px] leading-[1.22] font-semibold tracking-normal"
+                  className="text-[16px] leading-[1.22] font-medium tracking-normal"
                 >
                   {item.title}
                 </Text>

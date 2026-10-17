@@ -29,7 +29,7 @@ export default function BlogDetailSubscribeCta() {
 
             <Text
               as="h2"
-              className="max-w-[30ch] text-[22px] leading-[1.3] font-semibold tracking-[-0.02em] text-paper"
+              className="max-w-[30ch] text-[22px] leading-[1.3] font-medium tracking-[-0.02em] text-paper"
             >
               Transform Your L&amp;D Strategy Today
             </Text>

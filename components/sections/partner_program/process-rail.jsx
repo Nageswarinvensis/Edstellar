@@ -39,7 +39,7 @@ export default function ProcessRail({ data }) {
               {index + 1}
             </Box>
             <Box className="flex flex-1 flex-col gap-2.5 rounded-[14px] border border-ink/12 bg-white p-5">
-              <Text as="h3" className="font-display text-[19px] leading-[1.2] font-bold tracking-[-0.015em] text-ink">
+              <Text as="h3" className="font-display text-[19px] leading-[1.2] font-medium tracking-[-0.015em] text-ink">
                 <Text as="span" className="sr-only">{`Step ${index + 1}: `}</Text>
                 {step.title}
               </Text>

@@ -161,7 +161,7 @@ export default function MaturityModel({ data }) {
                       {level.n ?? i + 1}
                     </Box>
                     <Box>
-                      <Text as="h3" className="mb-1.25 font-display text-[15px] font-bold tracking-[-0.01em] text-ink">
+                      <Text as="h3" className="mb-1.25 font-display text-[15px] font-medium tracking-[-0.01em] text-ink">
                         {name}
                       </Text>
                       <Text as="p" className="text-[14.5px] leading-[1.65] text-ink/60">

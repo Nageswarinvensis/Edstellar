@@ -48,7 +48,7 @@ export default function ChoiceComparison({ data }) {
                 </Text>
                 <Text
                   as="h3"
-                  className="mb-4 font-display text-[19px] leading-[1.3] font-bold tracking-[-0.01em] text-ink"
+                  className="mb-4 font-display text-[19px] leading-[1.3] font-medium tracking-[-0.01em] text-ink"
                 >
                   {card.title}
                 </Text>

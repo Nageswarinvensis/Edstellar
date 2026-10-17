@@ -115,7 +115,7 @@ export default function ServicesTablist({ items, label }) {
             ) : null}
             <Text
               as="h3"
-              className="mb-2.5 font-display text-[22px] leading-[1.2] font-bold tracking-[-0.01em] text-ink max-[900px]:hidden"
+              className="mb-2.5 font-display text-[22px] leading-[1.2] font-medium tracking-[-0.01em] text-ink max-[900px]:hidden"
             >
               {item.title}
             </Text>

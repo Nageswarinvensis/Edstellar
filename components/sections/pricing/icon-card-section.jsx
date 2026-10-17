@@ -70,7 +70,7 @@ export default function IconCardSection({ id, data, columns = 3, underline = fal
               <Box className="mb-4.5 grid size-11 place-items-center rounded-xl bg-navy text-lime">
                 <Icon size={21} strokeWidth={1.8} aria-hidden="true" />
               </Box>
-              <Text as="h3" className="mb-2 text-[18px] leading-[1.3] font-semibold">
+              <Text as="h3" className="mb-2 text-[18px] leading-[1.3] font-medium">
                 {item.title}
               </Text>
               <Text as="p" className="text-[15px] leading-[1.7]">

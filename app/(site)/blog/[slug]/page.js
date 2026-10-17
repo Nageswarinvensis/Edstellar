@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { notFound } from "next/navigation";
-import { getBlogMain, getBlogPost } from "@/lib/content/blog";
+import { getAllBlogSlugs, getBlogMain, getBlogPost } from "@/lib/content/blog";
 import { getBlogRailCategories } from "@/lib/content/blog-rail";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
@@ -25,6 +25,15 @@ import BlogRail from "@/components/sections/blog/detail/rail/blog-rail";
 import "@/components/sections/blog/detail/blog-content/Global.css";
 
 export const revalidate = 86400;
+
+// Every post is prerendered at build. A post published after the build is
+// not in this list but still renders on first request (dynamicParams stays
+// on) and is then cached like the rest. The build-time rate-limit storm that
+// once kept this out is handled by `apiGet`'s throttle and in-flight dedupe.
+export async function generateStaticParams() {
+  const slugs = await getAllBlogSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
 
 const INTERACTIVE_BLOCKS = ["faq", "companies"];
 

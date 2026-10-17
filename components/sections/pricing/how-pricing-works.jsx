@@ -43,7 +43,7 @@ export default function HowPricingWorks({ data }) {
             >
               {pad(index + 1)}
             </Text>
-            <Text as="h3" className="mb-2 text-[19px] leading-[1.3] font-semibold text-paper">
+            <Text as="h3" className="mb-2 text-[19px] leading-[1.3] font-medium text-paper">
               {step.title}
             </Text>
             <Text as="p" className="text-[15px] leading-[1.7] text-paper/72">

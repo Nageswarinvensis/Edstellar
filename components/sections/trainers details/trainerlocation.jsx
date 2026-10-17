@@ -59,7 +59,7 @@ export default function TrainerLocation({ trainer, data }) {
                 </Text>
                 <Text
                   as="h3"
-                  className="mt-2 text-2xl font-bold tracking-tight text-white lg:text-3xl"
+                  className="mt-2 text-2xl font-medium tracking-tight text-white lg:text-3xl"
                 >
                   {city}
                 </Text>

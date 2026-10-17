@@ -76,7 +76,7 @@ export default function CoachingRelated({ data }) {
                 ) : null}
 
                 {/* Title */}
-                <Text as="h3" className="font-display text-[20px] leading-[1.3] font-semibold tracking-[-0.01em] text-ink">
+                <Text as="h3" className="font-display text-[20px] leading-[1.3] font-medium tracking-[-0.01em] text-ink">
                   {item.title}
                 </Text>
 

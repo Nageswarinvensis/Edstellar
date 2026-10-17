@@ -82,7 +82,7 @@ export default function Positioning({ data }) {
                     <Icon size={23} strokeWidth={1.7} aria-hidden="true" />
                   </Box>
                   <Box>
-                    <Text as="h3" className="mb-1.5 font-display text-[16px] font-bold leading-[1.3] text-ink">
+                    <Text as="h3" className="mb-1.5 font-display text-[16px] font-medium leading-[1.3] text-ink">
                       {issue.title}
                     </Text>
                     <Text as="p" className="mb-3 text-[14px] leading-[1.5] text-ink/60">

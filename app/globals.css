@@ -126,11 +126,10 @@
     hyphens: none;
   }
 
-  /* CMS headings wrap emphasis in <span> — style them globally */
-  h1 span, h2 span {
-    font-family: var(--font-cormorant);
-    font-weight: 400 !important;
-    font-style: italic;
+  /* Global heading weight. Utilities (`font-*` on a <Text>) still win over
+     this base layer, so headings should not pass a heavier weight. */
+  h1, h2, h3 {
+    font-weight: 500;
   }
 
   body {
@@ -303,9 +302,10 @@
    overrides it locally with a `[&_span]:...` class in its own `className`,
    the same way `emphasisClassName` used to override `RichHeading`'s `<em>`. */
 h1 span,
-h2 span {
+h2 span,
+h3 span {
   font-family: var(--font-serif);
-  font-weight: 700;
+  font-weight: 400;
   font-style: italic;
 }
 

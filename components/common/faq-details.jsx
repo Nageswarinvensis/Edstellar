@@ -54,7 +54,7 @@ export default function FaqDetails({ items, className }) {
             >
               {pad(index + 1)}
             </Text>
-            <Text as="h3" className="flex-1 text-[17px] leading-[1.4] font-semibold tracking-[-0.015em] text-inherit">
+            <Text as="h3" className="flex-1 text-[17px] leading-[1.4] font-medium tracking-[-0.015em] text-inherit">
               {item.question}
             </Text>
             <Box

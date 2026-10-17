@@ -50,7 +50,7 @@ export default function ChallengeCards({ data }) {
                 <Text as="span" className="font-mono text-[13px] leading-none font-semibold text-navy opacity-42">
                   {String(index + 1).padStart(2, "0")}
                 </Text>
-                <Text as="h3" className="font-display text-[19px] leading-[1.2] font-semibold tracking-normal text-navy">
+                <Text as="h3" className="font-display text-[19px] leading-[1.2] font-medium tracking-normal text-navy">
                   {item.title}
                 </Text>
               </Box>

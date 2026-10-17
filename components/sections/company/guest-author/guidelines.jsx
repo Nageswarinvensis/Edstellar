@@ -21,7 +21,7 @@ export default function Guidelines({ data }) {
             delay={(index % 4) + 1}
             className="rounded-[14px] border border-l-3 border-ink/12 border-l-lime bg-white px-8 py-6"
           >
-            <Text as="h3" className="mb-1.5 text-[15.5px] leading-[1.35] font-semibold tracking-normal">
+            <Text as="h3" className="mb-1.5 text-[15.5px] leading-[1.35] font-medium tracking-normal">
               {item.title}
             </Text>
             <Text as="p" className="text-[14.5px] leading-[1.6]">

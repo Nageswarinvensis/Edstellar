@@ -48,7 +48,7 @@ export default function CatalogRail() {
       <Text
         as="h2"
         id="rail-catalog-h"
-        className="mt-2 text-[18px] leading-[1.1] font-bold tracking-[-0.03em] text-paper"
+        className="mt-2 text-[18px] leading-[1.1] font-medium tracking-[-0.03em] text-paper"
       >
         The Edstellar{" "}
         <em className="font-serif text-[1.12em] font-bold">training catalog</em>.

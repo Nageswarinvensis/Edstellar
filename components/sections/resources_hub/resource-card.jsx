@@ -47,7 +47,7 @@ export default function ResourceCard({ item, linkTitle = false }) {
         >
           {item.tag}
         </Text>
-        <Text as="h3" className="text-[17.5px] leading-[1.35] font-semibold tracking-[-0.02em]">
+        <Text as="h3" className="text-[17.5px] leading-[1.35] font-medium tracking-[-0.02em]">
           {linkTitle && item.cta?.href ? (
             <Link
               {...linkProps(item.cta)}

@@ -227,7 +227,7 @@ function Grid({ data }) {
                 <Box>
                   <Text
                     as="h3"
-                    className="m-0 font-display text-[24px] font-bold leading-[1.15] tracking-[-0.02em] text-white"
+                    className="m-0 font-display text-[24px] font-medium leading-[1.15] tracking-[-0.02em] text-white"
                   >
                     {tool.name}
                   </Text>

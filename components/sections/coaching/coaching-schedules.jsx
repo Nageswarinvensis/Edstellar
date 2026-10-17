@@ -51,7 +51,7 @@ export default function CoachingSchedules({ data }) {
               )}
             >
               {Icon ? <Icon size={28} strokeWidth={1.6} className="mb-4 text-navy" aria-hidden="true" /> : null}
-              <Text as="h3" className="mb-2 text-[17px] leading-[1.3] font-semibold text-ink">
+              <Text as="h3" className="mb-2 text-[17px] leading-[1.3] font-medium text-ink">
                 {item.title}
               </Text>
               <Text as="p" className="m-0 text-[15px] leading-[1.65] text-ink/60">

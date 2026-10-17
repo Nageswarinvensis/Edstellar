@@ -56,7 +56,7 @@ export default function TrainerEngagements({ trainer, data }) {
 
                   <Text
                     as="h3"
-                    className="font-display text-[17px] leading-normal font-bold tracking-[-0.01em] text-ink"
+                    className="font-display text-[17px] leading-normal font-medium tracking-[-0.01em] text-ink"
                   >
                     {title}
                   </Text>

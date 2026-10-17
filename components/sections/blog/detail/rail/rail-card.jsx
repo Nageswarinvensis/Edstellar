@@ -40,7 +40,7 @@ export function RailHeading({ id, lead, emphasis, tail = ".", className }) {
       as="h2"
       id={id}
       className={cn(
-        "mt-2 text-[18px] leading-[1.25] font-semibold tracking-[-0.01em] text-ink",
+        "mt-2 text-[18px] leading-[1.25] font-medium tracking-[-0.01em] text-ink",
         className,
       )}
     >

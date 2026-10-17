@@ -86,7 +86,7 @@ export default function TrainerExpertise({ trainer, data }) {
               >
                 <Box>
                   <Box className="flex items-center justify-between">
-                    <Text as="h3" className="text-lg font-bold text-ink">
+                    <Text as="h3" className="text-lg font-medium text-ink">
                       {skill.title}
                     </Text>
                     {skill.since && (

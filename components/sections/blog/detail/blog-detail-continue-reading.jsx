@@ -22,7 +22,7 @@ export default function BlogDetailContinueReading({ orphanLinks = [] }) {
 
         <Text
           as="h3"
-          className="mt-0! text-[16px] leading-none font-semibold text-ink"
+          className="mt-0! text-[16px] leading-none font-medium text-ink"
         >
           Continue Reading
         </Text>

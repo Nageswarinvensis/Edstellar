@@ -73,7 +73,7 @@ export default function Process({ data }) {
 
                 <Text
                   as="h3"
-                  className="font-display text-[19px] font-bold leading-[1.2] tracking-[-0.015em] text-ink"
+                  className="font-display text-[19px] font-medium leading-[1.2] tracking-[-0.015em] text-ink"
                 >
                   <Text as="span" className="sr-only">{`Step ${index + 1}: `}</Text>
                   {step.title}

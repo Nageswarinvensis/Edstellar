@@ -14,7 +14,7 @@ export default function Delivered({ data }) {
             <RichHeading
               as="h2"
               heading={data.heading}
-              className="max-w-150 font-semibold tracking-[-1.8px] text-ink"
+              className="max-w-150 font-medium tracking-[-1.8px] text-ink"
               emphasisClassName="font-normal tracking-[-1px]"
             />
 
@@ -45,7 +45,7 @@ export default function Delivered({ data }) {
 
                 <Text
                   as="h3"
-                  className="mt-4 text-[18px] font-semibold leading-[1.1] tracking-[-0.6px] text-ink"
+                  className="mt-4 text-[18px] font-medium leading-[1.1] tracking-[-0.6px] text-ink"
                 >
                   {stage.title}
                 </Text>

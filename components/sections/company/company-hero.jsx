@@ -42,7 +42,7 @@ export default function CompanyHero({ id, heading, description, breadcrumbs, ima
               as="h1"
               heading={heading}
               className="mb-6 max-w-[20ch] text-white"
-              emphasisClassName="font-semibold text-lime-soft"
+              emphasisClassName="font-normal text-lime-soft"
             />
           </Reveal>
 

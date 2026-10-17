@@ -196,7 +196,7 @@ export default function Services({ data }) {
           </Box>
           <Text
             as="h3"
-            className="font-display text-[22px] font-bold leading-[1.2] tracking-[-0.01em] text-ink max-[900px]:hidden"
+            className="font-display text-[22px] font-medium leading-[1.2] tracking-[-0.01em] text-ink max-[900px]:hidden"
           >
             {current.title}
           </Text>

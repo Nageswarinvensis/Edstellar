@@ -192,7 +192,7 @@ export default function Concept({ data }) {
                   <Box>
                     <Text
                       as="h3"
-                      className="mb-1.5 mt-1 font-display text-[18px] font-bold leading-[1.3] tracking-[-0.01em] text-ink"
+                      className="mb-1.5 mt-1 font-display text-[18px] font-medium leading-[1.3] tracking-[-0.01em] text-ink"
                     >
                       {item.title}
                     </Text>

@@ -20,7 +20,7 @@ export default function Outcomes({ data, id = "outcomes", columns = 4 }) {
               <RichHeading
                 as="h2"
                 heading={data.heading}
-                className="max-w-155 mb-10 font-semibold tracking-[-1.8px] text-ink"
+                className="max-w-155 mb-10 font-medium tracking-[-1.8px] text-ink"
                 emphasisClassName="font-serif font-normal tracking-[-1px]"
               />
 
@@ -61,7 +61,7 @@ export default function Outcomes({ data, id = "outcomes", columns = 4 }) {
 
                 <Text
                   as="h3"
-                  className="mt-3.5 text-[16px] font-semibold leading-[1.15] tracking-[-0.45px] text-ink"
+                  className="mt-3.5 text-[16px] font-medium leading-[1.15] tracking-[-0.45px] text-ink"
                 >
                   {item.title}
                 </Text>

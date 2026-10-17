@@ -53,7 +53,7 @@ export default function TnaWhyEdstellar({ id, data }) {
 
                 <Text
                   as="h3"
-                  className="mb-2 text-[16px] leading-[1.3] font-bold tracking-[-0.01em] text-ink hyphens-none"
+                  className="mb-2 text-[16px] leading-[1.3] font-medium tracking-[-0.01em] text-ink hyphens-none"
                 >
                   {item.title}
                 </Text>

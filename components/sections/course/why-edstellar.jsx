@@ -69,7 +69,7 @@ function ProgramCard({ program }) {
         <Text
           as="h3"
           className={[
-            "max-w-55 text-[15px] font-semibold leading-[1.15] --tw-tracking: -0.025em",
+            "max-w-55 text-[15px] font-medium leading-[1.15] --tw-tracking: -0.025em",
             program.is_featured ? "text-white" : "text-ink",
           ].join(" ")}
         >
@@ -132,7 +132,7 @@ function RelatedCourseCard({ course }) {
     >
       <Text
         as="h3"
-        className="text-[16px] font-semibold leading-[1.35] tracking-[-0.015em] text-ink"
+        className="text-[16px] font-medium leading-[1.35] tracking-[-0.015em] text-ink"
       >
         {course.name}
       </Text>
@@ -217,7 +217,7 @@ export default function WhyEds({ data, relatedCourses }) {
             <RichHeading
               as="h3"
               heading={relatedCourses.heading}
-              className="mb-7 text-[22px] font-bold leading-[1.2] tracking-[-0.02em] max-[600px]:mb-5 max-[600px]:text-[20px] max-[600px]:leading-[1.2]"
+              className="mb-7 text-[22px] font-medium leading-[1.2] tracking-[-0.02em] max-[600px]:mb-5 max-[600px]:text-[20px] max-[600px]:leading-[1.2]"
             />
 
             <Box className="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-3">

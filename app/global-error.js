@@ -20,7 +20,7 @@ export default function GlobalError({ error, reset }) {
       <body className="antialiased">
         <main className="flex min-h-svh flex-col items-center justify-center gap-6 px-6 py-16 text-center">
           <div className="flex flex-col items-center gap-2">
-            <h1 className="text-xl font-bold leading-snug">
+            <h1 className="text-xl font-medium leading-snug">
               Application error
             </h1>
             <p className="max-w-prose text-sm leading-relaxed text-ink/60">

@@ -230,7 +230,7 @@ export default function CourseMapSection({ data, className }) {
                   {/* Title */}
                   <Text
                     as="h3"
-                    className="mt-5 text-[18px] font-semibold leading-[1.2] tracking-tight text-ink"
+                    className="mt-5 text-[18px] font-medium leading-[1.2] tracking-tight text-ink"
                   >
                     {feature.title}
                   </Text>
@@ -259,7 +259,7 @@ export default function CourseMapSection({ data, className }) {
                 as="h3"
                 heading={data.approach.heading}
                 emphasisClassName="font-serif font-normal italic text-lime"
-                className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-tight font-semibold tracking-[-0.02em] text-paper"
+                className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-tight font-medium tracking-[-0.02em] text-paper"
               />
               <Text
                 as="p"

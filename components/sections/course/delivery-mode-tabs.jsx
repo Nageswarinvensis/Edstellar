@@ -134,7 +134,7 @@ export default function DeliveryModeTabs({ tabs }) {
             <Box>
               <Text
                 as="h3"
-                className="mb-3 font-display text-2xl font-semibold tracking-[-0.02em] text-ink"
+                className="mb-3 font-display text-2xl font-medium tracking-[-0.02em] text-ink"
               >
                 {tab.title}
               </Text>

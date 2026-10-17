@@ -105,7 +105,7 @@ export default function HubLibrary({ data, sectionId }) {
       {data?.browse ? (
         <Reveal className="mb-7 grid items-center gap-6 rounded-[18px] bg-paper-cream px-7 py-6.5 min-[761px]:grid-cols-[1fr_auto]">
           <Box>
-            <Text as="h3" className="mb-2 text-[22px] leading-[1.25] font-semibold">
+            <Text as="h3" className="mb-2 text-[22px] leading-[1.25] font-medium">
               {data.browse.heading}
             </Text>
             <Text as="p" className="max-w-[72ch] text-[15px] leading-[1.7]">

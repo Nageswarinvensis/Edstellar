@@ -124,7 +124,7 @@ export default function CertificationsAndEducation({ trainer, data }) {
                     <Box>
                       <Text
                         as="h3"
-                        className="text-[18px] font-bold leading-snug text-ink"
+                        className="text-[18px] font-medium leading-snug text-ink"
                       >
                         {item.institution}
                       </Text>
