@@ -61,8 +61,22 @@ function getCmsUrl(pathname) {
   return `${CMS_BASE}/api/v2/site-pages/${slug.split("/").map(encodeURIComponent).join("/")}`;
 }
 
+/** Blog listings whose pagination swaps posts in place on the client
+ * (components/sections/blog/common/blog-posts.jsx), so their URL never
+ * carries a page number. */
+const BLOG_LISTING = /^\/blog(\/(author|category)\/[^/]+)?\/?$/;
+
 export async function middleware(request) {
   const { pathname, search } = request.nextUrl;
+
+  // A stray `?page=` on a blog listing (an old link, a stale bookmark) goes
+  // back to the canonical URL. Done here, not in the page, because reading
+  // `searchParams` in a page makes it render on every request instead of ISR.
+  if (BLOG_LISTING.test(pathname) && request.nextUrl.searchParams.has("page")) {
+    const clean = request.nextUrl.clone();
+    clean.searchParams.delete("page");
+    return NextResponse.redirect(clean);
+  }
 
   // Skip Next.js internals, static assets, and API routes.
   if (

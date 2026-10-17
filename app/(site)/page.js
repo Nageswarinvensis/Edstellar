@@ -12,20 +12,11 @@ export const metadata = buildMetadata({
   path: "/",
 });
 
-/**
- * The page index is for reviewing the site, not for visitors: shown in
- * `next dev` and on any deployment with `SHOW_PAGE_INDEX=true` (set it on the
- * Vercel preview project, never on www.edstellar.com).
- */
-const showPageIndex =
-  process.env.NODE_ENV === "development" ||
-  process.env.SHOW_PAGE_INDEX === "true";
-
 /** Where the page index links point: the Vercel deployment. */
 const PAGE_INDEX_ORIGIN = "https://edstellar-two.vercel.app";
 
 export default async function HomePage() {
-  const pageIndex = showPageIndex ? await getPageIndex() : null;
+  const pageIndex = await getPageIndex();
 
   return (
     <Section>

@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { notFound } from "next/navigation";
-import { getAllBlogSlugs, getBlogMain, getBlogPost } from "@/lib/content/blog";
+import { getBlogMain, getBlogPost } from "@/lib/content/blog";
 import { getBlogRailCategories } from "@/lib/content/blog-rail";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
@@ -26,13 +26,13 @@ import "@/components/sections/blog/detail/blog-content/Global.css";
 
 export const revalidate = 86400;
 
-// Every post is prerendered at build. A post published after the build is
-// not in this list but still renders on first request (dynamicParams stays
-// on) and is then cached like the rest. The build-time rate-limit storm that
-// once kept this out is handled by `apiGet`'s throttle and in-flight dedupe.
-export async function generateStaticParams() {
-  const slugs = await getAllBlogSlugs();
-  return slugs.map((slug) => ({ slug }));
+// ISR, none at build: each post renders on its first request (dynamicParams
+// stays on) and is then served from cache, refreshed every `revalidate`
+// seconds. Prerendering hundreds of posts made every build slow and let one
+// CMS network blip fail it (TASTE.md §2.2). The empty list is still needed —
+// it is what makes this route cached rather than rendered per request.
+export function generateStaticParams() {
+  return [];
 }
 
 const INTERACTIVE_BLOCKS = ["faq", "companies"];

@@ -43,7 +43,7 @@ These URLs are the public contract. They are load-bearing for SEO — **never ch
 /talent-assessment-services                             Consulting pillar
 /talent-assessment-services/{slug}                      Sub-service
 /coaching-services                                      Consulting pillar
-/resources                                              Resources hub
+/learning-development-resources                         Resources hub (CMS); no /resources page
 /resources/articles          · /resources/articles/{slug}
 /resources/templates         · /templates/{slug}            Detail keeps the live URL; /resources/templates/{slug} → 301
 /resources/tools             · /resources/tools/{slug}
@@ -51,8 +51,8 @@ These URLs are the public contract. They are load-bearing for SEO — **never ch
 /case-studies                · /case-study/{slug}          Live-site URLs, kept as-is
 /blog                        · /blog/{slug}
 /blog/category/{slug}        · /blog/author/{slug}
-/trainers                    · /trainers/{slug}
-/about-us  /contact-us  /training-management-software  /skill-based-organization
+/trainer/{slug}                                         Profiles only — no /trainer listing
+/about-us  /contact-us  /skill-based-organization
 /privacy-policy  /terms-and-conditions
 /thank-you/{slug}                                       Site shell (nav + footer)
 /enquiry-now                                            No site shell
@@ -128,12 +128,11 @@ app/
 │   │   ├── category/[slug]/page.js
 │   │   └── author/[slug]/page.js
 │   │
-│   ├── trainers/{page.js, [slug]/page.js}
+│   ├── trainer/[slug]/page.js             profiles only — no listing page
 │   │
 │   ├── (company)/                         organization only — NO layout.js
 │   │   ├── about-us/page.js
 │   │   ├── contact-us/page.js
-│   │   ├── training-management-software/page.js
 │   │   └── skill-based-organization/page.js
 │   │
 │   ├── thank-you/[slug]/page.js           post-form confirmation, inside the site shell
@@ -194,10 +193,10 @@ Every page is either fully static (SSG) or statically generated with periodic re
 | `/corporate-training/{domain}/{course}`       | CMS            | **SSG — top N** + ISR tail  | `3600`       |
 | Consulting pillar pages                       | Hardcoded      | Pure SSG                    | —            |
 | Consulting `/{slug}` sub-services             | Content layer  | **SSG + ISR**               | `3600`       |
-| `/resources` hub + four type listings         | Content layer  | ISR                         | `3600`       |
+| `/resources/{type}` listings (no `/resources` hub) | Content layer | ISR                    | `3600`       |
 | `/resources/{type}/{slug}`                    | Content layer  | **SSG + ISR**               | `3600`       |
-| `/blog`, `/blog/{slug}`, category, author     | CMS            | **SSG + ISR**               | `300`        |
-| `/trainers`, `/trainers/{slug}`               | Content layer  | **SSG + ISR**               | `3600`       |
+| `/blog`, `/blog/{slug}`, category, author     | CMS            | **ISR — none at build**: each page renders on its first request, then is cached | `/blog`, post `86400`; category, author `300` |
+| `/trainer/{slug}` (no listing page)           | CMS            | **SSG + ISR**               | `3600`       |
 | `/case-studies`, `/case-study/{slug}`         | Content layer  | Pure SSG — all              | —            |
 | Company + legal pages                         | Hardcoded      | Pure SSG                    | —            |
 

@@ -10,8 +10,8 @@
  */
 export const TRAINER_PAGE = {
   breadcrumbs: [
+    // No "Trainers" crumb: there is no trainers listing page, only profiles.
     { label: "Home", href: "/" },
-    { label: "Trainers", href: "/trainer" },
   ],
 
   // Only sections the trainer actually has content for are shown in the bar.

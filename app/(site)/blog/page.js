@@ -1,4 +1,4 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { getBlogMain } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -15,15 +15,9 @@ export function generateMetadata() {
   });
 }
 
-export default async function BlogIndexPage({ searchParams }) {
-  const { page: pageParam } = await searchParams;
-
-  // Same as the author/category hero pages: pagination swaps posts in place
-  // on the client, so the URL never carries a page number.
-  if (pageParam !== undefined) {
-    redirect("/blog");
-  }
-
+// Static + ISR. The stray-`?page=` redirect lives in `middleware.js`:
+// reading `searchParams` here would make this page render on every request.
+export default async function BlogIndexPage() {
   const payload = await getBlogMain(1);
 
   if (!payload?.blogs) notFound();

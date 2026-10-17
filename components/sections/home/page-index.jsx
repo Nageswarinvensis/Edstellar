@@ -2,10 +2,9 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 
 /**
- * Internal page index — every static page, split by where its content lives
+ * Page index — every static page, split by where its content lives
  * (CMS site pages vs. pages built in this repo), each side in the home page's
- * own card groups. The home page renders it only on internal deployments;
- * see `showPageIndex` in `app/(site)/page.js`.
+ * own card groups, on the home page.
  *
  * Every link is absolute on `origin` (the Vercel deployment), so it opens the
  * published page even when this list is viewed on localhost.

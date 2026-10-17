@@ -6,7 +6,6 @@ const nextConfig = {
   async redirects() {
     const moved = [
       ["/training-needs-analysis", "/training-needs-analysis-solutions"],
-      ["/trainers", "/trainer"],
       ["/coaching-services", "/coaching-solutions"],
       ["/terms-and-conditions", "/terms-conditions"],
       ["/managed-training-services", "/managed-learning-services/managed-training"],

@@ -58,12 +58,10 @@ export default async function sitemap() {
     ...talentAssessmentSlugs.map((slug) =>
       entry(`/talent-assessment-services/${slug}`, 0.6),
     ),
-    entry("/resources", 0.6),
     entry("/learning-development-resources", 0.6, "weekly"),
     entry("/learning-development-templates", 0.5, "weekly"),
     ...RESOURCE_TYPES.map(({ slug }) => entry(`/resources/${slug}`, 0.5)),
     entry("/blog", 0.6, "daily"),
-    entry("/trainer", 0.5),
     entry("/about-us", 0.4, "monthly"),
     entry("/contact-us", 0.4, "monthly"),
     entry("/become-a-guest-author", 0.4, "monthly"),

@@ -1,4 +1,4 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { getBlogAuthor } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -7,6 +7,14 @@ import { SITE } from "@/lib/constants";
 import AuthorPageContent from "@/components/sections/blog/author/author-page-content";
 
 export const revalidate = 300;
+
+// ISR, none at build: each author page renders on its first request and is then
+// cached for `revalidate` seconds. The stray-`?page=` redirect lives in
+// `middleware.js` — reading `searchParams` here would make the page render on
+// every request instead.
+export function generateStaticParams() {
+  return [];
+}
 
 /** The CMS's author `meta_title` already ends in "| Edstellar" — the root
  * layout's title template (`%s | Edstellar`) would otherwise double it up. */
@@ -35,16 +43,8 @@ export async function generateMetadata({ params }) {
   });
 }
 
-export default async function AuthorPage({ params, searchParams }) {
+export default async function AuthorPage({ params }) {
   const { slug } = await params;
-  const { page: pageParam } = await searchParams;
-
-  // The URL never carries the page number — pagination swaps posts in place
-  // on the client (components/sections/blog/common/blog-posts.jsx) — so a stray
-  // `?page=` (an old link, a stale bookmark) is stripped back to the canonical URL.
-  if (pageParam !== undefined) {
-    redirect(`/blog/author/${slug}`);
-  }
 
   const { author, categories } = await getBlogAuthor(slug, 1);
 

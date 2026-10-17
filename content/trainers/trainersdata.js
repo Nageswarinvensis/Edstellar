@@ -43,10 +43,6 @@ export const TRAINERS_DATA = {
       href: "/",
       label: "Home",
     },
-    {
-      href: "/trainer",
-      label: "Trainers",
-    },
   ],
 
   // ==========================================================================
