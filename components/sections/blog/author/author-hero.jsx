@@ -45,7 +45,7 @@ export default function AuthorHero({
           </span>
         </Reveal>
 
-        <Reveal delay={1} className="mt-5.5 flex flex-wrap items-center gap-7">
+        <Reveal delay={1} className="mt-5.5 flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:gap-7">
           {image ? (
             <img
               src={image}

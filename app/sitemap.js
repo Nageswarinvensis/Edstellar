@@ -69,6 +69,7 @@ export default async function sitemap() {
     entry("/leadership-retreats", 0.6),
     entry("/sitemap", 0.3, "weekly"),
     ...(await getTemplateSlugs()).map((slug) => entry(`/templates/${slug}`, 0.5, "monthly")),
+    entry("/clients", 0.6, "monthly"),
     entry("/success-stories", 0.5, "monthly"),
     entry("/exceptional-customer-experience", 0.5, "monthly"),
     entry("/request-for-proposal", 0.5, "monthly"),

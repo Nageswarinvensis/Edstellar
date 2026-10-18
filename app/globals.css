@@ -158,6 +158,10 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
 
+  /* The mega menu collapses to the mobile drawer below this width — the five
+     wide tabs plus logo and CTA need the extra room. */
+  --breakpoint-nav: 1200px;
+
   /* Palette */
   --color-navy: #0a1628;
   --color-navy-soft: #14233d;
@@ -173,6 +177,9 @@
   /* Accent used for emphasis text on light backgrounds. Lime itself fails
      contrast on paper, so the designs use this olive instead. */
   --color-olive: #6f8c0f;
+
+  /* Form validation red (mega-menu brief composer). */
+  --color-error: #b3261e;
 
   /* Warm sand of the client-logo band. */
   --color-sand: #f5f3eb;

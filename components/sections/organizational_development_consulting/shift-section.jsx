@@ -4,6 +4,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import { cn } from "@/lib/utils";
+import { decodeEntities } from "@/lib/decode-entities";
 
 /**
  * The OD sub-pages' dark "shift" band: an eyebrow, heading, lede and three
@@ -32,6 +33,14 @@ export default function ShiftSection({ data }) {
     levels,
     Image: imageSrc,
   } = data;
+
+  // The CMS sends no alt for this content image, so describe it from the
+  // section heading (minus the `<span>` accent markers) — a meaningful name
+  // for AT rather than an empty alt on a real content image.
+  const imageAlt =
+    typeof heading === "string"
+      ? decodeEntities(heading).replace(/<\/?span>/g, "").replace(/\s+/g, " ").trim()
+      : "";
 
   return (
     <Section id={section_id ?? "shift"} className="bg-navy">
@@ -98,7 +107,7 @@ export default function ShiftSection({ data }) {
             // over the built-in illustrations when present.
             <img
               src={imageSrc}
-              alt=""
+              alt={imageAlt}
               loading="lazy"
               decoding="async"
               className="w-full rounded-[14px] object-cover shadow-lift"

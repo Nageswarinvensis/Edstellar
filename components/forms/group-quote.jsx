@@ -91,8 +91,16 @@ function stripTrainingSuffix(name) {
  * yet: a valid contact step goes straight to `/thank-you/{thankYou}`
  * (default `course`).
  */
-export default function GroupQuote({ heading, thankYou = "course" }) {
+export default function GroupQuote({ heading, courseName, thankYou = "course" }) {
   const cardRef = useRef(null);
+
+  // The current course is pre-selected and locked in the RFP builder (shown as
+  // "this course"). Its title has to match the CMS program titles, which carry
+  // a " Training" suffix — hence the normalise-then-append. Falls back to the
+  // static example when no course drives this form.
+  const lockedProgram = courseName
+    ? `${stripTrainingSuffix(courseName)} Training`
+    : SECTION_DATA.lockedProgram;
 
   const [mode, setMode] = useState("one-time");
   const [stepIndex, setStepIndex] = useState(0);
@@ -110,7 +118,7 @@ export default function GroupQuote({ heading, thankYou = "course" }) {
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, startSearchTransition] = useTransition();
   const [selected, setSelected] = useState(
-    () => new Set([SECTION_DATA.lockedProgram]),
+    () => new Set([lockedProgram]),
   );
   const [fileName, setFileName] = useState("");
 
@@ -199,7 +207,7 @@ export default function GroupQuote({ heading, thankYou = "course" }) {
   }
 
   function toggleProgram(name) {
-    if (name === SECTION_DATA.lockedProgram) return;
+    if (name === lockedProgram) return;
     setSelected((prev) => {
       const next = new Set(prev);
       if (next.has(name)) next.delete(name);
@@ -210,7 +218,7 @@ export default function GroupQuote({ heading, thankYou = "course" }) {
   }
 
   function clearPrograms() {
-    setSelected(new Set([SECTION_DATA.lockedProgram]));
+    setSelected(new Set([lockedProgram]));
   }
 
   function sizeText() {
@@ -397,7 +405,7 @@ export default function GroupQuote({ heading, thankYou = "course" }) {
             <Box className={cn("max-h-[266px] overflow-y-auto rounded-xl border border-ink/12 bg-white", isSearching && "opacity-50")}>
               {query.trim() && searchResults.length ? (
                 searchResults.map((item) => {
-                  const locked = item.title === SECTION_DATA.lockedProgram;
+                  const locked = item.title === lockedProgram;
                   const checked = selected.has(item.title);
                   return (
                     <Box
@@ -961,7 +969,7 @@ export default function GroupQuote({ heading, thankYou = "course" }) {
             as="h3"
             className="mb-2.5 max-w-[26ch] font-display text-[clamp(19px,2vw,24px)] font-medium leading-[1.25] tracking-[-0.025em] text-ink"
           >
-            ML Model Monitoring Training Packages & Pricing
+            {courseName ? `${courseName} Training Packages & Pricing` : "Training Packages & Pricing"}
           </Text>
           <Text
             as="p"

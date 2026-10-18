@@ -63,7 +63,7 @@ export default function CoursePage({ course }) {
       <WhyEdstellar data={course.learning_path ?? course.WhyEds} relatedCourses={course.related_courses} />
       <CourseMapSection data={course.mapsectionData} />
       <AlsoFromEdstellar />
-      <GroupQuote />
+      <GroupQuote courseName={course.name} />
       <LeadForm data={course.leadForm} thankYou="course" />
       <StickyFooter data={course.stickyFooter} />
     </>
