@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
     title,
     description: course.seo?.Meta_description,
     path: `/corporate-training/${slug}/${courseSlug}`,
-    image: course.seo?.og_image_url,
+    image: course.seo?.og_image_url || course.banner_image,
   });
 }
 
