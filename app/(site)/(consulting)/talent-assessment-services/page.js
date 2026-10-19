@@ -33,7 +33,7 @@ const META_FALLBACK = {
   description:
     "Edstellar talent assessment services cover psychometric tests, pre-employment, skills and leadership assessments, 360 feedback and assessment centers.",
   image:
-    "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69e883a6e2cc403eabdeeadf_Corporate%20Talent%20Assessment%C2%A0Services%20for%20Workforce%20Readiness.webp",
+    "https://media.edstellar.com/website/Corporate_Talent_Assessment_C2_A0Services_for_Workforce_Readiness.webp",
 };
 
 // Each CMS-connected section is given a `section_id` so its anchor matches the

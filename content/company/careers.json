@@ -11,7 +11,7 @@
   "hero": {
     "heading": "Careers That Make a <span>Difference</span>",
     "image": {
-      "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/64a18953709a48bfa6ef270b_Mask%20group%20(19)-p-500.webp",
+      "src": "https://media.edstellar.com/website/Mask_group_(19)-p-500.webp",
       "alt": "Careers That Make a Difference"
     }
   },
@@ -48,7 +48,7 @@
     "primary": { "label": "Join as a Trainer", "href": "https://login.edstellar.com/register" },
     "secondary": { "label": "Know more", "href": "/trainer-platform" },
     "image": {
-      "src": "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/648be5017006cdce1a2fb3dd_Driving%20Training%20Success-p-500.webp",
+      "src": "https://media.edstellar.com/website/Driving_Training_Success-p-500.webp",
       "alt": "Driving Training Success with Stellar Trainers: Expertise That Sets Us Apart",
       "width": 500,
       "height": 566

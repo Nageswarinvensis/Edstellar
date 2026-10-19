@@ -29,7 +29,6 @@ export default function ClientsContact({ data }) {
         <EnquiryForm
           data={data.form}
           thankYou="contact-us"
-          inlineIdentity
           className="shadow-[0_20px_60px_rgba(5,13,26,.45)]"
         />
       </Box>

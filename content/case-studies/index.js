@@ -59,7 +59,7 @@ export const CASE_STUDIES = {
     industry: "IT-BPO",
     card: {
       image: {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6488601fa3922c655ff29f72_6486c0b425fd30c156dd130e_Group%201000001901.webp",
+        src: "https://media.edstellar.com/website/6486c0b425fd30c156dd130e_Group_1000001901.webp",
         width: 391,
         height: 423,
       },
@@ -72,7 +72,7 @@ export const CASE_STUDIES = {
     hero: {
       eyebrow: "Case Study",
       image: {
-        src: "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/64ad5c0ce36a0585e4dc7a8b_Group%201000001896%20(1).webp",
+        src: "https://media.edstellar.com/website/Group_1000001896_.webp",
         width: 819,
         height: 518,
       },

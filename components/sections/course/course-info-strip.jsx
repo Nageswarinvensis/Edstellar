@@ -4,6 +4,7 @@ import { Clock, Download, FileText, Monitor, Play, Star } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import { newTabProps } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
 /**
@@ -221,6 +222,9 @@ function ActionLink({ action }) {
   return (
     <Link
       href={action.href}
+      // The brochure is an absolute PDF URL — open it in a new tab so the
+      // course page stays open. In-page anchors (`#preview`) are left alone.
+      {...(/^https?:\/\//i.test(action.href ?? "") ? newTabProps(action.href) : {})}
       title={`Click Here to ${action.label}`}
       className={cn(
         "group flex h-11 flex-none items-center gap-2.5 rounded-full",

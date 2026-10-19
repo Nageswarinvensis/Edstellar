@@ -19,9 +19,9 @@ const CATALOG = { label: "Browse All Training Programs", href: "/corporate-train
 
 export const CORPORATE_TRAINING_HUB = {
   seo: {
-    title: "Corporate Training Programs and Services",
+    title: "Corporate Training for Workforce Development",
     description:
-      "Edstellar's corporate training hub: 2,000+ instructor-led programs across 77 domains, tailored to your teams and delivered onsite or online in 100+ countries.",
+      "Build workforce skills with Edstellar's corporate training, tailored to your business goals with expert trainers, customized programs and flexible delivery.",
     path: "/corporate-training",
   },
   breadcrumbs: [

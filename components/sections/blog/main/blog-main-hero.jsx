@@ -5,7 +5,7 @@ import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 
 const DECORATIVE_RINGS_SRC =
-  "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/66011ea9eb673920d76378a3_Mask%20group.webp";
+  "https://media.edstellar.com/website/Mask_group.webp";
 
 /** Decorative concentric rings on the hero's right edge — purely visual,
  * clipped by the header's own overflow-hidden. */

@@ -71,7 +71,7 @@ export default function ContactReach({ data, form }) {
         </Reveal>
 
         <Reveal delay={1} id="form" className="scroll-mt-20">
-          <EnquiryForm data={form} inlineIdentity />
+          <EnquiryForm data={form} />
         </Reveal>
       </Box>
     </Section>
