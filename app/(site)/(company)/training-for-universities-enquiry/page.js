@@ -16,5 +16,5 @@ export function generateMetadata() {
  * to the sector's main page.
  */
 export default function UniversityEnquiryPage() {
-  return <ProgramEnquiryPage page={getUniversityEnquiryPage()} queryParam="university-program" />;
+  return <ProgramEnquiryPage page={getUniversityEnquiryPage()} queryParam="university-program" thankYou="training-for-universities" />;
 }

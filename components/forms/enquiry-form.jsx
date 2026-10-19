@@ -84,6 +84,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
         ...values,
         phone: values.phone ? `+${values.phone}` : "",
         page: window.location.pathname,
+        thankYou,
       });
     } catch {
       result = null;

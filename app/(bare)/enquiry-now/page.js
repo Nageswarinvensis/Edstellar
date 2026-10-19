@@ -28,7 +28,7 @@ export async function generateMetadata() {
 
 /**
  * Enquire Now — a standalone landing page (the `(bare)` shell: no header or
- * footer). Everything comes from the CMS site page `enquiry-form`: its `seo`
+ * footer). Everything comes from the CMS site page `enquiry-now`: its `seo`
  * component, and `enquiry_page` for the hero, the form's heading and button,
  * and the "talk to us directly" contacts. The form sits in the hero's right
  * column; a valid submit goes to `/thank-you/enquire`.
