@@ -42,7 +42,7 @@ export default function Pitch({ data }) {
         </Reveal>
 
         <Reveal delay={1}>
-          <GuestAuthorForm data={data.form} />
+          <GuestAuthorForm data={data.form} thankYou="enquire" />
         </Reveal>
       </Box>
     </Section>

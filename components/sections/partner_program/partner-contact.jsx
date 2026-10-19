@@ -30,7 +30,8 @@ export default function PartnerContact({ data, thankYou }) {
               partnershipTypes={data.partnership_types}
               targetSegments={data.target_segments}
               submitLabel={data.submit_label}
-              thankYou={thankYou}
+              // Each tab has its own thank-you page, as on the live site.
+              thankYou={thankYou ?? (tab.id === "business" ? "partnership-groups" : "partnership-individuals")}
             />
           ))}
         </PillTabs>

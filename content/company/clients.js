@@ -34,7 +34,8 @@ export const CLIENTS = {
       {
         "label": "Explore clients by sector",
         "href": "#clients",
-        "variant": "secondary"
+        "variant": "secondary",
+        "arrow": true
       }
     ],
     "facts": [
@@ -1777,7 +1778,8 @@ export const CLIENTS = {
       {
         "label": "Send your RFP",
         "href": "https://www.edstellar.com/request-for-proposal",
-        "variant": "secondary"
+        "variant": "secondary",
+        "arrow": true
       }
     ]
   },

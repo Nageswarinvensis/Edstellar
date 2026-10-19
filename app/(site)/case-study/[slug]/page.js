@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { getCaseStudy } from "@/lib/content/case-studies";
+import { getLatestCourses } from "@/lib/content/latest-courses";
 import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import CaseStudyPage from "@/components/templates/case-study-page";
@@ -38,7 +39,10 @@ export default async function CaseStudyDetailPage({ params }) {
         webpage={{ name: study.seo.title, description: study.seo.description, path: pathOf(slug) }}
         breadcrumbs={breadcrumbs}
       />
-      <CaseStudyPage study={study} breadcrumbs={breadcrumbs} />
+      <CaseStudyPage
+        study={{ ...study, courses: { ...study.courses, items: await getLatestCourses() } }}
+        breadcrumbs={breadcrumbs}
+      />
     </>
   );
 }

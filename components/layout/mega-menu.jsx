@@ -241,7 +241,7 @@ export default function MegaMenu({ onOpenBrief }) {
       id={ROOT_ID}
       onMouseLeave={onRootLeave}
       onMouseEnter={onRootEnter}
-      className="flex min-w-0 flex-1 items-stretch max-nav:hidden"
+      className="flex min-w-0 flex-1 items-stretch justify-end max-nav:hidden"
     >
       <Box as="nav" aria-label="Main" className="flex items-center">
         <Box as="ul" className="flex list-none items-center">

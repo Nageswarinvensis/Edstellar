@@ -9,6 +9,9 @@ import Reveal from "@/components/common/reveal";
 import { CtaButton } from "@/components/common/cta-button";
 import { cn } from "@/lib/utils";
 
+/** Fired on "Enquire Now" with `{ origin, thankYou }`; `PricingQuoteForm` listens. */
+export const PRICING_ENQUIRE_EVENT = "pricing:enquire";
+
 /**
  * A footnote marker — jumps to the "Points to note" box (`#points`).
  */
@@ -272,7 +275,12 @@ function PlanCard({ plan, rows, programs, tab, ctaLabel, ctaHref, index, total, 
  * cards share one subgrid, so every row (licenses, duration, …) lines up
  * across all four however long its text runs.
  *
- * "Enquire Now" scrolls to the quote form and focuses its first field.
+ * "Enquire Now" scrolls to the quote form and focuses its first field. It
+ * also tells the form which package was asked about (a `pricing:enquire`
+ * window event — the form sits in another section): the live page records
+ * "{tab label}: {plan} Package" in Zoho and sends each of its twelve
+ * tab/package buttons to its own thank-you page,
+ * `/thank-you/{tab.thank_you_prefix}{plan}-package`.
  *
  * Design: corporate-training-pricing-v2 `#table`, `.tabs`, `.plans`, `.plan`,
  * `.tip`.
@@ -295,7 +303,17 @@ export default function PricingPlans({ data, quoteId = "quote" }) {
     tabRefs.current[next]?.focus();
   }
 
-  function onEnquire(event) {
+  function onEnquire(event, plan) {
+    const active = tabs.find((item) => item.key === tab);
+    window.dispatchEvent(
+      new CustomEvent(PRICING_ENQUIRE_EVENT, {
+        detail: {
+          origin: `${active?.label ?? "All Included"}: ${plan.name} Package`,
+          thankYou: `${active?.thank_you_prefix ?? ""}${plan.name.toLowerCase()}-package`,
+        },
+      }),
+    );
+
     const form = document.getElementById(quoteId);
     if (!form) return;
     event.preventDefault();
@@ -357,7 +375,7 @@ export default function PricingPlans({ data, quoteId = "quote" }) {
             ctaHref={data.cta_href}
             index={index}
             total={items.length}
-            onEnquire={onEnquire}
+            onEnquire={(event) => onEnquire(event, plan)}
           />
         ))}
       </Box>

@@ -374,7 +374,7 @@ export function RfpSubmit({ data }) {
           {data.description}
         </Text>
       </Reveal>
-      <RfpForm data={data} />
+      <RfpForm data={data} thankYou="request-for-proposal" />
     </Section>
   );
 }

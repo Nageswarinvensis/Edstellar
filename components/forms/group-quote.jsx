@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
+import { useCallback, useMemo, useRef, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Minus, Plus, Search } from "lucide-react";
 import { searchCourses } from "@/lib/actions/course-search";
+import { submitCourseQuote } from "@/lib/actions/submit-course-quote";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -14,12 +15,9 @@ import RichHeading from "@/components/common/rich-heading";
 import SecCta from "@/components/common/sec-cta";
 import { CtaButton } from "@/components/common/cta-button";
 import { FormField, formInputClasses } from "@/components/common/form-field";
+import CountryPhoneFields, { HoneypotField, phoneForSubmit } from "@/components/forms/country-phone-fields";
 import { cn } from "@/lib/utils";
-import {
-  COUNTRY_DIAL_CODES,
-  EMAIL_PATTERN,
-  FREE_MAIL_DOMAINS,
-} from "@/lib/constants";
+import { EMAIL_PATTERN, FREE_MAIL_DOMAINS } from "@/lib/constants";
 import { LICENSE_PACKAGES } from "@/content/group-quote-catalog";
 
 const TABS = [
@@ -43,35 +41,12 @@ const SECTION_DATA = {
   lockedProgram: "ML Model Monitoring Training",
 };
 
-// Dial code shown on the final step's phone field is guessed from the
-// visitor's timezone — there's no country selector on this compact form.
-const TIMEZONE_COUNTRY = {
-  "Asia/Kolkata": "India",
-  "Asia/Calcutta": "India",
-  "Europe/London": "United Kingdom",
-  "Europe/Dublin": "Ireland",
-  "Europe/Berlin": "Germany",
-  "Europe/Paris": "France",
-  "Europe/Amsterdam": "Netherlands",
-  "Europe/Madrid": "Spain",
-  "Europe/Rome": "Italy",
-  "Asia/Dubai": "United Arab Emirates",
-  "Asia/Singapore": "Singapore",
-  "Asia/Tokyo": "Japan",
-  "Australia/Sydney": "Australia",
-  "Africa/Johannesburg": "South Africa",
-  "America/Toronto": "Canada",
-  "America/Sao_Paulo": "Brazil",
-};
+/** The requirements file the live form accepts: Excel, up to 4 MB. */
+const FILE_TYPES = /\.(xls|xlsx)$/i;
+const FILE_MAX_BYTES = 4 * 1024 * 1024;
 
-function guessCountry() {
-  try {
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    return TIMEZONE_COUNTRY[timeZone] || "United States";
-  } catch {
-    return "United States";
-  }
-}
+/** Contact-step fields; any other field the server rejects shows above the button. */
+const CONTACT_FIELDS = ["name", "workEmail", "company", "jobTitle", "country", "phone", "needs"];
 
 function pathFor(mode) {
   return mode === "multiple"
@@ -87,9 +62,16 @@ function stripTrainingSuffix(name) {
  * Group-quote wizard — qualifies a training request in a few clicks (team
  * size, programs, frequency), then sends it from its own contact form on the
  * last step. This section stands alone and does not hand off to `LeadForm`
- * elsewhere on the page — each has its own independent submit. No backend
- * yet: a valid contact step goes straight to `/thank-you/{thankYou}`
- * (default `course`).
+ * elsewhere on the page — each has its own independent submit.
+ *
+ * The request goes to Zoho Forms' "CourseMultiStepFrom" — the live course
+ * pages' multi-step form, with the same fields — through the
+ * `submitCourseQuote` Server Action and the shared lead pipeline
+ * (`lib/leads/`): team size, "One Time" or the recurring session count, the
+ * programs picked (multiple training only), the uploaded requirements file,
+ * the contact details and the course's slug. On success the visitor lands on
+ * `/thank-you/{thankYou}` (default `course`); a field the server rejects
+ * shows under that field, anything else above the button.
  */
 export default function GroupQuote({ heading, courseName, thankYou = "course" }) {
   const cardRef = useRef(null);
@@ -120,7 +102,9 @@ export default function GroupQuote({ heading, courseName, thankYou = "course" })
   const [selected, setSelected] = useState(
     () => new Set([lockedProgram]),
   );
-  const [fileName, setFileName] = useState("");
+  const [file, setFile] = useState(null);
+  const [fileError, setFileError] = useState("");
+  const fileName = file?.name ?? "";
 
   const path = useMemo(() => pathFor(mode), [mode]);
   const currentStep = path[stepIndex];
@@ -141,23 +125,78 @@ export default function GroupQuote({ heading, courseName, thankYou = "course" })
     }, 350);
   }, []);
 
-  const [dialCountry, setDialCountry] = useState("United States");
-  useEffect(() => {
-    setDialCountry(guessCountry());
-  }, []);
-  const dialCode =
-    COUNTRY_DIAL_CODES.find((country) => country.name === dialCountry)
-      ?.dialCode || "+1";
-
   const {
     register: registerContact,
+    control,
+    watch,
+    setValue,
+    setError,
     handleSubmit: handleContactSubmit,
     formState: { errors: contactErrors, isSubmitting: contactSubmitting },
-  } = useForm();
+  } = useForm({ defaultValues: { country: "", phone: "", dialCode: "1" } });
   const router = useRouter();
+  const [submitError, setSubmitError] = useState("");
 
-  function onContactSubmit() {
-    router.push(`/thank-you/${thankYou}`);
+  function onFileChange(event) {
+    const next = event.target.files?.[0] ?? null;
+    setShowError(false);
+    if (next && !FILE_TYPES.test(next.name)) {
+      setFile(null);
+      setFileError("Please select an Excel file (.xls or .xlsx).");
+      event.target.value = "";
+      return;
+    }
+    if (next && next.size > FILE_MAX_BYTES) {
+      setFile(null);
+      setFileError("File size exceeds 4 MB. Please select a smaller file.");
+      event.target.value = "";
+      return;
+    }
+    setFile(next);
+    setFileError("");
+  }
+
+  async function onContactSubmit({ needs, consent: _consent, ...values }) {
+    setSubmitError("");
+    let result;
+    try {
+      result = await submitCourseQuote({
+        ...values,
+        phone: phoneForSubmit(values.phone),
+        message: needs,
+        teamSize: teamSize === "custom" ? String(teamSizeCustom) : teamSize,
+        // As the live form: "One Time", or just the recurring session count.
+        frequency:
+          frequency === "Recurring"
+            ? String(sessions === "custom" ? sessionsCustom : sessions)
+            : "One Time",
+        courses: mode === "multiple" ? [...selected].join(", ") : "",
+        file: mode === "multiple" ? file : null,
+        page: window.location.pathname,
+        thankYou,
+      });
+    } catch {
+      result = null;
+    }
+
+    if (result?.ok) {
+      router.push(`/thank-you/${thankYou}`);
+      return;
+    }
+    if (result?.errors) {
+      const other = [];
+      for (const [field, message] of Object.entries(result.errors)) {
+        if (field === "message") setError("needs", { message });
+        else if (CONTACT_FIELDS.includes(field)) setError(field, { message });
+        else other.push(message);
+      }
+      if (other.length) setSubmitError(other.join(" "));
+      return;
+    }
+    setSubmitError(
+      result?.error ||
+        "We could not submit your request. Please try again, or email us at contact@edstellar.com.",
+    );
   }
 
   function isStepValid(step) {
@@ -506,12 +545,9 @@ export default function GroupQuote({ heading, courseName, thankYou = "course" })
             >
               <input
                 type="file"
-                accept=".xls,.xlsx,.csv"
+                accept=".xls,.xlsx"
                 className="sr-only"
-                onChange={(e) => {
-                  setFileName(e.target.files?.[0]?.name || "");
-                  setShowError(false);
-                }}
+                onChange={onFileChange}
               />
               <Text as="span" className="text-[14px] font-semibold text-ink">
                 Choose a file
@@ -520,13 +556,18 @@ export default function GroupQuote({ heading, courseName, thankYou = "course" })
                 as="span"
                 className="font-mono text-[10px] tracking-[0.1em] text-ink/50 uppercase"
               >
-                .xls, .xlsx or .csv
+                .xls or .xlsx · up to 4 MB
               </Text>
             </Box>
 
             {fileName ? (
               <Text as="p" className="mt-3 text-center text-[13px] text-ink">
                 Attached: {fileName}
+              </Text>
+            ) : null}
+            {fileError ? (
+              <Text as="p" role="alert" className="mt-3 text-center text-[12.5px] text-red-600">
+                {fileError}
               </Text>
             ) : null}
           </Box>
@@ -754,8 +795,9 @@ export default function GroupQuote({ heading, courseName, thankYou = "course" })
               as="form"
               noValidate
               onSubmit={handleContactSubmit(onContactSubmit)}
-              className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+              className="relative grid grid-cols-1 gap-4 sm:grid-cols-2"
             >
+              <HoneypotField register={registerContact} />
               <FormField
                 label="Name"
                 required
@@ -813,23 +855,38 @@ export default function GroupQuote({ heading, courseName, thankYou = "course" })
                 />
               </FormField>
 
-              <FormField label="Phone">
-                <Box className="flex items-stretch overflow-hidden rounded-xl border border-ink/15 focus-within:border-navy focus-within:bg-white">
-                  <Text
-                    as="span"
-                    className="flex items-center border-r border-ink/12 px-2.5 font-mono text-[12.5px] text-ink/60"
-                  >
-                    {dialCode}
-                  </Text>
-                  <input
-                    {...registerContact("phone")}
-                    type="tel"
-                    inputMode="tel"
-                    autoComplete="tel-national"
-                    placeholder="201-555-0123"
-                    className="w-full min-w-0 bg-transparent p-3 text-[13.5px] text-ink outline-none placeholder:text-ink/35"
-                  />
-                </Box>
+              <FormField
+                label="Job title"
+                required
+                error={contactErrors.jobTitle?.message}
+              >
+                <input
+                  {...registerContact("jobTitle", {
+                    required: "Please enter your job title.",
+                  })}
+                  type="text"
+                  autoComplete="organization-title"
+                  placeholder="Enter your job title"
+                  className={formInputClasses}
+                />
+              </FormField>
+
+              <CountryPhoneFields
+                form={{ register: registerContact, control, watch, setValue, errors: contactErrors }}
+                phoneLabel="Phone"
+              />
+
+              <FormField
+                label="Training needs"
+                error={contactErrors.needs?.message}
+                className="sm:col-span-2"
+              >
+                <textarea
+                  {...registerContact("needs")}
+                  rows={3}
+                  placeholder="Tell us about your training needs"
+                  className={cn(formInputClasses, "resize-y")}
+                />
               </FormField>
 
               <Box className="relative flex items-start gap-2.5 sm:col-span-2">
@@ -868,9 +925,15 @@ export default function GroupQuote({ heading, courseName, thankYou = "course" })
                 ) : null}
               </Box>
 
+              {submitError ? (
+                <Text as="p" role="alert" className="mt-3 text-[13px] leading-[1.5] text-destructive sm:col-span-2">
+                  {submitError}
+                </Text>
+              ) : null}
+
               <Box className="border-t border-ink/10 pt-4.5 sm:col-span-2">
                 <CtaButton type="submit" arrow disabled={contactSubmitting}>
-                  Request my quote
+                  {contactSubmitting ? "Submitting…" : "Request my quote"}
                 </CtaButton>
               </Box>
             </Box>

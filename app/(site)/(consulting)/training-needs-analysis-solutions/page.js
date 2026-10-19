@@ -17,7 +17,7 @@ import TnaCardGrid from "@/components/sections/training_needs_analysis/tnacardgr
 import Readiness from "@/components/sections/consulting/readiness";
 import RelatedServices from "@/components/sections/consulting/related-services";
 import Faq from "@/components/common/faq";
-import LeadForm from "@/components/forms/lead-form";
+import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
 export const revalidate = 3600;
@@ -75,11 +75,9 @@ export default async function TrainingNeedsAnalysisPage() {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <LeadForm
-        id="apply"
-        background="navy"
-        data={tna.leadForm}
-      />
+      {/* The consulting form, as on the live TNA page (Zoho
+          "EdstellarLDConsultingform1"). */}
+      <ConsultingForm id="apply" background="navy" data={tna.leadForm} />
       <StickyFooter data={{ ...tna.stickyFooter, email: true }} />
     </>
   );

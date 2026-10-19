@@ -34,7 +34,7 @@ export default function WwsContact({ data }) {
       <Box className="mx-auto max-w-[960px]">
         <EnquiryForm
           data={data.form}
-          thankYou="contact-us"
+          thankYou="who-we-serve"
           className="shadow-[0_20px_60px_rgba(5,13,26,.45)]"
         />
       </Box>

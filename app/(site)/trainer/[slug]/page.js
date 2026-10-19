@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getTrainer, getTrainersBySlugs } from "@/lib/content/trainers";
 import { TRAINER_PAGE } from "@/content/trainers/trainer-page";
-import { LATEST_COURSES } from "@/content/latest-courses";
+import { getLatestCourses } from "@/lib/content/latest-courses";
 import SchemaOrg from "@/components/seo/schema-org";
 import TrainerProfilePage from "@/components/templates/trainer-profile-page";
 import {
@@ -120,7 +120,7 @@ export default async function TrainerPage({ params }) {
         page={TRAINER_PAGE}
         breadcrumbs={breadcrumbs}
         otherTrainers={otherTrainers}
-        programs={LATEST_COURSES}
+        programs={await getLatestCourses()}
       />
     </>
   );

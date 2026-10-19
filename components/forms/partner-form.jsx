@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
@@ -7,10 +8,10 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/common/cta-button";
 import { FormField, formInputClasses } from "@/components/common/form-field";
+import CountryPhoneFields, { HoneypotField, phoneForSubmit } from "@/components/forms/country-phone-fields";
 import { cn } from "@/lib/utils";
-import { COUNTRY_DIAL_CODES, EMAIL_PATTERN, FREE_MAIL_DOMAINS } from "@/lib/constants";
-
-const PHONE_PATTERN = /^[\d\s()+-]{6,20}$/;
+import { EMAIL_PATTERN } from "@/lib/constants";
+import { submitPartnership } from "@/lib/actions/submit-partnership";
 
 /** A labelled `<select>` with a blank first option as its prompt. */
 function SelectField({ label, required, error, placeholder, options, registration }) {
@@ -31,18 +32,23 @@ function SelectField({ label, required, error, placeholder, options, registratio
 /**
  * The Partner Program application form, in two variants:
  *
- * - `audience="business"` — name, work email (personal mail domains are
- *   rejected), company, country + phone, partnership type, target segment,
- *   comments.
- * - `audience="individual"` — name, email (any domain), country + phone,
- *   partnership type, comments.
+ * - `audience="business"` — name, email, company, country + phone,
+ *   partnership type, target segment, comments.
+ * - `audience="individual"` — name, email, country + phone, partnership
+ *   type, comments.
  *
- * Phone and comments are optional, as in the design; everything else and
- * the privacy consent are required. The country sets the phone's dial code.
+ * Fields, placeholders and error messages are the live `/partner-program`
+ * form's: any email domain is accepted, comments are optional, everything
+ * else is required, and there is no consent checkbox. Country and phone are
+ * the shared international phone input (`CountryPhoneFields`), synced both
+ * ways.
  *
- * No submission backend yet: a valid submit goes straight to
- * `/thank-you/{thankYou}` (default `contact-us` — there is no partner
- * thank-you page yet).
+ * A valid submit goes to Zoho Forms' "PartnershipForm" — the same form, with
+ * the same fields and option values, as the live `/partner-program` — through
+ * the `submitPartnership` Server Action and the shared lead pipeline
+ * (`lib/leads/`). On success the visitor lands on `/thank-you/{thankYou}`; a
+ * field the server rejects shows under that field, and a failed delivery
+ * shows a message above the button instead of a false thank-you.
  *
  * Design: partner-program.html `[data-cmp="contact-form"]` `.lead`,
  * `.lead-body`, `.pform`, `.fgrid`, `.f`, `.tel`, `.lead-foot`.
@@ -53,135 +59,126 @@ export default function PartnerForm({
   targetSegments = [],
   submitLabel = "Submit",
   id = "partner-form",
-  thankYou = "contact-us",
+  thankYou,
 }) {
   const {
     register,
+    control,
     handleSubmit,
     watch,
+    setValue,
+    setError,
     formState: { errors, isSubmitting },
-  } = useForm({ defaultValues: { country: "United States" } });
+  } = useForm({ defaultValues: { country: "", phone: "", dialCode: "1" } });
   const router = useRouter();
+  const [submitError, setSubmitError] = useState("");
 
   const business = audience === "business";
-  const dialCode =
-    COUNTRY_DIAL_CODES.find((country) => country.name === watch("country"))?.dialCode || "";
+  // Each tab has its own thank-you page, as on the live site.
+  const thankYouSlug = thankYou ?? (business ? "partnership-groups" : "partnership-individuals");
 
-  function onSubmit() {
-    router.push(`/thank-you/${thankYou}`);
+  async function onSubmit(values) {
+    setSubmitError("");
+    let result;
+    try {
+      result = await submitPartnership({
+        ...values,
+        phone: phoneForSubmit(values.phone),
+        audience,
+        page: window.location.pathname,
+        thankYou: thankYouSlug,
+      });
+    } catch {
+      result = null;
+    }
+
+    if (result?.ok) {
+      router.push(`/thank-you/${thankYouSlug}`);
+      return;
+    }
+    if (result?.errors) {
+      for (const [field, message] of Object.entries(result.errors)) setError(field, { message });
+      return;
+    }
+    setSubmitError(
+      result?.error ||
+        "We could not submit your application. Please try again, or email us at contact@edstellar.com.",
+    );
   }
 
   return (
     <Box className="overflow-hidden rounded-[22px] border border-ink/12 bg-white shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)]">
       <Box
         as="form"
+        id={id}
         noValidate
         aria-label={business ? "Partner application for businesses" : "Partner application for individuals"}
         onSubmit={handleSubmit(onSubmit)}
         className="px-6.5 py-8 min-[901px]:px-13 min-[901px]:py-11"
       >
+        <HoneypotField register={register} />
         <Box className="grid grid-cols-1 gap-x-4.5 gap-y-5 min-[901px]:grid-cols-2">
-          <FormField label="Full name" required error={errors.name?.message}>
+          <FormField label="Full Name" required error={errors.name?.message}>
             <input
-              {...register("name", { required: "Please enter your full name." })}
+              {...register("name", { required: "Name is required" })}
               type="text"
               autoComplete="name"
-              placeholder="Enter your full name"
+              placeholder="Enter Your Full Name"
               aria-invalid={Boolean(errors.name)}
               className={formInputClasses}
             />
           </FormField>
 
-          <FormField label={business ? "Work email" : "Email"} required error={errors.email?.message}>
+          <FormField label="Email" required error={errors.email?.message}>
             <input
               {...register("email", {
-                required: "Please enter your email address.",
-                pattern: { value: EMAIL_PATTERN, message: "That email does not look right." },
-                validate: business
-                  ? (value) =>
-                      !FREE_MAIL_DOMAINS.has(value.split("@")[1]?.toLowerCase()) ||
-                      "Please use your work email."
-                  : undefined,
+                required: "Email address is required",
+                pattern: { value: EMAIL_PATTERN, message: "Email address is invalid" },
               })}
               type="email"
               autoComplete="email"
-              placeholder={business ? "Enter your work email" : "Enter your email"}
+              placeholder="Enter Your Full Email"
               aria-invalid={Boolean(errors.email)}
               className={formInputClasses}
             />
           </FormField>
 
           {business ? (
-            <FormField label="Company name" required error={errors.company?.message}>
+            <FormField label="Company Name" required error={errors.company?.message}>
               <input
-                {...register("company", { required: "Please enter your company name." })}
+                {...register("company", { required: "Company name is required" })}
                 type="text"
                 autoComplete="organization"
-                placeholder="Enter company name"
+                placeholder="Enter Company Name"
                 aria-invalid={Boolean(errors.company)}
                 className={formInputClasses}
               />
             </FormField>
           ) : null}
 
-          <FormField label="Country" required error={errors.country?.message}>
-            <select
-              {...register("country", { required: "Please select your country." })}
-              autoComplete="country-name"
-              aria-invalid={Boolean(errors.country)}
-              className={formInputClasses}
-            >
-              {COUNTRY_DIAL_CODES.map((country) => (
-                <option key={country.name} value={country.name}>
-                  {country.name}
-                </option>
-              ))}
-            </select>
-          </FormField>
-
-          <FormField label="Phone" error={errors.phone?.message}>
-            <Box className="flex items-stretch overflow-hidden rounded-xl border border-ink/15 bg-paper focus-within:border-navy focus-within:bg-white">
-              <Text
-                as="span"
-                className="flex items-center border-r border-ink/12 px-3 font-mono text-[12.5px] text-ink/60"
-              >
-                {dialCode || "—"}
-              </Text>
-              <input
-                {...register("phone", {
-                  pattern: { value: PHONE_PATTERN, message: "Please enter a valid phone number." },
-                })}
-                type="tel"
-                inputMode="tel"
-                autoComplete="tel-national"
-                placeholder="201-555-0123"
-                aria-invalid={Boolean(errors.phone)}
-                className="w-full min-w-0 bg-transparent p-3 text-[13.5px] text-ink outline-none placeholder:text-ink/35"
-              />
-            </Box>
-          </FormField>
+          <CountryPhoneFields form={{ register, control, watch, setValue, errors }} phoneLabel="Phone Number" />
 
           <SelectField
-            label="Partnership type"
+            label="Partnership Type"
             required
             error={errors.partnershipType?.message}
-            placeholder="Select partnership type"
+            placeholder="Partnership Type"
             options={partnershipTypes}
-            registration={register("partnershipType", { required: "Please select a partnership type." })}
+            registration={register("partnershipType", { required: "Select a Partnership from the dropdown" })}
           />
 
           {business ? (
             <SelectField
-              label="Target segment"
+              label="Target Segment"
               required
               error={errors.targetSegment?.message}
-              placeholder="Select target segment"
+              placeholder="Target Segment"
               options={targetSegments}
-              registration={register("targetSegment", { required: "Please select a target segment." })}
+              registration={register("targetSegment", { required: "Select a Target from the dropdown" })}
             />
           ) : null}
 
-          <FormField label="Comments" className="min-[901px]:col-span-2">
+          <FormField label="Comments" error={errors.comments?.message} className="min-[901px]:col-span-2">
             <textarea
               {...register("comments")}
               rows={4}
@@ -191,35 +188,15 @@ export default function PartnerForm({
           </FormField>
         </Box>
 
-        <Box className="relative mt-5 flex items-start gap-2.75">
-          <input
-            {...register("consent", { required: true })}
-            type="checkbox"
-            id={`${id}-consent`}
-            aria-invalid={Boolean(errors.consent)}
-            className="mt-0.75 size-3.5 flex-none accent-navy"
-          />
-          <Text as="label" htmlFor={`${id}-consent`} className="text-[12.5px] leading-normal text-ink/60">
-            I agree that Edstellar may use my details to respond to my partner application, as described in the{" "}
-            <a href="/privacy-policy" title="Click Here to View Privacy Policy" className="underline hover:text-ink">
-              privacy policy
-            </a>
-            .
+        {submitError ? (
+          <Text as="p" role="alert" className="mt-5 text-[13.5px] leading-[1.5] text-destructive">
+            {submitError}
           </Text>
-          {errors.consent ? (
-            <Text
-              as="span"
-              role="alert"
-              className="absolute top-full left-6 mt-1 text-[11px] leading-[1.35] text-red-600"
-            >
-              Please accept the privacy policy to continue.
-            </Text>
-          ) : null}
-        </Box>
+        ) : null}
 
-        <Box className="mt-6.5 flex border-t border-ink/12 pt-6">
+        <Box className="mt-6.5 flex justify-end border-t border-ink/12 pt-6">
           <CtaButton type="submit" arrow disabled={isSubmitting} className="w-full min-[901px]:w-auto">
-            {submitLabel}
+            {isSubmitting ? "Submitting…" : submitLabel}
           </CtaButton>
         </Box>
       </Box>
