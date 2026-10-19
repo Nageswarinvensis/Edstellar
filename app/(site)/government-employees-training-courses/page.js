@@ -3,6 +3,8 @@ import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import SectorPage from "@/components/templates/sector-page";
 
+export const revalidate = 3600;
+
 export function generateMetadata() {
   const { seo } = getGovernmentPage();
 

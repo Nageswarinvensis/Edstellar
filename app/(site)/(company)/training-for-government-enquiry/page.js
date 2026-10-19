@@ -2,6 +2,8 @@ import { getGovernmentEnquiryPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
 import ProgramEnquiryPage from "@/components/templates/program-enquiry-page";
 
+export const revalidate = 3600;
+
 export function generateMetadata() {
   const { seo } = getGovernmentEnquiryPage();
   return buildMetadata(seo);

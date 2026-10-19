@@ -1,10 +1,7 @@
 import { Fragment } from "react";
 import { notFound } from "next/navigation";
 
-import {
-  getConsultingService,
-  getConsultingServiceSlugs,
-} from "@/lib/content/consulting";
+import { getConsultingService } from "@/lib/content/consulting";
 import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
@@ -128,11 +125,6 @@ const SECTIONS = {
 };
 
 export const revalidate = 3600;
-
-export async function generateStaticParams() {
-  const slugs = await getConsultingServiceSlugs(PILLAR);
-  return slugs.map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;

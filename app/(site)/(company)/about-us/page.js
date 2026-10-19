@@ -3,6 +3,8 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import AboutUsPage from "@/components/templates/about-us-page";
 
+export const revalidate = 3600;
+
 export function generateMetadata() {
   const { seo } = getAboutUsPage();
   // The SEO title is "About Edstellar" exactly — the root layout's

@@ -4,11 +4,7 @@ import { getThankYouPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
 import ThankYou from "@/components/sections/company/thank-you";
 
-/** The CMS has no index of its thank-you pages, so none are listed here:
- * each published one renders on its first visit and is then cached (ISR). */
-export function generateStaticParams() {
-  return [];
-}
+export const revalidate = 3600;
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;

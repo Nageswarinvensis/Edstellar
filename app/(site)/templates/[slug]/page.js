@@ -1,18 +1,11 @@
 import { notFound } from "next/navigation";
 
-import { getTemplate, getTemplateSlugs } from "@/lib/content/templates";
+import { getTemplate } from "@/lib/content/templates";
 import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import TemplateDetailPage from "@/components/templates/template-detail-page";
 
-// Templates come from the CMS (`templates/{slug}` site pages), refreshed
-// hourly. Known slugs are prerendered; a template published after the build
-// renders on first request, and an unknown slug is a real 404.
 export const revalidate = 3600;
-
-export async function generateStaticParams() {
-  return (await getTemplateSlugs()).map((slug) => ({ slug }));
-}
 
 const pathOf = (slug) => `/templates/${slug}`;
 

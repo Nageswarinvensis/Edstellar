@@ -26,15 +26,6 @@ import "@/components/sections/blog/detail/blog-content/Global.css";
 
 export const revalidate = 86400;
 
-// ISR, none at build: each post renders on its first request (dynamicParams
-// stays on) and is then served from cache, refreshed every `revalidate`
-// seconds. Prerendering hundreds of posts made every build slow and let one
-// CMS network blip fail it (TASTE.md §2.2). The empty list is still needed —
-// it is what makes this route cached rather than rendered per request.
-export function generateStaticParams() {
-  return [];
-}
-
 const INTERACTIVE_BLOCKS = ["faq", "companies"];
 
 function readBlogContentCss(filename) {

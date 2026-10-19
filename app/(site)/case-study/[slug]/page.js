@@ -1,17 +1,11 @@
 import { notFound } from "next/navigation";
 
-import { getCaseStudy, getCaseStudySlugs } from "@/lib/content/case-studies";
+import { getCaseStudy } from "@/lib/content/case-studies";
 import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import CaseStudyPage from "@/components/templates/case-study-page";
 
-// Every case study is local content, so the full set is known at build time
-// and anything else is a real 404.
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return getCaseStudySlugs().map((slug) => ({ slug }));
-}
+export const revalidate = 3600;
 
 const pathOf = (slug) => `/case-study/${slug}`;
 

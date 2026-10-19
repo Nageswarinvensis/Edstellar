@@ -7,14 +7,6 @@ import CategoryPageContent from "@/components/sections/blog/category/category-pa
 
 export const revalidate = 300;
 
-// ISR, none at build: each category page renders on its first request and is then
-// cached for `revalidate` seconds. The stray-`?page=` redirect lives in
-// `middleware.js` — reading `searchParams` here would make the page render on
-// every request instead.
-export function generateStaticParams() {
-  return [];
-}
-
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const { category } = await getBlogCategory(slug);

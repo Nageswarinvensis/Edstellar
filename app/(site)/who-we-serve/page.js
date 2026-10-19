@@ -14,6 +14,8 @@ import WwsTools from "@/components/sections/who-we-serve/wws-tools";
 import WwsFaq from "@/components/sections/who-we-serve/wws-faq";
 import WwsContact from "@/components/sections/who-we-serve/wws-contact";
 
+export const revalidate = 3600;
+
 export const metadata = {
   title: "Who We Serve: Industries & Organizations",
   description:

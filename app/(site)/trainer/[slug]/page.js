@@ -18,13 +18,6 @@ import { buildMetadata } from "@/lib/seo/metadata";
 
 export const revalidate = 3600;
 
-// The CMS has no trainer index, so the trainers this page already knows
-// (the "Other trainers" list) are prerendered; any other profile renders on
-// first request and is cached from then on (`dynamicParams` stays on).
-export function generateStaticParams() {
-  return TRAINER_PAGE.other_trainers.slugs.map((slug) => ({ slug }));
-}
-
 /** "Emotional Intelligence Trainer in Pune" → the city as the heading's
  * italic accent. Titles without a trailing "in {city}" stay plain. */
 function titleHeading(title, city) {

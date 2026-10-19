@@ -3,6 +3,8 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import RequestForProposalPage from "@/components/templates/request-for-proposal-page";
 
+export const revalidate = 3600;
+
 export function generateMetadata() {
   return buildMetadata(getRfpPage().seo);
 }

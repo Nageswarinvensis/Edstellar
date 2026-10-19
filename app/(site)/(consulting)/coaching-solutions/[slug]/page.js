@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { getCoachingSubPage, getCoachingSubPageSlugs } from "@/lib/content/coaching";
+import { getCoachingSubPage } from "@/lib/content/coaching";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 import ClientLogos from "@/components/common/client-logos";
@@ -37,13 +37,7 @@ const PROOF_STATS = {
   secondaryBtnHref: "#contact",
 };
 
-// SSG: all slugs prerendered at build; anything else → 404.
-export const dynamicParams = false;
 export const revalidate = 3600;
-
-export async function generateStaticParams() {
-  return getCoachingSubPageSlugs().map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;

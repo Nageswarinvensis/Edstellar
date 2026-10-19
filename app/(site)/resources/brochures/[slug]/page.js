@@ -4,6 +4,8 @@ import Reveal from "@/components/common/reveal";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { titleFromSlug } from "@/lib/slug";
 
+export const revalidate = 3600;
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const name = titleFromSlug(slug);

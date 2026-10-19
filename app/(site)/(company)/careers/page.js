@@ -6,6 +6,8 @@ import CompanyHero from "@/components/sections/company/company-hero";
 import WhyWork from "@/components/sections/company/careers/why-work";
 import TrainerSpotlight from "@/components/sections/company/careers/trainer-spotlight";
 
+export const revalidate = 3600;
+
 export function generateMetadata() {
   const { seo } = getCareersPage();
   // The design's title already carries its own brand suffix ("| Edstellar

@@ -1,10 +1,7 @@
 import { Fragment } from "react";
 import { notFound } from "next/navigation";
 
-import {
-  getTalentAssessmentService,
-  getTalentAssessmentServiceSlugs,
-} from "@/lib/content/talent-assessment";
+import { getTalentAssessmentService } from "@/lib/content/talent-assessment";
 import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 
@@ -97,16 +94,7 @@ const DEFAULT_SECTIONS = [
   "faqs",
 ];
 
-// SSG: every sub-page is prerendered at build from `generateStaticParams`, and
-// `dynamicParams = false` makes any slug not in that list a 404 instead of being
-// rendered on demand. The CMS is read once at build, so nothing revalidates.
-export const dynamicParams = false;
-export const revalidate = 30;
-
-export async function generateStaticParams() {
-  const slugs = await getTalentAssessmentServiceSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
+export const revalidate = 3600;
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;

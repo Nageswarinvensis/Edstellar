@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { getCourse, getPrerenderedCoursePaths } from "@/lib/content/courses";
+import { getCourse } from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import CoursePage from "@/components/templates/training/course-page";
@@ -14,21 +14,6 @@ import CoursePage from "@/components/templates/training/course-page";
  */
 
 export const revalidate = 20;
-
-/**
- * Top N only — the long tail renders on first request and is cached from then
- * on, since `dynamicParams` stays at its default `true` (TASTE.md §2.3).
- *
- * Only domain-owned pairs are emitted, so an industry or vendor slug never
- * appears as a course parent here.
- */
-export async function generateStaticParams() {
-  const paths = await getPrerenderedCoursePaths();
-  return paths.map(({ domain, course }) => ({
-    slug: domain,
-    courseSlug: course,
-  }));
-}
 
 export async function generateMetadata({ params }) {
   const { slug, courseSlug } = await params;

@@ -3,6 +3,8 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import SuccessStoriesPage from "@/components/templates/success-stories-page";
 
+export const revalidate = 3600;
+
 export function generateMetadata() {
   return buildMetadata(getSuccessStoriesPage().seo);
 }

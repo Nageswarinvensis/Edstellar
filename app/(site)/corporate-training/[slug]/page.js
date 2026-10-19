@@ -1,9 +1,6 @@
 import { notFound } from "next/navigation";
 
-import {
-  getTrainingSlugs,
-  resolveTrainingSlug,
-} from "@/lib/content/taxonomy";
+import { resolveTrainingSlug } from "@/lib/content/taxonomy";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
 import SchemaOrg from "@/components/seo/schema-org";
@@ -26,17 +23,6 @@ function stripSiteSuffix(title) {
  */
 
 export const revalidate = 20;
-
-/**
- * Domains, industries and vendors are few and cheap, so all of them are
- * prerendered. `getTrainingSlugs` throws on a slug collision across types —
- * which means a collision fails the build rather than silently shadowing a
- * live page.
- */
-export async function generateStaticParams() {
-  const slugs = await getTrainingSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
 
 /**
  * One template per entity type. Industry and vendor content is not modeled

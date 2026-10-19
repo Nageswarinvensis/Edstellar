@@ -8,14 +8,6 @@ import AuthorPageContent from "@/components/sections/blog/author/author-page-con
 
 export const revalidate = 300;
 
-// ISR, none at build: each author page renders on its first request and is then
-// cached for `revalidate` seconds. The stray-`?page=` redirect lives in
-// `middleware.js` — reading `searchParams` here would make the page render on
-// every request instead.
-export function generateStaticParams() {
-  return [];
-}
-
 /** The CMS's author `meta_title` already ends in "| Edstellar" — the root
  * layout's title template (`%s | Edstellar`) would otherwise double it up. */
 function stripSiteSuffix(title) {
