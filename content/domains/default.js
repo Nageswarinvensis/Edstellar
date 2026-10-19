@@ -79,14 +79,8 @@ export const DOMAIN_DEFAULTS = {
   },
   stickyFooter: {
     email: true,
-    catalog: {
-      label: "Catalog",
-      href: "#by-topic",
-    },
-    brochure: {
-      label: "Brochure",
-      href: "#apply",
-    },
+    // The brochure pill comes from the CMS only — the domain record's
+    // `meta.brochure` PDF (see `toDomain`), else `Brochure: [{ href, Label }]`.
     form_anchor_id: "apply",
   },
   /**

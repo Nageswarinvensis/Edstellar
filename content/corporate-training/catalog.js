@@ -33,7 +33,7 @@ export const CATALOG_PAGE = {
     primary_cta: { label: "Browse the domains", href: "#catalog" },
     secondary_cta: { label: "Request a quote", href: "#contact" },
     image: {
-      src: "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/68ca55b30ffd53df55be810a_Catelog-1.webp",
+      src: "https://media.edstellar.com/website/Catelog-1.webp",
       alt: "Edstellar corporate training catalog of instructor-led programs",
       width: 640,
       height: 560,

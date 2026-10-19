@@ -175,23 +175,14 @@ export default function StickyFooter({ data }) {
             </a>
           ) : null}
 
-          {data?.catalog ? (
-            <a
-              href={data.catalog.href}
-              aria-label={data.catalog.label}
-              className={PILL_CLASS}
-            >
-              {data.catalog.label}
-            </a>
-          ) : null}
-
           {brochure?.href ? (
             <a
               href={brochure.href}
               // The talent-assessment pages use this slot for the readiness
-              // check, which opens the tool in a new tab; brochures elsewhere
-              // keep their current behavior.
-              {...(/readiness/i.test(brochure.label ?? "")
+              // check, which opens the tool in a new tab, as does a brochure
+              // PDF (domain pages); other links keep their current behavior.
+              {...(/readiness/i.test(brochure.label ?? "") ||
+              /\.pdf(?:$|[?#])/i.test(brochure.href)
                 ? newTabProps(brochure.href)
                 : {})}
               aria-label={brochure.label}

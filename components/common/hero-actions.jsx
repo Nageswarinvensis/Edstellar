@@ -2,6 +2,7 @@
 
 import Box from "@/components/ui/Box";
 import CtaButton from "@/components/common/cta-button";
+import { newTabProps } from "@/lib/links";
 
 // Plain in-page anchors would let the browser natively navigate to `#id` on
 // click, leaving that hash in the URL — a later hard refresh then jumps
@@ -37,7 +38,17 @@ function HeroActions({ actions }) {
           key={action.label}
           variant={VARIANTS[index] ?? "outline"}
           arrow
-          render={<a href={action.href} onClick={scrollToHash} />}
+          // In-page anchors scroll; an absolute URL (a domain's brochure PDF)
+          // opens in a new tab so the page stays open. Site paths navigate.
+          render={
+            <a
+              href={action.href}
+              onClick={scrollToHash}
+              {...(/^https?:\/\//i.test(action.href ?? "")
+                ? newTabProps(action.href)
+                : {})}
+            />
+          }
         >
           {action.label}
         </CtaButton>

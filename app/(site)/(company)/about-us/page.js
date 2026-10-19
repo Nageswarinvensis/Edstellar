@@ -4,7 +4,10 @@ import SchemaOrg from "@/components/seo/schema-org";
 import AboutUsPage from "@/components/templates/about-us-page";
 
 export function generateMetadata() {
-  return buildMetadata(getAboutUsPage().seo);
+  const { seo } = getAboutUsPage();
+  // The SEO title is "About Edstellar" exactly — the root layout's
+  // `%s | Edstellar` template would repeat the brand, so it is bypassed.
+  return { ...buildMetadata(seo), title: { absolute: seo.title } };
 }
 
 /**

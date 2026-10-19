@@ -3,13 +3,12 @@
 // renders fully static. Field names follow the CMS's snake_case convention
 // (TASTE.md §5.4); the 121-client directory is the design's own data.
 //
-// Logos are served straight from the Webflow CDN already whitelisted in
-// next.config.mjs (`cdn.prod.website-files.com`, unoptimized).
+// Logos are served from `media.edstellar.com`, whitelisted in next.config.mjs.
 
 export const CLIENTS = {
   "seo": {
-    "title": "Edstellar Clients Across Industries · Edstellar",
-    "description": "See the organizations that build workforce capability with Edstellar, from Microsoft, KPMG and Visa to universities and government agencies, across 16 sectors.",
+    "title": "Our Clients Across Industries",
+    "description": "Explore Edstellar's clients across industries and regions, from global enterprises to universities and public institutions building workforce capability.",
     "path": "/clients"
   },
   "breadcrumbs": [
@@ -55,52 +54,52 @@ export const CLIENTS = {
     "mosaic": [
       {
         "name": "Microsoft",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5873a89529b86f470b686_Microsoft.webp",
+        "logo": "https://media.edstellar.com/client_logo/Microsoft.webp",
         "off": false
       },
       {
         "name": "KPMG",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697f9217d054cf887a6d2_KPMG.webp",
+        "logo": "https://media.edstellar.com/client_logo/KPMG.webp",
         "off": true
       },
       {
         "name": "Visa",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b9218334a6bbb7e0046a57_visa.webp",
+        "logo": "https://media.edstellar.com/client_logo/visa.webp",
         "off": false
       },
       {
         "name": "Johnson & Johnson",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846266b0acf082e648fdb0_Johnson%26Johnson%201.webp",
+        "logo": "https://media.edstellar.com/client_logo/JohnsonJohnson_1.webp",
         "off": true
       },
       {
         "name": "Nike",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba886f9090297e6e7ded85_Nike.webp",
+        "logo": "https://media.edstellar.com/client_logo/Nike.webp",
         "off": false
       },
       {
         "name": "Bechtel",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697ba0e503093b25852dd_Bechtel.webp",
+        "logo": "https://media.edstellar.com/client_logo/Bechtel.webp",
         "off": true
       },
       {
         "name": "Boston Consulting Group",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6adaa6930e7fcdb2f60a5_Boston%20consulting%20group.webp",
+        "logo": "https://media.edstellar.com/client_logo/Boston_consulting_group.webp",
         "off": false
       },
       {
         "name": "ABB",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9c115c2a0faf78d5187_Abb.webp",
+        "logo": "https://media.edstellar.com/client_logo/Abb.webp",
         "off": true
       },
       {
         "name": "Amazon",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698469c6a91cef644870febe_Amazon%201%20(1).webp",
+        "logo": "https://media.edstellar.com/client_logo/Amazon.webp",
         "off": false
       },
       {
         "name": "S&P Global",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8bf86f3c09ef5c145c36_S%26P%20Global%20Inc..webp",
+        "logo": "https://media.edstellar.com/client_logo/SP_Global_Inc.webp",
         "off": true
       }
     ],
@@ -284,7 +283,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "amer",
         "initials": "M",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5873a89529b86f470b686_Microsoft.webp",
+        "logo": "https://media.edstellar.com/client_logo/Microsoft.webp",
         "description": "Software, cloud computing and technology solutions. Headquartered in Americas.",
         "industry": null
       },
@@ -294,7 +293,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "eura",
         "initials": "K",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697f9217d054cf887a6d2_KPMG.webp",
+        "logo": "https://media.edstellar.com/client_logo/KPMG.webp",
         "description": "Professional services. Headquartered in Europe and Africa.",
         "industry": null
       },
@@ -304,7 +303,7 @@ export const CLIENTS = {
         "sector_label": "Banking, financial services and insurance",
         "region": "amer",
         "initials": "V",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b9218334a6bbb7e0046a57_visa.webp",
+        "logo": "https://media.edstellar.com/client_logo/visa.webp",
         "description": "Digital payments technology. Headquartered in Americas.",
         "industry": {
           "href": "/industries/banking",
@@ -317,7 +316,7 @@ export const CLIENTS = {
         "sector_label": "Pharma, biotech and healthcare",
         "region": "amer",
         "initials": "JJ",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846266b0acf082e648fdb0_Johnson%26Johnson%201.webp",
+        "logo": "https://media.edstellar.com/client_logo/JohnsonJohnson_1.webp",
         "description": "Pharmaceuticals and healthcare products. Headquartered in Americas.",
         "industry": null
       },
@@ -327,7 +326,7 @@ export const CLIENTS = {
         "sector_label": "Consumer goods, retail and hospitality",
         "region": "amer",
         "initials": "N",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba886f9090297e6e7ded85_Nike.webp",
+        "logo": "https://media.edstellar.com/client_logo/Nike.webp",
         "description": "Athletic footwear, apparel and equipment. Headquartered in Americas.",
         "industry": null
       },
@@ -337,7 +336,7 @@ export const CLIENTS = {
         "sector_label": "Real estate and construction",
         "region": "amer",
         "initials": "B",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697ba0e503093b25852dd_Bechtel.webp",
+        "logo": "https://media.edstellar.com/client_logo/Bechtel.webp",
         "description": "Engineering, construction and project management. Headquartered in Americas.",
         "industry": null
       },
@@ -347,7 +346,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "amer",
         "initials": "BC",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6adaa6930e7fcdb2f60a5_Boston%20consulting%20group.webp",
+        "logo": "https://media.edstellar.com/client_logo/Boston_consulting_group.webp",
         "description": "Business strategy consulting. Headquartered in Americas.",
         "industry": null
       },
@@ -357,7 +356,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "eura",
         "initials": "A",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9c115c2a0faf78d5187_Abb.webp",
+        "logo": "https://media.edstellar.com/client_logo/Abb.webp",
         "description": "Industrial automation and electrical equipment. Headquartered in Europe and Africa.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -370,7 +369,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "amer",
         "initials": "A",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/698469c6a91cef644870febe_Amazon%201%20(1).webp",
+        "logo": "https://media.edstellar.com/client_logo/Amazon.webp",
         "description": "Cloud services, e-commerce and retail. Headquartered in Americas.",
         "industry": null
       },
@@ -380,7 +379,7 @@ export const CLIENTS = {
         "sector_label": "Banking, financial services and insurance",
         "region": "amer",
         "initials": "SP",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8bf86f3c09ef5c145c36_S%26P%20Global%20Inc..webp",
+        "logo": "https://media.edstellar.com/client_logo/SP_Global_Inc.webp",
         "description": "Financial data, analytics and market intelligence. Headquartered in Americas.",
         "industry": {
           "href": "/industries/banking",
@@ -393,7 +392,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "amer",
         "initials": "A",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b587f256c7ca56ef383708_Adobe.webp",
+        "logo": "https://media.edstellar.com/client_logo/Adobe.webp",
         "description": "Digital media and creative software. Headquartered in Americas.",
         "industry": null
       },
@@ -403,7 +402,7 @@ export const CLIENTS = {
         "sector_label": "Automotive, aviation and mobility",
         "region": "amer",
         "initials": "U",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/6915869cdab78133f5efe19d_Uber.svg",
+        "logo": "https://media.edstellar.com/client_logo/Uber.svg",
         "description": "Ride-hailing and mobility. Headquartered in Americas.",
         "industry": {
           "href": "/industries/automotive",
@@ -416,7 +415,7 @@ export const CLIENTS = {
         "sector_label": "Automotive, aviation and mobility",
         "region": "eura",
         "initials": "AS",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691586daf8ed7c99116d17a6_ADB%20SAFE%20Gate.svg",
+        "logo": "https://media.edstellar.com/client_logo/ADB_SAFE_Gate.svg",
         "description": "Airport and airside technology. Headquartered in Europe and Africa.",
         "industry": {
           "href": "/industries/automotive",
@@ -429,7 +428,7 @@ export const CLIENTS = {
         "sector_label": "Diversified business groups",
         "region": "apac",
         "initials": "AB",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aa7c4dc52f902b965f86_Aditya%20Birla%20Group.webp",
+        "logo": "https://media.edstellar.com/client_logo/Aditya_Birla_Group.webp",
         "description": "A business group operating across many sectors. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -439,7 +438,7 @@ export const CLIENTS = {
         "sector_label": "Energy and natural resources",
         "region": "apac",
         "initials": "A",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba89dc625657df5a56d81f_Agratas.webp",
+        "logo": "https://media.edstellar.com/client_logo/Agratas.webp",
         "description": "Battery technology. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -449,7 +448,7 @@ export const CLIENTS = {
         "sector_label": "Energy and natural resources",
         "region": "apac",
         "initials": "AE",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69a171c7bda326eefbf51_AMPIN%20Energy%20Transition.webp",
+        "logo": "https://media.edstellar.com/client_logo/AMPIN_Energy_Transition.webp",
         "description": "Renewable energy for commercial, industrial and utility customers. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -459,7 +458,7 @@ export const CLIENTS = {
         "sector_label": "Banking, financial services and insurance",
         "region": "apac",
         "initials": "AB",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8a38fc15022a31bbd4ff_Artha%20Bharath.webp",
+        "logo": "https://media.edstellar.com/client_logo/Artha_Bharath.webp",
         "description": "Investment in infrastructure and development. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/banking",
@@ -472,7 +471,7 @@ export const CLIENTS = {
         "sector_label": "Real estate and construction",
         "region": "apac",
         "initials": "AP",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba898283a1d5c58b8c4b0c_Assetz%20Soho%20%26%20Sky.webp",
+        "logo": "https://media.edstellar.com/client_logo/Assetz_Soho__Sky.webp",
         "description": "Residential and commercial real estate. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -482,7 +481,7 @@ export const CLIENTS = {
         "sector_label": "Real estate and construction",
         "region": "apac",
         "initials": "A",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ac002414a486365fe1c7_Auro.webp",
+        "logo": "https://media.edstellar.com/client_logo/Auro.webp",
         "description": "Real estate. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -492,7 +491,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "amer",
         "initials": "A",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aa97d7f1555ba95b5394_AutoDesk.webp",
+        "logo": "https://media.edstellar.com/client_logo/AutoDesk.webp",
         "description": "Design and engineering software. Headquartered in Americas.",
         "industry": null
       },
@@ -502,7 +501,7 @@ export const CLIENTS = {
         "sector_label": "Automotive, aviation and mobility",
         "region": "apac",
         "initials": "BM",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aad529883283bf589fb9_Blu%20Smart%20Mobility.webp",
+        "logo": "https://media.edstellar.com/client_logo/Blu_Smart_Mobility.webp",
         "description": "Electric vehicles and mobility. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/automotive",
@@ -515,7 +514,7 @@ export const CLIENTS = {
         "sector_label": "Logistics and supply chain",
         "region": "apac",
         "initials": "BM",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69d591c7bda326ef313d7_Bombay%20Metrics.webp",
+        "logo": "https://media.edstellar.com/client_logo/Bombay_Metrics.webp",
         "description": "Supply chain analytics. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -525,7 +524,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "eura",
         "initials": "B",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69c5e0863f7665b93a031_Brevo.webp",
+        "logo": "https://media.edstellar.com/client_logo/Brevo.webp",
         "description": "Marketing and customer communication software. Headquartered in Europe and Africa.",
         "industry": null
       },
@@ -535,7 +534,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "apac",
         "initials": "BA",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b605e9f3bff548d61bd_Bry-Air.webp",
+        "logo": "https://media.edstellar.com/client_logo/Bry-Air.webp",
         "description": "Dehumidification and environmental control. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -548,7 +547,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "apac",
         "initials": "B",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69d221c7bda326ef2dad2_ByNaric.webp",
+        "logo": "https://media.edstellar.com/client_logo/ByNaric.webp",
         "description": "Software and technology. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -558,7 +557,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "amer",
         "initials": "CI",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691586b3517572e80932c330_CIPS.svg",
+        "logo": "https://media.edstellar.com/client_logo/CIPS.svg",
         "description": "Indigenous-owned consulting and engagement. Headquartered in Americas.",
         "industry": null
       },
@@ -568,7 +567,7 @@ export const CLIENTS = {
         "sector_label": "Banking, financial services and insurance",
         "region": "apac",
         "initials": "CF",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69cbfabd2c8f8c9a5ed7f_CanFinHomes%20Ltd.webp",
+        "logo": "https://media.edstellar.com/client_logo/CanFinHomes_Ltd.webp",
         "description": "Housing finance. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/banking",
@@ -581,7 +580,7 @@ export const CLIENTS = {
         "sector_label": "Energy and natural resources",
         "region": "amer",
         "initials": "CE",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8cacd86cff2dd6c1b49c_Cenovus.webp",
+        "logo": "https://media.edstellar.com/client_logo/Cenovus.webp",
         "description": "Oil production and refining. Headquartered in Americas.",
         "industry": null
       },
@@ -591,7 +590,7 @@ export const CLIENTS = {
         "sector_label": "Consumer goods, retail and hospitality",
         "region": "amer",
         "initials": "CK",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6988c1066bcaedfdd4fd4_Circle%20K.webp",
+        "logo": "https://media.edstellar.com/client_logo/Circle_K.webp",
         "description": "Convenience retail. Headquartered in Americas.",
         "industry": null
       },
@@ -601,7 +600,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "mena",
         "initials": "C",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691ab8ac26bd3fb446ebd95a_cloudify.svg",
+        "logo": "https://media.edstellar.com/client_logo/cloudify.svg",
         "description": "Multi-cloud and edge orchestration. Headquartered in Middle East and North Africa.",
         "industry": null
       },
@@ -611,7 +610,7 @@ export const CLIENTS = {
         "sector_label": "Automotive, aviation and mobility",
         "region": "amer",
         "initials": "C",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8bb93f4f5cde1bcb0c6d_Cloyes.webp",
+        "logo": "https://media.edstellar.com/client_logo/Cloyes.webp",
         "description": "Timing drive systems and automotive components. Headquartered in Americas.",
         "industry": {
           "href": "/industries/automotive",
@@ -624,7 +623,7 @@ export const CLIENTS = {
         "sector_label": "Agriculture and agritech",
         "region": "apac",
         "initials": "C",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab2b0863f7665b9a12a2_Coromandel.webp",
+        "logo": "https://media.edstellar.com/client_logo/Coromandel.webp",
         "description": "Agriculture inputs and crop chemicals. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -634,7 +633,7 @@ export const CLIENTS = {
         "sector_label": "Automotive, aviation and mobility",
         "region": "amer",
         "initials": "C",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/690d7e851806fc8beeda2a35_Cummins_logo.svg%201.png",
+        "logo": "https://media.edstellar.com/client_logo/Cummins_logo.svg_1.png",
         "description": "Engines, power systems and zero-emission technology. Headquartered in Americas.",
         "industry": {
           "href": "/industries/automotive",
@@ -647,7 +646,7 @@ export const CLIENTS = {
         "sector_label": "Pharma, biotech and healthcare",
         "region": "amer",
         "initials": "CP",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aba1cd873260637eb8c5_Currax.webp",
+        "logo": "https://media.edstellar.com/client_logo/Currax.webp",
         "description": "Pharmaceuticals. Headquartered in Americas.",
         "industry": null
       },
@@ -657,7 +656,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "apac",
         "initials": "D",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691abc1b33ac9e302a1b6d04_Datawrkz.svg",
+        "logo": "https://media.edstellar.com/client_logo/Datawrkz.svg",
         "description": "Digital advertising and ad technology. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -667,7 +666,7 @@ export const CLIENTS = {
         "sector_label": "Agriculture and agritech",
         "region": "apac",
         "initials": "DS",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8b3f580b335d46adbf61_Daund%20Sugar%20Limited.webp",
+        "logo": "https://media.edstellar.com/client_logo/Daund_Sugar_Limited.webp",
         "description": "Sugar and agro-based products. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -677,7 +676,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "amer",
         "initials": "D",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697cc182f0ea9428a9a52_Dayforce.webp",
+        "logo": "https://media.edstellar.com/client_logo/Dayforce.webp",
         "description": "Human capital management software. Headquartered in Americas.",
         "industry": null
       },
@@ -687,7 +686,7 @@ export const CLIENTS = {
         "sector_label": "Media, entertainment and publishing",
         "region": "apac",
         "initials": "DC",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6971e1828140bcb44aa59_D%20B%20Corp%20Ltd.webp",
+        "logo": "https://media.edstellar.com/client_logo/D_B_Corp_Ltd.webp",
         "description": "Print and digital media. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -697,7 +696,7 @@ export const CLIENTS = {
         "sector_label": "Banking, financial services and insurance",
         "region": "mena",
         "initials": "D",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/690d7ce65759ed100fe3b324_DERIV_LOGO_COL_RGB-1%201.png",
+        "logo": "https://media.edstellar.com/client_logo/DERIV_LOGO_COL_RGB-1_1.png",
         "description": "Online trading and brokerage. Headquartered in Middle East and North Africa.",
         "industry": {
           "href": "/industries/banking",
@@ -710,7 +709,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "apac",
         "initials": "D",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab6f0863f7665b9a2e3f_Dev%20on.webp",
+        "logo": "https://media.edstellar.com/client_logo/Dev_on.webp",
         "description": "IT services and consulting. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -720,7 +719,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "apac",
         "initials": "D",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6abcd0863f7665b9a67da_devstring.webp",
+        "logo": "https://media.edstellar.com/client_logo/devstring.webp",
         "description": "Software development and technology services. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -730,7 +729,7 @@ export const CLIENTS = {
         "sector_label": "Pharma, biotech and healthcare",
         "region": "amer",
         "initials": "ES",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b351bbe04f59b02cb69_eClinical%20Solutions.webp",
+        "logo": "https://media.edstellar.com/client_logo/eClinical_Solutions.webp",
         "description": "Clinical research data solutions. Headquartered in Americas.",
         "industry": null
       },
@@ -740,7 +739,7 @@ export const CLIENTS = {
         "sector_label": "Agriculture and agritech",
         "region": "apac",
         "initials": "E",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba88b3692907aca41227c6_Ecozen.webp",
+        "logo": "https://media.edstellar.com/client_logo/Ecozen.webp",
         "description": "Solar-powered cold storage and irrigation. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -750,7 +749,7 @@ export const CLIENTS = {
         "sector_label": "Pharma, biotech and healthcare",
         "region": "amer",
         "initials": "E",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69c7d3a6fc65a62294bc8_edifecs.webp",
+        "logo": "https://media.edstellar.com/client_logo/edifecs.webp",
         "description": "Healthcare technology. Headquartered in Americas.",
         "industry": null
       },
@@ -760,7 +759,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "amer",
         "initials": "E",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9d8e0dd2f35457d1311_Emerson.webp",
+        "logo": "https://media.edstellar.com/client_logo/Emerson.webp",
         "description": "Industrial automation and climate technologies. Headquartered in Americas.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -773,7 +772,7 @@ export const CLIENTS = {
         "sector_label": "Logistics and supply chain",
         "region": "apac",
         "initials": "E",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69c0d217d054cf8895ac0_Emiza%20Inc.webp",
+        "logo": "https://media.edstellar.com/client_logo/Emiza_Inc.webp",
         "description": "Logistics and fulfillment. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -783,7 +782,7 @@ export const CLIENTS = {
         "sector_label": "Media, entertainment and publishing",
         "region": "amer",
         "initials": "E",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b699590863f7665b9232a0_Endeavor%20.webp",
+        "logo": "https://media.edstellar.com/client_logo/Endeavor_.webp",
         "description": "Media and entertainment. Headquartered in Americas.",
         "industry": null
       },
@@ -793,7 +792,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "apac",
         "initials": "EG",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6985e5e9f3bff548c43f9_EPL%20Global.webp",
+        "logo": "https://media.edstellar.com/client_logo/EPL_Global.webp",
         "description": "Specialty packaging for consumer brands. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -806,7 +805,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "eura",
         "initials": "ET",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b698b3627903746ff512d9_ERGO%20Technology%20%26%20Services.webp",
+        "logo": "https://media.edstellar.com/client_logo/ERGO_Technology__Services.webp",
         "description": "Technology and digital services. Headquartered in Europe and Africa.",
         "industry": null
       },
@@ -816,7 +815,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "apac",
         "initials": "EI",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b698733113639a0ad6ce56_ETP%20International.webp",
+        "logo": "https://media.edstellar.com/client_logo/ETP_International.webp",
         "description": "Unified commerce software. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -826,7 +825,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "apac",
         "initials": "E",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6abe82414a486365fccdb_Excitel.webp",
+        "logo": "https://media.edstellar.com/client_logo/Excitel.webp",
         "description": "Broadband and telecommunications. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -836,7 +835,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "apac",
         "initials": "GT",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b79ed0c9a9f74697320_Garware%20Technical%20Fibres.webp",
+        "logo": "https://media.edstellar.com/client_logo/Garware_Technical_Fibres.webp",
         "description": "Technical textiles. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -849,7 +848,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "mena",
         "initials": "GN",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69ac01c7bda326ef0672c_Global%20North.webp",
+        "logo": "https://media.edstellar.com/client_logo/Global_North.webp",
         "description": "Investment advisory for citizenship and residency. Headquartered in Middle East and North Africa.",
         "industry": null
       },
@@ -859,7 +858,7 @@ export const CLIENTS = {
         "sector_label": "Banking, financial services and insurance",
         "region": "apac",
         "initials": "GD",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691abbcf115cb4e22eede0da_digit%20life%20insurance.svg",
+        "logo": "https://media.edstellar.com/client_logo/digit_life_insurance.svg",
         "description": "Digital-first life insurance. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/banking",
@@ -872,7 +871,7 @@ export const CLIENTS = {
         "sector_label": "Consumer goods, retail and hospitality",
         "region": "apac",
         "initials": "G",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a94748156eb2b452d94e_godrej.webp",
+        "logo": "https://media.edstellar.com/client_logo/godrej.webp",
         "description": "Consumer goods and FMCG. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -882,7 +881,7 @@ export const CLIENTS = {
         "sector_label": "Automotive, aviation and mobility",
         "region": "apac",
         "initials": "GM",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b9b1bbe04f59b02fcde_GreenCell%20Mobility.webp",
+        "logo": "https://media.edstellar.com/client_logo/GreenCell_Mobility.webp",
         "description": "Electric public transport. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/automotive",
@@ -895,7 +894,7 @@ export const CLIENTS = {
         "sector_label": "Real estate and construction",
         "region": "amer",
         "initials": "G",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69ad48891fb4643588a94_Greystar.webp",
+        "logo": "https://media.edstellar.com/client_logo/Greystar.webp",
         "description": "Rental housing investment, development and management. Headquartered in Americas.",
         "industry": null
       },
@@ -905,7 +904,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "mena",
         "initials": "H",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69d011bbe04f59b03d29a_HALCON.webp",
+        "logo": "https://media.edstellar.com/client_logo/HALCON.webp",
         "description": "Systems manufacturing. Headquartered in Middle East and North Africa.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -918,7 +917,7 @@ export const CLIENTS = {
         "sector_label": "Government, public sector and non-profit",
         "region": "amer",
         "initials": "HL",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6978238bd77d7c8dda4e9_Hudson%20Link.webp",
+        "logo": "https://media.edstellar.com/client_logo/Hudson_Link.webp",
         "description": "Non-profit for higher education in prisons and reentry. Headquartered in Americas.",
         "industry": null
       },
@@ -928,7 +927,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "apac",
         "initials": "IS",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69810fca38e523d3bed67_Ideal%20Solutions.webp",
+        "logo": "https://media.edstellar.com/client_logo/Ideal_Solutions.webp",
         "description": "Smart solutions and services. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -938,7 +937,7 @@ export const CLIENTS = {
         "sector_label": "Consumer goods, retail and hospitality",
         "region": "apac",
         "initials": "IH",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69a9c1bbe04f59b027b95_Indian%20Hospitality%20Mart.webp",
+        "logo": "https://media.edstellar.com/client_logo/Indian_Hospitality_Mart.webp",
         "description": "Hospitality services. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -948,7 +947,7 @@ export const CLIENTS = {
         "sector_label": "Consumer goods, retail and hospitality",
         "region": "apac",
         "initials": "I",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69bf4627903746ff82874_Indobevs.webp",
+        "logo": "https://media.edstellar.com/client_logo/Indobevs.webp",
         "description": "Beverage manufacturing and distribution. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -958,7 +957,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "apac",
         "initials": "I",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ace041900232a1ded168_industryarc.webp",
+        "logo": "https://media.edstellar.com/client_logo/industryarc.webp",
         "description": "Market research and consulting. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -968,7 +967,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "amer",
         "initials": "I",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b587b637a6028400026a71_Intel2.webp",
+        "logo": "https://media.edstellar.com/client_logo/Intel2.webp",
         "description": "Semiconductors and computing technology. Headquartered in Americas.",
         "industry": null
       },
@@ -978,7 +977,7 @@ export const CLIENTS = {
         "sector_label": "Government, public sector and non-profit",
         "region": "apac",
         "initials": "IS",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba88e8ae238fdf8c7ca4aa_International%20Solar%20Alliance%20Secretariat.webp",
+        "logo": "https://media.edstellar.com/client_logo/International_Solar_Alliance_Secretariat.webp",
         "description": "International organization advancing solar energy adoption. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -988,7 +987,7 @@ export const CLIENTS = {
         "sector_label": "Government, public sector and non-profit",
         "region": "apac",
         "initials": "JI",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba87fb678c4c60a4e6beea_JICA%20(Japan%20International%20Cooperation%20Agency).webp",
+        "logo": "https://media.edstellar.com/client_logo/JICA__Japan_International_Cooperation_Agency_.webp",
         "description": "Government agency for international development cooperation. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -998,7 +997,7 @@ export const CLIENTS = {
         "sector_label": "Automotive, aviation and mobility",
         "region": "amer",
         "initials": "JP",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691586c3db5397d1ba02d311_Jet%20parts.svg",
+        "logo": "https://media.edstellar.com/client_logo/Jet_parts.svg",
         "description": "Aerospace aftermarket parts and repair. Headquartered in Americas.",
         "industry": {
           "href": "/industries/automotive",
@@ -1011,7 +1010,7 @@ export const CLIENTS = {
         "sector_label": "Consumer goods, retail and hospitality",
         "region": "amer",
         "initials": "K",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aab9cd873260637e0cd0_Kellogg%27s.webp",
+        "logo": "https://media.edstellar.com/client_logo/Kelloggs.webp",
         "description": "Food and beverages. Headquartered in Americas.",
         "industry": null
       },
@@ -1021,7 +1020,7 @@ export const CLIENTS = {
         "sector_label": "Consumer goods, retail and hospitality",
         "region": "apac",
         "initials": "KJ",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab5a41900232a1dd34be_khazana%20jewellery.webp",
+        "logo": "https://media.edstellar.com/client_logo/khazana_jewellery.webp",
         "description": "Fine jewelry. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1031,7 +1030,7 @@ export const CLIENTS = {
         "sector_label": "Education",
         "region": "apac",
         "initials": "KG",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69759dd5a30d131df353f_KIET%20Group%20of%20Institution.webp",
+        "logo": "https://media.edstellar.com/client_logo/KIET_Group_of_Institution.webp",
         "description": "Technical higher education institution. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1041,7 +1040,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "apac",
         "initials": "KV",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69823182f0ea9428accc2_KMK%20Ventures.webp",
+        "logo": "https://media.edstellar.com/client_logo/KMK_Ventures.webp",
         "description": "Outsourced accounting and tax services. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1051,7 +1050,7 @@ export const CLIENTS = {
         "sector_label": "Logistics and supply chain",
         "region": "apac",
         "initials": "KE",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8a160b8fa3f3b77eda83_KNS%20Logistics%20Service.webp",
+        "logo": "https://media.edstellar.com/client_logo/KNS_Logistics_Service.webp",
         "description": "Delivery and shipping. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1061,7 +1060,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "amer",
         "initials": "L",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ad0d46b637354ab74a8b_littlefuse.webp",
+        "logo": "https://media.edstellar.com/client_logo/littlefuse.webp",
         "description": "Circuit protection and electronic components. Headquartered in Americas.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -1074,7 +1073,7 @@ export const CLIENTS = {
         "sector_label": "Education",
         "region": "apac",
         "initials": "MP",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6989f1c7bda326eeef7f5_Maharana%20Pratap%20Group%20of%20Institutions.webp",
+        "logo": "https://media.edstellar.com/client_logo/Maharana_Pratap_Group_of_Institutions.webp",
         "description": "Higher education institution. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1084,7 +1083,7 @@ export const CLIENTS = {
         "sector_label": "Real estate and construction",
         "region": "amer",
         "initials": "MA",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69701dd5a30d131df00b6_Majestic%20Asset%20Management%2C%20Inc%20Management%20Team.webp",
+        "logo": "https://media.edstellar.com/client_logo/Majestic_Asset_Management_Inc_Management_Team.webp",
         "description": "Real estate investment and property management. Headquartered in Americas.",
         "industry": null
       },
@@ -1094,7 +1093,7 @@ export const CLIENTS = {
         "sector_label": "Chemicals and materials",
         "region": "eura",
         "initials": "M",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69901ed0c9a9f7467ea78_Mankiewicz%20India%20Private%20Limited.webp",
+        "logo": "https://media.edstellar.com/client_logo/Mankiewicz_India_Private_Limited.webp",
         "description": "Coating systems for industry, aviation and automotive. Headquartered in Europe and Africa.",
         "industry": null
       },
@@ -1104,7 +1103,7 @@ export const CLIENTS = {
         "sector_label": "Consumer goods, retail and hospitality",
         "region": "apac",
         "initials": "M",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6992add5a30d131e00340_Market99.webp",
+        "logo": "https://media.edstellar.com/client_logo/Market99.webp",
         "description": "Home and lifestyle retail. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1114,7 +1113,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "apac",
         "initials": "M",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b588572d0fd67c6424af0a_MediaTek.webp",
+        "logo": "https://media.edstellar.com/client_logo/MediaTek.webp",
         "description": "Semiconductor and chipset solutions. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1124,7 +1123,7 @@ export const CLIENTS = {
         "sector_label": "Pharma, biotech and healthcare",
         "region": "apac",
         "initials": "M",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8abe9204ffc948d26c2c_Medsynaptic%20Pvt.%20Ltd..webp",
+        "logo": "https://media.edstellar.com/client_logo/Medsynaptic_Pvt._Ltd.webp",
         "description": "Medical imaging technology. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1134,7 +1133,7 @@ export const CLIENTS = {
         "sector_label": "Consumer goods, retail and hospitality",
         "region": "apac",
         "initials": "MA",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69da6cd8732606378f13f_Mio%20amore.webp",
+        "logo": "https://media.edstellar.com/client_logo/Mio_amore.webp",
         "description": "Food and beverages. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1144,7 +1143,7 @@ export const CLIENTS = {
         "sector_label": "Automotive, aviation and mobility",
         "region": "amer",
         "initials": "M",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6acf78891fb464361bd61_Motorq.webp",
+        "logo": "https://media.edstellar.com/client_logo/Motorq.webp",
         "description": "Connected-vehicle data and insights software. Headquartered in Americas.",
         "industry": {
           "href": "/industries/automotive",
@@ -1157,7 +1156,7 @@ export const CLIENTS = {
         "sector_label": "Government, public sector and non-profit",
         "region": "apac",
         "initials": "NR",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a9601c7bda326efbe969_nrsc.webp",
+        "logo": "https://media.edstellar.com/client_logo/nrsc.webp",
         "description": "Government scientific research in remote sensing. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1167,7 +1166,7 @@ export const CLIENTS = {
         "sector_label": "Logistics and supply chain",
         "region": "amer",
         "initials": "N",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69944627903746ff59fe8_Neovia.webp",
+        "logo": "https://media.edstellar.com/client_logo/Neovia.webp",
         "description": "Logistics. Headquartered in Americas.",
         "industry": null
       },
@@ -1177,7 +1176,7 @@ export const CLIENTS = {
         "sector_label": "Education",
         "region": "apac",
         "initials": "OB",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b698cb6e2ced8072728601_Oswaal%20Books%20and%20Learning%20.webp",
+        "logo": "https://media.edstellar.com/client_logo/Oswaal_Books_and_Learning_.webp",
         "description": "Educational publishing. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1187,7 +1186,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "apac",
         "initials": "PS",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691abb9a62dfb2e1c49e8950_PIE.svg",
+        "logo": "https://media.edstellar.com/client_logo/PIE.svg",
         "description": "Business services and consulting. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1197,7 +1196,7 @@ export const CLIENTS = {
         "sector_label": "Government, public sector and non-profit",
         "region": "apac",
         "initials": "PC",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba89aed69e59234b4a8585_PCAPI%20Region%204A%20Chapter%20.webp",
+        "logo": "https://media.edstellar.com/client_logo/PCAPI_Region_4A_Chapter_.webp",
         "description": "Non-profit for environmental protection and compliance. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1207,7 +1206,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "apac",
         "initials": "Q",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69d70ed0c9a9f746adf74_QuadGen.webp",
+        "logo": "https://media.edstellar.com/client_logo/QuadGen.webp",
         "description": "Telecommunications and network services. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1217,7 +1216,7 @@ export const CLIENTS = {
         "sector_label": "Pharma, biotech and healthcare",
         "region": "amer",
         "initials": "R",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69770b06f3b861a29e479_Regeneron%20Science%20to%20Medicine.webp",
+        "logo": "https://media.edstellar.com/client_logo/Regeneron_Science_to_Medicine.webp",
         "description": "Biotechnology. Headquartered in Americas.",
         "industry": null
       },
@@ -1227,7 +1226,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "eura",
         "initials": "R",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8b90ec75de960cd4d62c_Renishaw%20Technologies.webp",
+        "logo": "https://media.edstellar.com/client_logo/Renishaw_Technologies.webp",
         "description": "Precision measurement and healthcare technology. Headquartered in Europe and Africa.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -1240,7 +1239,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "eura",
         "initials": "S",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ad6a25828ad600e00916_Sandvik%20Coromant.webp",
+        "logo": "https://media.edstellar.com/client_logo/Sandvik_Coromant.webp",
         "description": "Engineering, tooling and manufacturing. Headquartered in Europe and Africa.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -1253,7 +1252,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "apac",
         "initials": "SG",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691ff72a2785a3247ce4e54f_Sangam.svg",
+        "logo": "https://media.edstellar.com/client_logo/Sangam.svg",
         "description": "Integrated textile manufacturing and export. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -1266,7 +1265,7 @@ export const CLIENTS = {
         "sector_label": "Agriculture and agritech",
         "region": "eura",
         "initials": "SF",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691ab91f52bd56eb1142a9e8_Fito.svg",
+        "logo": "https://media.edstellar.com/client_logo/Fito.svg",
         "description": "Seed breeding and agricultural innovation. Headquartered in Europe and Africa.",
         "industry": null
       },
@@ -1276,7 +1275,7 @@ export const CLIENTS = {
         "sector_label": "Pharma, biotech and healthcare",
         "region": "apac",
         "initials": "S",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6abb60863f7665b9a5664_shanmukha.webp",
+        "logo": "https://media.edstellar.com/client_logo/shanmukha.webp",
         "description": "Biotechnology and diagnostics. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1286,7 +1285,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "apac",
         "initials": "ST",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69bb125828ad600d72424_Shravas%20Technologies.webp",
+        "logo": "https://media.edstellar.com/client_logo/Shravas_Technologies.webp",
         "description": "Software testing and quality assurance. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1296,7 +1295,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "amer",
         "initials": "S",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8961c028fb6c90142c88_Silverline%20IT%20Solutions.webp",
+        "logo": "https://media.edstellar.com/client_logo/Silverline_IT_Solutions.webp",
         "description": "Cloud and digital transformation consulting. Headquartered in Americas.",
         "industry": null
       },
@@ -1306,7 +1305,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "apac",
         "initials": "S",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69ce048156eb2b44d7149_SIS.webp",
+        "logo": "https://media.edstellar.com/client_logo/SIS.webp",
         "description": "Security and facility services. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1316,7 +1315,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "amer",
         "initials": "S",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69aed627903746ff74ef4_Smarsh.webp",
+        "logo": "https://media.edstellar.com/client_logo/Smarsh.webp",
         "description": "Digital communications compliance and archiving. Headquartered in Americas.",
         "industry": null
       },
@@ -1326,7 +1325,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "eura",
         "initials": "SD",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b063a6fc65a62285d06_Social%20Discovery%20group.webp",
+        "logo": "https://media.edstellar.com/client_logo/Social_Discovery_group.webp",
         "description": "Social discovery and online entertainment. Headquartered in Europe and Africa.",
         "industry": null
       },
@@ -1336,7 +1335,7 @@ export const CLIENTS = {
         "sector_label": "Technology, software and telecom",
         "region": "eura",
         "initials": "S",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8cd0c02d0401555dccd2_Solflare.webp",
+        "logo": "https://media.edstellar.com/client_logo/Solflare.webp",
         "description": "Digital wallet for the Solana blockchain. Headquartered in Europe and Africa.",
         "industry": null
       },
@@ -1346,7 +1345,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "apac",
         "initials": "S",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab892414a486365f975f_spartan.webp",
+        "logo": "https://media.edstellar.com/client_logo/spartan.webp",
         "description": "Manufacturing. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -1359,7 +1358,7 @@ export const CLIENTS = {
         "sector_label": "Pharma, biotech and healthcare",
         "region": "amer",
         "initials": "SP",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697a61bbe04f59b01b193_SPI%20Pharma.webp",
+        "logo": "https://media.edstellar.com/client_logo/SPI_Pharma.webp",
         "description": "Pharmaceutical ingredients and manufacturing. Headquartered in Americas.",
         "industry": null
       },
@@ -1369,7 +1368,7 @@ export const CLIENTS = {
         "sector_label": "Media, entertainment and publishing",
         "region": "apac",
         "initials": "S",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69846830ede4cc2aea05d48a_Sportskeeda%201.webp",
+        "logo": "https://media.edstellar.com/client_logo/Sportskeeda_1.webp",
         "description": "Sports and entertainment content. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1379,7 +1378,7 @@ export const CLIENTS = {
         "sector_label": "Chemicals and materials",
         "region": "apac",
         "initials": "SL",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69a34627903746ff6a0b2_SRF%20Limited.webp",
+        "logo": "https://media.edstellar.com/client_logo/SRF_Limited.webp",
         "description": "Chemicals, technical textiles and packaging. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1389,7 +1388,7 @@ export const CLIENTS = {
         "sector_label": "Education",
         "region": "apac",
         "initials": "S",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697940863f7665b91f3d5_Sunstone.webp",
+        "logo": "https://media.edstellar.com/client_logo/Sunstone.webp",
         "description": "Industry-aligned higher education services. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1399,7 +1398,7 @@ export const CLIENTS = {
         "sector_label": "Diversified business groups",
         "region": "mena",
         "initials": "TH",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8b131e2f9df6310b0e09_Tadmur%20Holding.webp",
+        "logo": "https://media.edstellar.com/client_logo/Tadmur_Holding.webp",
         "description": "A business group operating across several industries. Headquartered in Middle East and North Africa.",
         "industry": null
       },
@@ -1409,7 +1408,7 @@ export const CLIENTS = {
         "sector_label": "Chemicals and materials",
         "region": "apac",
         "initials": "TC",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b5887637a6028400031b44_Tata_Chemicals.webp",
+        "logo": "https://media.edstellar.com/client_logo/Tata_Chemicals.webp",
         "description": "Chemicals and materials. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1419,7 +1418,7 @@ export const CLIENTS = {
         "sector_label": "Media, entertainment and publishing",
         "region": "eura",
         "initials": "TF",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ad4e41900232a1df5a4f_Taylor%20%26%20Francis%20Group%20(1).webp",
+        "logo": "https://media.edstellar.com/client_logo/Taylor__Francis_Group.webp",
         "description": "Academic publishing. Headquartered in Europe and Africa.",
         "industry": null
       },
@@ -1429,7 +1428,7 @@ export const CLIENTS = {
         "sector_label": "Banking, financial services and insurance",
         "region": "mena",
         "initials": "TN",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/691acb69455d5fe1bf5890d1_national%20Bank%20of%20Iraq.svg",
+        "logo": "https://media.edstellar.com/client_logo/national_Bank_of_Iraq.svg",
         "description": "Full-service regional banking. Headquartered in Middle East and North Africa.",
         "industry": {
           "href": "/industries/banking",
@@ -1442,7 +1441,7 @@ export const CLIENTS = {
         "sector_label": "Pharma, biotech and healthcare",
         "region": "apac",
         "initials": "T",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69d8a48156eb2b44dffdb_Thryve.webp",
+        "logo": "https://media.edstellar.com/client_logo/Thryve.webp",
         "description": "Healthcare. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1452,7 +1451,7 @@ export const CLIENTS = {
         "sector_label": "Energy and natural resources",
         "region": "eura",
         "initials": "T",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6a98ed7f1555ba95a94c2_Total.webp",
+        "logo": "https://media.edstellar.com/client_logo/Total.webp",
         "description": "Energy and petroleum. Headquartered in Europe and Africa.",
         "industry": null
       },
@@ -1462,7 +1461,7 @@ export const CLIENTS = {
         "sector_label": "Banking, financial services and insurance",
         "region": "amer",
         "initials": "T",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8c5dfc15022a31bc5af4_Transunion.webp",
+        "logo": "https://media.edstellar.com/client_logo/Transunion.webp",
         "description": "Credit information and risk management. Headquartered in Americas.",
         "industry": {
           "href": "/industries/banking",
@@ -1475,7 +1474,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "apac",
         "initials": "TE",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6aaf334d711034f22972a_TVS.webp",
+        "logo": "https://media.edstellar.com/client_logo/TVS.webp",
         "description": "Electronics manufacturing and supply chain. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -1488,7 +1487,7 @@ export const CLIENTS = {
         "sector_label": "Banking, financial services and insurance",
         "region": "apac",
         "initials": "US",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697300863f7665b91d3a9_Ujjivan%20Small%20Finance%20Bank.webp",
+        "logo": "https://media.edstellar.com/client_logo/Ujjivan_Small_Finance_Bank.webp",
         "description": "Small finance banking. Headquartered in Asia Pacific.",
         "industry": {
           "href": "/industries/banking",
@@ -1501,7 +1500,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "apac",
         "initials": "U",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b698e8627903746ff54c71_Uplers.webp",
+        "logo": "https://media.edstellar.com/client_logo/Uplers.webp",
         "description": "Hiring for product and engineering talent. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1511,7 +1510,7 @@ export const CLIENTS = {
         "sector_label": "Education",
         "region": "amer",
         "initials": "U",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b6ab0a47fbf42da4da29c7_Uworld.webp",
+        "logo": "https://media.edstellar.com/client_logo/Uworld.webp",
         "description": "Education and test preparation. Headquartered in Americas.",
         "industry": null
       },
@@ -1521,7 +1520,7 @@ export const CLIENTS = {
         "sector_label": "Energy and natural resources",
         "region": "apac",
         "initials": "V",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8d1cefeeaa00e51e4cde_Vedanta.webp",
+        "logo": "https://media.edstellar.com/client_logo/Vedanta.webp",
         "description": "Mining, metals, oil and gas. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1531,7 +1530,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "eura",
         "initials": "V",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8d44a2876948866ef288_Vesuvius.webp",
+        "logo": "https://media.edstellar.com/client_logo/Vesuvius.webp",
         "description": "Molten metal flow engineering for steel and foundry. Headquartered in Europe and Africa.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -1544,7 +1543,7 @@ export const CLIENTS = {
         "sector_label": "Manufacturing and industrial",
         "region": "eura",
         "initials": "WA",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b697e748156eb2b44c5b56_Royal%26quot.webp",
+        "logo": "https://media.edstellar.com/client_logo/Royalquot.webp",
         "description": "Ceramic tiles, sold under the Royal brand. Headquartered in Europe and Africa.",
         "industry": {
           "href": "/industries/manufacturing",
@@ -1557,7 +1556,7 @@ export const CLIENTS = {
         "sector_label": "Real estate and construction",
         "region": "amer",
         "initials": "W",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8a5ebfb09ef05b0369f8_WiredScore.webp",
+        "logo": "https://media.edstellar.com/client_logo/WiredScore.webp",
         "description": "Digital connectivity certification for buildings. Headquartered in Americas.",
         "industry": null
       },
@@ -1567,7 +1566,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "apac",
         "initials": "Y",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/68b69b1d1c7bda326ef0cf67_ycp%20.webp",
+        "logo": "https://media.edstellar.com/client_logo/ycp_.webp",
         "description": "Management consulting and principal investment. Headquartered in Asia Pacific.",
         "industry": null
       },
@@ -1577,7 +1576,7 @@ export const CLIENTS = {
         "sector_label": "Professional and business services",
         "region": "amer",
         "initials": "ZA",
-        "logo": "https://cdn.prod.website-files.com/6484144ee6dda9d4b9ab7f57/69ba8b63c8445eaa18979265_ZS%20Associates.webp",
+        "logo": "https://media.edstellar.com/client_logo/ZS_Associates.webp",
         "description": "Management consulting and technology. Headquartered in Americas.",
         "industry": null
       }
