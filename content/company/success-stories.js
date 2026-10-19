@@ -11,7 +11,7 @@ export const SUCCESS_STORIES_PAGE = {
   seo: {
     title: "Corporate Training Success Stories",
     description:
-      "Discover how Edstellar's tailored training solutions have helped organizations to improve skills, improve processes, and achieve lasting success.",
+      "Read Edstellar's corporate training success stories, with client testimonials and program outcomes across regions, industries and workforce learning needs.",
     path: "/success-stories",
   },
   breadcrumbs: [

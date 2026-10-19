@@ -53,7 +53,7 @@ export function CxHero({ data, facts, breadcrumbs }) {
             <CtaButton color="lime" arrow render={<a href={data.primary_cta.href} />}>
               {data.primary_cta.label}
             </CtaButton>
-            <CtaButton variant="ghost" render={<a href={data.secondary_cta.href} />} className="border-paper/40 text-paper hover:border-paper hover:bg-paper/5">
+            <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} />} className="border-paper/40 text-paper hover:border-paper hover:bg-paper/5">
               {data.secondary_cta.label}
             </CtaButton>
           </Box>

@@ -80,7 +80,7 @@ export default function CoachingHero({ cms, breadcrumbs }) {
                 </CtaButton>
               ) : null}
               {secondary_cta?.href ? (
-                <CtaButton
+                <CtaButton arrow
                   variant="secondary"
                   render={<Link href={secondary_cta.href} />}
                   className="border-[1.5px] border-navy px-7 py-4 text-navy hover:-translate-y-0.5 hover:bg-transparent hover:shadow-lift"

@@ -27,9 +27,9 @@ const NEWSLETTER_CTA = {
 
 export const CASE_STUDIES_PAGE = {
   seo: {
-    title: "Client Case Studies",
+    title: "Corporate Training Case Studies & Results",
     description:
-      "Explore Edstellar’s client case studies and testimonials, showcasing workforce transformation through our training solutions.",
+      "Explore Edstellar's corporate training case studies to see how organizations address workforce challenges through managed delivery and skills development.",
     path: "/case-studies",
   },
   breadcrumbs: [
@@ -52,9 +52,9 @@ export const CASE_STUDIES = {
     slug: "invensis-technologies-uses-edstellar-to-streamline-training-process",
     title: "Invensis Technologies Uses Edstellar to Streamline Training Process",
     seo: {
-      title: "How Edstellar helps Invensis with standardized training services",
+      title: "Invensis Training Case Study",
       description:
-        "Read here the success story of Invensis on how the organization was able to train its employees in a standardized format.",
+        "See how Invensis Technologies worked with Edstellar to streamline training processes, coordinate vendors and standardize delivery in this client case study.",
     },
     industry: "IT-BPO",
     card: {

@@ -68,7 +68,7 @@ export default function ResourceCard({ item, linkTitle = false }) {
             {item.date_label}
           </Text>
           {item.cta?.href ? (
-            <CtaButton
+            <CtaButton arrow
               variant="ghost"
               render={<a {...linkProps(item.cta)} />}
               title={`Click Here to ${item.cta.label}: ${item.title}`}

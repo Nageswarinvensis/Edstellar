@@ -77,7 +77,7 @@ export default function ProfileHero({ profile, data, breadcrumbs }) {
                   {data.primary_cta.label}
                 </CtaButton>
                 {profile.courses.length ? (
-                  <CtaButton
+                  <CtaButton arrow
                     variant="ghost"
                     render={<a href={data.secondary_cta.href} />}
                     className="border-paper/40 text-paper hover:border-paper hover:bg-paper/5"

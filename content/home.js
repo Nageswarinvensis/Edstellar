@@ -9,8 +9,8 @@
 
 export const HOME = {
   "seo": {
-    "title": "Corporate Training and Consulting",
-    "description": "Edstellar is the capability transformation partner for organizations in 100+ countries — consulting, talent assessments, coaching and training working as one system, measured on the Capability Intelligence Platform.",
+    "title": "Capability Development & Transformation Partner",
+    "description": "Edstellar helps organizations develop capabilities through training, coaching, assessments and consulting, connecting people development with business goals.",
     "path": "/"
   },
   "hero": {

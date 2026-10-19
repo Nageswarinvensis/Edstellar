@@ -8,9 +8,9 @@
  */
 export const LEADERSHIP_RETREATS = {
   seo: {
-    title: "Leadership Retreats for Senior Leaders and Teams",
+    title: "Leadership & Private Team Retreats",
     description:
-      "Invite-only leadership retreats designed by Edstellar around each group: custom topics, premium destinations and curated networking for CXOs and senior leaders.",
+      "Explore Edstellar's invite-only leadership retreats for executives and teams, with tailored topics, expert faculty, curated destinations and peer networking.",
     path: "/leadership-retreats",
   },
   breadcrumbs: [

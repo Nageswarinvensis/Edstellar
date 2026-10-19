@@ -12,9 +12,9 @@ const STEPS = ["Define", "Adapt", "Deliver", "Assess"];
 
 export const CLIENT_EXPERIENCE = {
   seo: {
-    title: "Client Experience and Training Support",
+    title: "Client Experience & Dedicated Support",
     description:
-      "A dedicated Edstellar client success manager for every account, matched trainers and full program support, from the first brief to learning applied at work.",
+      "See how Edstellar supports each training engagement with a dedicated client success manager, tailored programs, trainer matching and delivery coordination.",
     path: "/exceptional-customer-experience",
   },
   breadcrumbs: [

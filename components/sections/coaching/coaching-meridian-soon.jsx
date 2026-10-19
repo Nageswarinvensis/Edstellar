@@ -64,7 +64,7 @@ export default function CoachingMeridianSoon({ data }) {
               </CtaButton>
             ) : null}
             {secondary_cta?.href ? (
-              <CtaButton
+              <CtaButton arrow
                 variant="secondary"
                 render={<Link href={secondary_cta.href} />}
                 className="border-[1.5px] border-paper/40 px-7 py-4 text-paper hover:-translate-y-0.5 hover:bg-transparent hover:shadow-lift"

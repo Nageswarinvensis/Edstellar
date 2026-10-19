@@ -11,7 +11,7 @@ export const revalidate = 3600;
 const PATH = "/sitemap";
 const TITLE = "Sitemap";
 const DESCRIPTION =
-  "Every page on Edstellar in one place: training categories, courses, consulting and coaching services, blog posts, case studies and company pages.";
+  "Navigate Edstellar's website with the sitemap. Find corporate training courses, consulting services, coaching, assessments, resources and company pages.";
 
 const BREADCRUMBS = [
   { label: "Home", href: "/" },

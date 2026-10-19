@@ -46,7 +46,7 @@ export function CatalogHero({ data, breadcrumbs }) {
             <CtaButton arrow render={<a href={data.primary_cta.href} />}>
               {data.primary_cta.label}
             </CtaButton>
-            <CtaButton variant="ghost" render={<a href={data.secondary_cta.href} />}>
+            <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} />}>
               {data.secondary_cta.label}
             </CtaButton>
           </Box>
@@ -141,7 +141,7 @@ export function CatalogFaqs({ data }) {
         <Text as="p" className="font-display text-[16px] font-semibold text-ink">
           {data.closing.text}
         </Text>
-        <CtaButton variant="ghost" render={<a href={data.closing.cta.href} />}>
+        <CtaButton arrow variant="ghost" render={<a href={data.closing.cta.href} />}>
           {data.closing.cta.label}
         </CtaButton>
       </Reveal>

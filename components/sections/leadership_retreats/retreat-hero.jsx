@@ -91,7 +91,7 @@ export default function RetreatHero({ data, breadcrumbs }) {
             <CtaButton arrow render={<a href={data.primary_cta.href} />} className="text-gold">
               {data.primary_cta.label}
             </CtaButton>
-            <CtaButton variant="ghost" render={<a href={data.secondary_cta.href} />} className="border-navy">
+            <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} />} className="border-navy">
               {data.secondary_cta.label}
             </CtaButton>
           </Reveal>

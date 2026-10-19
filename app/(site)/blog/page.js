@@ -10,7 +10,7 @@ export const revalidate = 86400;
 export function generateMetadata() {
   return buildMetadata({
     title: "Blog",
-    description: "Guides and insights on corporate training, skills and workforce planning.",
+    description: "Read Edstellar's learning and development blog for ideas on corporate training, talent development and workforce skills for HR, L&D and business leaders.",
     path: "/blog",
   });
 }

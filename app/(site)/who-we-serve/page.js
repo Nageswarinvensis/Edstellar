@@ -15,16 +15,16 @@ import WwsFaq from "@/components/sections/who-we-serve/wws-faq";
 import WwsContact from "@/components/sections/who-we-serve/wws-contact";
 
 export const metadata = {
-  title: "Who We Serve · Edstellar",
+  title: "Who We Serve: Industries & Organizations",
   description:
-    "Edstellar builds workforce capability for start-ups, enterprises, non-profits, educational institutions and government bodies across 100 countries and 10+ languages.",
+    "Explore the industries and organizations Edstellar serves, from growing businesses to global enterprises, universities and government teams building capability.",
   alternates: {
     canonical: "/who-we-serve",
   },
   openGraph: {
-    title: "Who We Serve · Edstellar",
+    title: "Who We Serve: Industries & Organizations",
     description:
-      "Edstellar builds workforce capability for start-ups, enterprises, non-profits, educational institutions and government bodies across 100 countries and 10+ languages.",
+      "Explore the industries and organizations Edstellar serves, from growing businesses to global enterprises, universities and government teams building capability.",
   },
 };
 

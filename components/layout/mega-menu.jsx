@@ -34,6 +34,10 @@ function Spark() {
 }
 
 const firstLinkHref = (item) => item.groups[0].links[0].href;
+/* Unique per-link identity: several links can now share one href (e.g. a few
+ * AI courses point at the AI domain), so the active-dot highlight keys on this,
+ * not the href — otherwise hovering one lights every link that shares its URL. */
+const linkKey = (link) => `${link.href}::${link.label}`;
 
 function PanelLink({ link, divider, active, onNavigate, onPreview }) {
   return (
@@ -62,7 +66,7 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
   );
 }
 
-function PanelGroup({ group, first, activeHref, onNavigate, onPreview }) {
+function PanelGroup({ group, first, activeKey, onNavigate, onPreview }) {
   const lastMainIdx = group.links.reduce((acc, link, i) => (link.main ? i : acc), -1);
   const headingId = `mega-${group.heading.replace(/\W+/g, "-").toLowerCase()}`;
   return (
@@ -79,7 +83,7 @@ function PanelGroup({ group, first, activeHref, onNavigate, onPreview }) {
           <PanelLink
             key={link.href + link.label}
             link={link}
-            active={link.href === activeHref}
+            active={linkKey(link) === activeKey}
             divider={link.main && i === lastMainIdx && i < group.links.length - 1}
             onNavigate={onNavigate}
             onPreview={onPreview}
@@ -165,6 +169,7 @@ export default function MegaMenu({ onOpenBrief }) {
   const [openId, setOpenId] = useState(null);
   const [pv, setPv] = useState(null);
   const [activeHref, setActiveHref] = useState(null);
+  const [activeKey, setActiveKey] = useState(null);
   const hoverT = useRef(null);
   const leaveT = useRef(null);
 
@@ -175,9 +180,11 @@ export default function MegaMenu({ onOpenBrief }) {
 
   const open = (id) => {
     const item = MEGA_NAV.find((n) => n.id === id);
+    const firstLink = item ? item.groups[0].links[0] : null;
     setOpenId(id);
     setPv(item ? item.first : null);
-    setActiveHref(item ? firstLinkHref(item) : null);
+    setActiveHref(firstLink ? firstLink.href : null);
+    setActiveKey(firstLink ? linkKey(firstLink) : null);
   };
 
   const close = () => {
@@ -220,6 +227,7 @@ export default function MegaMenu({ onOpenBrief }) {
   const onPreview = (link) => {
     setPv(link.pv);
     setActiveHref(link.href);
+    setActiveKey(linkKey(link));
   };
 
   const onRootLeave = () => {
@@ -298,7 +306,7 @@ export default function MegaMenu({ onOpenBrief }) {
                         key={group.heading}
                         group={group}
                         first={i === 0}
-                        activeHref={isOpen ? activeHref : null}
+                        activeKey={isOpen ? activeKey : null}
                         onNavigate={close}
                         onPreview={onPreview}
                       />

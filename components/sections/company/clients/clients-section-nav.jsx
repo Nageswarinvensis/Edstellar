@@ -26,7 +26,7 @@ export default function ClientsSectionNav({ data }) {
           ))}
         </Box>
         {data.cta && (
-          <CtaButton
+          <CtaButton arrow
             size="sm"
             color="navy"
             className="max-md:hidden"

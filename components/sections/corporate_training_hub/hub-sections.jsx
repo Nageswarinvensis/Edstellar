@@ -62,7 +62,7 @@ export function HubHero({ data, proof, breadcrumbs }) {
             </Text>
             <Box className="mt-8 flex flex-wrap gap-3">
               <LinkButton cta={data.primary_cta} />
-              <CtaButton variant="ghost" render={<a href={data.secondary_cta.href} />}>
+              <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} />}>
                 {data.secondary_cta.label}
               </CtaButton>
             </Box>

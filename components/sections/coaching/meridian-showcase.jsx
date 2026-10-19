@@ -84,7 +84,7 @@ export default function MeridianShowcase({ data }) {
                     {button.label}
                   </CtaButton>
                 ) : (
-                  <CtaButton
+                  <CtaButton arrow
                     key={button.label}
                     variant="secondary"
                     render={<Link href={button.href} />}

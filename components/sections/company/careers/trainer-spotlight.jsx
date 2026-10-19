@@ -42,7 +42,7 @@ export default function TrainerSpotlight({ data }) {
               </CtaButton>
             ) : null}
             {data.secondary?.href ? (
-              <CtaButton
+              <CtaButton arrow
                 variant="ghost"
                 className="border-paper/35 text-paper hover:border-lime hover:bg-transparent hover:text-lime"
                 render={<Link href={data.secondary.href} />}

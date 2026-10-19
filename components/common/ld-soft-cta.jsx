@@ -63,7 +63,7 @@ export default function LdSoftCta({ data }) {
             >
               {primary.label}
             </CtaButton>
-            <CtaButton
+            <CtaButton arrow
               variant="secondary"
               render={<Link href={secondary.href} {...newTabProps(secondary.href)} />}
               className="flex-none border-[1.5px] border-navy px-7 py-4 leading-[1.4] text-navy hover:-translate-y-0.5 hover:border-navy hover:bg-transparent hover:shadow-lift max-[600px]:w-full"

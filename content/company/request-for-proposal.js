@@ -11,9 +11,9 @@ const SUBMIT = { label: "Submit your RFP", href: "#submit" };
 
 export const RFP_PAGE = {
   seo: {
-    title: "Corporate Training RFP and Tender Responses",
+    title: "Corporate Training RFP & Tender Responses",
     description:
-      "Send Edstellar your RFP, RFI, RFQ or tender for training, consulting, assessments or coaching and receive one complete proposal within 15 working days.",
+      "Submit your RFP, RFQ or tender to Edstellar for an integrated proposal covering corporate training, consulting, assessments and coaching for your organization.",
     path: "/request-for-proposal",
   },
   breadcrumbs: [

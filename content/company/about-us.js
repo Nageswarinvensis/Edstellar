@@ -13,9 +13,9 @@ const LIVE = "https://www.edstellar.com";
 
 export const ABOUT_US = {
   seo: {
-    title: "About Us: Capability Transformation Partner",
+    title: "About Edstellar",
     description:
-      "Edstellar is a capability transformation partner that assesses, builds and measures workforce capability through consulting, assessments, training and coaching.",
+      "Learn about Edstellar, our purpose, values and approach to capability transformation, and how we help organizations develop their people and teams.",
     path: "/about-us",
   },
   breadcrumbs: [

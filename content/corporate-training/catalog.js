@@ -13,9 +13,9 @@ const FULL_CATALOG_PDF =
 
 export const CATALOG_PAGE = {
   seo: {
-    title: "Corporate Training Catalog: 2,000+ Courses",
+    title: "Corporate Training Courses & Course Catalog",
     description:
-      "Browse Edstellar's corporate training catalog: 2,000+ instructor-led courses across 77 domains, from AI and cloud to leadership and compliance, onsite or virtual.",
+      "Browse Edstellar's corporate training courses by domain. Explore program details and find courses that match your team's skills and development priorities.",
     path: "/corporate-training-catalog",
   },
   breadcrumbs: [

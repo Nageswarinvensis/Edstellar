@@ -60,7 +60,7 @@ export default function WwsHero({ data }) {
               <CtaButton arrow render={<a href={data.primaryBtn.href} />}>
                 {data.primaryBtn.text}
               </CtaButton>
-              <CtaButton
+              <CtaButton arrow
                 variant="secondary"
                 render={<a href={data.secondaryBtn.href} />}
                 className="border border-ink text-ink hover:bg-transparent"
