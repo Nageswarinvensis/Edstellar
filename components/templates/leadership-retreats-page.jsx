@@ -37,7 +37,8 @@ export default function LeadershipRetreatsPage({ page }) {
         <FaqDetails items={page.faqs.items} />
       </Section>
 
-      <RetreatForm data={page.form} />
+      {/* The live retreats form (/ceo-retreats) thanks at /thank-you/request-invite. */}
+      <RetreatForm data={page.form} thankYou="request-invite" />
     </>
   );
 }

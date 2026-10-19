@@ -2,26 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Controller, useForm } from "react-hook-form";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+import { useForm } from "react-hook-form";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import { CtaButton } from "@/components/common/cta-button";
 import { FormField, formInputClasses } from "@/components/common/form-field";
+import CountryPhoneFields, { HoneypotField, phoneForSubmit } from "@/components/forms/country-phone-fields";
 import { cn } from "@/lib/utils";
 import { EMAIL_PATTERN } from "@/lib/constants";
-import { COUNTRIES, PREFERRED_COUNTRIES } from "@/lib/countries";
 import { submitEnquiry } from "@/lib/actions/submit-enquiry";
-
-/** react-phone-input-2's value is the full number as digits, dial code
- * first ("919876543210") — at least 6 digits must follow the dial code. */
-function validPhone(value, dialCode) {
-  const digits = (value ?? "").replace(/\D/g, "");
-  return digits.length - (dialCode ?? "").length >= 6 || "Please enter a valid phone number.";
-}
 
 /**
  * Training enquiry card — the form on `/contact-us`, `/enquiry-now` and
@@ -63,26 +54,13 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
     if (value) setValue("program", `${queryParam}-${value}`);
   }, [queryParam, setValue]);
 
-  // The Country dropdown and the phone input's flag follow each other, as on
-  // the live form: picking a country sets the flag, and picking a flag that
-  // is in the dropdown's list sets the country.
-  const selectedIso =
-    COUNTRIES.find((country) => country.name === watch("country"))?.iso2 || "us";
-
-  function onPhoneChange(field, value, data) {
-    field.onChange(value);
-    setValue("dialCode", data?.dialCode ?? "");
-    const match = COUNTRIES.find((country) => country.iso2 === data?.countryCode);
-    if (match && match.name !== watch("country")) setValue("country", match.name);
-  }
-
   async function onSubmit(values) {
     setSubmitError("");
     let result;
     try {
       result = await submitEnquiry({
         ...values,
-        phone: values.phone ? `+${values.phone}` : "",
+        phone: phoneForSubmit(values.phone),
         page: window.location.pathname,
         thankYou,
       });
@@ -124,16 +102,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
       <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {queryParam ? <input type="hidden" {...register("program")} /> : null}
 
-        {/* Honeypot (TASTE.md §7.1): off-screen and out of the tab order, so
-            only a bot fills it — the server then drops the submission. */}
-        <input
-          {...register("company_website")}
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-          aria-hidden="true"
-          className="absolute -left-[9999px] size-px opacity-0"
-        />
+        <HoneypotField register={register} />
 
         <FormField
           label="Full name"
@@ -190,72 +159,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
           />
         </FormField>
 
-        <FormField label="Country" required error={errors.country?.message} className="sm:col-span-2">
-          <select
-            {...register("country", { required: "Please select your country." })}
-            aria-invalid={Boolean(errors.country)}
-            className={formInputClasses}
-          >
-            <option value="" disabled>
-              Select your country
-            </option>
-            {/* Same list and order as the phone input's: preferred
-                countries, a divider, then everything A–Z. */}
-            {PREFERRED_COUNTRIES.map((iso2) => COUNTRIES.find((country) => country.iso2 === iso2)).map((country) => (
-              <option key={`preferred-${country.iso2}`} value={country.name}>
-                {country.name}
-              </option>
-            ))}
-            <option disabled>──────────</option>
-            {COUNTRIES.filter((country) => !PREFERRED_COUNTRIES.includes(country.iso2)).map((country) => (
-              <option key={country.iso2} value={country.name}>
-                {country.name}
-              </option>
-            ))}
-          </select>
-        </FormField>
-
-        <FormField label="Phone number" required error={errors.phone?.message} className="sm:col-span-2">
-          <input type="hidden" {...register("dialCode")} />
-          <Controller
-            name="phone"
-            control={control}
-            rules={{ validate: (value) => validPhone(value, watch("dialCode")) }}
-            render={({ field }) => (
-              <PhoneInput
-                country={selectedIso}
-                preferredCountries={PREFERRED_COUNTRIES}
-                // Territories (Bermuda, Gibraltar…) are hidden by default;
-                // shown so the flag list matches the Country dropdown.
-                enableTerritories
-                value={field.value}
-                onChange={(value, data) => onPhoneChange(field, value, data)}
-                onBlur={field.onBlur}
-                inputProps={{
-                  name: field.name,
-                  ref: field.ref,
-                  autoComplete: "tel",
-                  "aria-invalid": Boolean(errors.phone),
-                }}
-                containerClass={cn(
-                  "!w-full !font-body",
-                  // Flag button: no box of its own — a divider inside the
-                  // field's border, with a light hover/open tint.
-                  "[&_.flag-dropdown]:!rounded-l-xl [&_.flag-dropdown]:!border-transparent [&_.flag-dropdown]:!border-r-ink/12 [&_.flag-dropdown]:!bg-transparent",
-                  "[&_.flag-dropdown.open]:!bg-transparent [&_.flag-dropdown.open_.selected-flag]:!bg-ink/5",
-                  "[&_.selected-flag]:!w-14 [&_.selected-flag]:!rounded-l-xl [&_.selected-flag]:!pl-4 [&_.selected-flag:hover]:!bg-ink/5 [&_.selected-flag:focus]:!bg-ink/5",
-                )}
-                inputClass="!h-auto !w-full !rounded-xl !border-ink/15 !bg-paper !py-3 !pl-[4.25rem] !pr-3.5 !text-[13.5px] !leading-normal !text-ink focus:!border-navy focus:!bg-white"
-                dropdownClass={cn(
-                  "!mt-2 !w-[min(22rem,calc(100vw-5rem))] !max-h-64 !rounded-xl !border !border-ink/12 !bg-white !py-1.5 !text-[13.5px] !text-ink !shadow-[0_18px_40px_-20px_rgba(10,22,40,0.45)]",
-                  "[&_.country]:!flex [&_.country]:!items-center [&_.country]:!gap-2.5 [&_.country]:!px-3.5 [&_.country]:!py-2.5",
-                  "[&_.country_.flag]:!m-0 [&_.country_.flag]:!shrink-0 [&_.country-name]:!mr-0",
-                  "[&_.country:hover]:!bg-paper [&_.country.highlight]:!bg-paper [&_.dial-code]:!text-ink/45 [&_.divider]:!mx-3 [&_.divider]:!border-ink/10",
-                )}
-              />
-            )}
-          />
-        </FormField>
+        <CountryPhoneFields form={{ register, control, watch, setValue, errors }} />
 
         <FormField label="Training requirements" className="sm:col-span-2">
           <textarea

@@ -26,7 +26,7 @@ const SERVICES = [
     title: "OD consulting",
     description:
       "Org design, succession planning and cultural change.",
-    href: "/organization-development-consulting",
+    href: "/organizational-development-consulting",
   },
   {
     title: "Managed training services",

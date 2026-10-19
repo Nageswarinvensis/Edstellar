@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    serverActions: {
+      // The course group-quote form uploads a training-requirements Excel
+      // file of up to 4 MB (the live form's limit) through a Server Action,
+      // whose default body limit is 1 MB.
+      bodySizeLimit: "5mb",
+    },
+  },
   // Old URLs → their current ones (the CMS renamed these site pages,
   // Oct 2026). Permanent, so links and rankings carry over. Each goes straight
   // to its final URL — no redirect chains.

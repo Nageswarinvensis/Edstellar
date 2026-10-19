@@ -11,7 +11,7 @@ export default function CorporateTrainingCatalogPage({ page, domains }) {
       <CatalogProof data={page.proof} />
       <CatalogBody catalog={page.catalog} brief={page.brief} domains={domains} />
       <CatalogFaqs data={page.faqs} />
-      <RetreatForm data={page.form} accent="lime" />
+      <RetreatForm data={page.form} accent="lime" thankYou="corporate-training-catalog" />
     </>
   );
 }

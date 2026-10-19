@@ -637,15 +637,18 @@
     "tabs": [
       {
         "key": "all",
-        "label": "All Included"
+        "label": "All Included",
+        "thank_you_prefix": ""
       },
       {
         "key": "it",
-        "label": "IT & Technical Training"
+        "label": "IT & Technical Training",
+        "thank_you_prefix": "it-technical-"
       },
       {
         "key": "nt",
-        "label": "Non-Technical Training"
+        "label": "Non-Technical Training",
+        "thank_you_prefix": "non-technical-"
       }
     ],
     "programs": {

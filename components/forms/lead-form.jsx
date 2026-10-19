@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
@@ -10,12 +11,10 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import { CtaButton } from "@/components/common/cta-button";
 import { FormField, formInputClasses } from "@/components/common/form-field";
+import CountryPhoneFields, { HoneypotField, phoneForSubmit } from "@/components/forms/country-phone-fields";
 import { cn } from "@/lib/utils";
-import {
-  COUNTRY_DIAL_CODES,
-  EMAIL_PATTERN,
-  FREE_MAIL_DOMAINS,
-} from "@/lib/constants";
+import { EMAIL_PATTERN, FREE_MAIL_DOMAINS } from "@/lib/constants";
+import { submitEnquiry } from "@/lib/actions/submit-enquiry";
 
 const BACKGROUND_CLASSES = {
   "paper-warm": "bg-paper-warm",
@@ -25,29 +24,64 @@ const BACKGROUND_CLASSES = {
 };
 
 /**
- * The "request training" lead form. No submission backend yet: a valid
- * submit goes straight to `/thank-you/{thankYou}` — `consulting` by default,
- * `category` on domain pages, `course` on course pages.
+ * The "request training" lead form on domain and course pages. Its own
+ * design, the enquiry form's behavior: a valid submit goes to Zoho Forms'
+ * "TrainingEnquiry" form — the one the live category and course pages post
+ * to — through the `submitEnquiry` Server Action and the shared lead
+ * pipeline (`lib/leads/`), with the shared country + international phone
+ * fields. On success the visitor lands on `/thank-you/{thankYou}` —
+ * `category` on domain pages, `course` on course pages; a field the server
+ * rejects shows under that field, and a failed delivery shows a message
+ * above the button instead of a false thank-you.
  */
 export default function LeadForm({ data, background = "paper-warm", id = "apply", thankYou = "consulting" }) {
   const {
     register,
+    control,
     handleSubmit,
     watch,
+    setValue,
+    setError,
     formState: { errors, isSubmitting },
-  } = useForm({ defaultValues: { country: "United States" } });
+  } = useForm({ defaultValues: { country: "", phone: "", dialCode: "1" } });
   const router = useRouter();
-
-  const dialCode =
-    COUNTRY_DIAL_CODES.find((country) => country.name === watch("country"))
-      ?.dialCode || "";
+  const [submitError, setSubmitError] = useState("");
 
   if (!data) return null;
 
   const dark = background === "navy";
 
-  function onSubmit() {
-    router.push(`/thank-you/${thankYou}`);
+  async function onSubmit({ workEmail, ...values }) {
+    setSubmitError("");
+    let result;
+    try {
+      result = await submitEnquiry({
+        ...values,
+        email: workEmail,
+        phone: phoneForSubmit(values.phone),
+        page: window.location.pathname,
+        thankYou,
+      });
+    } catch {
+      result = null;
+    }
+
+    if (result?.ok) {
+      router.push(`/thank-you/${thankYou}`);
+      return;
+    }
+    if (result?.errors) {
+      // The pipeline's field names → this form's.
+      const FIELD = { email: "workEmail", message: "requirements" };
+      for (const [field, message] of Object.entries(result.errors)) {
+        setError(FIELD[field] ?? field, { message });
+      }
+      return;
+    }
+    setSubmitError(
+      result?.error ||
+        "We could not submit your enquiry. Please try again, or email us at contact@edstellar.com.",
+    );
   }
 
   return (
@@ -85,6 +119,7 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
         <Box className="overflow-hidden rounded-[22px] border border-ink/12 bg-white shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)]">
           <Box className="p-6.5 sm:p-9 lg:p-13">
             <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)}>
+              <HoneypotField register={register} />
               <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <FormField label="Name" required error={errors.name?.message}>
                   <input
@@ -155,37 +190,10 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
                   />
                 </FormField>
 
-                <FormField label="Country">
-                  <select
-                    {...register("country")}
-                    className={formInputClasses}
-                  >
-                    {COUNTRY_DIAL_CODES.map((country) => (
-                      <option key={country.name} value={country.name}>
-                        {country.name}
-                      </option>
-                    ))}
-                  </select>
-                </FormField>
-
-                <FormField label="Phone">
-                  <Box className="flex items-stretch overflow-hidden rounded-xl border border-ink/15 focus-within:border-navy focus-within:bg-white">
-                    <Text
-                      as="span"
-                      className="flex items-center border-r border-ink/12 px-3 font-mono text-[12.5px] text-ink/60"
-                    >
-                      {dialCode || "—"}
-                    </Text>
-                    <input
-                      {...register("phone")}
-                      type="tel"
-                      inputMode="tel"
-                      autoComplete="tel-national"
-                      placeholder="201-555-0123"
-                      className="w-full min-w-0 bg-transparent p-3 text-[13.5px] text-ink outline-none placeholder:text-ink/35"
-                    />
-                  </Box>
-                </FormField>
+                <CountryPhoneFields
+                  form={{ register, control, watch, setValue, errors }}
+                  phoneLabel="Phone"
+                />
 
                 <FormField
                   label={data.requirements_label || "Your training requirements"}
@@ -203,42 +211,11 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
                 </FormField>
               </Box>
 
-              <Box className="relative mt-5 flex items-start gap-2.75">
-                <input
-                  {...register("consent", { required: true })}
-                  type="checkbox"
-                  id="lf-consent"
-                  aria-invalid={Boolean(errors.consent)}
-                  className="mt-0.75 size-3.5 flex-none accent-navy"
-                />
-                <Text
-                  as="label"
-                  htmlFor="lf-consent"
-                  className="text-[12.5px] leading-normal text-ink/60"
-                >
-                  {/* `consent_text` (optional) replaces the default wording
-                      up to the privacy-policy link. */}
-                  {data.consent_text ||
-                    "I agree that Edstellar may use my details to respond to my training request and provide relevant training solutions, as described in the"}{" "}
-                  <a
-                    href="/privacy-policy"
-                    title="Click Here to View Privacy Policy"
-                    className="underline hover:text-ink"
-                  >
-                    privacy policy
-                  </a>
-                  .
+              {submitError ? (
+                <Text as="p" role="alert" className="mt-6 text-[13.5px] leading-[1.5] text-destructive">
+                  {submitError}
                 </Text>
-                {errors.consent ? (
-                  <Text
-                    as="span"
-                    role="alert"
-                    className="absolute top-full left-6 mt-1 text-[11px] leading-[1.35] text-red-600"
-                  >
-                    Please accept the privacy policy to continue.
-                  </Text>
-                ) : null}
-              </Box>
+              ) : null}
 
               <Box className="mt-6.5 flex flex-col items-start gap-4 border-t border-ink/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 {data.sla_note ? (
@@ -256,7 +233,7 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
                   className="w-full sm:w-auto"
                 >
                   {/* `Button_Label` is the site-pages CMS field; `submit_label` the local-content one. */}
-                  {data.Button_Label || data.submit_label || "Request my quote"}
+                  {isSubmitting ? "Submitting…" : data.Button_Label || data.submit_label || "Request my quote"}
                 </CtaButton>
               </Box>
             </Box>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
@@ -10,8 +11,10 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import { CtaButton } from "@/components/common/cta-button";
 import { FormField, formInputClasses } from "@/components/common/form-field";
+import CountryPhoneFields, { HoneypotField, phoneForSubmit } from "@/components/forms/country-phone-fields";
 import { cn } from "@/lib/utils";
-import { COUNTRY_DIAL_CODES, EMAIL_PATTERN, FREE_MAIL_DOMAINS } from "@/lib/constants";
+import { EMAIL_PATTERN, FREE_MAIL_DOMAINS } from "@/lib/constants";
+import { submitConsulting } from "@/lib/actions/submit-consulting";
 import {
   BUDGET_RANGES,
   CHALLENGES_BY_INTEREST,
@@ -20,8 +23,6 @@ import {
   EMPLOYEES_IMPACTED,
   TIMELINES,
 } from "@/content/consulting-form";
-
-const PHONE_PATTERN = /^[\d\s()+-]{6,20}$/;
 
 /** Every challenge once, "Other" last — offered before an interest is picked. */
 const ALL_CHALLENGES = [
@@ -67,27 +68,34 @@ function SelectField({ label, required, error, placeholder, options, registratio
  *
  * Choosing a primary interest narrows "Current challenge" to that
  * interest's list (`CHALLENGES_BY_INTEREST`) and clears a challenge that no
- * longer fits. The country sets the phone's dial code.
+ * longer fits. Country and phone are the shared international phone input
+ * (`CountryPhoneFields`), synced both ways.
  *
- * No submission backend yet: a valid submit goes straight to
- * `/thank-you/{thankYou}` (default `consulting`).
+ * A valid submit goes to Zoho Forms' "EdstellarLDConsultingform1" — the same
+ * form, with the same fields and option values, as the live consulting
+ * pages — through the `submitConsulting` Server Action and the shared lead
+ * pipeline (`lib/leads/`). On success the visitor lands on
+ * `/thank-you/{thankYou}` (default `consulting`); a field the server rejects
+ * shows under that field, and a failed delivery shows a message above the
+ * button instead of a false thank-you.
  *
  * `data`: `heading`, `description`, `Button_Label` / `submit_label`,
- * `sla_note`, `consent_text` — the same CMS fields LeadForm reads.
+ * `sla_note` — the same CMS fields LeadForm reads.
  */
 export default function ConsultingForm({ data, background = "navy", id = "apply", thankYou = "consulting" }) {
   const {
     register,
+    control,
     handleSubmit,
     watch,
     setValue,
     getValues,
+    setError,
     formState: { errors, isSubmitting },
-  } = useForm({ defaultValues: { country: "United States" } });
+  } = useForm({ defaultValues: { country: "", phone: "", dialCode: "1" } });
   const router = useRouter();
+  const [submitError, setSubmitError] = useState("");
 
-  const dialCode =
-    COUNTRY_DIAL_CODES.find((country) => country.name === watch("country"))?.dialCode || "";
   const interest = watch("interest");
   const challenges = CHALLENGES_BY_INTEREST[interest] ?? ALL_CHALLENGES;
 
@@ -100,8 +108,32 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
     if (!next.includes(getValues("challenge"))) setValue("challenge", "");
   }
 
-  function onSubmit() {
-    router.push(`/thank-you/${thankYou}`);
+  async function onSubmit(values) {
+    setSubmitError("");
+    let result;
+    try {
+      result = await submitConsulting({
+        ...values,
+        phone: phoneForSubmit(values.phone),
+        page: window.location.pathname,
+        thankYou,
+      });
+    } catch {
+      result = null;
+    }
+
+    if (result?.ok) {
+      router.push(`/thank-you/${thankYou}`);
+      return;
+    }
+    if (result?.errors) {
+      for (const [field, message] of Object.entries(result.errors)) setError(field, { message });
+      return;
+    }
+    setSubmitError(
+      result?.error ||
+        "We could not submit your enquiry. Please try again, or email us at contact@edstellar.com.",
+    );
   }
 
   return (
@@ -133,6 +165,7 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
       <Reveal delay={2}>
         <Box className="overflow-hidden rounded-[22px] border border-ink/12 bg-white shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)]">
           <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="p-6.5 sm:p-9 lg:p-13">
+            <HoneypotField register={register} />
             <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <FormField label="Full name" required error={errors.name?.message}>
                 <input
@@ -184,43 +217,10 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
                 />
               </FormField>
 
-              <FormField label="Country" required error={errors.country?.message}>
-                <select
-                  {...register("country", { required: "Please select your country." })}
-                  autoComplete="country-name"
-                  aria-invalid={Boolean(errors.country)}
-                  className={formInputClasses}
-                >
-                  {COUNTRY_DIAL_CODES.map((country) => (
-                    <option key={country.name} value={country.name}>
-                      {country.name}
-                    </option>
-                  ))}
-                </select>
-              </FormField>
-
-              <FormField label="Phone" required error={errors.phone?.message}>
-                <Box className="flex items-stretch overflow-hidden rounded-xl border border-ink/15 bg-paper focus-within:border-navy focus-within:bg-white">
-                  <Text
-                    as="span"
-                    className="flex items-center border-r border-ink/12 px-3 font-mono text-[12.5px] text-ink/60"
-                  >
-                    {dialCode || "—"}
-                  </Text>
-                  <input
-                    {...register("phone", {
-                      required: "Please enter your phone number.",
-                      pattern: { value: PHONE_PATTERN, message: "Please enter a valid phone number." },
-                    })}
-                    type="tel"
-                    inputMode="tel"
-                    autoComplete="tel-national"
-                    placeholder="201-555-0123"
-                    aria-invalid={Boolean(errors.phone)}
-                    className="w-full min-w-0 bg-transparent p-3 text-[13.5px] text-ink outline-none placeholder:text-ink/35"
-                  />
-                </Box>
-              </FormField>
+              <CountryPhoneFields
+                form={{ register, control, watch, setValue, errors }}
+                phoneLabel="Phone"
+              />
 
               <SelectField
                 label="Company size"
@@ -285,32 +285,11 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
               </FormField>
             </Box>
 
-            <Box className="relative mt-5 flex items-start gap-2.75">
-              <input
-                {...register("consent", { required: true })}
-                type="checkbox"
-                id={`${id}-consent`}
-                aria-invalid={Boolean(errors.consent)}
-                className="mt-0.75 size-3.5 flex-none accent-navy"
-              />
-              <Text as="label" htmlFor={`${id}-consent`} className="text-[12.5px] leading-normal text-ink/60">
-                {data.consent_text ||
-                  "I agree that Edstellar may use my details to respond to my consulting enquiry, as described in the"}{" "}
-                <a href="/privacy-policy" title="Click Here to View Privacy Policy" className="underline hover:text-ink">
-                  privacy policy
-                </a>
-                .
+            {submitError ? (
+              <Text as="p" role="alert" className="mt-6 text-[13.5px] leading-[1.5] text-destructive">
+                {submitError}
               </Text>
-              {errors.consent ? (
-                <Text
-                  as="span"
-                  role="alert"
-                  className="absolute top-full left-6 mt-1 text-[11px] leading-[1.35] text-red-600"
-                >
-                  Please accept the privacy policy to continue.
-                </Text>
-              ) : null}
-            </Box>
+            ) : null}
 
             <Box className="mt-6.5 flex flex-col items-start gap-4 border-t border-ink/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
               {data.sla_note ? (
@@ -320,7 +299,7 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
               ) : null}
               <CtaButton type="submit" arrow disabled={isSubmitting} className="w-full sm:w-auto">
                 {/* `Button_Label` is the site-pages CMS field; `submit_label` the local-content one. */}
-                {data.Button_Label || data.submit_label || "Submit"}
+                {isSubmitting ? "Submitting…" : data.Button_Label || data.submit_label || "Submit"}
               </CtaButton>
             </Box>
           </Box>

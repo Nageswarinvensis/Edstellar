@@ -25,7 +25,7 @@ export default function ClientExperiencePage({ page }) {
       <CxWhy data={page.why} />
       <CxRelated data={page.related} />
       <CxFaqs data={page.faqs} />
-      <RetreatForm data={page.form} accent="lime" split />
+      <RetreatForm data={page.form} accent="lime" split thankYou="exceptional-customer-experience" />
     </>
   );
 }

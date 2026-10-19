@@ -16,7 +16,6 @@
  * (detail).
  */
 
-import { LATEST_COURSES } from "@/content/latest-courses";
 
 /** The dark newsletter band that closes both pages. */
 const NEWSLETTER_CTA = {
@@ -206,9 +205,9 @@ export const CASE_STUDIES = {
         "Let Edstellar handle your organization's training needs. Focus on your business while we support your growth.",
       button: { label: "Enquire Now", href: "/enquiry-now" },
     },
+    // `items` is filled in by the page from the CMS (`getLatestCourses`).
     courses: {
       heading: "Explore our Latest Corporate Training <span>Courses</span>",
-      items: LATEST_COURSES,
     },
     cta: {
       ...NEWSLETTER_CTA,

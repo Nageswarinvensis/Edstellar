@@ -35,7 +35,7 @@ export default function AboutUsPage({ page }) {
       <AboutClients data={page.clients} />
       <AboutShift data={page.shift} />
       <AboutFaqs faqs={page.faqs} cta={page.cta} />
-      <RetreatForm data={page.form} accent="lime" split />
+      <RetreatForm data={page.form} accent="lime" split thankYou="about-us" />
     </>
   );
 }

@@ -181,10 +181,8 @@ export default function SiteFooter() {
                 >
                   {FOOTER_CERTS.map((cert) => (
                     <li key={cert.title}>
-                      <a
-                        href={cert.href}
-                        className="flex items-center gap-1.5 rounded-[10px] border border-paper/12 py-1.5 pr-2.5 pl-1.5 text-paper transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(5,13,26,0.4)]"
-                      >
+                      {/* A badge, not a link — the certificates are not linked from the footer. */}
+                      <Box className="flex items-center gap-1.5 rounded-[10px] border border-paper/12 py-1.5 pr-2.5 pl-1.5 text-paper">
                         <IsoSeal />
                         <Text as="span" className="text-paper">
                           <Text as="b" className="block text-[12px] font-semibold leading-[1.3] text-paper">
@@ -193,9 +191,8 @@ export default function SiteFooter() {
                           <Text as="span" className="block text-[12px] leading-[1.3] text-paper/60">
                             {cert.label}
                           </Text>
-                          <Text as="span" className="sr-only"> certificate (PDF)</Text>
                         </Text>
-                      </a>
+                      </Box>
                     </li>
                   ))}
                 </Box>

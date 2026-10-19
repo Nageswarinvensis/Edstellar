@@ -1,27 +1,21 @@
 /**
- * "Explore our latest corporate training courses" — the hand-picked course
- * list shown on case studies and trainer profiles. Links point at the live
- * site's `/course/{slug}` URLs, as in the designs.
+ * "Latest corporate training courses" — the hand-picked course list shown on
+ * trainer profiles ("More Corporate Training Programs") and case studies
+ * ("Explore our Latest Corporate Training Courses"), in display order.
+ *
+ * Each entry is a CMS course slug, `{domain}/{course}` — exactly as the CMS
+ * sitemap lists it. `getLatestCourses` (`lib/content/latest-courses.js`)
+ * takes the label from the CMS title and links to the course's page here, and
+ * drops any slug the CMS does not have, so a typo or a retired course can
+ * never become a broken link.
  */
-export const LATEST_COURSES = [
-  ["ML Model Monitoring Training", "ml-model-monitoring-training"],
-  ["Real-Time Feature Engineering Training", "real-time-feature-engineering-training"],
-  ["AI Decision Support Systems Training", "ai-decision-support-systems-training"],
-  ["Supply Chain Decision Making Training", "supply-chain-decision-making-training"],
-  ["Decision-Making in a Crisis Training", "decision-making-in-a-crisis-training"],
-  ["Employee Experience (EX) Design and Measurement Training", "employee-experience-ex-design-and-measurement-training"],
-  ["LLM Observability Training", "llm-observability-training"],
-  ["Streaming Data Mesh Training", "streaming-data-mesh-training"],
-  ["Multi-Modal Vector Search Training", "multi-modal-vector-search-training"],
-  ["PostgreSQL Performance Tuning Training", "postgresql-performance-tuning-training"],
-  ["Platform Engineering Training", "platform-engineering-training"],
-  ["Cloud-Native Java Performance Engineering Training", "cloud-native-java-performance-engineering-training"],
-  ["Building Internal Developer Platforms (IDP) Training", "building-internal-developer-platforms-idp-training"],
-  ["Micro-Frontends Architecture Training", "micro-frontends-architecture-training"],
-  ["Change Management for Generative AI Adoption Training", "change-management-for-generative-ai-adoption-training"],
-  ["AI-Augmented Leadership Communication Training", "ai-augmented-leadership-communication-training"],
-  ["LangChain Application Development Training", "langchain-application-development-training"],
-  ["Human Factors Engineering Training", "human-factors-engineering-training"],
-  ["IoT for Fleet Management Training", "iot-for-fleet-management-training"],
-  ["Quantitative Investment Decision Training", "quantitative-investment-decision-training"],
-].map(([label, slug]) => ({ label, href: `https://www.edstellar.com/course/${slug}` }));
+export const LATEST_COURSE_SLUGS = [
+  "hr/employee-experience-ex-design-measurement-course",
+  "ai/ai-and-llm-observability-corporate-training-course",
+  "data-engineering/data-mesh-streaming-architecture-course",
+  "databases/postgresql-performance-tuning-course",
+  "devops/platform-engineering-internal-developer-platforms-course",
+  "software-development/micro-frontends-architecture-corporate-training-course",
+  "ai/langchain-llm-application-development-course",
+  "engineering/human-factors-engineering-course",
+];
