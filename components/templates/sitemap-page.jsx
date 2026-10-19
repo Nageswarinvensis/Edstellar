@@ -200,11 +200,11 @@ function SectionBody({ section }) {
     case "categories":
       return <CardGrid links={section.links} />;
     case "courses":
-      return <CourseGroups groups={section.groups} />;
+      return <LinkGrid links={section.groups.flatMap((g) => g.links)} />;
     case "services":
       return <ServiceGroups groups={section.groups} />;
     case "blog":
-      return <AlphabeticalList links={section.links} />;
+      return <LinkGrid links={[...section.links].sort((a, b) => a.label.localeCompare(b.label, "en", { sensitivity: "base" }))} />;
     default:
       return <LinkGrid links={section.links} />;
   }
