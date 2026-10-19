@@ -11,12 +11,14 @@ import EnquiryForm from "@/components/forms/enquiry-form";
  * program. Navy hero with the form on the right, then the "Reach Us" strip.
  *
  * `page`: `seo`, `breadcrumbs`, `hero` (`heading`, `description`), `form`,
- * `reach`. A valid submit goes to `/thank-you/enquire`.
+ * `reach`. A valid submit goes to `/thank-you/{thankYou}` — each sector has
+ * its own (`training-for-universities`, `training-for-government`), as on
+ * the live site.
  *
  * Design: edstellar.com/training-for-universities-enquiry, in the
  * `/enquiry-now` layout.
  */
-export default function ProgramEnquiryPage({ page, queryParam }) {
+export default function ProgramEnquiryPage({ page, queryParam, thankYou }) {
   return (
     <>
       <SchemaOrg
@@ -35,7 +37,7 @@ export default function ProgramEnquiryPage({ page, queryParam }) {
         aside={
           <EnquiryForm
             data={page.form}
-            thankYou="enquire"
+            thankYou={thankYou}
             queryParam={queryParam}
             className="scroll-mt-20 shadow-[0_18px_50px_rgba(5,13,26,0.28)]"
           />

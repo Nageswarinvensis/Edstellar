@@ -31,7 +31,6 @@ export const revalidate = 3600;
 
 /** CMS site_page slugs whose public URL differs from `/{slug}`. `null` = skip. */
 const SITE_PAGE_URL = {
-  "enquiry-form": "/enquiry-now",
   "book-a-demo": null,
 };
 

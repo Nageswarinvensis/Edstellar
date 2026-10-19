@@ -14,5 +14,5 @@ export function generateMetadata() {
  * to the sector's main page.
  */
 export default function GovernmentEnquiryPage() {
-  return <ProgramEnquiryPage page={getGovernmentEnquiryPage()} queryParam="government-program" />;
+  return <ProgramEnquiryPage page={getGovernmentEnquiryPage()} queryParam="government-program" thankYou="training-for-government" />;
 }
