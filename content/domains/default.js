@@ -70,7 +70,7 @@ export const DOMAIN_DEFAULTS = {
       { id: "about", label: "About", active: true },
       { id: "by-topic", label: "By topic", active: false },
       { id: "by-role", label: "By role", active: false },
-      { id: "paths", label: "Paths", active: false },
+      { id: "bundles", label: "Paths", active: false },
       { id: "delivery", label: "Delivery", active: false },
       { id: "trainers", label: "Trainers", active: false },
       { id: "why-edstellar", label: "Why Edstellar", active: false },

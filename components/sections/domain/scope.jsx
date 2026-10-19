@@ -47,15 +47,16 @@ export default function Scope({ data }) {
                 <Box role="tablist" className="flex flex-wrap gap-2">
                   {data.tabs.map((tab, index) => {
                     const isActive = activeTab === index;
+                    const tabKey = tab.id ?? index;
 
                     return (
                       <button
-                        key={tab.id}
-                        id={`scope-tab-${tab.id}`}
+                        key={tabKey}
+                        id={`scope-tab-${tabKey}`}
                         type="button"
                         role="tab"
                         aria-selected={isActive}
-                        aria-controls={`scope-panel-${tab.id}`}
+                        aria-controls={`scope-panel-${tabKey}`}
                         onClick={() => setActiveTab(index)}
                         className={[
                           "h-11 rounded-[10px] border px-4 text-[13px] font-semibold transition-all duration-200",
@@ -78,13 +79,14 @@ export default function Scope({ data }) {
             <Box className="w-full rounded-2xl border border-[#D9DDE1] bg-white p-5 lg:p-8 shadow-[0_22px_35px_rgba(7,24,44,0.12)]">
               {data.tabs.map((tab, index) => {
                 const isActive = activeTab === index;
+                const tabKey = tab.id ?? index;
 
                 return (
                   <Box
-                    key={tab.id}
-                    id={`scope-panel-${tab.id}`}
+                    key={tabKey}
+                    id={`scope-panel-${tabKey}`}
                     role="tabpanel"
-                    aria-labelledby={`scope-tab-${tab.id}`}
+                    aria-labelledby={`scope-tab-${tabKey}`}
                     hidden={!isActive}
                   >
                     <Text

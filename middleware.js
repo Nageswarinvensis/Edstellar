@@ -66,6 +66,15 @@ function getCmsUrl(pathname) {
  * carries a page number. */
 const BLOG_LISTING = /^\/blog(\/(author|category)\/[^/]+)?\/?$/;
 
+/** Adds X-Robots-Tag: noindex to the response on non-production deployments so
+ * Vercel preview URLs are never indexed even if robots.txt is bypassed. */
+function withNoindexOnPreview(response) {
+  if (process.env.VERCEL_ENV !== "production") {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  }
+  return response;
+}
+
 export async function middleware(request) {
   const { pathname, search } = request.nextUrl;
 
@@ -75,7 +84,7 @@ export async function middleware(request) {
   if (BLOG_LISTING.test(pathname) && request.nextUrl.searchParams.has("page")) {
     const clean = request.nextUrl.clone();
     clean.searchParams.delete("page");
-    return NextResponse.redirect(clean);
+    return withNoindexOnPreview(NextResponse.redirect(clean));
   }
 
   // Skip Next.js internals, static assets, and API routes.
@@ -88,7 +97,7 @@ export async function middleware(request) {
   }
 
   const cmsUrl = getCmsUrl(pathname);
-  if (!cmsUrl) return NextResponse.next();
+  if (!cmsUrl) return withNoindexOnPreview(NextResponse.next());
 
   try {
     const res = await fetch(cmsUrl, {
@@ -100,19 +109,19 @@ export async function middleware(request) {
 
     if (!REDIRECT_STATUSES.has(res.status)) {
       // 200 or 404 — pass through to the page renderer unchanged.
-      return NextResponse.next();
+      return withNoindexOnPreview(NextResponse.next());
     }
 
     // 410 Gone — rewrite to the branded /gone page while preserving the 410
     // status so crawlers de-index the URL.
     if (res.status === 410) {
-      return NextResponse.rewrite(new URL("/gone", request.url), { status: 410 });
+      return withNoindexOnPreview(NextResponse.rewrite(new URL("/gone", request.url), { status: 410 }));
     }
 
     // The CMS puts the destination in the Location header as a bare slug,
     // e.g. "software-development/net-architecture-design-patterns-course".
     const location = res.headers.get("location");
-    if (!location) return NextResponse.next();
+    if (!location) return withNoindexOnPreview(NextResponse.next());
 
     const destPath =
       location.startsWith("/") || location.startsWith("http")
@@ -121,10 +130,10 @@ export async function middleware(request) {
 
     const dest = new URL(destPath, request.url);
     dest.search = search; // preserve query string
-    return NextResponse.redirect(dest, { status: res.status });
+    return withNoindexOnPreview(NextResponse.redirect(dest, { status: res.status }));
   } catch {
     // CMS unreachable — fail open, pass through to the page renderer.
-    return NextResponse.next();
+    return withNoindexOnPreview(NextResponse.next());
   }
 }
 
