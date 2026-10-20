@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { Check, Globe, User } from "lucide-react";
@@ -11,20 +12,19 @@ import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import { CtaButton } from "@/components/common/cta-button";
 import { FormField, formInputClasses } from "@/components/common/form-field";
+import CountryPhoneFields, { HoneypotField, phoneForSubmit } from "@/components/forms/country-phone-fields";
+import { submitEnquiry } from "@/lib/actions/submit-enquiry";
 import { cn } from "@/lib/utils";
-import {
-  COUNTRY_DIAL_CODES,
-  EMAIL_PATTERN,
-  FREE_MAIL_DOMAINS,
-} from "@/lib/constants";
-
-const PHONE_PATTERN = /^[\d\s()+-]{6,20}$/;
+import { EMAIL_PATTERN, FREE_MAIL_DOMAINS } from "@/lib/constants";
 
 /**
  * The short navy lead form — name, work email, company, title, country,
  * phone, an optional "interested in" select (`data.interest_options`) and a
- * free-text message. Same submit behaviour as `ConsultingForm` (no endpoint
- * yet; a valid submit goes to the thank-you page). `accent` colours the
+ * free-text message. It submits as the contact-us form does: a Training
+ * Enquiry, sent to Zoho "TrainingEnquiry" through the `submitEnquiry` Server
+ * Action (the message as the training requirements), with the contact-us
+ * form's own country + international phone fields (`CountryPhoneFields`),
+ * both required as Zoho requires them. `accent` colours the
  * heading emphasis and submit text: gold on Leadership Retreats, lime on
  * About Us. `split` sets the heading beside the form instead of above it;
  * `data.points` (`{ icon, title, text }[]`) lists reassurances under it.
@@ -44,18 +44,48 @@ export default function RetreatForm({
 }) {
   const {
     register,
+    control,
     handleSubmit,
     watch,
+    setValue,
+    setError,
     formState: { errors, isSubmitting },
-  } = useForm({ defaultValues: { country: "United States" } });
+  } = useForm({ defaultValues: { country: "", phone: "", dialCode: "1" } });
   const router = useRouter();
+  const [submitError, setSubmitError] = useState("");
 
-  const dialCode =
-    COUNTRY_DIAL_CODES.find((country) => country.name === watch("country"))
-      ?.dialCode || "";
+  async function onSubmit({ workEmail, message, ...values }) {
+    setSubmitError("");
+    let result;
+    try {
+      result = await submitEnquiry({
+        ...values,
+        email: workEmail,
+        requirements: message,
+        phone: phoneForSubmit(values.phone),
+        page: window.location.pathname,
+        thankYou,
+      });
+    } catch {
+      result = null;
+    }
 
-  function onSubmit() {
-    router.push(`/thank-you/${thankYou}`);
+    if (result?.ok) {
+      router.push(`/thank-you/${thankYou}`);
+      return;
+    }
+    if (result?.errors) {
+      // The pipeline's field names → this form's.
+      const FIELD = { email: "workEmail", requirements: "message" };
+      for (const [field, msg] of Object.entries(result.errors)) {
+        setError(FIELD[field] ?? field, { message: msg });
+      }
+      return;
+    }
+    setSubmitError(
+      result?.error ||
+        "We could not submit your enquiry. Please try again, or email us at contact@edstellar.com.",
+    );
   }
 
   return (
@@ -112,8 +142,9 @@ export default function RetreatForm({
             as="form"
             noValidate
             onSubmit={handleSubmit(onSubmit)}
-            className="rounded-[18px] bg-white p-6.5 sm:p-10"
+            className="relative rounded-[18px] bg-white p-6.5 sm:p-10"
           >
+            <HoneypotField register={register} />
             <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <FormField label="Name" required error={errors.name?.message}>
                 <input
@@ -185,44 +216,10 @@ export default function RetreatForm({
                 />
               </FormField>
 
-              <FormField label="Country">
-                <select
-                  {...register("country")}
-                  autoComplete="country-name"
-                  className={formInputClasses}
-                >
-                  {COUNTRY_DIAL_CODES.map((country) => (
-                    <option key={country.name} value={country.name}>
-                      {country.name}
-                    </option>
-                  ))}
-                </select>
-              </FormField>
-
-              <FormField label="Phone" error={errors.phone?.message}>
-                <Box className="flex">
-                  <Text
-                    as="span"
-                    className="flex items-center rounded-l-xl border border-r-0 border-ink/15 bg-paper px-3 text-[13.5px] text-ink/60"
-                  >
-                    {dialCode}
-                  </Text>
-                  <input
-                    {...register("phone", {
-                      validate: (value) =>
-                        !value ||
-                        PHONE_PATTERN.test(value) ||
-                        "Please enter a valid phone number.",
-                    })}
-                    type="tel"
-                    inputMode="tel"
-                    autoComplete="tel-national"
-                    placeholder="201-555-0123"
-                    aria-invalid={Boolean(errors.phone)}
-                    className={cn(formInputClasses, "rounded-l-none")}
-                  />
-                </Box>
-              </FormField>
+              <CountryPhoneFields
+                form={{ register, control, watch, setValue, errors }}
+                phoneLabel="Phone"
+              />
 
               {data.interest_options?.length ? (
                 <FormField label="I am interested in" className="sm:col-span-2">
@@ -254,36 +251,11 @@ export default function RetreatForm({
               </FormField>
             </Box>
 
-            <Box
-              as="label"
-              className="mt-6 flex items-start gap-3 text-[13px] leading-normal text-ink/65"
-            >
-              <input
-                {...register("consent", { required: true })}
-                type="checkbox"
-                aria-invalid={Boolean(errors.consent)}
-                className="mt-0.5 size-4.5 flex-none accent-navy"
-              />
-              <Text
-                as="span"
-                className={cn("text-[13px]", errors.consent && "text-red-600")}
-              >
-                I agree that Edstellar may contact me about this request and
-                store my details as described in the{" "}
-                <a
-                  href="/privacy-policy"
-                  target="_blank"
-                  rel="noopener"
-                  className="font-semibold text-ink underline"
-                >
-                  privacy policy
-                </a>
-                .{" "}
-                <Text as="span" className="text-red-600">
-                  *
-                </Text>
+            {submitError ? (
+              <Text as="p" role="alert" className="mt-5 text-[13.5px] leading-normal text-red-600">
+                {submitError}
               </Text>
-            </Box>
+            ) : null}
 
             <Box className="mt-6 flex flex-col gap-4 border-t border-ink/12 pt-6 sm:flex-row sm:items-center sm:justify-between">
               <Text as="p" className="max-w-[44ch] text-[13px] leading-normal">

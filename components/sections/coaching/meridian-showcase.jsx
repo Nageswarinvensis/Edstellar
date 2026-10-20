@@ -38,7 +38,10 @@ export default function MeridianShowcase({ data }) {
 
   if (!tabs.length) return null;
 
-  const { section_id, tag, heading, description, buttons } = data;
+  // The CMS sends the lede as `desc` and the buttons as `actions`
+  // (`{ label, href, variant }`), and no `section_id` — the sticky nav's
+  // "Meridian" tab targets `#meridian`.
+  const { section_id = "meridian", tag, heading, desc, actions } = data;
 
   const onKeyDown = (event) => {
     const keys = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
@@ -62,16 +65,16 @@ export default function MeridianShowcase({ data }) {
           <RichHeading heading={heading} className="text-paper" emphasisClassName="font-normal text-lime" />
         </Reveal>
         <Box className="mt-3.5 flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
-          {description ? (
+          {desc ? (
             <Reveal delay={1} className="max-w-160">
               <Text as="p" className="text-[16px] leading-[1.7] text-paper/60">
-                {description}
+                {desc}
               </Text>
             </Reveal>
           ) : null}
-          {buttons?.length ? (
+          {actions?.length ? (
             <Reveal delay={2} className="flex flex-none flex-wrap gap-4 max-[600px]:w-full">
-              {buttons.map((button) =>
+              {actions.map((button) =>
                 button.variant === "primary" ? (
                   <CtaButton
                     key={button.label}

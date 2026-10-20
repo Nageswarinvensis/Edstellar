@@ -32,9 +32,11 @@ const BACKGROUND_CLASSES = {
  * fields. On success the visitor lands on `/thank-you/{thankYou}` —
  * `category` on domain pages, `course` on course pages; a field the server
  * rejects shows under that field, and a failed delivery shows a message
- * above the button instead of a false thank-you.
+ * above the button instead of a false thank-you. `branch` is Zoho's Branch
+ * on a dynamic page ("course" on course pages, where the page name is the
+ * slug); without it Zoho gets the page name in both, as on static pages.
  */
-export default function LeadForm({ data, background = "paper-warm", id = "apply", thankYou = "consulting" }) {
+export default function LeadForm({ data, background = "paper-warm", id = "apply", thankYou = "consulting", branch }) {
   const {
     register,
     control,
@@ -61,6 +63,7 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
         phone: phoneForSubmit(values.phone),
         page: window.location.pathname,
         thankYou,
+        branch,
       });
     } catch {
       result = null;

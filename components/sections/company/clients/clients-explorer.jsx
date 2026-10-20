@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,6 +8,12 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
+import CtaButton from "@/components/common/cta-button";
+import { cn } from "@/lib/utils";
+
+// Cards shown before "Show more clients" when no filter is applied.
+const PAGE = 30;
+const PAGE_PHONE = 12;
 
 function SearchIcon() {
   return (
@@ -36,22 +42,17 @@ function CloseIcon() {
 }
 
 /**
- * The client explorer — search, region filter, sector chips and the grid of
- * 121 client cards. Every card is rendered on the server (this leaf is still
- * server-rendered into the HTML), so all 121 names and descriptions are in the
- * initial markup for crawlers; the directive only powers filtering and the
- * expandable detail panel.
- *
- * Sibling sections (Regions, Sectors) and each card's own "See all …" button
- * drive this filter by carrying a `data-go-sector` attribute; a single
- * document-level listener reads it, sets the sector and scrolls here — the same
- * contract the original design's vanilla JS used, which keeps those sections
- * pure Server Components.
+ * The client explorer — search, sector chips and the grid of client cards.
+ * Every card is rendered on the server (this leaf is still server-rendered into
+ * the HTML), so all names and descriptions are in the initial markup for
+ * crawlers. With no filter applied, cards past the first 30 (12 on phones) are
+ * only hidden with CSS until "Show more clients" is pressed; the directive
+ * powers filtering, that toggle and the expandable detail panel.
  */
 export default function ClientsExplorer({ data }) {
   const [query, setQuery] = useState("");
-  const [region, setRegion] = useState("all");
   const [sector, setSector] = useState("all");
+  const [expanded, setExpanded] = useState(false);
   const [openName, setOpenName] = useState(null);
 
   const sectorLabel = useMemo(() => {
@@ -60,37 +61,22 @@ export default function ClientsExplorer({ data }) {
     return map;
   }, [data.sectors]);
 
-  useEffect(() => {
-    function onClick(event) {
-      const trigger = event.target.closest?.("[data-go-sector]");
-      if (!trigger) return;
-      // Ignore any trigger inside the explorer itself; those handle state directly.
-      if (trigger.closest("#clients")) return;
-      const next = trigger.getAttribute("data-go-sector");
-      if (!next) return;
-      setSector(next);
-      setRegion("all");
-      setQuery("");
-      setOpenName(null);
-      document.getElementById("clients")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
-  }, []);
-
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
     return data.clients.filter((c) => {
       if (sector !== "all" && c.sector !== sector) return false;
-      if (region !== "all" && c.region !== region) return false;
       if (q && !c.name.toLowerCase().includes(q)) return false;
       return true;
     });
-  }, [data.clients, sector, region, query]);
+  }, [data.clients, sector, query]);
+
+  // Unfiltered view shows a first page only; any filter shows every match.
+  const collapsed = sector === "all" && !query.trim() && !expanded;
+  const hasMore = collapsed && visible.length > PAGE;
 
   function goToSector(next) {
     setSector(next);
-    setRegion("all");
+    setExpanded(false);
     setQuery("");
     setOpenName(null);
     document.getElementById("clients")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -130,39 +116,20 @@ export default function ClientsExplorer({ data }) {
               className="w-full rounded-[10px] border border-ink/22 bg-white py-3 pl-11 pr-4 font-body text-base text-ink placeholder:text-ink/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
             />
           </Box>
-
-          <Box className="flex-[0_1_260px]">
-            <Text as="label" htmlFor="client-region" className="sr-only">
-              Region
-            </Text>
-            <select
-              id="client-region"
-              value={region}
-              onChange={(e) => setRegion(e.target.value)}
-              className="w-full rounded-[10px] border border-ink/22 bg-white px-4 py-3 font-body text-base text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
-            >
-              <option value="all">All regions</option>
-              {data.regions.map((r) => (
-                <option key={r.key} value={r.key}>
-                  {r.label} ({r.count})
-                </option>
-              ))}
-            </select>
-          </Box>
         </Box>
 
         {/* Sector chips */}
         <Box role="group" aria-label="Filter clients by sector" className="flex flex-wrap gap-2">
-          <Chip label="All sectors" count={data.total} active={sector === "all"} onClick={() => setSector("all")} />
+          <Chip label="All sectors" active={sector === "all"} onClick={() => setSector("all")} />
           {data.sectors.map((s) => (
-            <Chip key={s.key} label={s.label} count={s.count} active={sector === s.key} onClick={() => setSector(s.key)} />
+            <Chip key={s.key} label={s.label} active={sector === s.key} onClick={() => setSector(s.key)} />
           ))}
         </Box>
       </Box>
 
       <Text as="p" role="status" aria-live="polite" className="mb-6 text-sm text-ink/60">
-        Showing {visible.length} {visible.length === 1 ? "client" : "clients"}
-        {sector !== "all" ? ` in ${sectorLabel[sector]}` : ""}.
+        Showing {collapsed ? "a selection of " : ""}Edstellar clients in {sectorLabel[sector]}
+        {query.trim() ? ` matching "${query.trim()}"` : ""}.
       </Text>
 
       {visible.length === 0 ? (
@@ -171,10 +138,11 @@ export default function ClientsExplorer({ data }) {
         </Text>
       ) : (
         <Box as="ul" className="grid list-none grid-cols-5 gap-4 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
-          {visible.map((client) => (
+          {visible.map((client, i) => (
             <ClientCard
               key={client.name}
               client={client}
+              className={!collapsed ? undefined : i >= PAGE ? "hidden" : i >= PAGE_PHONE ? "max-sm:hidden" : undefined}
               open={openName === client.name}
               onOpen={() => setOpenName(client.name)}
               onClose={() => setOpenName(null)}
@@ -183,11 +151,19 @@ export default function ClientsExplorer({ data }) {
           ))}
         </Box>
       )}
+
+      {hasMore && (
+        <Box className="mt-8 flex justify-center">
+          <CtaButton variant="secondary" color="navy" onClick={() => setExpanded(true)}>
+            Show more clients
+          </CtaButton>
+        </Box>
+      )}
     </Section>
   );
 }
 
-function Chip({ label, count, active, onClick }) {
+function Chip({ label, active, onClick }) {
   return (
     <button
       type="button"
@@ -200,18 +176,15 @@ function Chip({ label, count, active, onClick }) {
       }`}
     >
       {label}
-      <Text as="span" className={`font-mono text-xs ${active ? "text-paper/70" : "text-ink/60"}`}>
-        {count}
-      </Text>
     </button>
   );
 }
 
-function ClientCard({ client, open, onOpen, onClose, onGoSector }) {
+function ClientCard({ client, className, open, onOpen, onClose, onGoSector }) {
   const detailId = `client-${client.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
 
   return (
-    <Box as="li" className="relative min-h-[188px]">
+    <Box as="li" className={cn("relative min-h-[188px]", className)}>
       <button
         type="button"
         aria-expanded={open}

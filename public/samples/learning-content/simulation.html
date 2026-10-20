@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulation — Log a New Lead in the CRM</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300..700&family=DM+Sans:wght@300..700&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --navy: #0A1628;
+    --navy-soft: #14233D;
+    --lime: #C8F135;
+    --ink: #0A1628;
+    --paper: #FAFAF7;
+    --paper-warm: #F2F0E8;
+    --white: #FFFFFF;
+
+    --bg: var(--paper);
+    --surface: var(--white);
+    --fg: var(--ink);
+    --fg-muted: rgba(10,22,40,.6);
+    --border: rgba(10,22,40,.12);
+    --border-strong: rgba(10,22,40,.22);
+    --warm: var(--paper-warm);
+    --success: #16A34A;
+    --danger: #B3261E;
+    --font-display: 'Sora', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --shadow: 0 1px 3px rgba(10,22,40,.07), 0 2px 8px rgba(10,22,40,.05);
+    --shadow-hover: 0 8px 24px rgba(10,22,40,.10), 0 16px 48px rgba(10,22,40,.07);
+    --wordmark: #141618;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: var(--navy);
+      --surface: var(--navy-soft);
+      --fg: var(--paper);
+      --fg-muted: rgba(250,250,247,0.6);
+      --border: rgba(250,250,247,0.12);
+      --border-strong: rgba(250,250,247,0.22);
+      --warm: #1A2D4A;
+      --success: #4ADE80;
+      --danger: #F87171;
+      --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.14);
+      --shadow-hover: 0 8px 24px rgba(0,0,0,0.3), 0 16px 48px rgba(0,0,0,0.2);
+      --wordmark: var(--paper);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: var(--navy);
+    --surface: var(--navy-soft);
+    --fg: var(--paper);
+    --fg-muted: rgba(250,250,247,0.6);
+    --border: rgba(250,250,247,0.12);
+    --border-strong: rgba(250,250,247,0.22);
+    --warm: #1A2D4A;
+    --success: #4ADE80;
+    --danger: #F87171;
+    --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.14);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.3), 0 16px 48px rgba(0,0,0,0.2);
+    --wordmark: var(--paper);
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    padding-inline: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 680px; width: 100%; padding-block: 32px 48px; }
+
+  /* Logo */
+  .edstellar-logo { display: flex; align-items: center; margin-bottom: 16px; }
+  .edstellar-logo svg { height: 32px; width: auto; overflow: visible; }
+  .edstellar-logo .wm { fill: var(--wordmark); }
+
+  /* Header */
+  .mod-header { text-align: center; margin-bottom: 24px; }
+  .mod-tag {
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted);
+  }
+  .mod-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mod-tag .dot { background: var(--lime); } }
+  :root[data-theme="dark"] .mod-tag .dot { background: var(--lime); }
+  .mod-header h1 { font-family: var(--font-display); font-size: 24px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 8px; }
+  .mod-header p { font-size: 14px; line-height: 1.6; color: var(--fg-muted); max-width: 48ch; margin-inline: auto; }
+
+  /* Progress */
+  .progress-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .progress-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+  .progress-track { height: 4px; margin-bottom: 20px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; width: 0%; background: var(--navy); border-radius: 2px; transition: width 0.4s ease; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .progress-fill { background: var(--lime); } }
+  :root[data-theme="dark"] .progress-fill { background: var(--lime); }
+
+  /* Card */
+  .sim-card {
+    position: relative; overflow: hidden; margin-bottom: 16px;
+    background: linear-gradient(135deg, #FAFAF7 0%, #F2F0E8 50%, #EDE9DD 100%);
+    border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow);
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sim-card { background: linear-gradient(135deg, #0A1628 0%, #14233D 50%, #0A1628 100%); } }
+  :root[data-theme="dark"] .sim-card { background: linear-gradient(135deg, #0A1628 0%, #14233D 50%, #0A1628 100%); }
+
+  .card-top {
+    display: flex; align-items: center; gap: 8px; padding: 16px 20px 0;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-muted);
+  }
+  .card-top .cat-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .card-top .cat-dot { background: var(--lime); } }
+  :root[data-theme="dark"] .card-top .cat-dot { background: var(--lime); }
+  .card-body { padding: 14px 20px 20px; }
+
+  .task {
+    display: flex; gap: 12px; align-items: center; margin-bottom: 14px; padding: 14px 16px;
+    background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--fg); border-radius: 10px;
+  }
+  .task-num {
+    flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%;
+    background: var(--navy); color: var(--lime); font-family: var(--font-display); font-size: 14px; font-weight: 700;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .task-num { background: var(--lime); color: var(--navy); } }
+  :root[data-theme="dark"] .task-num { background: var(--lime); color: var(--navy); }
+  .task-text { font-family: var(--font-display); font-size: 16px; font-weight: 600; line-height: 1.4; }
+
+  .fb { min-height: 22px; margin-top: 12px; font-size: 14px; font-weight: 500; line-height: 1.5; color: var(--fg-muted); }
+  .fb.ok { color: var(--success); }
+  .fb.bad { color: var(--danger); }
+
+  /* ===== Practice CRM (stays light, like a screenshot of software) ===== */
+  .app {
+    overflow: hidden; min-height: 300px; border: 1px solid #CBD5E1; border-radius: 10px; background: #F1F5F9;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 13px; color: #0F172A; color-scheme: light;
+  }
+  .app button { font: inherit; cursor: pointer; }
+  .app-top { display: flex; align-items: center; gap: 12px; padding: 8px 12px; background: #1E3A5F; color: #fff; }
+  .app-name { font-weight: 700; font-size: 14px; }
+  .app-name span { color: #7DD3FC; }
+  .app-menu { display: flex; flex-wrap: wrap; gap: 2px; }
+  .app-menu button { background: none; border: 0; color: #E2E8F0; padding: 6px 10px; border-radius: 6px; }
+  .app-menu button:hover { background: rgba(255,255,255,0.12); }
+  .app-user { margin-left: auto; width: 28px; height: 28px; border-radius: 50%; background: #3B82F6; display: grid; place-items: center; font-size: 11px; font-weight: 600; }
+  .app-body { padding: 16px; }
+  .app-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; font-size: 16px; font-weight: 700; }
+  .app-sub { font-size: 12px; font-weight: 400; color: #64748B; }
+  .app-btn { border: 0; border-radius: 6px; padding: 8px 14px; background: #2563EB; color: #fff; font-weight: 600; }
+  .app-btn:hover { background: #1D4ED8; }
+  .app-btn.ghost { background: #fff; color: #334155; border: 1px solid #CBD5E1; }
+  .app-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #E2E8F0; }
+  .app-table th { text-align: left; padding: 8px 10px; background: #F8FAFC; color: #64748B; font-size: 11px; font-weight: 600; text-transform: uppercase; border-bottom: 1px solid #E2E8F0; }
+  .app-table td { padding: 9px 10px; border-bottom: 1px solid #F1F5F9; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 100px; font-size: 11px; font-weight: 600; background: #DCFCE7; color: #166534; }
+  .pill.grey { background: #F1F5F9; color: #334155; }
+  .pill.blue { background: #E0F2FE; color: #075985; }
+  .choice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .choice { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 14px; text-align: left; background: #fff; border: 1px solid #E2E8F0; border-radius: 8px; color: #64748B; font-size: 12px; }
+  .choice:hover { border-color: #93C5FD; }
+  .choice .ico { font-size: 20px; }
+  .choice b { font-size: 14px; color: #0F172A; }
+  .form-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px; }
+  .fld { margin-bottom: 14px; }
+  .fld-label { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 600; color: #475569; }
+  .ro { padding: 8px 10px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; color: #334155; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { padding: 6px 12px; border-radius: 100px; border: 1px solid #CBD5E1; background: #fff; font-size: 12px; color: #0F172A; }
+  .chip:hover { border-color: #2563EB; background: #EFF6FF; }
+  .chip.on { background: #DBEAFE; border-color: #2563EB; color: #1E3A8A; font-weight: 600; }
+  .form-foot { display: flex; justify-content: flex-end; gap: 8px; padding-top: 12px; border-top: 1px solid #F1F5F9; }
+  .app-toast { margin-bottom: 12px; padding: 8px 12px; border: 1px solid #86EFAC; border-radius: 6px; background: #F0FDF4; color: #166534; font-weight: 600; }
+
+  .show-me { outline: 3px solid #C8F135 !important; outline-offset: 2px; box-shadow: 0 0 0 6px rgba(10,22,40,0.25) !important; animation: glow 1.2s ease-in-out infinite; }
+  @keyframes glow { 0%, 100% { outline-color: #C8F135; } 50% { outline-color: #0A1628; } }
+
+  @media (max-width: 520px) {
+    .choice-grid { grid-template-columns: 1fr; }
+    .app-table .hide-sm { display: none; }
+  }
+
+  /* Buttons */
+  .nav-row { display: flex; gap: 10px; }
+  .nav-btn {
+    flex: 1; padding: 13px; border: none; border-radius: 100px; cursor: pointer;
+    font-family: var(--font-display); font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .nav-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+  .nav-btn.primary { background: var(--navy); color: var(--lime); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nav-btn.primary { background: var(--paper); color: var(--navy); } }
+  :root[data-theme="dark"] .nav-btn.primary { background: var(--paper); color: var(--navy); }
+  .nav-btn.secondary { background: transparent; color: var(--fg); border: 1.5px solid var(--border-strong); }
+
+  /* Results */
+  .results-card { display: none; padding: 32px 24px; text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+  .results-card.show { display: block; animation: pop 0.45s ease-out both; }
+  .results-card:focus { outline: none; }
+  .result-icon { font-size: 48px; margin-bottom: 12px; }
+  .result-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .result-subtitle { margin-bottom: 24px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted); }
+  .result-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat-box { padding: 14px 8px; background: var(--warm); border-radius: 10px; }
+  .stat-num { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+  .stat-num.good { color: var(--success); }
+  .stat-num.bad { color: var(--danger); }
+  .stat-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+  .result-msg { max-width: 42ch; margin: 0 auto 20px; font-size: 14px; line-height: 1.6; color: var(--fg-muted); }
+  .recap { margin: 0 0 24px; padding: 14px 16px; list-style: none; text-align: left; background: var(--warm); border-radius: 10px; font-size: 13px; line-height: 1.6; }
+  .recap li { display: flex; gap: 8px; }
+  .recap b { flex: none; width: 18px; color: var(--fg-muted); font-family: var(--font-mono); font-weight: 500; }
+  .result-btn { padding: 12px 28px; border: none; border-radius: 100px; background: var(--navy); color: var(--lime); font-family: var(--font-display); font-size: 13px; font-weight: 700; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .result-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .result-btn { background: var(--paper); color: var(--navy); } }
+  :root[data-theme="dark"] .result-btn { background: var(--paper); color: var(--navy); }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes pop { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: none; } }
+  .mod-header { animation: rise 0.5s ease-out both; }
+  .app-body.enter { animation: rise 0.3s ease-out both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 520px) {
+    .card-body { padding: 12px 12px 16px; }
+    .result-stats { gap: 8px; }
+    .stat-num { font-size: 22px; }
+  }
+</style>
+
+<style>
+  /* ===== CRM additions ===== */
+  .btn-row { display: flex; gap: 8px; }
+  .fld-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .app-btn:disabled { background: #94A3B8; cursor: not-allowed; }
+  .slots-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .slot-btn { padding: 8px 6px; border: 1px solid #CBD5E1; border-radius: 8px; background: #fff; font-size: 12px; font-weight: 600; color: #0F172A; }
+  .slot-btn:hover { border-color: #2563EB; background: #EFF6FF; }
+  .slot-btn.on { background: #DBEAFE; border-color: #2563EB; color: #1E3A8A; }
+  .summary { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 10px; padding: 6px 10px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 12px; }
+  .summary b { display: block; font-size: 10px; font-weight: 600; text-transform: uppercase; color: #64748B; }
+  .sample-note { margin-left: auto; font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-muted); }
+
+  /* ===== Embedded (modal stage) fit ===== */
+  html, body { height: 100%; }
+  body { padding: 0; min-height: 0; display: block; overflow-y: auto; }
+  .container { max-width: none; padding: 12px 18px 12px; }
+  .mod-header { text-align: left; margin-bottom: 8px; animation: none; }
+  .mod-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .mod-header h1 { font-size: 19px; margin: 0; }
+  .mod-tag { margin: 0; font-size: 10px; }
+  .mod-header p { display: none; }
+  .progress-track { margin-bottom: 10px; }
+  .sim-card { margin-bottom: 8px; overflow: clip; }
+  .card-top { padding: 10px 16px 0; }
+  .card-body { padding: 8px 16px 12px; }
+  .task { margin-bottom: 8px; padding: 8px 12px; }
+  .task-num { width: 26px; height: 26px; font-size: 12px; }
+  .task-text { font-size: 14.5px; }
+  .app { min-height: 0; }
+  .app-body { padding: 10px 14px; }
+  .app-h { margin-bottom: 10px; font-size: 15px; }
+  .choice { padding: 10px 12px; }
+  .choice .ico { font-size: 17px; }
+  .fld { margin-bottom: 8px; }
+  .fld:last-child { margin-bottom: 0; }
+  .chip { padding: 5px 12px; }
+  .form-card { padding: 10px 12px; }
+  .form-foot { padding-top: 10px; }
+  .fb { margin-top: 6px; min-height: 20px; font-size: 13px; }
+  .nav-btn { padding: 10px; }
+  .results-card { padding: 18px 20px; }
+  .result-icon { font-size: 32px; margin-bottom: 4px; }
+  .result-title { font-size: 19px; }
+  .result-subtitle { margin-bottom: 12px; }
+  .result-stats { margin-bottom: 12px; }
+  .stat-box { padding: 10px 8px; }
+  .stat-num { font-size: 20px; }
+  .result-msg { margin-bottom: 10px; font-size: 13px; }
+  .recap { margin-bottom: 12px; padding: 8px 14px; font-size: 12px; line-height: 1.5; columns: 2; column-gap: 20px; }
+  .recap li { break-inside: avoid; }
+  @media (max-width: 600px) {
+    .container { padding: 12px; }
+    .sample-note { display: none; }
+    .fld-row { grid-template-columns: 1fr; }
+    .slots-row { grid-template-columns: 1fr 1fr; }
+    .recap { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="mod-header">
+    <div class="mod-row"><h1>Log a new lead and book a follow-up</h1><div class="mod-tag"><span class="dot"></span> Software simulation &middot; 3–4 min</div></div>
+    <p>Follow the instruction above the screen and click in the practice CRM. Six quick steps. Stuck? Press Show me.</p>
+  </div>
+
+  <div class="progress-bar">
+    <span class="progress-label" id="stepLabel">Step 1 of 6</span>
+    <span class="progress-label" id="mistakeLabel">0 mistakes</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+  <div id="simArea">
+    <div class="sim-card">
+      <div class="card-top"><span class="cat-dot"></span> <span id="screenName"></span><span class="sample-note">Sample data: replace with your own system</span></div>
+      <div class="card-body">
+        <div class="task">
+          <span class="task-num" id="taskNum">1</span>
+          <span class="task-text" id="taskText"></span>
+        </div>
+        <div class="app" id="app"></div>
+        <p class="fb" id="fb" role="status"></p>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn secondary" id="restartBtn">Start over</button>
+      <button class="nav-btn primary" id="showBtn">Show me</button>
+    </div>
+  </div>
+
+  <div class="results-card" id="results" tabindex="-1"></div>
+</div>
+
+<script>
+const STEPS = [
+  { target: "new",          screen: "Leads",            task: "Click + New lead.",
+    done: "The new lead form is open.", wrong: "Not quite. Look for the + New lead button." },
+  { target: "src-web",      screen: "Lead source",      task: "Choose Website enquiry as the lead source.",
+    done: "Source set to Website enquiry.", wrong: "Not quite. This lead came in through the website form. Pick Website enquiry." },
+  { target: "size-201",     screen: "Lead details",     task: "Set the company size to 201–500 employees.",
+    done: "Company size set to 201–500.", wrong: "Not quite. Choose 201–500 under Company size." },
+  { target: "int-lead",     screen: "Lead details",     task: "Set the area of interest to Leadership training.",
+    done: "Interest set to Leadership training.", wrong: "Not quite. Choose Leadership training under Area of interest." },
+  { target: "slot-tue",     screen: "Follow-up",        task: "Book the discovery call for Tuesday, 10:00 AM.",
+    done: "Discovery call booked for Tuesday, 10:00 AM.", wrong: "Not quite. Pick the Tuesday, 10:00 AM slot." },
+  { target: "save",         screen: "Follow-up",        task: "Click Save lead.",
+    done: "Lead saved and the discovery call is on the calendar.", wrong: "Not quite. Click Save lead. A draft would not book the call." }
+];
+
+const $ = id => document.getElementById(id);
+let step, mistakes, firstTry, A;
+
+function start() {
+  step = 0;
+  mistakes = 0;
+  firstTry = STEPS.map(() => true);
+  A = { screen: "list", source: null, size: null, interest: null, slot: null, saved: false };
+  $("results").classList.remove("show");
+  $("results").innerHTML = "";
+  $("simArea").hidden = false;
+  $("fb").textContent = "";
+  update();
+}
+
+function update() {
+  const s = STEPS[Math.min(step, STEPS.length - 1)];
+  $("stepLabel").textContent = `Step ${Math.min(step + 1, STEPS.length)} of ${STEPS.length}`;
+  $("mistakeLabel").textContent = `${mistakes} mistake${mistakes === 1 ? "" : "s"}`;
+  $("progressFill").style.width = (step / STEPS.length * 100) + "%";
+  $("screenName").textContent = s.screen;
+  $("taskNum").textContent = Math.min(step + 1, STEPS.length);
+  $("taskText").textContent = s.task;
+  drawApp();
+}
+
+function chips(group, opts, current) {
+  return opts.map(([key, label]) =>
+    `<button class="chip${current === key ? " on" : ""}" data-hot="${group}-${key}">${current === key ? "&#10003; " : ""}${label}</button>`).join("");
+}
+
+function drawApp() {
+  const top = `
+    <div class="app-top">
+      <span class="app-name">Pipe<span>Desk</span></span>
+      <div class="app-menu">
+        <button data-hot="menu">Home</button>
+        <button data-hot="menu">Leads</button>
+        <button data-hot="menu">Deals</button>
+        <button data-hot="menu">Calendar</button>
+      </div>
+      <span class="app-user" aria-hidden="true">TU</span>
+    </div>`;
+  let body = "";
+
+  if (A.screen === "list") {
+    body = `
+      <div class="app-h"><span>Leads <span class="app-sub">· Test Sales Team</span></span>
+        <span class="btn-row"><button class="app-btn ghost" data-hot="import">Import</button><button class="app-btn" data-hot="new">+ New lead</button></span></div>
+      <table class="app-table">
+        <thead><tr><th>Company</th><th class="hide-sm">Source</th><th>Owner</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Test Contoso Ltd</td><td class="hide-sm">Referral</td><td>You</td><td><span class="pill">Qualified</span></td></tr>
+          <tr><td>Test Fabrikam Inc</td><td class="hide-sm">Event</td><td>You</td><td><span class="pill grey">New</span></td></tr>
+          <tr><td>Test Adatum Group</td><td class="hide-sm">Website enquiry</td><td>J. Lee</td><td><span class="pill blue">Contacted</span></td></tr>
+        </tbody>
+      </table>`;
+  } else if (A.screen === "source") {
+    body = `
+      <div class="app-h"><span>New lead: where did it come from? <span class="app-sub">· Test Northwind Corp</span></span></div>
+      <div class="choice-grid">
+        <button class="choice" data-hot="src-ref"><span class="ico" aria-hidden="true">&#129309;</span><b>Referral</b>Introduced by a client or partner</button>
+        <button class="choice" data-hot="src-web"><span class="ico" aria-hidden="true">&#127760;</span><b>Website enquiry</b>Filled in the website form</button>
+        <button class="choice" data-hot="src-event"><span class="ico" aria-hidden="true">&#127908;</span><b>Event</b>Met at a conference or webinar</button>
+        <button class="choice" data-hot="src-cold"><span class="ico" aria-hidden="true">&#128222;</span><b>Cold call</b>Outbound call by the team</button>
+      </div>`;
+  } else if (A.screen === "details") {
+    body = `
+      <div class="app-h"><span>Lead details <span class="app-sub">· Website enquiry</span></span><button class="app-btn ghost" data-hot="back">Back</button></div>
+      <div class="form-card">
+        <div class="summary"><span><b>Company</b>Test Northwind Corp</span><span><b>Contact</b>Test Priya Nair, L&amp;D Manager</span></div>
+        <div class="fld"><span class="fld-label">Company size (employees)</span><div class="chips">${chips("size", [["1","1–50"],["51","51–200"],["201","201–500"],["500","500+"]], A.size)}</div></div>
+        <div class="fld"><span class="fld-label">Area of interest</span><div class="chips">${chips("int", [["comp","Compliance"],["tech","Technical skills"],["lead","Leadership training"],["onb","Onboarding"]], A.interest)}</div></div>
+      </div>`;
+  } else {
+    const slots = [["mon","Mon, 9:00 AM"],["tue","Tue, 10:00 AM"],["wed","Wed, 2:00 PM"],["fri","Fri, 4:00 PM"]].map(([k, l]) =>
+      `<button class="slot-btn${A.slot === k ? " on" : ""}" data-hot="slot-${k}">${A.slot === k ? "&#10003; " : ""}${l}</button>`).join("");
+    body = `
+      ${A.saved ? `<div class="app-toast">&#10003; Lead saved. Discovery call booked for Tue, 10:00 AM.</div>` : ""}
+      <div class="app-h"><span>Follow-up <span class="app-sub">· Test Northwind Corp</span></span>${A.saved ? `<span class="pill">Saved</span>` : ""}</div>
+      <div class="form-card">
+        <div class="summary">
+          <span><b>Source</b>Website enquiry</span><span><b>Size</b>201–500</span><span><b>Interest</b>Leadership training</span>
+        </div>
+        <div class="fld"><span class="fld-label">Book a 30-minute discovery call</span><div class="slots-row">${slots}</div></div>
+        <div class="form-foot">
+          <button class="app-btn ghost" data-hot="draft">Save as draft</button>
+          <button class="app-btn" data-hot="save">Save lead</button>
+        </div>
+      </div>`;
+  }
+
+  $("app").innerHTML = top + `<div class="app-body enter">${body}</div>`;
+}
+
+function doStep(target) {
+  if (target === "new") A.screen = "source";
+  if (target === "src-web") { A.source = "web"; A.screen = "details"; }
+  if (target === "size-201") A.size = "201";
+  if (target === "int-lead") { A.interest = "lead"; A.screen = "follow"; }
+  if (target === "slot-tue") A.slot = "tue";
+  if (target === "save") A.saved = true;
+}
+
+$("app").addEventListener("click", e => {
+  const el = e.target.closest("[data-hot]");
+  if (!el || step >= STEPS.length) return;
+  const s = STEPS[step];
+
+  if (el.dataset.hot === s.target) {
+    doStep(s.target);
+    step++;
+    $("fb").className = "fb ok";
+    $("fb").textContent = "✓ " + s.done;
+    if (step === STEPS.length) {
+      drawApp();
+      $("progressFill").style.width = "100%";
+      setTimeout(showResults, 1200);
+    } else {
+      update();
+    }
+  } else {
+    mistakes++;
+    firstTry[step] = false;
+    $("fb").className = "fb bad";
+    $("fb").textContent = s.wrong;
+    $("mistakeLabel").textContent = `${mistakes} mistake${mistakes === 1 ? "" : "s"}`;
+  }
+});
+
+$("showBtn").addEventListener("click", () => {
+  if (step >= STEPS.length) return;
+  firstTry[step] = false;
+  const el = $("app").querySelector(`[data-hot="${STEPS[step].target}"]`);
+  if (!el) return;
+  el.classList.add("show-me");
+  el.scrollIntoView({ block: "nearest" });
+  $("fb").className = "fb";
+  $("fb").textContent = "Click the highlighted item.";
+});
+
+$("restartBtn").addEventListener("click", start);
+
+function showResults() {
+  const right = firstTry.filter(Boolean).length;
+  const pct = Math.round(right / STEPS.length * 100);
+  const great = right >= 5;
+  $("simArea").hidden = true;
+  const card = $("results");
+  card.innerHTML = `
+    <div class="result-icon">${great ? "&#127881;" : "&#128170;"}</div>
+    <h2 class="result-title">${great ? "Great job!" : "Nice work, you finished!"}</h2>
+    <div class="result-subtitle">Lead saved &middot; call booked</div>
+    <div class="result-stats">
+      <div class="stat-box"><div class="stat-num good">${right}/6</div><div class="stat-label">Right first time</div></div>
+      <div class="stat-box"><div class="stat-num ${mistakes ? "bad" : "good"}">${mistakes}</div><div class="stat-label">Mistakes</div></div>
+      <div class="stat-box"><div class="stat-num">${pct}%</div><div class="stat-label">Score</div></div>
+    </div>
+    <p class="result-msg">${great
+      ? "You logged the lead and booked the call with almost no help. You're ready to do it in the live CRM."
+      : "You got there. Go through it once more without Show me to build your confidence."}</p>
+    <ol class="recap">
+      ${STEPS.map((s, i) => `<li><b>${i + 1}.</b>${s.task}</li>`).join("")}
+    </ol>
+    <button class="result-btn" id="againBtn">Do it again</button>`;
+  card.classList.add("show");
+  window.scrollTo({ top: 0 });
+  $("againBtn").addEventListener("click", start);
+  card.focus();
+}
+
+start();
+</script>
+</body>
+</html>

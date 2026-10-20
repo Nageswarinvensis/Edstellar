@@ -118,6 +118,7 @@ export default async function BlogPostPage({ params }) {
   }
 
   const { blog, author, category } = post;
+  const railCategories = await getBlogRailCategories();
 
   // "More Blog Insights": the newest posts from the listing, minus this one.
   const latest = await getBlogMain(1);
@@ -232,7 +233,7 @@ export default async function BlogPostPage({ params }) {
 
           {/* RIGHT - training rail (explore, catalog, quote, coaching) */}
           <Box className="hidden h-full lg:block">
-            <BlogRail categories={getBlogRailCategories()} />
+            <BlogRail categories={railCategories} />
           </Box>
         </Box>
       </Section>

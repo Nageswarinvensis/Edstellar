@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz: Workplace Data Privacy</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Cormorant+Garamond:ital,wght@1,600&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+:root{--navy:#0A1628;--lime:#C8F135;--lime-soft:#E4F89A;--ink:#0A1628;--paper:#FAFAF7;--paper-warm:#F2F0E8;--white:#fff;
+  --muted:rgba(10,22,40,.6);--faint:rgba(10,22,40,.45);--rule:rgba(10,22,40,.12);--rule-strong:rgba(10,22,40,.22);
+  --ok:#1F7A4D;--ok-bg:rgba(31,122,77,.09);--no:#B3261E;--no-bg:rgba(179,38,30,.07)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow:hidden}
+.wrap{height:100%;display:grid;grid-template-columns:1fr 250px}
+/* question side */
+.main{min-width:0;min-height:0;display:flex;flex-direction:column;padding:16px 20px 14px;background:var(--white)}
+.top{flex:none;display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:10px;margin-bottom:14px;border-bottom:2px solid var(--navy)}
+h1{font-family:'Sora';font-weight:700;font-size:18px;letter-spacing:-.02em}
+h1 em{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:1.15em}
+.qtype{font-family:'DM Mono';font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.qbody{flex:1;min-height:0;overflow-y:auto}
+.qnum{font-family:'DM Mono';font-weight:500;font-size:10.5px;letter-spacing:.12em;color:var(--faint);margin-bottom:4px}
+.q{font-family:'Sora';font-weight:700;font-size:16.5px;line-height:1.4;letter-spacing:-.01em;margin-bottom:14px}
+.opts{display:grid;gap:8px}
+.opt{position:relative;display:flex;align-items:center;gap:12px;padding:10px 12px;border:1.5px solid var(--rule);border-radius:10px;background:var(--white);font-size:13.5px;font-weight:500;line-height:1.4;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.opt:hover{border-color:var(--rule-strong);box-shadow:0 4px 14px rgba(10,22,40,.06)}
+.opt input{position:absolute;opacity:0;width:1px;height:1px}
+.opt:has(input:focus-visible){outline:2px solid var(--navy);outline-offset:2px}
+.key{flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--rule-strong);display:grid;place-items:center;font-family:'DM Mono';font-size:11px;color:var(--muted)}
+.opt .tx{flex:1}
+.mark{flex:none;font-family:'DM Mono';font-weight:500;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase}
+.opt.sel{border-color:var(--navy)} .opt.sel .key{background:var(--navy);border-color:var(--navy);color:var(--lime)}
+.locked .opt{cursor:default} .locked .opt:hover{box-shadow:none}
+.opt.ok{border-color:var(--ok);background:var(--ok-bg)} .opt.ok .key{background:var(--ok);border-color:var(--ok);color:#fff} .opt.ok .mark{color:var(--ok)}
+.opt.bad{border-color:var(--no);background:var(--no-bg)} .opt.bad .key{background:var(--no);border-color:var(--no);color:#fff} .opt.bad .mark{color:var(--no)}
+.match{display:grid;gap:8px}
+.mrow{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.7fr);align-items:center;gap:10px;padding:8px 10px;border:1.5px solid var(--rule);border-radius:10px}
+.mrow label{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600}
+.mrow select{width:100%;min-height:36px;padding:6px 30px 6px 10px;border:1.5px solid var(--rule-strong);border-radius:8px;background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A1628' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 8px center/15px;font:12.5px 'DM Sans';color:var(--ink);-webkit-appearance:none;appearance:none;cursor:pointer}
+.mrow select:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+.mrow select:disabled{cursor:default;opacity:1}
+.mrow.ok{border-color:var(--ok);background:var(--ok-bg)} .mrow.bad{border-color:var(--no);background:var(--no-bg)}
+.mrow .fix{grid-column:1/-1;font-size:11.5px;color:var(--no);font-weight:500}
+/* rail */
+.rail{min-height:0;display:flex;flex-direction:column;gap:12px;padding:16px 16px 14px;background:var(--paper);border-left:1px solid var(--rule)}
+.lbl{font-family:'DM Mono';font-weight:500;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.dots{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
+.dot{height:30px;border-radius:8px;border:1.5px solid var(--rule-strong);background:var(--white);display:grid;place-items:center;font-family:'DM Mono';font-size:11px;color:var(--muted);cursor:pointer}
+.dot.cur{border-color:var(--navy);color:var(--ink);box-shadow:0 0 0 2px var(--lime)}
+.dot.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.dot.bad{background:var(--no);border-color:var(--no);color:#fff}
+.score{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--muted);margin-top:8px}
+.score b{font-family:'Sora';font-weight:700;font-size:14px;color:var(--ink)}
+.fb{flex:1;min-height:0;overflow-y:auto}
+.fb-empty{font-size:12px;line-height:1.5;color:var(--faint);font-style:italic;border:1px dashed var(--rule-strong);border-radius:8px;padding:10px}
+.fb-card{background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--ok);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.5;color:var(--muted)}
+.fb-card.bad{border-left-color:var(--no)}
+.fb-card b.t{display:block;font-family:'Sora';font-weight:700;font-size:13.5px;color:var(--ok);margin-bottom:4px}
+.fb-card.bad b.t{color:var(--no)}
+.fb-card p + p{margin-top:6px}
+.fb-card strong{color:var(--ink)}
+.err{font-size:12px;color:var(--no);font-weight:500;min-height:16px}
+.nav{flex:none;display:flex;gap:8px}
+.btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 10px;border-radius:100px;font:700 13px 'Sora';cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 18px rgba(10,22,40,.12)}
+.btn:disabled{opacity:.35;cursor:default}
+.btn.pri{flex:2;background:var(--navy);color:var(--lime);border:0}
+.btn.sec{background:transparent;color:var(--ink);border:1.5px solid var(--rule-strong)}
+.btn:focus-visible,.dot:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+/* results */
+.res{position:absolute;inset:0;background:var(--paper);display:none;align-items:center;justify-content:center;padding:20px}
+.res.show{display:flex}
+.res-in{width:min(520px,100%);text-align:center}
+.res .k{font-family:'DM Mono';font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.res h2{font-family:'Sora';font-weight:700;font-size:26px;letter-spacing:-.02em;margin:6px 0 4px}
+.res h2 em{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:1.15em}
+.res .msg{font-size:13.5px;line-height:1.55;color:var(--muted);margin:0 auto 16px;max-width:44ch}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.stat{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:12px 6px}
+.stat.hi{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.stat b{display:block;font-family:'Sora';font-weight:700;font-size:24px;line-height:1.1}
+.stat.hi b{color:var(--lime)}
+.stat span{font-family:'DM Mono';font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stat.hi span{color:rgba(250,250,247,.7)}
+.ract{display:flex;gap:10px;justify-content:center;margin-bottom:12px}
+.ract .btn{flex:none;padding:11px 22px}
+.note{font-size:11.5px;line-height:1.5;color:var(--faint)}
+@media (max-width:640px){
+  body{overflow:auto} .wrap{grid-template-columns:1fr;height:auto}
+  .main{padding:14px} .qbody{overflow:visible} .top{flex-direction:column;gap:2px}
+  .mrow{grid-template-columns:1fr} .rail{border-left:0;border-top:1px solid var(--rule)} .fb{overflow:visible}
+  .res{position:fixed} .ract{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <section class="main">
+    <div class="top"><h1>Workplace data <em>privacy</em></h1><span class="qtype" id="qType"></span></div>
+    <div class="qbody">
+      <p class="qnum" id="qNum"></p>
+      <p class="q" id="qText"></p>
+      <div id="qInput"></div>
+    </div>
+  </section>
+  <aside class="rail">
+    <div>
+      <span class="lbl">Questions</span>
+      <div class="dots" id="dots"></div>
+      <div class="score"><span>Pass mark 4 of 5</span><b id="score">0 correct</b></div>
+    </div>
+    <div class="fb" id="fb" role="status"></div>
+    <p class="err" id="err" role="alert"></p>
+    <div class="nav">
+      <button class="btn sec" id="prev" type="button" aria-label="Previous question">&larr; Back</button>
+      <button class="btn pri" id="act" type="button">Check answer</button>
+    </div>
+  </aside>
+</div>
+<div class="res" id="res" tabindex="-1"></div>
+<script>
+var Q=[
+ {type:'Multiple choice',kind:'single',q:'Which of these counts as personal data?',
+  o:{A:'A list of customer phone numbers',B:'Monthly sales totals grouped by region',C:'Fully anonymized survey averages',D:'Your company’s published office address'},a:'A',
+  why:'Phone numbers can identify a specific person, so they are personal data.',wrong:'Look for data that can identify an individual. Totals and anonymized figures can’t.'},
+ {type:'Multiple choice',kind:'single',q:'You emailed a file with customer details to the wrong external address. What should you do first?',
+  o:{A:'Ask the recipient to delete it and move on',B:'Wait to see whether the recipient replies',C:'Try to recall it, and report it only if the recall fails',D:'Report it to your manager or the data protection team right away'},a:'D',
+  why:'Reporting right away lets the company contain the breach and meet legal deadlines.',wrong:'Any data sent to the wrong person must be reported, even if you think it’s fixed.'},
+ {type:'True or false',kind:'single',q:'If a file is saved on the company’s shared drive, every employee is allowed to open it.',
+  o:{A:'True',B:'False'},a:'B',
+  why:'Access depends on your role, not on where the file is stored.',wrong:'Being able to open a file doesn’t mean you’re allowed to. Follow need-to-know.'},
+ {type:'Matching',kind:'match',q:'Match each term to its meaning.',
+  o:{A:'Keep data only as long as needed, then delete it securely',B:'Personal data lost, leaked or accessed without permission',C:'Access only the data your role requires',D:'Collect only the data the task actually needs'},
+  terms:[['1','Need-to-know','C'],['2','Data minimization','D'],['3','Data breach','B'],['4','Retention','A']],
+  why:'Each term is a different core privacy rule: who can access data, what is collected, what goes wrong and how long it is kept.',wrong:'Review the four terms: access, collection, breaches and how long data is kept.'},
+ {type:'Scenario',kind:'single',q:'You’re working from a café. A caller says they’re from IT and need your one-time login code to fix an urgent issue. They know your name and your manager’s name. What do you do?',
+  o:{A:'Share the code, because they know internal details',B:'Share only part of the code to stay safe',C:'End the call and report it through the official IT helpdesk',D:'Ask them to email the request first, then send the code'},a:'C',
+  why:'IT never asks for login codes. Checking through official channels stops social engineering.',wrong:'Knowing internal names doesn’t prove who a caller is. Never share login codes.'}
+];
+var PASS=4,cur=0,ans,chk,out;
+var $=function(i){return document.getElementById(i);};
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+function reset(){ans=Q.map(function(q){return q.kind==='match'?{}:null;});chk=Q.map(function(){return false;});out=Q.map(function(){return null;});cur=0;}
+function dots(){
+  $('dots').innerHTML=Q.map(function(q,i){var c='dot'+(i===cur?' cur':'')+(chk[i]?(out[i]?' ok':' bad'):'');
+    return '<button class="'+c+'" data-i="'+i+'" type="button" aria-label="Question '+(i+1)+'">'+(chk[i]?(out[i]?'✓':'✕'):(i+1))+'</button>';}).join('');
+  var c=out.filter(function(o){return o===true;}).length;$('score').textContent=c+' correct';
+}
+function render(){
+  var q=Q[cur],done=chk[cur];
+  $('qType').textContent=q.type;$('qNum').textContent='QUESTION '+(cur+1)+' OF '+Q.length;$('qText').textContent=q.q;$('err').textContent='';
+  var h='';
+  if(q.kind==='single'){
+    h='<div class="opts'+(done?' locked':'')+'" role="radiogroup" aria-labelledby="qText">'+Object.keys(q.o).map(function(k){
+      var c='opt',m='';if(ans[cur]===k)c+=' sel';
+      if(done&&k===q.a){c+=' ok';m='Correct';}else if(done&&k===ans[cur]){c+=' bad';m='Your answer';}
+      return '<label class="'+c+'" data-k="'+k+'"><input type="radio" name="o" value="'+k+'"'+(ans[cur]===k?' checked':'')+(done?' disabled':'')+'><span class="key" aria-hidden="true">'+k+'</span><span class="tx">'+esc(q.o[k])+'</span>'+(m?'<span class="mark">'+m+'</span>':'')+'</label>';
+    }).join('')+'</div>';
+  }else{
+    h='<div class="match">'+q.terms.map(function(t){var v=ans[cur][t[0]]||'',c='mrow',fx='';
+      if(done){if(v===t[2])c+=' ok';else{c+=' bad';fx='<p class="fix">Correct: '+t[2]+'. '+esc(q.o[t[2]])+'</p>';}}
+      return '<div class="'+c+'"><label for="m'+t[0]+'"><span class="key" aria-hidden="true">'+t[0]+'</span>'+esc(t[1])+'</label><select id="m'+t[0]+'" data-t="'+t[0]+'"'+(done?' disabled':'')+'><option value="">Choose a meaning</option>'+
+        Object.keys(q.o).map(function(k){return '<option value="'+k+'"'+(v===k?' selected':'')+'>'+k+'. '+esc(q.o[k])+'</option>';}).join('')+'</select>'+fx+'</div>';}).join('')+'</div>';
+  }
+  $('qInput').innerHTML=h;
+  if(done){var ok=out[cur];
+    $('fb').innerHTML='<div class="fb-card'+(ok?'':' bad')+'"><b class="t">'+(ok?'✓ Correct':'✕ Not quite')+'</b><p>'+esc(ok?q.why:q.wrong)+'</p>'+
+      (!ok&&q.kind==='single'?'<p>Correct answer: <strong>'+q.a+'. '+esc(q.o[q.a])+'</strong></p>':'')+(ok?'':'<p>'+esc(q.why)+'</p>')+'</div>';
+  }else $('fb').innerHTML='<p class="fb-empty">'+(q.kind==='match'?'Pick a meaning for every term, then check your answer.':'Select an answer, then check it. Feedback appears here.')+'</p>';
+  $('prev').disabled=cur===0;
+  $('act').innerHTML=!done?'Check answer':(cur===Q.length-1?'See results':'Next &rarr;');
+  dots();
+}
+function check(){
+  var q=Q[cur];
+  if(q.kind==='single'){if(!ans[cur]){$('err').textContent='Choose an answer first.';return;}out[cur]=ans[cur]===q.a;}
+  else{var miss=q.terms.filter(function(t){return !ans[cur][t[0]];}).length;
+    if(miss){$('err').textContent='Match every term. '+miss+' still '+(miss===1?'needs':'need')+' an answer.';return;}
+    out[cur]=q.terms.every(function(t){return ans[cur][t[0]]===t[2];});}
+  chk[cur]=true;render();$('act').focus();
+}
+function next(){if(!chk[cur]){check();return;}if(cur<Q.length-1){cur++;render();}else results();}
+function results(){
+  var c=out.filter(function(o){return o===true;}).length,pass=c>=PASS,pct=Math.round(c/Q.length*100);
+  var r=$('res');r.className='res show';
+  r.innerHTML='<div class="res-in"><div class="k">Quiz complete</div><h2>'+(pass?'You <em>passed.</em>':'Not passed <em>yet.</em>')+'</h2>'+
+    '<p class="msg">'+(pass?'You scored '+c+' of 5. Keep applying these habits every day.':'You scored '+c+' of 5. A pass needs 4 of 5. Review the answers and try again.')+'</p>'+
+    '<div class="stats"><div class="stat hi"><b>'+pct+'%</b><span>Score</span></div><div class="stat"><b>'+c+'</b><span>Correct</span></div><div class="stat"><b>'+(Q.length-c)+'</b><span>Incorrect</span></div></div>'+
+    '<div class="ract"><button class="btn pri" id="retake" type="button">Retake quiz</button><button class="btn sec" id="review" type="button">Review answers</button></div>'+
+    '<p class="note">One mark per question. The matching question needs all four pairs right. Pass mark: 80%.</p></div>';
+  $('retake').onclick=function(){reset();r.className='res';render();};
+  $('review').onclick=function(){cur=0;r.className='res';render();};
+  r.focus();
+}
+$('qInput').addEventListener('change',function(e){var t=e.target;if(chk[cur])return;
+  if(t.type==='radio'){ans[cur]=t.value;document.querySelectorAll('.opt').forEach(function(o){o.classList.toggle('sel',o.dataset.k===t.value);});}
+  else if(t.tagName==='SELECT')ans[cur][t.dataset.t]=t.value;$('err').textContent='';});
+$('dots').addEventListener('click',function(e){var b=e.target.closest('.dot');if(!b)return;var i=+b.dataset.i;
+  if(i<=cur||chk[i]||chk[i-1]){cur=i;render();}});
+$('prev').onclick=function(){if(cur>0){cur--;render();}};
+$('act').onclick=next;
+reset();render();
+</script>
+</body>
+</html>

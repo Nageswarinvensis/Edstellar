@@ -307,21 +307,21 @@ export const ABOUT_US = {
             name: "Capability Intelligence Platform",
             stages: "Assess · Analyze · Advance",
             description: "Brings assessment and psychometric results together into one live view of workforce capability.",
-            href: "/talent-assessment-services",
+            href: null, // page not ready yet
           },
           {
             icon: "filter",
             name: "TNA/TNI Engine",
             stages: "Analyze",
             description: "Turns employee, job-description and skills data into skill-gap matrices and training roadmaps.",
-            href: "/training-needs-analysis-solutions",
+            href: null, // page not ready yet
           },
           {
             icon: "sparkles",
             name: "Stellar AI",
             stages: "Architect",
             description: "Recommends training programs by job role, skills and experience level.",
-            href: `${LIVE}/stellar-ai`,
+            href: null, // page not ready yet
           },
         ],
       },
@@ -335,28 +335,28 @@ export const ABOUT_US = {
             name: "Zenith",
             stages: "Analyze",
             description: "Edstellar's own leadership assessment for selection, succession and development decisions.",
-            href: "/talent-assessment-services/leadership-assessment",
+            href: null, // page not ready yet
           },
           {
             icon: "orbit",
             name: "Orbit",
             stages: "Analyze",
             description: "Edstellar's 360-degree feedback tool, gathering structured input from managers, peers and reports.",
-            href: "/talent-assessment-services/360-degree-feedback",
+            href: null, // page not ready yet
           },
           {
             icon: "users",
             name: "Polaris",
             stages: "Analyze · Activate",
             description: "Edstellar's team intervention tool for understanding and strengthening how teams work together.",
-            href: "/talent-assessment-services/team-effectiveness-assessment",
+            href: null, // page not ready yet
           },
           {
             icon: "chat",
             name: "Meridian",
             stages: "Activate",
             description: "AI-assisted virtual one-on-one coaching that connects leaders with certified coaches.",
-            href: "/coaching-solutions",
+            href: null, // page not ready yet
           },
         ],
       },

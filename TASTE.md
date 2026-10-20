@@ -199,6 +199,7 @@ Every page is either fully static (SSG) or statically generated with periodic re
 | `/trainer/{slug}` (no listing page)           | CMS            | **SSG + ISR**               | `3600`       |
 | `/case-studies`, `/case-study/{slug}`         | Content layer  | Pure SSG — all              | —            |
 | Company + legal pages                         | Hardcoded      | Pure SSG                    | —            |
+| `/search?q=…`                                 | CMS + content layer | **Dynamic, per request** (the one exception — see §2.4) | — |
 
 ### 2.3 Prerender Strategy at Scale
 
@@ -222,6 +223,7 @@ export const getAllCoursePaths         = cache(async () => { /* every course */ 
 - **Every ISR page exports `revalidate` explicitly.** Never rely on the default.
 - **Never `export const dynamic = "force-dynamic"`.** If you think you need it, you have misunderstood the requirement.
 - **Never call `cookies()`, `headers()`, or read the page's `searchParams`** in a page that should be static — each one opts the whole route into dynamic rendering and silently kills ISR.
+- **The one exception is `/search`.** Results depend on the query, so the page reads `searchParams` and renders per request — no `force-dynamic` needed, reading the query is what makes it dynamic. It is `noindex` (results pages are not content), carries no content another page lacks, and must stay the only route that reads `searchParams`.
 - **Unknown slug → `notFound()`.** A 200 response saying "not found" is a soft 404 and will be penalised.
 - **Never add a root-level `app/loading.js`.** It wraps every route in a Suspense boundary, so Next commits an HTTP **200** along with the loading shell before `notFound()` can set a 404 — turning every unknown slug on the site into a soft 404. This was measured, not theorised: with a root `loading.js` present, `/corporate-training/not-a-domain/some-course` returned `200` and a spinner; removing it returned `404`. On a site where every page is prerendered there is nothing to stream, so the file has no upside. A `loading.js` inside a specific segment that genuinely streams is fine.
 

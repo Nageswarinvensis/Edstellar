@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phish or legit?</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Cormorant+Garamond:ital,wght@1,600&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+:root{--navy:#0A1628;--lime:#C8F135;--lime-soft:#E4F89A;--ink:#0A1628;--paper:#FAFAF7;--paper-warm:#F2F0E8;--cream:#EDE9DD;--white:#fff;
+  --muted:rgba(10,22,40,.6);--faint:rgba(10,22,40,.45);--rule:rgba(10,22,40,.12);--rule-strong:rgba(10,22,40,.22);--no:#B3261E;--no-bg:rgba(179,38,30,.08)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow:hidden}
+button{font:inherit;color:inherit}
+.wrap{position:relative;height:100%;display:grid;grid-template-columns:1fr 250px}
+.mono{font-family:'DM Mono';font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+/* main */
+.main{position:relative;min-width:0;min-height:0;display:flex;flex-direction:column;padding:14px 18px 14px;background:var(--white)}
+.top{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:9px;margin-bottom:10px;border-bottom:2px solid var(--navy)}
+.top h1{font-family:'Sora';font-weight:700;font-size:16px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.top h1 svg{width:17px;height:17px}
+.top .mono{font-size:10px;color:var(--muted)}
+.mail{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white)}
+.mh{flex:none;display:flex;gap:11px;align-items:flex-start;padding:13px 16px 11px;border-bottom:1px solid var(--rule);background:var(--paper)}
+.av{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:700 13px 'Sora';color:var(--white)}
+.mh .who{min-width:0;flex:1}
+.mh .nm{font-weight:700;font-size:14px;display:flex;justify-content:space-between;gap:8px}
+.mh .nm time{font:500 10.5px 'DM Mono';color:var(--faint);letter-spacing:.04em;padding-top:2px;white-space:nowrap}
+.mh .ad{font:500 11.5px 'DM Mono';color:var(--muted);word-break:break-all;margin-top:1px}
+.mh .ad em{font-style:normal;color:var(--faint)}
+.mb{flex:1;min-height:0;overflow:auto;padding:13px 18px 10px}
+.subj{font-family:'Sora';font-weight:700;font-size:17px;line-height:1.3;letter-spacing:-.015em;margin-bottom:9px}
+.mb p{font-size:14px;line-height:1.55;margin-bottom:8px}
+.lnk{display:inline-flex;align-items:center;gap:6px;margin:3px 0 4px;padding:8px 14px;border-radius:7px;background:#1F5FBF;color:#fff;font-weight:600;font-size:13px;text-decoration:none;cursor:pointer;border:0}
+.lnk.txt{background:none;color:#1F5FBF;padding:0;text-decoration:underline;font-weight:500}
+.att{display:inline-flex;align-items:center;gap:8px;margin-top:2px;padding:7px 11px;border:1px solid var(--rule);border-radius:8px;font:500 12px 'DM Mono'}
+.att b{display:grid;place-items:center;width:22px;height:22px;border-radius:5px;background:#2B579A;color:#fff;font:700 9px 'DM Sans'}
+.status{flex:none;height:28px;display:flex;align-items:center;gap:8px;padding:0 12px;border-top:1px solid var(--rule);background:var(--paper-warm);font:500 11px 'DM Mono';color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.status b{color:var(--ink);font-weight:500;overflow:hidden;text-overflow:ellipsis}
+/* clue marks */
+.f,.k{border-radius:3px;transition:background .25s,box-shadow .25s}
+.mail.show .f{background:var(--no-bg);box-shadow:0 2px 0 var(--no)}
+.mail.show .k{background:var(--lime-soft);box-shadow:0 2px 0 #8FB31A}
+.mail.show .f[data-n]::after,.mail.show .k[data-n]::after{content:attr(data-n);display:inline-grid;place-items:center;width:15px;height:15px;margin-left:4px;border-radius:50%;font:700 9px 'DM Sans';vertical-align:2px;text-decoration:none}
+.mail.show .f[data-n]::after{background:var(--no);color:#fff}
+.mail.show .k[data-n]::after{background:var(--navy);color:var(--lime)}
+.acts{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.act{display:flex;align-items:center;justify-content:center;gap:9px;padding:13px;border-radius:100px;font:700 14px 'Sora';cursor:pointer;transition:transform .15s,opacity .2s}
+.act:hover:not(:disabled){transform:translateY(-1px)}
+.act:disabled{opacity:.35;cursor:default}
+.act kbd{font:500 10px 'DM Mono';padding:2px 6px;border-radius:4px;opacity:.75}
+.act.safe{background:var(--navy);color:var(--lime);border:0} .act.safe kbd{background:rgba(200,241,53,.15)}
+.act.phish{background:var(--white);color:var(--no);border:2px solid var(--no)} .act.phish kbd{background:var(--no-bg)}
+/* rail */
+.rail{position:relative;min-height:0;display:flex;flex-direction:column;gap:12px;padding:14px 15px 14px;background:var(--paper);border-left:1px solid var(--rule)}
+.lbl{display:block;font-size:9.5px;color:var(--muted);margin-bottom:6px}
+.score{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+.score b{display:block;font:800 30px/1 'Sora';letter-spacing:-.03em}
+.combo{font:500 10px 'DM Mono';letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:100px;background:var(--cream);color:var(--muted);transition:all .25s}
+.combo.hot{background:var(--lime);color:var(--navy)}
+.float{position:absolute;right:16px;top:30px;font:800 16px 'Sora';color:#5E7A00;opacity:0;pointer-events:none}
+.float.go{animation:up 1s ease-out}
+@keyframes up{0%{opacity:0;transform:translateY(8px)}20%{opacity:1}100%{opacity:0;transform:translateY(-18px)}}
+.lvl .row{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:13px;margin-bottom:6px}
+.lvl .row span{font:500 10px 'DM Mono';color:var(--muted);letter-spacing:.08em}
+.pips{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.pip{height:7px;border-radius:4px;background:var(--rule)}
+.pip.cur{background:var(--navy)} .pip.ok{background:#8FB31A} .pip.no{background:var(--no)}
+.timer .bar{height:8px;border-radius:4px;background:var(--rule);overflow:hidden}
+.timer .bar i{display:block;height:100%;width:100%;background:var(--navy);border-radius:4px;transform-origin:left;transition:background .3s}
+.timer .bar i.low{background:var(--no)}
+.timer .tt{display:flex;justify-content:space-between}
+.timer .tt b{font:500 10px 'DM Mono';color:var(--ink)}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.bdg{display:flex;flex-direction:column;align-items:center;gap:3px;font:500 8.5px 'DM Mono';letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.bdg svg{width:34px;height:38px}
+.bdg.on{color:var(--ink)}
+.board ol{list-style:none;display:grid;gap:2px}
+.board li{display:grid;grid-template-columns:18px 1fr auto;gap:6px;align-items:center;padding:4px 7px;border-radius:6px;font-size:12px}
+.board li i{font:500 10px 'DM Mono';font-style:normal;color:var(--faint)}
+.board li b{font:500 11px 'DM Mono'}
+.board li.me{background:var(--navy);color:var(--paper);font-weight:700} .board li.me i{color:var(--lime)} .board li.me b{color:var(--lime)}
+.panel{display:flex;flex-direction:column;gap:12px;min-height:0}
+.panel[hidden]{display:none}
+.fb .vd{font:700 17px 'Sora';letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.fb .vd span{font-size:14px;color:#5E7A00}
+.fb .vd.bad{color:var(--no)}
+.fb .was{font-size:12.5px;color:var(--muted);margin-top:2px}
+.clues{list-style:none;display:grid;gap:7px}
+.clues li{display:grid;grid-template-columns:18px 1fr;gap:7px;font-size:12.5px;line-height:1.4}
+.clues li i{display:grid;place-items:center;width:17px;height:17px;border-radius:50%;font:700 9px 'DM Sans';font-style:normal;margin-top:1px}
+.clues.ph li i{background:var(--no);color:#fff}
+.clues.sf li i{background:var(--navy);color:var(--lime)}
+.next{margin-top:auto;width:100%;padding:12px;border-radius:100px;border:0;background:var(--navy);color:var(--lime);font:700 13px 'Sora';cursor:pointer}
+.next:hover{transform:translateY(-1px)}
+:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+/* overlays */
+.ov{position:absolute;inset:0;z-index:5;display:none;align-items:center;justify-content:center;padding:22px;background:var(--navy);color:var(--paper)}
+.ov.show{display:flex}
+.ov-in{width:min(520px,100%);text-align:center}
+.ov .ey{font-size:10.5px;color:var(--lime)}
+.ov h2{font:800 34px/1.1 'Sora';letter-spacing:-.03em;margin:8px 0 8px}
+.ov h2 em{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:1.12em;color:var(--lime)}
+.ov p.s{font-size:14.5px;line-height:1.55;color:rgba(250,250,247,.75);max-width:44ch;margin:0 auto 18px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;text-align:left}
+.rules div{border:1px solid rgba(250,250,247,.15);border-radius:10px;padding:11px 12px}
+.rules b{display:block;font:800 18px 'Sora';color:var(--lime);margin-bottom:2px}
+.rules span{font-size:12px;line-height:1.4;color:rgba(250,250,247,.75)}
+.go-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:100px;border:0;background:var(--lime);color:var(--navy);font:700 14px 'Sora';cursor:pointer;transition:transform .15s}
+.go-btn:hover{transform:translateY(-1px)}
+.go-btn.ghost{background:transparent;color:var(--paper);border:1.5px solid rgba(250,250,247,.3)}
+.bigbdg{margin:0 auto 6px;width:76px;height:84px}
+.endgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left;margin:14px 0 18px}
+.endgrid .box{border:1px solid rgba(250,250,247,.15);border-radius:12px;padding:12px 14px}
+.endgrid .lbl{color:rgba(250,250,247,.6)}
+.stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center}
+.stat3 b{display:block;font:800 22px 'Sora';color:var(--lime)}
+.stat3 span{font:500 9px 'DM Mono';letter-spacing:.08em;text-transform:uppercase;color:rgba(250,250,247,.6)}
+.endgrid .board li{color:var(--paper)} .endgrid .board li.me{background:var(--lime);color:var(--navy)} .endgrid .board li.me i,.endgrid .board li.me b{color:var(--navy)}
+.endgrid .board li i{color:rgba(250,250,247,.5)}
+.ebdg{display:flex;gap:10px;justify-content:center;margin-top:10px}
+.ebdg .bdg{color:rgba(250,250,247,.45)} .ebdg .bdg.on{color:var(--lime)}
+.btnrow{display:flex;gap:10px;justify-content:center}
+@media (max-width:640px){
+  body{overflow:auto} .wrap{grid-template-columns:1fr;height:auto;min-height:100%}
+  .main{padding:12px} .mail{flex:none} .mb{overflow:visible}
+  .rail{border-left:0;border-top:1px solid var(--rule)}
+  .ov{position:fixed;overflow:auto;align-items:flex-start} .ov h2{font-size:27px}
+  .rules{grid-template-columns:1fr} .endgrid{grid-template-columns:1fr}
+  .act kbd{display:none} .float{display:none}
+  .status{height:auto;min-height:28px;padding:6px 12px;white-space:normal;word-break:break-all}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <section class="main">
+    <div class="top">
+      <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Inbox</h1>
+      <span class="mono" id="count">Email 1 of 12</span>
+    </div>
+    <article class="mail" id="mail" aria-live="polite">
+      <header class="mh">
+        <div class="av" id="av">I</div>
+        <div class="who">
+          <div class="nm"><span id="nm"></span><time id="tm"></time></div>
+          <div class="ad" id="ad"></div>
+        </div>
+      </header>
+      <div class="mb" id="mb"></div>
+      <div class="status" id="status">Hover or tap a link to check it</div>
+    </article>
+    <div class="acts">
+      <button class="act safe" id="bSafe" type="button">Safe <kbd>S</kbd></button>
+      <button class="act phish" id="bPhish" type="button">Phishing <kbd>P</kbd></button>
+    </div>
+  </section>
+  <aside class="rail" id="rail">
+    <div class="float" id="float"></div>
+    <div>
+      <span class="lbl mono">Score</span>
+      <div class="score"><b id="score">0</b><span class="combo" id="combo">Combo x1</span></div>
+    </div>
+    <div class="lvl">
+      <div class="row"><b id="lvName">Level 1: Rookie</b><span id="lvNum">1/3</span></div>
+      <div class="pips" id="pips"></div>
+    </div>
+    <div class="panel" id="pPlay">
+      <div class="timer">
+        <div class="tt"><span class="lbl mono">Time left</span><b id="secs">25s</b></div>
+        <div class="bar"><i id="bar"></i></div>
+      </div>
+      <div><span class="lbl mono">Badges</span><div class="badges" id="badges"></div></div>
+      <div class="board"><span class="lbl mono">Your stats</span><ol id="board"></ol></div>
+    </div>
+    <div class="panel fb" id="pFb" hidden>
+      <div><div class="vd" id="vd"></div><p class="was" id="was"></p></div>
+      <ol class="clues" id="clues"></ol>
+      <button class="next" id="next" type="button">Next email &rarr;</button>
+    </div>
+  </aside>
+  <div class="ov show" id="ov"></div>
+</div>
+<script>
+var LEVELS=[
+ {name:'Rookie',time:25,intro:'Spot the obvious fakes: strange senders, scary deadlines and requests for passwords.'},
+ {name:'Analyst',time:22,intro:'Lookalike domains and fake links. Hover or tap a link to check it.'},
+ {name:'Defender',time:22,intro:'The subtle ones: CEO requests, reply-to tricks and vendor payment fraud.'}
+];
+var E=[
+ /* Level 1 */
+ {nm:'IT Helpdesk',ad:'<span class="f" data-n="1">it-support@corvane-helpdesk.net</span>',tm:'8:14 AM',c:'#5B6B85',phish:1,
+  subj:'<span class="f" data-n="2">URGENT: Your mailbox will be deleted in 2 hours</span>',
+  body:'<p>Hello,</p><p>We detected unusual activity on your mailbox. <span class="f" data-n="3">Confirm your username and password</span> using the link below or your account will be permanently removed.</p>',
+  link:{t:'Verify my account',u:'http://corvane-helpdesk.net/verify'},
+  clues:['The sender is outside corvane.com, on a lookalike helpdesk domain.','A panic deadline is there to rush you.','It asks for your password. IT never does.']},
+ {nm:'Priya Nair',ad:'<span class="k" data-n="1">priya.nair@corvane.com</span>',tm:'9:02 AM',c:'#2E7D6B',phish:0,
+  subj:'Agenda for Thursday’s team sync',
+  body:'<p>Hi all,</p><p><span class="k" data-n="2">The agenda for Thursday is attached.</span> We’ll cover the Q4 roadmap and the new onboarding flow. Add anything you want to discuss to the doc before Wednesday.</p><p>Thanks,<br>Priya</p>',
+  att:'Team-sync-agenda.docx',
+  clues:['A colleague on the company domain.','An expected, routine message about a meeting you know about.','No links, no login, no pressure.']},
+ {nm:'Rewards Center',ad:'<span class="f" data-n="1">rewards@prize-center.biz</span>',tm:'10:37 AM',c:'#9A6A1F',phish:1,
+  subj:'<span class="f" data-n="2">Congratulations! You’ve won a $500 gift card</span>',
+  body:'<p>Dear employee,</p><p>You were selected in our monthly staff draw. <span class="f" data-n="3">Enter your bank details within 24 hours</span> to claim your prize.</p>',
+  link:{t:'Claim my $500',u:'http://prize-center.biz/claim?id=88213'},
+  clues:['An unknown outside sender.','Too good to be true: a prize from a draw you never entered.','It asks for bank details on a deadline.']},
+ {nm:'Corvane Learning',ad:'<span class="k" data-n="1">learning@corvane.com</span>',tm:'11:20 AM',c:'#0A1628',phish:0,
+  subj:'Reminder: finish Data Privacy Essentials by Oct 30',
+  body:'<p>Hi,</p><p>You have one course left in your annual compliance plan. It takes about 20 minutes, and <span class="k" data-n="2">the deadline is two weeks away.</span></p>',
+  link:{t:'Open the course',u:'https://learn.corvane.com/courses/data-privacy',n:3,cl:'k'},
+  clues:['Sent from the company domain.','A reasonable deadline, not a threat.','The link stays on learn.corvane.com, your usual learning site.']},
+ /* Level 2 */
+ {nm:'Corvane IT',ad:'<span class="f" data-n="1">it-desk@corvanne.com</span>',tm:'8:48 AM',c:'#5B6B85',phish:1,
+  subj:'Password expiry notice',
+  body:'<p>Your network password expires today.</p><p>Choose <span class="f" data-n="2">Keep current password</span> below to avoid losing access to email and shared drives.</p>',
+  link:{t:'Keep current password',u:'https://corvanne.com/keep-password',n:3,cl:'f'},
+  clues:['corvanne.com has an extra “n”. It is not your company.','Keeping an expired password is not a real option. It is bait.','The link goes to the same fake domain.']},
+ {nm:'Daniel Ortiz',ad:'<span class="k" data-n="1">daniel.ortiz@corvane.com</span>',tm:'9:31 AM',c:'#6A4C93',phish:0,
+  subj:'Q4 sales deck, updated numbers',
+  body:'<p>Hi,</p><p><span class="k" data-n="2">As we talked about this morning,</span> I’ve updated slides 4 to 7 with the September figures. Can you check the pipeline chart before tomorrow’s review?</p>',
+  link:{t:'Open Q4-sales-deck',u:'https://drive.corvane.com/sales/q4-deck',n:3,cl:'k'},
+  clues:['A known colleague on corvane.com.','It follows up a real conversation from this morning.','The link stays on the company drive.']},
+ {nm:'SignFlow',ad:'<span class="f" data-n="2">documents@signflow-mail.co</span>',tm:'12:05 PM',c:'#1F5FBF',phish:1,
+  subj:'Daniel Ortiz sent you a document to sign',
+  body:'<p>Daniel Ortiz shared <span class="f" data-n="1">“Contract_Renewal_FINAL.pdf”</span> with you.</p><p>Please review and sign by the end of the day.</p>',
+  link:{t:'Review document',u:'http://signflow-review.top/d/8841/login',n:3,cl:'f'},
+  clues:['A contract you weren’t expecting, from a signing service your team doesn’t use.','The sender’s domain and the link’s domain don’t even match each other.','The link ends in /login. It wants your password.']},
+ {nm:'Brightline Supplies',ad:'<span class="k" data-n="1">billing@brightlinesupplies.com</span>',tm:'2:16 PM',c:'#B5651D',phish:0,
+  subj:'Invoice INV-2291 for October',
+  body:'<p>Hi,</p><p><span class="k" data-n="2">As discussed on Monday’s call,</span> here is the October invoice. Payment terms and bank details are unchanged.</p>',
+  link:{t:'View invoice INV-2291',u:'https://portal.brightlinesupplies.com/invoices/2291',n:3,cl:'k'},
+  clues:['A vendor you already work with, on its usual domain.','It refers to a real call and says bank details are unchanged.','The link goes to the vendor’s own portal.']},
+ /* Level 3 */
+ {nm:'Anita Rao, CEO',ad:'anita.rao@corvane.com<br><em>Reply-to:</em> <span class="f" data-n="1">anita.rao.office@mailbox-now.com</span>',tm:'1:42 PM',c:'#0A1628',phish:1,
+  subj:'Quick favor',
+  body:'<p>Are you at your desk?</p><p><span class="f" data-n="2">I need you to buy five $200 gift cards</span> for a client today. I’m in meetings all afternoon, so <span class="f" data-n="3">keep this between us</span> and email me the codes.</p><p>Anita</p>',
+  clues:['The reply-to address goes outside corvane.com.','Gift cards for a client is a classic CEO-fraud request.','Secrecy and “I’m in meetings” stop you from checking. Call her to confirm.']},
+ {nm:'Corvane Security',ad:'<span class="k" data-n="1">security@corvane.com</span>',tm:'3:05 PM',c:'#2E7D6B',phish:0,
+  subj:'New sign-in to your account',
+  body:'<p>We noticed a sign-in from a new laptop in Bengaluru at 9:12 AM.</p><p>If this was you, you don’t need to do anything. If it wasn’t, <span class="k" data-n="2">open the IT portal from the intranet</span> and choose Report a problem. <span class="k" data-n="3">We will never ask for your password by email.</span></p>',
+  clues:['Sent from security@corvane.com, with no reply-to tricks.','No links. It tells you to go to the IT portal yourself.','It never asks for your password.']},
+ {nm:'Brightline Supplies',ad:'<span class="f" data-n="1">billing@brightline-supplies.com</span>',tm:'3:58 PM',c:'#B5651D',phish:1,
+  subj:'Updated bank details for INV-2291',
+  body:'<p>Hi,</p><p><span class="f" data-n="2">Our bank has changed.</span> Please update your records with the new account below <span class="f" data-n="3">before paying INV-2291 this week.</span></p><p>Account: 4471 0098 2213 · Routing: 0260 1559</p>',
+  clues:['brightline-supplies.com has a hyphen. The real vendor uses brightlinesupplies.com.','A sudden change to payment details is the top sign of invoice fraud.','Pressure to pay this week. Check by calling the number you already have.']},
+ {nm:'HR Benefits',ad:'<span class="f" data-n="2">benefits@corvane-hr.com</span>',tm:'4:40 PM',c:'#6A4C93',phish:1,
+  subj:'Open enrollment closes Friday',
+  body:'<p>Hi,</p><p>Open enrollment for 2027 benefits <span class="f" data-n="3">closes this Friday.</span> Review your plan and confirm your dependents here:</p>',
+  link:{t:'https://hr.corvane.com/benefits',u:'https://hr.corvane.com.benefits-enroll.info/login',n:1,cl:'f',txt:1},
+  clues:['Hover the link. It really goes to benefits-enroll.info, not corvane.com.','The sender uses corvane-hr.com, not the company domain.','A real deadline is used to make you click without checking.']}
+];
+var PB=0;
+var $=function(i){return document.getElementById(i);};
+var st,timer=null,t0=0,tLeft=0,answered=false;
+function badgeSVG(n,on){return '<svg viewBox="0 0 40 44" aria-hidden="true"><path d="M20 2 36 8v12c0 11-7 18-16 22C11 38 4 31 4 20V8z" fill="'+(on?'#0A1628':'none')+'" stroke="'+(on?'#0A1628':'rgba(10,22,40,.3)')+'" stroke-width="2" '+(on?'':'stroke-dasharray="3 3"')+'/>'+
+  (on?'<path d="m13 21 5 5 9-10" fill="none" stroke="#C8F135" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>':'<text x="20" y="27" text-anchor="middle" font-family="Sora" font-weight="700" font-size="14" fill="rgba(10,22,40,.35)">'+n+'</text>')+'</svg>';}
+function newState(){return {i:0,score:0,streak:0,best:0,res:[],badges:[0,0,0]};}
+function lv(){return Math.floor(st.i/4);}
+function mult(){return st.streak>=5?3:st.streak>=2?2:1;}
+function renderRail(){
+  $('score').textContent=st.score.toLocaleString('en-US');
+  var m=mult();$('combo').textContent='Combo x'+m;$('combo').classList.toggle('hot',m>1);
+  var L=lv();if(L>2)L=2;$('lvName').textContent='Level '+(L+1)+': '+LEVELS[L].name;$('lvNum').textContent=(L+1)+'/3';
+  var h='';for(var k=0;k<4;k++){var idx=L*4+k,r=st.res[idx];h+='<i class="pip'+(r===1?' ok':r===0?' no':idx===st.i?' cur':'')+'"></i>';}$('pips').innerHTML=h;
+  $('badges').innerHTML=LEVELS.map(function(l,k){return '<div class="bdg'+(st.badges[k]?' on':'')+'">'+badgeSVG(k+1,st.badges[k])+l.name+'</div>';}).join('');
+  $('board').innerHTML=boardHTML();
+}
+function row(i,n,v,me){return '<li'+(me?' class="me"':'')+'><i>'+i+'</i>'+n+'<b>'+v+'</b></li>';}
+function boardHTML(){
+  var done=st.res.filter(function(x){return x!==undefined;}).length,c=st.res.filter(function(x){return x===1;}).length;
+  return row('\u2713','Correct calls',c+'/'+done)+row('\u2192','Current streak',st.streak)+row('\u2605','Best streak',st.best)+
+    row('\u25B2','Personal best',PB?PB.toLocaleString('en-US'):'\u2013',st.score>0&&st.score>=PB&&PB>0);
+}
+function renderMail(){
+  var e=E[st.i];answered=false;
+  $('mail').classList.remove('show');
+  $('count').textContent='Email '+(st.i+1)+' of '+E.length;
+  $('av').textContent=e.nm.charAt(0);$('av').style.background=e.c;
+  $('nm').textContent=e.nm;$('tm').textContent=e.tm;$('ad').innerHTML=e.ad;
+  var b='<h2 class="subj">'+e.subj+'</h2>'+e.body;
+  if(e.link){var cls=e.link.cl?' '+e.link.cl:'';b+='<p><a class="lnk'+(e.link.txt?' txt':'')+cls+'" href="#" data-u="'+e.link.u+'"'+(e.link.n?' data-n="'+e.link.n+'"':'')+'>'+e.link.t+'</a></p>';}
+  if(e.att)b+='<span class="att"><b>DOC</b>'+e.att+'</span>';
+  $('mb').innerHTML=b;$('mb').scrollTop=0;
+  $('status').innerHTML=e.link?'Hover or tap a link to check it':'No links in this email';
+  var a=$('mb').querySelector('.lnk');
+  if(a){var show=function(){$('status').innerHTML='Link goes to: <b>'+a.dataset.u+'</b>';};
+    a.addEventListener('mouseenter',show);a.addEventListener('focus',show);
+    a.addEventListener('mouseleave',function(){if(!answered)$('status').textContent='Hover or tap a link to check it';});
+    a.addEventListener('click',function(ev){ev.preventDefault();show();});}
+  $('bSafe').disabled=$('bPhish').disabled=false;
+  $('pPlay').hidden=false;$('pFb').hidden=true;
+  renderRail();startTimer();
+}
+function startTimer(){
+  clearInterval(timer);var T=LEVELS[lv()].time;t0=performance.now();tLeft=T;
+  var bar=$('bar');
+  timer=setInterval(function(){
+    var el=(performance.now()-t0)/1000;tLeft=Math.max(0,T-el);
+    bar.style.transform='scaleX('+(tLeft/T)+')';bar.classList.toggle('low',tLeft<6);
+    $('secs').textContent=Math.ceil(tLeft)+'s';
+    if(tLeft<=0)answer(null);
+  },100);
+}
+function answer(saysPhish){
+  if(answered)return;answered=true;clearInterval(timer);
+  var e=E[st.i],T=LEVELS[lv()].time,ok=saysPhish!==null&&(!!saysPhish===!!e.phish),pts=0;
+  if(ok){var m=mult();pts=(100+Math.round(50*tLeft/T))*m;st.score+=pts;st.streak++;st.best=Math.max(st.best,st.streak);}else st.streak=0;
+  st.res[st.i]=ok?1:0;
+  $('bSafe').disabled=$('bPhish').disabled=true;
+  $('mail').classList.add('show');
+  if(e.link)$('status').innerHTML='Link goes to: <b>'+e.link.u+'</b>';
+  var vd=$('vd');vd.className='vd'+(ok?'':' bad');
+  vd.innerHTML=ok?'Correct!<span>+'+pts+'</span>':(saysPhish===null?'Time’s up':'Not quite');
+  $('was').textContent=e.phish?'This one was phishing. Red flags:':'This one was safe. Why you can trust it:';
+  $('clues').className='clues '+(e.phish?'ph':'sf');
+  $('clues').innerHTML=e.clues.map(function(c,k){return '<li><i>'+(k+1)+'</i><span>'+c+'</span></li>';}).join('');
+  var last=st.i===E.length-1,endLv=st.i%4===3;
+  $('next').innerHTML=last?'See my results':endLv?'Finish level '+(lv()+1):'Next email &rarr;';
+  $('pPlay').hidden=true;$('pFb').hidden=false;
+  if(ok){var f=$('float');f.textContent='+'+pts;f.classList.remove('go');void f.offsetWidth;f.classList.add('go');}
+  renderRail();
+  if(innerWidth<=640)setTimeout(function(){$('pFb').scrollIntoView({behavior:'smooth',block:'start'});},250);
+  $('next').focus({preventScroll:innerWidth<=640?false:true});
+}
+function next(){
+  if(st.i%4===3){var L=lv(),c=st.res.slice(L*4,L*4+4).filter(function(x){return x===1;}).length;st.badges[L]=c>=3?1:0;
+    if(st.i===E.length-1){renderRail();return end();}
+    st.i++;renderRail();return levelIntro(L,c);}
+  st.i++;renderMail();
+}
+function ov(html){var o=$('ov');o.innerHTML='<div class="ov-in">'+html+'</div>';o.classList.add('show');window.scrollTo(0,0);var b=o.querySelector('.go-btn');if(b)b.focus();}
+function hideOv(){$('ov').classList.remove('show');}
+function intro(){
+  st=newState();renderRail();
+  ov('<div class="ey mono">Security awareness game</div><h2>Phish or <em>legit?</em></h2><p class="s">12 emails land in your inbox across 3 levels. Mark each one Safe or Phishing before the timer runs out.</p>'+
+   '<div class="rules"><div><b>+100</b><span>for every correct call, plus up to 50 for speed</span></div><div><b>x3</b><span>combo multiplier when you build a streak</span></div><div><b>3</b><span>badges to earn. Get 3 of 4 right to clear a level</span></div></div>'+
+   '<button class="go-btn" id="go" type="button">Start level 1: Rookie &rarr;</button>');
+  $('go').onclick=function(){hideOv();renderMail();};
+}
+function levelIntro(L,c){
+  var won=st.badges[L],N=L+1;
+  ov('<div class="bigbdg">'+badgeSVG(N,won).replace('rgba(10,22,40,.3)','rgba(250,250,247,.35)').replace('rgba(10,22,40,.35)','rgba(250,250,247,.45)').replace('fill="#0A1628" stroke="#0A1628"','fill="#C8F135" stroke="#C8F135"').replace('stroke="#C8F135" stroke-width="3"','stroke="#0A1628" stroke-width="3"')+'</div>'+
+   '<div class="ey mono">Level '+N+' complete · '+c+' of 4 correct</div><h2>'+(won?LEVELS[L].name+' badge <em>earned.</em>':'Badge <em>missed.</em>')+'</h2>'+
+   '<p class="s">'+(won?'':'You needed 3 of 4 to earn it. ')+'Up next, level '+(N+1)+': '+LEVELS[N].name+'. '+LEVELS[N].intro+'</p>'+
+   '<button class="go-btn" id="go" type="button">Start level '+(N+1)+' &rarr;</button>');
+  $('go').onclick=function(){hideOv();renderMail();};
+}
+function end(){
+  var c=st.res.filter(function(x){return x===1;}).length,nb=st.badges.filter(Boolean).length;
+  var title=nb===3?'Phish <em>Defender.</em>':nb===2?'Sharp <em>Analyst.</em>':nb===1?'Rookie <em>cleared.</em>':'Keep <em>practicing.</em>';
+  var newPB=st.score>PB;if(newPB)PB=st.score;
+  var lv=LEVELS.map(function(l,k){var cc=st.res.slice(k*4,k*4+4).filter(function(x){return x===1;}).length;return row(k+1,l.name,cc+'/4 '+(st.badges[k]?'\u2713':'\u2717'));}).join('')+
+    row('\u25B2',newPB?'New personal best!':'Personal best',PB.toLocaleString('en-US'),newPB);
+  ov('<div class="ey mono">Game complete</div><h2>'+title+'</h2>'+
+   '<div class="endgrid"><div class="box"><span class="lbl mono">Your round</span><div class="stat3"><div><b>'+st.score.toLocaleString('en-US')+'</b><span>Points</span></div><div><b>'+c+'/12</b><span>Correct</span></div><div><b>'+st.best+'</b><span>Best streak</span></div></div>'+
+   '<div class="ebdg">'+LEVELS.map(function(l,k){return '<div class="bdg'+(st.badges[k]?' on':'')+'">'+badgeSVG(k+1,st.badges[k]).replace(/rgba\(10,22,40,\.3\)/,'rgba(250,250,247,.35)').replace(/rgba\(10,22,40,\.35\)/,'rgba(250,250,247,.45)').replace('fill="#0A1628" stroke="#0A1628"','fill="#C8F135" stroke="#C8F135"').replace('stroke="#C8F135" stroke-width="3"','stroke="#0A1628" stroke-width="3"')+l.name+'</div>';}).join('')+'</div></div>'+
+   '<div class="box board"><span class="lbl mono">By level</span><ol>'+lv+'</ol></div></div>'+
+   '<div class="btnrow"><button class="go-btn" id="again" type="button">Play again</button></div>');
+  $('again').onclick=function(){hideOv();st=newState();renderMail();};
+}
+$('bSafe').onclick=function(){answer(false);};
+$('bPhish').onclick=function(){answer(true);};
+$('next').onclick=next;
+document.addEventListener('keydown',function(e){
+  if($('ov').classList.contains('show'))return;
+  var k=e.key.toLowerCase();
+  if(!answered&&k==='s'){answer(false);}else if(!answered&&k==='p'){answer(true);}
+  else if(answered&&(k==='enter'||k==='arrowright')&&document.activeElement!==$('next')){e.preventDefault();next();}
+});
+intro();
+</script>
+</body>
+</html>

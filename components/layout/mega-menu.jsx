@@ -90,6 +90,16 @@ function PanelGroup({ group, first, activeKey, onNavigate, onPreview }) {
           />
         ))}
       </Box>
+      {group.more && (
+        <Link
+          href={group.more.href}
+          onClick={onNavigate}
+          className="mt-3.5 inline-flex w-fit max-w-full items-center gap-2 py-1 text-[14px] leading-[1.45] font-semibold text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4"
+        >
+          {group.more.label}
+          <Arrow className="size-4 flex-none" />
+        </Link>
+      )}
     </Box>
   );
 }
@@ -124,7 +134,7 @@ function Preview({ pv, ctaHref }) {
 function Rail({ lit, onOpenBrief }) {
   return (
     <Box className="flex-none bg-navy text-paper/60">
-      <Box className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-5 gap-y-3 px-10 py-2.5">
+      <Box className="mx-auto flex max-w-[1360px] flex-wrap items-center gap-x-5 gap-y-3 px-10 py-2.5">
         <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.12em] text-lime">
           Edstellar 5A methodology
         </Text>
@@ -258,7 +268,7 @@ export default function MegaMenu({ onOpenBrief }) {
                   onClick={() => onTabClick(item.id)}
                   onMouseEnter={() => onTabEnter(item.id)}
                   onMouseLeave={clearTimers}
-                  className="group/tab relative inline-flex cursor-pointer items-center gap-1 whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy"
+                  className="group/tab relative inline-flex cursor-pointer items-center gap-1 whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy max-[1279px]:px-1.5"
                 >
                   {item.tab}
                   <Chevron className={`size-3 opacity-60 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
@@ -292,10 +302,13 @@ export default function MegaMenu({ onOpenBrief }) {
             }`}
           >
             <Box className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-              <Box className="mx-auto max-w-7xl px-10 pt-7 pb-6">
+              <Box className="mx-auto max-w-[1360px] px-10 pt-7 pb-6">
                 <Box
-                  className="grid gap-10 max-[1439px]:gap-8"
-                  style={{ gridTemplateColumns: "minmax(0, 1fr) 320px" }}
+                  className={
+                    item.full
+                      ? "grid"
+                      : "grid grid-cols-[minmax(0,1fr)_340px] gap-10 max-[1439px]:grid-cols-[minmax(0,1fr)_300px] max-[1439px]:gap-8"
+                  }
                 >
                   <Box
                     className="grid gap-8 max-[1439px]:gap-6"
@@ -312,7 +325,8 @@ export default function MegaMenu({ onOpenBrief }) {
                       />
                     ))}
                   </Box>
-                  {shownPv && <Preview pv={shownPv} ctaHref={ctaHref} />}
+                  {/* A `full` panel (Company) has no preview pane: its groups take the width. */}
+                  {shownPv && !item.full && <Preview pv={shownPv} ctaHref={ctaHref} />}
                 </Box>
                 {item.foot && (
                   <Box className="mt-6 border-t border-ink/12 pt-4">

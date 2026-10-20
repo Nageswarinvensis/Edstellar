@@ -2,7 +2,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
 import FaqDetails from "@/components/common/faq-details";
-import RetreatForm from "@/components/forms/retreat-form";
+import LeadershipRetreatForm from "@/components/forms/leadership-retreat-form";
 import RetreatHero from "@/components/sections/leadership_retreats/retreat-hero";
 import SectionNav from "@/components/common/section-nav";
 import AudienceTabs from "@/components/sections/leadership_retreats/audience-tabs";
@@ -38,7 +38,7 @@ export default function LeadershipRetreatsPage({ page }) {
       </Section>
 
       {/* The live retreats form (/ceo-retreats) thanks at /thank-you/request-invite. */}
-      <RetreatForm data={page.form} thankYou="request-invite" />
+      <LeadershipRetreatForm data={page.form} thankYou="request-invite" />
     </>
   );
 }

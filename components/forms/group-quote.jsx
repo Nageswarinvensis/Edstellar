@@ -70,10 +70,10 @@ function stripTrainingSuffix(name) {
  * (`lib/leads/`): team size, "One Time" or the recurring session count, the
  * programs picked (multiple training only), the uploaded requirements file,
  * the contact details and the course's slug. On success the visitor lands on
- * `/thank-you/{thankYou}` (default `course`); a field the server rejects
+ * `/thank-you/{thankYou}` (default `course-multistep-form`); a field the server rejects
  * shows under that field, anything else above the button.
  */
-export default function GroupQuote({ heading, courseName, thankYou = "course" }) {
+export default function GroupQuote({ heading, courseName, thankYou = "course-multistep-form" }) {
   const cardRef = useRef(null);
 
   // The current course is pre-selected and locked in the RFP builder (shown as
@@ -156,7 +156,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course" })
     setFileError("");
   }
 
-  async function onContactSubmit({ needs, consent: _consent, ...values }) {
+  async function onContactSubmit({ needs, ...values }) {
     setSubmitError("");
     let result;
     try {
@@ -507,7 +507,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course" })
                 </Box>
                 Download the{" "}
                 <a
-                  href="https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/667ea8fe9eec28c6354305f8_Edstellar-Training%20Requirement%20Template%20-%20Revised%20FInal%20(1)%20(1).xlsx"
+                  href="https://media.edstellar.com/website_assets/edstellar-training-requirement-template.xlsx"
                   className="text-ink underline underline-offset-3"
                 >
                   training requirement template
@@ -888,42 +888,6 @@ export default function GroupQuote({ heading, courseName, thankYou = "course" })
                   className={cn(formInputClasses, "resize-y")}
                 />
               </FormField>
-
-              <Box className="relative flex items-start gap-2.5 sm:col-span-2">
-                <input
-                  {...registerContact("consent", { required: true })}
-                  type="checkbox"
-                  id="gq-consent"
-                  aria-invalid={Boolean(contactErrors.consent)}
-                  className="mt-0.75 size-3.5 flex-none accent-navy"
-                />
-                <Text
-                  as="label"
-                  htmlFor="gq-consent"
-                  className="text-[12px] leading-normal text-ink/60"
-                >
-                  I agree that Edstellar may use my details to respond to my
-                  training request and provide relevant training solutions,
-                  as described in the{" "}
-                  <a
-                    href="/privacy-policy"
-                    title="Click Here to View Privacy Policy"
-                    className="underline hover:text-ink"
-                  >
-                    privacy policy
-                  </a>
-                  .
-                </Text>
-                {contactErrors.consent ? (
-                  <Text
-                    as="span"
-                    role="alert"
-                    className="absolute top-full left-6 mt-0.5 text-[11px] leading-[1.35] text-red-600"
-                  >
-                    Please accept the privacy policy to continue.
-                  </Text>
-                ) : null}
-              </Box>
 
               {submitError ? (
                 <Text as="p" role="alert" className="mt-3 text-[13px] leading-[1.5] text-destructive sm:col-span-2">

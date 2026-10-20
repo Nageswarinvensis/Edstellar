@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podcast sample: Celebrating Wins at Work</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Cormorant+Garamond:ital,wght@1,600&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+:root{--navy:#0A1628;--navy-soft:#14233D;--lime:#C8F135;--lime-soft:#E4F89A;--paper:#FAFAF7;--muted:rgba(250,250,247,.72);--faint:rgba(250,250,247,.5)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:'DM Sans',sans-serif;color:var(--paper);background:var(--navy);-webkit-font-smoothing:antialiased}
+.stage{position:relative;height:100%;overflow:hidden}
+/* background image slot (replace with the generated image) */
+.bg{position:absolute;inset:0;background-size:cover;background-position:70% center;transform:scale(1.03);transition:transform 8s ease}
+.bg.ph{background:
+  radial-gradient(ellipse 55% 70% at 78% 45%,rgba(200,241,53,.18),transparent 60%),
+  radial-gradient(ellipse 45% 60% at 62% 70%,rgba(119,157,216,.25),transparent 65%),
+  radial-gradient(ellipse 70% 80% at 20% 20%,#1b2e4f,transparent 70%),
+  linear-gradient(135deg,#0A1628,#14233D 55%,#0A1628)}
+.playing .bg{transform:scale(1.08)}
+.shade{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(10,22,40,.82) 0%,rgba(10,22,40,.25) 30%,rgba(10,22,40,.2) 52%,rgba(10,22,40,.9) 100%),
+  linear-gradient(90deg,rgba(10,22,40,.75) 0%,rgba(10,22,40,.15) 60%)}
+/* live visualizer across the top */
+canvas#viz{position:absolute;left:0;right:0;top:0;width:100%;height:30%;display:block;pointer-events:none}
+.badge{position:absolute;top:14px;left:18px;display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono';font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;background:rgba(10,22,40,.6);backdrop-filter:blur(6px);border:1px solid rgba(250,250,247,.16);border-radius:100px;padding:6px 12px}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--faint)}
+.playing .badge i{background:var(--lime);animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+/* bottom content */
+.info{position:absolute;left:24px;right:24px;bottom:18px}
+.k{font-family:'DM Mono';font-weight:500;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lime)}
+h1{font-family:'Sora';font-weight:700;font-size:30px;line-height:1.08;letter-spacing:-.03em;margin:6px 0 6px;max-width:16ch}
+h1 em{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:1.15em;color:var(--lime)}
+.sub{font-size:13.5px;line-height:1.5;color:var(--muted);max-width:46ch;margin-bottom:12px}
+.hosts{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:12.5px;color:var(--muted)}
+.av{display:flex}
+.av span{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:700 11px 'Sora';border:2px solid var(--navy);margin-right:-8px}
+.av span:nth-child(1){background:var(--lime);color:var(--navy)}
+.av span:nth-child(2){background:#779DD8;color:var(--navy)}
+.hosts b{color:var(--paper);font-weight:600;margin-left:10px}
+.chaps{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chap{font:inherit;font-size:11.5px;color:var(--muted);background:rgba(10,22,40,.55);border:1px solid rgba(250,250,247,.16);border-radius:100px;padding:5px 10px;cursor:pointer;backdrop-filter:blur(4px);transition:background .2s,color .2s}
+.chap b{font-family:'DM Mono';font-weight:500;font-size:10px;margin-right:6px;color:var(--faint)}
+.chap:hover{color:var(--paper)}
+.chap.on{background:var(--lime);border-color:var(--lime);color:var(--navy)}
+.chap.on b{color:var(--navy)}
+.bar{display:flex;align-items:center;gap:12px}
+.play{flex:none;width:52px;height:52px;border-radius:50%;border:0;background:var(--lime);color:var(--navy);display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 24px rgba(200,241,53,.25);transition:transform .15s}
+.play:hover{transform:scale(1.05)}
+.play svg{width:22px;height:22px}
+.skip{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid rgba(250,250,247,.25);background:rgba(10,22,40,.5);color:var(--paper);display:grid;place-items:center;cursor:pointer;font:500 9.5px 'DM Mono';position:relative}
+.skip svg{width:18px;height:18px}
+.skip span{position:absolute;font-size:8.5px;top:13px}
+.track{flex:1;min-width:0}
+.times{display:flex;justify-content:space-between;font-family:'DM Mono';font-size:10.5px;color:var(--muted);margin-top:6px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:18px;background:transparent;cursor:pointer;display:block}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--lime) var(--p,0%),rgba(250,250,247,.22) var(--p,0%))}
+input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:rgba(250,250,247,.22)}
+input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--lime)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--paper);margin-top:-5px;border:0}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--paper);border:0}
+.spd{flex:none;font:500 11px 'DM Mono';color:var(--paper);background:rgba(10,22,40,.5);border:1px solid rgba(250,250,247,.25);border-radius:100px;padding:7px 10px;cursor:pointer;min-width:52px}
+.play:focus-visible,.skip:focus-visible,.spd:focus-visible,.chap:focus-visible,input[type=range]:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.miss{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-family:'DM Mono';font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:600px){
+  h1{font-size:23px} .sub{display:none} .info{left:14px;right:14px;bottom:14px} .chaps{gap:5px} .chap{font-size:11px;padding:4px 8px}
+  .skip{display:none} .play{width:46px;height:46px} canvas#viz{height:24%}
+}
+@media (prefers-reduced-motion:reduce){.bg{transition:none}.playing .bg{transform:scale(1.03)}.playing .badge i{animation:none}}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="bg ph" id="bg" role="img" aria-label="Podcast cover background"></div>
+  <div class="shade"></div>
+  <canvas id="viz" aria-hidden="true"></canvas>
+  <span class="badge"><i></i><span id="bTx">Podcast &middot; 2 min 30 s</span></span>
+  <div class="info">
+    <div class="k">Learning podcast &middot; Leadership habits</div>
+    <h1>Celebrating wins <em>at work.</em></h1>
+    <p class="sub">Why small, specific recognition changes how teams work, and one thing you can try before Friday.</p>
+    <div class="hosts"><span class="av"><span>H</span><span>G</span></span><b>Host &amp; guest</b><span>&middot; Two-voice conversation</span></div>
+    <div class="chaps" id="chaps"></div>
+    <div class="bar">
+      <button class="skip" id="back" type="button" aria-label="Back 15 seconds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg><span>15</span></button>
+      <button class="play" id="play" type="button" aria-label="Play episode"><svg id="pIc" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+      <button class="skip" id="fwd" type="button" aria-label="Forward 15 seconds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>15</span></button>
+      <div class="track"><input type="range" id="seek" min="0" max="1000" value="0" aria-label="Seek"><div class="times"><span id="cur">0:00</span><span id="dur">2:31</span></div></div>
+      <button class="spd" id="spd" type="button" aria-label="Playback speed">1&times;</button>
+    </div>
+  </div>
+  <div class="miss" id="miss">Audio loads on the live page</div>
+</div>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i);};
+  var CH=[[0,'Intro'],[17,'The win nobody noticed'],[57,'Five minutes on Friday'],[99,'Three lessons'],[125,'Try this week']];
+  var A=new Audio(); A.preload='auto';
+  function fromParent(id){try{var s=parent.document.getElementById(id);return s?s.textContent.trim():null;}catch(e){return null;}}
+  function toBlob(b64,type){var b=atob(b64),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return URL.createObjectURL(new Blob([u],{type:type}));}
+  A.src='podcast.mp3'; A.addEventListener('error',function(){ $('miss').style.display='flex'; });
+  var img=fromParent('pod-bg-src'); if(img){ $('bg').classList.remove('ph'); $('bg').style.backgroundImage='url('+img+')'; }
+  function fmt(t){t=Math.max(0,Math.floor(t||0));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0');}
+  $('chaps').innerHTML=CH.map(function(c,i){return '<button class="chap" type="button" data-t="'+c[0]+'"><b>'+fmt(c[0])+'</b>'+c[1]+'</button>';}).join('');
+  [].forEach.call(document.querySelectorAll('.chap'),function(b){b.onclick=function(){A.currentTime=+b.dataset.t; if(A.paused) play();};});
+  /* audio graph for the live visualizer */
+  var ctx=null, an=null, data=null;
+  function graph(){ if(ctx) return; try{ ctx=new (window.AudioContext||window.webkitAudioContext)(); var src=ctx.createMediaElementSource(A); an=ctx.createAnalyser(); an.fftSize=256; an.smoothingTimeConstant=.82; src.connect(an); an.connect(ctx.destination); data=new Uint8Array(an.frequencyBinCount);}catch(e){ctx=null;} }
+  function play(){ graph(); if(ctx&&ctx.state==='suspended') ctx.resume(); A.play(); }
+  $('play').onclick=function(){ A.paused?play():A.pause(); };
+  $('back').onclick=function(){A.currentTime=Math.max(0,A.currentTime-15);};
+  $('fwd').onclick=function(){A.currentTime=Math.min(A.duration||0,A.currentTime+15);};
+  var SP=[1,1.25,1.5,.75],si=0; $('spd').onclick=function(){si=(si+1)%SP.length;A.playbackRate=SP[si];this.textContent=SP[si]+'×';};
+  function ui(){ var on=!A.paused; $('stage').classList.toggle('playing',on);
+    $('pIc').innerHTML=on?'<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>':'<path d="M8 5v14l11-7z"/>'; $('play').setAttribute('aria-label',on?'Pause episode':'Play episode');
+    $('bTx').textContent=on?'Now playing':'Podcast · 2 min 30 s'; }
+  A.addEventListener('play',ui); A.addEventListener('pause',ui); A.addEventListener('ended',ui);
+  A.addEventListener('loadedmetadata',function(){$('dur').textContent=fmt(A.duration);});
+  var seeking=false;
+  A.addEventListener('timeupdate',function(){ var p=A.duration?A.currentTime/A.duration:0; if(!seeking){$('seek').value=Math.round(p*1000);} $('seek').style.setProperty('--p',(p*100)+'%'); $('cur').textContent=fmt(A.currentTime);
+    var ci=0; CH.forEach(function(c,i){if(A.currentTime>=c[0]-.2)ci=i;}); [].forEach.call(document.querySelectorAll('.chap'),function(b,i){b.classList.toggle('on',i===ci&&(A.currentTime>0||!A.paused));}); });
+  $('seek').addEventListener('input',function(){seeking=true; if(A.duration){A.currentTime=this.value/1000*A.duration;} this.style.setProperty('--p',(this.value/10)+'%');});
+  $('seek').addEventListener('change',function(){seeking=false;});
+  document.addEventListener('keydown',function(e){ if(e.target.tagName==='INPUT')return; if(e.code==='Space'){e.preventDefault();A.paused?play():A.pause();} });
+  addEventListener('message',function(e){if(e.data==='pod-pause')A.pause();});
+  /* draw: mirrored bars across the top, idle wave when paused */
+  var cv=$('viz'), g=cv.getContext('2d'), N=72, lev=new Float32Array(N);
+  function size(){var r=devicePixelRatio||1;cv.width=cv.clientWidth*r;cv.height=cv.clientHeight*r;}
+  addEventListener('resize',size); size();
+  (function draw(t){
+    var W=cv.width,H=cv.height,r=devicePixelRatio||1; g.clearRect(0,0,W,H);
+    var live=an&&!A.paused; if(live) an.getByteFrequencyData(data);
+    var gap=W/N, bw=Math.max(2*r,gap*.42), mid=H*.52;
+    for(var i=0;i<N;i++){
+      var target;
+      if(live){ var d=Math.abs(i-(N-1)/2)/((N-1)/2), k=1+Math.floor(d*34); target=Math.min(1,(data[k]/255)*(1.15-d*.35)); }
+      else target=.06+.05*Math.sin(t/700+i*.35)+.03*Math.sin(t/430+i*.9);
+      lev[i]+= (target-lev[i])*(live?.45:.08);
+      var h=Math.max(2*r,lev[i]*H*.82), x=i*gap+(gap-bw)/2;
+      var a=.28+lev[i]*.6; g.fillStyle='rgba(200,241,53,'+a.toFixed(3)+')';
+      g.beginPath(); if(g.roundRect) g.roundRect(x,mid-h/2,bw,h,bw/2); else g.rect(x,mid-h/2,bw,h); g.fill();
+    }
+    requestAnimationFrame(draw);
+  })(0);
+})();
+</script>
+</body>
+</html>

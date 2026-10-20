@@ -1,8 +1,10 @@
 import {
+  Building2,
   ChartColumnIncreasing,
   Cpu,
   Flag,
   Globe,
+  LayoutGrid,
   MessagesSquare,
   ShieldCheck,
 } from "lucide-react";
@@ -15,4 +17,6 @@ export const RAIL_CATEGORY_ICONS = {
   lead: Flag,
   comp: ShieldCheck,
   social: Globe,
+  industry: Building2,
+  more: LayoutGrid,
 };

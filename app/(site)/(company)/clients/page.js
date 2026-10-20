@@ -14,7 +14,7 @@ export function generateMetadata() {
  * Clients (`/clients`) — local content (`content/company/clients.js`), so the
  * page is fully static (SSG).
  *
- * Design: `Edstellar-New-Lanch SETUP/clients 3.html`.
+ * Design: `Edstellar-New-Lanch SETUP/clients 9.html`.
  */
 export default function ClientsRoute() {
   const page = getClientsPage();

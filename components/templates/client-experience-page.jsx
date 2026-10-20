@@ -12,7 +12,8 @@ import {
 } from "@/components/sections/client_experience/cx-sections";
 
 /** `/exceptional-customer-experience` — top to bottom as in the design,
- * ending with the shared navy lead form (heading and reassurances beside it). */
+ * ending with the shared navy lead form (heading and reassurances beside it),
+ * which submits as the contact-us form does (Zoho "TrainingEnquiry"). */
 export default function ClientExperiencePage({ page }) {
   return (
     <>

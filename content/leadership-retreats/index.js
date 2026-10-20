@@ -6,6 +6,14 @@
  *
  * Design: `Edstellar-New-Lanch SETUP/leadership-retreats 8.html`.
  */
+/** The request form's "I am interested in" options — the live Zoho
+ * "Impremium" form's own `Radio` values, which Zoho requires verbatim. */
+export const RETREAT_INTERESTS = [
+  "An open retreat with leaders from other organizations",
+  "A private retreat for my leadership team",
+  "Not sure yet",
+];
+
 export const LEADERSHIP_RETREATS = {
   seo: {
     title: "Leadership & Private Team Retreats",
@@ -319,11 +327,8 @@ export const LEADERSHIP_RETREATS = {
     heading: "Request an <span>invitation.</span>",
     description:
       "Tell us about your role and what you want from the retreat. A retreat advisor will reply within one business day.",
-    interest_options: [
-      { value: "open", label: "An open retreat with leaders from other organizations" },
-      { value: "private", label: "A private retreat for my leadership team" },
-      { value: "unsure", label: "Not sure yet" },
-    ],
+    interest_options: RETREAT_INTERESTS,
+    message_label: "What you want from the retreat",
     message_placeholder:
       "Tell us about your role, what you want from the retreat, and any topics, destinations or timing you have in mind.",
     sla_note: "A retreat advisor replies within one business day, no automated sales sequence.",

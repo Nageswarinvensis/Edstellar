@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why training fades</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Cormorant+Garamond:ital,wght@1,600&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+:root{--navy:#0A1628;--lime:#C8F135;--lime-soft:#E4F89A;--paper:#FAFAF7;--paper-warm:#F2F0E8;--cream:#EDE9DD}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--paper);-webkit-font-smoothing:antialiased;overflow:hidden;display:flex;align-items:center;justify-content:center}
+button{font:inherit;color:inherit;cursor:pointer}
+.player{position:relative;width:min(100%,calc((100vh - 50px) * 16 / 9));display:flex;flex-direction:column}
+.frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px 12px 0 0;overflow:hidden;background:var(--paper)}
+.frame svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+svg text{font-family:'DM Sans',sans-serif}
+.poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(10,22,40,.55);color:var(--paper);border:0;width:100%;text-align:center;padding:20px}
+.poster[hidden]{display:none}
+.poster .pb{width:62px;height:62px;border-radius:50%;background:var(--lime);display:grid;place-items:center;box-shadow:0 8px 26px rgba(0,0,0,.25);transition:transform .2s}
+.poster:hover .pb{transform:scale(1.06)}
+.poster .pb svg{position:static;width:24px;height:24px}
+.poster h2{font:800 24px/1.15 'Sora';letter-spacing:-.02em}
+.poster p{font-size:14px;color:rgba(250,250,247,.8)}
+.ctl{display:flex;align-items:center;gap:12px;padding:9px 14px;background:var(--navy);color:var(--paper);border-radius:0 0 12px 12px}
+.ib{width:30px;height:30px;border-radius:50%;border:0;background:rgba(250,250,247,.1);display:grid;place-items:center;flex:none}
+.ib:hover{background:rgba(250,250,247,.2)}
+.ib svg{width:13px;height:13px}
+.chap{font:500 10px 'DM Mono';letter-spacing:.1em;text-transform:uppercase;color:var(--lime);white-space:nowrap;min-width:118px}
+.track{flex:1;height:6px;border-radius:3px;background:rgba(250,250,247,.18);position:relative;cursor:pointer}
+.track i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--lime)}
+.track b{position:absolute;top:-3px;width:2px;height:12px;background:var(--navy);border-left:1px solid rgba(250,250,247,.5)}
+.tm{font:500 11px 'DM Mono';color:rgba(250,250,247,.75);white-space:nowrap}
+:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.mcap{display:none}
+@media (max-width:640px){body{display:block;overflow:auto}.player{width:100%}.chap{display:none}
+  #cap{display:none}.mcap{display:block;min-height:58px;padding:10px 14px;background:#fff;border-left:1px solid rgba(10,22,40,.12);border-right:1px solid rgba(10,22,40,.12);font-size:14px;font-weight:600;line-height:1.4}}
+</style>
+</head>
+<body>
+<div class="player">
+  <div class="frame">
+    <svg id="s" viewBox="0 0 1280 720" role="img" aria-label="Animated explainer: the forgetting curve and how spaced practice keeps learning from fading">
+      <defs>
+        <linearGradient id="gap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C8F135" stop-opacity=".55"/><stop offset="1" stop-color="#C8F135" stop-opacity=".18"/></linearGradient>
+        <clipPath id="plot"><rect x="200" y="150" width="930" height="420"/></clipPath>
+      </defs>
+      <rect width="1280" height="720" fill="#FAFAF7"/>
+      <g id="dots" opacity=".5"></g>
+      <!-- title scene -->
+      <g id="title">
+        <text id="t1" x="640" y="270" text-anchor="middle" font-family="DM Mono" font-weight="500" font-size="20" letter-spacing="5" fill="rgba(10,22,40,.55)">THE FORGETTING CURVE</text>
+        <text id="t2" x="640" y="360" text-anchor="middle" font-family="Sora" font-weight="800" font-size="74" letter-spacing="-2" fill="#0A1628">Why training fades</text>
+        <text id="t3" x="640" y="440" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-weight="600" font-size="58" fill="#0A1628">and how to make it stick</text>
+        <rect id="t4" x="560" y="478" width="160" height="8" rx="4" fill="#C8F135"/>
+      </g>
+      <!-- chart scene -->
+      <g id="chart">
+        <text id="ylab" x="200" y="128" font-family="DM Mono" font-weight="500" font-size="17" letter-spacing="2.5" fill="rgba(10,22,40,.55)">HOW MUCH PEOPLE REMEMBER</text>
+        <g id="grid" stroke="rgba(10,22,40,.08)" stroke-width="2"><line x1="200" y1="190" x2="1130" y2="190"/><line x1="200" y1="283" x2="1130" y2="283"/><line x1="200" y1="375" x2="1130" y2="375"/><line x1="200" y1="468" x2="1130" y2="468"/></g>
+        <path id="axes" d="M200,150 L200,560 L1130,560" fill="none" stroke="#0A1628" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <g id="ticks" font-family="DM Mono" font-size="17" fill="rgba(10,22,40,.6)" text-anchor="middle"></g>
+        <text id="xlab" x="1130" y="640" text-anchor="end" font-family="DM Mono" font-weight="500" font-size="17" letter-spacing="2.5" fill="rgba(10,22,40,.55)">DAYS AFTER TRAINING</text>
+        <path id="gapA" fill="url(#gap)" opacity="0" clip-path="url(#plot)"/>
+        <path id="cNo" fill="none" stroke="#8A93A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="cYes" fill="none" stroke="#0A1628" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <g id="revs"></g>
+        <g id="facts"></g>
+        <g id="peak"><circle id="pkRing" cx="200" cy="190" r="16" fill="none" stroke="#C8F135" stroke-width="5"/><circle cx="200" cy="190" r="10" fill="#0A1628"/>
+          <g id="pkLab"><rect x="226" y="206" width="300" height="46" rx="23" fill="#0A1628"/><text x="376" y="236" text-anchor="middle" font-size="20" font-weight="700" fill="#FAFAF7">Training day: memory peaks</text></g></g>
+        <g id="noLab"><rect x="760" y="455" width="350" height="46" rx="23" fill="#fff" stroke="#8A93A3" stroke-width="2.5"/><text x="935" y="485" text-anchor="middle" font-size="20" font-weight="700" fill="#5B6473">Without practice, most of it fades</text></g>
+        <g id="gapLab"><rect x="640" y="300" width="400" height="50" rx="25" fill="#0A1628"/><text x="840" y="332" text-anchor="middle" font-size="21" font-weight="700" fill="#C8F135">What spaced practice keeps</text><path d="M840,350 L840,392" stroke="#0A1628" stroke-width="4" stroke-linecap="round"/><path d="M830,382 L840,394 L850,382" fill="none" stroke="#0A1628" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <g id="legend" font-size="18" font-weight="600"><line x1="846" y1="128" x2="876" y2="128" stroke="#8A93A3" stroke-width="6" stroke-linecap="round"/><text x="886" y="134" fill="#5B6473">No follow-up</text>
+          <line x1="1036" y1="128" x2="1066" y2="128" stroke="#0A1628" stroke-width="7" stroke-linecap="round"/><text x="1076" y="134" fill="#0A1628">Spaced practice</text></g>
+      </g>
+      <!-- takeaways -->
+      <g id="tk">
+        <text id="tkH" x="640" y="150" text-anchor="middle" font-family="Sora" font-weight="800" font-size="46" letter-spacing="-1" fill="#0A1628">Three ways to make it stick</text>
+        <g id="tiles"></g>
+        <text id="tkEnd" x="640" y="610" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-weight="600" font-size="44" fill="#0A1628">Small doses, spaced out, recalled often.</text>
+      </g>
+      <!-- caption -->
+      <g id="cap"><rect id="capBg" x="240" y="652" width="800" height="48" rx="24" fill="#0A1628"/><text id="capTx" x="640" y="683" text-anchor="middle" font-size="21" font-weight="600" fill="#FAFAF7"></text></g>
+    </svg>
+    <button class="poster" id="poster" type="button" aria-label="Play the animation"><span class="pb"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="#0A1628"/></svg></span><h2>Why training fades</h2><p>A one-minute motion graphic on the forgetting curve</p></button>
+  </div>
+  <div class="mcap" id="mcap">&nbsp;</div>
+  <div class="ctl">
+    <button class="ib" id="pp" type="button" aria-label="Play"><svg viewBox="0 0 24 24" id="ppI"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg></button>
+    <span class="chap" id="chap">Intro</span>
+    <div class="track" id="track"><i id="fill"></i></div>
+    <span class="tm" id="tm">0:00 / 0:58</span>
+    <button class="ib" id="rs" type="button" aria-label="Restart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+  </div>
+</div>
+<script>
+var $=function(i){return document.getElementById(i);};
+var LEN=58;
+var CH=[[0,'Intro'],[6.5,'Learning peaks'],[14,'Then it fades'],[26,'Spaced practice'],[40,'The difference'],[47,'Takeaways']];
+var CAPS=[[0.8,6,'On training day it all makes sense. A few weeks later, much of it is gone.'],[8,14,'On training day, knowledge is at its highest.'],[14.5,26,'Then, without any follow-up, memory drops fast and keeps sliding.'],
+ [26.5,40,'Bring it back at spaced intervals, and each review lifts memory again.'],[40.5,47,'Each time, it fades more slowly. The gap is what you keep.'],[47.5,57.6,'Short, spaced, active practice turns training into lasting skill.']];
+var X0=200,X1=1130,Y0=560,YT=190,DAYS=30;
+function xd(d){return X0+d/DAYS*(X1-X0);} function yr(r){return Y0-r*(Y0-YT);}
+function rNo(d){return .18+.82*Math.exp(-d/2.6);}
+var REV=[2,7,16];
+function rYes(d){var S=[2.6,6,13,28],last=0,k=0;for(var i=0;i<REV.length;i++){if(d>=REV[i]){last=REV[i];k=i+1;}}var floor=[.18,.3,.45,.6][k];return floor+(1-floor)*Math.exp(-(d-last)/S[k]);}
+function pathTo(f,dEnd){var s='',n=Math.max(2,Math.ceil(dEnd*8));for(var i=0;i<=n;i++){var d=dEnd*i/n,yy=yr(f(d));s+=(i?'L':'M')+xd(d).toFixed(1)+','+yy.toFixed(1);}return s;}
+function pathYes(dEnd){var s='',d=0,step=1/8,prev=null;while(d<=dEnd+1e-6){var y=yr(rYes(d));for(var i=0;i<REV.length;i++){if(prev!==null&&prev<REV[i]&&d>=REV[i]){s+='L'+xd(REV[i]).toFixed(1)+','+yr(rYes(REV[i]-1e-4)).toFixed(1);}}s+=(s?'L':'M')+xd(d).toFixed(1)+','+y.toFixed(1);prev=d;d+=step;}return s;}
+/* static bits */
+var tk='';[0,7,14,21,30].forEach(function(d){tk+='<g class="tk" data-d="'+d+'"><line x1="'+xd(d)+'" y1="560" x2="'+xd(d)+'" y2="572" stroke="#0A1628" stroke-width="3"/><text x="'+xd(d)+'" y="600">Day '+d+'</text></g>';});$('ticks').innerHTML=tk;
+var dots='';for(var i=0;i<26;i++){var x=(i*197)%1280,y=(i*131)%720;dots+='<circle cx="'+x+'" cy="'+y+'" r="'+(2+(i%3))+'" fill="#C8F135"/>';}$('dots').innerHTML=dots;
+var FACTS=['Steps','Rules','Names','Tips','Why'];
+$('facts').innerHTML=FACTS.map(function(f,i){return '<g class="fc"><rect x="-46" y="-19" width="92" height="38" rx="9" fill="#fff" stroke="#0A1628" stroke-width="2.5"/><text y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#0A1628">'+f+'</text></g>';}).join('');
+var RL=['Quick refresher','Short quiz','Use it on the job'];
+$('revs').innerHTML=REV.map(function(d,i){var x=xd(d);var lx=x+(i===0?36:0);return '<g class="rv"><line x1="'+x+'" y1="190" x2="'+x+'" y2="560" stroke="#0A1628" stroke-width="2.5" stroke-dasharray="6 7" opacity=".45"/><circle cx="'+x+'" cy="190" r="11" fill="#C8F135" stroke="#0A1628" stroke-width="3"/>'+
+ '<g class="rvl"><rect x="'+(lx-88)+'" y="'+(i%2?205:150)+'" width="176" height="38" rx="19" fill="#C8F135" stroke="#0A1628" stroke-width="2"/><text x="'+lx+'" y="'+(i%2?230:175)+'" text-anchor="middle" font-size="17" font-weight="700" fill="#0A1628">'+RL[i]+'</text></g></g>';}).join('');
+var TILES=[['1','Space it out','Revisit after a day, a week and a month.'],['2','Keep it short','Three to five minutes, in the flow of work.'],['3','Make them recall','Quizzes and flashcards beat re-reading.']];
+$('tiles').innerHTML=TILES.map(function(t,i){var x=130+i*350;return '<g class="tl"><rect x="'+x+'" y="220" width="320" height="300" rx="24" fill="'+(i===1?'#0A1628':'#fff')+'" stroke="#0A1628" stroke-width="3"/>'+
+ '<circle cx="'+(x+60)+'" cy="290" r="32" fill="#C8F135" stroke="#0A1628" stroke-width="3"/><text x="'+(x+60)+'" y="302" text-anchor="middle" font-family="Sora" font-weight="800" font-size="32" fill="#0A1628">'+t[0]+'</text>'+
+ '<text x="'+(x+32)+'" y="380" font-family="Sora" font-weight="700" font-size="30" fill="'+(i===1?'#C8F135':'#0A1628')+'">'+t[1]+'</text>'+wrap(t[2],x+32,426,(i===1?'rgba(250,250,247,.82)':'rgba(10,22,40,.7)'))+'</g>';}).join('');
+function wrap(s,x,y,c){var w=s.split(' '),lines=[],cur='';w.forEach(function(q){if((cur+' '+q).trim().length>22){lines.push(cur.trim());cur=q;}else cur+=' '+q;});lines.push(cur.trim());
+ return lines.map(function(l,i){return '<text x="'+x+'" y="'+(y+i*32)+'" font-size="22" fill="'+c+'">'+l+'</text>';}).join('');}
+/* helpers */
+function cl(v){return Math.max(0,Math.min(1,v));} function seg(t,a,b){return cl((t-a)/(b-a));}
+function eo(p){return 1-Math.pow(1-p,3);} function eio(p){return p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;}
+function op(id,v){$(id).setAttribute('opacity',v.toFixed(3));}
+function tr(el,x,y,s){el.setAttribute('transform','translate('+x.toFixed(1)+','+y.toFixed(1)+')'+(s!=null?' scale('+s.toFixed(3)+')':''));}
+var axesLen=$('axes').getTotalLength();$('axes').style.strokeDasharray=axesLen;
+function render(t){
+  // title
+  var tin=function(id,a){var p=eo(seg(t,a,a+.9)),o=p*(1-seg(t,5.6,6.4));op(id,o);tr($(id),0,(1-p)*24);};
+  tin('t1',.3);tin('t2',.7);tin('t3',1.3);var p4=eo(seg(t,2,3));$('t4').setAttribute('width',160*p4);$('t4').setAttribute('x',640-80*p4);op('t4',1-seg(t,5.6,6.4));
+  op('dots',.45*(1-seg(t,5.6,6.4)));
+  // chart in/out
+  var chartIn=seg(t,6.5,7.2),chartOut=seg(t,46.4,47.2);op('chart',chartIn*(1-chartOut));
+  $('axes').style.strokeDashoffset=axesLen*(1-eio(seg(t,6.6,8.2)));
+  op('ylab',seg(t,7.6,8.4));op('xlab',seg(t,7.8,8.6));op('grid',seg(t,8,9));
+  [].forEach.call(document.querySelectorAll('.tk'),function(g,i){g.setAttribute('opacity',seg(t,8+i*.15,8.5+i*.15));});
+  // peak
+  var pk=eo(seg(t,8.6,9.3));$('peak').setAttribute('opacity',(pk*(1-seg(t,25.6,26.4))).toFixed(3));
+  $('pkRing').setAttribute('r',(16+6*Math.abs(Math.sin(t*3))).toFixed(1));
+  op('pkLab',seg(t,9.2,9.9)*(1-seg(t,14.5,15.3)));
+  // no-practice curve
+  var dNo=DAYS*eio(seg(t,15,21));$('cNo').setAttribute('d',dNo>0?pathTo(rNo,dNo):'');
+  op('cNo',t<26?1:1-.6*seg(t,26,27.5));
+  op('noLab',seg(t,21.2,22)*(1-seg(t,26,26.8)));
+  // facts fall off as curve drops
+  [].forEach.call(document.querySelectorAll('.fc'),function(g,i){var a=9.8+i*.25,shown=eo(seg(t,a,a+.5));var fall=seg(t,16+i*.9,17+i*.9);
+    var x=290+i*112,y=310+fall*fall*220;g.setAttribute('opacity',(shown*(1-fall)).toFixed(3));tr(g,x,y+(1-shown)*14,1-.2*fall);});
+  // spaced practice curve
+  var dY=DAYS*seg(t,27,37);$('cYes').setAttribute('d',dY>0?pathYes(dY):'');op('cYes',t>=27?1:0);
+  [].forEach.call(document.querySelectorAll('.rv'),function(g,i){var d=REV[i],tt=27+d/DAYS*10;var o=eo(seg(t,tt-.1,tt+.4));g.setAttribute('opacity',o.toFixed(3));
+    g.querySelector('.rvl').setAttribute('opacity',(eo(seg(t,tt+.1,tt+.6))).toFixed(3));});
+  op('legend',seg(t,27,28));
+  // gap fill
+  var gp=seg(t,40.5,42);if(gp>0){var s='M'+xd(0)+','+yr(1);var n=240;for(var i=0;i<=n;i++){var d=DAYS*i/n;s+='L'+xd(d).toFixed(1)+','+yr(rYes(d)).toFixed(1);}for(var j=n;j>=0;j--){var d2=DAYS*j/n;s+='L'+xd(d2).toFixed(1)+','+yr(rNo(d2)).toFixed(1);}$('gapA').setAttribute('d',s+'Z');}
+  op('gapA',gp*.9);op('gapLab',eo(seg(t,41.5,42.4)));tr($('gapLab'),0,(1-eo(seg(t,41.5,42.4)))*14);
+  // takeaways
+  var tkIn=seg(t,47.2,48);op('tk',tkIn*(1-seg(t,57.4,58)));op('tkH',eo(seg(t,47.4,48.2)));
+  [].forEach.call(document.querySelectorAll('.tl'),function(g,i){var a=48.4+i*.9,p=eo(seg(t,a,a+.7));g.setAttribute('opacity',p.toFixed(3));tr(g,0,(1-p)*30);});
+  op('tkEnd',eo(seg(t,52.6,53.6)));
+  // title group visibility
+  op('title',1-seg(t,5.8,6.4));
+  // caption
+  var c=null;CAPS.forEach(function(x){if(t>=x[0]&&t<x[1])c=x;});
+  if(c){var o=Math.min(seg(t,c[0],c[0]+.35),1-seg(t,c[1]-.35,c[1]));$('capTx').textContent=c[2];var w=Math.min(1220,c[2].length*10.6+70);$('capBg').setAttribute('width',w);$('capBg').setAttribute('x',640-w/2);op('cap',o);$('mcap').textContent=c[2];}else op('cap',0);
+  // controls
+  $('fill').style.width=(t/LEN*100)+'%';$('tm').textContent=fmt(t)+' / '+fmt(LEN);
+  var ch='Intro';CH.forEach(function(x){if(t>=x[0])ch=x[1];});$('chap').textContent=ch;
+}
+function fmt(s){s=Math.floor(s);return Math.floor(s/60)+':'+('0'+s%60).slice(-2);}
+/* player */
+var T=0,playing=false,last=0;
+$('track').innerHTML='<i id="fill"></i>'+CH.slice(1).map(function(c){return '<b style="left:'+(c[0]/LEN*100)+'%"></b>';}).join('');
+function setPlay(p){playing=p;last=performance.now();$('ppI').innerHTML=p?'<path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor"/>':'<path d="M7 4.5v15l13-7.5z" fill="currentColor"/>';$('pp').setAttribute('aria-label',p?'Pause':'Play');}
+function loop(now){if(playing){T+=(now-last)/1000;last=now;if(T>=LEN){T=LEN;setPlay(false);}}render(T);requestAnimationFrame(loop);}
+$('poster').onclick=function(){$('poster').hidden=true;T=0;setPlay(true);};
+$('pp').onclick=function(){$('poster').hidden=true;if(T>=LEN)T=0;setPlay(!playing);};
+$('rs').onclick=function(){$('poster').hidden=true;T=0;setPlay(true);};
+$('track').onclick=function(e){var r=this.getBoundingClientRect();T=cl((e.clientX-r.left)/r.width)*LEN*.999;$('poster').hidden=true;};
+document.addEventListener('keydown',function(e){if(e.key===' '&&e.target===document.body){e.preventDefault();$('pp').click();}});
+render(2.6);requestAnimationFrame(loop);
+</script>
+</body>
+</html>

@@ -9,6 +9,7 @@ import Box from "@/components/ui/Box";
 import MegaMenu from "@/components/layout/mega-menu";
 import MobileNav from "@/components/layout/mobile-nav";
 import BriefComposer from "@/components/layout/brief-composer";
+import SiteSearch from "@/components/layout/site-search";
 import { MEGA_CTA } from "@/lib/constants";
 import {
   subscribeHeaderHidden,
@@ -63,17 +64,19 @@ export default function SiteHeader() {
           ${hidden ? "-translate-y-full" : "translate-y-0"}
         `}
       >
-        <Box className="mx-auto flex h-17 max-w-7xl items-center gap-5 px-5 lg:px-10">
+        <Box className="mx-auto flex h-17 max-w-[1360px] items-center gap-5 px-5 lg:px-10">
           <Link
             href="/"
             aria-label="Edstellar home"
             title="Click Here to View Edstellar Home"
-            className="flex shrink-0 items-center duration-200"
+            className="mr-3 flex shrink-0 items-center duration-200 min-[1280px]:mr-6"
           >
             <Image src="/course/Edstellar.svg" alt="Edstellar" width={139} height={50} priority />
           </Link>
 
           <MegaMenu onOpenBrief={() => setBriefOpen(true)} />
+
+          <SiteSearch id="site-q" className="w-60 shrink-0 max-[1439px]:w-52 max-[1279px]:w-36 max-nav:hidden" />
 
           <Box
             as="button"

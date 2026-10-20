@@ -11,7 +11,7 @@ export default function HomeTaxonomy({ data }) {
   if (!data?.steps?.length) return null;
 
   return (
-    <HomeWrap id="taxonomy" aria-labelledby="taxo-heading" className="scroll-mt-16 border-t-[1.5px] border-ink/12 bg-paper-warm py-[130px] max-lg:py-24">
+    <HomeWrap id="taxonomy" aria-labelledby="taxo-heading" className="scroll-mt-16 border-t-[1.5px] border-ink/12 bg-paper-warm py-20 max-lg:py-16">
       <HomeSectionHead id="taxo-heading" heading={data.heading} lede={data.lede} />
 
       <Reveal>

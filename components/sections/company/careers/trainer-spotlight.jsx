@@ -15,8 +15,9 @@ export default function TrainerSpotlight({ data }) {
 
   return (
     <Section
+      id="tool"
       aria-labelledby="trainer-h"
-      className="bg-[radial-gradient(900px_420px_at_85%_0%,rgba(200,241,53,0.14),transparent_60%),var(--color-navy)] text-paper"
+      className="bg-navy bg-[image:radial-gradient(900px_420px_at_85%_0%,rgba(200,241,53,0.14),transparent_60%)] text-paper"
     >
       <Box className="grid grid-cols-1 items-center gap-7 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
         <Reveal>
@@ -24,11 +25,11 @@ export default function TrainerSpotlight({ data }) {
             as="h2"
             id="trainer-h"
             heading={data.heading}
-            className="text-paper"
-            emphasisClassName="text-lime"
+            className="text-[clamp(32px,4vw,40px)] leading-[1.08] font-bold text-paper"
+            emphasisClassName="text-[1.08em] tracking-[-0.01em] text-lime"
           />
           {data.subheading ? (
-            <Text as="h3" className="mt-4.5 mb-2 text-[20px] leading-[1.3] text-lime">
+            <Text as="h3" className="mt-4.5 mb-2 text-[20px] leading-[1.2] font-bold text-lime">
               {data.subheading}
             </Text>
           ) : null}

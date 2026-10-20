@@ -4,6 +4,7 @@ import { getTemplate } from "@/lib/content/templates";
 import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import TemplateDetailPage from "@/components/templates/template-detail-page";
+import TemplateToolPage from "@/components/templates/template-tool-page";
 
 export const revalidate = 3600;
 
@@ -26,7 +27,8 @@ export async function generateMetadata({ params }) {
  * An L&D template / free tool page, at the live site's own URL
  * (`/templates/{slug}`). The CMS templates hub (`/learning-development-templates`)
  * links its cards here; `/resources/templates/{slug}` redirects here
- * (`next.config.mjs`).
+ * (`next.config.mjs`). With `hero.tool.direct_tool` set in the CMS, the URL
+ * opens the tool itself instead of the landing page.
  */
 export default async function TemplateRoute({ params }) {
   const { slug } = await params;
@@ -46,7 +48,11 @@ export default async function TemplateRoute({ params }) {
         breadcrumbs={breadcrumbs}
         faqs={template.faqs?.items}
       />
-      <TemplateDetailPage template={template} breadcrumbs={breadcrumbs} />
+      {template.directTool ? (
+        <TemplateToolPage template={template} />
+      ) : (
+        <TemplateDetailPage template={template} breadcrumbs={breadcrumbs} />
+      )}
     </>
   );
 }

@@ -93,7 +93,7 @@ export default function BriefBuilder({ data, thankYou = "consulting" }) {
         {data.intro}
       </Text>
 
-      <Text as="p" className="font-display text-[clamp(19px,1.6vw,21px)] leading-[1.9] font-semibold text-paper">
+      <Text as="p" className="font-display text-[clamp(19px,1.6vw,21px)] leading-[2.2] font-semibold text-paper">
         We need{" "}
         {SLOTS.map((slot, index) => (
           <span key={slot}>
@@ -103,7 +103,9 @@ export default function BriefBuilder({ data, thankYou = "consulting" }) {
               aria-controls="brief-pop"
               onClick={() => openPop(slot)}
               className={cn(
-                "cursor-pointer rounded-full border px-2.5 py-0.5 transition-colors",
+                // Own line height: inheriting the sentence's tall one made a
+                // pill taller than its line, so pills on adjacent lines touched.
+                "cursor-pointer rounded-full border px-2.5 py-0.5 leading-[1.35] box-decoration-clone transition-colors",
                 filled(slot) ? "border-lime bg-lime text-navy" : "border-paper/35 text-paper hover:border-lime",
                 pop === slot && "ring-2 ring-lime/50",
               )}

@@ -9,7 +9,7 @@
  * Design: `Edstellar-New-Lanch SETUP/corporate-training-catalog 27.html`.
  */
 const FULL_CATALOG_PDF =
-  "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69ef2b22fcefd48cb366f1d5_Combined%20Catalog%20A5.pdf";
+  "https://media.edstellar.com/brochures/all-courses-catalog.pdf";
 
 export const CATALOG_PAGE = {
   seo: {

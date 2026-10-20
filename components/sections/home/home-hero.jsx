@@ -44,7 +44,7 @@ export default function HomeHero({ data }) {
   const { panel, methodology, people } = data;
 
   return (
-    <HomeWrap aria-labelledby="hero-headline" className="bg-paper pt-[120px] max-lg:pt-24 max-sm:pt-16">
+    <HomeWrap aria-labelledby="hero-headline" className="bg-paper pt-20 max-lg:pt-16">
       <Box className="grid items-center gap-16 max-lg:gap-10 lg:grid-cols-[1fr_460px]">
         <Box>
           <RichHeading

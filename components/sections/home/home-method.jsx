@@ -31,7 +31,7 @@ export default function HomeMethod({ data }) {
   if (!data?.steps?.length) return null;
 
   return (
-    <HomeWrap id="method" aria-labelledby="method-heading" className="scroll-mt-16 bg-paper py-[130px] max-lg:py-24">
+    <HomeWrap id="method" aria-labelledby="method-heading" className="scroll-mt-16 bg-paper py-20 max-lg:py-16">
       <HomeSectionHead id="method-heading" heading={data.heading} lede={data.lede} />
 
       <Box role="list" aria-label="The Edstellar 5A methodology" className="grid grid-cols-5 border-y-[1.5px] border-ink/12 max-lg:grid-cols-2 max-sm:grid-cols-1">

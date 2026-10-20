@@ -1,18 +1,24 @@
+import Image from "next/image";
+
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
 
-// Descending navy tints so the four adjacent segments stay distinguishable
-// (the design draws them all in navy, separated only by gaps).
-const SEG_FILL = ["fill-navy", "fill-navy/70", "fill-navy/45", "fill-navy/25"];
+function GlobeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="size-[22px]">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z" />
+    </svg>
+  );
+}
 
-/** Clients by headquarters region — a donut and a ranked bar list. The donut
- * geometry is copied verbatim from the approved design; only the colours are
- * swapped for tokens. */
+/** Clients by headquarters region — four presence cards, each with a globe
+ * badge and a two-column grid of sample client logos. */
 export default function ClientsRegions({ data }) {
-  if (!data?.segments?.length) return null;
+  if (!data?.cards?.length) return null;
 
   return (
     <Section id="regions" aria-labelledby="regions-h" className="scroll-mt-16 bg-paper">
@@ -31,56 +37,39 @@ export default function ClientsRegions({ data }) {
       </Reveal>
 
       <Reveal delay={1}>
-        <Box className="mt-10 grid items-center gap-14 max-lg:gap-10 lg:grid-cols-[minmax(0,520px)_1fr]">
-          <Box>
-            <svg viewBox="-110 -30 540 380" role="img" aria-labelledby="donut-title" className="block h-auto w-full overflow-visible">
-              <title id="donut-title">
-                Edstellar clients by headquarters region: Asia Pacific 61, Americas 39, Europe and Africa 15, Middle East and North Africa 6
-              </title>
-              <path className={SEG_FILL[0]} d="M161.8,30.0 A130,130 0 0 1 158.4,290.0 L159.0,244.0 A84,84 0 0 0 161.2,76.0Z" />
-              <path className={SEG_FILL[1]} d="M154.8,289.9 A130,130 0 0 1 43.9,101.5 L85.0,122.2 A84,84 0 0 0 156.6,243.9Z" />
-              <path className={SEG_FILL[2]} d="M45.6,98.3 A130,130 0 0 1 118.4,36.8 L133.1,80.4 A84,84 0 0 0 86.1,120.1Z" />
-              <path className={SEG_FILL[3]} d="M121.9,35.7 A130,130 0 0 1 158.2,30.0 L158.8,76.0 A84,84 0 0 0 135.4,79.7Z" />
-              <text x="312.0" y="162.0" textAnchor="start">
-                <tspan className="fill-ink font-display text-[18px] font-bold">50%</tspan>
-                <tspan x="312.0" dy="1.15em" className="fill-ink/60 font-body text-[13px]">Asia Pacific</tspan>
-              </text>
-              <text x="29.0" y="237.1" textAnchor="end">
-                <tspan className="fill-ink font-display text-[18px] font-bold">32%</tspan>
-                <tspan x="29.0" dy="1.15em" className="fill-ink/60 font-body text-[13px]">Americas</tspan>
-              </text>
-              <text x="62.0" y="43.8" textAnchor="end">
-                <tspan className="fill-ink font-display text-[18px] font-bold">12%</tspan>
-                <tspan x="62.0" dy="1.15em" className="fill-ink/60 font-body text-[13px]">Europe and Africa</tspan>
-              </text>
-              <text x="136.4" y="9.8" textAnchor="middle">
-                <tspan className="fill-ink/60 font-body text-[13px]" dy="-1.4em">MENA</tspan>
-                <tspan x="136.4" dy="1.4em" className="fill-ink font-display text-[18px] font-bold">5%</tspan>
-              </text>
-              <text x="160" y="156" textAnchor="middle" className="fill-ink font-display text-[44px] font-bold tracking-[-0.03em]">121</text>
-              <text x="160" y="180" textAnchor="middle" className="fill-ink/60 font-body text-[14px] font-medium">clients</text>
-            </svg>
-          </Box>
-
-          <Box as="ul" className="m-0 list-none p-0">
-            {data.segments.map((seg) => (
-              <Box as="li" key={seg.key} className="mb-7 last:mb-0">
-                <Box className="flex items-baseline justify-between gap-4">
-                  <Text as="h3" className="m-0 font-body text-[17px] font-semibold text-ink">
-                    {seg.label}
-                  </Text>
-                  <Text as="span" className="whitespace-nowrap font-display text-2xl font-bold tracking-[-0.02em] text-ink">
-                    {seg.count}
-                    <Text as="span" className="ml-1 text-sm font-medium text-ink/60">{seg.percent}%</Text>
-                  </Text>
-                </Box>
-                <Box className="my-3 h-2 overflow-hidden rounded-full bg-ink/12">
-                  <Box className="h-full rounded-full bg-navy" style={{ width: `${seg.bar}%` }} />
-                </Box>
-                <Text as="p" className="m-0 text-sm leading-[1.5] text-ink/60">{seg.names}</Text>
+        <Box as="ul" className="mt-10 grid list-none grid-cols-4 gap-4 p-0 max-xl:grid-cols-2 max-sm:grid-cols-1">
+          {data.cards.map((card) => (
+            <Box
+              as="li"
+              key={card.key}
+              className="flex flex-col gap-5 rounded-[14px] border border-ink/12 bg-white p-6 shadow-rest max-sm:p-5"
+            >
+              <Box className="flex items-center gap-3">
+                <Text as="span" className="flex size-10 shrink-0 items-center justify-center rounded-full bg-navy text-lime">
+                  <GlobeIcon />
+                </Text>
+                <Text as="h3" className="m-0 font-display text-lg font-semibold leading-[1.3] tracking-[-0.01em] text-ink">
+                  {card.label}
+                </Text>
               </Box>
-            ))}
-          </Box>
+
+              <Box as="ul" aria-label={card.logos_label} className="grid list-none grid-cols-2 gap-2 p-0">
+                {card.logos.map((client) => (
+                  <Box as="li" key={client.name}>
+                    <Box className="flex h-16 items-center justify-center rounded-[10px] border border-ink/12 bg-white px-3 py-2.5">
+                      <Image
+                        src={client.logo}
+                        alt={client.name}
+                        width={160}
+                        height={64}
+                        className="h-9 w-full object-contain"
+                      />
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          ))}
         </Box>
       </Reveal>
 

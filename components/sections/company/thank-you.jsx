@@ -26,7 +26,7 @@ const REACH_LINKS = [
  * Design: edstellar.com/thank-you/category, in the brand palette.
  */
 export default function ThankYou({ data }) {
-  if (!data?.heading && !data?.subtext) return null;
+  if (!data?.heading) return null;
 
   return (
     <Box as="section" className="flex flex-col items-center px-5 py-16 lg:py-24">
@@ -53,12 +53,14 @@ export default function ThankYou({ data }) {
           </Box>
         </Reveal>
 
-        {/* CMS `subtext` is the full sentence, so it carries the <h1>; the
-            short `heading` ("Thank you") is only its fallback. */}
+        {/* The CMS editor offers only `heading` and `para`. Its API also
+            still returns a `subtext` left from an older version of the
+            component, which editors can no longer see or change — so it is
+            not shown. */}
         <Reveal delay={1}>
           <RichHeading
             as="h1"
-            heading={data.subtext || data.heading}
+            heading={data.heading}
             className="mb-4"
             emphasisClassName="font-normal text-olive"
           />

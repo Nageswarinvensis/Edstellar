@@ -73,7 +73,7 @@ export function CatalogProof({ data }) {
   return (
     <Box as="section" aria-label="Edstellar at a glance" className="bg-paper px-5 pb-10 lg:px-10">
       <Reveal className="mx-auto max-w-7xl rounded-[18px] bg-navy px-7 py-6 lg:px-9">
-        <Box as="dl" className="m-0 flex flex-wrap gap-x-10 gap-y-5 border-b border-paper/12 pb-6">
+        <Box as="dl" className="m-0 flex flex-wrap justify-between gap-x-10 gap-y-5 border-b border-paper/12 pb-6">
           {[...data.stats, data.credential].map((stat) => (
             <Box key={stat.label} className="flex flex-col-reverse">
               <dt className="mt-1 text-[13.5px] text-paper/65">{stat.label}</dt>

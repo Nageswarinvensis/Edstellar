@@ -6,6 +6,7 @@ import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { MEGA_NAV } from "@/lib/nav-data";
+import SiteSearch from "@/components/layout/site-search";
 
 function Chevron() {
   return (
@@ -74,6 +75,7 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
         `}
       >
         <Box as="nav" aria-label="Main" className="flex flex-col px-5 pt-2 pb-8">
+          <SiteSearch id="site-q-mobile" mobile className="mt-3 mb-1" />
           {MEGA_NAV.map((section) => (
             <Box
               as="details"
@@ -109,6 +111,29 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
                         </li>
                       ))}
                     </Box>
+                    {group.more && (
+                      <Link
+                        href={group.more.href}
+                        onClick={onClose}
+                        className="mb-1 inline-flex min-h-11 items-center gap-2 py-2 text-[15px] font-semibold text-navy transition-colors duration-200 hover:underline hover:underline-offset-4"
+                      >
+                        {group.more.label}
+                        <svg
+                          viewBox="0 0 24 24"
+                          width="16"
+                          height="16"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                          className="size-4 flex-none"
+                        >
+                          <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                      </Link>
+                    )}
                   </Box>
                 ))}
                 {section.foot && (

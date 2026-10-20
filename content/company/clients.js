@@ -1,7 +1,7 @@
 // Auto-composed from the approved design
-// `Edstellar-New-Lanch SETUP/clients 3.html`. Local content, so `/clients`
+// `Edstellar-New-Lanch SETUP/clients 9.html`. Local content, so `/clients`
 // renders fully static. Field names follow the CMS's snake_case convention
-// (TASTE.md §5.4); the 121-client directory is the design's own data.
+// (TASTE.md §5.4); the client directory is the design's own data.
 //
 // Logos are served from `media.edstellar.com`, whitelisted in next.config.mjs.
 
@@ -23,7 +23,7 @@ export const CLIENTS = {
   ],
   "hero": {
     "heading": "Edstellar clients, <span>from global enterprises to public institutions.</span>",
-    "lede": "121 organizations across 16 sectors build workforce capability with Edstellar, from Microsoft, KPMG and Visa to universities, government agencies and non-profits. See who they are, the sectors they work in and why organizations choose Edstellar for training, consulting, assessments and coaching.",
+    "lede": "Here are some of the organizations that build workforce capability with Edstellar, from Microsoft, KPMG and Visa to universities, government agencies and non-profits. See who they are, the sectors they work in and why organizations choose Edstellar for training, consulting, assessments and coaching.",
     "actions": [
       {
         "label": "Talk to an Edstellar expert",
@@ -40,12 +40,12 @@ export const CLIENTS = {
     ],
     "facts": [
       {
-        "value": "121",
-        "label": "organizations featured"
-      },
-      {
         "value": "16",
         "label": "sectors"
+      },
+      {
+        "value": "4",
+        "label": "regions"
       },
       {
         "value": "100",
@@ -102,16 +102,16 @@ export const CLIENTS = {
         "name": "S&P Global",
         "logo": "https://media.edstellar.com/client_logo/SP_Global_Inc.webp",
         "off": true
-      }
-    ],
-    "mosaic_card": [
-      {
-        "value": "121",
-        "label": "clients featured"
       },
       {
-        "value": "16",
-        "label": "sectors"
+        "name": "Adobe",
+        "logo": "https://media.edstellar.com/client_logo/Adobe.webp",
+        "off": false
+      },
+      {
+        "name": "Intel",
+        "logo": "https://media.edstellar.com/client_logo/Intel2.webp",
+        "off": true
       }
     ]
   },
@@ -170,111 +170,72 @@ export const CLIENTS = {
     }
   },
   "explorer": {
-    "heading": "Every Edstellar client, <span>sorted by sector.</span>",
-    "lede": "Filter by sector or search by name. Select a client to see what the organization does and to find others in the same sector.",
-    "total": 121,
-    "regions": [
-      {
-        "key": "apac",
-        "label": "Asia Pacific",
-        "count": 61
-      },
-      {
-        "key": "amer",
-        "label": "Americas",
-        "count": 39
-      },
-      {
-        "key": "eura",
-        "label": "Europe and Africa",
-        "count": 15
-      },
-      {
-        "key": "mena",
-        "label": "Middle East and North Africa",
-        "count": 6
-      }
-    ],
+    "heading": "Some of Edstellar's clients, <span>sorted by sector.</span>",
+    "lede": "A selection of the organizations Edstellar works with. Filter by sector or search by name, and select a client to see what the organization does.",
     "sectors": [
       {
         "key": "tech",
-        "label": "Technology, software and telecom",
-        "count": 23
+        "label": "Technology, software and telecom"
       },
       {
         "key": "mfg",
-        "label": "Manufacturing and industrial",
-        "count": 14
+        "label": "Manufacturing and industrial"
       },
       {
         "key": "pro",
-        "label": "Professional and business services",
-        "count": 11
+        "label": "Professional and business services"
       },
       {
         "key": "bfsi",
-        "label": "Banking, financial services and insurance",
-        "count": 9
+        "label": "Banking, financial services and insurance"
       },
       {
         "key": "consumer",
-        "label": "Consumer goods, retail and hospitality",
-        "count": 9
+        "label": "Consumer goods, retail and hospitality"
       },
       {
         "key": "health",
-        "label": "Pharma, biotech and healthcare",
-        "count": 9
+        "label": "Pharma, biotech and healthcare"
       },
       {
         "key": "auto",
-        "label": "Automotive, aviation and mobility",
-        "count": 8
+        "label": "Automotive, aviation and mobility"
       },
       {
         "key": "re",
-        "label": "Real estate and construction",
-        "count": 6
+        "label": "Real estate and construction"
       },
       {
         "key": "edu",
-        "label": "Education",
-        "count": 5
+        "label": "Education"
       },
       {
         "key": "energy",
-        "label": "Energy and natural resources",
-        "count": 5
+        "label": "Energy and natural resources"
       },
       {
         "key": "public",
-        "label": "Government, public sector and non-profit",
-        "count": 5
+        "label": "Government, public sector and non-profit"
       },
       {
         "key": "agri",
-        "label": "Agriculture and agritech",
-        "count": 4
+        "label": "Agriculture and agritech"
       },
       {
         "key": "log",
-        "label": "Logistics and supply chain",
-        "count": 4
+        "label": "Logistics and supply chain"
       },
       {
         "key": "media",
-        "label": "Media, entertainment and publishing",
-        "count": 4
+        "label": "Media, entertainment and publishing"
       },
       {
         "key": "chem",
-        "label": "Chemicals and materials",
-        "count": 3
+        "label": "Chemicals and materials"
       },
       {
         "key": "group",
-        "label": "Diversified business groups",
-        "count": 2
+        "label": "Diversified business groups"
       }
     ],
     "clients": [
@@ -1584,185 +1545,219 @@ export const CLIENTS = {
     ]
   },
   "regions": {
-    "heading": "Edstellar clients across <span>four regions.</span>",
-    "lede": "Organizations headquartered in the Americas, Europe and Africa, the Middle East and North Africa, and Asia Pacific work with Edstellar, with delivery in 100 countries.",
-    "total": 121,
-    "segments": [
-      {
-        "key": "apac",
-        "label": "Asia Pacific",
-        "count": 61,
-        "percent": 50,
-        "bar": 100,
-        "names": "Aditya Birla Group, Agratas, AMPIN Energy Transition, Artha Bharat and 57 more"
-      },
+    "heading": "Some of Edstellar's clients <span>across four regions.</span>",
+    "lede": "A selection of the organizations headquartered in the Americas, Europe and Africa, the Middle East and North Africa, and Asia Pacific that work with Edstellar, with delivery in 100 countries.",
+    "cards": [
       {
         "key": "amer",
         "label": "Americas",
-        "count": 39,
-        "percent": 32,
-        "bar": 63.9,
-        "names": "Microsoft, Visa, Johnson & Johnson, Nike and 35 more"
+        "logos_label": "Sample clients headquartered in the Americas",
+        "logos": [
+          {
+            "name": "Microsoft",
+            "logo": "https://media.edstellar.com/client_logo/Microsoft.webp"
+          },
+          {
+            "name": "Visa",
+            "logo": "https://media.edstellar.com/client_logo/visa.webp"
+          },
+          {
+            "name": "Johnson & Johnson",
+            "logo": "https://media.edstellar.com/client_logo/JohnsonJohnson_1.webp"
+          },
+          {
+            "name": "Nike",
+            "logo": "https://media.edstellar.com/client_logo/Nike.webp"
+          },
+          {
+            "name": "Boston Consulting Group",
+            "logo": "https://media.edstellar.com/client_logo/Boston_consulting_group.webp"
+          },
+          {
+            "name": "Intel",
+            "logo": "https://media.edstellar.com/client_logo/Intel2.webp"
+          }
+        ]
       },
       {
         "key": "eura",
         "label": "Europe and Africa",
-        "count": 15,
-        "percent": 12,
-        "bar": 24.6,
-        "names": "KPMG, ABB, ADB SAFEGATE, Brevo and 11 more"
+        "logos_label": "Sample clients headquartered in Europe and Africa",
+        "logos": [
+          {
+            "name": "KPMG",
+            "logo": "https://media.edstellar.com/client_logo/KPMG.webp"
+          },
+          {
+            "name": "ABB",
+            "logo": "https://media.edstellar.com/client_logo/Abb.webp"
+          },
+          {
+            "name": "Renishaw",
+            "logo": "https://media.edstellar.com/client_logo/Renishaw_Technologies.webp"
+          },
+          {
+            "name": "Total",
+            "logo": "https://media.edstellar.com/client_logo/Total.webp"
+          },
+          {
+            "name": "Taylor & Francis",
+            "logo": "https://media.edstellar.com/client_logo/Taylor__Francis_Group.webp"
+          },
+          {
+            "name": "Sandvik",
+            "logo": "https://media.edstellar.com/client_logo/Sandvik_Coromant.webp"
+          }
+        ]
       },
       {
         "key": "mena",
         "label": "Middle East and North Africa",
-        "count": 6,
-        "percent": 5,
-        "bar": 9.8,
-        "names": "Cloudify, Deriv, Global North, HALCON and 2 more"
+        "logos_label": "Sample clients headquartered in the Middle East and North Africa",
+        "logos": [
+          {
+            "name": "The National Bank of Iraq",
+            "logo": "https://media.edstellar.com/client_logo/national_Bank_of_Iraq.svg"
+          },
+          {
+            "name": "Deriv",
+            "logo": "https://media.edstellar.com/client_logo/DERIV_LOGO_COL_RGB-1_1.png"
+          },
+          {
+            "name": "Cloudify",
+            "logo": "https://media.edstellar.com/client_logo/cloudify.svg"
+          },
+          {
+            "name": "HALCON",
+            "logo": "https://media.edstellar.com/client_logo/HALCON.webp"
+          },
+          {
+            "name": "Global North",
+            "logo": "https://media.edstellar.com/client_logo/Global_North.webp"
+          },
+          {
+            "name": "Tadmur Holding",
+            "logo": "https://media.edstellar.com/client_logo/Tadmur_Holding.webp"
+          }
+        ]
+      },
+      {
+        "key": "apac",
+        "label": "Asia Pacific",
+        "logos_label": "Sample clients headquartered in Asia Pacific",
+        "logos": [
+          {
+            "name": "Aditya Birla Group",
+            "logo": "https://media.edstellar.com/client_logo/Aditya_Birla_Group.webp"
+          },
+          {
+            "name": "Godrej",
+            "logo": "https://media.edstellar.com/client_logo/godrej.webp"
+          },
+          {
+            "name": "Tata Chemicals",
+            "logo": "https://media.edstellar.com/client_logo/Tata_Chemicals.webp"
+          },
+          {
+            "name": "MediaTek",
+            "logo": "https://media.edstellar.com/client_logo/MediaTek.webp"
+          },
+          {
+            "name": "Vedanta",
+            "logo": "https://media.edstellar.com/client_logo/Vedanta.webp"
+          },
+          {
+            "name": "Japan International Cooperation Agency (JICA)",
+            "logo": "https://media.edstellar.com/client_logo/JICA__Japan_International_Cooperation_Agency_.webp"
+          }
+        ]
       }
     ],
     "basis": "Regions reflect where each client is headquartered."
   },
   "sectors": {
-    "heading": "Edstellar clients across <span>16 sectors.</span>",
-    "lede": "Technology, manufacturing and professional services firms make up the largest groups, with clients in every sector from banking and healthcare to education and government.",
+    "heading": "Sectors Edstellar works with, <span>from technology to government.</span>",
+    "lede": "Edstellar builds workforce capability for organizations in 16 sectors, from technology, manufacturing and professional services to banking, healthcare, education and the public sector.",
     "rows": [
       {
         "key": "tech",
         "label": "Technology, software and telecom",
-        "count": 23,
-        "percent": 100,
-        "names": "Microsoft, Amazon, Adobe, Autodesk and 19 more",
-        "industry": null
+        "summary": "Including Microsoft, Amazon and Adobe."
       },
       {
         "key": "mfg",
         "label": "Manufacturing and industrial",
-        "count": 14,
-        "percent": 60.9,
-        "names": "ABB, Bry-Air, Emerson, EPL Global and 10 more",
-        "industry": {
-          "href": "/industries/manufacturing",
-          "label": "Edstellar for manufacturing"
-        }
+        "summary": "Including ABB, Bry-Air and Emerson."
       },
       {
         "key": "pro",
         "label": "Professional and business services",
-        "count": 11,
-        "percent": 47.8,
-        "names": "KPMG, Boston Consulting Group, C.I.P.S, Global North and 7 more",
-        "industry": null
+        "summary": "Including KPMG, Boston Consulting Group and C.I.P.S."
       },
       {
         "key": "bfsi",
         "label": "Banking, financial services and insurance",
-        "count": 9,
-        "percent": 39.1,
-        "names": "Visa, S&P Global, Artha Bharat, Can Fin Homes and 5 more",
-        "industry": {
-          "href": "/industries/banking",
-          "label": "Edstellar for banking"
-        }
+        "summary": "Including Visa, S&P Global and Artha Bharat."
       },
       {
         "key": "consumer",
         "label": "Consumer goods, retail and hospitality",
-        "count": 9,
-        "percent": 39.1,
-        "names": "Nike, Circle K, Godrej, India Hospitality Mart and 5 more",
-        "industry": null
+        "summary": "Including Nike, Circle K and Godrej."
       },
       {
         "key": "health",
         "label": "Pharma, biotech and healthcare",
-        "count": 9,
-        "percent": 39.1,
-        "names": "Johnson & Johnson, Currax Pharmaceuticals, eClinical Solutions, Edifecs and 5 more",
-        "industry": null
+        "summary": "Including Johnson & Johnson, Currax Pharmaceuticals and eClinical Solutions."
       },
       {
         "key": "auto",
         "label": "Automotive, aviation and mobility",
-        "count": 8,
-        "percent": 34.8,
-        "names": "Uber, ADB SAFEGATE, BluSmart Mobility, Cloyes and 4 more",
-        "industry": {
-          "href": "/industries/automotive",
-          "label": "Edstellar for automotive"
-        }
+        "summary": "Including Uber, ADB SAFEGATE and BluSmart Mobility."
       },
       {
         "key": "re",
         "label": "Real estate and construction",
-        "count": 6,
-        "percent": 26.1,
-        "names": "Bechtel, Assetz Property Group, Auro, Greystar and 2 more",
-        "industry": null
+        "summary": "Including Bechtel, Assetz Property Group and Auro."
       },
       {
         "key": "edu",
         "label": "Education",
-        "count": 5,
-        "percent": 21.7,
-        "names": "KIET Group of Institutions, Maharana Pratap Group of Institutions, Oswaal Books, Sunstone and 1 more",
-        "industry": null
+        "summary": "Including KIET Group of Institutions, Maharana Pratap Group of Institutions and Oswaal Books."
       },
       {
         "key": "energy",
         "label": "Energy and natural resources",
-        "count": 5,
-        "percent": 21.7,
-        "names": "Agratas, AMPIN Energy Transition, Cenovus Energy, Total and 1 more",
-        "industry": null
+        "summary": "Including Agratas, AMPIN Energy Transition and Cenovus Energy."
       },
       {
         "key": "public",
         "label": "Government, public sector and non-profit",
-        "count": 5,
-        "percent": 21.7,
-        "names": "Hudson Link, International Solar Alliance, Japan International Cooperation Agency (JICA), National Remote Sensing Centre (NRSC) and 1 more",
-        "industry": null
+        "summary": "Including Hudson Link, International Solar Alliance and Japan International Cooperation Agency (JICA)."
       },
       {
         "key": "agri",
         "label": "Agriculture and agritech",
-        "count": 4,
-        "percent": 17.4,
-        "names": "Coromandel, Daund Sugar, Ecozen and Semillas Fitó",
-        "industry": null
+        "summary": "Including Coromandel, Daund Sugar and Ecozen."
       },
       {
         "key": "log",
         "label": "Logistics and supply chain",
-        "count": 4,
-        "percent": 17.4,
-        "names": "Bombay Metrics, Emiza, KNS Express and Neovia",
-        "industry": null
+        "summary": "Including Bombay Metrics, Emiza and KNS Express."
       },
       {
         "key": "media",
         "label": "Media, entertainment and publishing",
-        "count": 4,
-        "percent": 17.4,
-        "names": "DB Corp, Endeavor, Sportskeeda and Taylor & Francis",
-        "industry": null
+        "summary": "Including DB Corp, Endeavor and Sportskeeda."
       },
       {
         "key": "chem",
         "label": "Chemicals and materials",
-        "count": 3,
-        "percent": 13,
-        "names": "Mankiewicz, SRF Limited and Tata Chemicals",
-        "industry": null
+        "summary": "Including Mankiewicz, SRF Limited and Tata Chemicals."
       },
       {
         "key": "group",
         "label": "Diversified business groups",
-        "count": 2,
-        "percent": 8.7,
-        "names": "Aditya Birla Group and Tadmur Holding",
-        "industry": null
+        "summary": "Including Aditya Birla Group and Tadmur Holding."
       }
     ]
   },
@@ -1777,7 +1772,7 @@ export const CLIENTS = {
       },
       {
         "label": "Send your RFP",
-        "href": "https://www.edstellar.com/request-for-proposal",
+        "href": "/request-for-proposal",
         "variant": "secondary",
         "arrow": true
       }
@@ -1823,31 +1818,31 @@ export const CLIENTS = {
       "items": [
         {
           "label": "Corporate training programs",
-          "href": "https://www.edstellar.com/corporate-training-courses"
+          "href": "/corporate-training-catalog"
         },
         {
           "label": "Learning and development consulting",
-          "href": "https://www.edstellar.com/learning-development-consulting-services"
+          "href": "/learning-development-consulting-services"
         },
         {
           "label": "Organizational development",
-          "href": "https://www.edstellar.com/organizational-development-consulting"
+          "href": "/organizational-development-consulting"
         },
         {
           "label": "Training needs analysis",
-          "href": "https://www.edstellar.com/training-needs-analysis-solutions"
+          "href": "/training-needs-analysis-solutions"
         },
         {
           "label": "Talent assessments",
-          "href": "https://www.edstellar.com/talent-assessment-services"
+          "href": "/talent-assessment-services"
         },
         {
           "label": "Coaching",
-          "href": "https://www.edstellar.com/coaching-solutions"
+          "href": "/coaching-solutions"
         },
         {
           "label": "Managed training services",
-          "href": "https://www.edstellar.com/managed-training-services"
+          "href": "/managed-training-services"
         }
       ]
     }
@@ -1861,7 +1856,7 @@ export const CLIENTS = {
         "title": "Who Edstellar serves",
         "desc": "How Edstellar works with enterprises, mid-market firms, start-ups, governments, educational institutions and non-profits.",
         "cta": "Explore",
-        "href": "https://www.edstellar.com/who-we-serve"
+        "href": "/who-we-serve"
       },
       {
         "icon": "heart",
@@ -1869,7 +1864,7 @@ export const CLIENTS = {
         "title": "The Edstellar client experience",
         "desc": "One client success manager per account, matched trainers and every program detail handled from brief to results.",
         "cta": "Explore",
-        "href": "https://www.edstellar.com/exceptional-customer-experience"
+        "href": "/exceptional-customer-experience"
       },
       {
         "icon": "star",
@@ -1877,7 +1872,7 @@ export const CLIENTS = {
         "title": "Edstellar success stories",
         "desc": "Accounts of how organizations planned and delivered capability programs with Edstellar.",
         "cta": "Read",
-        "href": "https://www.edstellar.com/success-stories"
+        "href": "/success-stories"
       },
       {
         "icon": "doc",
@@ -1885,7 +1880,7 @@ export const CLIENTS = {
         "title": "Request for proposal",
         "desc": "Send your RFP or tender and receive one complete Edstellar proposal within 15 working days.",
         "cta": "Submit",
-        "href": "https://www.edstellar.com/request-for-proposal"
+        "href": "/request-for-proposal"
       }
     ]
   },
@@ -1894,11 +1889,11 @@ export const CLIENTS = {
     "items": [
       {
         "q": "Which companies work with Edstellar?",
-        "a": "Edstellar's clients include Microsoft, Amazon, KPMG, Boston Consulting Group, Visa, Johnson & Johnson, Nike, Bechtel, ABB and S&P Global, alongside mid-sized companies, start-ups, universities, government agencies and non-profits. This page features 121 of them across 16 sectors."
+        "a": "Edstellar's clients include Microsoft, Amazon, KPMG, Boston Consulting Group, Visa, Johnson & Johnson, Nike, Bechtel, ABB and S&P Global, alongside mid-sized companies, start-ups, universities, government agencies and non-profits. This page features a selection of them across 16 sectors."
       },
       {
         "q": "Which industries do Edstellar's clients come from?",
-        "a": "Edstellar's clients span 16 sectors. The largest groups are technology, software and telecom (23 clients), manufacturing and industrial (14) and professional and business services (11), followed by banking and financial services, healthcare, consumer goods, automotive and mobility, real estate, energy, education and the public sector."
+        "a": "Edstellar works with clients in 16 sectors: technology, software and telecom; manufacturing and industrial; professional and business services; banking, financial services and insurance; consumer goods, retail and hospitality; pharma, biotech and healthcare; automotive, aviation and mobility; real estate and construction; education; energy and natural resources; government, public sector and non-profit; agriculture and agritech; logistics and supply chain; media, entertainment and publishing; chemicals and materials; and diversified business groups."
       },
       {
         "q": "Does Edstellar work with government and public sector organizations?",
@@ -1910,7 +1905,7 @@ export const CLIENTS = {
       },
       {
         "q": "Where are Edstellar's clients headquartered?",
-        "a": "Edstellar's clients are headquartered in 4 regions: Asia Pacific (61 clients), Americas (39 clients), Europe and Africa (15 clients), Middle East and North Africa (6 clients). Edstellar delivers training in 100 countries and more than 10 languages, so programs reach teams well beyond each client's headquarters."
+        "a": "Edstellar's clients are headquartered across four regions: the Americas, Europe and Africa, the Middle East and North Africa, and Asia Pacific. Edstellar delivers training in 100 countries and more than 10 languages, so programs reach teams well beyond each client's headquarters."
       },
       {
         "q": "Can Edstellar train teams in several countries at once?",

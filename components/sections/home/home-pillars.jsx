@@ -14,7 +14,7 @@ export default function HomePillars({ data }) {
   if (!data?.items?.length) return null;
 
   return (
-    <HomeWrap id="pillars" aria-labelledby="pillars-heading" className="scroll-mt-16 bg-paper pb-[120px] pt-[130px] max-lg:pb-20 max-lg:pt-24">
+    <HomeWrap id="pillars" aria-labelledby="pillars-heading" className="scroll-mt-16 bg-paper py-20 max-lg:py-16">
       <HomeSectionHead id="pillars-heading" heading={data.heading} lede={data.lede} />
 
       <Box className="grid grid-cols-4 border-l border-t-[1.5px] border-ink/12 max-lg:grid-cols-2 max-sm:grid-cols-1">

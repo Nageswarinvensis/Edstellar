@@ -9,14 +9,16 @@ import Text from "@/components/ui/Text";
  * smallest client leaf of the formats table — the table itself is rendered
  * on the server. Base UI handles focus trapping, Escape and scroll lock.
  *
- * The stage is a placeholder until real sample assets exist; the design
- * marks it "VERIFY: embed the real sample asset".
+ * The stage is an iframe of the format's live sample page
+ * (`public/samples/learning-content/{file}.html`). The popup only mounts while
+ * open, so a sample loads when its dialog opens and unloads (stopping any
+ * audio or video) when it closes.
  *
- * Design: `.fmt-sample`, `.smodal`, `.smodal-box`, `.smodal-stage`.
+ * Design: `.fmt-sample`, `.smodal.is-live`, `.smodal-box`, `.smodal-frame`.
  */
-export default function LdFormatSample({ name, label, dialog }) {
-  // No dialog copy, no button — rather than a crash that 500s the page.
-  if (!dialog) return null;
+export default function LdFormatSample({ name, label, sample, dialog }) {
+  // No sample or dialog copy, no button — rather than a crash that 500s the page.
+  if (!sample || !dialog) return null;
 
   return (
     <Dialog.Root>
@@ -29,8 +31,8 @@ export default function LdFormatSample({ name, label, dialog }) {
 
       <Dialog.Portal>
         <Dialog.Backdrop className="fixed inset-0 z-200 bg-navy/60" />
-        <Dialog.Viewport className="fixed inset-0 z-200 flex items-center justify-center p-6">
-          <Dialog.Popup className="relative w-full max-w-160 rounded-[18px] bg-white px-8 py-7.5 shadow-[0_30px_80px_-20px_rgba(10,22,40,0.5)] outline-none">
+        <Dialog.Viewport className="fixed inset-0 z-200 flex items-center justify-center p-6 max-sm:p-2.5">
+          <Dialog.Popup className="relative max-h-[calc(100dvh-48px)] w-full max-w-220 overflow-auto rounded-[18px] bg-white px-7 pt-6.5 pb-5.5 shadow-[0_30px_80px_-20px_rgba(10,22,40,0.5)] outline-none max-sm:px-3.5 max-sm:pt-5 max-sm:pb-4">
             <Dialog.Close
               aria-label="Close"
               className="absolute top-3.5 right-3.5 grid size-9 cursor-pointer place-items-center rounded-full border border-ink/12 bg-paper text-[20px] leading-none text-navy hover:bg-paper-warm"
@@ -48,7 +50,7 @@ export default function LdFormatSample({ name, label, dialog }) {
               render={
                 <Text
                   as="h3"
-                  className="mb-4.5 pr-10 text-[22px] leading-[1.2] tracking-normal text-navy"
+                  className="mb-3.5 pr-10 text-[22px] leading-[1.2] tracking-normal text-navy"
                 />
               }
             >
@@ -57,13 +59,17 @@ export default function LdFormatSample({ name, label, dialog }) {
 
             <Text
               as="div"
-              className="grid aspect-video place-items-center rounded-[12px] border border-dashed border-ink/22 bg-paper-warm p-3 text-center font-mono text-[12px] leading-[1.7] tracking-[0.05em] text-ink/60"
+              className="h-[clamp(420px,calc(100dvh-230px),560px)] overflow-hidden rounded-[12px] border border-ink/12 bg-paper max-sm:h-[calc(100dvh-190px)]"
             >
-              {name} — {dialog.stage_suffix}
+              <iframe
+                title={sample.title}
+                src={`/samples/learning-content/${sample.file}.html`}
+                className="block size-full border-0"
+              />
             </Text>
 
             <Text as="p" className="mt-4 text-[13.5px] leading-[1.7] text-ink/60">
-              {dialog.note}{" "}
+              {sample.note}{" "}
               <Dialog.Close
                 render={<a href={dialog.note_cta.href} />}
                 className="font-semibold text-navy"

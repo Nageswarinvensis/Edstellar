@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Office Safety Inspection</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap');
+:root{--navy:#0A1628;--lime:#C8F135;--lime-soft:#E4F89A;--ink:#0A1628;--paper:#FAFAF7;--paper-warm:#F2F0E8;--white:#fff;
+  --muted:rgba(10,22,40,.6);--faint:rgba(10,22,40,.45);--rule:rgba(10,22,40,.12);--rule-strong:rgba(10,22,40,.22);--alt:rgba(10,22,40,.025);
+  --yes:#1F7A4D;--yes-bg:rgba(31,122,77,.1);--no:#B3261E;--no-bg:rgba(179,38,30,.07);--na:rgba(10,22,40,.45);--na-bg:rgba(10,22,40,.07)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow:hidden}
+.wrap{height:100%;display:grid;grid-template-columns:1fr 250px}
+/* main checklist */
+.main{min-width:0;min-height:0;display:flex;flex-direction:column;padding:14px 18px 12px;background:var(--white)}
+.top{flex:none;display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px;padding-bottom:10px;border-bottom:2px solid var(--navy)}
+h1{font-family:'Sora';font-weight:700;font-size:19px;letter-spacing:-.02em;line-height:1.1}
+h1 em{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:1.15em}
+.key{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.key i{font-style:normal;display:inline-grid;place-items:center;width:14px;height:14px;border-radius:50%;background:var(--no);color:#fff;font:700 9px 'Sora';margin-right:4px;vertical-align:1px}
+.list{flex:1;min-height:0;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead th{position:sticky;top:0;z-index:1;font-family:'DM Mono';font-weight:500;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:var(--navy);padding:7px 8px;text-align:left}
+thead th.c{text-align:center;width:46px}
+thead th:first-child{width:34px;border-top-left-radius:6px}
+thead th:last-child{border-top-right-radius:6px}
+tr.phase td{padding:8px 8px 3px;font-family:'Sora';font-weight:600;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--rule-strong)}
+tr.phase em{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:14px;text-transform:none;letter-spacing:0;margin-right:2px}
+tr.item td{padding:6px 8px;border-bottom:1px solid var(--rule);vertical-align:middle}
+tr.item:nth-child(even) td{background:var(--alt)}
+tr.item td.id{font-family:'DM Mono';font-size:11px;color:var(--faint)}
+tr.item.critical td.q{font-weight:600}
+tr.item.critical td.q::after{content:"!";display:inline-grid;place-items:center;width:14px;height:14px;margin-left:6px;border-radius:50%;font:700 9px 'Sora';vertical-align:1px;background:var(--no);color:#fff}
+tr.item.is-no td{background:var(--no-bg)}
+tr.item.is-no td.id{box-shadow:inset 3px 0 0 var(--no)}
+td.c{text-align:center}
+.opt{position:relative;display:inline-block;cursor:pointer}
+.opt input{position:absolute;opacity:0;width:0;height:0}
+.opt .box{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;border:1.5px solid var(--rule-strong);font:600 11px 'Sora';color:transparent;transition:background .15s,border-color .15s,color .15s}
+.opt:hover .box{border-color:var(--muted)}
+.opt input:focus-visible + .box{outline:2px solid var(--navy);outline-offset:2px}
+.opt input[value="yes"]:checked + .box{background:var(--yes);border-color:var(--yes);color:#fff}
+.opt input[value="no"]:checked + .box{background:var(--no);border-color:var(--no);color:#fff}
+.opt input[value="na"]:checked + .box{background:var(--na);border-color:var(--na);color:#fff}
+/* side rail */
+.rail{min-height:0;display:flex;flex-direction:column;gap:12px;padding:14px 16px 12px;background:var(--paper);border-left:1px solid var(--rule)}
+.lbl{font-family:'DM Mono';font-weight:500;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.prog{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.prog b{font-family:'Sora';font-weight:700;font-size:15px}
+.bar{height:5px;border-radius:3px;background:var(--rule);overflow:hidden;margin-bottom:10px}
+.bar i{display:block;height:100%;width:0;background:var(--navy);transition:width .3s}
+.pills{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.pill{text-align:center;border-radius:8px;padding:6px 4px;font-family:'DM Mono';font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pill b{display:block;font-family:'Sora';font-weight:700;font-size:16px;letter-spacing:0;line-height:1.2}
+.pill.yes{background:var(--yes-bg)} .pill.yes b{color:var(--yes)}
+.pill.no{background:var(--no-bg)} .pill.no b{color:var(--no)}
+.pill.na{background:var(--na-bg)} .pill.na b{color:var(--ink)}
+.acts{flex:1;min-height:0;display:flex;flex-direction:column}
+.acts .lbl{margin-bottom:6px}
+.alist{flex:1;min-height:0;overflow-y:auto;display:grid;align-content:start;gap:6px}
+.empty{font-size:12px;line-height:1.45;color:var(--faint);font-style:italic;border:1px dashed var(--rule-strong);border-radius:8px;padding:10px}
+.ai{background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--no);border-radius:6px;padding:7px 9px}
+.ai p{font-size:12px;line-height:1.35;margin-bottom:5px}
+.ai p b{font-family:'DM Mono';font-weight:500;font-size:10.5px;color:var(--no);margin-right:4px}
+.ai input{width:100%;font:12px 'DM Sans';color:var(--ink);background:transparent;border:0;border-bottom:1px dashed var(--rule-strong);padding:3px 1px;outline:none}
+.ai input:focus{border-bottom:1px solid var(--navy)}
+.ai input::placeholder{color:var(--faint)}
+.status{flex:none;font-size:12px;line-height:1.4;padding:9px 10px;border-radius:8px;background:var(--white);border:1px solid var(--rule);color:var(--muted)}
+.status.done{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.status.done b{color:var(--lime)}
+.reset{flex:none;align-self:center;font:inherit;font-size:11.5px;background:none;border:0;color:var(--ink);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.reset:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+@media (max-width:640px){
+  body{overflow:auto} .wrap{grid-template-columns:1fr;height:auto}
+  .main{padding:12px} .list{overflow:visible} .top{flex-direction:column;gap:4px}
+  thead th:first-child,tr.item td.id{display:none} thead th.c{width:38px}
+  .rail{border-left:0;border-top:1px solid var(--rule)} .alist{overflow:visible}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="main">
+    <div class="top">
+      <h1>Office safety <em>inspection</em></h1>
+      <span class="key"><i>!</i>Critical item</span>
+    </div>
+    <div class="list">
+      <table>
+        <thead><tr><th>#</th><th>Check item</th><th class="c">Yes</th><th class="c">No</th><th class="c">N/A</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+  <aside class="rail">
+    <div>
+      <div class="prog"><span class="lbl">Progress</span><b id="sDone">0 / 10</b></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="pills">
+        <div class="pill yes"><b id="sYes">0</b>Yes</div>
+        <div class="pill no"><b id="sNo">0</b>No</div>
+        <div class="pill na"><b id="sNa">0</b>N/A</div>
+      </div>
+    </div>
+    <div class="acts">
+      <span class="lbl">Corrective actions</span>
+      <div class="alist" id="actions"></div>
+    </div>
+    <p class="status" id="status" role="status">Answer all 10 items. Any No needs a remark.</p>
+    <button class="reset" id="reset" type="button">Clear and start again</button>
+  </aside>
+</div>
+<script>
+var PHASES=[
+  {em:'Before',items:[['Fire exits are clear and unlocked',true],['Workspace is free of trip or slip hazards',true],['Chair and monitor set to the right height',false],['Emergency contacts posted nearby',false]]},
+  {em:'During',items:[['Spills or wet floors reported right away',true],['Walkways and corridors kept clear',false],['Screen break taken every 30 minutes',false]]},
+  {em:'After',items:[['Unused equipment powered off overnight',false],['Files and supplies stored in place',false],['Incidents and near-misses logged before leaving',true]]}
+];
+var tbody=document.getElementById('rows'),n=0,remarks={};
+PHASES.forEach(function(p){
+  var ph=document.createElement('tr');ph.className='phase';
+  ph.innerHTML='<td colspan="5"><em>'+p.em+'</em> the task</td>';tbody.appendChild(ph);
+  p.items.forEach(function(it){
+    n++;var id=String(n).padStart(2,'0'),tr=document.createElement('tr');
+    tr.className='item'+(it[1]?' critical':'');tr.dataset.q=it[0];tr.dataset.id=id;
+    var opt=function(v,ch,l){return '<td class="c"><label class="opt"><input type="radio" name="q'+n+'" value="'+v+'" aria-label="'+l+': '+it[0]+'"><span class="box">'+ch+'</span></label></td>';};
+    tr.innerHTML='<td class="id">'+id+'</td><td class="q">'+it[0]+'</td>'+opt('yes','&#10003;','Yes')+opt('no','&#10005;','No')+opt('na','&ndash;','N/A');
+    tbody.appendChild(tr);
+  });
+});
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+function update(){
+  var c={yes:0,no:0,na:0},issues=[];
+  document.querySelectorAll('tr.item').forEach(function(tr){
+    var s=tr.querySelector('input:checked'),v=s?s.value:null;if(v)c[v]++;
+    tr.classList.toggle('is-no',v==='no');if(v==='no')issues.push(tr);
+  });
+  var done=c.yes+c.no+c.na;
+  sYes.textContent=c.yes;sNo.textContent=c.no;sNa.textContent=c.na;
+  sDone.textContent=done+' / 10';bar.style.width=(done*10)+'%';
+  var box=document.getElementById('actions');
+  box.innerHTML=issues.length?issues.map(function(tr){var id=tr.dataset.id;
+    return '<div class="ai"><p><b>#'+id+'</b>'+tr.dataset.q+'</p><input data-id="'+id+'" placeholder="Remark: what needs fixing?" value="'+esc(remarks[id]||'')+'" aria-label="Remark for item '+id+'"></div>';}).join('')
+    :'<p class="empty">No issues yet. Items marked No appear here.</p>';
+  status_();
+}
+function status_(){
+  var done=document.querySelectorAll('tr.item input:checked').length,
+      open=[].slice.call(document.querySelectorAll('.ai input')).filter(function(i){return !i.value.trim();}).length,
+      el=document.getElementById('status');
+  el.className='status';
+  if(done<10){el.textContent='Answer all 10 items. Any No needs a remark.';}
+  else if(open){el.textContent=open+' remark'+(open>1?'s':'')+' still needed for items marked No.';}
+  else{el.className='status done';el.innerHTML='<b>Inspection complete.</b> '+(document.querySelectorAll('.ai').length?'Corrective actions are listed above.':'No issues found.');}
+}
+tbody.addEventListener('click',function(e){var r=e.target;if(r.type!=='radio')return;
+  if(r.dataset.was==='1'){r.checked=false;r.dataset.was='0';update();return;}
+  tbody.querySelectorAll('input[name="'+r.name+'"]').forEach(function(o){o.dataset.was='0';});r.dataset.was='1';});
+tbody.addEventListener('change',update);
+document.getElementById('actions').addEventListener('input',function(e){if(e.target.dataset.id){remarks[e.target.dataset.id]=e.target.value;status_();}});
+document.getElementById('reset').onclick=function(){tbody.querySelectorAll('input').forEach(function(i){i.checked=false;i.dataset.was='0';});remarks={};update();};
+var sYes=document.getElementById('sYes'),sNo=document.getElementById('sNo'),sNa=document.getElementById('sNa'),sDone=document.getElementById('sDone'),bar=document.getElementById('bar');
+update();
+</script>
+</body>
+</html>

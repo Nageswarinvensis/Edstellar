@@ -2,7 +2,7 @@ import { getCareersPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 
-import CompanyHero from "@/components/sections/company/company-hero";
+import CareersHero from "@/components/sections/company/careers/careers-hero";
 import WhyWork from "@/components/sections/company/careers/why-work";
 import TrainerSpotlight from "@/components/sections/company/careers/trainer-spotlight";
 
@@ -31,7 +31,7 @@ export default function CareersPage() {
         breadcrumbs={breadcrumbs}
       />
 
-      <CompanyHero heading={hero.heading} breadcrumbs={breadcrumbs} image={hero.image} />
+      <CareersHero heading={hero.heading} breadcrumbs={breadcrumbs} image={hero.image} />
       <WhyWork data={why} />
       <TrainerSpotlight data={trainer} />
     </>

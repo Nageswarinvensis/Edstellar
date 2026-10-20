@@ -6,36 +6,65 @@ import { Check } from "lucide-react";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import CtaButton from "@/components/common/cta-button";
+import { submitCatalogDownload } from "@/lib/actions/submit-catalog-download";
 import { RailEyebrow } from "./rail-card";
 
-const CATALOG_PDF =
-  "https://cdn.prod.website-files.com/6482a3cf7db698c2a80cc5e6/69ef2b22fcefd48cb366f1d5_Combined%20Catalog%20A5.pdf";
+const CATALOG_PDF = "https://media.edstellar.com/brochures/all-courses-catalog.pdf";
 
 /**
- * "Free download" rail card: navy panel with a white work-email form; once
- * the email and consent check out, the form gives way to the PDF link.
- * Front-end only for now, as in the design — no lead is sent anywhere yet.
+ * "Free download" rail card: navy panel with a white work-email form. The
+ * email goes to Zoho "DownloadCatalog" (Branch and PAGE NAME "blog") through
+ * the `submitCatalogDownload` Server Action; once Zoho has it, the catalog
+ * opens in a new tab and the form gives way to the PDF link.
+ *
+ * The tab is opened on the click itself and pointed at the PDF after the
+ * submit succeeds — a tab opened only after the server round-trip is no
+ * longer tied to the click, and browsers block it as a pop-up.
  *
  * Design: Blog page v2 `.cat-dl.rail`, `.cat-dl-panel`, `.cat-dl-done`.
  */
 export default function CatalogRail() {
   const [email, setEmail] = useState("");
-  const [consent, setConsent] = useState(false);
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  function submit(event) {
+  async function submit(event) {
     event.preventDefault();
     if (!/^[^@\s]+@[^@\s.]+\.[^@\s]+$/.test(email)) {
       setError("Use your work email so we can send the catalog.");
       return;
     }
-    if (!consent) {
-      setError("We need your agreement before we can send it.");
+    setError("");
+    setSubmitting(true);
+
+    // Opened now, while the click still counts, then sent to the PDF below.
+    const tab = window.open("", "_blank");
+    if (tab) tab.opener = null;
+
+    let result;
+    try {
+      result = await submitCatalogDownload({
+        email,
+        company_website: event.currentTarget.elements.company_website?.value ?? "",
+        page: window.location.pathname,
+      });
+    } catch {
+      result = null;
+    }
+    setSubmitting(false);
+
+    if (result?.ok) {
+      if (tab) tab.location.href = CATALOG_PDF;
+      setSent(true);
       return;
     }
-    setError("");
-    setSent(true);
+    tab?.close();
+    setError(
+      result?.errors?.email ||
+        result?.error ||
+        "We could not send your request. Please try again, or email us at contact@edstellar.com.",
+    );
   }
 
   return (
@@ -106,17 +135,6 @@ export default function CatalogRail() {
               className="w-full rounded-[10px] border border-ink/22 bg-paper px-3.5 py-3 text-[14px] text-ink outline-none placeholder:text-ink/45 focus:border-navy"
             />
 
-            <label className="mt-3 flex cursor-pointer items-start gap-2.5 text-[12.5px] leading-[1.5] text-ink/60">
-              <input
-                type="checkbox"
-                checked={consent}
-                onChange={(event) => setConsent(event.target.checked)}
-                className="mt-0.5 size-4 flex-none cursor-pointer accent-navy"
-              />
-              I agree to Edstellar contacting me about this catalog and related
-              training.
-            </label>
-
             <input
               type="text"
               name="company_website"
@@ -126,8 +144,8 @@ export default function CatalogRail() {
               className="hidden"
             />
 
-            <CtaButton type="submit" arrow block className="mt-3.5 py-3.5 text-[13px]">
-              Download the catalog (PDF)
+            <CtaButton type="submit" arrow block disabled={submitting} className="mt-3.5 py-3.5 text-[13px]">
+              {submitting ? "Sending…" : "Download the catalog (PDF)"}
             </CtaButton>
           </form>
         )}

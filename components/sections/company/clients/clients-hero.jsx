@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Image from "next/image";
 
 import Box from "@/components/ui/Box";
@@ -9,7 +8,7 @@ import CtaButton from "@/components/common/cta-button";
 import Breadcrumbs from "@/components/common/breadcrumbs";
 
 /** Clients hero — headline, lede, two CTAs and a stat row on the left; a
- * four-column logo mosaic with a navy stat card on the right. */
+ * four-column logo mosaic on the right. */
 export default function ClientsHero({ data, breadcrumbs }) {
   if (!data) return null;
 
@@ -52,41 +51,21 @@ export default function ClientsHero({ data, breadcrumbs }) {
           </Box>
         </Box>
 
-        {/* Logo mosaic — the navy stat card sits after the 8th tile and spans
-            two columns, matching the design's asymmetric grid. */}
-        <Box as="ul" className="grid list-none grid-cols-4 gap-4 pb-6 max-md:grid-cols-2">
-          {data.mosaic?.map((tile, i) => (
-            <Fragment key={tile.name}>
-              {i === 8 && (
-                <Box
-                  as="li"
-                  aria-hidden="true"
-                  className="col-span-2 flex items-center gap-10 rounded-[14px] bg-navy px-7 py-6 text-paper shadow-lift max-md:gap-6"
-                >
-                  {data.mosaic_card?.map((stat) => (
-                    <Box key={stat.label}>
-                      <Text as="span" className="block font-display text-[32px] font-bold leading-none tracking-[-0.03em] text-paper">
-                        {stat.value}
-                      </Text>
-                      <Text as="span" className="mt-1 block text-[13px] text-paper/60">
-                        {stat.label}
-                      </Text>
-                    </Box>
-                  ))}
-                </Box>
-              )}
-              <Box as="li" className={tile.off ? "opacity-45" : undefined}>
-                <Box className="flex h-full items-center justify-center rounded-[14px] border border-ink/12 bg-white p-4 shadow-rest">
-                  <Image
-                    src={tile.logo}
-                    alt={tile.name}
-                    width={160}
-                    height={64}
-                    className="h-16 w-full max-w-[160px] object-contain"
-                  />
-                </Box>
+        {/* Logo mosaic — 12 tiles in four columns; on phones it drops to
+            three columns and the last three tiles, matching the design. */}
+        <Box as="ul" className="grid list-none grid-cols-4 gap-4 pb-6 max-md:grid-cols-2 max-sm:grid-cols-3 max-sm:gap-2 max-sm:pb-0 max-sm:[&>li:nth-child(n+10)]:hidden">
+          {data.mosaic?.map((tile) => (
+            <Box as="li" key={tile.name} className={tile.off ? "opacity-45" : undefined}>
+              <Box className="flex h-full items-center justify-center rounded-[14px] border border-ink/12 bg-white p-4 shadow-rest max-sm:rounded-[10px] max-sm:p-2">
+                <Image
+                  src={tile.logo}
+                  alt={tile.name}
+                  width={160}
+                  height={64}
+                  className="h-16 w-full max-w-[160px] object-contain max-sm:h-8"
+                />
               </Box>
-            </Fragment>
+            </Box>
           ))}
         </Box>
       </Box>

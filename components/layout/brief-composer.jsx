@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import CountryPhoneFields, { phoneForSubmit } from "@/components/forms/country-phone-fields";
+import { submitGlobalNavigation } from "@/lib/actions/submit-global-navigation";
 import { BRIEF } from "@/lib/nav-data";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const PHONE_RE = /^[+()\d\s.-]{7,20}$/;
 
 function Chevron({ open }) {
   return (
@@ -170,8 +172,12 @@ function Field({ id, name, label, type = "text", optional, autoComplete, error, 
  * "Build your brief" composer — the interactive sentence builder plus a short
  * contact form. Client Component (form + dropdown state). Controlled `open` by
  * SiteHeader; renders as a full-width panel on desktop and a full-screen sheet
- * on mobile. With no CRM endpoint wired it runs in preview mode: a valid submit
- * shows the success state after a short delay (mirrors the launch design).
+ * on mobile. A valid brief goes to Zoho "GlobalNavigationForm" through the
+ * `submitGlobalNavigation` Server Action and the shared lead pipeline
+ * (`lib/leads/`): the three sentence choices, the free text as the message,
+ * and the contact-us form's country + international phone fields
+ * (`CountryPhoneFields`, react-hook-form), both required as Zoho requires
+ * them. The thank-you state shows in place once Zoho has the brief.
  */
 export default function BriefComposer({ open, onClose, variant = "desktop", idPrefix = "bd" }) {
   const pid = (suffix) => `${idPrefix}-${suffix}`;
@@ -183,6 +189,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
   const [done, setDone] = useState(null);
   const formRef = useRef(null);
   const doneRef = useRef(null);
+  const phoneForm = useForm({ defaultValues: { country: "", phone: "", dialCode: "1" } });
 
   useEffect(() => {
     if (!open) {
@@ -227,7 +234,6 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const org = String(data.get("organization") || "").trim();
-    const phone = String(data.get("phone") || "").trim();
     const needs = String(data.get("requirements") || "").trim();
 
     if (!state.service && !needs)
@@ -237,17 +243,19 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
     else if (!EMAIL_RE.test(email))
       next.email = "Enter an email address like name@company.com.";
     if (!org) next.company = "Enter your organization's name.";
-    if (phone && !(PHONE_RE.test(phone) && phone.replace(/\D/g, "").length >= 7))
-      next.phone = "Enter a phone number with at least 7 digits, or leave it empty.";
     return next;
   };
 
-  const onSubmit = (ev) => {
+  // A slot's chosen option label — Zoho's own dropdown value — or "".
+  const chosen = (k) => slot(k).options.find((o) => o.v === state[k])?.label ?? "";
+
+  const onSubmit = async (ev) => {
     ev.preventDefault();
     const data = new FormData(formRef.current);
     const next = validate(data);
     setErrors(next);
-    const count = Object.keys(next).length;
+    const phoneOk = await phoneForm.trigger(["country", "phone"]);
+    const count = Object.keys(next).length + (phoneOk ? 0 : Object.keys(phoneForm.formState.errors).length || 1);
     if (count) {
       setAlert(`Please fix ${count === 1 ? "1 field" : `${count} fields`} before sending your brief.`);
       return;
@@ -255,16 +263,50 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
     setAlert("");
     const firstName = String(data.get("name")).trim().split(/\s+/)[0];
     const finish = () => setDone({ name: firstName, sentence: state.service ? sentence() : "" });
-    if (data.get("website")) {
+
+    setSubmitting(true);
+    const { country, phone, dialCode } = phoneForm.getValues();
+    let result;
+    try {
+      result = await submitGlobalNavigation({
+        name: String(data.get("name") || "").trim(),
+        email: String(data.get("email") || "").trim(),
+        company: String(data.get("organization") || "").trim(),
+        country,
+        phone: phoneForSubmit(phone),
+        dialCode,
+        briefService: chosen("service"),
+        briefWho: chosen("who"),
+        briefWhere: chosen("where"),
+        message: String(data.get("requirements") || "").trim(),
+        company_website: String(data.get("website") || ""),
+        page: window.location.pathname,
+      });
+    } catch {
+      result = null;
+    }
+    setSubmitting(false);
+
+    if (result?.ok) {
       finish();
       return;
     }
-    setSubmitting(true);
-    // No CRM endpoint wired yet — simulate the request, then show success.
-    setTimeout(() => {
-      setSubmitting(false);
-      finish();
-    }, 500);
+    if (result?.errors) {
+      // The pipeline's field names → this form's.
+      const FIELD = { company: "company", message: "needs", name: "name", email: "email" };
+      const mine = {};
+      for (const [field, msg] of Object.entries(result.errors)) {
+        if (field === "country" || field === "phone") phoneForm.setError(field, { message: msg });
+        else mine[FIELD[field] ?? field] = msg;
+      }
+      setErrors(mine);
+      setAlert("Please check the highlighted fields before sending your brief.");
+      return;
+    }
+    setAlert(
+      result?.error ||
+        "We could not send your brief. Please try again, or email us at contact@edstellar.com.",
+    );
   };
 
   const clearError = (key) => () =>
@@ -288,7 +330,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
             }`
       } bg-paper-warm`}
     >
-      <Box className="mx-auto max-w-7xl px-10 pt-7 pb-8 max-sm:px-4">
+      <Box className="mx-auto max-w-[1360px] px-10 pt-7 pb-8 max-sm:px-4">
         {/* Header row */}
         <Box className="relative pr-14">
           <Box
@@ -376,8 +418,19 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
                 <Box className="grid grid-cols-2 gap-3 max-[899px]:grid-cols-1">
                   <Field id={pid("name")} name="name" label="Full name" autoComplete="name" error={errors.name} onInput={clearError("name")} />
                   <Field id={pid("email")} name="email" label="Work email" type="email" autoComplete="email" error={errors.email} onInput={clearError("email")} />
-                  <Field id={pid("company")} name="organization" label="Organization" autoComplete="organization" error={errors.company} onInput={clearError("company")} />
-                  <Field id={pid("phone")} name="phone" label="Phone" type="tel" optional autoComplete="tel" error={errors.phone} onInput={clearError("phone")} />
+                  <Box className="col-span-2 max-[899px]:col-span-1">
+                    <Field id={pid("company")} name="organization" label="Organization" autoComplete="organization" error={errors.company} onInput={clearError("company")} />
+                  </Box>
+                  <CountryPhoneFields
+                    form={{
+                      register: phoneForm.register,
+                      control: phoneForm.control,
+                      watch: phoneForm.watch,
+                      setValue: phoneForm.setValue,
+                      errors: phoneForm.formState.errors,
+                    }}
+                    phoneLabel="Phone"
+                  />
                 </Box>
                 <Box className="mt-3.5 flex flex-wrap items-center justify-between gap-3">
                   <Text as="p" className="max-w-80 text-[11.5px] text-ink/60">

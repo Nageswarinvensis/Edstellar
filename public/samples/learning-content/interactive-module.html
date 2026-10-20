@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process — Employee Onboarding</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300..700&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=DM+Sans:wght@300..700&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --navy: #0A1628;
+    --navy-soft: #14233D;
+    --lime: #C8F135;
+    --lime-soft: #E4F89A;
+    --ink: #0A1628;
+    --paper: #FAFAF7;
+    --paper-warm: #F2F0E8;
+
+    --bg: var(--paper);
+    --surface: #FFFFFF;
+    --fg: var(--ink);
+    --fg-muted: rgba(10,22,40,.6);
+    --border: rgba(10,22,40,.12);
+    --border-strong: rgba(10,22,40,.22);
+    --warm: var(--paper-warm);
+    --success: #16A34A;
+    --success-bg: rgba(22,163,74,0.08);
+    --danger: #B3261E;
+    --danger-bg: rgba(179,38,30,0.07);
+    --font-display: 'Sora', sans-serif;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --shadow: 0 1px 3px rgba(10,22,40,.07), 0 2px 8px rgba(10,22,40,.05);
+    --shadow-lg: 0 12px 32px rgba(10,22,40,.14);
+    --shadow-hover: 0 8px 24px rgba(10,22,40,.10), 0 16px 48px rgba(10,22,40,.07);
+    --wordmark: #141618;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: var(--navy);
+      --surface: var(--navy-soft);
+      --fg: var(--paper);
+      --fg-muted: rgba(250,250,247,0.6);
+      --border: rgba(250,250,247,0.12);
+      --border-strong: rgba(250,250,247,0.22);
+      --warm: #1A2D4A;
+      --success: #4ADE80;
+      --success-bg: rgba(74,222,128,0.10);
+      --danger: #F87171;
+      --danger-bg: rgba(248,113,113,0.10);
+      --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.14);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.4);
+      --shadow-hover: 0 8px 24px rgba(0,0,0,0.3), 0 16px 48px rgba(0,0,0,0.2);
+      --wordmark: var(--paper);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: var(--navy);
+    --surface: var(--navy-soft);
+    --fg: var(--paper);
+    --fg-muted: rgba(250,250,247,0.6);
+    --border: rgba(250,250,247,0.12);
+    --border-strong: rgba(250,250,247,0.22);
+    --warm: #1A2D4A;
+    --success: #4ADE80;
+    --success-bg: rgba(74,222,128,0.10);
+    --danger: #F87171;
+    --danger-bg: rgba(248,113,113,0.10);
+    --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.14);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,0.4);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.3), 0 16px 48px rgba(0,0,0,0.2);
+    --wordmark: var(--paper);
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    padding-inline: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 720px; width: 100%; padding-block: 32px 48px; }
+
+  /* Logo */
+  .edstellar-logo { display: flex; align-items: center; margin-bottom: 16px; }
+  .edstellar-logo svg { height: 32px; width: auto; overflow: visible; }
+  .edstellar-logo .wm { fill: var(--wordmark); }
+
+  /* Header */
+  .mod-header { text-align: center; margin-bottom: 24px; animation: rise 0.5s ease-out both; }
+  .mod-tag {
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted);
+  }
+  .mod-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mod-tag .dot { background: var(--lime); } }
+  :root[data-theme="dark"] .mod-tag .dot { background: var(--lime); }
+  .mod-header h1 { font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 6px; }
+  .mod-header h1 em { font-family: var(--font-serif); font-weight: 600; font-size: 1.15em; }
+  .mod-header p { max-width: 52ch; margin-inline: auto; font-size: 14px; line-height: 1.6; color: var(--fg-muted); }
+
+  /* Stage pills */
+  .stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; padding: 0; list-style: none; }
+  .stages li {
+    display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 8px;
+    border: 1.5px solid var(--border); border-radius: 100px; background: var(--surface);
+    font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--fg-muted);
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .stages .n { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid currentColor; font-family: var(--font-mono); font-size: 11px; }
+  .stages li.now { background: var(--navy); border-color: var(--navy); color: var(--lime); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .stages li.now { background: var(--lime); border-color: var(--lime); color: var(--navy); } }
+  :root[data-theme="dark"] .stages li.now { background: var(--lime); border-color: var(--lime); color: var(--navy); }
+  .stages li.done { color: var(--success); border-color: var(--success); }
+  .stages li.done .n { background: var(--success); border-color: var(--success); color: #fff; }
+
+  /* Card */
+  .card {
+    position: relative; overflow: hidden; margin-bottom: 16px; padding: 24px;
+    background: linear-gradient(135deg, #FAFAF7 0%, #F2F0E8 50%, #EDE9DD 100%);
+    border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow);
+  }
+  .card::after { content: attr(data-art); position: absolute; right: -10px; bottom: -24px; font-size: 120px; opacity: 0.06; transform: rotate(-12deg); pointer-events: none; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .card { background: linear-gradient(135deg, #0A1628 0%, #14233D 50%, #0A1628 100%); } }
+  :root[data-theme="dark"] .card { background: linear-gradient(135deg, #0A1628 0%, #14233D 50%, #0A1628 100%); }
+  .card > * { position: relative; z-index: 1; }
+  .card.enter { animation: rise 0.35s ease-out both; }
+
+  .card-title { margin-bottom: 4px; font-family: var(--font-display); font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  .card-sub { margin-bottom: 18px; font-size: 14px; line-height: 1.55; color: var(--fg-muted); }
+
+  /* Part 1: order */
+  .order-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 16px; align-items: start; }
+  .col-label { margin-bottom: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-muted); }
+  .pool { display: grid; gap: 8px; min-height: 60px; }
+  .pool-empty { padding: 14px; text-align: center; font-size: 13px; color: var(--fg-muted); border: 1.5px dashed var(--border-strong); border-radius: 10px; }
+  .step-card {
+    display: flex; align-items: center; gap: 10px; width: 100%; padding: 12px 14px;
+    border: 1.5px solid var(--border-strong); border-radius: 10px; background: var(--surface); color: var(--fg);
+    font-family: var(--font-body); font-size: 14px; font-weight: 600; text-align: left; cursor: grab;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .step-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+  .step-card.selected { border-color: var(--fg); box-shadow: 0 0 0 3px var(--lime); transform: translateY(-2px); }
+  .step-card.dragging { opacity: 0.4; }
+  .step-card .emo { flex: none; font-size: 18px; }
+  .step-card .grip { margin-left: auto; color: var(--fg-muted); font-size: 14px; letter-spacing: -2px; }
+
+  .slots { display: grid; gap: 8px; }
+  .slot {
+    display: flex; align-items: center; gap: 10px; width: 100%; min-height: 50px; padding: 8px 12px;
+    border: 1.5px dashed var(--border-strong); border-radius: 10px; background: transparent; color: var(--fg-muted);
+    font-family: var(--font-body); font-size: 13px; text-align: left; cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .slot .num { flex: none; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--surface); border: 1.5px solid var(--border-strong); font-family: var(--font-mono); font-size: 11px; color: var(--fg); }
+  .slot.over, .slot.ready { border-color: var(--fg); background: var(--surface); }
+  .slot.filled { border-style: solid; border-color: var(--success); background: var(--success-bg); color: var(--fg); font-size: 14px; font-weight: 600; cursor: default; animation: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .slot.filled .num { background: var(--success); border-color: var(--success); color: #fff; }
+  .slot.filled .emo { font-size: 18px; }
+  .slot.shake { animation: shake 0.4s ease; border-color: var(--danger); background: var(--danger-bg); }
+
+  .fb { min-height: 24px; margin-top: 16px; padding: 12px 14px; border-radius: 10px; background: var(--surface); border-left: 3px solid var(--border-strong); font-size: 14px; line-height: 1.5; }
+  .fb:empty { display: none; }
+  .fb.ok { border-left-color: var(--success); color: var(--success); }
+  .fb.bad { border-left-color: var(--danger); color: var(--danger); }
+  .fb.info { border-left-color: var(--fg); }
+  .fb b { color: var(--fg); }
+
+  .retry-box { margin-top: 16px; padding: 16px; border: 1.5px solid var(--fg); border-radius: 12px; background: var(--lime-soft); color: #0A1628; }
+  .retry-box h3 { margin-bottom: 6px; font-family: var(--font-display); font-size: 16px; }
+  .retry-box p { font-size: 14px; line-height: 1.55; }
+  .retry-box .hint { margin-top: 8px; font-family: var(--font-serif); font-style: italic; font-size: 18px; }
+
+  /* Part 2: explore */
+  .flow { position: relative; display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .flow::before { content: ''; position: absolute; left: 25px; top: 20px; bottom: 20px; width: 2px; background: var(--border-strong); }
+  .node {
+    position: relative; display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px;
+    border: 1.5px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--fg);
+    font-family: var(--font-body); font-size: 15px; font-weight: 600; text-align: left; cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .node:hover { transform: translateX(4px); box-shadow: var(--shadow-hover); }
+  .node .num { flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--navy); color: var(--lime); font-family: var(--font-mono); font-size: 11px; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .node .num { background: var(--lime); color: var(--navy); } }
+  :root[data-theme="dark"] .node .num { background: var(--lime); color: var(--navy); }
+  .node .emo { font-size: 18px; }
+  .node .tap { margin-left: auto; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+  .node.seen { border-color: var(--success); }
+  .node.seen .tap { color: var(--success); }
+
+  dialog.pop {
+    width: min(420px, calc(100vw - 32px)); margin: auto; padding: 0; overflow: hidden;
+    border: 1px solid var(--border); border-radius: 18px; background: var(--surface); color: var(--fg); box-shadow: var(--shadow-lg);
+  }
+  dialog.pop::backdrop { background: rgba(10,22,40,0.45); }
+  dialog.pop[open] { animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .pop-head { display: flex; align-items: center; gap: 12px; padding: 18px 20px; background: var(--navy); color: var(--paper); }
+  .pop-head .emo { font-size: 28px; }
+  .pop-head small { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,250,247,0.6); }
+  .pop-head h3 { font-family: var(--font-display); font-size: 18px; }
+  .facts { display: grid; gap: 10px; padding: 18px 20px; list-style: none; }
+  .facts li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 10px; background: var(--warm); }
+  .facts .ico { flex: none; font-size: 20px; }
+  .facts b { display: block; margin-bottom: 2px; font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-muted); }
+  .facts span { font-size: 15px; font-weight: 600; }
+  .pop-close { display: block; width: calc(100% - 40px); margin: 0 20px 20px; padding: 12px; border: none; border-radius: 100px; background: var(--navy); color: var(--lime); font-family: var(--font-display); font-size: 14px; font-weight: 700; cursor: pointer; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pop-close { background: var(--paper); color: var(--navy); } }
+  :root[data-theme="dark"] .pop-close { background: var(--paper); color: var(--navy); }
+
+  /* Part 3: decide */
+  .ticket { margin-bottom: 16px; overflow: hidden; border: 1px solid #CBD5E1; border-radius: 10px; background: #fff; color: #0F172A; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color-scheme: light; }
+  .ticket-top { display: flex; justify-content: space-between; padding: 8px 12px; background: #1E3A5F; color: #fff; font-weight: 600; }
+  .ticket-top span { color: #7DD3FC; }
+  .ticket-body { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; padding: 12px; }
+  .ticket-body dt { color: #64748B; }
+  .ticket-body dd { font-weight: 600; }
+  .missing { color: #B91C1C; }
+  .opts { display: grid; gap: 8px; }
+  .opt {
+    display: flex; align-items: center; gap: 12px; width: 100%; padding: 13px 14px;
+    border: 1.5px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--fg);
+    font-family: var(--font-body); font-size: 14px; font-weight: 500; line-height: 1.45; text-align: left; cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .opt:hover:not(:disabled) { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+  .opt:disabled { cursor: default; }
+  .opt-key { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--border-strong); font-family: var(--font-mono); font-size: 11px; color: var(--fg-muted); }
+  .opt.is-correct { border-color: var(--success); background: var(--success-bg); }
+  .opt.is-correct .opt-key { background: var(--success); border-color: var(--success); color: #fff; }
+  .opt.is-wrong { border-color: var(--danger); background: var(--danger-bg); }
+  .opt.is-wrong .opt-key { background: var(--danger); border-color: var(--danger); color: #fff; }
+
+  /* Main button */
+  .main-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px;
+    border: none; border-radius: 100px; background: var(--navy); color: var(--lime); cursor: pointer;
+    font-family: var(--font-display); font-size: 15px; font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .main-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+  .main-btn:disabled { opacity: 0.35; cursor: default; }
+  .main-btn[hidden] { display: none; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .main-btn { background: var(--paper); color: var(--navy); } }
+  :root[data-theme="dark"] .main-btn { background: var(--paper); color: var(--navy); }
+
+  /* Results */
+  .results { text-align: center; }
+  .result-icon { font-size: 48px; margin-bottom: 8px; animation: bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .result-title { margin-bottom: 6px; font-family: var(--font-display); font-size: 22px; font-weight: 700; }
+  .result-msg { max-width: 44ch; margin: 0 auto 20px; font-size: 14px; line-height: 1.6; color: var(--fg-muted); }
+  .result-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+  .stat-box { padding: 14px 8px; border-radius: 10px; background: var(--surface); }
+  .stat-num { margin-bottom: 4px; font-family: var(--font-display); font-size: 24px; font-weight: 700; line-height: 1; }
+  .stat-num.good { color: var(--success); }
+  .stat-num.bad { color: var(--danger); }
+  .stat-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+  .note { padding: 14px 16px; text-align: left; border-radius: 10px; background: var(--surface); font-size: 12px; line-height: 1.6; color: var(--fg-muted); }
+  .note b { color: var(--fg); }
+
+  /* Animations */
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes pop { 0% { opacity: 0; transform: scale(0.92); } 70% { transform: scale(1.02); } 100% { opacity: 1; transform: none; } }
+  @keyframes popIn { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: none; } }
+  @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+  @keyframes bounce { 0% { opacity: 0; transform: scale(0.3); } 60% { opacity: 1; transform: scale(1.1); } 100% { transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+  @media (max-width: 600px) {
+    .card { padding: 18px 14px; }
+    .order-grid { grid-template-columns: 1fr; }
+    .stages li { font-size: 12px; padding: 8px 4px; }
+    .stages li .lbl-long { display: none; }
+    .result-stats { gap: 6px; }
+    .stat-num { font-size: 20px; }
+  }
+</style>
+<style>
+  /* Onboarding extras */
+  .objective {
+    display: flex; gap: 10px; align-items: flex-start; max-width: 560px; margin: 14px auto 0; padding: 10px 14px;
+    text-align: left; border: 1px dashed var(--border-strong); border-radius: 10px; font-size: 13px; line-height: 1.5; color: var(--fg-muted);
+  }
+  .objective b { color: var(--fg); }
+  .sample-tag {
+    display: inline-block; margin: 0 20px 14px; padding: 4px 10px; border-radius: 100px;
+    background: var(--lime-soft); color: #0A1628; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
+  }
+
+  /* Pointer drag */
+  .step-card { touch-action: none; user-select: none; }
+  .drag-ghost {
+    position: fixed; z-index: 100; pointer-events: none; margin: 0;
+    box-shadow: var(--shadow-lg) !important; transform: rotate(-3deg) scale(1.04); opacity: 0.95;
+  }
+
+  /* Laptop login mock */
+  .laptop { margin-bottom: 16px; }
+  .screen {
+    padding: 20px 16px 22px; border: 10px solid #1F2937; border-bottom-width: 14px; border-radius: 14px 14px 4px 4px;
+    background: linear-gradient(160deg, #1E3A8A, #0F172A); color: #fff; text-align: center;
+    font-family: 'Segoe UI', system-ui, sans-serif; color-scheme: light;
+  }
+  .screen .avatar { display: grid; place-items: center; width: 54px; height: 54px; margin: 0 auto 8px; border-radius: 50%; background: #3B82F6; font-size: 20px; font-weight: 700; }
+  .screen .name { margin-bottom: 10px; font-size: 15px; font-weight: 600; }
+  .screen .pw { width: 200px; max-width: 100%; margin: 0 auto 8px; padding: 8px 10px; border-radius: 6px; background: rgba(255,255,255,0.15); text-align: left; font-size: 13px; letter-spacing: 3px; }
+  .screen .err { display: inline-block; padding: 6px 10px; border-radius: 6px; background: #FEE2E2; color: #991B1B; font-size: 12px; font-weight: 600; animation: shake 0.5s ease 0.4s both; }
+  .base { height: 10px; margin: 0 -14px; border-radius: 0 0 12px 12px; background: #9CA3AF; }
+  .clock { margin-bottom: 4px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+</style>
+
+<style>
+  /* ===== Embedded (modal stage) fit ===== */
+  html, body { height: 100%; }
+  body { padding: 0; min-height: 0; display: block; background: var(--paper); overflow-y: auto; }
+  .container { max-width: none; padding: 12px 18px 12px; }
+  .mod-header { text-align: left; margin-bottom: 10px; animation: none; }
+  .mod-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .mod-header h1 { font-size: 19px; margin: 0; }
+  .mod-tag { margin: 0; font-size: 10px; }
+  .mod-header > p:not(.objective) { display: none; }
+  .mod-header .objective { max-width: none; margin: 5px 0 0; padding: 5px 10px; font-size: 12px; }
+  .stages { margin-bottom: 8px; gap: 6px; }
+  .stages li { padding: 5px 8px; font-size: 12px; }
+  .stages .n { width: 19px; height: 19px; font-size: 10px; }
+  .card { padding: 12px 16px; margin-bottom: 8px; overflow: clip; } /* clip: not a scroll container, so focus never shifts the card */
+  .card::after { font-size: 90px; }
+  .card-title { font-size: 16px; margin-bottom: 2px; }
+  .card-sub { font-size: 13px; margin-bottom: 8px; }
+  .order-grid { gap: 14px; }
+  .col-label { margin-bottom: 6px; }
+  .pool, .slots { gap: 6px; }
+  .step-card { padding: 6px 12px; font-size: 13px; }
+  .step-card .emo, .slot.filled .emo { font-size: 16px; }
+  .slot { min-height: 33px; padding: 3px 10px; font-size: 12.5px; }
+  .slot.filled { font-size: 13px; }
+  .slot .num { width: 22px; height: 22px; font-size: 10px; }
+  .fb { margin-top: 8px; padding: 7px 12px; font-size: 13px; line-height: 1.45; }
+  .retry-box { margin-top: 10px; padding: 12px; }
+  .retry-box .hint { font-size: 16px; }
+  .main-btn { padding: 10px; font-size: 14px; }
+  /* Explore: two columns of nodes */
+  .flow { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .flow::before { display: none; }
+  .node { padding: 10px 12px; font-size: 14px; }
+  .node:hover { transform: translateY(-2px); }
+  /* Decide: laptop beside the question */
+  .decide-grid { display: grid; grid-template-columns: 220px 1fr; gap: 16px; align-items: start; }
+  .laptop { margin-bottom: 0; }
+  .screen { padding: 12px 10px 14px; border-width: 7px; border-bottom-width: 10px; }
+  .screen .avatar { width: 38px; height: 38px; font-size: 15px; margin-bottom: 6px; }
+  .screen .name { font-size: 13px; margin-bottom: 6px; }
+  .screen .pw { padding: 6px 8px; font-size: 11px; }
+  .screen .err { font-size: 10.5px; padding: 5px 8px; }
+  .base { height: 8px; margin: 0 -10px; }
+  .card-title.q { font-size: 14.5px; margin-bottom: 10px; }
+  .opts { gap: 6px; }
+  .opt { padding: 9px 12px; font-size: 13px; line-height: 1.4; }
+  .opt-key { width: 24px; height: 24px; }
+  /* Results */
+  .result-icon { font-size: 34px; margin-bottom: 4px; }
+  .result-title { font-size: 19px; }
+  .result-msg { margin-bottom: 12px; font-size: 13px; }
+  .result-stats { margin-bottom: 12px; }
+  .stat-box { padding: 10px 8px; }
+  .stat-num { font-size: 20px; }
+  .note { padding: 10px 12px; font-size: 11.5px; }
+  /* Popup inside the frame */
+  dialog.pop { width: min(380px, calc(100vw - 24px)); }
+  .pop-head { padding: 12px 16px; }
+  .facts { padding: 12px 16px; gap: 6px; }
+  .facts li { padding: 8px 12px; }
+  .facts span { font-size: 14px; }
+  .sample-tag { margin: 0 16px 10px; }
+  .pop-close { width: calc(100% - 32px); margin: 0 16px 14px; padding: 10px; }
+  @media (max-width: 600px) {
+    .container { padding: 12px 12px 14px; }
+    .order-grid { grid-template-columns: 1fr; }
+    .flow { grid-template-columns: 1fr; }
+    .decide-grid { grid-template-columns: 1fr; }
+    .laptop { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="mod-header">
+    <div class="mod-row"><h1>Employee <em>Onboarding</em></h1><div class="mod-tag"><span class="dot"></span> Process activity &middot; 5–7 min</div></div>
+    <p>Put the 6 onboarding steps in order, explore who owns each one, then decide what to do when something goes wrong on day one.</p>
+    <p class="objective"><span aria-hidden="true">&#127919;</span><span><b>Goal:</b> After this activity, you can put the 6 onboarding steps in the correct order and name who owns each step.</span></p>
+  </div>
+
+  <ol class="stages" id="stages">
+    <li><span class="n">1</span>Order<span class="lbl-long">&nbsp;the steps</span></li>
+    <li><span class="n">2</span>Explore</li>
+    <li><span class="n">3</span>Decide</li>
+  </ol>
+
+  <div class="card" id="card" data-art=""></div>
+  <button class="main-btn" id="mainBtn" hidden></button>
+</div>
+
+<dialog class="pop" id="pop" aria-labelledby="popTitle">
+  <div class="pop-head">
+    <span class="emo" id="popEmo" aria-hidden="true"></span>
+    <div><small id="popNum"></small><h3 id="popTitle"></h3></div>
+  </div>
+  <ul class="facts">
+    <li><span class="ico" aria-hidden="true">&#128100;</span><div><b>Owner</b><span id="popOwner"></span></div></li>
+    <li><span class="ico" aria-hidden="true">&#128736;&#65039;</span><div><b>Tool</b><span id="popTool"></span></div></li>
+    <li><span class="ico" aria-hidden="true">&#9201;&#65039;</span><div><b>Deadline</b><span id="popDeadline"></span></div></li>
+  </ul>
+  <span class="sample-tag">Sample data: replace with company details</span>
+  <button class="pop-close" id="popClose">Got it</button>
+</dialog>
+
+<script>
+/* ---------- Content (sample data: replace with company details) ---------- */
+const STEPS = [
+  { emo: "&#129309;", title: "Offer accepted", owner: "Recruiter", tool: "HireTrack applicant system", deadline: "Within 2 working days of the offer",
+    wrong: "Not quite. Nothing else can start until the candidate says yes, so this always comes first." },
+  { emo: "&#9997;&#65039;", title: "Paperwork signed", owner: "HR coordinator", tool: "SignDesk e-signature", deadline: "At least 5 working days before the start date",
+    wrong: "Not quite. Contracts must be signed before IT creates accounts. Access is only given to confirmed employees." },
+  { emo: "&#128187;", title: "IT account setup", owner: "IT support", tool: "ServiceDesk ticketing", deadline: "Ready 1 working day before the start date",
+    wrong: "Not quite. Accounts must be ready before day one, so the new hire can log in during orientation." },
+  { emo: "&#127979;", title: "Orientation session", owner: "HR coordinator", tool: "LearnHub (LMS)", deadline: "Day 1",
+    wrong: "Not quite. Orientation happens on day one, after accounts are ready and before the new hire meets the team." },
+  { emo: "&#128075;", title: "Team introduction", owner: "Hiring manager", tool: "TeamChat and the team calendar", deadline: "By the end of week 1",
+    wrong: "Not quite. The new hire meets the team after orientation, once they know the basics about the company." },
+  { emo: "&#128198;", title: "30-day check-in", owner: "Hiring manager", tool: "PeopleHub HR system", deadline: "Day 30",
+    wrong: "Not quite. This check-in reviews the first month, so it can only happen at the end." }
+];
+
+const DECIDE = [
+  { text: "Raise an urgent ticket with IT support, then start Alex on paper-based orientation tasks while IT fixes it.", kind: "best",
+    fb: "<b>Best choice.</b> IT gets the problem right away and has a ticket to track it, and Alex's morning isn't wasted." },
+  { text: "Tell Alex to keep trying and wait at their desk until it works.", kind: "weak",
+    fb: "<b>Weak choice.</b> Nobody is fixing the problem, and Alex may miss orientation. Always tell IT straight away." },
+  { text: "Let Alex log in with your username and password for today.", kind: "risky",
+    fb: "<b>Risky choice.</b> Sharing logins breaks security rules and gives Alex access they shouldn't have. Never share your password." }
+];
+
+const TOTAL = 7;      // 6 steps + 1 Decide
+const PASS = 6;       // 80% of 7, rounded up
+const HINT = "Think about what must be ready before day one, and what can only happen after the new hire starts.";
+
+/* ---------- State ---------- */
+const $ = id => document.getElementById(id);
+let stage, placed, firstTry, points, decidePoint, decided, attempt, selected, seen, poolOrder;
+
+function start() {
+  stage = 1;
+  placed = Array(6).fill(false);
+  firstTry = Array(6).fill(true);
+  points = Array(6).fill(false);
+  decidePoint = false;
+  decided = false;
+  attempt = 1;
+  selected = null;
+  seen = new Set();
+  poolOrder = shuffled();
+  scorm.init();
+  scorm.track("attempted", "Attempt 1");
+  renderOrder();
+}
+
+function setStage(n) {
+  stage = n;
+  document.querySelectorAll("#stages li").forEach((li, i) => {
+    li.className = i + 1 < n ? "done" : i + 1 === n ? "now" : "";
+  });
+}
+
+function enterCard(art) {
+  const c = $("card");
+  window.scrollTo({ top: 0 });
+  c.dataset.art = art;
+  c.classList.remove("enter");
+  void c.offsetWidth;
+  c.classList.add("enter");
+}
+
+function shuffled() {
+  let order;
+  do { order = [0, 1, 2, 3, 4, 5].sort(() => Math.random() - 0.5); }
+  while (order.every((v, i) => v === i));
+  return order;
+}
+
+function setFb(text, kind) {
+  const fb = $("fb");
+  fb.className = "fb " + (kind || "");
+  fb.innerHTML = text;
+}
+
+function showMain(label, onClick, enabled = true) {
+  const b = $("mainBtn");
+  b.hidden = false;
+  b.disabled = !enabled;
+  b.textContent = label;
+  b.onclick = onClick;
+}
+
+function score() { return points.filter(Boolean).length + (decidePoint ? 1 : 0); }
+
+/* ---------- PART 1: put the steps in order ---------- */
+function renderOrder(message) {
+  setStage(1);
+  enterCard("\u{1F9E9}");
+  $("card").innerHTML = `
+    <h2 class="card-title">${attempt === 2 ? "Second try: place the remaining steps" : "Put the steps in order"}</h2>
+    <p class="card-sub">Drag each step into its place. Or tap a step, then tap a numbered slot.</p>
+    <div class="order-grid">
+      <div>
+        <p class="col-label">Steps</p>
+        <div class="pool" id="pool"></div>
+      </div>
+      <div>
+        <p class="col-label">The onboarding journey</p>
+        <div class="slots" id="slots"></div>
+      </div>
+    </div>
+    <div class="fb" id="fb" role="status"></div>`;
+  drawPool();
+  drawSlots();
+  if (message) setFb(message, "info");
+  $("mainBtn").hidden = true;
+}
+
+function drawPool() {
+  const left = poolOrder.filter(i => !placed[i]);
+  $("pool").innerHTML = left.length
+    ? left.map(i => `<button class="step-card${selected === i ? " selected" : ""}" data-step="${i}" aria-pressed="${selected === i}">
+        <span class="emo" aria-hidden="true">${STEPS[i].emo}</span>${STEPS[i].title}<span class="grip" aria-hidden="true">&#8942;&#8942;</span></button>`).join("")
+    : `<p class="pool-empty">All steps placed &#127881;</p>`;
+}
+
+function drawSlots() {
+  $("slots").innerHTML = STEPS.map((s, i) => placed[i]
+    ? `<div class="slot filled"><span class="num">${i + 1}</span><span class="emo" aria-hidden="true">${s.emo}</span>${s.title}</div>`
+    : `<button class="slot${selected !== null ? " ready" : ""}" data-slot="${i}" aria-label="Slot ${i + 1}, empty"><span class="num">${i + 1}</span>Drop step here</button>`
+  ).join("");
+}
+
+function place(stepIdx, slotIdx) {
+  selected = null;
+  if (stepIdx === slotIdx) {
+    placed[stepIdx] = true;
+    if (firstTry[stepIdx]) points[stepIdx] = true;
+    drawPool(); drawSlots();
+    setFb(`&#10003; Correct! That step is in the right place.`, "ok");
+    scorm.track("answered", `${STEPS[stepIdx].title} → slot ${slotIdx + 1}`, true);
+    if (placed.every(Boolean)) finishOrder();
+  } else {
+    firstTry[stepIdx] = false;
+    drawPool(); drawSlots();
+    const slot = document.querySelector(`.slot[data-slot="${slotIdx}"]`);
+    if (slot) { slot.classList.add("shake"); setTimeout(() => slot.classList.remove("shake"), 450); }
+    setFb(STEPS[stepIdx].wrong, "bad");
+    scorm.track("answered", `${STEPS[stepIdx].title} → slot ${slotIdx + 1}`, false);
+  }
+}
+
+function finishOrder() {
+  const right = points.filter(Boolean).length;
+  setFb(`&#127881; All 6 steps are in order. You got <b>${right} of 6</b> right first time. Now click each step to see who owns it, which tool they use and the deadline.`, "ok");
+  if (attempt === 1) showMain("Next: Explore the steps", renderExplore);
+  else showMain(decidePoint ? "See my result" : "Next: Try the Decide moment again", decidePoint ? renderResults : renderDecide);
+  $("mainBtn").focus();
+}
+
+/* Tap to place (works with keyboard too) */
+document.addEventListener("click", e => {
+  if (stage !== 1 || justDragged) return;
+  const card = e.target.closest(".step-card");
+  const slot = e.target.closest(".slot[data-slot]");
+  if (card) {
+    const i = Number(card.dataset.step);
+    selected = selected === i ? null : i;
+    drawPool(); drawSlots();
+    if (selected !== null) setFb(`Now tap the slot where <b>${STEPS[selected].title}</b> belongs.`, "info");
+  } else if (slot && selected !== null) {
+    place(selected, Number(slot.dataset.slot));
+  }
+});
+
+/* Pointer drag (mouse, touch and pen) */
+let drag = null, justDragged = false;
+document.addEventListener("pointerdown", e => {
+  const card = e.target.closest(".step-card");
+  if (!card || stage !== 1 || e.button > 0) return;
+  drag = { card, id: Number(card.dataset.step), x: e.clientX, y: e.clientY, ghost: null };
+});
+document.addEventListener("pointermove", e => {
+  if (!drag) return;
+  if (!drag.ghost) {
+    if (Math.hypot(e.clientX - drag.x, e.clientY - drag.y) < 6) return;
+    const r = drag.card.getBoundingClientRect();
+    drag.ghost = drag.card.cloneNode(true);
+    drag.ghost.classList.add("drag-ghost");
+    drag.ghost.style.width = r.width + "px";
+    drag.dx = drag.x - r.left; drag.dy = drag.y - r.top;
+    document.body.appendChild(drag.ghost);
+    drag.card.classList.add("dragging");
+  }
+  drag.ghost.style.left = (e.clientX - drag.dx) + "px";
+  drag.ghost.style.top = (e.clientY - drag.dy) + "px";
+  document.querySelectorAll(".slot.over").forEach(s => s.classList.remove("over"));
+  const under = document.elementFromPoint(e.clientX, e.clientY);
+  const slot = under && under.closest(".slot[data-slot]");
+  if (slot) slot.classList.add("over");
+});
+document.addEventListener("pointerup", e => {
+  if (!drag) return;
+  const d = drag;
+  drag = null;
+  if (!d.ghost) return;               // a simple tap: the click handler deals with it
+  d.ghost.remove();
+  d.card.classList.remove("dragging");
+  justDragged = true;
+  setTimeout(() => { justDragged = false; }, 50);
+  const under = document.elementFromPoint(e.clientX, e.clientY);
+  const slot = under && under.closest(".slot[data-slot]");
+  if (slot) place(d.id, Number(slot.dataset.slot));
+  else { document.querySelectorAll(".slot.over").forEach(s => s.classList.remove("over")); }
+});
+
+/* ---------- PART 2: click to explore ---------- */
+function renderExplore() {
+  setStage(2);
+  enterCard("\u{1F50E}");
+  $("card").innerHTML = `
+    <h2 class="card-title">Explore the onboarding journey</h2>
+    <p class="card-sub">Click each step to see who owns it, which tool they use and the deadline.</p>
+    <ol class="flow">
+      ${STEPS.map((s, i) => `<li><button class="node${seen.has(i) ? " seen" : ""}" data-node="${i}">
+        <span class="num">${i + 1}</span><span class="emo" aria-hidden="true">${s.emo}</span>${s.title}
+        <span class="tap">${seen.has(i) ? "&#10003; Seen" : "Click"}</span></button></li>`).join("")}
+    </ol>
+    <div class="fb info" id="fb" role="status">0 of 6 steps explored</div>`;
+  showMain("Explore all 6 steps to continue", renderDecide, false);
+}
+
+let lastNode = null;
+$("card").addEventListener("click", e => {
+  const node = e.target.closest(".node");
+  if (!node) return;
+  const i = Number(node.dataset.node);
+  const s = STEPS[i];
+  lastNode = node;
+  $("popEmo").innerHTML = s.emo;
+  $("popNum").textContent = `Step ${i + 1} of 6`;
+  $("popTitle").textContent = s.title;
+  $("popOwner").textContent = s.owner;
+  $("popTool").textContent = s.tool;
+  $("popDeadline").textContent = s.deadline;
+  $("pop").showModal();
+  if (!seen.has(i)) {
+    seen.add(i);
+    node.classList.add("seen");
+    node.querySelector(".tap").innerHTML = "&#10003; Seen";
+    scorm.track("interacted", s.title);
+  }
+  $("fb").textContent = `${seen.size} of 6 steps explored`;
+  if (seen.size === 6) {
+    $("fb").className = "fb ok";
+    $("fb").innerHTML = "&#10003; Nice! You've explored every step.";
+    $("mainBtn").disabled = false;
+    $("mainBtn").textContent = "Next: Decide what to do";
+  }
+});
+$("popClose").addEventListener("click", () => $("pop").close());
+$("pop").addEventListener("close", () => { if (lastNode) lastNode.focus(); });
+
+/* ---------- PART 3: decide ---------- */
+function renderDecide() {
+  setStage(3);
+  enterCard("\u{1F914}");
+  decided = false;
+  $("card").innerHTML = `
+    <h2 class="card-title">Day one: something goes wrong</h2>
+    <p class="card-sub">It's Alex Test's first day. Orientation starts at 10:00 AM.</p>
+    <div class="decide-grid"><div class="laptop" aria-hidden="true">
+      <p class="clock">Monday · 9:05 AM</p>
+      <div class="screen">
+        <div class="avatar">A</div>
+        <div class="name">Alex Test</div>
+        <div class="pw">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</div>
+        <span class="err">&#9888; Sign-in failed. Account not found.</span>
+      </div>
+      <div class="base"></div>
+    </div>
+    <div><p class="card-title q">Alex says: “My laptop login doesn't work.” What do you do?</p>
+    <div class="opts">
+      ${DECIDE.map((c, i) => `<button class="opt" data-i="${i}"><span class="opt-key" aria-hidden="true">${"ABC"[i]}</span>${c.text}</button>`).join("")}
+    </div></div></div>
+    <div class="fb" id="fb" role="status"></div>`;
+  $("mainBtn").hidden = true;
+}
+
+$("card").addEventListener("click", e => {
+  const b = e.target.closest(".opt");
+  if (!b || stage !== 3 || decided) return;
+  decided = true;
+  const c = DECIDE[b.dataset.i];
+  decidePoint = c.kind === "best";
+  document.querySelectorAll(".opt").forEach((o, i) => {
+    o.disabled = true;
+    if (DECIDE[i].kind === "best") o.classList.add("is-correct");
+    else if (o === b) o.classList.add("is-wrong");
+  });
+  setFb(c.fb, decidePoint ? "ok" : "bad");
+  scorm.track("answered", `Decide: ${"ABC"[b.dataset.i]} (${c.kind})`, decidePoint);
+  showMain("See my result", renderResults);
+  $("mainBtn").focus();
+});
+
+/* ---------- Results ---------- */
+function renderResults() {
+  const s = score();
+  const pass = s >= PASS;
+  const canRetry = !pass && attempt === 1;
+  setStage(4);
+  enterCard(pass ? "\u{1F3C6}" : "\u{1F4DA}");
+
+  const msg = pass
+    ? `Well done! You scored ${s}/7. You know the onboarding steps and who owns each one.`
+    : canRetry
+      ? `You scored ${s}/7. A pass needs 6/7. Read the hint and try once more.`
+      : `You scored ${s}/7. Review the onboarding flow with your HR team, then retake the activity.`;
+
+  $("card").innerHTML = `
+    <div class="results">
+      <div class="result-icon">${pass ? "&#127881;" : canRetry ? "&#128161;" : "&#128218;"}</div>
+      <h2 class="result-title">${pass ? "You passed!" : canRetry ? "Almost there" : "Not passed yet"}</h2>
+      <p class="result-msg">${msg}</p>
+      <div class="result-stats">
+        <div class="stat-box"><div class="stat-num ${pass ? "good" : "bad"}">${s}/7</div><div class="stat-label">Score</div></div>
+        <div class="stat-box"><div class="stat-num">${points.filter(Boolean).length}/6</div><div class="stat-label">Steps right</div></div>
+        <div class="stat-box"><div class="stat-num ${decidePoint ? "good" : "bad"}">${decidePoint ? "&#10003;" : "&#10007;"}</div><div class="stat-label">Decide</div></div>
+      </div>
+      ${canRetry ? `<div class="retry-box" style="text-align:left;margin-bottom:16px">
+        <h3>You have one more try</h3>
+        <p>Steps you got right stay in place. The others go back so you can place them again.${decidePoint ? "" : " You'll also get another go at the Decide moment."}</p>
+        <p class="hint">Hint: ${HINT}</p>
+      </div>` : ""}
+      <p class="note"><b>How it's scored:</b> 1 point for each step placed right the first time, plus 1 point for the best Decide choice, for 7 points in total. You need 6 of 7 (80%) to pass. You get one extra try with a hint.</p>
+    </div>`;
+
+  if (canRetry) {
+    showMain("Try again with the hint", retry);
+  } else {
+    showMain("Start again", () => { start(); window.scrollTo({ top: 0 }); });
+    scorm.finish(s, pass);
+  }
+  scorm.score(s, pass);
+}
+
+function retry() {
+  attempt = 2;
+  scorm.track("attempted", "Attempt 2");
+  STEPS.forEach((s, i) => { if (!points[i]) { placed[i] = false; firstTry[i] = true; } });
+  poolOrder = shuffled();
+  if (placed.every(Boolean)) { renderDecide(); return; }
+  renderOrder(`Hint: ${HINT}`);
+}
+
+/* ---------- SCORM 2004 reporting, with SCORM 1.2 fallback (only runs inside an LMS) ---------- */
+const scorm = {
+  api: null, v: null,
+  find(name) {
+    let win = window;
+    for (let i = 0; win && i < 10; i++) {
+      try { if (win[name]) return win[name]; } catch (e) { return null; }
+      if (win.parent === win) break;
+      win = win.parent;
+    }
+    try { if (window.opener && window.opener[name]) return window.opener[name]; } catch (e) {}
+    return null;
+  },
+  init() {
+    if (this.api !== null) return;
+    const a2004 = this.find("API_1484_11");
+    const a12 = a2004 ? null : this.find("API");
+    this.api = a2004 || a12 || false;
+    this.v = a2004 ? "2004" : a12 ? "1.2" : null;
+    if (this.v === "2004") { this.api.Initialize(""); this.api.SetValue("cmi.completion_status", "incomplete"); this.api.Commit(""); }
+    if (this.v === "1.2") { this.api.LMSInitialize(""); this.api.LMSSetValue("cmi.core.lesson_status", "incomplete"); this.api.LMSCommit(""); }
+  },
+  track(verb, detail, success) {
+    // xAPI hook: send a statement with this verb (answered, interacted, attempted) and details here.
+  },
+  score(points, pass) {
+    if (this.v === "2004") {
+      this.api.SetValue("cmi.score.min", "0");
+      this.api.SetValue("cmi.score.max", String(TOTAL));
+      this.api.SetValue("cmi.score.raw", String(points));
+      this.api.SetValue("cmi.score.scaled", (points / TOTAL).toFixed(2));
+      this.api.Commit("");
+    }
+    if (this.v === "1.2") {
+      this.api.LMSSetValue("cmi.core.score.raw", String(Math.round(points / TOTAL * 100)));
+      this.api.LMSCommit("");
+    }
+  },
+  finish(points, pass) {
+    if (this.v === "2004") {
+      this.api.SetValue("cmi.completion_status", "completed");
+      this.api.SetValue("cmi.success_status", pass ? "passed" : "failed");
+      this.api.Commit("");
+    }
+    if (this.v === "1.2") {
+      this.api.LMSSetValue("cmi.core.lesson_status", pass ? "passed" : "failed");
+      this.api.LMSCommit("");
+    }
+  }
+};
+window.addEventListener("beforeunload", () => {
+  if (scorm.v === "2004") scorm.api.Terminate("");
+  if (scorm.v === "1.2") scorm.api.LMSFinish("");
+});
+
+start();
+</script>
+</body>
+</html>

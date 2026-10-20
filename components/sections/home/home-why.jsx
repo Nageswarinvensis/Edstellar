@@ -32,7 +32,7 @@ export default function HomeWhy({ data }) {
   const { experts } = data;
 
   return (
-    <HomeWrap id="why" aria-labelledby="why-heading" className="scroll-mt-16 bg-paper py-[140px] max-lg:py-24">
+    <HomeWrap id="why" aria-labelledby="why-heading" className="scroll-mt-16 bg-paper py-20 max-lg:py-16">
       <HomeSectionHead id="why-heading" heading={data.heading} lede={data.lede} />
 
       <Box role="list" className="grid grid-cols-3 border-y-[1.5px] border-ink/12 max-md:grid-cols-1">
@@ -48,17 +48,9 @@ export default function HomeWhy({ data }) {
 
       {experts?.trainers?.length ? (
         <Reveal className="mt-[72px]">
-          <Box className="mb-6 flex flex-wrap items-center justify-between gap-4">
-            <Text as="p" className="m-0 font-mono text-[11px] uppercase tracking-[0.16em] text-ink/60">
-              {experts.note}
-            </Text>
-            <Link href={experts.link.href} className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-olive">
-              {experts.link.label}
-              <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
-                <path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="square" />
-              </svg>
-            </Link>
-          </Box>
+          <Text as="p" className="mb-6 font-mono text-[11px] uppercase tracking-[0.16em] text-ink/60">
+            {experts.note}
+          </Text>
 
           <Box as="ul" className="grid list-none grid-cols-5 gap-5 p-0 max-lg:grid-cols-3 max-sm:grid-cols-2">
             {experts.trainers.map((t) => (

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario — The Expensive Gift</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300..700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=DM+Sans:wght@300..700&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --navy: #0A1628;
+    --navy-soft: #14233D;
+    --lime: #C8F135;
+    --lime-soft: #E4F89A;
+    --ink: #0A1628;
+    --paper: #FAFAF7;
+    --paper-warm: #F2F0E8;
+    --paper-cream: #EDE9DD;
+
+    --bg: var(--paper);
+    --surface: #FFFFFF;
+    --fg: var(--ink);
+    --fg-muted: rgba(10,22,40,.6);
+    --border: rgba(10,22,40,.12);
+    --border-strong: rgba(10,22,40,.22);
+    --chat-bg: #F2F0E8;
+    --bubble-them: #FFFFFF;
+    --success: #16A34A;
+    --warning: #D97706;
+    --danger: #B3261E;
+    --font-display: 'Sora', sans-serif;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --shadow: 0 1px 3px rgba(10,22,40,.07), 0 2px 8px rgba(10,22,40,.05);
+    --shadow-lg: 0 12px 32px rgba(10,22,40,.12), 0 4px 12px rgba(10,22,40,.06);
+    --shadow-hover: 0 8px 24px rgba(10,22,40,.10), 0 16px 48px rgba(10,22,40,.07);
+    --wordmark: #141618;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: var(--navy);
+      --surface: var(--navy-soft);
+      --fg: var(--paper);
+      --fg-muted: rgba(250,250,247,0.6);
+      --border: rgba(250,250,247,0.12);
+      --border-strong: rgba(250,250,247,0.22);
+      --chat-bg: #0F1E33;
+      --bubble-them: #1A2D4A;
+      --success: #4ADE80;
+      --warning: #FBBF24;
+      --danger: #F87171;
+      --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.14);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.35);
+      --shadow-hover: 0 8px 24px rgba(0,0,0,0.3), 0 16px 48px rgba(0,0,0,0.2);
+      --wordmark: var(--paper);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: var(--navy);
+    --surface: var(--navy-soft);
+    --fg: var(--paper);
+    --fg-muted: rgba(250,250,247,0.6);
+    --border: rgba(250,250,247,0.12);
+    --border-strong: rgba(250,250,247,0.22);
+    --chat-bg: #0F1E33;
+    --bubble-them: #1A2D4A;
+    --success: #4ADE80;
+    --warning: #FBBF24;
+    --danger: #F87171;
+    --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.14);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,0.35);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.3), 0 16px 48px rgba(0,0,0,0.2);
+    --wordmark: var(--paper);
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    padding-inline: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 520px; width: 100%; padding-block: 32px 48px; }
+
+  /* Logo */
+  .edstellar-logo { display: flex; align-items: center; margin-bottom: 16px; }
+  .edstellar-logo svg { height: 32px; width: auto; overflow: visible; }
+  .edstellar-logo .wm { fill: var(--wordmark); }
+
+  /* Header */
+  .mod-header { text-align: center; margin-bottom: 24px; animation: rise 0.5s ease-out both; }
+  .mod-tag {
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted);
+  }
+  .mod-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mod-tag .dot { background: var(--lime); } }
+  :root[data-theme="dark"] .mod-tag .dot { background: var(--lime); }
+  .mod-header h1 { font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 6px; }
+  .mod-header h1 em { font-family: var(--font-serif); font-weight: 600; font-size: 1.15em; }
+  .mod-header p { font-size: 14px; line-height: 1.6; color: var(--fg-muted); }
+
+  /* ===== Phone / chat stage ===== */
+  .phone {
+    overflow: hidden; border: 1px solid var(--border); border-radius: 24px;
+    background: var(--chat-bg); box-shadow: var(--shadow-lg);
+  }
+  .phone-top {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: var(--navy); color: var(--paper);
+  }
+  .phone-top .loc { flex: 1; min-width: 0; }
+  .phone-top .loc b { display: block; font-family: var(--font-display); font-size: 14px; }
+  .phone-top .loc span { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250,250,247,0.6); }
+
+  /* Integrity meter */
+  .meter { display: flex; align-items: center; gap: 8px; }
+  .meter .face { font-size: 22px; line-height: 1; transition: transform 0.3s ease; }
+  .meter .face.bump { animation: bump 0.5s ease; }
+  .meter-box { width: 92px; }
+  .meter-label { display: block; margin-bottom: 4px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,250,247,0.6); }
+  .meter-track { height: 6px; border-radius: 3px; background: rgba(250,250,247,0.12); overflow: hidden; }
+  .meter-fill { height: 100%; width: 50%; border-radius: 3px; background: var(--lime); transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+  .feed {
+    display: flex; flex-direction: column; gap: 10px;
+    height: 460px; padding: 18px 14px 12px; overflow-y: auto; scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) { .feed { scroll-behavior: auto; } }
+
+  /* Scene card */
+  .scene {
+    align-self: center; max-width: 92%; margin: 6px 0; padding: 12px 16px; text-align: center;
+    background: var(--surface); border: 1px dashed var(--border-strong); border-radius: 14px;
+  }
+  .scene .time { display: block; margin-bottom: 4px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-muted); }
+  .scene .art { display: block; font-size: 34px; margin-bottom: 4px; }
+  .scene p { font-size: 14px; line-height: 1.5; font-weight: 500; }
+
+  .note { align-self: center; max-width: 86%; text-align: center; font-family: var(--font-serif); font-style: italic; font-size: 17px; line-height: 1.4; color: var(--fg-muted); }
+
+  /* Message bubbles */
+  .msg { display: flex; align-items: flex-end; gap: 8px; max-width: 86%; }
+  .msg .av {
+    flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%;
+    font-family: var(--font-display); font-size: 13px; font-weight: 700; color: #fff;
+  }
+  .msg.sam .av { background: #255FFF; }
+  .msg.mgr .av { background: var(--navy-soft); }
+  .msg .who { display: block; margin-bottom: 2px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+  .bubble { padding: 10px 14px; border-radius: 16px 16px 16px 4px; background: var(--bubble-them); box-shadow: var(--shadow); font-size: 14px; line-height: 1.5; }
+  .msg.me { align-self: flex-end; flex-direction: row-reverse; }
+  .msg.me .bubble { border-radius: 16px 16px 4px 16px; background: var(--navy); color: var(--lime); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .msg.me .bubble { background: var(--lime); color: var(--navy); } }
+  :root[data-theme="dark"] .msg.me .bubble { background: var(--lime); color: var(--navy); }
+
+  .typing .bubble { display: flex; gap: 4px; padding: 14px; }
+  .typing .bubble i { width: 7px; height: 7px; border-radius: 50%; background: var(--fg-muted); animation: blink 1s infinite; }
+  .typing .bubble i:nth-child(2) { animation-delay: 0.15s; }
+  .typing .bubble i:nth-child(3) { animation-delay: 0.3s; }
+
+  .feed > * { animation: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+  /* Reply area */
+  .replies { padding: 12px 14px 16px; border-top: 1px solid var(--border); background: var(--surface); min-height: 76px; }
+  .replies .prompt { margin-bottom: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-muted); }
+  .reply-list { display: grid; gap: 8px; }
+  .reply {
+    display: flex; align-items: center; gap: 10px; width: 100%; padding: 12px 14px;
+    border: 1.5px solid var(--border-strong); border-radius: 18px; background: var(--surface); color: var(--fg);
+    font-family: var(--font-body); font-size: 14px; font-weight: 500; line-height: 1.4; text-align: left; cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .reply:nth-child(2) { animation-delay: 0.1s; }
+  .reply:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+  .reply .emo { flex: none; font-size: 20px; }
+  .waiting { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--fg-muted); }
+  .start-btn, .again-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px;
+    border: none; border-radius: 100px; background: var(--navy); color: var(--lime); cursor: pointer;
+    font-family: var(--font-display); font-size: 15px; font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .start-btn:hover, .again-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .start-btn, :root:not([data-theme="light"]) .again-btn { background: var(--paper); color: var(--navy); } }
+  :root[data-theme="dark"] .start-btn, :root[data-theme="dark"] .again-btn { background: var(--paper); color: var(--navy); }
+
+  /* ===== Ending: newspaper ===== */
+  .ending { display: none; margin-top: 24px; }
+  .ending.show { display: block; animation: drop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .paper {
+    position: relative; padding: 22px 22px 24px; color: #1C1917;
+    background: #FBF8F1; border: 1px solid #E7E0CF; border-radius: 4px;
+    box-shadow: var(--shadow-lg); transform: rotate(-1deg);
+  }
+  .masthead { padding-bottom: 8px; border-bottom: 3px double #1C1917; text-align: center; }
+  .masthead b { display: block; font-family: var(--font-serif); font-size: 30px; font-weight: 700; letter-spacing: 0.02em; line-height: 1; }
+  .masthead span { display: flex; justify-content: space-between; margin-top: 6px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #57534E; }
+  .kicker { display: block; margin-top: 14px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #57534E; }
+  .headline { margin: 4px 0 8px; font-family: var(--font-serif); font-size: 32px; font-weight: 700; line-height: 1.05; }
+  .subhead { font-family: var(--font-serif); font-style: italic; font-size: 18px; line-height: 1.35; color: #44403C; }
+  .story-cols { margin-top: 12px; padding-top: 12px; border-top: 1px solid #D6D3D1; font-size: 13px; line-height: 1.6; color: #292524; }
+  .stamp {
+    position: absolute; top: 70px; right: 14px; padding: 6px 10px; border: 3px solid currentColor; border-radius: 6px;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    transform: rotate(8deg); background: rgba(251,248,241,0.85); animation: stamp 0.5s ease-out 0.6s both;
+  }
+  .stamp.best { color: #15803D; }
+  .stamp.okay { color: #B45309; }
+  .stamp.poor { color: #B3261E; }
+
+  .sticky {
+    position: relative; margin: 26px 8px 20px; padding: 20px 20px 18px; color: #1C1917;
+    background: var(--lime-soft); border-radius: 2px; box-shadow: 0 10px 24px rgba(10,22,40,0.12);
+    transform: rotate(1.2deg);
+  }
+  .sticky::before { content: ''; position: absolute; top: -10px; left: 50%; width: 90px; height: 22px; transform: translateX(-50%) rotate(-2deg); background: rgba(250,250,247,0.6); border: 1px solid rgba(10,22,40,0.07); }
+  .sticky h3 { margin-bottom: 8px; font-family: var(--font-serif); font-size: 24px; font-weight: 700; }
+  .sticky ul { list-style: none; font-size: 14px; line-height: 1.7; }
+  .sticky li::before { content: '\2714\FE0E  '; font-weight: 700; }
+  .sticky p { margin-top: 10px; font-size: 12px; line-height: 1.6; color: rgba(10,22,40,0.7); }
+
+  /* Animations */
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes pop { 0% { opacity: 0; transform: translateY(10px) scale(0.92); } 70% { transform: translateY(-2px) scale(1.02); } 100% { opacity: 1; transform: none; } }
+  @keyframes blink { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+  @keyframes bump { 0% { transform: scale(1); } 40% { transform: scale(1.45) rotate(-8deg); } 100% { transform: scale(1); } }
+  @keyframes drop { from { opacity: 0; transform: translateY(-30px) rotate(-6deg); } to { opacity: 1; transform: none; } }
+  @keyframes stamp { from { opacity: 0; transform: rotate(8deg) scale(2.2); } to { opacity: 1; transform: rotate(8deg) scale(1); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 480px) {
+    .feed { height: 420px; }
+    .meter-box { width: 64px; }
+    .headline { font-size: 27px; }
+    .stamp { position: static; display: inline-block; margin-top: 12px; }
+  }
+</style>
+
+<style>
+  /* ===== Embedded (modal stage) fit ===== */
+  html, body { height: 100%; }
+  body { display: block; min-height: 0; padding: 0; overflow-y: auto; }
+  .container { max-width: 640px; height: 100%; margin: 0 auto; padding: 12px 18px 14px; display: flex; flex-direction: column; }
+  .mod-header { flex: none; text-align: left; margin-bottom: 8px; animation: none; }
+  .mod-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .mod-header h1 { font-size: 19px; margin: 0; }
+  .mod-tag { margin: 0; font-size: 10px; }
+  .mod-header p { margin-top: 3px; font-size: 12.5px; line-height: 1.5; }
+  .phone { flex: 1; min-height: 0; display: flex; flex-direction: column; border-radius: 18px; box-shadow: var(--shadow); }
+  .phone-top { flex: none; padding: 10px 14px; }
+  .feed { flex: 1; height: auto; min-height: 0; padding: 12px 12px 10px; gap: 8px; }
+  .scene { padding: 9px 14px; margin: 2px 0; }
+  .scene .art { font-size: 26px; margin-bottom: 2px; }
+  .scene p, .bubble { font-size: 13.5px; }
+  .bubble { padding: 8px 12px; }
+  .note { font-size: 16px; }
+  .msg .av { width: 28px; height: 28px; font-size: 12px; }
+  .replies { flex: none; min-height: 0; padding: 10px 12px 12px; }
+  .reply-list { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .reply { padding: 10px 12px; font-size: 13.5px; border-radius: 14px; }
+  .start-btn, .again-btn { padding: 11px; font-size: 14px; }
+
+  /* Ending replaces the phone */
+  body.ended .phone { display: none; }
+  .ending { margin-top: 0; }
+  .ending.show { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 14px; animation: none; }
+  .end-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 18px; align-items: center; }
+  .paper { padding: 16px 18px 18px; animation: drop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .masthead b { font-size: 24px; }
+  .kicker { margin-top: 10px; }
+  .headline { font-size: 25px; margin: 4px 0 6px; padding-right: 0; }
+  .subhead { font-size: 16px; }
+  .story-cols { margin-top: 8px; padding-top: 8px; font-size: 12.5px; line-height: 1.55; }
+  .stamp { position: static; display: inline-block; margin-top: 10px; transform: rotate(-3deg); animation: none; }
+  .sticky { margin: 10px 4px 0; padding: 16px 16px 14px; }
+  .sticky h3 { font-size: 21px; margin-bottom: 6px; }
+  .sticky ul { font-size: 13px; line-height: 1.55; }
+  .sticky li { margin-bottom: 4px; }
+  .sticky p { margin-top: 8px; font-size: 11.5px; }
+  .sticky .sample { margin-top: 6px; font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .05em; text-transform: uppercase; color: rgba(10,22,40,.6); }
+  .again-btn { flex: none; max-width: 360px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .container { padding: 10px 10px 12px; height: auto; min-height: 100%; }
+    .mod-header p { display: none; }
+    .phone { flex: none; }
+    .feed { height: 360px; flex: none; }
+    .reply-list { grid-template-columns: 1fr; }
+    .end-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="mod-header">
+    <div class="mod-row"><h1>The Expensive <em>Gift</em></h1><div class="mod-tag"><span class="dot"></span> Branching scenario &middot; Ethics &middot; 4 min</div></div>
+    <p>A short story told in chat messages. Pick the reply you would really send, and watch your honesty meter.</p>
+  </div>
+
+  <div class="phone">
+    <div class="phone-top">
+      <div class="loc"><b>Buying Team</b><span id="dayLabel">Week 3</span></div>
+      <div class="meter" aria-label="Honesty meter">
+        <span class="face" id="face" aria-hidden="true">&#128528;</span>
+        <div class="meter-box">
+          <span class="meter-label">Honesty</span>
+          <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="feed" id="feed" aria-live="polite"></div>
+    <div class="replies" id="replies"></div>
+  </div>
+
+  <div class="ending" id="ending" tabindex="-1"></div>
+</div>
+
+<script>
+/* Story: each chapter plays its messages, then offers two replies */
+const CHAPTERS = [
+  {
+    day: "Monday",
+    intro: [
+      { t: "scene", time: "Monday · 9:12 AM", art: "&#127873;", text: "There is a gift bag on your desk." },
+      { t: "sam", text: "Hi! This is a small thank-you gift for you &#127911; I hope you like it. I really hope you pick my company!" },
+      { t: "note", text: "Inside are very expensive headphones. Nobody else saw the gift." }
+    ],
+    prompt: "What do you do?",
+    choices: [
+      { emo: "&#127911;", text: "Keep the gift. It's only headphones.", good: false,
+        me: "Thank you, Sam! I love them &#128522;",
+        after: [
+          { t: "scene", time: "One week later", art: "&#128231;", text: "Sam sends you another message." },
+          { t: "sam", text: "Do you like the headphones? &#128521; So, will you pick my company?" },
+          { t: "note", text: "Now you feel like you have to help Sam." }
+        ] },
+      { emo: "&#128221;", text: "Tell my manager about the gift.", good: true,
+        me: "Hi Priya. Sam from BrightPath gave me expensive headphones. What should I do?",
+        after: [
+          { t: "mgr", text: "Thank you for telling me! &#128591; We can't keep gifts like this. Please give it back to Sam." },
+          { t: "sam", text: "That's okay, I understand!" },
+          { t: "note", text: "You gave the gift back. You feel good about it." }
+        ] }
+    ]
+  },
+  {
+    day: "Wednesday",
+    intro: [
+      { t: "scene", time: "Wednesday · 3:40 PM", art: "&#128222;", text: "Sam messages you again." },
+      { t: "sam", text: "Can you tell me the prices the other companies gave you? Then I can give you a lower price &#128591;" }
+    ],
+    prompt: "How do you reply?",
+    choices: [
+      { emo: "&#129296;", text: "“Sorry, I can't tell you that.”", good: true,
+        me: "Sorry Sam, I can't tell you other companies' prices. Please just send us your best price.",
+        after: [
+          { t: "sam", text: "No problem, I understand! I'll send my price now." },
+          { t: "note", text: "Sam sends a price in the normal way. Everything is fair." }
+        ] },
+      { emo: "&#129295;", text: "“I'll give you a rough idea.”", good: false,
+        me: "Most of them are about 40,000 to 45,000.",
+        after: [
+          { t: "scene", time: "Two days later", art: "&#129300;", text: "Sam's price is 39,000. That's just below everyone else." },
+          { t: "mgr", text: "That's strange. How did BrightPath know the other prices?" },
+          { t: "note", text: "You feel worried. You know it was you." }
+        ] }
+    ]
+  },
+  {
+    day: "Friday",
+    intro: [
+      { t: "scene", time: "Friday · Team meeting", art: "&#128450;&#65039;", text: "Today the team picks one company." },
+      { t: "mgr", text: "Before we choose: is there anything that could make anyone unfair? For example, a gift?" }
+    ],
+    prompt: "What do you do?",
+    choices: [
+      { emo: "&#128586;", text: "Say nothing. I'll still be fair.", good: false,
+        me: "No, nothing from me.",
+        after: [
+          { t: "note", text: "The meeting goes on. But now you are hiding something from your manager." }
+        ] },
+      { emo: "&#128587;", text: "Tell the team about the gift and Sam's messages.", good: true,
+        me: "Yes. Sam gave me a gift and asked me about other prices. I want everyone to know.",
+        after: [
+          { t: "mgr", text: "Thank you for telling us. That was the right thing to do &#128079;" },
+          { t: "note", text: "Being honest keeps you and the company safe." }
+        ] }
+    ]
+  }
+];
+
+const ENDINGS = {
+  best: {
+    stamp: "Best ending", kicker: "Buying team · Good news",
+    headline: "New worker's honesty keeps the choice fair",
+    sub: "Manager says: “You did everything right.”",
+    body: "The team picked the best company for the best price. Everyone knows they can trust you."
+  },
+  okay: {
+    stamp: "Okay ending", kicker: "Buying team · Update",
+    headline: "Company picked, but there are some worries",
+    sub: "One mistake makes the team ask questions.",
+    body: "You did most things right. But one mistake made people worried. You must now do a short honesty training."
+  },
+  poor: {
+    stamp: "Poor ending", kicker: "Buying team · Breaking news",
+    headline: "Big trouble after gift and price secret",
+    sub: "New worker gets a written warning.",
+    body: "The team has to start the choice again. It all started with “just a pair of headphones.”"
+  }
+};
+
+const FACES = ["&#128560;", "&#128556;", "&#128528;", "&#128578;", "&#128516;"];
+
+const $ = id => document.getElementById(id);
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let chapter = 0, score = 0, integrity = 2, token = 0;
+
+const wait = (ms, t) => new Promise((res, rej) => setTimeout(() => t === token ? res() : rej("stop"), reduced ? Math.min(ms, 120) : ms));
+
+function el(html) {
+  const d = document.createElement("div");
+  d.innerHTML = html.trim();
+  return d.firstChild;
+}
+
+function scrollFeed() {
+  const f = $("feed");
+  f.scrollTop = f.scrollHeight;
+}
+
+function bubbleHTML(e) {
+  if (e.t === "scene") return `<div class="scene"><span class="time">${e.time}</span><span class="art" aria-hidden="true">${e.art}</span><p>${e.text}</p></div>`;
+  if (e.t === "note") return `<p class="note">${e.text}</p>`;
+  if (e.t === "me") return `<div class="msg me"><div class="bubble">${e.text}</div></div>`;
+  const who = e.t === "sam" ? ["S", "Sam · from BrightPath"] : ["P", "Priya · Your manager"];
+  return `<div class="msg ${e.t}"><span class="av" aria-hidden="true">${who[0]}</span><div><span class="who">${who[1]}</span><div class="bubble">${e.text}</div></div></div>`;
+}
+
+async function play(events, t) {
+  for (const e of events) {
+    if (e.t === "sam" || e.t === "mgr") {
+      const typing = el(`<div class="msg ${e.t} typing" aria-hidden="true"><span class="av">${e.t === "sam" ? "S" : "P"}</span><div class="bubble"><i></i><i></i><i></i></div></div>`);
+      $("feed").appendChild(typing);
+      scrollFeed();
+      await wait(900, t);
+      typing.remove();
+    } else {
+      await wait(500, t);
+    }
+    $("feed").appendChild(el(bubbleHTML(e)));
+    scrollFeed();
+    await wait(e.t === "note" ? 900 : 600, t);
+  }
+}
+
+function setMeter(change) {
+  integrity = Math.max(0, Math.min(4, integrity + change));
+  $("meterFill").style.width = (integrity / 4 * 100) + "%";
+  const face = $("face");
+  face.innerHTML = FACES[integrity];
+  face.classList.remove("bump");
+  void face.offsetWidth;
+  face.classList.add("bump");
+}
+
+function waiting(text) {
+  $("replies").innerHTML = `<p class="waiting">${text}</p>`;
+}
+
+async function runChapter() {
+  const t = token;
+  const c = CHAPTERS[chapter];
+  $("dayLabel").textContent = `Week 3 · ${c.day}`;
+  waiting("&#8987; The story is unfolding...");
+  try {
+    await play(c.intro, t);
+    $("replies").innerHTML = `<p class="prompt">${c.prompt}</p><div class="reply-list">${
+      c.choices.map((ch, i) => `<button class="reply" data-i="${i}"><span class="emo" aria-hidden="true">${ch.emo}</span>${ch.text}</button>`).join("")
+    }</div>`;
+    $("replies").querySelector(".reply").focus({ preventScroll: true });
+  } catch (e) { /* restarted */ }
+}
+
+$("replies").addEventListener("click", async e => {
+  const b = e.target.closest(".reply, .start-btn");
+  if (!b) return;
+  if (b.classList.contains("start-btn")) { runChapter(); return; }
+
+  const t = token;
+  const ch = CHAPTERS[chapter].choices[b.dataset.i];
+  if (ch.good) score++;
+  waiting("&#128172; Sending...");
+  try {
+    $("feed").appendChild(el(bubbleHTML({ t: "me", text: ch.me })));
+    scrollFeed();
+    await wait(500, t);
+    setMeter(ch.good ? 1 : -1);
+    await play(ch.after, t);
+    chapter++;
+    if (chapter < CHAPTERS.length) {
+      await wait(500, t);
+      runChapter();
+    } else {
+      await wait(600, t);
+      showEnding();
+    }
+  } catch (err) { /* restarted */ }
+});
+
+function showEnding() {
+  const key = score === 3 ? "best" : score === 2 ? "okay" : "poor";
+  const e = ENDINGS[key];
+  $("replies").innerHTML = `<p class="waiting">&#128240; Your story made the news.</p>`;
+  const end = $("ending");
+  end.innerHTML = `
+    <div class="end-grid"><div class="paper">
+      <div class="masthead">
+        <b>The Office Times</b>
+        <span><span>Friday edition</span><span>You made ${score} of 3 good choices</span></span>
+      </div>
+      <div class="stamp ${key}">${e.stamp}</div>
+      <span class="kicker">${e.kicker}</span>
+      <h2 class="headline">${e.headline}</h2>
+      <p class="subhead">${e.sub}</p>
+      <p class="story-cols">${e.body}</p>
+    </div>
+
+    <div class="sticky">
+      <h3>Remember</h3>
+      <ul>
+        <li>If a company gives you a gift, tell your manager.</li>
+        <li>Never tell one company another company's prices.</li>
+        <li>If something could make you unfair, say so.</li>
+      </ul>
+      <p><b>Not sure what to do?</b> Ask your manager or the Ethics team.</p>
+      <p class="sample">Sample scenario: names, policy and rules are illustrative.</p>
+    </div>
+
+    </div>
+    <button class="again-btn" id="againBtn">&#128257; Play again and choose differently</button>`;
+  end.classList.add("show");
+  document.body.classList.add("ended");
+  $("againBtn").addEventListener("click", restart);
+  setTimeout(() => {
+    window.scrollTo({ top: 0 });
+    end.focus({ preventScroll: true });
+  }, 300);
+}
+
+function restart() {
+  token++;
+  chapter = 0; score = 0; integrity = 2;
+  $("meterFill").style.width = "50%";
+  $("face").innerHTML = FACES[2];
+  $("feed").innerHTML = "";
+  $("ending").classList.remove("show");
+  document.body.classList.remove("ended");
+  $("ending").innerHTML = "";
+  $("dayLabel").textContent = "Week 3";
+  $("feed").appendChild(el(`<div class="scene"><span class="time">Week 3</span><span class="art" aria-hidden="true">&#128188;</span><p>You are new at work. Your job is to help choose which company your team will buy from. A company called BrightPath really wants to be chosen.</p></div>`));
+  $("replies").innerHTML = `<button class="start-btn">&#9654; Start the story</button>`;
+  window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+}
+
+restart();
+</script>
+</body>
+</html>

@@ -501,10 +501,6 @@ export const HOME = {
     ],
     "experts": {
       "note": "Some of the experts behind Edstellar programs",
-      "link": {
-        "label": "Meet the expert network",
-        "href": "/trainer-platform"
-      },
       "trainers": [
         {
           "name": "Tamer",

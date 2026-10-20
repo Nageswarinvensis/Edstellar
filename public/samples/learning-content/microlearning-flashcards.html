@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales refresher: Objection flashcards</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Cormorant+Garamond:ital,wght@1,600&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+:root{--navy:#0A1628;--navy-soft:#14233D;--lime:#C8F135;--lime-soft:#E4F89A;--ink:#0A1628;--paper:#FAFAF7;--paper-warm:#F2F0E8;--cream:#EDE9DD;--white:#fff;
+  --muted:rgba(10,22,40,.6);--faint:rgba(10,22,40,.45);--rule:rgba(10,22,40,.12);--rule-strong:rgba(10,22,40,.22);--no:#B3261E;--no-bg:rgba(179,38,30,.07)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow:hidden}
+.wrap{height:100%;display:grid;grid-template-columns:1fr 250px}
+.main{min-width:0;min-height:0;display:flex;flex-direction:column;padding:16px 20px 16px;background:var(--white)}
+.top{flex:none;display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:10px;margin-bottom:14px;border-bottom:2px solid var(--navy)}
+h1{font-family:'Sora';font-weight:700;font-size:18px;letter-spacing:-.02em}
+h1 em{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:1.15em}
+.cnt{font-family:'DM Mono';font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+/* card */
+.scene{flex:1;min-height:0;perspective:1400px}
+.card{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1);cursor:pointer}
+.card.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;overflow:hidden}
+.front{background:var(--navy);color:var(--paper);padding:22px 26px}
+.back{background:var(--white);border:1px solid var(--rule);transform:rotateY(180deg);padding:18px 22px;justify-content:center}
+.stg{display:inline-flex;align-self:flex-start;gap:8px;align-items:center;font-family:'DM Mono';font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;border-radius:100px;padding:5px 10px}
+.front .stg{background:rgba(250,250,247,.1);color:var(--lime)}
+.back .stg{background:var(--paper-warm);color:var(--muted)}
+.qwrap{flex:1;display:flex;flex-direction:column;justify-content:center}
+.who{font-family:'DM Mono';font-weight:500;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,250,247,.6);margin-bottom:10px}
+.bubble{position:relative;align-self:flex-start;max-width:92%;background:var(--paper);color:var(--ink);border-radius:18px 18px 18px 4px;padding:16px 20px;font-family:'Sora';font-weight:700;font-size:24px;line-height:1.25;letter-spacing:-.02em}
+.task{margin-top:18px;font-size:14px;line-height:1.5;color:rgba(250,250,247,.8);max-width:46ch}
+.task b{color:var(--lime);font-weight:600}
+.tap{display:flex;align-items:center;gap:8px;font-family:'DM Mono';font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,247,.55)}
+.tap svg{width:15px;height:15px}
+.bh{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.kl{display:flex;align-items:center;gap:6px;font-family:'DM Mono';font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.kl i{width:10px;height:10px;border-radius:3px;background:var(--navy)}
+.bq{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:10px}
+.steps{display:grid;gap:7px}
+.st{display:grid;grid-template-columns:116px 1fr;gap:10px;align-items:start;padding:8px 10px;border-radius:9px;background:var(--paper)}
+.st b{font-family:'DM Mono';font-weight:500;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.st span{font-size:13.5px;line-height:1.4;font-weight:500}
+.st.key{background:var(--navy);color:var(--paper)}
+.st.key b{color:var(--lime)}
+.avoid{margin-top:9px;display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.4;color:var(--no);background:var(--no-bg);border-radius:9px;padding:8px 10px}
+.avoid b{font-family:'DM Mono';font-weight:500;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;flex:none;padding-top:2px}
+/* rail */
+.rail{min-height:0;display:flex;flex-direction:column;gap:14px;padding:16px 16px 14px;background:var(--paper);border-left:1px solid var(--rule)}
+.lbl{font-family:'DM Mono';font-weight:500;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:block}
+.dots{display:grid;grid-template-columns:repeat(8,1fr);gap:4px}
+.dot{height:8px;border-radius:4px;background:var(--rule)}
+.dot.cur{background:var(--navy)}
+.dot.easy{background:var(--lime)} .dot.okay{background:var(--cream);box-shadow:inset 0 0 0 1.5px var(--rule-strong)} .dot.hard{background:var(--no)}
+.reveal{width:100%;padding:11px;border-radius:100px;border:0;background:var(--navy);color:var(--lime);font:700 13px 'Sora';cursor:pointer;transition:transform .15s}
+.reveal:hover{transform:translateY(-1px)}
+.rates{display:grid;gap:6px}
+.rates[hidden]{display:none}
+.rate{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;border-radius:10px;border:1.5px solid var(--rule);background:var(--white);font:600 13px 'DM Sans';color:var(--ink);cursor:pointer;text-align:left}
+.rate small{font-family:'DM Mono';font-weight:500;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.rate:hover{border-color:var(--rule-strong)}
+.rate.on.hard{border-color:var(--no);background:var(--no-bg)}
+.rate.on.okay{border-color:var(--rule-strong);background:var(--cream)}
+.rate.on.easy{border-color:var(--navy);background:var(--navy);color:var(--lime)} .rate.on.easy small{color:rgba(200,241,53,.7)}
+.fw{margin-top:auto;border:1px dashed var(--rule-strong);border-radius:10px;padding:10px 12px}
+.fw ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 8px;font-size:12px;font-weight:600}
+.fw li{display:flex;gap:6px;align-items:center}
+.fw li i{font-style:normal;display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--navy);color:var(--lime);font:500 9.5px 'DM Mono'}
+.nav{flex:none;display:flex;gap:8px}
+.btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:100px;font:700 13px 'Sora';cursor:pointer;transition:transform .15s}
+.btn:hover:not(:disabled){transform:translateY(-1px)}
+.btn:disabled{opacity:.35;cursor:default}
+.btn.pri{flex:1.6;background:var(--navy);color:var(--lime);border:0}
+.btn.sec{background:transparent;color:var(--ink);border:1.5px solid var(--rule-strong)}
+.card:focus-visible,.btn:focus-visible,.rate:focus-visible,.reveal:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+/* results */
+.res{position:absolute;inset:0;background:var(--paper);display:none;align-items:center;justify-content:center;padding:20px}
+.res.show{display:flex}
+.res-in{width:min(520px,100%);text-align:center}
+.res .k{font-family:'DM Mono';font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.res h2{font-family:'Sora';font-weight:700;font-size:26px;letter-spacing:-.02em;margin:6px 0 6px}
+.res h2 em{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:1.15em}
+.res .msg{font-size:13.5px;line-height:1.55;color:var(--muted);margin:0 auto 16px;max-width:46ch}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.stat{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:12px 6px}
+.stat b{display:block;font-family:'Sora';font-weight:700;font-size:24px;line-height:1.1}
+.stat span{font-family:'DM Mono';font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stat.e{background:var(--navy);border-color:var(--navy)} .stat.e b{color:var(--lime)} .stat.e span{color:rgba(250,250,247,.7)}
+.stat.h b{color:var(--no)}
+.ract{display:flex;gap:10px;justify-content:center;margin-bottom:12px}
+.ract .btn{flex:none;padding:11px 22px}
+.note{font-size:11.5px;line-height:1.5;color:var(--faint);max-width:50ch;margin:0 auto}
+@media (max-width:640px){
+  body{overflow:auto} .wrap{grid-template-columns:1fr;height:auto}
+  h1{font-size:16px} .main{padding:12px} .scene{flex:none;height:490px} .bubble{font-size:20px} .front{padding:18px}
+  .st{grid-template-columns:1fr;gap:2px} .rail{border-left:0;border-top:1px solid var(--rule)} .fw{display:none}
+  .res{position:fixed} .ract{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){.card{transition:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="main">
+    <div class="top"><h1>Handling objections: <em>refresher</em></h1><span class="cnt" id="cnt">Card 1 of 8</span></div>
+    <div class="scene">
+      <div class="card" id="card" tabindex="0" role="button" aria-label="Flip card">
+        <div class="face front">
+          <span class="stg" id="fStage"></span>
+          <div class="qwrap">
+            <p class="who">The buyer says</p>
+            <p class="bubble" id="fLine"></p>
+            <p class="task">How would you reply? Say it out loud using <b>Acknowledge, Ask, Respond, Confirm</b>, then flip the card.</p>
+          </div>
+          <div class="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>Tap the card or press Space to flip</div>
+        </div>
+        <div class="face back">
+          <div class="bh"><span class="stg" id="bStage"></span><span class="kl"><i></i>Key move</span></div>
+          <p class="bq" id="bLine"></p>
+          <div class="steps" id="steps"></div>
+          <p class="avoid"><b>Avoid</b><span id="avoid"></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <aside class="rail">
+    <div><span class="lbl">Deck progress</span><div class="dots" id="dots"></div></div>
+    <div>
+      <button class="reveal" id="reveal" type="button">Reveal the model answer</button>
+      <div class="rates" id="rates" hidden>
+        <span class="lbl">How close was your answer?</span>
+        <button class="rate hard" data-r="hard" type="button">Not close <small>Again soon</small></button>
+        <button class="rate okay" data-r="okay" type="button">Partly there <small>In a few days</small></button>
+        <button class="rate easy" data-r="easy" type="button">Nailed it <small>Next week</small></button>
+      </div>
+    </div>
+    <div class="fw"><span class="lbl">The framework</span><ol><li><i>1</i>Acknowledge</li><li><i>2</i>Ask</li><li><i>3</i>Respond</li><li><i>4</i>Confirm</li></ol></div>
+    <div class="nav"><button class="btn sec" id="prev" type="button">&larr; Back</button><button class="btn pri" id="next" type="button">Next &rarr;</button></div>
+  </aside>
+</div>
+<div class="res" id="res" tabindex="-1"></div>
+<script>
+var CARDS=[
+ {stage:'Proposal stage',line:'“It’s too expensive.”',
+  s:['That’s a fair concern, and budget matters.','When you say expensive, is it the total, or compared with what you spend now?','You said missed renewals cost you the most. This plan targets exactly that.','Does looking at it against that cost change the picture?'],key:1,
+  avoid:'Jumping straight to a discount.'},
+ {stage:'First call',line:'“We already work with another vendor.”',
+  s:['Makes sense. Switching is a big decision.','What’s working well with them, and what would you change if you could?','That gap is exactly what we close for teams like yours.','Would it be worth 20 minutes to see how?'],key:1,
+  avoid:'Criticizing the other vendor.'},
+ {stage:'Cold call',line:'“Just send me some information.”',
+  s:['Happy to send something over.','So it’s useful, what should it answer for you?','I’ll send a one-page summary on exactly that.','Can we take 15 minutes on Thursday to go through it?'],key:3,
+  avoid:'Emailing a generic brochure and waiting.'},
+ {stage:'Follow-up',line:'“Now isn’t a good time.”',
+  s:['Understood, timing matters.','Is it this quarter’s priorities, or something about the fit?','Let’s line up the start with when your team has room.','Shall I book a call for the first week of next month?'],key:3,
+  avoid:'Saying “I’ll check back later” with no date.'},
+ {stage:'Proposal stage',line:'“I need to run this past my boss.”',
+  s:['Of course, they should be part of this.','What will matter most to them when they look at it?','I’ll put those points on one page you can share.','Would it help if I joined that conversation?'],key:1,
+  avoid:'Leaving your contact to sell it alone.'},
+ {stage:'Discovery',line:'“We’re happy with how things are.”',
+  s:['Good to hear things are working.','If you could improve one thing in your process, what would it be?','That’s a common one. Here’s how another team handled it.','Is that worth exploring a little further?'],key:1,
+  avoid:'Pitching features to someone who sees no problem.'},
+ {stage:'Negotiation',line:'“Can you do a better price?”',
+  s:['I understand you want the best value.','Apart from price, is this the solution you’d choose?','If budget is fixed, we can adjust scope or term, not the value.','Which of those options works better for you?'],key:2,
+  avoid:'Dropping the price without getting anything back.'},
+ {stage:'Negotiation',line:'“Your competitor is cheaper.”',
+  s:['They may well be, and that’s worth checking.','What’s included in their quote?','Let’s compare like for like: setup, support and time to results.','Shall we put both side by side together?'],key:2,
+  avoid:'Matching their price before you compare.'}
+];
+var LBL=['Acknowledge','Ask','Respond','Confirm'];
+var deck,cur,rat,flipped;
+var $=function(i){return document.getElementById(i);};
+function start(list){deck=list;cur=0;rat=deck.map(function(){return null;});render();}
+function render(){
+  var c=CARDS[deck[cur]];flipped=false;$('card').classList.remove('flip');
+  $('cnt').textContent='Card '+(cur+1)+' of '+deck.length;
+  $('fStage').textContent=c.stage;$('bStage').textContent=c.stage+' · Model answer';$('fLine').textContent=c.line;$('bLine').textContent='Buyer: '+c.line;
+  $('steps').innerHTML=c.s.map(function(t,i){return '<div class="st'+(i===c.key?' key':'')+'"><b>'+(i+1)+' · '+LBL[i]+'</b><span>'+t+'</span></div>';}).join('');
+  $('avoid').textContent=c.avoid;
+  $('reveal').hidden=false;$('rates').hidden=true;
+  [].forEach.call(document.querySelectorAll('.rate'),function(b){b.classList.toggle('on',rat[cur]===b.dataset.r);});
+  $('dots').style.gridTemplateColumns='repeat('+deck.length+',1fr)';
+  $('dots').innerHTML=deck.map(function(_,i){return '<i class="dot'+(rat[i]?' '+rat[i]:'')+(i===cur&&!rat[i]?' cur':'')+'"></i>';}).join('');
+  $('prev').disabled=cur===0;$('next').innerHTML=cur===deck.length-1?'Finish':'Next &rarr;';
+  if(rat[cur]) flip(true);
+}
+function flip(force){flipped=force===true?true:!flipped;$('card').classList.toggle('flip',flipped);
+  if(flipped){$('reveal').hidden=true;$('rates').hidden=false;
+    if(force!==true&&innerWidth<=640||force===true&&innerWidth<=640&&!rat[cur])setTimeout(function(){$('rates').scrollIntoView({behavior:'smooth',block:'center'});},560);}}
+$('card').onclick=function(){flip();};
+$('card').onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
+$('reveal').onclick=function(){flip(true);};
+[].forEach.call(document.querySelectorAll('.rate'),function(b){b.onclick=function(){rat[cur]=b.dataset.r;
+  [].forEach.call(document.querySelectorAll('.rate'),function(x){x.classList.toggle('on',x===b);});
+  setTimeout(function(){ if(cur<deck.length-1){cur++;render();} else results(); },380);};});
+$('prev').onclick=function(){if(cur>0){cur--;render();}};
+$('next').onclick=function(){if(cur<deck.length-1){cur++;render();}else results();};
+document.addEventListener('keydown',function(e){if(e.target.tagName==='BUTTON'&&(e.key===' '||e.key==='Enter'))return;
+  if(e.key===' '&&e.target===document.body){e.preventDefault();flip();}
+  if(e.key==='ArrowRight')$('next').click(); if(e.key==='ArrowLeft')$('prev').click();});
+function results(){
+  var h=0,o=0,e=0,miss=[];rat.forEach(function(r,i){if(r==='easy')e++;else if(r==='okay')o++;else{h++;}if(r!=='easy')miss.push(deck[i]);});
+  var r=$('res');r.className='res show';
+  var all=e===deck.length;
+  r.innerHTML='<div class="res-in"><div class="k">Deck complete</div><h2>'+(all?'Sharp and <em>ready.</em>':'Good practice. <em>Keep going.</em>')+'</h2>'+
+   '<p class="msg">'+(all?'You nailed every objection. Run the deck again next week to keep it fresh.':'Practice the cards you weren’t sure about now, then run the full deck again in a few days.')+'</p>'+
+   '<div class="stats"><div class="stat e"><b>'+e+'</b><span>Nailed it</span></div><div class="stat"><b>'+o+'</b><span>Partly there</span></div><div class="stat h"><b>'+h+'</b><span>Not close</span></div></div>'+
+   '<div class="ract">'+(miss.length?'<button class="btn pri" id="again" type="button">Practice '+miss.length+' card'+(miss.length>1?'s':'')+' again</button>':'')+'<button class="btn sec" id="restart" type="button">Restart full deck</button></div>'+
+   '<p class="note">In a live program, cards you mark “Not close” come back the next day, “Partly there” in a few days and “Nailed it” the following week.</p></div>';
+  if(miss.length)$('again').onclick=function(){r.className='res';start(miss);};
+  $('restart').onclick=function(){r.className='res';start(CARDS.map(function(_,i){return i;}));};
+  r.focus();
+}
+start(CARDS.map(function(_,i){return i;}));
+</script>
+</body>
+</html>

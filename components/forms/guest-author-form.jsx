@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
@@ -7,13 +8,18 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { CtaButton } from "@/components/common/cta-button";
 import { FormField, formInputClasses } from "@/components/common/form-field";
+import { HoneypotField } from "@/components/forms/country-phone-fields";
+import { submitGuestAuthor } from "@/lib/actions/submit-guest-author";
 import { cn } from "@/lib/utils";
 import { EMAIL_PATTERN } from "@/lib/constants";
 
 /**
  * Guest-author pitch form on `/become-a-guest-author`: name, email, LinkedIn,
- * job title and the blog idea. No submission backend yet: a valid submit
- * goes straight to `/thank-you/{thankYou}` (default `blog`).
+ * job title and the blog idea, sent to Zoho "BecomeAGuestAuthor" through the
+ * `submitGuestAuthor` Server Action and the shared lead pipeline
+ * (`lib/leads/`); the idea is Zoho's Message. On success the visitor lands on
+ * `/thank-you/{thankYou}` (default `blog`); a field the server rejects shows
+ * under that field, and a failed delivery shows a message above the button.
  *
  * `data`: `submit_label`, `note`.
  *
@@ -23,12 +29,37 @@ export default function GuestAuthorForm({ data, thankYou = "blog" }) {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm();
   const router = useRouter();
+  const [submitError, setSubmitError] = useState("");
 
-  function onSubmit() {
-    router.push(`/thank-you/${thankYou}`);
+  async function onSubmit(values) {
+    setSubmitError("");
+    let result;
+    try {
+      result = await submitGuestAuthor({
+        ...values,
+        page: window.location.pathname,
+        thankYou,
+      });
+    } catch {
+      result = null;
+    }
+
+    if (result?.ok) {
+      router.push(`/thank-you/${thankYou}`);
+      return;
+    }
+    if (result?.errors) {
+      for (const [field, message] of Object.entries(result.errors)) setError(field, { message });
+      return;
+    }
+    setSubmitError(
+      result?.error ||
+        "We could not submit your pitch. Please try again, or email us at contact@edstellar.com.",
+    );
   }
 
   return (
@@ -38,7 +69,9 @@ export default function GuestAuthorForm({ data, thankYou = "blog" }) {
         Fields marked <Text as="span" className="text-red-600">*</Text> are required
       </Text>
 
-      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="relative flex flex-col gap-6">
+        <HoneypotField register={register} />
+
         <FormField label="Full name" required error={errors.name?.message}>
           <input
             {...register("name", { required: "Please enter your full name." })}
@@ -93,9 +126,15 @@ export default function GuestAuthorForm({ data, thankYou = "blog" }) {
           />
         </FormField>
 
+        {submitError ? (
+          <Text as="p" role="alert" className="text-[13.5px] leading-normal text-red-600">
+            {submitError}
+          </Text>
+        ) : null}
+
         <Box>
           <CtaButton type="submit" color="lime" block disabled={isSubmitting}>
-            {data.submit_label}
+            {isSubmitting ? "Submitting…" : data.submit_label}
           </CtaButton>
           {data.note ? (
             <Text as="p" className="mt-4 text-[13px] leading-[1.6] text-ink/60">

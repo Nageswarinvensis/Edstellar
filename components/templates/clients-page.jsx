@@ -12,10 +12,9 @@ import ClientsContact from "@/components/sections/company/clients/clients-contac
 
 /**
  * `/clients` — the client showcase. Server Component; the only interactive
- * leaf is the explorer (search, sector/region filters, expandable cards),
- * which the Sectors and Regions sections drive through `data-go-sector`.
+ * leaf is the explorer (search, sector filter, expandable cards).
  *
- * Design: `Edstellar-New-Lanch SETUP/clients 3.html`.
+ * Design: `Edstellar-New-Lanch SETUP/clients 9.html`.
  */
 export default function ClientsPage({ page }) {
   return (
