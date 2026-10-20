@@ -18,14 +18,14 @@ import { EMAIL_PATTERN } from "@/lib/constants";
  * job title and the blog idea, sent to Zoho "BecomeAGuestAuthor" through the
  * `submitGuestAuthor` Server Action and the shared lead pipeline
  * (`lib/leads/`); the idea is Zoho's Message. On success the visitor lands on
- * `/thank-you/{thankYou}` (default `blog`); a field the server rejects shows
+ * `/thank-you/{thankYou}` (default `become-a-guest-author`); a field the server rejects shows
  * under that field, and a failed delivery shows a message above the button.
  *
  * `data`: `submit_label`, `note`.
  *
  * Design: become-a-guest-author `#author-form`, `.form-card`, `.field`.
  */
-export default function GuestAuthorForm({ data, thankYou = "blog" }) {
+export default function GuestAuthorForm({ data, thankYou = "become-a-guest-author" }) {
   const {
     register,
     handleSubmit,

@@ -20,9 +20,11 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import TrainerFaces from "@/components/common/trainer-faces";
 import SecCta from "@/components/common/sec-cta";
 import CurriculumModules from "@/components/sections/course/curriculum-modules";
 import { cn } from "@/lib/utils";
+import { getTrainerFaces } from "@/lib/content/home";
 
 // One semantic color per learning phase, used consistently across the step
 // icons, the split bar and its legend — the source design actually swaps
@@ -194,13 +196,7 @@ export default function Curriculum({ curriculum }) {
           <Reveal delay={2}>
             <Box className="w-full max-w-100 rounded-[14px] border border-ink/12 bg-white p-3.75 transition-[border-color,box-shadow] duration-300 hover:border-ink/20 hover:shadow-[0_16px_36px_-28px_rgba(10,22,40,0.45)]">
               <Box className="mb-2 flex items-center gap-2.5">
-                <Image
-                  src="/course/Avatar.webp"
-                  alt="Edstellar expert trainers who reviewed this curriculum"
-                  width={44}
-                  height={24}
-                  className="h-6.5 w-auto flex-none object-contain"
-                />
+                <TrainerFaces people={getTrainerFaces()} className="-space-x-2" faceClassName="size-6.5 ring-white" />
                 <Text
                   as="h3"
                   className="min-w-0 font-display text-[12.5px] leading-[1.3] font-medium tracking-[-0.01em] text-ink"

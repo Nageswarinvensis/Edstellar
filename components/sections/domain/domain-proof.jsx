@@ -1,6 +1,6 @@
-import Image from "next/image";
-
 import Reveal from "@/components/common/reveal";
+import TrainerFaces from "@/components/common/trainer-faces";
+import { getTrainerFaces } from "@/lib/content/home";
 import Box from "@/components/ui/Box";
 import Section from "@/components/ui/Section";
 import { cn } from "@/lib/utils";
@@ -17,12 +17,10 @@ import { cn } from "@/lib/utils";
  * (TNA page) is a separate component and stays as-is.
  *
  * Driven by `proof.stats`: the stat whose label names the trainers renders as
- * the avatar-stack cell; every other stat as a figure + label. The avatar
- * strip itself is a fixed asset (`AVATAR_SRC`), not CMS data.
+ * the avatar-stack cell; every other stat as a figure + label. The faces are
+ * the home hero's trainer photos (`getTrainerFaces()`), not CMS data — the
+ * CMS `stats` only carry the figures and labels.
  */
-// Pre-composed avatar strip, shown on the trainers stat. Static — the CMS
-// `stats` only carry the figures and labels.
-const AVATAR_SRC = "/course/Avatar.webp";
 
 function StatValue({ children }) {
   return (
@@ -53,8 +51,8 @@ function DomainProof({ proof }) {
             className="flex w-full min-w-0 items-stretch max-md:flex-wrap"
           >
             {stats.map((stat, index) => {
-              // The avatar strip is a fixed asset on the trainers stat, chosen
-              // by label rather than any CMS `photo` field.
+              // The trainer faces go on the trainers stat, chosen by label
+              // rather than any CMS `photo` field.
               const showAvatar = /trainer/i.test(stat.label ?? "");
               const cell = cn(
                 "flex min-w-0 flex-1 flex-col gap-[5px]",
@@ -71,22 +69,7 @@ function DomainProof({ proof }) {
                     key={index}
                     className={cn(cell, "flex-row items-center gap-3")}
                   >
-                    <Box
-                      aria-hidden="true"
-                      className="flex flex-none items-center"
-                    >
-                      {/* `Avatar.webp` is a wide, pre-composed avatar strip, so
-                          it's rendered at a fixed size with `object-contain` —
-                          the same way the course page shows it — rather than
-                          cropped into a circle. */}
-                      <Image
-                        src={AVATAR_SRC}
-                        alt=""
-                        width={44}
-                        height={24}
-                        className="h-7 w-auto flex-none object-contain"
-                      />
-                    </Box>
+                    <TrainerFaces people={getTrainerFaces()} className="-space-x-2.5" faceClassName="size-8 ring-white" />
                     <Box className="flex min-w-0 flex-col gap-[5px]">
                       <StatValue>{stat.value}</StatValue>
                       <StatLabel>{stat.label}</StatLabel>

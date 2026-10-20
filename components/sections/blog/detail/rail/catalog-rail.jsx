@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Check } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -15,7 +16,9 @@ const CATALOG_PDF = "https://media.edstellar.com/brochures/all-courses-catalog.p
  * "Free download" rail card: navy panel with a white work-email form. The
  * email goes to Zoho "DownloadCatalog" (Branch and PAGE NAME "blog") through
  * the `submitCatalogDownload` Server Action; once Zoho has it, the catalog
- * opens in a new tab and the form gives way to the PDF link.
+ * opens in a new tab and this tab goes to `/thank-you/{thankYou}`. If the
+ * browser blocked the new tab, the form gives way to the PDF link instead —
+ * the thank-you page has no link to the catalog.
  *
  * The tab is opened on the click itself and pointed at the PDF after the
  * submit succeeds — a tab opened only after the server round-trip is no
@@ -23,7 +26,8 @@ const CATALOG_PDF = "https://media.edstellar.com/brochures/all-courses-catalog.p
  *
  * Design: Blog page v2 `.cat-dl.rail`, `.cat-dl-panel`, `.cat-dl-done`.
  */
-export default function CatalogRail() {
+export default function CatalogRail({ thankYou = "download-catalog" }) {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
@@ -55,8 +59,12 @@ export default function CatalogRail() {
     setSubmitting(false);
 
     if (result?.ok) {
-      if (tab) tab.location.href = CATALOG_PDF;
-      setSent(true);
+      if (tab) {
+        tab.location.href = CATALOG_PDF;
+        router.push(`/thank-you/${thankYou}`);
+      } else {
+        setSent(true);
+      }
       return;
     }
     tab?.close();
