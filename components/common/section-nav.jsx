@@ -49,7 +49,7 @@ export default function SectionNav({ data, ctaClassName }) {
                 aria-current={activeId === item.id ? "true" : undefined}
                 className={cn(
                   "block rounded-full px-3.5 py-2.5 text-sm font-medium whitespace-nowrap transition-colors",
-                  activeId === item.id ? "bg-navy text-paper" : "text-ink/60 hover:text-ink",
+                  activeId === item.id ? "bg-navy text-paper" : "text-ink-muted hover:text-ink",
                 )}
               >
                 {item.label}

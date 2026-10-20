@@ -72,6 +72,7 @@ function InclusionsCard({ inclusions }) {
                     <Box as="ol" className="flex flex-col gap-3">
                       {column.steps.map((step, stepIndex) => (
                         <Box
+                          as="li"
                           key={step.title}
                           className="grid grid-cols-[auto_minmax(0,1fr)] items-baseline gap-x-2.75 gap-y-0.5"
                         >
@@ -89,7 +90,7 @@ function InclusionsCard({ inclusions }) {
                           </Text>
                           <Text
                             as="p"
-                            className="col-start-2 text-[13px] leading-[1.4] text-ink/60"
+                            className="col-start-2 text-[13px] leading-[1.4] text-ink-muted"
                           >
                             {step.description}
                           </Text>
@@ -172,7 +173,7 @@ function AboutChips({ chips }) {
               >
                 {chip.title}
               </Text>
-              <Text as="p" className="text-[12px] text-ink/60">
+              <Text as="p" className="text-[12px] text-ink-muted">
                 {chip.subtitle}
               </Text>
             </Box>
@@ -251,7 +252,7 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
                 <Box className="relative mb-4 ml-9 hidden aspect-[3/4] w-full max-w-65 overflow-hidden lg:float-right lg:block">
                   <Image
                     src={media.src}
-                    alt={media.alt || ""}
+                    alt={media.alt || "Edstellar corporate training"}
                     fill
                     sizes="260px"
                     className="object-cover [mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)]"
@@ -282,7 +283,7 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
           >
             <Image
               src={media.src}
-              alt={media.alt || ""}
+              alt={media.alt || "Edstellar corporate training"}
               fill
               sizes="(max-width: 767px) 100vw, 620px"
               className="object-cover [mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)]"

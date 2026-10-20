@@ -41,7 +41,7 @@ function Block({ block }) {
             ) : (
               <Box as="li" key={item} className="relative mb-4 max-w-[70ch] pl-7 leading-[1.7] text-ink">
                 {block.style === "lettered" ? (
-                  <Box as="span" aria-hidden="true" className="absolute top-0 left-0 font-mono text-[13px] text-ink/60">
+                  <Box as="span" aria-hidden="true" className="absolute top-0 left-0 font-mono text-[13px] text-ink-muted">
                     ({String.fromCharCode(97 + index)})
                   </Box>
                 ) : (
@@ -184,7 +184,7 @@ export default function LegalBody({ sections, backToTop }) {
 
       {backToTop ? (
         <Text as="p" className="mt-8">
-          <a href={`#${backToTop}`} title="Click Here to Go Back to Top" className="font-mono text-[13px] text-ink/60 hover:text-ink">
+          <a href={`#${backToTop}`} title="Click Here to Go Back to Top" className="font-mono text-[13px] text-ink-muted hover:text-ink">
             ↑ Back to top
           </a>
         </Text>

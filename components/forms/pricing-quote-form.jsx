@@ -122,7 +122,7 @@ export default function PricingQuoteForm({ data, thankYou = "pricing" }) {
       as="aside"
       id={data.id}
       aria-label={data.heading}
-      className="relative scroll-mt-24 overflow-hidden rounded-[22px] bg-navy px-7 py-8 text-paper before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-lime before:content-[''] min-[961px]:sticky min-[961px]:top-24"
+      className="relative scroll-mt-24 overflow-hidden rounded-[22px] bg-navy px-7 py-8 max-sm:px-4 max-sm:py-7.5 text-paper before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-lime before:content-[''] min-[961px]:sticky min-[961px]:top-24"
     >
       <Text as="p" className="mb-2 font-mono text-[10px] leading-[1.5] tracking-[0.2em] text-lime uppercase">
         {data.label}

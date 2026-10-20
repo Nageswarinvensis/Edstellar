@@ -169,14 +169,19 @@
   --color-lime: #c8f135;
   --color-lime-soft: #e4f89a;
   --color-ink: #0a1628;
-  --color-ink-muted: #0a162899;
+  /* Muted text: ink at 65%, the lightest gray that still meets WCAG AA
+     (4.5:1) on every light background here — paper, white, both warm
+     papers and lime. Use it instead of lighter `text-ink/40`–`/60`. */
+  --color-ink-muted: #0a1628a6;
   --color-paper: #fafaf7;
   --color-paper-warm: #f2f0e8;
   --color-paper-cream: #ede9dd;
 
   /* Accent used for emphasis text on light backgrounds. Lime itself fails
-     contrast on paper, so the designs use this olive instead. */
-  --color-olive: #6f8c0f;
+     contrast on paper, so the designs use olive instead — darkened from the
+     designs' #6f8c0f, which fails WCAG AA (3.2–3.9:1) for small text; this
+     one is 4.8:1 or better on paper, white and both warm papers. */
+  --color-olive: #566e0b;
 
   /* Form validation red (mega-menu brief composer). */
   --color-error: #b3261e;

@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 function SearchIcon() {
   return (
-    <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true" className="pointer-events-none absolute left-3.5 size-4 text-ink/60">
+    <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true" className="pointer-events-none absolute left-3.5 size-4 text-ink-muted">
       <circle cx="9" cy="9" r="6" />
       <path d="M13.5 13.5L17 17" />
     </svg>

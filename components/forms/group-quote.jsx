@@ -390,7 +390,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             title="Click Here to View Select from the catalog"
             className={cn(
               "rounded-full px-4.5 py-2 font-body text-[12.5px] font-semibold transition-colors duration-200",
-              programMode === "catalog" ? "bg-navy text-lime" : "text-ink/60",
+              programMode === "catalog" ? "bg-navy text-lime" : "text-ink-muted",
             )}
           >
             Select from the catalog
@@ -401,7 +401,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             title="Click Here to View Upload a list"
             className={cn(
               "rounded-full px-4.5 py-2 font-body text-[12.5px] font-semibold transition-colors duration-200",
-              programMode === "upload" ? "bg-navy text-lime" : "text-ink/60",
+              programMode === "upload" ? "bg-navy text-lime" : "text-ink-muted",
             )}
           >
             Upload a list
@@ -413,7 +413,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             <Box className="relative mb-3.5">
               <Search
                 size={15}
-                className="pointer-events-none absolute top-1/2 left-3.5 -translate-y-1/2 text-ink/40"
+                className="pointer-events-none absolute top-1/2 left-3.5 -translate-y-1/2 text-ink-muted"
               />
               <input
                 type="search"
@@ -426,7 +426,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             </Box>
 
             <Box className="mb-2.5 flex items-center justify-between gap-3">
-              <Text as="span" className="text-[13px] text-ink/60">
+              <Text as="span" className="text-[13px] text-ink-muted">
                 {selected.size} program{selected.size === 1 ? "" : "s"} selected
               </Text>
               {selected.size > 1 ? (
@@ -434,7 +434,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
                   type="button"
                   onClick={clearPrograms}
                   title="Click Here to View Clear all"
-                  className="text-[13px] text-ink/60 underline underline-offset-3 hover:text-ink"
+                  className="text-[13px] text-ink-muted underline underline-offset-3 hover:text-ink"
                 >
                   Clear all
                 </button>
@@ -467,7 +467,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
                         {locked ? (
                           <Text
                             as="span"
-                            className="mt-0.5 block font-mono text-[10px] tracking-[0.05em] text-ink/45"
+                            className="mt-0.5 block font-mono text-[10px] tracking-[0.05em] text-ink-muted"
                           >
                             this course
                           </Text>
@@ -479,7 +479,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               ) : query.trim() && !isSearching ? (
                 <Text
                   as="p"
-                  className="p-4 text-center text-[13px] leading-[1.6] text-ink/60"
+                  className="p-4 text-center text-[13px] leading-[1.6] text-ink-muted"
                 >
                   No program matches that. Use{" "}
                   <b className="text-ink">Upload a list</b> and send us the full
@@ -488,7 +488,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               ) : !query.trim() ? (
                 <Text
                   as="p"
-                  className="p-4 text-center text-[13px] leading-[1.6] text-ink/60"
+                  className="p-4 text-center text-[13px] leading-[1.6] text-ink-muted"
                 >
                   Type a program name to search the catalog.
                 </Text>
@@ -500,7 +500,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             <Box as="ol" className="mb-4.5 list-none p-0">
               <Box
                 as="li"
-                className="relative mb-3 pl-8 text-[13.5px] leading-[1.6] text-ink/60"
+                className="relative mb-3 pl-8 text-[13.5px] leading-[1.6] text-ink-muted"
               >
                 <Box className="absolute top-0 left-0 grid size-5.25 place-items-center rounded-full bg-navy font-mono text-[10px] text-lime">
                   1
@@ -515,7 +515,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               </Box>
               <Box
                 as="li"
-                className="relative mb-3 pl-8 text-[13.5px] leading-[1.6] text-ink/60"
+                className="relative mb-3 pl-8 text-[13.5px] leading-[1.6] text-ink-muted"
               >
                 <Box className="absolute top-0 left-0 grid size-5.25 place-items-center rounded-full bg-navy font-mono text-[10px] text-lime">
                   2
@@ -524,7 +524,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               </Box>
               <Box
                 as="li"
-                className="relative pl-8 text-[13.5px] leading-[1.6] text-ink/60"
+                className="relative pl-8 text-[13.5px] leading-[1.6] text-ink-muted"
               >
                 <Box className="absolute top-0 left-0 grid size-5.25 place-items-center rounded-full bg-navy font-mono text-[10px] text-lime">
                   3
@@ -554,7 +554,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               </Text>
               <Text
                 as="span"
-                className="font-mono text-[10px] tracking-[0.1em] text-ink/50 uppercase"
+                className="font-mono text-[10px] tracking-[0.1em] text-ink-muted uppercase"
               >
                 .xls or .xlsx · up to 4 MB
               </Text>
@@ -636,7 +636,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
           <Box className="mt-6.5">
             <Text
               as="p"
-              className="mb-3.5 text-center font-mono text-[10.5px] tracking-[0.15em] text-ink/50 uppercase"
+              className="mb-3.5 text-center font-mono text-[10.5px] tracking-[0.15em] text-ink-muted uppercase"
             >
               How many sessions do you expect?
             </Text>
@@ -730,7 +730,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             as="dl"
             className="grid grid-cols-1 gap-x-6 gap-y-2.5 rounded-[14px] bg-paper-warm p-5.5 sm:grid-cols-[auto_1fr] lg:sticky lg:top-24"
           >
-            <Box as="dt" className="text-[13.5px] text-ink/60">
+            <Box as="dt" className="text-[13.5px] text-ink-muted">
               Team members
             </Box>
             <Box
@@ -740,7 +740,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               {sizeText() || "Not selected"}
             </Box>
 
-            <Box as="dt" className="text-[13.5px] text-ink/60">
+            <Box as="dt" className="text-[13.5px] text-ink-muted">
               Request type
             </Box>
             <Box
@@ -750,7 +750,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               {mode === "multiple" ? "Multiple training" : "One-time training"}
             </Box>
 
-            <Box as="dt" className="text-[13.5px] text-ink/60">
+            <Box as="dt" className="text-[13.5px] text-ink-muted">
               Frequency
             </Box>
             <Box
@@ -762,7 +762,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
 
             {mode === "multiple" ? (
               <>
-                <Box as="dt" className="text-[13.5px] text-ink/60">
+                <Box as="dt" className="text-[13.5px] text-ink-muted">
                   Programs
                 </Box>
                 <Box
@@ -775,7 +775,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             ) : null}
           </Box>
 
-          <Box className="rounded-[14px] border border-ink/15 bg-white p-6 sm:p-6.5">
+          <Box className="rounded-[14px] border border-ink/15 bg-white px-4 py-7.5 sm:p-6.5">
             <Text
               as="h4"
               className="mb-1 font-display text-lg font-semibold text-ink"
@@ -784,7 +784,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             </Text>
             <Text
               as="p"
-              className="mb-5 text-[13px] leading-[1.6] text-ink/60"
+              className="mb-5 text-[13px] leading-[1.6] text-ink-muted"
             >
               Send this requirement straight from here. A training
               specialist replies within one business day with a tailored
@@ -922,7 +922,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
       <Reveal delay={2}>
         <Text
           as="p"
-          className="mb-11 max-w-[64ch] text-[15px] leading-[1.7] text-ink/60 lg:text-[17px]"
+          className="mb-11 max-w-[64ch] text-[15px] leading-[1.7] text-ink-muted lg:text-[17px]"
         >
           {SECTION_DATA.description}
         </Text>
@@ -950,7 +950,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
                   "flex-1 border-b-2 px-3 py-4 font-body text-[13px] font-semibold transition-colors duration-200 sm:px-5 sm:text-[14px]",
                   mode === tab.id
                     ? "border-navy bg-white text-ink"
-                    : "border-transparent text-ink/50 hover:text-ink",
+                    : "border-transparent text-ink-muted hover:text-ink",
                 )}
               >
                 {tab.label}
@@ -958,7 +958,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             ))}
           </Box>
 
-          <Box className="p-5.5 sm:p-8 lg:p-10">
+          <Box className="px-4 py-7.5 sm:p-8 lg:p-10">
             <Box
               as="ol"
               aria-hidden="true"
@@ -976,7 +976,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
                         ? "border-navy bg-white text-ink"
                         : index < stepIndex
                           ? "border-lime bg-lime text-ink"
-                          : "border-ink/20 bg-white text-ink/40",
+                          : "border-ink/20 bg-white text-ink-muted",
                     )}
                   >
                     {index + 1}
@@ -1000,7 +1000,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
           </Text>
           <Text
             as="p"
-            className="mb-7 max-w-[78ch] text-[13.5px] leading-[1.7] text-ink/60"
+            className="mb-7 max-w-[78ch] text-[13.5px] leading-[1.7] text-ink-muted"
           >
             Where L&amp;D holds an annual budget, license packages price the
             whole year at once instead of raising a purchase order per workshop.
@@ -1041,7 +1041,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
                 </Text>
                 <Text
                   as="span"
-                  className="mt-1.5 mb-3.5 block font-mono text-[10px] tracking-[0.1em] text-ink/50 uppercase"
+                  className="mt-1.5 mb-3.5 block font-mono text-[10px] tracking-[0.1em] text-ink-muted uppercase"
                 >
                   {pack.unit}
                 </Text>
@@ -1053,7 +1053,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
                 </Text>
                 <Text
                   as="p"
-                  className="mt-auto pt-2.5 text-xs leading-[1.5] text-ink/50"
+                  className="mt-auto pt-2.5 text-xs leading-[1.5] text-ink-muted"
                 >
                   {pack.who}
                 </Text>

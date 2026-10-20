@@ -38,7 +38,7 @@ function Visual({ visual }) {
           <Box className="flex gap-2.5 p-2">
             <ul className="m-0 flex flex-none list-none flex-col gap-0.75 p-0">
               {visual.menu.map((item, i) => (
-                <li key={item} className={cn("rounded-[5px] px-2 py-1 text-[10.5px]", i === visual.active ? "bg-navy text-lime" : "text-ink/60")}>
+                <li key={item} className={cn("rounded-[5px] px-2 py-1 text-[10.5px]", i === visual.active ? "bg-navy text-lime" : "text-ink-muted")}>
                   {item}
                 </li>
               ))}
@@ -62,7 +62,7 @@ function Visual({ visual }) {
                   key={initials}
                   className={cn(
                     "relative -mx-1 grid place-items-center rounded-full border-2",
-                    on ? "z-1 size-13.5 border-lime bg-navy text-[12px] text-lime" : "size-10.5 border-paper-warm bg-paper-cream text-[10.5px] text-ink/60",
+                    on ? "z-1 size-13.5 border-lime bg-navy text-[12px] text-lime" : "size-10.5 border-paper-warm bg-paper-cream text-[10.5px] text-ink-muted",
                   )}
                 >
                   {initials}
@@ -81,7 +81,7 @@ function Visual({ visual }) {
                 key={step.label}
                 className={cn(
                   "flex items-center gap-1.25 text-[10.5px] uppercase tracking-[0.06em] max-[420px]:gap-0.75 max-[420px]:text-[9px] max-[420px]:tracking-[0.02em]",
-                  step.state === "todo" ? "text-ink/60" : "font-medium text-navy",
+                  step.state === "todo" ? "text-ink-muted" : "font-medium text-navy",
                 )}
               >
                 {i > 0 ? (
@@ -111,7 +111,7 @@ function Visual({ visual }) {
             return (
               <Box key={node.label} className="flex items-center">
                 {i > 0 ? <Arrow /> : null}
-                <span className={cn("flex flex-col items-center gap-2 text-[10.5px] uppercase tracking-[0.1em]", node.active ? "font-medium text-navy" : "text-ink/60")}>
+                <span className={cn("flex flex-col items-center gap-2 text-[10.5px] uppercase tracking-[0.1em]", node.active ? "font-medium text-navy" : "text-ink-muted")}>
                   <span
                     className={cn(
                       "flex size-15 rounded-xl border max-[420px]:size-11",
@@ -150,7 +150,7 @@ function Visual({ visual }) {
                 key={item.label}
                 className={cn(
                   "flex items-center gap-1.5 rounded-full border px-2.25 py-1 text-[10.5px] uppercase tracking-[0.06em]",
-                  item.shared ? "border-ink/12 bg-white text-navy" : "border-dashed border-ink/12 text-ink/45 line-through",
+                  item.shared ? "border-ink/12 bg-white text-navy" : "border-dashed border-ink/12 text-ink-muted line-through",
                 )}
               >
                 {item.shared ? <Check size={12} strokeWidth={2.2} /> : <X size={12} strokeWidth={2.2} />}
@@ -163,7 +163,7 @@ function Visual({ visual }) {
     case "zones":
       return (
         <Box className="flex flex-col items-center gap-2.5">
-          <Text as="p" className="m-0 font-mono text-[10px] uppercase tracking-[0.12em] text-ink/60">
+          <Text as="p" className="m-0 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
             {visual.caption}
           </Text>
           <Box className="relative flex gap-1.5 before:absolute before:top-1/2 before:right-4 before:left-4 before:h-px before:bg-ink/22 before:content-[''] max-[420px]:gap-0.75">
@@ -175,7 +175,7 @@ function Visual({ visual }) {
                   zone.active ? "scale-112 border-navy bg-navy max-[420px]:scale-100" : "border-ink/12 bg-white",
                 )}
               >
-                <b className={cn("text-[9.5px] font-normal tracking-[0.1em] max-[420px]:text-[8.5px]", zone.active ? "text-paper/70" : "text-ink/60")}>{zone.zone}</b>
+                <b className={cn("text-[9.5px] font-normal tracking-[0.1em] max-[420px]:text-[8.5px]", zone.active ? "text-paper/70" : "text-ink-muted")}>{zone.zone}</b>
                 <span className={cn("text-[13px] max-[420px]:text-[11px]", zone.active ? "text-lime" : "text-navy")}>{zone.time}</span>
               </span>
             ))}
@@ -215,7 +215,7 @@ export default function CoachingWhy({ data }) {
         </Reveal>
         {description ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
               {description}
             </Text>
           </Reveal>
@@ -238,7 +238,7 @@ export default function CoachingWhy({ data }) {
               <Text as="h3" className="mb-2 text-[18px] leading-[1.3] font-medium text-ink">
                 {item.title}
               </Text>
-              <Text as="p" className="text-[14.5px] leading-[1.6] text-ink/60">
+              <Text as="p" className="text-[14.5px] leading-[1.6] text-ink-muted">
                 {item.description}
               </Text>
               <Box
@@ -248,7 +248,7 @@ export default function CoachingWhy({ data }) {
                 <Visual visual={item.visual} />
               </Box>
               <Box className="border-t border-ink/12 pt-3.5">
-                <Text as="span" className="mb-1 block font-mono text-[9.5px] uppercase tracking-[0.12em] text-ink/60">
+                <Text as="span" className="mb-1 block font-mono text-[9.5px] uppercase tracking-[0.12em] text-ink-muted">
                   {difference_label}
                 </Text>
                 <b className="text-[14px] leading-normal text-ink">{item.difference}</b>
@@ -270,7 +270,7 @@ export default function CoachingWhy({ data }) {
               emphasisClassName="font-normal"
             />
             {related.description ? (
-              <Text as="p" className="m-0 text-[16px] text-ink/60">
+              <Text as="p" className="m-0 text-[16px] text-ink-muted">
                 {related.description}
               </Text>
             ) : null}
@@ -292,7 +292,7 @@ export default function CoachingWhy({ data }) {
                     <Text as="h4" className="text-[18px] leading-[1.3] font-semibold tracking-[-0.01em] text-ink">
                       {item.title}
                     </Text>
-                    <Text as="p" className="m-0 text-[14.5px] leading-[1.6] text-ink/60">
+                    <Text as="p" className="m-0 text-[14.5px] leading-[1.6] text-ink-muted">
                       {item.description}
                     </Text>
                     <Text as="span" className="mt-auto inline-flex items-center gap-2 pt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-navy">

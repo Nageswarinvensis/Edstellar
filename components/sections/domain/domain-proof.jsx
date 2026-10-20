@@ -81,7 +81,7 @@ function DomainProof({ proof }) {
                           cropped into a circle. */}
                       <Image
                         src={AVATAR_SRC}
-                        alt=""
+                        alt="Edstellar expert trainers"
                         width={44}
                         height={24}
                         className="h-7 w-auto flex-none object-contain"

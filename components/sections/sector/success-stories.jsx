@@ -54,7 +54,7 @@ export default function SuccessStories({ data }) {
                 >
                   <Image
                     src={item.flag}
-                    alt=""
+                    alt={`${item.title} location flag`}
                     width={152}
                     height={92}
                     sizes="58px"
@@ -66,7 +66,7 @@ export default function SuccessStories({ data }) {
               <Box className="flex min-w-0 flex-1 flex-col gap-0.5">
                 <Text
                   as="span"
-                  className="font-mono text-[10px] leading-[1.7] tracking-[0.14em] text-ink/45 uppercase"
+                  className="font-mono text-[10px] leading-[1.7] tracking-[0.14em] text-ink-muted uppercase"
                 >
                   {pad(index + 1)} / {pad(items.length)}
                 </Text>
@@ -82,7 +82,7 @@ export default function SuccessStories({ data }) {
                 size={20}
                 strokeWidth={2}
                 aria-hidden="true"
-                className="flex-none text-ink/60 transition-transform duration-250 group-open:rotate-180 group-open:text-navy motion-reduce:transition-none"
+                className="flex-none text-ink-muted transition-transform duration-250 group-open:rotate-180 group-open:text-navy motion-reduce:transition-none"
               />
             </Box>
 
@@ -97,7 +97,7 @@ export default function SuccessStories({ data }) {
                       >
                         {detail.label}:
                       </Box>
-                      <Box as="dd" className="m-0 text-[12px] leading-[1.65] text-ink/60">
+                      <Box as="dd" className="m-0 text-[12px] leading-[1.65] text-ink-muted">
                         {detail.text}
                       </Box>
                     </Box>
@@ -120,7 +120,7 @@ export default function SuccessStories({ data }) {
                   </Box>
                   <Box
                     as="figcaption"
-                    className="flex flex-col font-mono text-[11px] leading-[1.6] tracking-[0.08em] text-ink/60"
+                    className="flex flex-col font-mono text-[11px] leading-[1.6] tracking-[0.08em] text-ink-muted"
                   >
                     <Text as="span" className="font-mono text-[11px] leading-[1.6] font-medium text-navy">
                       {item.quote.name}

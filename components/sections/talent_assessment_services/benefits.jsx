@@ -156,7 +156,7 @@ export default function Benefits({ data }) {
                   >
                     {item.title}
                   </Text>
-                  <Text as="p" className="text-[16px] leading-[1.6] text-ink/60 max-[860px]:text-[15px]">
+                  <Text as="p" className="text-[16px] leading-[1.6] text-ink-muted max-[860px]:text-[15px]">
                     {item.description}
                   </Text>
                 </Box>

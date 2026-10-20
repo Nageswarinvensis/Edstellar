@@ -24,7 +24,7 @@ export default function HubTestimonial({ data }) {
         </Box>
         <Text
           as="span"
-          className="mt-6 block font-mono text-[11px] leading-[1.5] tracking-[0.2em] text-ink/60 uppercase"
+          className="mt-6 block font-mono text-[11px] leading-[1.5] tracking-[0.2em] text-ink-muted uppercase"
         >
           <b className="font-medium text-ink">{data.name}</b> · {data.role}
         </Text>

@@ -165,7 +165,7 @@ export function AboutValues({ data }) {
 export function AboutPurpose({ data }) {
   const Card = ({ item, className, dark }) => (
     <Box as="article" className={cn("rounded-[16px] p-8", className)}>
-      <Text as="h3" className={cn("mb-2 font-mono text-[11px] tracking-[0.18em] uppercase", dark ? "text-lime" : "text-ink/60")}>
+      <Text as="h3" className={cn("mb-2 font-mono text-[11px] tracking-[0.18em] uppercase", dark ? "text-lime" : "text-ink-muted")}>
         {item.label}
       </Text>
       <Text as="p" className={cn("mb-5 text-[14px] font-semibold", dark ? "text-paper/75" : "text-ink/70")}>
@@ -254,7 +254,7 @@ export function AboutReach({ data }) {
                     {scale.label}
                   </Text>
                   <Box aria-hidden="true" className="relative mt-2.5 h-1 rounded-full bg-[linear-gradient(90deg,var(--color-ring-3),var(--color-ring-1),var(--color-navy))] before:absolute before:-top-1 before:left-0 before:size-3 before:rounded-full before:border-2 before:border-ring-3 before:bg-white before:content-[''] after:absolute after:-top-1 after:right-0 after:size-3 after:rounded-full after:border-2 after:border-white after:bg-navy after:content-['']" />
-                  <Text as="p" className="mt-2 flex justify-between text-[13px] text-ink/60">
+                  <Text as="p" className="mt-2 flex justify-between text-[13px] text-ink-muted">
                     <Text as="span" className="text-[13px]">{scale.from}</Text>
                     <Text as="span" className="text-[13px]">{scale.to}</Text>
                   </Text>
@@ -453,7 +453,7 @@ export function AboutShift({ data }) {
       <Head id="shift" data={data} />
       <Reveal className="overflow-hidden rounded-[18px] border border-ink/12">
         <Box className="grid grid-cols-1 md:grid-cols-2">
-          <Text as="p" className="border-b border-ink/12 bg-paper-warm px-6 py-4.5 font-mono text-[11px] tracking-[0.18em] text-ink/60 uppercase max-md:hidden">
+          <Text as="p" className="border-b border-ink/12 bg-paper-warm px-6 py-4.5 font-mono text-[11px] tracking-[0.18em] text-ink-muted uppercase max-md:hidden">
             {data.from_label}
           </Text>
           <Text as="p" className="border-b border-ink/12 bg-navy px-6 py-4.5 font-mono text-[11px] tracking-[0.18em] text-lime uppercase max-md:hidden">

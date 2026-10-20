@@ -42,7 +42,7 @@ export default function LdFormatSample({ name, label, sample, dialog }) {
 
             <Text
               as="p"
-              className="mb-1.5 font-mono text-[10px] leading-[1.7] tracking-[0.14em] text-ink/60 uppercase"
+              className="mb-1.5 font-mono text-[10px] leading-[1.7] tracking-[0.14em] text-ink-muted uppercase"
             >
               {dialog.kicker}
             </Text>
@@ -68,7 +68,7 @@ export default function LdFormatSample({ name, label, sample, dialog }) {
               />
             </Text>
 
-            <Text as="p" className="mt-4 text-[13.5px] leading-[1.7] text-ink/60">
+            <Text as="p" className="mt-4 text-[13.5px] leading-[1.7] text-ink-muted">
               {sample.note}{" "}
               <Dialog.Close
                 render={<a href={dialog.note_cta.href} />}

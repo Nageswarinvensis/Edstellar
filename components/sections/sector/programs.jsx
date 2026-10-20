@@ -18,7 +18,7 @@ function CatalogCourse({ course, deliveryLabel }) {
       >
         {course.name}
       </Text>
-      <Box className="mb-1.5 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[10.5px] leading-[1.4] tracking-[0.06em] text-ink/60">
+      <Box className="mb-1.5 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[10.5px] leading-[1.4] tracking-[0.06em] text-ink-muted">
         <Text as="span" className="font-mono text-[10.5px] leading-[1.4] text-inherit">
           {course.duration}
         </Text>

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const VARIANTS = {
   light: {
     wrapper: "bg-white border-ink/10 border-l-lime",
-    eyebrow: "text-ink/40",
+    eyebrow: "text-ink-muted",
     heading: "text-ink",
     button:
       "bg-ink text-white shadow-[0_8px_20px_rgba(10,22,40,0.14)] hover:-translate-y-[2px] hover:shadow-[0_12px_24px_rgba(10,22,40,0.22)]",

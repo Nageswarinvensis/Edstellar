@@ -114,7 +114,7 @@ export default function PartnerForm({
         noValidate
         aria-label={business ? "Partner application for businesses" : "Partner application for individuals"}
         onSubmit={handleSubmit(onSubmit)}
-        className="px-6.5 py-8 min-[901px]:px-13 min-[901px]:py-11"
+        className="px-6.5 py-8 max-sm:px-4 max-sm:py-7.5 min-[901px]:px-13 min-[901px]:py-11"
       >
         <HoneypotField register={register} />
         <Box className="grid grid-cols-1 gap-x-4.5 gap-y-5 min-[901px]:grid-cols-2">

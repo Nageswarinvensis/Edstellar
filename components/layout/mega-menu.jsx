@@ -71,12 +71,12 @@ function PanelGroup({ group, first, activeKey, onNavigate, onPreview }) {
   const headingId = `mega-${group.heading.replace(/\W+/g, "-").toLowerCase()}`;
   return (
     <Box className={first ? "min-w-0" : "min-w-0 border-l border-ink/12 pl-8 max-[1439px]:pl-6"}>
-      <Text as="p" id={headingId} className="mb-2 flex items-baseline gap-2.5 border-b border-ink/12 pb-3 font-mono text-[11px] font-normal uppercase tracking-[0.12em] text-ink/60">
+      <Text as="p" id={headingId} className="mb-2 flex items-baseline gap-2.5 border-b border-ink/12 pb-3 font-mono text-[11px] font-normal uppercase tracking-[0.12em] text-ink-muted">
         <span aria-hidden="true" className="font-medium text-navy">{group.num}</span>
         {group.heading}
       </Text>
       {group.intro && (
-        <Text as="p" className="mb-2 text-[14px] leading-relaxed text-ink/60">{group.intro}</Text>
+        <Text as="p" className="mb-2 text-[14px] leading-relaxed text-ink-muted">{group.intro}</Text>
       )}
       <Box as="ul" aria-labelledby={headingId} className="list-none">
         {group.links.map((link, i) => (
@@ -108,15 +108,15 @@ function PanelGroup({ group, first, activeKey, onNavigate, onPreview }) {
 function Preview({ pv, ctaHref }) {
   return (
     <Box className="flex min-w-0 flex-col gap-2.5 self-start border-l border-ink/12 pl-8 max-[1439px]:pl-6">
-      <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink/60">{pv.c}</Text>
+      <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">{pv.c}</Text>
       <Text as="p" className="font-display text-[18px] font-semibold leading-tight tracking-[-0.01em] text-navy">{pv.t}</Text>
-      <Text as="p" className="text-[14px] leading-relaxed text-ink/60">{pv.d}</Text>
+      <Text as="p" className="text-[14px] leading-relaxed text-ink-muted">{pv.d}</Text>
       {pv.s?.length > 0 && (
         <Text as="p" className="self-start rounded-full bg-lime-soft px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-navy">
           5A · {pv.s.join(" · ")}
         </Text>
       )}
-      {pv.m && <Text as="p" className="-mt-1 text-[12px] leading-normal text-ink/60">{pv.m}</Text>}
+      {pv.m && <Text as="p" className="-mt-1 text-[12px] leading-normal text-ink-muted">{pv.m}</Text>}
       <Box className="mt-0.5 border-t border-ink/12 pt-3.5">
         <Link
           href={ctaHref}

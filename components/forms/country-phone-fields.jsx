@@ -164,7 +164,7 @@ export default function CountryPhoneFields({
                 "!mt-2 !w-[min(22rem,calc(100vw-5rem))] !max-h-64 !rounded-xl !border !border-ink/12 !bg-white !py-1.5 !text-[13.5px] !text-ink !shadow-[0_18px_40px_-20px_rgba(10,22,40,0.45)]",
                 "[&_.country]:!flex [&_.country]:!items-center [&_.country]:!gap-2.5 [&_.country]:!px-3.5 [&_.country]:!py-2.5",
                 "[&_.country_.flag]:!m-0 [&_.country_.flag]:!shrink-0 [&_.country-name]:!mr-0",
-                "[&_.country:hover]:!bg-paper [&_.country.highlight]:!bg-paper [&_.dial-code]:!text-ink/45 [&_.divider]:!mx-3 [&_.divider]:!border-ink/10",
+                "[&_.country:hover]:!bg-paper [&_.country.highlight]:!bg-paper [&_.dial-code]:!text-ink-muted [&_.divider]:!mx-3 [&_.divider]:!border-ink/10",
               )}
             />
           )}

@@ -68,7 +68,7 @@ export default function MethodStepper({ data }) {
                 active === index ? "border-navy bg-navy text-paper" : "border-ink/15 bg-white text-ink hover:border-navy",
               )}
             >
-              <Text as="span" className={cn("font-mono text-[11px]", active === index ? "text-lime" : "text-ink/50")}>
+              <Text as="span" className={cn("font-mono text-[11px]", active === index ? "text-lime" : "text-ink-muted")}>
                 {pad(index + 1)}
               </Text>
               {item.name}
@@ -88,7 +88,7 @@ export default function MethodStepper({ data }) {
             </Text>
             <Box className="grid grid-cols-1 gap-6 border-b border-ink/12 pb-7 sm:grid-cols-2">
               <Box>
-                <Text as="p" className="mb-3 font-mono text-[11px] tracking-[0.14em] text-ink/55 uppercase">
+                <Text as="p" className="mb-3 font-mono text-[11px] tracking-[0.14em] text-ink-muted uppercase">
                   {data.services_label}
                 </Text>
                 <Box as="ul" className="m-0 grid list-none gap-2.5 p-0">
@@ -102,7 +102,7 @@ export default function MethodStepper({ data }) {
                 </Box>
               </Box>
               <Box>
-                <Text as="p" className="mb-3 font-mono text-[11px] tracking-[0.14em] text-ink/55 uppercase">
+                <Text as="p" className="mb-3 font-mono text-[11px] tracking-[0.14em] text-ink-muted uppercase">
                   {data.tools_label}
                 </Text>
                 <Box as="ul" className="m-0 flex list-none flex-wrap gap-2 p-0">
@@ -130,7 +130,7 @@ export default function MethodStepper({ data }) {
           >
             <ChevronLeft size={18} aria-hidden="true" />
           </button>
-          <Text as="span" className="font-mono text-[12px] text-ink/55">
+          <Text as="span" className="font-mono text-[12px] text-ink-muted">
             Step {active + 1} of {total}
           </Text>
           <button

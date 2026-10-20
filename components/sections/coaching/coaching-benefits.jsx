@@ -51,7 +51,7 @@ export default function CoachingBenefits({ data }) {
         </Reveal>
         {description ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
               {description}
             </Text>
           </Reveal>
@@ -95,7 +95,7 @@ export default function CoachingBenefits({ data }) {
                   open && "hidden",
                 )}
               >
-                <Text as="span" className="font-mono text-[12px] tracking-[0.12em] text-ink/60">
+                <Text as="span" className="font-mono text-[12px] tracking-[0.12em] text-ink-muted">
                   {pad(index + 1)}
                 </Text>
                 <Text
@@ -116,7 +116,7 @@ export default function CoachingBenefits({ data }) {
                   open ? "flex" : "hidden",
                 )}
               >
-                <Text as="span" className="font-mono text-[12px] tracking-[0.12em] text-ink/60">
+                <Text as="span" className="font-mono text-[12px] tracking-[0.12em] text-ink-muted">
                   {pad(index + 1)} / {pad(total)}
                 </Text>
                 <Text
@@ -129,7 +129,7 @@ export default function CoachingBenefits({ data }) {
                 >
                   {item.title}
                 </Text>
-                <Text as="p" className="max-w-[min(440px,58%)] text-[16px] leading-[1.7] text-ink/60 max-[900px]:max-w-none">
+                <Text as="p" className="max-w-[min(440px,58%)] text-[16px] leading-[1.7] text-ink-muted max-[900px]:max-w-none">
                   {item.description}
                 </Text>
                 {item.points?.length ? (
@@ -173,7 +173,7 @@ export default function CoachingBenefits({ data }) {
             />
           ))}
         </Box>
-        <Box className="flex items-center gap-3 font-mono text-[13px] text-ink/60">
+        <Box className="flex items-center gap-3 font-mono text-[13px] text-ink-muted">
           <span aria-live="polite">
             {pad(active + 1)} / {pad(total)}
           </span>

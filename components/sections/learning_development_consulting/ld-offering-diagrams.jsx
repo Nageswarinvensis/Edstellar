@@ -14,7 +14,7 @@ const CHIP_TONES = {
 const LEVEL_FILLS = ["bg-lime-soft", "bg-lime", "bg-navy-soft", "bg-navy"];
 
 const MONO_LABEL =
-  "font-mono text-[10px] leading-[1.4] tracking-[0.08em] text-ink/60 uppercase";
+  "font-mono text-[10px] leading-[1.4] tracking-[0.08em] text-ink-muted uppercase";
 
 /** Small downward triangle between two stacked tiers. */
 function DownArrow() {
@@ -107,7 +107,7 @@ function CompetencyMatrixDiagram({ diagram }) {
               key={level}
               as="span"
               role="columnheader"
-              className="text-center font-mono text-[11px] leading-[1.4] text-ink/60"
+              className="text-center font-mono text-[11px] leading-[1.4] text-ink-muted"
             >
               {level}
             </Text>
@@ -142,7 +142,7 @@ function CompetencyMatrixDiagram({ diagram }) {
           <Text
             key={label}
             as="span"
-            className="flex items-center gap-1.75 text-[11.5px] leading-[1.4] text-ink/60"
+            className="flex items-center gap-1.75 text-[11.5px] leading-[1.4] text-ink-muted"
           >
             <Box
               as="span"
@@ -213,7 +213,7 @@ function KpiDashboardDiagram({ diagram }) {
           >
             <Text
               as="span"
-              className="mb-1.25 block font-mono text-[10px] leading-[1.4] tracking-[0.05em] text-ink/60 uppercase"
+              className="mb-1.25 block font-mono text-[10px] leading-[1.4] tracking-[0.05em] text-ink-muted uppercase"
             >
               {kpi.label}
             </Text>
@@ -246,10 +246,10 @@ function KpiDashboardDiagram({ diagram }) {
       </Box>
 
       <Box className="mt-2 flex justify-between">
-        <Text as="span" className="font-mono text-[9px] leading-[1.4] text-ink/60 uppercase">
+        <Text as="span" className="font-mono text-[9px] leading-[1.4] text-ink-muted uppercase">
           {start}
         </Text>
-        <Text as="span" className="font-mono text-[9px] leading-[1.4] text-ink/60 uppercase">
+        <Text as="span" className="font-mono text-[9px] leading-[1.4] text-ink-muted uppercase">
           {end}
         </Text>
       </Box>
@@ -278,7 +278,7 @@ function GovernanceCycleDiagram({ diagram }) {
             </Text>
             <Text
               as="span"
-              className="font-mono text-[9.5px] leading-[1.4] tracking-[0.05em] text-ink/60 uppercase"
+              className="font-mono text-[9.5px] leading-[1.4] tracking-[0.05em] text-ink-muted uppercase"
             >
               {step.cadence}
             </Text>

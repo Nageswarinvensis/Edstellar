@@ -157,7 +157,7 @@ function ShiftColumns({ shift }) {
       {caption ? (
         <Text
           as="p"
-          className="mt-4 text-center font-mono text-[11px] leading-normal tracking-[0.02em] text-ink/60"
+          className="mt-4 text-center font-mono text-[11px] leading-normal tracking-[0.02em] text-ink-muted"
         >
           {caption}
         </Text>
@@ -173,7 +173,7 @@ function ShiftColumn({ label, chips, tone }) {
         as="h4"
         className={cn(
           "mb-3 text-center font-mono text-[11px] leading-none tracking-[0.1em] uppercase",
-          tone === "target" ? "text-navy" : "text-ink/45",
+          tone === "target" ? "text-navy" : "text-ink-muted",
         )}
       >
         {label}
@@ -187,7 +187,7 @@ function ShiftColumn({ label, chips, tone }) {
               "rounded-[10px] px-2.5 py-2.25 text-center font-display text-[13.5px] leading-tight font-semibold",
               tone === "target"
                 ? "bg-lime text-navy"
-                : "border border-ink/12 bg-paper-cream text-ink/60",
+                : "border border-ink/12 bg-paper-cream text-ink-muted",
             )}
           >
             {chip}

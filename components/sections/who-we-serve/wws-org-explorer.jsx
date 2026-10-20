@@ -47,7 +47,7 @@ function SpectrumTrack({ label, subtitle, types, activeId, onSelect, cols }) {
     <Box className="rounded-[14px] border border-ink/[0.12] bg-white px-6 pb-[14px] pt-4">
       <Box className="mb-3 flex items-baseline justify-between gap-3">
         <Text as="p" className="m-0 text-[15px] font-semibold text-ink">
-          {label}{subtitle && <span className="ml-2 font-normal text-ink/50">{subtitle}</span>}
+          {label}{subtitle && <span className="ml-2 font-normal text-ink-muted">{subtitle}</span>}
         </Text>
       </Box>
 
@@ -86,7 +86,7 @@ function SpectrumTrack({ label, subtitle, types, activeId, onSelect, cols }) {
                     <Box className="size-[10px] rounded-full bg-lime" />
                   )}
                 </Box>
-                <Text as="b" className={`block text-[14px] font-semibold leading-snug ${isActive ? "text-ink" : "text-ink/60"}`}>
+                <Text as="b" className={`block text-[14px] font-semibold leading-snug ${isActive ? "text-ink" : "text-ink-muted"}`}>
                   {type.label}
                 </Text>
               </button>
@@ -103,7 +103,8 @@ export default function WwsOrgExplorer({ data }) {
 
   if (!data?.types?.length) return null;
 
-  const activeType = data.types.find((t) => t.id === activeId) ?? data.types[0];
+  // A stale id falls back to the first type, as before.
+  const shownId = data.types.some((t) => t.id === activeId) ? activeId : data.types[0].id;
   const bizTypes = data.types.filter((t) => BIZ.includes(t.id));
   const pubTypes = data.types.filter((t) => PUB.includes(t.id));
 
@@ -121,7 +122,7 @@ export default function WwsOrgExplorer({ data }) {
           heading={data.heading}
           className="m-0 text-[clamp(32px,4vw,40px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink"
         />
-        <Text as="p" className="m-0 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+        <Text as="p" className="m-0 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
           {data.lede}
         </Text>
       </Box>
@@ -145,122 +146,127 @@ export default function WwsOrgExplorer({ data }) {
         />
       </Box>
 
-      {/* Panel */}
-      <Box
-        role="tabpanel"
-        id={`panel-${activeType.id}`}
-        aria-labelledby={`tab-${activeType.id}`}
-        tabIndex={0}
-        className="mt-6 grid items-stretch gap-6 max-[1200px]:grid-cols-1 min-[1201px]:grid-cols-[1.15fr_1fr]"
-      >
-        {/* Left: text content */}
-        <Box className="flex flex-col rounded-[14px] bg-white px-8 py-6 shadow-[0_1px_2px_rgba(10,22,40,.07),0_4px_16px_rgba(10,22,40,.07)] max-[600px]:px-6">
-          {/* Header */}
-          <Box as="header" className="mb-2 flex items-center gap-4">
-            <Box className="flex size-12 shrink-0 items-center justify-center rounded-[14px] bg-ink text-lime">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="size-[18px]"
-                aria-hidden="true"
-              >
-                {ORG_ICONS[activeType.id]}
-              </svg>
-            </Box>
-            <Text as="h3" className="m-0 font-display text-[24px] font-bold leading-[1.2] tracking-[-0.02em] text-ink">
-              {activeType.heading}
-            </Text>
-          </Box>
-
-          <Text as="p" className="mb-5 mt-1 text-[15px] leading-[1.6] text-ink/60">
-            {activeType.tagline}
-          </Text>
-
-          {/* Tick list */}
-          <Box as="ul" className="m-0 grid list-none gap-2 p-0">
-            {activeType.ticks.map((tick) => (
-              <Box as="li" key={tick} className="flex gap-3 leading-[1.55]">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 size-5 shrink-0 text-olive" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9" /><path d="m8 12 3 3 5-6" />
+      {/* One panel per organization type, all in the server HTML (inactive
+          ones `hidden`), so every type's copy is in the page source. */}
+      {data.types.map((activeType) => (
+        <Box
+          key={activeType.id}
+          role="tabpanel"
+          id={`panel-${activeType.id}`}
+          aria-labelledby={`tab-${activeType.id}`}
+          hidden={activeType.id !== shownId}
+          tabIndex={0}
+          className="mt-6 grid items-stretch gap-6 max-[1200px]:grid-cols-1 min-[1201px]:grid-cols-[1.15fr_1fr]"
+        >
+          {/* Left: text content */}
+          <Box className="flex flex-col rounded-[14px] bg-white px-8 py-6 shadow-[0_1px_2px_rgba(10,22,40,.07),0_4px_16px_rgba(10,22,40,.07)] max-[600px]:px-6">
+            {/* Header */}
+            <Box as="header" className="mb-2 flex items-center gap-4">
+              <Box className="flex size-12 shrink-0 items-center justify-center rounded-[14px] bg-ink text-lime">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="size-[18px]"
+                  aria-hidden="true"
+                >
+                  {ORG_ICONS[activeType.id]}
                 </svg>
-                <Text as="span" className="text-[15px] text-ink">{tick}</Text>
               </Box>
-            ))}
-          </Box>
+              <Text as="h3" className="m-0 font-display text-[24px] font-bold leading-[1.2] tracking-[-0.02em] text-ink">
+                {activeType.heading}
+              </Text>
+            </Box>
 
-          {/* Tools row */}
-          <Box className="mb-5 mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
-            <Text as="span" className="m-0 shrink-0 text-[14px] font-semibold text-ink">
-              Edstellar tools
+            <Text as="p" className="mb-5 mt-1 text-[15px] leading-[1.6] text-ink-muted">
+              {activeType.tagline}
             </Text>
-            <Box className="flex flex-wrap gap-2">
-              {activeType.tools.map((tool) => (
-                <Box
-                  key={tool}
-                  as="span"
-                  className="inline-flex items-center rounded-full border border-ink/[0.12] bg-paper-warm px-3 py-1 text-[13px] font-semibold"
-                >
-                  {tool}
+
+            {/* Tick list */}
+            <Box as="ul" className="m-0 grid list-none gap-2 p-0">
+              {activeType.ticks.map((tick) => (
+                <Box as="li" key={tick} className="flex gap-3 leading-[1.55]">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 size-5 shrink-0 text-olive" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" /><path d="m8 12 3 3 5-6" />
+                  </svg>
+                  <Text as="span" className="text-[15px] text-ink">{tick}</Text>
                 </Box>
               ))}
             </Box>
-          </Box>
 
-          {/* Footer */}
-          <Box className="mt-auto border-t border-ink/[0.12] pt-4">
-            <a
-              href="#contact"
-              className="inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-full border-[1.5px] border-transparent bg-ink px-7 text-[14px] font-semibold text-lime transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(10,22,40,.12)]"
-            >
-              Talk to an Edstellar expert
-            </a>
-          </Box>
-        </Box>
-
-        {/* Right: service fit */}
-        <Box className="flex flex-col rounded-[14px] bg-ink px-8 py-5 shadow-[0_1px_2px_rgba(10,22,40,.07),0_4px_16px_rgba(10,22,40,.07)] max-[600px]:px-6">
-          {/* Header */}
-          <Box className="mb-2 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-            <Text as="p" className="m-0 text-[15px] font-semibold text-paper">
-              How each Edstellar service fits
-            </Text>
-            {/* Legend */}
-            <Box className="flex flex-wrap gap-x-3 gap-y-1 text-[13px] text-paper/72" aria-hidden="true">
-              {[{ v: 3, label: "Strong fit" }, { v: 2, label: "Good fit" }, { v: 1, label: "On request" }].map(({ v, label }) => (
-                <Box key={v} className="inline-flex items-center gap-2">
-                  <Box className="flex gap-[2px]">
-                    {[1,2,3].map((i) => (
-                      <Box key={i} className={`h-[10px] w-[10px] rounded-[2px] ${v===3?"bg-lime":v===2&&i<=2?"bg-lime/65":"bg-paper/[0.12]"}`} />
-                    ))}
+            {/* Tools row */}
+            <Box className="mb-5 mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
+              <Text as="span" className="m-0 shrink-0 text-[14px] font-semibold text-ink">
+                Edstellar tools
+              </Text>
+              <Box className="flex flex-wrap gap-2">
+                {activeType.tools.map((tool) => (
+                  <Box
+                    key={tool}
+                    as="span"
+                    className="inline-flex items-center rounded-full border border-ink/[0.12] bg-paper-warm px-3 py-1 text-[13px] font-semibold"
+                  >
+                    {tool}
                   </Box>
-                  {label}
-                </Box>
-              ))}
+                ))}
+              </Box>
+            </Box>
+
+            {/* Footer */}
+            <Box className="mt-auto border-t border-ink/[0.12] pt-4">
+              <a
+                href="#contact"
+                className="inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-full border-[1.5px] border-transparent bg-ink px-7 text-[14px] font-semibold text-lime transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(10,22,40,.12)]"
+              >
+                Talk to an Edstellar expert
+              </a>
             </Box>
           </Box>
 
-          {/* Fit rows — show all services; grey bars for 0 */}
-          <Box className="flex flex-1 flex-col">
-            {data.services.map((service, i) => {
-              const fitValue = activeType.fit[i] ?? 0;
-              return (
-                <Link
-                  key={service.href}
-                  href={service.href}
-                  className="flex min-h-[36px] items-center justify-between gap-4 border-b border-paper/[0.12] py-[6px] no-underline last:border-0 hover:underline hover:underline-offset-[4px]"
-                >
-                  <span className="text-[15px] font-semibold text-paper">{service.label}</span>
-                  <FitMeter value={fitValue} />
-                </Link>
-              );
-            })}
+          {/* Right: service fit */}
+          <Box className="flex flex-col rounded-[14px] bg-ink px-8 py-5 shadow-[0_1px_2px_rgba(10,22,40,.07),0_4px_16px_rgba(10,22,40,.07)] max-[600px]:px-6">
+            {/* Header */}
+            <Box className="mb-2 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+              <Text as="p" className="m-0 text-[15px] font-semibold text-paper">
+                How each Edstellar service fits
+              </Text>
+              {/* Legend */}
+              <Box className="flex flex-wrap gap-x-3 gap-y-1 text-[13px] text-paper/72" aria-hidden="true">
+                {[{ v: 3, label: "Strong fit" }, { v: 2, label: "Good fit" }, { v: 1, label: "On request" }].map(({ v, label }) => (
+                  <Box key={v} className="inline-flex items-center gap-2">
+                    <Box className="flex gap-[2px]">
+                      {[1,2,3].map((i) => (
+                        <Box key={i} className={`h-[10px] w-[10px] rounded-[2px] ${v===3?"bg-lime":v===2&&i<=2?"bg-lime/65":"bg-paper/[0.12]"}`} />
+                      ))}
+                    </Box>
+                    {label}
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+
+            {/* Fit rows — show all services; grey bars for 0 */}
+            <Box className="flex flex-1 flex-col">
+              {data.services.map((service, i) => {
+                const fitValue = activeType.fit[i] ?? 0;
+                return (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    className="flex min-h-[36px] items-center justify-between gap-4 border-b border-paper/[0.12] py-[6px] no-underline last:border-0 hover:underline hover:underline-offset-[4px]"
+                  >
+                    <span className="text-[15px] font-semibold text-paper">{service.label}</span>
+                    <FitMeter value={fitValue} />
+                  </Link>
+                );
+              })}
+            </Box>
           </Box>
         </Box>
-      </Box>
+      ))}
     </Section>
   );
 }

@@ -33,7 +33,7 @@ const LIGHT_LABEL_CLASS = cn(
   "font-mono uppercase",
   "text-[10px]",
   "tracking-[0.14em]",
-  "text-ink/60",
+  "text-ink-muted",
   "whitespace-nowrap",
 );
 

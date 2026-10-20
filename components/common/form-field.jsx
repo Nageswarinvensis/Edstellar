@@ -16,7 +16,7 @@ export function FormField({ label, required, error, className, children }) {
     <Box as="label" className={cn("relative flex flex-col gap-1.75", className)}>
       <Text
         as="span"
-        className="font-mono text-[10px] tracking-[0.15em] text-ink/50 uppercase"
+        className="font-mono text-[10px] tracking-[0.15em] text-ink-muted uppercase"
       >
         {label}{" "}
         {required ? <Text as="span" className="text-[10px] leading-none text-red-600">*</Text> : null}

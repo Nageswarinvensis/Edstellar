@@ -53,7 +53,7 @@ export default function TrainerLocation({ trainer, data }) {
               <Box>
                 <Text
                   as="span"
-                  className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#94a3b8]"
+                  className="text-[12px] font-semibold uppercase tracking-[0.2em] text-ink-muted"
                 >
                   {data.home_base_label}
                 </Text>

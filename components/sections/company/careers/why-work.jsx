@@ -21,7 +21,7 @@ export default function WhyWork({ data }) {
           emphasisClassName="text-[1.08em] tracking-[-0.01em] text-ink"
         />
         {data.description ? (
-          <Text as="p" className="max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+          <Text as="p" className="max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
             {data.description}
           </Text>
         ) : null}
@@ -35,7 +35,7 @@ export default function WhyWork({ data }) {
               <Text as="h3" className="mb-2 text-base leading-[1.3] font-bold tracking-[-0.01em]">
                 {item.title}
               </Text>
-              <Text as="p" className="text-sm leading-[1.6] text-ink/60">
+              <Text as="p" className="text-sm leading-[1.6] text-ink-muted">
                 {item.description}
               </Text>
             </Box>

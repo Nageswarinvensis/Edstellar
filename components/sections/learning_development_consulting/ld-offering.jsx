@@ -20,7 +20,7 @@ function OfferingPanel({ item }) {
         </Text>
         <Text
           as="p"
-          className="max-w-[52ch] text-[14px] leading-[1.6] text-ink/60"
+          className="max-w-[52ch] text-[14px] leading-[1.6] text-ink-muted"
         >
           {item.description}
         </Text>

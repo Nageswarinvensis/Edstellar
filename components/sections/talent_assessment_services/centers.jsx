@@ -16,7 +16,7 @@ function CenterColumn({ column }) {
     <Box className={cn("min-w-0 p-10 max-[600px]:p-6", dark ? "bg-navy" : "bg-paper-warm")}>
       <Text
         as="span"
-        className={cn("font-mono text-[10px] uppercase tracking-[0.12em]", dark ? "text-lime" : "text-ink/60")}
+        className={cn("font-mono text-[10px] uppercase tracking-[0.12em]", dark ? "text-lime" : "text-ink-muted")}
       >
         {column.kicker}
       </Text>
@@ -41,7 +41,7 @@ function CenterColumn({ column }) {
           >
             <Box
               as="dt"
-              className={cn("font-mono text-[10px] uppercase tracking-[0.12em]", dark ? "text-paper/60" : "text-ink/60")}
+              className={cn("font-mono text-[10px] uppercase tracking-[0.12em]", dark ? "text-paper/60" : "text-ink-muted")}
             >
               {row.label}
             </Box>
@@ -56,7 +56,7 @@ function CenterColumn({ column }) {
         <Box className={cn("mt-6 border-t pt-5", dark ? "border-paper/16" : "border-ink/12")}>
           <Text
             as="span"
-            className={cn("mb-3 block font-mono text-[10px] uppercase tracking-[0.12em]", dark ? "text-paper/60" : "text-ink/60")}
+            className={cn("mb-3 block font-mono text-[10px] uppercase tracking-[0.12em]", dark ? "text-paper/60" : "text-ink-muted")}
           >
             {column.examples_label}
           </Text>
@@ -81,7 +81,7 @@ function CenterColumn({ column }) {
         <Box className={cn("mt-5.5 border-t pt-5", dark ? "border-paper/16" : "border-ink/12")}>
           <Text
             as="span"
-            className={cn("mb-3 block font-mono text-[10px] uppercase tracking-[0.12em]", dark ? "text-paper/60" : "text-ink/60")}
+            className={cn("mb-3 block font-mono text-[10px] uppercase tracking-[0.12em]", dark ? "text-paper/60" : "text-ink-muted")}
           >
             {column.exercises_label}
           </Text>
@@ -127,7 +127,7 @@ export default function Centers({ data }) {
         </Reveal>
         {lede ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[72ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text as="p" className="mt-4 max-w-[72ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
               {lede}
             </Text>
           </Reveal>

@@ -19,6 +19,11 @@ const ICONS = {
 // Each tab sits in its own row of the left column; the panel spans them all
 // in the right column. Literal classes so Tailwind can see them.
 const ROWS = ["row-start-1", "row-start-2", "row-start-3", "row-start-4", "row-start-5", "row-start-6"];
+// Below 900px each panel follows its own tab. The tabs and panels are siblings
+// in two groups (the tablist must contain only tabs), so the stacking order is
+// set explicitly: tab n, then panel n.
+const TAB_ORDER = ["max-[900px]:order-1", "max-[900px]:order-3", "max-[900px]:order-5", "max-[900px]:order-7", "max-[900px]:order-9", "max-[900px]:order-11"];
+const PANEL_ORDER = ["max-[900px]:order-2", "max-[900px]:order-4", "max-[900px]:order-6", "max-[900px]:order-8", "max-[900px]:order-10", "max-[900px]:order-12"];
 
 /**
  * The vertical tablist behind ServicesTabs (WAI-ARIA tabs: click, arrow keys,
@@ -50,17 +55,15 @@ export default function ServicesTablist({ items, label }) {
   }
 
   return (
-    <Box
-      role="tablist"
-      aria-label={label}
-      aria-orientation="vertical"
-      className="grid grid-cols-2 items-start gap-x-10 gap-y-1 max-[900px]:grid-cols-1"
-    >
+    <Box className="grid grid-cols-2 items-start gap-x-10 gap-y-1 max-[900px]:grid-cols-1">
+      {/* `contents`: the tablist groups the tabs for assistive tech without
+          adding a box, so each tab is still placed in the grid. */}
+      <Box role="tablist" aria-label={label} aria-orientation="vertical" className="contents">
       {items.map((item, index) => {
         const Icon = ICONS[item.icon] ?? GraduationCap;
         const on = index === active;
 
-        return [
+        return (
           <Box
             as="button"
             type="button"
@@ -78,6 +81,7 @@ export default function ServicesTablist({ items, label }) {
             className={cn(
               "col-start-1 flex w-full cursor-pointer items-start gap-4 rounded-[14px] border px-4.5 py-4 text-left transition-[background-color,box-shadow] duration-200 outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy max-[900px]:row-start-auto",
               ROWS[index],
+              TAB_ORDER[index],
               on ? "border-ink/12 bg-white shadow-lift" : "border-transparent hover:bg-white",
             )}
           >
@@ -93,20 +97,26 @@ export default function ServicesTablist({ items, label }) {
             <Text as="span" className="self-center font-display text-[16px] leading-[1.3] font-bold text-ink">
               {item.title}
             </Text>
-          </Box>,
+          </Box>
+        );
+      })}
+      </Box>
 
+      {items.map((item, index) => {
+        const on = index === active;
+        return (
           <Box
             key={`panel-${item.title}`}
             role="tabpanel"
             id={`partner-model-panel-${index}`}
             aria-labelledby={`partner-model-tab-${index}`}
             hidden={!on}
-            className="sticky top-24 col-start-2 row-span-6 row-start-1 rounded-2xl border border-ink/12 bg-white p-8 max-[900px]:static max-[900px]:col-start-1 max-[900px]:row-span-1 max-[900px]:row-start-auto max-[900px]:mt-1 max-[900px]:mb-3 max-[900px]:p-5.5"
+            className={cn(PANEL_ORDER[index], "sticky top-24 col-start-2 row-span-6 row-start-1 rounded-2xl border border-ink/12 bg-white p-8 max-[900px]:static max-[900px]:col-start-1 max-[900px]:row-span-1 max-[900px]:row-start-auto max-[900px]:mt-1 max-[900px]:mb-3 max-[900px]:p-5.5")}
           >
             {item.image?.src ? (
               <Image
                 src={item.image.src}
-                alt={item.image.alt ?? ""}
+                alt={item.image.alt || item.title || "Edstellar partner program"}
                 width={item.image.width}
                 height={item.image.height}
                 sizes="(max-width: 900px) 100vw, 560px"
@@ -124,8 +134,8 @@ export default function ServicesTablist({ items, label }) {
                 {paragraph}
               </Text>
             ))}
-          </Box>,
-        ];
+          </Box>
+        );
       })}
     </Box>
   );

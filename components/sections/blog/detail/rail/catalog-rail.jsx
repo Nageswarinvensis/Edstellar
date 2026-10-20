@@ -98,7 +98,7 @@ export default function CatalogRail() {
             <b className="mb-1 block font-display text-[16px] text-ink">
               You&rsquo;re all set.
             </b>
-            <Text as="p" className="mb-4 text-[13.5px] leading-[1.6] text-ink/60">
+            <Text as="p" className="mb-4 text-[13.5px] leading-[1.6] text-ink-muted">
               Your catalog is ready to download.
             </Text>
             <CtaButton
@@ -120,7 +120,7 @@ export default function CatalogRail() {
 
             <label
               htmlFor="rail-catalog-email"
-              className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.14em] text-ink/60"
+              className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted"
             >
               Work email <span className="text-destructive">*</span>
             </label>

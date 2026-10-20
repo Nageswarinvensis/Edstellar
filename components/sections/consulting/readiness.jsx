@@ -41,7 +41,7 @@ function ChecklistCard({ checklist }) {
             as="span"
             className={cn(
               "flex-1 text-[12.5px] leading-[1.3]",
-              item.done ? "text-ink" : "text-ink/60",
+              item.done ? "text-ink" : "text-ink-muted",
             )}
           >
             {item.label}

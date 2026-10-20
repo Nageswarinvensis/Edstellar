@@ -104,7 +104,7 @@ function Slot({ slot, value, open, onToggle, onPick, onClose, idPrefix }) {
         className="group/slot inline-flex cursor-pointer items-center gap-1.5 rounded-t-lg rounded-b border-b-2 border-navy bg-lime-soft px-2.5 py-0.5 leading-snug text-navy transition-shadow duration-200 hover:shadow-[0_1px_2px_rgba(10,22,40,0.07),0_4px_12px_rgba(10,22,40,0.07)]"
       >
         <span className="sr-only">{slot.label}: </span>
-        <span className={empty ? "text-ink/60" : undefined}>{labelFor(slot, value)}</span>
+        <span className={empty ? "text-ink-muted" : undefined}>{labelFor(slot, value)}</span>
         <Chevron open={open} />
       </Box>
       {open && (
@@ -149,7 +149,7 @@ function Field({ id, name, label, type = "text", optional, autoComplete, error, 
     <Box className="flex min-w-0 flex-col gap-1.5">
       <label htmlFor={id} className="font-body text-[12.5px] font-semibold text-ink">
         {label}
-        {optional && <span className="font-normal text-ink/60"> (optional)</span>}
+        {optional && <span className="font-normal text-ink-muted"> (optional)</span>}
       </label>
       <input
         id={id}
@@ -344,7 +344,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </Box>
-          <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink/60">
+          <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
             Build your brief
           </Text>
           <Text
@@ -370,7 +370,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
             <Text as="h3" className="font-display text-[20px] font-semibold text-navy">
               Thanks, {done.name}.
             </Text>
-            <Text as="p" className="mt-2 text-[14px] text-ink/60">
+            <Text as="p" className="mt-2 text-[14px] text-ink-muted">
               An Edstellar expert will be in touch
               {done.sentence ? ` about your brief: ${done.sentence}` : " about your brief."}
             </Text>
@@ -396,7 +396,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
                 <label htmlFor={pid("needs")} className="font-body text-[12.5px] font-semibold text-ink">
                   Or describe what you need in your own words
                 </label>
-                <Text as="p" id={pid("needs-hint")} className="-mt-0.5 text-[12px] text-ink/60">
+                <Text as="p" id={pid("needs-hint")} className="-mt-0.5 text-[12px] text-ink-muted">
                   Goals, audience, number of people, locations, timelines. Optional if you chose a service above.
                 </Text>
                 <textarea
@@ -414,7 +414,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
                 </Text>
               </Box>
 
-              <Box className="min-w-0 rounded-[14px] border border-ink/12 bg-white p-4.5 max-sm:p-3.5">
+              <Box className="min-w-0 rounded-[14px] border border-ink/12 bg-white p-4.5 max-sm:px-4 max-sm:py-7.5">
                 <Box className="grid grid-cols-2 gap-3 max-[899px]:grid-cols-1">
                   <Field id={pid("name")} name="name" label="Full name" autoComplete="name" error={errors.name} onInput={clearError("name")} />
                   <Field id={pid("email")} name="email" label="Work email" type="email" autoComplete="email" error={errors.email} onInput={clearError("email")} />
@@ -433,7 +433,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
                   />
                 </Box>
                 <Box className="mt-3.5 flex flex-wrap items-center justify-between gap-3">
-                  <Text as="p" className="max-w-80 text-[11.5px] text-ink/60">
+                  <Text as="p" className="max-w-80 text-[11.5px] text-ink-muted">
                     Edstellar uses these details to reply to your brief. See the{" "}
                     <a href={BRIEF.privacyHref} className="text-navy underline underline-offset-[3px]">
                       privacy policy

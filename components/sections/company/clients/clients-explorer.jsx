@@ -26,7 +26,7 @@ function SearchIcon() {
 
 function InfoIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="size-[18px] shrink-0 text-ink/40">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="size-[18px] shrink-0 text-ink-muted">
       <circle cx="12" cy="12" r="9" />
       <path d="M12 11v5M12 8h.01" />
     </svg>
@@ -91,7 +91,7 @@ export default function ClientsExplorer({ data }) {
           heading={data.heading}
           className="m-0 text-[clamp(32px,4vw,40px)] font-medium leading-[1.08] tracking-[-0.03em] text-ink"
         />
-        <Text as="p" className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+        <Text as="p" className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
           {data.lede}
         </Text>
       </Box>
@@ -103,7 +103,7 @@ export default function ClientsExplorer({ data }) {
             <Text as="label" htmlFor="client-search" className="sr-only">
               Find a client
             </Text>
-            <Box className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ink/40">
+            <Box className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted">
               <SearchIcon />
             </Box>
             <input
@@ -127,13 +127,13 @@ export default function ClientsExplorer({ data }) {
         </Box>
       </Box>
 
-      <Text as="p" role="status" aria-live="polite" className="mb-6 text-sm text-ink/60">
+      <Text as="p" role="status" aria-live="polite" className="mb-6 text-sm text-ink-muted">
         Showing {collapsed ? "a selection of " : ""}Edstellar clients in {sectorLabel[sector]}
         {query.trim() ? ` matching "${query.trim()}"` : ""}.
       </Text>
 
       {visible.length === 0 ? (
-        <Text as="p" className="rounded-[14px] border border-dashed border-ink/22 bg-white px-6 py-10 text-center text-ink/60">
+        <Text as="p" className="rounded-[14px] border border-dashed border-ink/22 bg-white px-6 py-10 text-center text-ink-muted">
           No clients match those filters. Try clearing the search or choosing a different sector.
         </Text>
       ) : (
@@ -193,14 +193,14 @@ function ClientCard({ client, className, open, onOpen, onClose, onGoSector }) {
         className="flex h-full min-h-[188px] w-full flex-col items-stretch gap-3 rounded-[14px] border border-ink/12 bg-white p-4 text-left shadow-rest transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lift focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
       >
         <Box className="flex flex-[0_0_88px] items-center justify-center border-b border-ink/12 pb-3">
-          <Image src={client.logo} alt="" width={150} height={56} className="h-14 w-full max-w-[150px] object-contain" />
+          <Image src={client.logo} alt={`${client.name} logo`} width={150} height={56} className="h-14 w-full max-w-[150px] object-contain" />
         </Box>
         <Box className="flex items-start justify-between gap-2 leading-[1.35]">
           <Box>
             <Text as="span" className="block font-body text-sm font-semibold text-ink">
               {client.name}
             </Text>
-            <Text as="span" className="mt-1 block text-xs leading-[1.4] text-ink/60">
+            <Text as="span" className="mt-1 block text-xs leading-[1.4] text-ink-muted">
               {client.sector_label}
             </Text>
           </Box>
@@ -209,47 +209,49 @@ function ClientCard({ client, className, open, onOpen, onClose, onGoSector }) {
         <Text as="span" className="sr-only">, show details</Text>
       </button>
 
-      {open && (
-        <Box
-          id={detailId}
-          className="absolute inset-0 z-[2] flex flex-col gap-2 rounded-[14px] bg-navy p-4 text-paper shadow-lift"
+      {/* Always rendered — `hidden` until opened — so every client's
+          description and links are in the server HTML. */}
+      <Box
+        id={detailId}
+        hidden={!open}
+        className="absolute inset-0 z-[2] flex flex-col gap-2 rounded-[14px] bg-navy p-4 text-paper shadow-lift"
+      >
+        <button
+          type="button"
+          aria-label={`Close details for ${client.name}`}
+          onClick={onClose}
+          className="absolute right-3 top-3 text-paper/80 hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime"
         >
+          <CloseIcon />
+        </button>
+        <Text as="h3" className="pr-8 font-body text-sm font-semibold text-paper">
+          {client.name}
+        </Text>
+        <Text as="span" className="font-mono text-[11px] uppercase leading-[1.4] tracking-[0.12em] text-lime">
+          {client.sector_label}
+        </Text>
+        <Text as="p" className="text-sm leading-[1.5] text-paper">
+          {client.description}
+        </Text>
+        <Box className="mt-auto flex flex-col items-start gap-1 pt-2">
           <button
             type="button"
-            aria-label={`Close details for ${client.name}`}
-            onClick={onClose}
-            className="absolute right-3 top-3 text-paper/80 hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime"
+            onClick={onGoSector}
+            className="min-h-6 py-1 text-[13px] font-semibold text-paper underline underline-offset-[3px] hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime"
           >
-            <CloseIcon />
+            See all {client.sector_label.toLowerCase()} clients
           </button>
-          <Text as="h3" className="pr-8 font-body text-sm font-semibold text-paper">
-            {client.name}
-          </Text>
-          <Text as="span" className="font-mono text-[11px] uppercase leading-[1.4] tracking-[0.12em] text-lime">
-            {client.sector_label}
-          </Text>
-          <Text as="p" className="text-sm leading-[1.5] text-paper">
-            {client.description}
-          </Text>
-          <Box className="mt-auto flex flex-col items-start gap-1 pt-2">
-            <button
-              type="button"
-              onClick={onGoSector}
-              className="min-h-6 py-1 text-[13px] font-semibold text-paper underline underline-offset-[3px] hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime"
+          {/* No link to `/industries/{slug}` until those pages exist. */}
+          {client.industry && !client.industry.href?.startsWith("/industries/") && (
+            <Link
+              href={client.industry.href}
+              className="min-h-6 py-1 text-[13px] font-semibold text-paper underline underline-offset-[3px] hover:text-lime"
             >
-              See all {client.sector_label.toLowerCase()} clients
-            </button>
-            {client.industry && (
-              <Link
-                href={client.industry.href}
-                className="min-h-6 py-1 text-[13px] font-semibold text-paper underline underline-offset-[3px] hover:text-lime"
-              >
-                {client.industry.label}
-              </Link>
-            )}
-          </Box>
+              {client.industry.label}
+            </Link>
+          )}
         </Box>
-      )}
+      </Box>
     </Box>
   );
 }

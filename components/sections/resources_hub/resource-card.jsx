@@ -64,7 +64,7 @@ export default function ResourceCard({ item, linkTitle = false }) {
           {item.description}
         </Text>
         <Box className="mt-auto flex items-center justify-between gap-3 pt-4.5">
-          <Text as="span" className="font-mono text-[10.5px] leading-none tracking-[0.12em] text-ink/45 uppercase">
+          <Text as="span" className="font-mono text-[10.5px] leading-none tracking-[0.12em] text-ink-muted uppercase">
             {item.date_label}
           </Text>
           {item.cta?.href ? (

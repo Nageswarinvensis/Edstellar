@@ -47,7 +47,7 @@ export default function BlogDetailCategories({ categories, currentSlug }) {
                   "inline-flex items-center rounded-full border px-4.25 py-2.75 font-mono text-[11px] uppercase leading-none tracking-[0.1em] transition-colors duration-200",
                   isCurrent
                     ? "border-navy bg-navy text-lime"
-                    : "border-ink/22 text-ink/60 hover:border-navy hover:bg-ink/4 hover:text-ink",
+                    : "border-ink/22 text-ink-muted hover:border-navy hover:bg-ink/4 hover:text-ink",
                 )}
               >
                 {category.name}

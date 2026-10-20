@@ -23,7 +23,7 @@ function Field({ id, label, optional, hint, error, className, children }) {
   return (
     <Box className={cn("flex flex-col gap-2", className)}>
       <label htmlFor={id} className="text-[14.5px] font-semibold text-ink">
-        {label} {optional ? <Text as="span" className="text-[14px] font-normal text-ink/55">(optional)</Text> : null}
+        {label} {optional ? <Text as="span" className="text-[14px] font-normal text-ink-muted">(optional)</Text> : null}
       </label>
       {children}
       {error ? (
@@ -31,7 +31,7 @@ function Field({ id, label, optional, hint, error, className, children }) {
           {error}
         </Text>
       ) : hint ? (
-        <Text as="span" className="text-[12.5px] text-ink/55">
+        <Text as="span" className="text-[12.5px] text-ink-muted">
           {hint}
         </Text>
       ) : null}
@@ -73,7 +73,7 @@ function Part({ number, title, children }) {
     <Box as="fieldset" className="m-0 border-0 border-b border-ink/12 p-0 pb-9 not-first:pt-9 last:border-b-0">
       <legend className="sr-only">{title}</legend>
       <Text as="p" aria-hidden="true" className="mb-6 flex items-baseline gap-3 font-display text-[21px] font-semibold text-ink">
-        <Text as="span" className="font-mono text-[11px] text-ink/50">
+        <Text as="span" className="font-mono text-[11px] text-ink-muted">
           {pad(number)}
         </Text>
         {title}
@@ -120,7 +120,7 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
 
   return (
     <Box className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1.65fr_1fr]">
-      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="rounded-[20px] border border-ink/12 bg-white p-6.5 shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)] sm:p-10">
+      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="rounded-[20px] border border-ink/12 bg-white px-4 py-7.5 shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)] sm:p-10">
         <Part number={1} title="About you">
           <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <Field id="rfp-name" label="Full name" error={errors.name?.message}>
@@ -194,7 +194,7 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
             </Box>
             <Box role="group" aria-label="Services in scope">
               <Text as="p" className="mb-2.5 text-[14.5px] font-semibold text-ink">
-                Services in scope <Text as="span" className="text-[14px] font-normal text-ink/55">(choose all that apply)</Text>
+                Services in scope <Text as="span" className="text-[14px] font-normal text-ink-muted">(choose all that apply)</Text>
               </Text>
               <Box className="flex flex-wrap gap-2">
                 {data.services.map((service) => (
@@ -234,7 +234,7 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
               <Text as="p" className="font-display text-[16px] font-semibold text-ink">
                 {data.files.title}
               </Text>
-              <Text as="p" className="text-[13.5px] text-ink/60">
+              <Text as="p" className="text-[13.5px] text-ink-muted">
                 {data.files.hint}
               </Text>
             </Box>
@@ -298,7 +298,7 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
                 <a href="/privacy-policy" target="_blank" rel="noopener" className="underline">
                   privacy notice
                 </a>
-                . <Text as="span" className="text-[14px] text-ink/55">(required)</Text>
+                . <Text as="span" className="text-[14px] text-ink-muted">(required)</Text>
               </Text>
             </label>
             <label className="flex items-start gap-3">
@@ -310,7 +310,7 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
             <CtaButton type="submit" arrow disabled={isSubmitting}>
               {data.submit_label}
             </CtaButton>
-            <Text as="p" className="text-[13.5px] text-ink/60">
+            <Text as="p" className="text-[13.5px] text-ink-muted">
               {data.submit_note}
             </Text>
           </Box>

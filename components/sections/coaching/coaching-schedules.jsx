@@ -25,7 +25,7 @@ export default function CoachingSchedules({ data }) {
         </Reveal>
         {description ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
               {description}
             </Text>
           </Reveal>
@@ -54,7 +54,7 @@ export default function CoachingSchedules({ data }) {
               <Text as="h3" className="mb-2 text-[17px] leading-[1.3] font-medium text-ink">
                 {item.title}
               </Text>
-              <Text as="p" className="m-0 text-[15px] leading-[1.65] text-ink/60">
+              <Text as="p" className="m-0 text-[15px] leading-[1.65] text-ink-muted">
                 {item.description}
               </Text>
             </Reveal>

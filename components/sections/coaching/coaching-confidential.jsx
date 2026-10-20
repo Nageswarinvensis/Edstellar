@@ -29,7 +29,7 @@ export default function CoachingConfidential({ data }) {
         </Reveal>
         {description ? (
           <Reveal delay={1}>
-            <Text as="p" className="mx-auto mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text as="p" className="mx-auto mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
               {description}
             </Text>
           </Reveal>
@@ -61,7 +61,7 @@ export default function CoachingConfidential({ data }) {
                   {column.title}
                 </Text>
                 {column.subtitle ? (
-                  <Text as="p" className={cn("mb-6 text-[14px] leading-[1.6]", dark ? "text-paper/65" : "text-ink/60")}>
+                  <Text as="p" className={cn("mb-6 text-[14px] leading-[1.6]", dark ? "text-paper/65" : "text-ink-muted")}>
                     {column.subtitle}
                   </Text>
                 ) : null}
@@ -80,7 +80,7 @@ export default function CoachingConfidential({ data }) {
       </Box>
 
       {note ? (
-        <Text as="p" className="mt-6 text-center text-[14px] text-ink/60">
+        <Text as="p" className="mt-6 text-center text-[14px] text-ink-muted">
           {note}
         </Text>
       ) : null}

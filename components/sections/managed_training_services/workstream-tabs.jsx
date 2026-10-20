@@ -94,7 +94,7 @@ export default function WorkstreamTabs({ items, tabsLabel, getLabel }) {
                   <span
                     className={cn(
                       "mt-0.5 block text-[12px] leading-[1.4] max-[900px]:hidden",
-                      selected ? "text-paper/65" : "text-ink/60",
+                      selected ? "text-paper/65" : "text-ink-muted",
                     )}
                   >
                     {item.subtitle}
@@ -122,7 +122,7 @@ export default function WorkstreamTabs({ items, tabsLabel, getLabel }) {
                 <Text as="h3" className="mb-2 text-[clamp(20px,2vw,24px)] leading-[1.2]">
                   {item.title}
                 </Text>
-                <Text as="p" className="max-w-[60ch] text-[15px] leading-[1.6] text-ink/60">
+                <Text as="p" className="max-w-[60ch] text-[15px] leading-[1.6] text-ink-muted">
                   {item.description}
                 </Text>
               </Box>
@@ -146,12 +146,12 @@ export default function WorkstreamTabs({ items, tabsLabel, getLabel }) {
                     as="h4"
                     className="mb-1.5 flex items-baseline gap-2.25 text-[15px] leading-[1.35] font-bold tracking-[-0.01em]"
                   >
-                    <i className="font-mono text-[10.5px] font-normal text-ink/60 not-italic">
+                    <i className="font-mono text-[10.5px] font-normal text-ink-muted not-italic">
                       {String(pointIndex + 1).padStart(2, "0")}
                     </i>
                     {point.title}
                   </Text>
-                  <Text as="p" className="text-[13.5px] leading-[1.55] text-ink/60">
+                  <Text as="p" className="text-[13.5px] leading-[1.55] text-ink-muted">
                     {point.description}
                   </Text>
                 </Box>
@@ -162,7 +162,7 @@ export default function WorkstreamTabs({ items, tabsLabel, getLabel }) {
               <Box className="flex flex-wrap items-center gap-2 bg-paper px-8 pt-4.5 pb-5.5 max-[600px]:px-5 max-[600px]:pt-4 max-[600px]:pb-5">
                 <Text
                   as="span"
-                  className="mr-1.5 font-mono text-[10px] leading-[1.6] tracking-[0.1em] text-ink/60 uppercase"
+                  className="mr-1.5 font-mono text-[10px] leading-[1.6] tracking-[0.1em] text-ink-muted uppercase"
                 >
                   {getLabel}
                 </Text>

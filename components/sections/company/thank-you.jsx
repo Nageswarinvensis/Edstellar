@@ -81,7 +81,7 @@ export default function ThankYou({ data }) {
         </Reveal>
 
         <Reveal delay={3} className="mt-16 w-full">
-          <Text as="p" className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ink/60 uppercase">
+          <Text as="p" className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ink-muted uppercase">
             {REACH_LABEL}
           </Text>
           <Box className="grid grid-cols-1 gap-3 md:grid-cols-4">
@@ -99,7 +99,7 @@ export default function ThankYou({ data }) {
                     <Icon size={16} strokeWidth={1.8} aria-hidden="true" />
                   </span>
                   <span className="flex flex-col gap-0.5 md:items-center md:gap-2">
-                    <Text as="span" className="font-mono text-[10px] tracking-[0.14em] text-ink/50 uppercase">
+                    <Text as="span" className="font-mono text-[10px] tracking-[0.14em] text-ink-muted uppercase">
                       {link.label}
                     </Text>
                     <Text as="span" className="text-[13.5px] font-medium text-ink">

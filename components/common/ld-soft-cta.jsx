@@ -50,7 +50,7 @@ export default function LdSoftCta({ data }) {
               {heading}
             </Text>
             {description ? (
-              <Text as="p" className="m-0 text-[15px] leading-[1.5] text-ink/60">
+              <Text as="p" className="m-0 text-[15px] leading-[1.5] text-ink-muted">
                 {description}
               </Text>
             ) : null}
@@ -89,7 +89,7 @@ export default function LdSoftCta({ data }) {
             {heading}
           </Text>
           {description ? (
-            <Text as="p" className="text-[16px] sm:text-[16px] leading-[1.6] text-ink/60">
+            <Text as="p" className="text-[16px] sm:text-[16px] leading-[1.6] text-ink-muted">
               {description}
             </Text>
           ) : null}

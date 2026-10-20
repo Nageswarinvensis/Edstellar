@@ -161,9 +161,9 @@ function ReportPanel({ panel }) {
   return (
     <Box className="grid grid-cols-[1fr_220px] gap-5 max-[900px]:grid-cols-1">
       <Box className="min-w-0 rounded-xl bg-paper px-4.5 py-4 text-ink">
-        <Text as="span" className={cn(LABEL, "text-ink/60")}>{panel.doc_label}</Text>
+        <Text as="span" className={cn(LABEL, "text-ink-muted")}>{panel.doc_label}</Text>
         <Text as="p" className="mb-2.5 font-display text-[18px] font-bold text-ink">{panel.doc_title}</Text>
-        <Text as="p" className="mb-2.5 text-[13px] leading-[1.6] text-ink/60">{panel.summary}</Text>
+        <Text as="p" className="mb-2.5 text-[13px] leading-[1.6] text-ink-muted">{panel.summary}</Text>
         <Text as="p" className="mt-1 mb-2 font-display text-[13px] font-semibold text-ink">{panel.questions_label}</Text>
         <Box as="ul" className="m-0 mb-2.5 pl-4.5 text-[13px] leading-[1.6] text-ink">
           {/* A question is a string, or `{ text, used, status }` as the CMS
@@ -236,8 +236,8 @@ function SharePanel({ panel }) {
         <Box className="rounded-xl bg-paper px-4 py-1.5 text-ink">
           {panel.preview.map((row) => (
             <Box key={row.label} className="flex justify-between gap-3 border-b border-ink/12 py-2.5 text-[13px] last:border-0">
-              <Text as="span" className="text-[13px] text-ink/60">{row.label}</Text>
-              <b className={cn("text-right", row.shared ? "text-ink" : "font-normal text-ink/60")}>{row.value}</b>
+              <Text as="span" className="text-[13px] text-ink-muted">{row.label}</Text>
+              <b className={cn("text-right", row.shared ? "text-ink" : "font-normal text-ink-muted")}>{row.value}</b>
             </Box>
           ))}
         </Box>

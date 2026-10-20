@@ -44,7 +44,7 @@ function FaqAnswer({ answer }) {
     return (
       <Text
         as="p"
-        className="text-[15px] leading-[1.7] text-ink/60 [&_a]:font-semibold [&_a]:text-olive [&_a]:underline [&_a]:underline-offset-2"
+        className="text-[15px] leading-[1.7] text-ink-muted [&_a]:font-semibold [&_a]:text-olive [&_a]:underline [&_a]:underline-offset-2"
         onClick={handleClick}
         dangerouslySetInnerHTML={{ __html: html }}
       />
@@ -52,7 +52,7 @@ function FaqAnswer({ answer }) {
   }
 
   return (
-    <Text as="p" className="text-[15px] leading-[1.7] text-ink/60">
+    <Text as="p" className="text-[15px] leading-[1.7] text-ink-muted">
       {answer}
     </Text>
   );
@@ -176,7 +176,7 @@ export default function Faq({
                 className="inline-flex cursor-pointer items-center gap-2.25 rounded-full border border-ink/14 bg-white px-5.5 py-2.75 font-body text-[13.5px] font-semibold text-ink transition-[border-color,box-shadow] duration-200 hover:border-ink hover:shadow-[0_10px_24px_-16px_rgba(10,22,40,0.6)]"
               >
                 Load more questions
-                <Text as="span" className="font-mono text-[11px] text-ink/60">
+                <Text as="span" className="font-mono text-[11px] text-ink-muted">
                   {hiddenCount} more
                 </Text>
                 <ChevronDown size={15} strokeWidth={2} aria-hidden="true" />

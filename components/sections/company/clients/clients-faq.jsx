@@ -36,7 +36,7 @@ export default function ClientsFaq({ data }) {
                   <Box as="span" className="absolute left-1/2 top-1/2 h-[1.7px] w-3 -translate-x-1/2 -translate-y-1/2 rotate-90 rounded-sm bg-current transition-transform duration-200 group-open:rotate-0" />
                 </Box>
               </Box>
-              <Box className="pb-6 pr-14 text-base leading-[1.7] text-ink/60 max-sm:pr-0">
+              <Box className="pb-6 pr-14 text-base leading-[1.7] text-ink-muted max-sm:pr-0">
                 <Text as="p" className="m-0">{item.a}</Text>
               </Box>
             </Box>

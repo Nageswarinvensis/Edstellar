@@ -58,7 +58,7 @@ export default function ResourcePager({ current, pages, onChange }) {
             {n}
           </PageButton>
         ) : (
-          <Text as="span" key={n} aria-hidden="true" className="flex size-8 items-center justify-center text-[14px] leading-none text-ink/60">
+          <Text as="span" key={n} aria-hidden="true" className="flex size-8 items-center justify-center text-[14px] leading-none text-ink-muted">
             &hellip;
           </Text>
         ),

@@ -147,7 +147,7 @@ function TrainersStat({ trainers }) {
         {photo && (
           <Image
             src={photo}
-            alt=""
+            alt="Edstellar expert trainers"
             aria-hidden="true"
             width={84}
             height={27}

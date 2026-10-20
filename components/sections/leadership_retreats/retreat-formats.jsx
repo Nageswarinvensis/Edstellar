@@ -37,7 +37,7 @@ export default function RetreatFormats({ data }) {
                 onClick={() => setFront(item.key)}
                 className={cn(
                   "cursor-pointer rounded-full px-4.5 py-3 text-[15px] font-medium transition-colors",
-                  front === item.key ? "bg-navy text-paper" : "text-ink/60 hover:text-ink",
+                  front === item.key ? "bg-navy text-paper" : "text-ink-muted hover:text-ink",
                 )}
               >
                 {item.tab}
@@ -73,7 +73,7 @@ export default function RetreatFormats({ data }) {
                 <Box as="dl" className="m-0 mb-8">
                   {item.rows.map((row) => (
                     <Box key={row.label} className={cn("border-t py-3.5", dark ? "border-paper/15" : "border-ink/12")}>
-                      <dt className={cn("text-[12px] font-medium", dark ? "text-paper/60" : "text-ink/55")}>{row.label}</dt>
+                      <dt className={cn("text-[12px] font-medium", dark ? "text-paper/60" : "text-ink-muted")}>{row.label}</dt>
                       <dd className="m-0 mt-1 font-display text-[15px] font-semibold">{row.value}</dd>
                     </Box>
                   ))}

@@ -85,7 +85,7 @@ export default function BriefBuilder({ data, thankYou = "consulting" }) {
     : {};
 
   return (
-    <Box as="aside" aria-labelledby="brief-h" className="rounded-[18px] bg-navy p-6 text-paper lg:sticky lg:top-24">
+    <Box as="aside" aria-labelledby="brief-h" className="rounded-[18px] bg-navy p-6 max-sm:px-4 max-sm:py-7.5 text-paper lg:sticky lg:top-24">
       <Text as="h2" id="brief-h" className="mb-3 font-mono text-[11px] leading-none tracking-[0.18em] text-paper/70 uppercase">
         {data.title}
       </Text>

@@ -21,7 +21,7 @@ export default function ClientsHero({ data, breadcrumbs }) {
             heading={data.heading}
             className="m-0 text-[clamp(38px,4.4vw,48px)] leading-[1.05] tracking-[-0.035em] font-medium text-ink [&_span]:text-ink"
           />
-          <Text as="p" className="mt-4 max-w-[640px] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+          <Text as="p" className="mt-4 max-w-[640px] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
             {data.lede}
           </Text>
 
@@ -41,7 +41,7 @@ export default function ClientsHero({ data, breadcrumbs }) {
 
           <Box as="ul" className="mt-8 flex list-none flex-wrap gap-x-8 gap-y-2 border-t border-ink/12 pt-6">
             {data.facts?.map((fact) => (
-              <Box as="li" key={fact.label} className="font-body text-sm text-ink/60">
+              <Box as="li" key={fact.label} className="font-body text-sm text-ink-muted">
                 <Text as="span" className="mr-2 font-display text-[22px] font-bold tracking-[-0.03em] text-ink">
                   {fact.value}
                 </Text>
@@ -57,7 +57,7 @@ export default function ClientsHero({ data, breadcrumbs }) {
           {data.mosaic?.map((tile) => (
             <Box as="li" key={tile.name} className={tile.off ? "opacity-45" : undefined}>
               <Box className="flex h-full items-center justify-center rounded-[14px] border border-ink/12 bg-white p-4 shadow-rest max-sm:rounded-[10px] max-sm:p-2">
-                <Image
+                <Image loading="eager"
                   src={tile.logo}
                   alt={tile.name}
                   width={160}

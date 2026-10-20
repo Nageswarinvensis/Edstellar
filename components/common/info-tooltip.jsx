@@ -55,7 +55,7 @@ function InfoTooltip({ label, heading, children, className }) {
           "grid size-4 flex-none cursor-pointer place-items-center rounded-full border font-serif text-[11px] leading-none italic transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
           open
             ? "border-navy bg-navy text-lime"
-            : "border-ink/22 text-ink/60 hover:border-navy hover:bg-navy hover:text-lime",
+            : "border-ink/22 text-ink-muted hover:border-navy hover:bg-navy hover:text-lime",
         )}
       >
         <span aria-hidden="true">i</span>

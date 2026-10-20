@@ -37,7 +37,7 @@ function Facts({ rows }) {
     <Box as="dl" className="m-0 grid grid-cols-2 gap-x-5 gap-y-3.5">
       {rows.map(([label, value]) => (
         <Box key={label}>
-          <dt className="mb-1 text-[12.5px] text-ink/60">{label}</dt>
+          <dt className="mb-1 text-[12.5px] text-ink-muted">{label}</dt>
           <dd className="m-0 text-[15px] font-semibold text-ink">{value}</dd>
         </Box>
       ))}
@@ -55,7 +55,7 @@ function StoryCard({ story }) {
         </Text>
       </Box>
       <Box className="flex flex-1 flex-col px-5.5 pt-6 pb-5">
-        <Text as="p" className="mb-1 font-mono text-[10.5px] tracking-[0.16em] text-ink/60 uppercase">
+        <Text as="p" className="mb-1 font-mono text-[10.5px] tracking-[0.16em] text-ink-muted uppercase">
           Training Program
         </Text>
         <Text as="h3" className="mb-4 text-[19px] leading-snug">
@@ -65,9 +65,9 @@ function StoryCard({ story }) {
         </Text>
         <Box as="dl" className="m-0 grid grid-cols-2 gap-x-5 gap-y-3.5">
           <Box>
-            <dt className="mb-1 text-[12.5px] text-ink/60">Location:</dt>
+            <dt className="mb-1 text-[12.5px] text-ink-muted">Location:</dt>
             <dd className="m-0 flex items-start gap-2 text-[15px] font-semibold text-ink">
-              {story.flag ? <img src={story.flag} alt="" width={20} height={14} className="mt-1 h-3.5 w-5 flex-none" /> : null}
+              {story.flag ? <img decoding="async" loading="lazy" src={story.flag} alt={`${story.location} flag`} width={20} height={14} className="mt-1 h-3.5 w-5 flex-none" /> : null}
               {story.location}
             </dd>
           </Box>
@@ -77,12 +77,12 @@ function StoryCard({ story }) {
             ["Training Duration:", story.duration],
           ].map(([label, value]) => (
             <Box key={label}>
-              <dt className="mb-1 text-[12.5px] text-ink/60">{label}</dt>
+              <dt className="mb-1 text-[12.5px] text-ink-muted">{label}</dt>
               <dd className="m-0 text-[15px] font-semibold text-ink">{value}</dd>
             </Box>
           ))}
           <Box>
-            <dt className="mb-1 text-[12.5px] text-ink/60">Training Score:</dt>
+            <dt className="mb-1 text-[12.5px] text-ink-muted">Training Score:</dt>
             <dd className="m-0 flex items-center gap-1.5 text-[15px] font-semibold text-ink">
               <Star size={14} aria-hidden="true" className="fill-olive text-olive" />
               {story.score}
@@ -90,7 +90,7 @@ function StoryCard({ story }) {
           </Box>
         </Box>
 
-        <Text as="p" className="mt-5 mb-2.5 font-mono text-[10.5px] tracking-[0.16em] text-ink/60 uppercase">
+        <Text as="p" className="mt-5 mb-2.5 font-mono text-[10.5px] tracking-[0.16em] text-ink-muted uppercase">
           Participants’ Job Roles
         </Text>
         <Box as="ul" className="m-0 flex list-none flex-wrap gap-1.5 p-0">
@@ -101,7 +101,7 @@ function StoryCard({ story }) {
           ))}
         </Box>
 
-        <Text as="p" className="mt-5 mb-3 font-mono text-[10.5px] tracking-[0.16em] text-ink/60 uppercase">
+        <Text as="p" className="mt-5 mb-3 font-mono text-[10.5px] tracking-[0.16em] text-ink-muted uppercase">
           Training Details
         </Text>
         <Box className="border-b border-ink/12 pb-4">
@@ -119,7 +119,7 @@ function StoryCard({ story }) {
           <Text as="p" className="font-serif text-[18px] leading-[1.45] text-ink italic">
             “{story.quote}”
           </Text>
-          <Text as="p" className="mt-auto pt-3 text-[13.5px] text-ink/60">
+          <Text as="p" className="mt-auto pt-3 text-[13.5px] text-ink-muted">
             <b className="font-semibold text-ink">{story.author}</b>, {story.author_role}
           </Text>
         </Box>
@@ -178,7 +178,7 @@ export default function StoryGrid({ data }) {
           {data.clear_label}
         </button>
       </Box>
-      <Text as="p" role="status" className="mb-6 font-mono text-[12px] tracking-[0.06em] text-ink/60">
+      <Text as="p" role="status" className="mb-6 font-mono text-[12px] tracking-[0.06em] text-ink-muted">
         {type || region ? "Filters Applied: " : ""}Showing {visible.length} {visible.length === 1 ? "Result" : "Results"}
       </Text>
 
@@ -206,7 +206,7 @@ export default function StoryGrid({ data }) {
           >
             Previous
           </button>
-          <Text as="span" className="font-mono text-[12.5px] text-ink/60">
+          <Text as="span" className="font-mono text-[12.5px] text-ink-muted">
             Page {current + 1} of {pages}
           </Text>
           <button

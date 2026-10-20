@@ -31,7 +31,7 @@ export default function LdChallenge({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mx-auto text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="mx-auto text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {description}
             </Text>
@@ -56,7 +56,7 @@ export default function LdChallenge({ data }) {
                 >
                   {outcome.title}
                 </Text>
-                <Text as="p" className="text-[15px] leading-[1.55] text-ink/60">
+                <Text as="p" className="text-[15px] leading-[1.55] text-ink-muted">
                   {outcome.description}
                 </Text>
               </Box>

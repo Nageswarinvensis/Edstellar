@@ -39,7 +39,7 @@ export default function DomainFinder({ data, domains }) {
             autoComplete="off"
             className="w-70 rounded-full border border-ink/25 bg-white px-4.5 py-2.5 text-[15px] text-ink outline-none placeholder:text-ink/40 focus:border-navy"
           />
-          <Text as="span" aria-live="polite" className="font-mono text-[12px] text-ink/55">
+          <Text as="span" aria-live="polite" className="font-mono text-[12px] text-ink-muted">
             {count} domains
           </Text>
         </Box>

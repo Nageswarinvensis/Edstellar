@@ -29,7 +29,7 @@ export default function WwsRoles({ data }) {
             heading={data.heading}
             className="m-0 text-[clamp(32px,4vw,40px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink"
           />
-          <Text as="p" className="mt-5 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+          <Text as="p" className="mt-5 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
             {data.lede}
           </Text>
         </Box>
@@ -52,7 +52,7 @@ export default function WwsRoles({ data }) {
                 {/* Tier pill label */}
                 <Box
                   as="p"
-                  className="relative z-10 m-0 rounded-full border border-ink/[0.22] bg-paper px-[14px] py-1 text-[13px] font-semibold text-ink/60"
+                  className="relative z-10 m-0 rounded-full border border-ink/[0.22] bg-paper px-[14px] py-1 text-[13px] font-semibold text-ink-muted"
                 >
                   {tier.tier}
                 </Box>
@@ -100,19 +100,19 @@ export default function WwsRoles({ data }) {
                             <Text as="h3" className="m-0 font-display text-[20px] font-bold leading-[1.25] tracking-[-0.02em]">
                               {card.role}
                             </Text>
-                            <Text as="p" className={`m-0 text-[14px] ${isDark ? "text-paper/72" : "text-ink/60"}`}>
+                            <Text as="p" className={`m-0 text-[14px] ${isDark ? "text-paper/72" : "text-ink-muted"}`}>
                               {card.goal}
                             </Text>
                           </Box>
                         </Box>
 
-                        <Text as="p" className={`mb-[18px] mt-[14px] flex-1 text-[15px] leading-[1.6] ${isDark ? "text-paper/72" : "text-ink/60"}`}>
+                        <Text as="p" className={`mb-[18px] mt-[14px] flex-1 text-[15px] leading-[1.6] ${isDark ? "text-paper/72" : "text-ink-muted"}`}>
                           {card.desc}
                         </Text>
 
                         {/* Links */}
                         <Box className={`flex flex-wrap items-center gap-x-4 gap-y-2 border-t pt-4 ${isDark ? "border-paper/[0.12]" : "border-ink/[0.12]"}`}>
-                          <Text as="span" className={`w-full text-[13px] font-semibold ${isDark ? "text-paper/60" : "text-ink/60"}`}>
+                          <Text as="span" className={`w-full text-[13px] font-semibold ${isDark ? "text-paper/60" : "text-ink-muted"}`}>
                             Usually starts with
                           </Text>
                           {card.links.map((link) => (

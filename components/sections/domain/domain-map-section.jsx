@@ -76,7 +76,6 @@ export default function DomainMapSection({ data, className }) {
                 src="/course/map1.png"
                 alt="Global delivery map"
                 fill
-                priority
                 sizes="(max-width: 1024px) 100vw, 560px"
                 className="
                   object-contain

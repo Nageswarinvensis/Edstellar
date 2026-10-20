@@ -27,7 +27,7 @@ export default function ClientsWhy({ data }) {
             heading={data.heading}
             className="m-0 text-[clamp(32px,4vw,40px)] font-medium leading-[1.08] tracking-[-0.03em] text-ink"
           />
-          <Text as="p" className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+          <Text as="p" className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
             {data.lede}
           </Text>
         </Box>
@@ -43,7 +43,7 @@ export default function ClientsWhy({ data }) {
               <Text as="h3" className="mb-2 mt-4 font-body text-base font-semibold leading-[1.35] text-ink">
                 {stat.label}
               </Text>
-              <Text as="p" className="m-0 text-sm leading-[1.6] text-ink/60">{stat.desc}</Text>
+              <Text as="p" className="m-0 text-sm leading-[1.6] text-ink-muted">{stat.desc}</Text>
             </Box>
           ))}
         </Box>

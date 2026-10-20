@@ -22,7 +22,7 @@ function Footnote({ mark, dark }) {
       href="#points"
       title={`Click Here to View Note ${mark}`}
       className={cn(
-        "ml-0.5 align-super font-mono text-[10px] leading-none hover:underline",
+        "ml-0.5 align-super font-mono text-[10px] leading-none underline underline-offset-2",
         dark ? "text-lime" : "text-olive",
       )}
     >
@@ -69,14 +69,29 @@ function Tip({ text, align = "center" }) {
   );
 }
 
+/** The key of `byTab` the current tab shows: its own entry, else "all". */
+const shownKey = (byTab, tab) => (tab in byTab ? tab : "all");
+
+/** Every tab's version of a text, only the current tab's shown — so each
+ * tab's copy is in the server HTML, not just the first tab's. */
+function TabText({ byTab, tab }) {
+  const shown = shownKey(byTab, tab);
+  return Object.entries(byTab).map(([key, text]) => (
+    <span key={key} hidden={key !== shown}>
+      {text}
+    </span>
+  ));
+}
+
 /** One cell of a plan: a big figure, a line of text, a tick, or a list. */
 function PlanValue({ value, programs, tab, dark, tipAlign }) {
   if (!value) return null;
 
   if (value.programs) {
-    const line = programs.by_tab[tab] ?? programs.by_tab.all;
-    return (
-      <>
+    // Every tab's line is rendered; only the current tab's shows.
+    const shown = shownKey(programs.by_tab, tab);
+    return Object.entries(programs.by_tab).map(([key, line]) => (
+      <span key={key} hidden={key !== shown}>
         {line.count}{" "}
         <Link
           href={programs.href}
@@ -86,8 +101,8 @@ function PlanValue({ value, programs, tab, dark, tipAlign }) {
           {programs.link_label}
         </Link>{" "}
         {line.domains}
-      </>
-    );
+      </span>
+    ));
   }
 
   if (value.big) {
@@ -192,15 +207,15 @@ function PlanCard({ plan, rows, programs, tab, ctaLabel, ctaHref, index, total, 
         </Text>
         <Text
           as="p"
-          className={cn("mt-2.5 min-h-17 text-[14px] leading-[1.6]", dark ? "text-paper/72" : "text-ink/60")}
+          className={cn("mt-2.5 min-h-17 text-[14px] leading-[1.6]", dark ? "text-paper/72" : "text-ink-muted")}
         >
-          {plan.description[tab] ?? plan.description.all}
+          <TabText byTab={plan.description} tab={tab} />
         </Text>
         <Text
           as="p"
           className={cn(
             "mt-4 font-mono text-[11px] leading-none tracking-[0.12em] uppercase",
-            dark ? "text-paper/72" : "text-ink/45",
+            dark ? "text-paper/72" : "text-ink-muted",
           )}
         >
           {plan.validity}
@@ -237,7 +252,7 @@ function PlanCard({ plan, rows, programs, tab, ctaLabel, ctaHref, index, total, 
                 as="dt"
                 className={cn(
                   "mb-1.5 flex flex-wrap items-center gap-1.5 font-mono text-[10px] leading-[1.5] tracking-[0.14em] uppercase",
-                  dark ? "text-paper/50" : "text-ink/45",
+                  dark ? "text-paper/50" : "text-ink-muted",
                 )}
               >
                 <Text as="span" className="font-mono text-[10px] leading-[1.5] text-inherit">
@@ -256,7 +271,7 @@ function PlanCard({ plan, rows, programs, tab, ctaLabel, ctaHref, index, total, 
               </Box>
               <Box
                 as="dd"
-                className={cn("text-[14px] leading-[1.55]", dark ? "text-paper/72" : "text-ink/60")}
+                className={cn("text-[14px] leading-[1.55]", dark ? "text-paper/72" : "text-ink-muted")}
               >
                 <PlanValue value={value} programs={programs} tab={tab} dark={dark} tipAlign={tipAlign} />
               </Box>
@@ -347,7 +362,7 @@ export default function PricingPlans({ data, quoteId = "quote" }) {
                   onKeyDown={(event) => onTabKeyDown(event, index)}
                   className={cn(
                     "cursor-pointer rounded-full px-5.5 py-2.75 font-body text-[14px] font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
-                    selected ? "bg-navy text-lime" : "text-ink/60 hover:text-ink",
+                    selected ? "bg-navy text-lime" : "text-ink-muted hover:text-ink",
                   )}
                 >
                   {item.label}
@@ -383,7 +398,7 @@ export default function PricingPlans({ data, quoteId = "quote" }) {
       {data.valid_note ? (
         <Text
           as="p"
-          className="mt-5.5 text-center font-mono text-[11px] leading-none tracking-[0.14em] text-ink/45 uppercase"
+          className="mt-5.5 text-center font-mono text-[11px] leading-none tracking-[0.14em] text-ink-muted uppercase"
         >
           {data.valid_note}
         </Text>

@@ -27,7 +27,7 @@ export default function Trainers({ trainers, desktopCards }) {
         <Reveal delay={2}>
           <Text
             as="p"
-            className="mb-5 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink/60"
+            className="mb-5 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7] text-ink-muted"
           >
             {trainers.description}
           </Text>
@@ -42,7 +42,7 @@ export default function Trainers({ trainers, desktopCards }) {
         <Reveal delay={3}>
           <Text
             as="p"
-            className="mt-7 max-w-[76ch] text-[13px] leading-[1.65] text-ink/60"
+            className="mt-7 max-w-[76ch] text-[13px] leading-[1.65] text-ink-muted"
           >
             {trainers.note}
           </Text>

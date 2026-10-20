@@ -90,7 +90,7 @@ export default function DeliveryModeTabs({ tabs }) {
             >
               <Text
                 as="span"
-                className="mb-1.25 block font-mono text-[10px] tracking-[0.14em] text-ink/60 uppercase"
+                className="mb-1.25 block font-mono text-[10px] tracking-[0.14em] text-ink-muted uppercase"
               >
                 {tab.sublabel}
               </Text>
@@ -99,7 +99,7 @@ export default function DeliveryModeTabs({ tabs }) {
                 as="span"
                 className={cn(
                   "font-display text-base font-semibold tracking-[-0.01em]",
-                  isActive ? "text-ink" : "text-ink/60",
+                  isActive ? "text-ink" : "text-ink-muted",
                 )}
               >
                 {tab.label}
@@ -141,7 +141,7 @@ export default function DeliveryModeTabs({ tabs }) {
 
               <Text
                 as="p"
-                className="mb-4.5 text-[15px] leading-[1.6] text-ink/60"
+                className="mb-4.5 text-[15px] leading-[1.6] text-ink-muted"
               >
                 {tab.description}
               </Text>
@@ -152,12 +152,12 @@ export default function DeliveryModeTabs({ tabs }) {
                     as="li"
                     key={point}
                     delay={Math.min(pointIndex + 1, 4)}
-                    className="flex gap-3 py-2.25 text-[14.5px] --tw-leading: 1.5 text-ink/60"
+                    className="flex gap-3 py-2.25 text-[14.5px] --tw-leading: 1.5 text-ink-muted"
                   >
                     <Text
                       as="span"
                       aria-hidden="true"
-                      className="font-bold text-ink/60"
+                      className="font-bold text-ink-muted"
                     >
                       →
                     </Text>
@@ -167,7 +167,7 @@ export default function DeliveryModeTabs({ tabs }) {
               </Box>
 
               {tab.delivery_format_cta_description ? (
-                <Text as="p" className="mt-5 text-[15px] leading-[1.6] text-ink/60">
+                <Text as="p" className="mt-5 text-[15px] leading-[1.6] text-ink-muted">
                   {tab.delivery_format_cta_description}
                 </Text>
               ) : null}

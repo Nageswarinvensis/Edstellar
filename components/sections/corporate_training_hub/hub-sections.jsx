@@ -39,7 +39,7 @@ function LinkButton({ cta, variant, className }) {
 
 function Microcopy({ children, className }) {
   return (
-    <Text as="p" className={cn("mt-4 text-[13px] text-ink/60", className)}>
+    <Text as="p" className={cn("mt-4 text-[13px] text-ink-muted", className)}>
       {children}
     </Text>
   );
@@ -71,7 +71,7 @@ export function HubHero({ data, proof, breadcrumbs }) {
 
           <Reveal delay={1}>
             <Box className="overflow-hidden rounded-[20px] bg-navy">
-              <img
+              <img loading="eager"
                 src={data.image.src}
                 alt={data.image.alt}
                 width={data.image.width}
@@ -195,7 +195,7 @@ function LaneItem({ item, comingSoon }) {
       {item.href ? null : ` · ${comingSoon}`}
     </Text>
   ) : item.href ? null : (
-    <Text as="span" className="flex-none rounded-full bg-ink/6 px-2.5 py-0.5 font-mono text-[10.5px] text-ink/55">
+    <Text as="span" className="flex-none rounded-full bg-ink/6 px-2.5 py-0.5 font-mono text-[10.5px] text-ink-muted">
       {comingSoon}
     </Text>
   );
@@ -209,7 +209,7 @@ function LaneItem({ item, comingSoon }) {
       </Text>
     </Link>
   ) : (
-    <Box className="flex items-center justify-between gap-3 border-b border-ink/12 py-3.5 text-[15.5px] text-ink/50">
+    <Box className="flex items-center justify-between gap-3 border-b border-ink/12 py-3.5 text-[15.5px] text-ink-muted">
       <Text as="span" className="text-inherit">{item.label}</Text>
       {tag}
     </Box>

@@ -23,7 +23,7 @@ export default function HomeTaxonomy({ data }) {
               className="border-r border-ink/22 px-6 pb-9 pt-8 last:border-r-0 max-lg:border-b max-lg:[&:nth-child(2n)]:border-r-0 max-sm:border-r-0"
             >
               <Box className="flex items-center justify-between gap-2">
-                <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-ink/45">{step.layer}</Text>
+                <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-ink-muted">{step.layer}</Text>
                 <Text as="b" className="font-mono text-[9.5px] font-medium uppercase tracking-[0.16em] text-ink/65">{step.kind}</Text>
               </Box>
               <RichHeading as="h3" heading={step.title} className="mb-4 mt-3 font-serif text-xl font-normal leading-[1.15] text-ink" />

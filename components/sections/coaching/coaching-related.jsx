@@ -35,7 +35,7 @@ export default function CoachingRelated({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60 text-center mt-4 max-w-[68ch] mx-auto"
+              className="text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted text-center mt-4 max-w-[68ch] mx-auto"
             >
               {description}
             </Text>
@@ -60,7 +60,7 @@ export default function CoachingRelated({ data }) {
               >
                 {/* Audience kicker */}
                 {item.audience ? (
-                  <Text as="span" className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink/60">
+                  <Text as="span" className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
                     {item.audience}
                   </Text>
                 ) : null}
@@ -82,7 +82,7 @@ export default function CoachingRelated({ data }) {
 
                 {/* Description */}
                 {item.description ? (
-                  <Text as="p" className="text-[14.5px] leading-[1.6] text-ink/60 m-0">
+                  <Text as="p" className="text-[14.5px] leading-[1.6] text-ink-muted m-0">
                     {item.description}
                   </Text>
                 ) : null}

@@ -172,7 +172,7 @@ export default function ConsultingHero({
             {data.hero_right_image ? (
               <img
                 src={data.hero_right_image}
-                alt={data.hero_right_image_alt || left.title || ""}
+                alt={data.hero_right_image_alt || left.title || "Edstellar consulting"}
                 width={800}
                 height={600}
                 loading="eager"

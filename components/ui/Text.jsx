@@ -29,10 +29,10 @@ const tailwindClasses = {
   h3: "font-display font-medium text-ink text-[clamp(20px,2vw,26px)] leading-[1.15] tracking-[-0.02em] break-words hyphens-none",
   h4: "font-display font-semibold text-ink text-lg leading-snug tracking-[-0.01em] break-words hyphens-none",
   h5: "font-display font-semibold text-ink text-base leading-snug break-words hyphens-none",
-  p: "font-body text-ink/60 text-base leading-[1.7] break-words hyphens-none",
-  span: "font-body text-ink/60 text-sm break-words",
-  div: "font-body text-ink/60 text-base break-words",
-  label: "font-body text-ink/60 text-sm break-words",
+  p: "font-body text-ink-muted text-base leading-[1.7] break-words hyphens-none",
+  span: "font-body text-ink-muted text-sm break-words",
+  div: "font-body text-ink-muted text-base break-words",
+  label: "font-body text-ink-muted text-sm break-words",
 };
 
 function Text({ as = "p", children, className, ...props }) {

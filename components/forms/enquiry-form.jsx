@@ -87,14 +87,14 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
   return (
     <Reveal
       className={cn(
-        "rounded-[14px] border border-ink/12 bg-white p-6 text-ink shadow-[0_18px_50px_-24px_rgba(10,22,40,0.35)] sm:p-12",
+        "rounded-[14px] border border-ink/12 bg-white px-4 py-7.5 text-ink shadow-[0_18px_50px_-24px_rgba(10,22,40,0.35)] sm:p-12",
         className,
       )}
     >
       <Text as="h2" className="mb-1.5">
         {data.heading}
       </Text>
-      <Text as="p" className="mb-8 text-[15px] leading-[1.6] text-ink/60">
+      <Text as="p" className="mb-8 text-[15px] leading-[1.6] text-ink-muted">
         Fields marked <Text as="span" className="text-red-600">*</Text> are required.
       </Text>
 
@@ -179,7 +179,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
           <CtaButton type="submit" color="lime" block arrow disabled={isSubmitting}>
             {isSubmitting ? "Submitting…" : data.submit_label}
           </CtaButton>
-          <Text as="p" className="mt-4 text-[13px] leading-[1.6] text-ink/60">
+          <Text as="p" className="mt-4 text-[13px] leading-[1.6] text-ink-muted">
             Your details are used only to respond to your enquiry. See our{" "}
             <a href="/privacy-policy" title="Click Here to View Privacy Policy" className="underline hover:text-ink">
               Privacy Policy

@@ -40,7 +40,7 @@ export default function CustomizedTraining() {
         >
           <Image
             src="/course/Custimized Training.webp"
-            alt="Custimized Training"
+            alt="Customized training"
             title="Custimized Training"
             fill
             className="object-cover rounded-[18px] "

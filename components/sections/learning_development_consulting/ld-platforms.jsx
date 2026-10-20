@@ -28,7 +28,7 @@ function PlatformPanel({ item }) {
       {item.works_with ? (
         <Text
           as="p"
-          className="mt-5 border-t border-ink/12 pt-4 text-[14px] leading-[1.55] text-ink/60"
+          className="mt-5 border-t border-ink/12 pt-4 text-[14px] leading-[1.55] text-ink-muted"
         >
           <Text
             as="span"
@@ -72,7 +72,7 @@ export default function LdPlatforms({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60 hyphens-none"
+              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted hyphens-none"
             >
               {description}
             </Text>

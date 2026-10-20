@@ -85,7 +85,7 @@ function Flow({ flow = [], style, caption, highlightIndex }) {
                   {node}
                 </Text>
                 {!isTags && index !== last ? (
-                  <span aria-hidden="true" className="text-[14px] text-ink/45">→</span>
+                  <span aria-hidden="true" className="text-[14px] text-ink-muted">→</span>
                 ) : null}
               </Box>
             );
@@ -93,7 +93,7 @@ function Flow({ flow = [], style, caption, highlightIndex }) {
         </Box>
       )}
       {caption ? (
-        <Text as="p" className="mt-3.5 text-[12.5px] text-ink/60">
+        <Text as="p" className="mt-3.5 text-[12.5px] text-ink-muted">
           {caption}
         </Text>
       ) : null}
@@ -116,8 +116,6 @@ export default function Services({ data }) {
 
   const { section_id, heading, description } = data;
   const getLabel = data.get_label ?? "You get:";
-  const current = items[active];
-  const CurrentIcon = ICONS[current.icon] || Target;
 
   return (
     <Section id={section_id} className="bg-paper">
@@ -129,7 +127,7 @@ export default function Services({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {description}
             </Text>
@@ -175,7 +173,7 @@ export default function Services({ data }) {
                   <Text as="span" className="block font-display text-[16px] font-bold leading-[1.3] text-ink">
                     {item.title}
                   </Text>
-                  <Text as="span" className="mt-0.75 block text-[14px] leading-[1.5] text-ink/60">
+                  <Text as="span" className="mt-0.75 block text-[14px] leading-[1.5] text-ink-muted">
                     {item.summary}
                   </Text>
                 </Box>
@@ -184,43 +182,52 @@ export default function Services({ data }) {
           })}
         </Box>
 
-        {/* Sticky panel */}
-        <Box
-          role="tabpanel"
-          id={`svc-panel-${active}`}
-          aria-labelledby={`svc-tab-${active}`}
-          className="sticky top-24 rounded-2xl border border-ink/12 bg-white p-8 max-[900px]:static max-[900px]:mt-1 max-[900px]:p-5.5"
-        >
-          <Box className="mb-4 grid size-11 place-items-center rounded-[11px] bg-lime text-navy max-[900px]:hidden">
-            <CurrentIcon size={22} strokeWidth={1.7} aria-hidden="true" />
-          </Box>
-          <Text
-            as="h3"
-            className="font-display text-[22px] font-medium leading-[1.2] tracking-[-0.01em] text-ink max-[900px]:hidden"
-          >
-            {current.title}
-          </Text>
-          <Text as="p" className="mt-2.5 text-[15px] leading-[1.6] text-ink/60 max-[900px]:hidden">
-            {current.summary}
-          </Text>
-
-          <Flow
-            flow={current.flow}
-            style={current.flow_style}
-            caption={current.caption}
-            highlightIndex={current.flow_highlight}
-          />
-
-          {current.get ? (
-            <Text
-              as="p"
-              className="mt-5 inline-block rounded-full bg-lime-soft px-4 py-2 text-[14px] text-ink"
+        {/* One sticky panel per service, all in the server HTML (inactive
+            ones `hidden`), so every service's flow and deliverable is in the
+            page source. */}
+        {items.map((current, index) => {
+          const CurrentIcon = ICONS[current.icon] || Target;
+          return (
+            <Box
+              key={current.title}
+              role="tabpanel"
+              id={`svc-panel-${index}`}
+              aria-labelledby={`svc-tab-${index}`}
+              hidden={index !== active}
+              className="sticky top-24 rounded-2xl border border-ink/12 bg-white p-8 max-[900px]:static max-[900px]:mt-1 max-[900px]:p-5.5"
             >
-              <Box as="b" className="mr-1 font-bold">{getLabel}</Box>
-              {current.get}
-            </Text>
-          ) : null}
-        </Box>
+              <Box className="mb-4 grid size-11 place-items-center rounded-[11px] bg-lime text-navy max-[900px]:hidden">
+                <CurrentIcon size={22} strokeWidth={1.7} aria-hidden="true" />
+              </Box>
+              <Text
+                as="h3"
+                className="font-display text-[22px] font-medium leading-[1.2] tracking-[-0.01em] text-ink max-[900px]:hidden"
+              >
+                {current.title}
+              </Text>
+              <Text as="p" className="mt-2.5 text-[15px] leading-[1.6] text-ink-muted max-[900px]:hidden">
+                {current.summary}
+              </Text>
+
+              <Flow
+                flow={current.flow}
+                style={current.flow_style}
+                caption={current.caption}
+                highlightIndex={current.flow_highlight}
+              />
+
+              {current.get ? (
+                <Text
+                  as="p"
+                  className="mt-5 inline-block rounded-full bg-lime-soft px-4 py-2 text-[14px] text-ink"
+                >
+                  <Box as="b" className="mr-1 font-bold">{getLabel}</Box>
+                  {current.get}
+                </Text>
+              ) : null}
+            </Box>
+          );
+        })}
       </Box>
     </Section>
   );

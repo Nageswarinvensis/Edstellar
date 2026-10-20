@@ -31,7 +31,7 @@ export default function BlogDetailContinueReading({ orphanLinks = [] }) {
       <Box as="ul" className="mt-4 space-y-3">
         {orphanLinks.map((item) => (
           <Box as="li" key={item.link} className="flex gap-2.5 pl-0.5">
-            <span aria-hidden="true" className="text-ink/40">
+            <span aria-hidden="true" className="text-ink-muted">
               •
             </span>
 

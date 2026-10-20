@@ -97,13 +97,13 @@ export default function SkillProgression({ progression }) {
             {title}
           </Text>
           {description ? (
-            <Text as="p" className="mt-1.25 text-[12.5px] leading-[1.55] text-ink/60">
+            <Text as="p" className="mt-1.25 text-[12.5px] leading-[1.55] text-ink-muted">
               {description}
             </Text>
           ) : null}
         </Box>
 
-        <Box className="flex items-center gap-2.25 font-mono text-[10px] tracking-[0.06em] text-ink/60 uppercase">
+        <Box className="flex items-center gap-2.25 font-mono text-[10px] tracking-[0.06em] text-ink-muted uppercase">
           <span className="inline-flex items-center gap-1.5">
             <Box aria-hidden="true" className={cn(DOT_BASE, DOT_ENTRY)} />
             Entry

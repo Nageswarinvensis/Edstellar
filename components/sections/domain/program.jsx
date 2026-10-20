@@ -69,8 +69,12 @@ function FilterButton({ active, children, onClick }) {
       type="button"
       onClick={onClick}
       className={[
-        "shrink-0 cursor-pointer rounded-[6px] border px-3 py-1.5",
-        "text-[11px] font-medium leading-none",
+        // `max-w-full`, not `shrink-0`: a long topic ("AI for Business
+        // Functions: Operations, Procurement & Supply Chain") wraps inside
+        // its chip on a phone instead of pushing the page wider than the
+        // screen. Wrapped lines get room to breathe below `sm`.
+        "max-w-full cursor-pointer rounded-[6px] border px-3 py-1.5 text-left",
+        "text-[11px] font-medium leading-none max-sm:leading-[1.3]",
         "transition-all duration-200",
         active
           ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
@@ -153,7 +157,7 @@ function Duration({ duration, data }) {
 
       <Text
         as="span"
-        className="text-[10px] font-medium uppercase tracking-[1.3px] text-[#727984]"
+        className="text-[10px] font-medium uppercase tracking-[1.3px] text-ink-muted"
       >
         {durationText}
       </Text>
@@ -206,7 +210,7 @@ function CourseCard({ course, data }) {
 
         <Text
           as="p"
-          className="mt-1.25 mb-1.25 line-clamp-2 text-[11px] leading-[1.45] text-[#727984]"
+          className="mt-1.25 mb-1.25 line-clamp-2 text-[11px] leading-[1.45] text-ink-muted"
         >
           {course.description}
         </Text>
@@ -310,7 +314,7 @@ function Pagination({ currentPage, totalPages, onPageChange, data }) {
         ) : (
           <span
             key={n}
-            className="flex h-8 w-8 items-center justify-center text-[14px] text-[#727984]"
+            className="flex h-8 w-8 items-center justify-center text-[14px] text-ink-muted"
           >
             &hellip;
           </span>
@@ -683,7 +687,7 @@ export default function Program({ data, courses: cmsCourses }) {
         <Box className="mb-2.5 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
           <Text
             as="p"
-            className="text-[10px] font-medium uppercase tracking-[1.4px] text-[#727984]"
+            className="text-[10px] font-medium uppercase tracking-[1.4px] text-ink-muted"
           >
             {search.trim() && filteredCourses.length === 0 ? (
               <>No Programs matched &quot;{search.trim()}&quot; in this Selection</>
@@ -752,7 +756,7 @@ export default function Program({ data, courses: cmsCourses }) {
                   "items-center justify-center",
                   "rounded-full",
                   "bg-paper-warm",
-                  "text-[#727984]",
+                  "text-ink-muted",
                   "transition-all duration-200",
                   "hover:bg-ink",
                   "hover:text-[#B8F500]",

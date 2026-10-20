@@ -31,7 +31,7 @@ export default function TrainerEngagements({ trainer, data }) {
               className="tracking-tight text-ink"
               emphasisClassName="font-normal"
             />
-            <Text as="p" className="mt-3 text-[16px] leading-relaxed text-ink/60">
+            <Text as="p" className="mt-3 text-[16px] leading-relaxed text-ink-muted">
               {fillTemplate(data.description, { name: firstName })}
             </Text>
           </Box>
@@ -67,7 +67,7 @@ export default function TrainerEngagements({ trainer, data }) {
                         <Text
                           key={chip}
                           as="span"
-                          className="rounded-full border border-ink/12 px-2.5 py-0.75 text-[12px] leading-normal text-ink/60"
+                          className="rounded-full border border-ink/12 px-2.5 py-0.75 text-[12px] leading-normal text-ink-muted"
                         >
                           {chip}
                         </Text>
@@ -78,7 +78,7 @@ export default function TrainerEngagements({ trainer, data }) {
                   {outcome || item.outcome_note ? (
                     <Text
                       as="p"
-                      className="mt-0.5 border-t border-ink/12 pt-3 text-[14px] leading-[1.55] text-ink/60"
+                      className="mt-0.5 border-t border-ink/12 pt-3 text-[14px] leading-[1.55] text-ink-muted"
                     >
                       {outcome}
                       {item.outcome_note ? (
@@ -96,14 +96,14 @@ export default function TrainerEngagements({ trainer, data }) {
             })}
           </Box>
 
-          <Box className="mt-5 flex items-start gap-2.5 rounded-[10px] bg-paper-cream px-4 py-3.5 text-[13px] leading-[1.55] text-ink/60">
+          <Box className="mt-5 flex items-start gap-2.5 rounded-[10px] bg-paper-cream px-4 py-3.5 text-[13px] leading-[1.55] text-ink-muted">
             <Info
               size={16}
               strokeWidth={1.7}
               aria-hidden="true"
               className="mt-0.5 flex-none"
             />
-            <Text as="span" className="text-[13px] leading-[1.55] text-ink/60">
+            <Text as="span" className="text-[13px] leading-[1.55] text-ink-muted">
               {data.note}
             </Text>
           </Box>

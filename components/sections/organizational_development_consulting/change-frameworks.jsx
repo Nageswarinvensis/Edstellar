@@ -424,7 +424,7 @@ function FrameworkTrigger({ item }) {
 
         <Box className="flex min-w-0 flex-1 flex-col gap-0.5">
           {item.model_no ? (
-            <Text as="span" className={`${MONO_LABEL} text-ink/45`}>
+            <Text as="span" className={`${MONO_LABEL} text-ink-muted`}>
               {item.model_no}
             </Text>
           ) : null}
@@ -437,7 +437,7 @@ function FrameworkTrigger({ item }) {
           {item.author ? (
             <Text
               as="span"
-              className="font-mono text-[10.5px] leading-[1.4] tracking-[0.03em] text-ink/60 uppercase"
+              className="font-mono text-[10.5px] leading-[1.4] tracking-[0.03em] text-ink-muted uppercase"
             >
               {item.author}
             </Text>
@@ -448,7 +448,7 @@ function FrameworkTrigger({ item }) {
           size={20}
           strokeWidth={2}
           aria-hidden="true"
-          className="flex-none text-ink/55 transition-transform duration-300 group-aria-expanded/acc:rotate-180 group-aria-expanded/acc:text-navy"
+          className="flex-none text-ink-muted transition-transform duration-300 group-aria-expanded/acc:rotate-180 group-aria-expanded/acc:text-navy"
         />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
@@ -466,7 +466,7 @@ function PhaseColumn({ phase }) {
         {phase.title}
       </Text>
       {phase.subtitle ? (
-        <Text as="p" className="text-[12px] leading-[1.45] text-ink/60">
+        <Text as="p" className="text-[12px] leading-[1.45] text-ink-muted">
           {phase.subtitle}
         </Text>
       ) : null}
@@ -476,7 +476,7 @@ function PhaseColumn({ phase }) {
             <Box
               as="li"
               key={example}
-              className="relative pl-3.5 text-[11.5px] leading-[1.5] text-ink/60"
+              className="relative pl-3.5 text-[11.5px] leading-[1.5] text-ink-muted"
             >
               <Box
                 aria-hidden="true"
@@ -513,7 +513,7 @@ export default function ChangeFrameworks({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60 hyphens-none"
+              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted hyphens-none"
             >
               {description}
             </Text>
@@ -538,7 +538,7 @@ export default function ChangeFrameworks({ data }) {
                 {item.description ? (
                   <Text
                     as="p"
-                    className="mb-4.5 max-w-[660px] text-[13.5px] leading-[1.55] text-ink/60"
+                    className="mb-4.5 max-w-[660px] text-[13.5px] leading-[1.55] text-ink-muted"
                   >
                     {item.description}
                   </Text>

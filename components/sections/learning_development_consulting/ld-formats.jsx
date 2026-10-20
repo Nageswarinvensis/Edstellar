@@ -11,7 +11,7 @@ import LdFormatSample from "./ld-format-sample";
 // Share of the table width per column, in `columns` order.
 const COLUMN_WIDTHS = ["w-[18%]", "w-[30%]", "w-[40%]", "w-[12%]"];
 
-const CELL = "border-b border-ink/12 px-4.5 py-3.25 align-middle text-[14px] leading-[1.5] text-ink/60";
+const CELL = "border-b border-ink/12 px-4.5 py-3.25 align-middle text-[14px] leading-[1.5] text-ink-muted";
 
 // The "View sample" dialog's fixed copy, the same for every format.
 const SAMPLE_DIALOG = {
@@ -189,7 +189,7 @@ export default function LdFormats({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60 hyphens-none"
+              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted hyphens-none"
             >
               {description}
             </Text>
@@ -206,7 +206,7 @@ export default function LdFormats({ data }) {
                   <th
                     key={column}
                     scope="col"
-                    className={`${COLUMN_WIDTHS[index] ?? ""} border-b border-ink/12 bg-paper-warm px-4.5 py-3.5 text-left font-mono text-[10px] leading-[1.7] font-bold tracking-[0.1em] text-ink/60 uppercase`}
+                    className={`${COLUMN_WIDTHS[index] ?? ""} border-b border-ink/12 bg-paper-warm px-4.5 py-3.5 text-left font-mono text-[10px] leading-[1.7] font-bold tracking-[0.1em] text-ink-muted uppercase`}
                   >
                     {column}
                   </th>

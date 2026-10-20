@@ -22,7 +22,7 @@ export default function BlogDetailCopyLinkButton({ url, label = "Copy author lin
       onClick={handleCopy}
       aria-label={label}
       title={copied ? "Copied!" : label}
-      className="flex size-9 flex-none cursor-pointer items-center justify-center rounded-full border border-ink/10 text-ink/60 transition-colors hover:border-ink/20 hover:bg-ink/5 hover:text-ink"
+      className="flex size-9 flex-none cursor-pointer items-center justify-center rounded-full border border-ink/10 text-ink-muted transition-colors hover:border-ink/20 hover:bg-ink/5 hover:text-ink"
     >
       {copied ? (
         <Check size={15} strokeWidth={2} aria-hidden="true" />

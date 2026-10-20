@@ -31,7 +31,7 @@ export default function DeliveryModes({
       <Reveal delay={2}>
         <Text
           as="p"
-          className="mb-15 max-w-[64ch] text-[16.5px] leading-[1.7] text-ink/60"
+          className="mb-15 max-w-[64ch] text-[16.5px] leading-[1.7] text-ink-muted"
         >
           {deliveryModes.description}
         </Text>

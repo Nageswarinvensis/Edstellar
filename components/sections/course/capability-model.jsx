@@ -35,7 +35,7 @@ export default function CapabilityModel({ data }) {
               <Text
                 as="p"
                 className="
-              mb-0.8 inline-flex items-center gap-2.5 font-mono text-[10px] leading-normal tracking-[0.2em] text-ink/60 uppercase
+              mb-0.8 inline-flex items-center gap-2.5 font-mono text-[10px] leading-normal tracking-[0.2em] text-ink-muted uppercase
             "
               >
                 {data.tag_line}
@@ -44,7 +44,7 @@ export default function CapabilityModel({ data }) {
           </Box>
           <Text
             as="span"
-            className="inline-flex flex-none items-center gap-2 rounded-full border border-ink/12 bg-white py-[7px] pr-[15px] pl-3 font-mono text-[10.5px] leading-[1.7] tracking-[0.14em] whitespace-nowrap text-ink/60 uppercase"
+            className="inline-flex flex-none items-center gap-2 rounded-full border border-ink/12 bg-white py-[7px] pr-[15px] pl-3 font-mono text-[10.5px] leading-[1.7] tracking-[0.14em] whitespace-nowrap text-ink-muted uppercase"
           >
             <Zap
               size={13}
@@ -93,7 +93,7 @@ export default function CapabilityModel({ data }) {
               </Text>
               <Text
                 as="p"
-                className="m-0 text-[13px] leading-[1.55] text-ink/60 hyphens-manual"
+                className="m-0 text-[13px] leading-[1.55] text-ink-muted hyphens-manual"
               >
                 {step.description}
               </Text>

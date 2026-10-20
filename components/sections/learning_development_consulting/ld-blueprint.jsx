@@ -45,7 +45,7 @@ export default function LdBlueprint({ data }) {
             <Reveal delay={1}>
               <Text
                 as="p"
-                className="max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+                className="max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
               >
                 {description}
               </Text>
@@ -88,7 +88,7 @@ export default function LdBlueprint({ data }) {
 
                   <Text
                     as="p"
-                    className="mt-1.5 mb-3.5 text-[14px] leading-[1.55] text-ink/60"
+                    className="mt-1.5 mb-3.5 text-[14px] leading-[1.55] text-ink-muted"
                   >
                     {layer.description}
                   </Text>

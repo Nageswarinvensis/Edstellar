@@ -31,7 +31,7 @@ export default function ClientLogoWall({ data }) {
   return (
     <>
       <Box className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <Text as="p" className="font-mono text-[11px] tracking-[0.16em] text-ink/55 uppercase">
+        <Text as="p" className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
           {data.choose_label}
         </Text>
         <button
@@ -60,7 +60,7 @@ export default function ClientLogoWall({ data }) {
             )}
           >
             {item.label}
-            <Text as="span" className={cn("font-mono text-[11px]", industry === item.key ? "text-lime" : "text-ink/45")}>
+            <Text as="span" className={cn("font-mono text-[11px]", industry === item.key ? "text-lime" : "text-ink-muted")}>
               {countOf(item.key)}
             </Text>
           </button>
@@ -80,7 +80,7 @@ export default function ClientLogoWall({ data }) {
       </Box>
 
       <Box className="mt-5 flex flex-wrap items-center justify-between gap-4">
-        <Text as="p" aria-live="polite" className="font-mono text-[12.5px] text-ink/55">
+        <Text as="p" aria-live="polite" className="font-mono text-[12.5px] text-ink-muted">
           Showing {Math.min(visible.length, limit)} of {visible.length} clients
         </Text>
         {industry === "all" && visible.length > data.initial ? (

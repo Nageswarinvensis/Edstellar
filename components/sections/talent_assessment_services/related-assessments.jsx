@@ -107,7 +107,7 @@ export default function RelatedAssessments({ data }) {
             <Reveal delay={1}>
               <Text
                 as="p"
-                className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+                className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
               >
                 {description}
               </Text>
@@ -175,7 +175,7 @@ export default function RelatedAssessments({ data }) {
               </Text>
               <Text
                 as="p"
-                className="mb-5.5 text-[14.5px] leading-[1.5] text-ink/60 transition-colors duration-300 group-hover:text-paper/72 group-focus-visible:text-paper/72"
+                className="mb-5.5 text-[14.5px] leading-[1.5] text-ink-muted transition-colors duration-300 group-hover:text-paper/72 group-focus-visible:text-paper/72"
               >
                 {item.description}
               </Text>
@@ -184,7 +184,7 @@ export default function RelatedAssessments({ data }) {
                 <Box as="ul" className="mb-0 flex list-none flex-wrap gap-1.5 p-0">
                   <Box
                     as="li"
-                    className="py-1 pr-0 font-body text-[12px] font-medium text-ink/60 transition-colors duration-300 group-hover:text-paper/60 group-focus-visible:text-paper/60"
+                    className="py-1 pr-0 font-body text-[12px] font-medium text-ink-muted transition-colors duration-300 group-hover:text-paper/60 group-focus-visible:text-paper/60"
                   >
                     {tagsLabel}
                   </Box>

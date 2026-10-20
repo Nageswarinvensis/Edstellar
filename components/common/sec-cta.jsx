@@ -25,7 +25,7 @@ export default function SecCta({ title, description, cta }) {
           {description ? (
             <Text
               as="p"
-              className="mt-1.5 max-w-[58ch] text-[13.5px] leading-[1.6] text-ink/60"
+              className="mt-1.5 max-w-[58ch] text-[13.5px] leading-[1.6] text-ink-muted"
             >
               {description}
             </Text>

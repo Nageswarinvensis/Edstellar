@@ -46,7 +46,7 @@ const IN_GAP_VIEW = "group-data-[view=req]/matrix:hidden";
 const IN_REQ_VIEW = "hidden group-data-[view=req]/matrix:flex";
 
 const LEGEND_CLASS = "mt-4 list-none flex-wrap gap-4 p-0";
-const LEGEND_ITEM = "flex items-center gap-[7px] text-[12px] leading-[1.7] text-ink/60";
+const LEGEND_ITEM = "flex items-center gap-[7px] text-[12px] leading-[1.7] text-ink-muted";
 
 function Cell({ row, column, cell, gapLevels, reqLabel }) {
   const gap = gapLevels[cell.gap];
@@ -150,7 +150,7 @@ export default function SkillMatrix({ data }) {
       </Box>
 
       {data.note ? (
-        <Text as="p" className="mt-[3px] mb-4 text-[11.5px] leading-[1.7] text-ink/60">
+        <Text as="p" className="mt-[3px] mb-4 text-[11.5px] leading-[1.7] text-ink-muted">
           {data.note}
         </Text>
       ) : null}
@@ -161,7 +161,7 @@ export default function SkillMatrix({ data }) {
           <Text
             key={column}
             as="span"
-            className="text-center font-mono text-[10px] leading-[1.7] tracking-[0.06em] text-ink/60 uppercase"
+            className="text-center font-mono text-[10px] leading-[1.7] tracking-[0.06em] text-ink-muted uppercase"
           >
             {column}
           </Text>

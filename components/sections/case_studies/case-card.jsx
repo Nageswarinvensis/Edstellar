@@ -65,7 +65,7 @@ export default function CaseCard({ study, featured = false }) {
         {card.stats?.length ? (
           <Box as="ul" className="my-2.5 grid list-none grid-cols-1 gap-3 p-0 md:grid-cols-3">
             {card.stats.map((stat) => (
-              <Box as="li" key={stat.value} className="rounded-[14px] border border-ink/12 bg-paper p-3.5 text-[13px] leading-[1.45] text-ink/60">
+              <Box as="li" key={stat.value} className="rounded-[14px] border border-ink/12 bg-paper p-3.5 text-[13px] leading-[1.45] text-ink-muted">
                 <Text as="span" className="mb-1 block font-display text-[28px] leading-none font-bold tracking-[-0.03em] text-navy">
                   {stat.value}
                 </Text>

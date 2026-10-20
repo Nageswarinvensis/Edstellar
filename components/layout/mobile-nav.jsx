@@ -20,7 +20,7 @@ function Chevron() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className="size-5 flex-none text-ink/60 transition-transform duration-200 group-open/sec:rotate-180"
+      className="size-5 flex-none text-ink-muted transition-transform duration-200 group-open/sec:rotate-180"
     >
       <path d="M6 9l6 6 6-6" />
     </svg>
@@ -94,7 +94,7 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
                   <Box key={group.heading} className="mb-3 last:mb-0">
                     <Text
                       as="p"
-                      className="mt-3 mb-1 font-mono text-[11px] uppercase tracking-[0.12em] text-ink/60"
+                      className="mt-3 mb-1 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted"
                     >
                       {group.heading}
                     </Text>

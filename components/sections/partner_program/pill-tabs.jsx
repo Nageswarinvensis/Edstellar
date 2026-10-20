@@ -70,7 +70,7 @@ export default function PillTabs({ tabs, idPrefix, label, dark = false, children
                       : "bg-navy text-lime"
                     : dark
                       ? "text-paper/70 hover:text-paper"
-                      : "text-ink/60 hover:text-ink",
+                      : "text-ink-muted hover:text-ink",
                 )}
               >
                 {tab.label}

@@ -39,14 +39,14 @@ export default function Certificate() {
 
             <Text
               as="p"
-              className="mt-7 max-w-132.5 text-[15px] leading-7 text-ink/60"
+              className="mt-7 max-w-132.5 text-[15px] leading-7 text-ink-muted"
             >
               {certificate.description}
             </Text>
 
             <Text
               as="p"
-              className="mt-4 max-w-132.5 text-[14px] leading-5 text-ink/60"
+              className="mt-4 max-w-132.5 text-[14px] leading-5 text-ink-muted"
             >
               <strong className="font-semibold text-ink">
                 {certificate.highlight.title}

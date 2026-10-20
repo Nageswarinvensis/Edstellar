@@ -61,7 +61,7 @@ export default function CoachingHero({ cms, breadcrumbs }) {
             <Reveal delay={1}>
               <Text
                 as="p"
-                className="mt-6 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+                className="mt-6 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
               >
                 {description}
               </Text>
@@ -93,14 +93,14 @@ export default function CoachingHero({ cms, breadcrumbs }) {
 
           {icons.length ? (
             <Reveal delay={3}>
-              <Box className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[14px] text-ink/60">
+              <Box className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[14px] text-ink-muted">
                 {icons.map((item) => {
                   const Icon = coachingIcon(item.icon);
                   return (
                     <Text
                       as="span"
                       key={item.text}
-                      className="inline-flex items-center gap-2 text-[14px] text-ink/60"
+                      className="inline-flex items-center gap-2 text-[14px] text-ink-muted"
                     >
                       {Icon ? (
                         <Icon
@@ -122,7 +122,7 @@ export default function CoachingHero({ cms, breadcrumbs }) {
         {image ? (
           <Reveal delay={2}>
             <Box as="figure" className="m-0">
-              <img
+              <img loading="eager"
                 src={image}
                 alt="Leader and coach in a Meridian coaching session"
                 width={586}

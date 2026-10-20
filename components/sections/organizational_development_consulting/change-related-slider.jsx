@@ -84,7 +84,7 @@ export default function ChangeRelatedSlider({ id, data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {subheading}
             </Text>
@@ -137,7 +137,7 @@ export default function ChangeRelatedSlider({ id, data }) {
                   >
                     {item.title}
                   </Text>
-                  <Text as="p" className="mb-4.5 text-[15px] leading-[1.55] text-ink/60">
+                  <Text as="p" className="mb-4.5 text-[15px] leading-[1.55] text-ink-muted">
                     {item.description}
                   </Text>
 

@@ -46,10 +46,10 @@ export default function TemplatesHero({ data, breadcrumbs }) {
           {images.length ? (
             <Reveal delay={1} aria-hidden="true" className="relative h-55 max-w-130 min-[521px]:h-75 min-[961px]:h-85 min-[961px]:max-w-none">
               {images.slice(0, 3).map((src, index) => (
-                <Image
+                <Image loading="eager"
                   key={src}
                   src={src}
-                  alt=""
+                  alt={`Edstellar L&D template preview ${index + 1}`}
                   width={640}
                   height={360}
                   sizes="(min-width: 961px) 340px, 62vw"

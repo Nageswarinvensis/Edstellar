@@ -166,7 +166,7 @@ export default function MeridianShowcase({ data }) {
                 <img
                   src={tabImage(tab).src}
                   alt={tabImage(tab).alt}
-                  loading={index === 0 ? "eager" : "lazy"}
+                  loading="lazy"
                   decoding="async"
                   className="block w-full rounded-[14px] object-contain"
                 />

@@ -36,7 +36,7 @@ function Group({ id, icon: Icon, title, count, children }) {
         <Text as="h2" id={`${id}-h`} className="text-[20px] leading-[1.2] font-bold tracking-[-0.02em]">
           {title}
         </Text>
-        <Text as="span" className="font-mono text-[13px] text-ink/60">{format(count)}</Text>
+        <Text as="span" className="font-mono text-[13px] text-ink-muted">{format(count)}</Text>
       </Box>
       {children}
     </Box>
@@ -89,7 +89,7 @@ function ArticleList({ posts }) {
               </Text>
               {post.category ? <Text as="span" className={cn(TAG, "mt-1.5")}>{post.category}</Text> : null}
             </Box>
-            <ArrowRight size={16} aria-hidden="true" className="flex-none text-ink/40 transition-transform group-hover:translate-x-0.5 group-hover:text-navy" />
+            <ArrowRight size={16} aria-hidden="true" className="flex-none text-ink-muted transition-transform group-hover:translate-x-0.5 group-hover:text-navy" />
           </Link>
         </Box>
       ))}
@@ -120,7 +120,7 @@ export default function SearchPage({ results }) {
   return (
     <>
       <Section className="border-b border-ink/12 bg-paper-warm lg:pb-12" innerClassName="max-w-[1040px]">
-        <Text as="p" className="mb-3 font-mono text-[11px] tracking-[0.14em] text-ink/60 uppercase">Search Edstellar</Text>
+        <Text as="p" className="mb-3 font-mono text-[11px] tracking-[0.14em] text-ink-muted uppercase">Search Edstellar</Text>
         <Text as="h1" className="mb-6 text-[clamp(30px,3.6vw,42px)] leading-[1.1] font-bold">
           {query ? <>Results for &ldquo;{query}&rdquo;</> : "What are you looking for?"}
         </Text>
@@ -156,7 +156,7 @@ export default function SearchPage({ results }) {
                   <Box as="li" key={hit.href}>
                     <Link href={hit.href} className={CARD}>
                       <Text as="span" className="text-[17px] leading-[1.3] font-bold tracking-[-0.01em] text-navy">{hit.label}</Text>
-                      <Text as="span" className="mt-1 text-[14px] text-ink/60">{format(hit.count)} courses</Text>
+                      <Text as="span" className="mt-1 text-[14px] text-ink-muted">{format(hit.count)} courses</Text>
                       <Text as="span" className="mt-4 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-navy group-hover:underline group-hover:underline-offset-4">
                         View all courses <ArrowRight size={14} aria-hidden="true" />
                       </Text>
@@ -180,7 +180,7 @@ export default function SearchPage({ results }) {
                 ))}
               </Box>
               {coursesTotal > courses.length ? (
-                <Text as="p" className="mt-4 text-[14px] leading-[1.6] text-ink/60">
+                <Text as="p" className="mt-4 text-[14px] leading-[1.6] text-ink-muted">
                   Showing {courses.length} of {format(coursesTotal)} courses.{" "}
                   {domains.length === 1 ? (
                     <Link href={domains[0].href} className="font-semibold text-navy underline underline-offset-4">
@@ -203,7 +203,7 @@ export default function SearchPage({ results }) {
                       <Text as="span" className={TAG}>{hit.section}</Text>
                       <Text as="span" className="mt-1 text-[15.5px] leading-[1.35] font-bold text-navy group-hover:underline group-hover:underline-offset-4">{hit.label}</Text>
                       {hit.description ? (
-                        <Text as="span" className="line-clamp-2 text-[13.5px] leading-[1.55] text-ink/60">{hit.description}</Text>
+                        <Text as="span" className="line-clamp-2 text-[13.5px] leading-[1.55] text-ink-muted">{hit.description}</Text>
                       ) : null}
                     </Link>
                   </Box>
@@ -217,14 +217,14 @@ export default function SearchPage({ results }) {
               {strongPosts.length ? <ArticleList posts={strongPosts} /> : null}
               {otherPosts.length ? (
                 <>
-                  <Text as="p" className={cn("mb-3 font-mono text-[11px] tracking-[0.12em] text-ink/60 uppercase", strongPosts.length && "mt-6")}>
+                  <Text as="p" className={cn("mb-3 font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase", strongPosts.length && "mt-6")}>
                     Also mentions &ldquo;{query}&rdquo;
                   </Text>
                   <ArticleList posts={otherPosts} />
                 </>
               ) : null}
               {postsTotal > posts.length ? (
-                <Text as="p" className="mt-4 text-[14px] leading-[1.6] text-ink/60">
+                <Text as="p" className="mt-4 text-[14px] leading-[1.6] text-ink-muted">
                   Showing the {posts.length} most relevant of {format(postsTotal)} articles.
                 </Text>
               ) : null}

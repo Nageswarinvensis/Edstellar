@@ -35,7 +35,7 @@ export default function TrainerReviews({ data }) {
           >
             <Box
               as="blockquote"
-              className="relative flex-1 pt-8.5 text-[15.5px] leading-[1.8] text-ink/60 before:absolute before:-top-3.5 before:-left-0.5 before:font-serif before:text-[72px] before:leading-none before:text-olive before:italic before:content-['\201C']"
+              className="relative flex-1 pt-8.5 text-[15.5px] leading-[1.8] text-ink-muted before:absolute before:-top-3.5 before:-left-0.5 before:font-serif before:text-[72px] before:leading-none before:text-olive before:italic before:content-['\201C']"
             >
               {item.quote}
             </Box>
@@ -51,7 +51,7 @@ export default function TrainerReviews({ data }) {
                 <Text as="span" className="block font-display text-[16px] leading-[1.3] font-semibold tracking-[-0.015em] text-ink">
                   {item.name}
                 </Text>
-                <Text as="span" className="font-mono text-[10px] leading-[1.5] tracking-[0.16em] text-ink/45 uppercase">
+                <Text as="span" className="font-mono text-[10px] leading-[1.5] tracking-[0.16em] text-ink-muted uppercase">
                   {item.role}
                 </Text>
               </Box>

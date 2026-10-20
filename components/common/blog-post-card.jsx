@@ -29,7 +29,7 @@ export default function BlogPostCard({ post }) {
         className="relative block aspect-[2/1] flex-none overflow-hidden bg-paper-cream after:absolute after:inset-x-0 after:bottom-0 after:h-0.75 after:origin-left after:scale-x-0 after:bg-lime after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100"
       >
         {post.cover_image ? (
-          <img
+          <img decoding="async"
             src={post.cover_image}
             alt={post.title}
             loading="lazy"
@@ -58,7 +58,7 @@ export default function BlogPostCard({ post }) {
         </Text>
 
         {post.published_at ? (
-          <Text as="span" className="text-[13px] leading-[1.5] text-ink/60">
+          <Text as="span" className="text-[13px] leading-[1.5] text-ink-muted">
             Updated on:{" "}
             <time dateTime={post.published_at}>
               {format(new Date(post.published_at), "MMMM d, yyyy")}
@@ -84,7 +84,7 @@ export default function BlogPostCard({ post }) {
           {typeof post.views === "number" ? (
             <Text
               as="span"
-              className="inline-flex items-center gap-1.5 text-[14px] font-medium text-ink/60"
+              className="inline-flex items-center gap-1.5 text-[14px] font-medium text-ink-muted"
               aria-label={`${post.views.toLocaleString()} views`}
             >
               <Eye size={17} aria-hidden="true" />

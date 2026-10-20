@@ -63,13 +63,13 @@ export default function ClientsRelated({ data }) {
                     {ICONS[item.icon] ?? ICONS.doc}
                   </svg>
                 </Box>
-                <Text as="span" className="font-mono text-[11px] uppercase leading-none tracking-[0.12em] text-ink/60">
+                <Text as="span" className="font-mono text-[11px] uppercase leading-none tracking-[0.12em] text-ink-muted">
                   {item.tag}
                 </Text>
                 <Text as="h3" className="m-0 font-display text-lg font-semibold tracking-[-0.01em] text-ink">
                   {item.title}
                 </Text>
-                <Text as="p" className="m-0 text-sm leading-[1.6] text-ink/60">{item.desc}</Text>
+                <Text as="p" className="m-0 text-sm leading-[1.6] text-ink-muted">{item.desc}</Text>
                 <Text as="span" className="mt-auto flex items-center gap-2 text-sm font-semibold text-ink">
                   {item.cta}
                   <ArrowIcon />

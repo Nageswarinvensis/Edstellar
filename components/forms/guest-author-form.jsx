@@ -63,9 +63,9 @@ export default function GuestAuthorForm({ data, thankYou = "blog" }) {
   }
 
   return (
-    <Box className="rounded-[14px] border border-ink/12 bg-white p-6 shadow-[0_6px_24px_rgba(10,22,40,0.08)] sm:p-12">
+    <Box className="rounded-[14px] border border-ink/12 bg-white px-4 py-7.5 shadow-[0_6px_24px_rgba(10,22,40,0.08)] sm:p-12">
 
-      <Text as="p" className="mb-8 font-mono text-[12px] leading-[1.5] tracking-[0.04em] text-ink/60 uppercase">
+      <Text as="p" className="mb-8 font-mono text-[12px] leading-[1.5] tracking-[0.04em] text-ink-muted uppercase">
         Fields marked <Text as="span" className="text-red-600">*</Text> are required
       </Text>
 
@@ -137,7 +137,7 @@ export default function GuestAuthorForm({ data, thankYou = "blog" }) {
             {isSubmitting ? "Submitting…" : data.submit_label}
           </CtaButton>
           {data.note ? (
-            <Text as="p" className="mt-4 text-[13px] leading-[1.6] text-ink/60">
+            <Text as="p" className="mt-4 text-[13px] leading-[1.6] text-ink-muted">
               {data.note}
             </Text>
           ) : null}

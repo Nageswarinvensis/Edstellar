@@ -25,7 +25,7 @@ export default function ProfileAbout({ profile, data }) {
       <Box className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-12">
         <Box>
           <Reveal>
-            <Text as="span" className="mb-3 block font-mono text-[11px] tracking-[0.18em] text-ink/55 uppercase">
+            <Text as="span" className="mb-3 block font-mono text-[11px] tracking-[0.18em] text-ink-muted uppercase">
               {data.eyebrow}
             </Text>
             {profile.title ? <RichHeading as="h2" id="about-h" heading={profile.titleHeading} className="mb-8" /> : null}
@@ -46,13 +46,13 @@ export default function ProfileAbout({ profile, data }) {
 
         <Reveal delay={1} className="lg:sticky lg:top-36">
           <Box as="aside" aria-label="Trainer quick facts" className="rounded-[14px] border border-ink/12 bg-white p-6">
-            <Text as="p" className="mb-3.5 font-mono text-[11px] tracking-[0.18em] text-ink/55 uppercase">
+            <Text as="p" className="mb-3.5 font-mono text-[11px] tracking-[0.18em] text-ink-muted uppercase">
               {data.glance.title}
             </Text>
             <Box as="dl" className="m-0">
               {rows.map(([label, value]) => (
                 <Box key={label} className="flex items-baseline justify-between gap-4 border-b border-ink/10 py-3">
-                  <dt className="text-[14px] text-ink/60">{label}</dt>
+                  <dt className="text-[14px] text-ink-muted">{label}</dt>
                   <dd className="m-0 text-right font-display text-[14px] font-semibold text-ink">{value}</dd>
                 </Box>
               ))}

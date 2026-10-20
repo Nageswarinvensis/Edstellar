@@ -31,7 +31,7 @@ export default function ChoiceComparison({ data }) {
               {card.image?.src ? (
                 <Image
                   src={card.image.src}
-                  alt={card.image.alt ?? ""}
+                  alt={card.image.alt || card.title || "Edstellar partner program"}
                   width={card.image.width}
                   height={card.image.height}
                   sizes="(max-width: 760px) 100vw, 600px"

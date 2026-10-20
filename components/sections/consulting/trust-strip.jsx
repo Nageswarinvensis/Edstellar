@@ -80,7 +80,7 @@ export function TrustStrip({ trust }) {
           <Globe size={18} strokeWidth={1.7} className="text-navy" aria-hidden="true" />
           <Text
             as="span"
-            className={`${PILL_MONO} mr-1 text-[10px] tracking-[0.1em] text-ink/60`}
+            className={`${PILL_MONO} mr-1 text-[10px] tracking-[0.1em] text-ink-muted`}
           >
             {trust.regions_label}
           </Text>
@@ -97,7 +97,7 @@ export function TrustStrip({ trust }) {
       ) : null}
 
       {trust.caption ? (
-        <Text as="p" className="mt-[22px] text-center text-[14px] leading-[1.7] text-ink/60">
+        <Text as="p" className="mt-[22px] text-center text-[14px] leading-[1.7] text-ink-muted">
           <Box as="strong" className="font-bold text-ink">
             {trust.caption_strong}
           </Box>{" "}

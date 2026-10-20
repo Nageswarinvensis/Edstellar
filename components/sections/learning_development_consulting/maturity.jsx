@@ -45,7 +45,7 @@ export default function Maturity({ data }) {
             {/* Scrollable Container for Chart & Points */}
             <Box className="overflow-x-auto pb-4 custom-scrollbar">
               <Box className="min-w-170 max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
-                <Text className="font-mono text-[10px] tracking-widest text-ink/50 uppercase mb-4">
+                <Text className="font-mono text-[10px] tracking-widest text-ink-muted uppercase mb-4">
                   ↑ CAPABILITY & BUSINESS IMPACT
                 </Text>
 
@@ -58,7 +58,7 @@ export default function Maturity({ data }) {
                     <div className="absolute bottom-0 left-8 right-0 border-b border-solid border-ink/10 pointer-events-none" />
 
                     {/* Grid Lines & L1-L5 Labels */}
-                    <Box className="absolute inset-0 pointer-events-none text-[11px] sm:text-[12px] font-mono text-ink/40 z-0">
+                    <Box className="absolute inset-0 pointer-events-none text-[11px] sm:text-[12px] font-mono text-ink-muted z-0">
                       <Box className="absolute top-0 left-0 w-full">
                         <span className="absolute -top-2.5 left-0 font-medium">
                           L5
@@ -173,6 +173,9 @@ export default function Maturity({ data }) {
             {/* Read More button strictly outside scrollable container */}
             <Box className="flex justify-end mt-4 max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
               <button
+                type="button"
+                aria-expanded={isExpanded}
+                aria-controls="maturity-more"
                 onClick={() => setIsExpanded(!isExpanded)}
                 className="text-xs sm:text-sm text-ink/70 hover:text-ink border-b border-ink/60 pb-0.5 cursor-pointer transition-colors"
               >
@@ -182,8 +185,13 @@ export default function Maturity({ data }) {
           </Box>
         )}
 
-        {isExpanded && (
-          <Box className="mt-8 space-y-6 sm:space-y-8 animate-fadeIn max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
+        {/* Always rendered — `hidden` until "Read more" — so the levels and
+            what they mean for the business are in the server HTML. */}
+        <Box
+          id="maturity-more"
+          hidden={!isExpanded}
+          className="mt-8 space-y-6 sm:space-y-8 animate-fadeIn max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto"
+        >
             {content.expand_title && (
               <Text 
                 className="text-xs sm:text-sm md:text-base text-ink/80 leading-relaxed font-normal"
@@ -229,8 +237,7 @@ export default function Maturity({ data }) {
                 </Text>
               </Box>
             )}
-          </Box>
-        )}
+        </Box>
       </Box>
     </Section>
   );

@@ -84,7 +84,7 @@ export default function RelatedServices({ id, bgColor, data, columns = 3 }) {
           {data.showSubheading !== false && subheading && (
             <Text
               as="p"
-              className="mt-4 text-[16px] leading-[1.7] text-ink/60"
+              className="mt-4 text-[16px] leading-[1.7] text-ink-muted"
               dangerouslySetInnerHTML={{ __html: subheading }}
             />
           )}
@@ -124,7 +124,7 @@ export default function RelatedServices({ id, bgColor, data, columns = 3 }) {
                 >
                   {item.title}
                 </Text>
-                <Text as="p" className="text-[16px] leading-[1.7] text-ink/60">
+                <Text as="p" className="text-[16px] leading-[1.7] text-ink-muted">
                   {item.description}
                 </Text>
               </Box>

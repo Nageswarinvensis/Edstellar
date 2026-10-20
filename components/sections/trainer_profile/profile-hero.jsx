@@ -33,7 +33,7 @@ export default function ProfileHero({ profile, data, breadcrumbs }) {
             <Reveal>
               <Box className="mx-auto aspect-square w-full max-w-70 overflow-hidden rounded-[14px] border border-paper/14 bg-navy-soft">
                 {profile.image ? (
-                  <img
+                  <img loading="eager"
                     src={profile.image}
                     alt={`${profile.name}, ${profile.title}, ${profile.location}`}
                     width={300}
