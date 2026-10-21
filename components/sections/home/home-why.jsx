@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -55,9 +54,9 @@ export default function HomeWhy({ data }) {
           <Box as="ul" className="grid list-none grid-cols-5 gap-5 p-0 max-lg:grid-cols-3 max-sm:grid-cols-2">
             {experts.trainers.map((t) => (
               <Box as="li" key={t.slug}>
-                <Link href={t.href} className="group flex flex-col gap-1 no-underline">
+                <Box className="flex flex-col gap-1">
                   <Box className="mb-2 aspect-square w-full overflow-hidden rounded-lg bg-paper-warm">
-                    <Image src={t.photo} alt={`${t.name}, ${t.role} trainer`} width={240} height={240} className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+                    <Image src={t.photo} alt={`${t.name}, ${t.role} trainer`} width={240} height={240} className="size-full object-cover" />
                   </Box>
                   <Text as="b" className="font-display text-base font-medium text-ink">{t.name}</Text>
                   <Text as="span" className="text-[13px] leading-snug text-ink/65">{t.role}</Text>
@@ -65,7 +64,7 @@ export default function HomeWhy({ data }) {
                     <span className="inline-flex items-center gap-1.5"><PinIcon />{t.location}</span>
                     <span className="inline-flex items-center gap-1.5"><CalIcon />Trainer since {t.since}</span>
                   </Box>
-                </Link>
+                </Box>
               </Box>
             ))}
           </Box>

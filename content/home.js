@@ -10,7 +10,8 @@ export const HOME = {
   "seo": {
     "title": "Capability Development & Transformation Partner",
     "description": "Edstellar helps organizations develop capabilities through training, coaching, assessments and consulting, connecting people development with business goals.",
-    "path": "/"
+    "path": "/",
+    "image": "/og/edstellar-og.png"
   },
   "hero": {
     "heading": "The science of <span>capability,</span> delivered with precision.",
@@ -327,7 +328,6 @@ export const HOME = {
         "badge": "Platform",
         "title": "Capability Intelligence <span>Platform</span>",
         "desc": "One canonical view of capability across your workforce: gap analysis, role taxonomies, learning ROI: wired into your HRIS in days, not quarters.",
-        "cta": "See the platform",
         "href": "/who-we-serve"
       },
       {
@@ -507,7 +507,6 @@ export const HOME = {
           "location": "Cairo, Egypt",
           "since": "2007",
           "photo": "https://media.edstellar.com/trainer_profile/tamer-cairo-egypt.webp",
-          "href": "/trainer/tamer-cairo-egypt"
         },
         {
           "name": "Nibedita",
@@ -516,7 +515,6 @@ export const HOME = {
           "location": "Bangalore, India",
           "since": "2017",
           "photo": "https://media.edstellar.com/trainer_profile/nibedita-bangalore-india.webp",
-          "href": "/trainer/nibedita-bangalore-india"
         },
         {
           "name": "Simon",
@@ -525,7 +523,6 @@ export const HOME = {
           "location": "Ubud, Indonesia",
           "since": "2017",
           "photo": "https://media.edstellar.com/trainer_profile/simon-ubud-indonesia.webp",
-          "href": "/trainer/simon-ubud-indonesia"
         },
         {
           "name": "Roberta",
@@ -534,7 +531,6 @@ export const HOME = {
           "location": "Al Wajba, Qatar",
           "since": "2015",
           "photo": "https://media.edstellar.com/trainer_profile/roberta-al-wajba-qatar.webp",
-          "href": "/trainer/roberta-al-wajba-qatar"
         },
         {
           "name": "Harshil",
@@ -543,7 +539,6 @@ export const HOME = {
           "location": "Ahmedabad, India",
           "since": "2016",
           "photo": "https://media.edstellar.com/trainer_profile/harshil-ahmedabad-india.webp",
-          "href": "/trainer/harshil-ahmedabad-india"
         }
       ]
     }

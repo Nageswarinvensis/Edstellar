@@ -35,12 +35,14 @@ export default function HomePillars({ data }) {
               <Box className="flex flex-1 flex-col px-7 pb-8 pt-7">
                 <RichHeading as="h3" heading={item.title} className="mb-3.5 font-serif text-[28px] font-normal leading-[1.1] tracking-[-0.005em] text-ink" />
                 <Text as="p" className="m-0 text-sm leading-[1.6] text-ink/65">{item.desc}</Text>
-                <Text as="span" className="mt-auto inline-flex items-center gap-2.5 pt-6 font-mono text-[10.5px] uppercase tracking-[0.2em] text-ink transition-colors group-hover:text-olive">
-                  {item.cta}
-                  <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
-                    <path d="M1 4h12m0 0L10 1m3 3L10 7" stroke="currentColor" strokeWidth="1.2" />
-                  </svg>
-                </Text>
+                {item.cta && (
+                  <Text as="span" className="mt-auto inline-flex items-center gap-2.5 pt-6 font-mono text-[10.5px] uppercase tracking-[0.2em] text-ink transition-colors group-hover:text-olive">
+                    {item.cta}
+                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
+                      <path d="M1 4h12m0 0L10 1m3 3L10 7" stroke="currentColor" strokeWidth="1.2" />
+                    </svg>
+                  </Text>
+                )}
               </Box>
             </Link>
           </Reveal>

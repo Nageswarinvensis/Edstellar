@@ -1,6 +1,7 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
+import CountUp from "@/components/common/count-up";
 
 /** Key-statistics strip — a bordered, warm-sand band of four figures. */
 export default function HomeStats({ data }) {
@@ -13,8 +14,8 @@ export default function HomeStats({ data }) {
           <Reveal key={stat.label} delay={i}>
             <Box className="stat">
               <Text as="div" className="font-display text-[52px] font-normal leading-none tracking-[-0.022em] text-ink max-md:text-[44px]">
-                {stat.value}
-                <Text as="span" className="text-lime">{stat.suffix}</Text>
+                <CountUp value={stat.value} className="tabular-nums" />
+                <Text as="span" className="text-[28px] leading-none text-ink max-md:text-[24px]">{stat.suffix}</Text>
               </Text>
               <Text as="div" className="mt-3 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink/65">
                 {stat.label}

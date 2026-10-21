@@ -9,7 +9,7 @@ import Box from "@/components/ui/Box";
 import MegaMenu from "@/components/layout/mega-menu";
 import MobileNav from "@/components/layout/mobile-nav";
 import BriefComposer from "@/components/layout/brief-composer";
-import SiteSearch from "@/components/layout/site-search";
+import HeaderSearch from "@/components/layout/header-search";
 import { MEGA_CTA } from "@/lib/constants";
 import {
   subscribeHeaderHidden,
@@ -76,7 +76,7 @@ export default function SiteHeader() {
 
           <MegaMenu onOpenBrief={() => setBriefOpen(true)} />
 
-          <SiteSearch id="site-q" className="w-52 shrink-0 max-[1439px]:w-40 max-[1279px]:w-28 max-nav:hidden" />
+          <HeaderSearch className="shrink-0 max-nav:hidden" />
 
           <Box
             as="button"

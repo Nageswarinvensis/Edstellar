@@ -30,9 +30,9 @@ function StatValue({ children }) {
   );
 }
 
-function StatLabel({ children }) {
+function StatLabel({ children, className }) {
   return (
-    <span className="font-mono text-[10px] tracking-[0.14em] text-ink-muted uppercase max-md:tracking-[0.1em]">
+    <span className={cn("font-mono text-[10px] tracking-[0.14em] text-ink-muted uppercase max-md:tracking-[0.1em]", className)}>
       {children}
     </span>
   );
@@ -70,9 +70,10 @@ function DomainProof({ proof }) {
                     className={cn(cell, "flex-row items-center gap-3")}
                   >
                     <TrainerFaces people={getTrainerFaces()} className="-space-x-2.5" faceClassName="size-8 ring-white" />
-                    <Box className="flex min-w-0 flex-col gap-[5px]">
+                    <Box className="flex shrink-0 flex-col gap-[5px]">
                       <StatValue>{stat.value}</StatValue>
-                      <StatLabel>{stat.label}</StatLabel>
+                      {/* Kept on one line: beside the avatar stack it otherwise wraps to two. */}
+                      <StatLabel className="whitespace-nowrap">{stat.label}</StatLabel>
                     </Box>
                   </Box>
                 );

@@ -138,30 +138,30 @@ export const CLIENTS = {
     }
   ],
   "section_nav": {
-    "links": [
+    "items": [
       {
-        "label": "Clients",
-        "href": "#clients"
+        "id": "clients",
+        "label": "Clients"
       },
       {
-        "label": "Regions",
-        "href": "#regions"
+        "id": "regions",
+        "label": "Regions"
       },
       {
-        "label": "Sectors",
-        "href": "#sectors"
+        "id": "sectors",
+        "label": "Sectors"
       },
       {
-        "label": "Why Edstellar",
-        "href": "#why"
+        "id": "why",
+        "label": "Why Edstellar"
       },
       {
-        "label": "FAQ",
-        "href": "#faq"
+        "id": "faq",
+        "label": "FAQ"
       },
       {
-        "label": "Contact",
-        "href": "#contact"
+        "id": "contact",
+        "label": "Contact"
       }
     ],
     "cta": {

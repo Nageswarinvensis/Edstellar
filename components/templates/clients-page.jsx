@@ -1,6 +1,6 @@
 import ClientsHero from "@/components/sections/company/clients/clients-hero";
 import ClientsGlance from "@/components/sections/company/clients/clients-glance";
-import ClientsSectionNav from "@/components/sections/company/clients/clients-section-nav";
+import SectionNav from "@/components/common/section-nav";
 import ClientsExplorer from "@/components/sections/company/clients/clients-explorer";
 import ClientsRegions from "@/components/sections/company/clients/clients-regions";
 import ClientsSectors from "@/components/sections/company/clients/clients-sectors";
@@ -21,7 +21,7 @@ export default function ClientsPage({ page }) {
     <>
       <ClientsHero data={page.hero} breadcrumbs={page.breadcrumbs} />
       <ClientsGlance data={page.glance} />
-      <ClientsSectionNav data={page.section_nav} />
+      <SectionNav data={page.section_nav} />
       <ClientsExplorer data={page.explorer} />
       <ClientsRegions data={page.regions} />
       <ClientsSectors data={page.sectors} />

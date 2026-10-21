@@ -94,7 +94,7 @@ function Brand() {
             href={social.href}
             aria-label={social.label}
             title={`Click Here to View ${social.label}`}
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             target="_blank"
             className="grid size-10 place-items-center rounded-full border border-paper/[0.22] text-paper transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(5,13,26,0.4)]"
           >

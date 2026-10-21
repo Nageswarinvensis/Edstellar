@@ -8,7 +8,7 @@ import Program from "@/components/sections/domain/program";
 import Bundles from "@/components/sections/domain/bundles";
 import ByRole from "@/components/sections/domain/byrole";
 import ExploreCategories from "@/components/sections/domain/explore-categories";
-import Trainers from "@/components/common/trainers";
+// import Trainers from "@/components/common/trainers";
 import DomainMapSection from "@/components/sections/domain/domain-map-section";
 import Delivered from "@/components/sections/domain/delivered";
 import DeliveryModes from "@/components/common/delivery-modes";
@@ -31,11 +31,12 @@ import Outcome from "@/components/sections/domain/outcome";
  * no separate `sections/shared/` anymore).
  */
 export default function DomainPage({ domain }) {
-  // Mirrors trainers.jsx's own `dynamic_data ?? people` precedence, so this
-  // agrees with whether `<Trainers>` below actually renders anything.
-  const hasTrainers = Boolean(
-    (domain.trainers?.dynamic_data ?? domain.trainers?.people)?.length,
-  );
+  // Trainers section is hidden for now — restore this with `<Trainers>` below.
+  // // Mirrors trainers.jsx's own `dynamic_data ?? people` precedence, so this
+  // // agrees with whether `<Trainers>` below actually renders anything.
+  // const hasTrainers = Boolean(
+  //   (domain.trainers?.dynamic_data ?? domain.trainers?.people)?.length,
+  // );
 
   // Use the CMS image if provided; fall back to the shared category banner.
   // Video is suppressed — banners are image-only on domain pages.
@@ -86,7 +87,7 @@ export default function DomainPage({ domain }) {
         className="bg-paper-cream"
         showSectionCta={false}
       />
-      <Trainers trainers={domain.trainers} desktopCards={4} />
+      {/* <Trainers trainers={domain.trainers} desktopCards={4} /> */}
 
       <DomainMapSection data={domain.mapsectionData} className="bg-paper-warm" />
       <Delivered data={domain.deliveredData} />

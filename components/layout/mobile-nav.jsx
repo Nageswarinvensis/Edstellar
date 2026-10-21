@@ -174,6 +174,15 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
             </Box>
           ))}
 
+          <Link
+            href="/contact-us"
+            title="Click Here to View Contact Us"
+            onClick={onClose}
+            className="border-b border-ink/12 py-4 font-display text-[17px] font-semibold text-ink"
+          >
+            Contact Us
+          </Link>
+
           <Box
             as="button"
             type="button"

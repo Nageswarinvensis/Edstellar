@@ -311,6 +311,22 @@ export default function MegaMenu({ onOpenBrief }) {
               </li>
             );
           })}
+          {/* A plain link, not a tab: hovering it closes any open panel. */}
+          <li className="flex">
+            <Link
+              href="/contact-us"
+              title="Click Here to View Contact Us"
+              onMouseEnter={close}
+              onFocus={close}
+              className="group/tab relative inline-flex items-center whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy max-[1439px]:px-1.5 max-[1279px]:px-1"
+            >
+              Contact Us
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-2 -bottom-px h-[2px] origin-left scale-x-0 bg-navy transition-transform duration-200 group-hover/tab:scale-x-[0.35]"
+              />
+            </Link>
+          </li>
         </Box>
       </Box>
 

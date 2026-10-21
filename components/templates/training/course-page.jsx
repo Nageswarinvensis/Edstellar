@@ -2,7 +2,7 @@ import Hero from "@/components/common/hero";
 import CourseInfo from "@/components/sections/course/course-info";
 import ClientLogos from "@/components/common/client-logos";
 import About from "@/components/sections/course/about";
-import Trainers from "@/components/common/trainers";
+// import Trainers from "@/components/common/trainers";
 import Faq from "@/components/common/faq";
 import CourseMapSection from "@/components/sections/course/course-map-section";
 import StickyFooter from "@/components/common/sticky-footer";
@@ -33,11 +33,12 @@ import LeadForm from "@/components/forms/lead-form";
  * visual treatment of the same data, and which one ships is a design call.
  */
 export default function CoursePage({ course }) {
-  // Mirrors trainers.jsx's own `dynamic_data ?? people` precedence, so this
-  // agrees with whether `<Trainers>` below actually renders anything.
-  const hasTrainers = Boolean(
-    (course.trainers?.dynamic_data ?? course.trainers?.people)?.length,
-  );
+  // Trainers section is hidden for now — restore this with `<Trainers>` below.
+  // // Mirrors trainers.jsx's own `dynamic_data ?? people` precedence, so this
+  // // agrees with whether `<Trainers>` below actually renders anything.
+  // const hasTrainers = Boolean(
+  //   (course.trainers?.dynamic_data ?? course.trainers?.people)?.length,
+  // );
 
   return (
     <>
@@ -49,14 +50,14 @@ export default function CoursePage({ course }) {
       <PageToc
         toc={course.pageToc}
         modules={course.curriculum?.modules}
-        hasTrainers={hasTrainers}
+        hasTrainers={false}
       >
         <Curriculum curriculum={course.curriculum} />
         <Skills skills={course.skills} />
         <Audience audience={course.audience} />
         <Certificate />
         <DeliveryModes deliveryModes={course.deliveryModes} />
-        <Trainers trainers={course.trainers} />
+        {/* <Trainers trainers={course.trainers} /> */}
         <Faq faqs={course.faqs ?? course.Faqs} collapsible />
       </PageToc>
 
