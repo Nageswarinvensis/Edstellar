@@ -154,7 +154,10 @@ export async function middleware(request) {
     }
 
     // No redirect was followed — 200 or 404, pass through to the page renderer.
-    if (!res.redirected) {
+    // Next.js edge runtime never sets res.redirected even when a redirect was
+    // followed; compare the final URL against the requested one instead.
+    const followed = new URL(res.url).href !== new URL(cmsUrl).href;
+    if (!followed) {
       return withNoindexOnPreview(NextResponse.next());
     }
 
