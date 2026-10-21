@@ -240,7 +240,7 @@ export const SUCCESS_STORIES_PAGE = {
       },
       {
         "title": "Generative AI (GenAI) Corporate Training",
-        "href": "/corporate-training/ai/generative-ai-genai-corporate-training-course",
+        "href": "/corporate-training/ai/generative-ai-genai-course",
         "image": "https://media.edstellar.com/website/Generative_AI.webp",
         "training_type": "Artificial Intelligence",
         "region": "United States",
@@ -336,7 +336,7 @@ export const SUCCESS_STORIES_PAGE = {
       },
       {
         "title": "AI Fluency for Every Employee (AI Literacy Programme) Corporate Training",
-        "href": "/corporate-training/ai/ai-fluency-for-every-employee-ai-literacy-programme-corporate-training-course",
+        "href": "/corporate-training/ai/ai-fluency-for-every-employee-ai-literacy-programme-course",
         "image": "https://media.edstellar.com/website/AI_Awereness.webp",
         "training_type": "Artificial Intelligence",
         "region": "Brazil",

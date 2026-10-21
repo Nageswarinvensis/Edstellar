@@ -1,4 +1,12 @@
 import Image from "next/image";
+import {
+  MessageCircle,
+  Route,
+  UserCheck,
+  Wrench,
+  Rocket,
+  Award,
+} from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -13,6 +21,12 @@ import { cn } from "@/lib/utils";
  */
 const FEATURE_ICONS = ["✏️", "⚙️", "🧪", "👤", "🌐", "📊"];
 
+/**
+ * Icon per APPROACH step, chosen by position like `FEATURE_ICONS` — the CMS
+ * `approach.steps` send only `title` and `description`, never an icon.
+ */
+const APPROACH_ICONS = [MessageCircle, Route, UserCheck, Wrench, Rocket, Award];
+
 const STATS = [
   { value: "5000+", label: "EXPERT TRAINERS" },
   { value: "5+", label: "YEARS DELIVERING" },
@@ -26,10 +40,40 @@ const STATS = [
 ];
 
 /**
+ * One stage of the six-step approach rail. `number` is derived from the
+ * step's position (the CMS `approach.steps` send only `title` and
+ * `description`); `Icon` is likewise position-based, from `APPROACH_ICONS`.
+ */
+function ApproachStep({ number, step, Icon }) {
+  return (
+    <Box as="li" className="flex min-w-0 flex-col gap-2">
+      <Box className="relative z-10 flex size-12 flex-none items-center justify-center rounded-full border border-lime/65 bg-navy text-lime">
+        <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
+      </Box>
+      <Text
+        as="span"
+        className="mt-4 font-mono text-[10px] font-medium tracking-[0.12em] text-lime uppercase"
+      >
+        Step {number}
+      </Text>
+      <Text
+        as="h4"
+        className="font-display text-base font-semibold tracking-[-0.01em] text-paper"
+      >
+        {step.title}
+      </Text>
+      <Text as="p" className="text-[14px] leading-[1.6] text-paper/60">
+        {step.description}
+      </Text>
+    </Box>
+  );
+}
+
+/**
  * Course page "why Edstellar" map section. The stats and the map are fixed
- * for every course — only the heading and description come from the course's
- * `mapsectionData`. The six-step "approach" rail is deliberately not shown
- * (removed from every course page). Domain pages use their own CMS-driven copy,
+ * for every course — the heading, description and the six-step "approach" rail
+ * come from the course's `mapsectionData` (`data.approach`). Domain pages use
+ * their own CMS-driven copy,
  * `components/sections/domain/domain-map-section.jsx`.
  */
 export default function CourseMapSection({ data, className }) {
@@ -171,6 +215,52 @@ export default function CourseMapSection({ data, className }) {
                   </Text>
                 </Box>
               ))}
+            </Box>
+          </Reveal>
+        )}
+
+        {/* =========================================================
+            APPROACH — six-stage process rail
+            Only render when the CMS sends approach steps
+        ========================================================== */}
+        {data.approach?.steps?.length > 0 && (
+          <Reveal delay={4}>
+            <Box className="mt-9 rounded-[18px] bg-ink p-10 max-[600px]:p-6">
+              {data.approach.heading && (
+                <RichHeading
+                  as="h3"
+                  heading={data.approach.heading}
+                  emphasisClassName="font-serif font-normal italic text-lime"
+                  className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-tight font-medium tracking-[-0.02em] text-paper"
+                />
+              )}
+              {data.approach.description && (
+                <Text
+                  as="p"
+                  className="mt-4 max-w-[66ch] text-base leading-[1.7] text-paper/60"
+                >
+                  {data.approach.description}
+                </Text>
+              )}
+
+              <Box
+                as="ol"
+                className="relative mt-10 grid grid-cols-1 gap-8 min-[541px]:grid-cols-2 min-[761px]:grid-cols-3 min-[1081px]:grid-cols-6"
+              >
+                <Box
+                  aria-hidden="true"
+                  className="pointer-events-none absolute top-6 left-6 right-[calc((100%-5*2rem)/6-1.5rem)] hidden h-px bg-paper/12 min-[1081px]:block"
+                />
+
+                {data.approach.steps.map((step, index) => (
+                  <ApproachStep
+                    key={index}
+                    number={String(index + 1).padStart(2, "0")}
+                    step={step}
+                    Icon={APPROACH_ICONS[index] || MessageCircle}
+                  />
+                ))}
+              </Box>
             </Box>
           </Reveal>
         )}

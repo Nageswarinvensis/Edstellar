@@ -11,11 +11,11 @@
  */
 export const LATEST_COURSE_SLUGS = [
   "hr/employee-experience-ex-design-measurement-course",
-  "ai/ai-and-llm-observability-corporate-training-course",
+  "ai/ai-and-llm-observability-course",
   "data-engineering/data-mesh-streaming-architecture-course",
   "databases/postgresql-performance-tuning-course",
   "devops/platform-engineering-internal-developer-platforms-course",
-  "software-development/micro-frontends-architecture-corporate-training-course",
+  "software-development/micro-frontends-architecture-course",
   "ai/langchain-llm-application-development-course",
   "engineering/human-factors-engineering-course",
 ];
