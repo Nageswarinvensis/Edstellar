@@ -7,8 +7,13 @@ const GA_ID = "G-PFNYPCPWH6";
  * Edstellar's own (with its two `developer_id` flags); `gtag.js` is the loader
  * it needs to send anything. Both load after the page is interactive, so they
  * never hold up the first render.
+ *
+ * Production only (`VERCEL_ENV=production`, the same switch as robots.txt):
+ * preview, development and local builds send no analytics.
  */
 export default function GoogleAnalytics() {
+  if (process.env.VERCEL_ENV !== "production") return null;
+
   return (
     <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
