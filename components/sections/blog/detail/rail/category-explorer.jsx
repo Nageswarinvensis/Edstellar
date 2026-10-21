@@ -101,7 +101,7 @@ export default function CategoryExplorer({ categories = [], featuredDomain }) {
                   <b className="font-display text-[14px] leading-[1.3] font-semibold text-ink">
                     {group.label}
                   </b>
-                  <span className="text-[12px] leading-[1.4] text-ink/60">
+                  <span className="text-[12px] leading-[1.4] text-ink-muted">
                     {group.domains.length}{" "}
                     {group.domains.length === 1 ? "domain" : "domains"} ·{" "}
                     {fmt(count)} courses
@@ -132,7 +132,7 @@ export default function CategoryExplorer({ categories = [], featuredDomain }) {
                         <span className="group-hover:underline group-hover:underline-offset-3">
                           {domain.name}
                         </span>
-                        <i className="font-mono text-[11px] not-italic text-ink/60">
+                        <i className="font-mono text-[11px] not-italic text-ink-muted">
                           {domain.course_count}
                         </i>
                       </a>
@@ -152,7 +152,7 @@ export default function CategoryExplorer({ categories = [], featuredDomain }) {
         <span className="flex-1 underline decoration-1 underline-offset-3">
           Browse all {allDomains.length} domains
         </span>
-        <i className="font-mono text-[11px] font-normal not-italic text-ink/60">
+        <i className="font-mono text-[11px] font-normal not-italic text-ink-muted">
           {fmt(totalCourses)} courses
         </i>
         <ArrowUpRight size={14} aria-hidden="true" />

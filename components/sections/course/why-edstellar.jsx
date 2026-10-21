@@ -46,7 +46,7 @@ function ProgramCard({ program }) {
         {program.image ? (
           <Image
             src={program.image}
-            alt={program.image_alt || program.title || ""}
+            alt={program.image_alt || program.title || "Edstellar training program"}
             title={program.image_title}
             fill
             sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
@@ -60,7 +60,7 @@ function ProgramCard({ program }) {
           as="p"
           className={[
             "mb-2 font-mono text-[8px] uppercase tracking-[0.15em]",
-            program.is_featured ? "text-paper/60" : "text-ink/60",
+            program.is_featured ? "text-paper/60" : "text-ink-muted",
           ].join(" ")}
         >
           {program.eyebrow}
@@ -80,7 +80,7 @@ function ProgramCard({ program }) {
           as="p"
           className={[
             "mt-2 text-[11px] --tw-leading: 1.5",
-            program.is_featured ? "text-paper/65" : "text-ink/60",
+            program.is_featured ? "text-paper/65" : "text-ink-muted",
           ].join(" ")}
         >
           {program.description}
@@ -90,7 +90,7 @@ function ProgramCard({ program }) {
           <Box
             className={[
               "flex items-center gap-2 font-mono text-[8px] uppercase tracking-[0.14em]",
-              program.is_featured ? "text-white/60" : "text-ink/60",
+              program.is_featured ? "text-white/60" : "text-ink-muted",
             ].join(" ")}
           >
             <Clock3 size={11} strokeWidth={1.5} className="shrink-0" />
@@ -109,7 +109,7 @@ function ProgramConnector() {
       aria-hidden="true"
       className="hidden items-center justify-center lg:flex"
     >
-      <Box className="flex size-5 items-center justify-center rounded-full border border-ink/12 bg-white text-[10px] text-ink/60">
+      <Box className="flex size-5 items-center justify-center rounded-full border border-ink/12 bg-white text-[10px] text-ink-muted">
         →
       </Box>
     </Box>
@@ -139,7 +139,7 @@ function RelatedCourseCard({ course }) {
 
       <Box className="mt-auto pt-4">
         {/* Meta: quiet mono facts, dot-separated */}
-        <Box className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[11px] uppercase leading-[1.4] tracking-[0.14em] text-ink/60">
+        <Box className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[11px] uppercase leading-[1.4] tracking-[0.14em] text-ink-muted">
           {duration ? (
             <>
               <span>{duration}</span>

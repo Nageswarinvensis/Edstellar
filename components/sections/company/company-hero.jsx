@@ -91,7 +91,7 @@ export default function CompanyHero({ id, heading, description, breadcrumbs, ima
         {image ? (
           <Reveal delay={1}>
             <Box className="aspect-video overflow-hidden rounded-[14px] border border-white/16 bg-navy-soft shadow-[0_24px_60px_rgba(0,0,0,0.35)] lg:aspect-[4/3]">
-              <img
+              <img loading="eager"
                 src={image.src}
                 alt={image.alt}
                 width={1200}

@@ -85,9 +85,9 @@ export default function TrainerHero({ data, breadcrumbs }) {
                             repeat && "motion-reduce:hidden",
                           )}
                         >
-                          <Image
+                          <Image loading="eager"
                             src={photo.src}
-                            alt={repeat ? "" : photo.alt}
+                            alt={photo.alt}
                             width={240}
                             height={300}
                             sizes="(min-width: 901px) 180px, 30vw"

@@ -65,7 +65,7 @@ function CardGrid({ items, lineLabel, cols }) {
             <Text as="h3" className="mb-1.5 font-display text-[17px] font-medium leading-[1.3] text-ink">
               {item.title}
             </Text>
-            <Text as="p" className="text-[14px] leading-[1.55] text-ink/60">
+            <Text as="p" className="text-[14px] leading-[1.55] text-ink-muted">
               {item.description}
             </Text>
             {item.line ? (
@@ -109,7 +109,7 @@ function Matrix({ data }) {
             <tr>
               <th
                 scope="col"
-                className="border-b border-ink/12 bg-paper-warm px-4 py-3.5 text-left font-mono text-[10.5px] font-medium uppercase tracking-[0.1em] text-ink/60"
+                className="border-b border-ink/12 bg-paper-warm px-4 py-3.5 text-left font-mono text-[10.5px] font-medium uppercase tracking-[0.1em] text-ink-muted"
               >
                 Competency
               </th>
@@ -117,7 +117,7 @@ function Matrix({ data }) {
                 <th
                   key={col}
                   scope="col"
-                  className="border-b border-ink/12 bg-paper-warm px-3 py-3.5 text-center font-mono text-[10.5px] font-medium uppercase tracking-[0.1em] text-ink/60"
+                  className="border-b border-ink/12 bg-paper-warm px-3 py-3.5 text-center font-mono text-[10.5px] font-medium uppercase tracking-[0.1em] text-ink-muted"
                 >
                   {col}
                 </th>
@@ -160,7 +160,7 @@ function Matrix({ data }) {
       </Box>
 
       {data.note ? (
-        <Text as="p" className="mt-4 text-[14px] leading-[1.6] text-ink/60">
+        <Text as="p" className="mt-4 text-[14px] leading-[1.6] text-ink-muted">
           {data.note}
         </Text>
       ) : null}
@@ -181,7 +181,6 @@ export default function Inside({ data }) {
   if (!tabs.length) return null;
 
   const { section_id, heading, description, cta } = data;
-  const current = tabs[active];
 
   return (
     <Section id={section_id} className="bg-paper">
@@ -193,7 +192,7 @@ export default function Inside({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {description}
             </Text>
@@ -232,17 +231,26 @@ export default function Inside({ data }) {
         })}
       </Box>
 
-      <Box role="tabpanel" id={`ix-panel-${active}`} aria-labelledby={`ix-tab-${active}`}>
-        {current.kind === "matrix" ? (
-          <Matrix data={current} />
-        ) : (
-          <CardGrid
-            items={current.items}
-            lineLabel={current.line_label}
-            cols={current.kind === "formats" ? 3 : 4}
-          />
-        )}
-      </Box>
+      {/* Every tab's panel is in the server HTML; inactive ones `hidden`. */}
+      {tabs.map((tab, index) => (
+        <Box
+          key={tab.label}
+          role="tabpanel"
+          id={`ix-panel-${index}`}
+          aria-labelledby={`ix-tab-${index}`}
+          hidden={index !== active}
+        >
+          {tab.kind === "matrix" ? (
+            <Matrix data={tab} />
+          ) : (
+            <CardGrid
+              items={tab.items}
+              lineLabel={tab.line_label}
+              cols={tab.kind === "formats" ? 3 : 4}
+            />
+          )}
+        </Box>
+      ))}
 
       {cta?.href ? (
         <Box className="mt-8">

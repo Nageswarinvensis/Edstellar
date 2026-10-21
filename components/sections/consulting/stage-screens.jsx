@@ -108,7 +108,7 @@ export function Screen({ title, bodyClassName, variant, children }) {
           as="span"
           className={
             scope
-              ? "truncate font-mono text-[12.5px] leading-[1.7] font-medium tracking-[0.01em] text-ink/60"
+              ? "truncate font-mono text-[12.5px] leading-[1.7] font-medium tracking-[0.01em] text-ink-muted"
               : "font-display text-[13px] leading-[1.7] font-bold tracking-[-0.01em] text-ink"
           }
         >
@@ -117,7 +117,7 @@ export function Screen({ title, bodyClassName, variant, children }) {
         <Text
           as="span"
           className={cn(
-            "ml-auto inline-flex items-center gap-1.5 font-mono text-[10px] leading-[1.7] tracking-[0.12em] text-ink/60 uppercase",
+            "ml-auto inline-flex items-center gap-1.5 font-mono text-[10px] leading-[1.7] tracking-[0.12em] text-ink-muted uppercase",
             scope && "flex-none",
           )}
         >
@@ -134,7 +134,7 @@ export function Screen({ title, bodyClassName, variant, children }) {
 
 function Subtitle({ children }) {
   return (
-    <Text as="p" className="mb-3.5 text-[11.5px] leading-[1.45] text-ink/60">
+    <Text as="p" className="mb-3.5 text-[11.5px] leading-[1.45] text-ink-muted">
       {children}
     </Text>
   );
@@ -156,7 +156,7 @@ function SetupScreen({ screen }) {
             as="span"
             className={cn(
               "relative z-1 rounded-full px-[9px] py-[5px] font-mono text-[9px] leading-[1.7] tracking-[0.04em] uppercase",
-              index === 0 ? "bg-navy text-lime" : "bg-paper-warm text-ink/60",
+              index === 0 ? "bg-navy text-lime" : "bg-paper-warm text-ink-muted",
             )}
           >
             {label}
@@ -185,7 +185,7 @@ function SetupScreen({ screen }) {
         <Box className="mt-3.5 border-t border-ink/12 pt-3">
           <Text
             as="p"
-            className="mb-2 font-mono text-[9px] leading-[1.7] tracking-[0.1em] text-ink/60 uppercase"
+            className="mb-2 font-mono text-[9px] leading-[1.7] tracking-[0.1em] text-ink-muted uppercase"
           >
             {screen.seed_heading}
           </Text>
@@ -194,7 +194,7 @@ function SetupScreen({ screen }) {
               key={row.label}
               className="flex items-center justify-between py-1 text-[12px] leading-[1.7]"
             >
-              <Text as="span" className="text-[12px] leading-[1.7] text-ink/60">
+              <Text as="span" className="text-[12px] leading-[1.7] text-ink-muted">
                 {row.label}
               </Text>
               <Text
@@ -227,7 +227,7 @@ function InputsScreen({ screen }) {
             >
               {card.title}
             </Text>
-            <Text as="span" className="mt-1 text-[10.5px] leading-[1.3] text-ink/60">
+            <Text as="span" className="mt-1 text-[10.5px] leading-[1.3] text-ink-muted">
               {card.description}
             </Text>
             {card.tag ? (
@@ -256,7 +256,7 @@ function MatrixScreen({ screen }) {
               <Box
                 as="th"
                 key={column}
-                className="pb-0.5 text-center font-mono text-[9.5px] font-medium tracking-[0.05em] text-ink/60 uppercase"
+                className="pb-0.5 text-center font-mono text-[9.5px] font-medium tracking-[0.05em] text-ink-muted uppercase"
               >
                 {column}
               </Box>
@@ -296,7 +296,7 @@ function MatrixScreen({ screen }) {
             <Text
               key={item.label}
               as="span"
-              className="inline-flex items-center gap-1.5 text-[10.5px] leading-[1.7] text-ink/60"
+              className="inline-flex items-center gap-1.5 text-[10.5px] leading-[1.7] text-ink-muted"
             >
               <Box
                 as="i"
@@ -309,7 +309,7 @@ function MatrixScreen({ screen }) {
       ) : null}
 
       {screen.note ? (
-        <Text as="p" className="mt-2.5 text-[11.5px] leading-[1.45] text-ink/60">
+        <Text as="p" className="mt-2.5 text-[11.5px] leading-[1.45] text-ink-muted">
           <Box as="b" className="text-ink">
             {screen.note_strong}
           </Box>{" "}
@@ -322,7 +322,7 @@ function MatrixScreen({ screen }) {
 
 function ReportScreen({ screen }) {
   const kicker =
-    "mb-2 font-mono text-[9.5px] leading-[1.7] tracking-[0.1em] text-ink/60 uppercase";
+    "mb-2 font-mono text-[9.5px] leading-[1.7] tracking-[0.1em] text-ink-muted uppercase";
 
   return (
     <Screen title={screen.title}>
@@ -335,7 +335,7 @@ function ReportScreen({ screen }) {
             >
               {metric.value}
             </Text>
-            <Text as="span" className="text-[10.5px] leading-[1.7] text-ink/60">
+            <Text as="span" className="text-[10.5px] leading-[1.7] text-ink-muted">
               {metric.label}
             </Text>
           </Box>
@@ -378,7 +378,7 @@ function ReportScreen({ screen }) {
                 DELAY[index * 100],
               )}
             />
-            <Text as="span" className="text-center text-[9px] leading-[1.15] text-ink/60">
+            <Text as="span" className="text-center text-[9px] leading-[1.15] text-ink-muted">
               {domain.label}
             </Text>
           </Box>
@@ -387,7 +387,7 @@ function ReportScreen({ screen }) {
 
       {screen.evidence || screen.tag ? (
         <Box className="mt-3.5 flex flex-wrap items-center justify-between gap-2 border-t border-ink/12 pt-3">
-          <Text as="span" className="text-[11px] leading-[1.7] text-ink/60">
+          <Text as="span" className="text-[11px] leading-[1.7] text-ink-muted">
             {screen.evidence}
           </Text>
           <Text as="span" className={cn(PILL, "px-2.5 py-1")}>
@@ -408,7 +408,7 @@ function RoadmapScreen({ screen }) {
           <Box key={quarter.label} className="rounded-[10px] bg-paper-warm px-3 pt-3 pb-3.5">
             <Text
               as="span"
-              className="font-mono text-[10px] leading-[1.7] tracking-[0.08em] text-ink/60 uppercase"
+              className="font-mono text-[10px] leading-[1.7] tracking-[0.08em] text-ink-muted uppercase"
             >
               {quarter.label}
             </Text>
@@ -435,7 +435,7 @@ function RoadmapScreen({ screen }) {
         ))}
       </Box>
       {screen.footnote ? (
-        <Text as="p" className="mt-3 text-[11px] leading-[1.7] text-ink/60">
+        <Text as="p" className="mt-3 text-[11px] leading-[1.7] text-ink-muted">
           {screen.footnote}
         </Text>
       ) : null}
@@ -451,7 +451,7 @@ function CalendarScreen({ screen }) {
     <Screen title={screen.title}>
       <Box className="mb-3 flex items-center gap-2 font-display text-[14px] leading-[1.7] font-bold text-ink">
         {screen.month}
-        <Text as="span" className="text-[12px] leading-[1.7] font-normal text-ink/60">
+        <Text as="span" className="text-[12px] leading-[1.7] font-normal text-ink-muted">
           {screen.year}
         </Text>
         {screen.sync_label ? (
@@ -466,7 +466,7 @@ function CalendarScreen({ screen }) {
           <Text
             key={weekday}
             as="span"
-            className="text-center font-mono text-[8.5px] leading-[1.7] tracking-[0.05em] text-ink/60 uppercase"
+            className="text-center font-mono text-[8.5px] leading-[1.7] tracking-[0.05em] text-ink-muted uppercase"
           >
             {weekday}
           </Text>
@@ -486,7 +486,7 @@ function CalendarScreen({ screen }) {
             >
               <Text
                 as="span"
-                className="absolute top-1 left-1.5 text-[9px] leading-[1.7] font-semibold text-ink/60"
+                className="absolute top-1 left-1.5 text-[9px] leading-[1.7] font-semibold text-ink-muted"
               >
                 {day}
               </Text>

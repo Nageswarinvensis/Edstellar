@@ -269,7 +269,7 @@ export default function PageToc({ modules, hasTrainers, children }) {
                 "flex-none rounded-full border px-3.25 py-1.75 font-mono text-[10.5px] tracking-[0.08em] whitespace-nowrap uppercase transition-colors duration-200",
                 isActive
                   ? "border-navy bg-navy text-lime"
-                  : "border-ink/22 text-ink/60",
+                  : "border-ink/22 text-ink-muted",
               )}
             >
               {item.label}
@@ -312,7 +312,7 @@ export default function PageToc({ modules, hasTrainers, children }) {
                       as="span"
                       className={cn(
                         "flex-none pt-px font-mono text-[10px] tracking-[0.1em]",
-                        isActive ? "text-ink" : "text-ink/45",
+                        isActive ? "text-ink" : "text-ink-muted",
                       )}
                     >
                       {item.number}
@@ -322,7 +322,7 @@ export default function PageToc({ modules, hasTrainers, children }) {
                       as="span"
                       className={cn(
                         "font-display text-[13.5px] leading-[1.35] font-semibold tracking-[-0.015em]",
-                        isActive ? "text-ink" : "text-ink/60",
+                        isActive ? "text-ink" : "text-ink-muted",
                       )}
                     >
                       {item.label}
@@ -361,7 +361,7 @@ export default function PageToc({ modules, hasTrainers, children }) {
                                   "flex-none font-mono text-[9.5px] tracking-[0.08em]",
                                   isActiveModule
                                     ? "text-ink/75"
-                                    : "text-ink/40",
+                                    : "text-ink-muted",
                                 )}
                               >
                                 {module.number}
@@ -371,7 +371,7 @@ export default function PageToc({ modules, hasTrainers, children }) {
                                 as="span"
                                 className={cn(
                                   "text-[12px] leading-[1.4] font-medium",
-                                  isActiveModule ? "text-ink" : "text-ink/55",
+                                  isActiveModule ? "text-ink" : "text-ink-muted",
                                 )}
                               >
                                 {module.title}
@@ -395,7 +395,7 @@ export default function PageToc({ modules, hasTrainers, children }) {
 
             <Text
               as="p"
-              className="mt-2.25 text-[11.5px] leading-normal text-ink/45"
+              className="mt-2.25 text-[11.5px] leading-normal text-ink-muted"
             >
               {TOC_CTA.note}
             </Text>

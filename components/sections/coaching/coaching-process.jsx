@@ -48,7 +48,7 @@ export default function CoachingProcess({ data }) {
         </Reveal>
         {description ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
               {description}
             </Text>
           </Reveal>
@@ -90,7 +90,7 @@ export default function CoachingProcess({ data }) {
                 onClick={() => setActive(index)}
                 className={cn(
                   "group relative flex min-w-0 cursor-pointer flex-col items-center gap-2.5 rounded-xl px-1.5 outline-none max-[900px]:flex-[0_0_104px] max-[900px]:snap-start",
-                  selected ? "text-navy" : "text-ink/60",
+                  selected ? "text-navy" : "text-ink-muted",
                 )}
               >
                 <span
@@ -127,7 +127,7 @@ export default function CoachingProcess({ data }) {
                 {step.image ? (
                   <img
                     src={step.image}
-                    alt={step.image_alt || step.title || ""}
+                    alt={step.image_alt || step.title || "Edstellar coaching"}
                     width={1200}
                     height={800}
                     loading="lazy"
@@ -169,7 +169,7 @@ export default function CoachingProcess({ data }) {
               <Box as="li" key={stat.value} className="flex flex-col gap-1 rounded-[14px] border border-ink/12 bg-white p-5">
                 {Icon ? <Icon size={20} strokeWidth={1.6} className="mb-2 text-navy" aria-hidden="true" /> : null}
                 <Text as="b" className="font-display text-[18px] font-bold leading-[1.2] text-ink">{stat.value}</Text>
-                <Text as="span" className="text-[14px] leading-[1.5] text-ink/55">{stat.label}</Text>
+                <Text as="span" className="text-[14px] leading-[1.5] text-ink-muted">{stat.label}</Text>
               </Box>
             );
           })}

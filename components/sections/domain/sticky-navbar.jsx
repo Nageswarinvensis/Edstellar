@@ -145,7 +145,7 @@ export default function StickyTabs({ data, hasTrainers }) {
             onClick={scrollToHash}
             className="flex shrink-0 items-center pr-1"
           >
-            <img
+            <img decoding="async" loading="lazy"
               src={data?.logo?.src ?? "/course/Edstellar.svg"}
               alt={data?.logo?.alt || "Edstellar"}
               className="h-6 sm:h-7 w-auto object-contain"

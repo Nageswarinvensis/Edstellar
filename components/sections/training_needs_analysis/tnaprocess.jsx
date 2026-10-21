@@ -39,7 +39,7 @@ function Node({ label, note, ...props }) {
         {note ? (
           <Text
             as="span"
-            className="mt-1 block text-[11.5px] leading-[1.22] font-normal tracking-normal text-ink/60"
+            className="mt-1 block text-[11.5px] leading-[1.22] font-normal tracking-normal text-ink-muted"
           >
             {note}
           </Text>

@@ -22,7 +22,7 @@ function FeatureItem({ feature }) {
       </span>
       <Text
         className={`text-[14px] leading-tight ${
-          active ? "text-ink" : "font-normal text-ink/35"
+          active ? "text-ink" : "font-normal text-ink-muted"
         }`}
       >
         {label}
@@ -58,7 +58,7 @@ function ModuleCard({ cardData }) {
           {title}
         </Text>
 
-        <Text as="p" className="mt-2 min-h-9 text-[12px] leading-normal text-ink/55">
+        <Text as="p" className="mt-2 min-h-9 text-[12px] leading-normal text-ink-muted">
           {description}
         </Text>
 
@@ -108,7 +108,7 @@ export default function EngModules({ data }) {
             )}
 
             {content.description && (
-              <Text as="p" className="mt-4 text-[16px] text-ink/60 leading-relaxed font-normal max-w-[58ch]">
+              <Text as="p" className="mt-4 text-[16px] text-ink-muted leading-relaxed font-normal max-w-[58ch]">
                 {content.description}
               </Text>
             )}
@@ -127,7 +127,7 @@ export default function EngModules({ data }) {
         {/* Bottom Helper Caption */}
         {content.footerNote && (
           <Reveal delay={0.2}>
-            <Text as="p" className="mt-6 text-center font-mono text-[12px] text-ink/50 tracking-tight">
+            <Text as="p" className="mt-6 text-center font-mono text-[12px] text-ink-muted tracking-tight">
               {content.footerNote}
             </Text>
           </Reveal>

@@ -39,7 +39,8 @@ Route contract: `/corporate-training/{slug}` (one route serving **industry | ven
 - **There is no `asChild`** — `components/ui/` is Base UI, which uses a `render` prop: `<CtaButton render={<Link href="/x" />}>`. Passing `asChild` silently nests an anchor inside a button.
 - **`text-md` is not a real Tailwind class** (the scale is `text-sm`/`text-base`/`text-lg`). It has been removed from `Text.jsx`; don't reintroduce it.
 - **Fonts are Sora (display), Cormorant Garamond (serif italic accent), DM Sans (body), DM Mono (kickers/meta)** — loaded via `next/font` and mapped to `font-display` / `font-serif` / `font-body` / `font-mono`. Inter is no longer used.
-- **Emphasis inside headings is olive `text-olive`, not lime.** Lime fails contrast on paper; the designs use `#6f8c0f` for accent text on light backgrounds and reserve lime for dark ones.
+- **Emphasis inside headings is olive `text-olive`, not lime.** Lime fails contrast on paper, so accent text on light backgrounds is olive and lime is reserved for dark ones. The olive token is `#566e0b`, darker than the designs' `#6f8c0f`, which fails WCAG AA for small text.
+- **Muted text is `text-ink-muted` (ink at 65%), never `text-ink/40`–`/60`.** Anything lighter fails WCAG AA (4.5:1) on small text — an axe scan found ~2,000 failures site-wide from those classes (Oct 2026). Placeholders are the only exception.
 - **`react-phone-input-2` is client-only**, needs `import "react-phone-input-2/lib/style.css"` in that same client file, and must be wired through react-hook-form's `<Controller>`. Tailwind overrides need `!` prefixes.
 - **`@hookform/resolvers` is not installed**, so zod-resolver validation is unavailable. `zod` is only a transitive dependency — add it to `package.json` before importing it directly.
 - **`components/ui/` is built on `@base-ui/react`**, not Radix. The `radix-ui` dependency is installed but unused — see TASTE.md §13.

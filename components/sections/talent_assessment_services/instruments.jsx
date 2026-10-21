@@ -76,7 +76,7 @@ function LifecycleStrip({ lifecycle }) {
             key={stage.label}
             className={cn(
               "relative flex flex-col items-center gap-2.5 px-1 text-center text-[12.5px] leading-[1.3] max-[600px]:flex-row max-[600px]:items-start max-[600px]:gap-2 max-[600px]:text-left",
-              stage.active ? "font-bold text-ink" : "text-ink/60",
+              stage.active ? "font-bold text-ink" : "text-ink-muted",
             )}
           >
             <span
@@ -132,7 +132,7 @@ export default function Instruments({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {description}
             </Text>
@@ -159,7 +159,7 @@ export default function Instruments({ data }) {
               <tr>
                 <th
                   scope="col"
-                  className="border-b border-ink/12 bg-paper-warm px-4 py-3.5 text-left font-mono text-[10.5px] font-medium uppercase leading-[1.4] tracking-[0.1em] text-ink/60"
+                  className="border-b border-ink/12 bg-paper-warm px-4 py-3.5 text-left font-mono text-[10.5px] font-medium uppercase leading-[1.4] tracking-[0.1em] text-ink-muted"
                 >
                   Tool
                 </th>
@@ -167,14 +167,14 @@ export default function Instruments({ data }) {
                   <th
                     key={col}
                     scope="col"
-                    className="border-b border-ink/12 bg-paper-warm px-4 py-3.5 text-center font-mono text-[10.5px] font-medium uppercase leading-[1.4] tracking-[0.1em] text-ink/60"
+                    className="border-b border-ink/12 bg-paper-warm px-4 py-3.5 text-center font-mono text-[10.5px] font-medium uppercase leading-[1.4] tracking-[0.1em] text-ink-muted"
                   >
                     {col}
                   </th>
                 ))}
                 <th
                   scope="col"
-                  className="border-b border-ink/12 bg-paper-warm px-4 py-3.5 text-left font-mono text-[10.5px] font-medium uppercase leading-[1.4] tracking-[0.1em] text-ink/60"
+                  className="border-b border-ink/12 bg-paper-warm px-4 py-3.5 text-left font-mono text-[10.5px] font-medium uppercase leading-[1.4] tracking-[0.1em] text-ink-muted"
                 >
                   Best used
                 </th>
@@ -204,7 +204,7 @@ export default function Instruments({ data }) {
                         >
                           {tool.name}
                         </Text>
-                        <Text as="span" className="mt-0.75 block text-[13px] leading-[1.45] text-ink/60">
+                        <Text as="span" className="mt-0.75 block text-[13px] leading-[1.45] text-ink-muted">
                           {tool.note}
                         </Text>
                       </th>
@@ -229,7 +229,7 @@ export default function Instruments({ data }) {
       </Reveal>
 
       {/* Legend */}
-      <Box className="mt-4 flex flex-wrap gap-x-5.5 gap-y-2 text-[13.5px] text-ink/60" aria-hidden="true">
+      <Box className="mt-4 flex flex-wrap gap-x-5.5 gap-y-2 text-[13.5px] text-ink-muted" aria-hidden="true">
         {[2, 1, 0].map((value) => (
           <span key={value} className="inline-flex items-center gap-2">
             <FitDot value={value} labels={fitLabels} />
@@ -249,7 +249,7 @@ export default function Instruments({ data }) {
                 {cta.heading}
               </Text>
               {cta.description ? (
-                <Text as="p" className="mt-1 text-[15px] leading-[1.5] text-ink/60">
+                <Text as="p" className="mt-1 text-[15px] leading-[1.5] text-ink-muted">
                   {cta.description}
                 </Text>
               ) : null}

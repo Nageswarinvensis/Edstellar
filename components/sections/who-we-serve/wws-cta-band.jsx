@@ -15,7 +15,7 @@ export default function WwsCtaBand({ data }) {
             heading={data.heading}
             className="m-0 text-[clamp(32px,4vw,40px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink"
           />
-          <Text as="p" className="mt-5 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+          <Text as="p" className="mt-5 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
             {data.lede}
           </Text>
         </Box>

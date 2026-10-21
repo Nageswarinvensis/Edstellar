@@ -56,7 +56,7 @@ export default function CoachingTracks({ data }) {
         </Reveal>
         {description ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
               {description}
             </Text>
           </Reveal>
@@ -138,7 +138,7 @@ export default function CoachingTracks({ data }) {
                   as="span"
                   className={cn(
                     "mb-1 block font-mono font-normal text-[11px] leading-[1]",
-                    isActive ? "text-lime" : "text-ink/50",
+                    isActive ? "text-lime" : "text-ink-muted",
                   )}
                 >
                   {item.number}
@@ -161,7 +161,7 @@ export default function CoachingTracks({ data }) {
               className="rounded-[20px] bg-paper-warm p-11 max-[600px]:p-7"
             >
               {/* Kicker */}
-              <Text as="span" className="block font-mono text-[11px] uppercase tracking-[0.12em] text-ink/60 mb-0">
+              <Text as="span" className="block font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted mb-0">
                 Focus area {item.number} of {String(items.length).padStart(2, "0")}
               </Text>
 
@@ -180,7 +180,7 @@ export default function CoachingTracks({ data }) {
               {/* Work-on list */}
               {item.work_on?.length ? (
                 <>
-                  <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink/60 mb-2.5">
+                  <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted mb-2.5">
                     What the team works on
                   </Text>
                   <Box as="ul" className="m-0 list-none p-0 flex flex-col gap-[9px]">
@@ -198,7 +198,7 @@ export default function CoachingTracks({ data }) {
               {item.choose_for ? (
                 <Box className="mt-5 pt-4 border-t border-ink/12">
                   <Text as="p" className="text-[15px] text-ink">
-                    <Text as="span" className="mb-1 block font-mono text-[11px] uppercase tracking-[0.12em] text-ink/60">
+                    <Text as="span" className="mb-1 block font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">
                       Choose it for
                     </Text>
                     {item.choose_for}

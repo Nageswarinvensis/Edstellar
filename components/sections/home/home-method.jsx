@@ -38,13 +38,13 @@ export default function HomeMethod({ data }) {
         {data.steps.map((step, i) => (
           <Reveal key={step.n} delay={i % 4} role="listitem" className="flex flex-col border-r border-ink/22 px-8 pb-11 pt-9 last:border-r-0 max-lg:border-b max-lg:[&:nth-child(2n)]:border-r-0 max-sm:border-r-0">
             <Box className="flex items-center gap-2.5">
-              <Text as="span" className="font-mono text-[11px] text-ink/45">{step.n}</Text>
+              <Text as="span" className="font-mono text-[11px] text-ink-muted">{step.n}</Text>
               <Text as="b" className="font-mono text-[10.5px] font-medium uppercase tracking-[0.16em] text-ink">{step.name}</Text>
             </Box>
             <RichHeading as="h3" heading={step.title} className="mb-3 mt-4 font-serif text-[22px] font-normal leading-[1.15] text-ink" />
             <Desc parts={step.desc} />
             <Text as="p" className="mt-5 flex items-baseline gap-2 text-sm text-ink">
-              <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-ink/45">Output</Text>
+              <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-ink-muted">Output</Text>
               <Text as="span" className="font-medium text-ink">{step.output}</Text>
             </Text>
             <Box className="mt-auto flex items-center justify-between gap-2 pt-6">

@@ -118,12 +118,12 @@ export default function WwsIndustries({ data }) {
                     scope="row"
                     className="sticky left-0 bg-navy-soft p-0 text-left text-[14px] font-semibold transition-colors [[data-hover=true]_&]:bg-[#1a2a45]"
                   >
-                    <a
-                      href={row.href}
-                      className="flex min-h-[44px] items-center gap-2.5 px-5 py-2 text-paper no-underline hover:underline hover:underline-offset-[4px]"
-                    >
+                    {/* Plain text for now: the `/industries/{slug}` pages
+                        (`row.href`) don't exist yet. Restore the link when
+                        they launch. */}
+                    <Box as="span" className="flex min-h-[44px] items-center gap-2.5 px-5 py-2 text-paper">
                       {row.label}
-                    </a>
+                    </Box>
                   </Box>
                   {row.dots.map((dot, j) => (
                     <Box as="td" key={j} className="px-2 py-1 text-center">

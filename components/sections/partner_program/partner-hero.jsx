@@ -15,7 +15,7 @@ function HeroPhoto({ image }) {
     >
       <Image
         src={image.src}
-        alt={image.alt ?? ""}
+        alt={image.alt || "Edstellar partner program"}
         width={image.width}
         height={image.height}
         priority

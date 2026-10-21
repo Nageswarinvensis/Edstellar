@@ -58,14 +58,14 @@ export default function Positioning({ data }) {
           </Reveal>
           {lede ? (
             <Reveal delay={1}>
-              <Text as="p" className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+              <Text as="p" className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
                 {lede}
               </Text>
             </Reveal>
           ) : null}
           {body ? (
             <Reveal delay={2}>
-              <Text as="p" className="mt-4 text-[15px] leading-[1.7] text-ink/60">
+              <Text as="p" className="mt-4 text-[15px] leading-[1.7] text-ink-muted">
                 {body}
               </Text>
             </Reveal>
@@ -85,7 +85,7 @@ export default function Positioning({ data }) {
                     <Text as="h3" className="mb-1.5 font-display text-[16px] font-medium leading-[1.3] text-ink">
                       {issue.title}
                     </Text>
-                    <Text as="p" className="mb-3 text-[14px] leading-[1.5] text-ink/60">
+                    <Text as="p" className="mb-3 text-[14px] leading-[1.5] text-ink-muted">
                       {issue.description}
                     </Text>
                     {issue.tag ?? issue.badge ? (

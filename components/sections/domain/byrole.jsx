@@ -84,7 +84,7 @@ export default function ByRole({ data }) {
                           "shrink-0 font-mono text-[9px] tracking-[1.2px] transition-colors duration-200",
                           isActive
                             ? "text-[#07182C]"
-                            : "text-[#7C858F] group-hover:text-ink",
+                            : "text-ink-muted group-hover:text-ink",
                         ].join(" ")}
                       >
                         {role.number}

@@ -34,7 +34,7 @@ export default function CareersHero({ heading, breadcrumbs, image }) {
                   aria-label={image.alt}
                   className="overflow-hidden rounded-[14px] border border-ink/12 bg-white p-3 shadow-lift"
                 >
-                  <img
+                  <img loading="eager"
                     src={image.src}
                     alt={image.alt}
                     width={500}

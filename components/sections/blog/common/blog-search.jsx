@@ -25,7 +25,7 @@ export default function BlogSearch({
     <Box className={cn("relative", className)}>
       <Search
         size={16}
-        className="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-ink/40"
+        className="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-ink-muted"
         aria-hidden="true"
       />
 
@@ -45,7 +45,7 @@ export default function BlogSearch({
           aria-label="Clear search"
           title="Click Here to Clear Search"
           onClick={() => onChange("")}
-          className="absolute top-1/2 right-3.5 -translate-y-1/2 cursor-pointer text-ink/40 transition-colors hover:text-ink"
+          className="absolute top-1/2 right-3.5 -translate-y-1/2 cursor-pointer text-ink-muted transition-colors hover:text-ink"
         >
           <X size={16} aria-hidden="true" />
         </button>

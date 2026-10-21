@@ -23,12 +23,12 @@ export default function GlobalError({ error, reset }) {
             <h1 className="text-xl font-medium leading-snug">
               Application error
             </h1>
-            <p className="max-w-prose text-sm leading-relaxed text-ink/60">
+            <p className="max-w-prose text-sm leading-relaxed text-ink-muted">
               The application failed to load. Please try again — if this keeps
               happening, contact support with the reference below.
             </p>
             {error?.digest ? (
-              <span className="font-mono text-xs text-ink/60">
+              <span className="font-mono text-xs text-ink-muted">
                 Reference: {error.digest}
               </span>
             ) : null}

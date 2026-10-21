@@ -90,7 +90,7 @@ export default function BlogPosts({
       {posts.length === 0 ? (
         trimmedQuery ? (
           <Box className="flex flex-col items-center justify-center rounded-[12px] border border-dashed border-ink/15 bg-white p-8">
-            <Text as="p" className="text-center text-ink/60">
+            <Text as="p" className="text-center text-ink-muted">
               No articles match &quot;{trimmedQuery}&quot;.
             </Text>
 
@@ -103,7 +103,7 @@ export default function BlogPosts({
             </button>
           </Box>
         ) : (
-          <Text as="p" className="text-center text-ink/60">
+          <Text as="p" className="text-center text-ink-muted">
             No published articles yet.
           </Text>
         )
@@ -141,7 +141,7 @@ export default function BlogPosts({
                     title={`Click Here to Read ${post.title}`}
                     className="block h-50 flex-none overflow-hidden"
                   >
-                    <img
+                    <img decoding="async"
                       src={post.cover_image}
                       alt={post.title}
                       loading="lazy"
@@ -166,10 +166,10 @@ export default function BlogPosts({
 
                   {post.published_at && (
                     <Box className="mb-5 flex items-center gap-1">
-                      <Text as="span" className="text-[12px] text-ink/60">
+                      <Text as="span" className="text-[12px] text-ink-muted">
                         Updated On:
                       </Text>
-                      <Text as="span" className="text-[12px] text-ink/60">
+                      <Text as="span" className="text-[12px] text-ink-muted">
                         {format(new Date(post.published_at), "MMMM d, yyyy")}
                       </Text>
                     </Box>
@@ -188,7 +188,7 @@ export default function BlogPosts({
                     {typeof post.views === "number" && (
                       <Text
                         as="span"
-                        className="flex items-center gap-1.5 text-[13px] text-ink/60"
+                        className="flex items-center gap-1.5 text-[13px] text-ink-muted"
                       >
                         <Eye size={15} aria-hidden="true" />
                         {post.views.toLocaleString()}

@@ -190,9 +190,9 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
               <Box className="flex h-full flex-col rounded-2xl border border-ink/10 bg-white p-5 transition-[transform,box-shadow,border-color] duration-500 group-hover:-translate-y-1.25 group-hover:border-ink/20 group-hover:shadow-[0_28px_58px_-34px_rgba(10,22,40,0.5)]">
                 <Box className="mb-4 flex size-16 flex-none items-center justify-center overflow-hidden rounded-full bg-navy text-lime transition-transform duration-500 group-hover:scale-[1.06]">
                   {image ? (
-                    <img
+                    <img decoding="async" loading="lazy"
                       src={image}
-                      alt={trainer.name || ""}
+                      alt={trainer.name || "Edstellar trainer"}
                       className="size-full object-cover"
                     />
                   ) : (
@@ -210,7 +210,7 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                 {role ? (
                   <Text
                     as="p"
-                    className="mb-2.75 text-[13px] leading-[1.45] text-ink/60"
+                    className="mb-2.75 text-[13px] leading-[1.45] text-ink-muted"
                   >
                     {role}
                   </Text>
@@ -219,7 +219,7 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
                 {years ? (
                   <Text
                     as="p"
-                    className="mb-3.5 font-mono text-[10px] tracking-[0.13em] text-ink/60 uppercase"
+                    className="mb-3.5 font-mono text-[10px] tracking-[0.13em] text-ink-muted uppercase"
                   >
                     {years}
                   </Text>
@@ -235,7 +235,7 @@ export default function TrainerCarousel({ people, desktopCards = 3 }) {
 
                   <Text
                     as="span"
-                    className="font-mono text-[10px] leading-[1.3] tracking-[0.07em] text-ink/60 uppercase"
+                    className="font-mono text-[10px] leading-[1.3] tracking-[0.07em] text-ink-muted uppercase"
                   >
                     {trainer.sessions ?? "180+"} sessions delivered
                   </Text>

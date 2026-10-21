@@ -27,7 +27,7 @@ export default function FootprintMap({ data }) {
   return (
     <Box>
       <Box className="relative">
-        <img
+        <img loading="lazy"
           src={data.map.src}
           alt={data.map.alt}
           width={data.map.width}
@@ -62,7 +62,7 @@ export default function FootprintMap({ data }) {
               )}
             >
               {pin.image ? (
-                <img src={pin.image} alt="" width={120} height={120} loading="lazy" decoding="async" className="mb-2 block h-24 w-full rounded-lg object-cover" />
+                <img src={pin.image} alt={pin.place} width={120} height={120} loading="lazy" decoding="async" className="mb-2 block h-24 w-full rounded-lg object-cover" />
               ) : null}
               <Text as="span" className="block font-display text-[14px] font-semibold text-ink">
                 {pin.place}

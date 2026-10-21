@@ -33,7 +33,7 @@ const ICONS = {
 const CHIP =
   "rounded-full px-3 py-1.75 font-mono text-[10px] leading-none tracking-[0.03em] uppercase";
 const CAPTION =
-  "mt-3 text-center font-mono text-[10px] leading-normal tracking-[0.04em] text-ink/60 uppercase";
+  "mt-3 text-center font-mono text-[10px] leading-normal tracking-[0.04em] text-ink-muted uppercase";
 
 function signalRow(row) {
   if (typeof row !== "string") return row;
@@ -77,13 +77,13 @@ function WhyVisual({ visual }) {
         <Box className="mb-3 flex items-center justify-between">
           <Text
             as="span"
-            className="font-mono text-[10px] leading-none tracking-[0.06em] text-ink/60 uppercase"
+            className="font-mono text-[10px] leading-none tracking-[0.06em] text-ink-muted uppercase"
           >
             {visual.title}
           </Text>
           <Text
             as="span"
-            className="inline-flex items-center gap-1.5 font-mono text-[10px] leading-none tracking-[0.06em] text-ink/60 uppercase before:size-1.75 before:rounded-full before:bg-lime"
+            className="inline-flex items-center gap-1.5 font-mono text-[10px] leading-none tracking-[0.06em] text-ink-muted uppercase before:size-1.75 before:rounded-full before:bg-lime"
           >
             {visual.status}
           </Text>
@@ -241,7 +241,7 @@ export default function WhyUs({ id, data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {description || content.subtitle}
             </Text>
@@ -269,7 +269,7 @@ export default function WhyUs({ id, data }) {
                 </Text>
                 <Text
                   as="p"
-                  className="mb-5 text-[14px] leading-[1.6] text-ink/60"
+                  className="mb-5 text-[14px] leading-[1.6] text-ink-muted"
                 >
                   {item.description}
                 </Text>
@@ -280,7 +280,7 @@ export default function WhyUs({ id, data }) {
                   <Box className="mt-auto border-t border-ink/12 pt-4">
                     <Text
                       as="p"
-                      className="mb-1.5 font-mono text-[10px] leading-normal tracking-[0.12em] text-ink/60 uppercase"
+                      className="mb-1.5 font-mono text-[10px] leading-normal tracking-[0.12em] text-ink-muted uppercase"
                     >
                       {difference_label}
                     </Text>

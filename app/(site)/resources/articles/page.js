@@ -36,13 +36,13 @@ export default async function ArticlesListingPage() {
       </Reveal>
 
       <Reveal delay={1}>
-        <Text as="p" className="max-w-[64ch] text-ink/60">
+        <Text as="p" className="max-w-[64ch] text-ink-muted">
           Practical writing on capability building, instructor-led training and workforce skills.
         </Text>
       </Reveal>
 
       {slugs.length === 0 ? (
-        <Text as="p" className="mt-10 font-mono text-[12px] uppercase tracking-[0.16em] text-ink/40">
+        <Text as="p" className="mt-10 font-mono text-[12px] uppercase tracking-[0.16em] text-ink-muted">
           No articles published yet
         </Text>
       ) : null}

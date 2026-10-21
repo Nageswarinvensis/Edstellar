@@ -27,7 +27,7 @@ export default function SectionHead({ heading, description, dark = false, align 
       {description ? (
         <Text
           as="p"
-          className={cn("mt-4 text-[17px] leading-[1.75]", dark ? "text-paper/72" : "text-ink/60")}
+          className={cn("mt-4 text-[17px] leading-[1.75]", dark ? "text-paper/72" : "text-ink-muted")}
         >
           {description}
         </Text>

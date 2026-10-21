@@ -32,7 +32,7 @@ export default function HomeClients({ data }) {
   return (
     <Box as="section" aria-labelledby="home-clients-h" className="border-b-[1.5px] border-ink/12 bg-paper">
       <Box className="mx-auto flex max-w-[1320px] items-center justify-between gap-6 px-14 pb-7 pt-16 max-lg:px-8 max-sm:px-5">
-        <Text as="h2" id="home-clients-h" className="m-0 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/60">
+        <Text as="h2" id="home-clients-h" className="m-0 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
           {data.heading}
         </Text>
         <a
@@ -53,7 +53,7 @@ export default function HomeClients({ data }) {
                 <Box as="li" key={`${copy}-${logo.name}`} className="group flex h-20 w-[150px] shrink-0 items-center justify-center border-r border-ink/12 px-6">
                   <Image
                     src={logo.src}
-                    alt=""
+                    alt={logo.name}
                     width={120}
                     height={32}
                     className="h-7 w-auto max-w-[120px] object-contain opacity-70 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
@@ -75,12 +75,12 @@ export default function HomeClients({ data }) {
               <CertBadge code={cert.code} />
               <Text as="span" className="text-sm">
                 <Text as="b" className="block font-semibold text-ink">{cert.title}</Text>
-                <Text as="span" className="text-ink/60">{cert.label}</Text>
+                <Text as="span" className="text-ink-muted">{cert.label}</Text>
               </Text>
             </Box>
           ))}
         </Box>
-        <Text as="p" className="m-0 text-center text-[13px] text-ink/60">{data.cert_line}</Text>
+        <Text as="p" className="m-0 text-center text-[13px] text-ink-muted">{data.cert_line}</Text>
       </Reveal>
     </Box>
   );

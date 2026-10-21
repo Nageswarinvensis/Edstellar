@@ -44,7 +44,7 @@ export default function PricingNotes({ notes, exclusions }) {
                       <Box
                         as="li"
                         key={point}
-                        className="relative pl-3.5 text-[14px] leading-[1.65] text-ink/60 before:absolute before:top-2.5 before:left-0 before:h-[1.5px] before:w-1.25 before:bg-olive before:content-['']"
+                        className="relative pl-3.5 text-[14px] leading-[1.65] text-ink-muted before:absolute before:top-2.5 before:left-0 before:h-[1.5px] before:w-1.25 before:bg-olive before:content-['']"
                       >
                         {point}
                       </Box>

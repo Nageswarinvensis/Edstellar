@@ -34,7 +34,7 @@ export default function BlogDetailAuthorCard({
       <Box className="flex items-center gap-4">
         <Box className="flex size-14 flex-none items-center justify-center overflow-hidden rounded-full bg-navy text-lime">
           {avatar ? (
-            <img
+            <img decoding="async" loading="lazy"
               src={avatar}
               alt={name}
               title={name}
@@ -85,7 +85,7 @@ export default function BlogDetailAuthorCard({
       </Box>
 
       {shortDescription && (
-        <Text as="p" className="mt-3 text-sm leading-[1.6] text-ink/60">
+        <Text as="p" className="mt-3 text-sm leading-[1.6] text-ink-muted">
           {shortDescription}
         </Text>
       )}

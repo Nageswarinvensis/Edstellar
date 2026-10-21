@@ -62,7 +62,7 @@ export default function RelatedLinks({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {lede}
             </Text>
@@ -92,7 +92,7 @@ export default function RelatedLinks({ data }) {
                 {item.kicker ? (
                   <Text
                     as="span"
-                    className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink/60"
+                    className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted"
                   >
                     {item.kicker}
                   </Text>
@@ -105,7 +105,7 @@ export default function RelatedLinks({ data }) {
                 </Text>
                 <Text
                   as="p"
-                  className="mb-6 text-[15px] leading-[1.5] text-ink/60"
+                  className="mb-6 text-[15px] leading-[1.5] text-ink-muted"
                 >
                   {item.description}
                 </Text>

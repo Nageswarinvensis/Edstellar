@@ -158,7 +158,7 @@ function ClientLogos({ heading = CLIENT_LOGOS.heading, className }) {
           <Reveal>
             <Text
               as="p"
-              className="mb-8 font-mono text-[10px] tracking-[0.18em] text-ink/60 uppercase"
+              className="mb-8 font-mono text-[10px] tracking-[0.18em] text-ink-muted uppercase"
             >
               {heading}
             </Text>
@@ -190,7 +190,7 @@ function ClientLogos({ heading = CLIENT_LOGOS.heading, className }) {
               >
                 <Image
                   src={logo.src}
-                  alt={logo.alt || ""}
+                  alt={logo.alt || logo.title || "Edstellar client logo"}
                   title={logo.title || logo.alt || ""}
                   width={size?.width ?? 140}
                   height={size?.height ?? 48}

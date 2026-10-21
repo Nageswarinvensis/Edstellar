@@ -81,7 +81,7 @@ export default function Audience({ audience }) {
       <Reveal delay={2}>
         <Text
           as="p"
-          className="mb-6.5 max-w-[64ch] text-[16.5px] leading-[1.7] text-ink/60"
+          className="mb-6.5 max-w-[64ch] text-[16.5px] leading-[1.7] text-ink-muted"
         >
           {description}
         </Text>
@@ -99,7 +99,7 @@ export default function Audience({ audience }) {
         <Reveal delay={2}>
           <Text
             as="p"
-            className="mt-5.5 max-w-[760px] text-[14px] leading-[1.65] text-ink/60"
+            className="mt-5.5 max-w-[760px] text-[14px] leading-[1.65] text-ink-muted"
           >
             {departments_note}
           </Text>

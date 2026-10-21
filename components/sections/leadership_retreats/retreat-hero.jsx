@@ -54,7 +54,7 @@ function SeatingTable({ table }) {
 
       <Box as="ul" className="mt-6 flex list-none flex-wrap justify-center gap-x-4 gap-y-2 p-0">
         {table.legend.map((item) => (
-          <Box as="li" key={item.key} className="flex items-center gap-1.5 text-[13px] text-ink/60">
+          <Box as="li" key={item.key} className="flex items-center gap-1.5 text-[13px] text-ink-muted">
             <Box as="span" aria-hidden="true" className={cn("size-3 rounded-full border-2", SEAT_CLASSES[item.key])} />
             {item.label}
           </Box>

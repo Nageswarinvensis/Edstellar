@@ -186,7 +186,7 @@ export default function Curriculum({ curriculum }) {
         <Reveal delay={2}>
           <Text
             as="p"
-            className="mb-4 max-w-[64ch] text-[16.5px] leading-[1.7] text-ink/60"
+            className="mb-4 max-w-[64ch] text-[16.5px] leading-[1.7] text-ink-muted"
           >
             {description}
           </Text>
@@ -204,7 +204,7 @@ export default function Curriculum({ curriculum }) {
                   {author_credit.title}
                 </Text>
               </Box>
-              <Text as="p" className="text-[11.5px] leading-[1.55] text-ink/60">
+              <Text as="p" className="text-[11.5px] leading-[1.55] text-ink-muted">
                 {author_credit.description}
               </Text>
             </Box>
@@ -214,7 +214,7 @@ export default function Curriculum({ curriculum }) {
 
       {meta?.length ? (
         <Reveal delay={2}>
-          <Box className="mb-7.5 flex flex-wrap gap-x-5 gap-y-1.5 border-y border-ink/12 py-3.5 font-mono text-[11px] tracking-[0.09em] text-ink/60 uppercase">
+          <Box className="mb-7.5 flex flex-wrap gap-x-5 gap-y-1.5 border-y border-ink/12 py-3.5 font-mono text-[11px] tracking-[0.09em] text-ink-muted uppercase">
             {meta.map((item) => (
               <Text as="span" key={item.label}>
                 <b className="font-semibold text-ink">{item.value}</b>{" "}
@@ -246,7 +246,7 @@ export default function Curriculum({ curriculum }) {
                             className={[
                               "grid size-9 flex-none place-items-center rounded-full md:mb-2.25 md:size-11",
                               STEP_ICON_CLASSES[phaseKey] ||
-                                "bg-paper-warm text-ink/60",
+                                "bg-paper-warm text-ink-muted",
                             ].join(" ")}
                           >
                             <StepIcon
@@ -272,7 +272,7 @@ export default function Curriculum({ curriculum }) {
                           </Text>
                           <Text
                             as="p"
-                            className="text-[12.5px] leading-[1.5] text-ink/60 md:leading-[1.55]"
+                            className="text-[12.5px] leading-[1.5] text-ink-muted md:leading-[1.55]"
                           >
                             <MethodStepText parts={step.parts} />
                           </Text>
@@ -324,7 +324,7 @@ export default function Curriculum({ curriculum }) {
                         />
                         <Text
                           as="span"
-                          className="font-mono text-[10.5px] tracking-[0.08em] text-ink/60 uppercase"
+                          className="font-mono text-[10.5px] tracking-[0.08em] text-ink-muted uppercase"
                         >
                           {segment.label} {segment.percent}%
                         </Text>
@@ -359,7 +359,7 @@ export default function Curriculum({ curriculum }) {
                   <Box className="mt-5.5 border-t border-ink/12 pt-4.5 first:mt-0 first:border-t-0 first:pt-0">
                     <Text
                       as="p"
-                      className="mb-2.75 font-mono text-[10.5px] tracking-[0.16em] text-ink/60 uppercase"
+                      className="mb-2.75 font-mono text-[10.5px] tracking-[0.16em] text-ink-muted uppercase"
                     >
                       Delivered as
                     </Text>
@@ -408,7 +408,7 @@ export default function Curriculum({ curriculum }) {
                     </Box>
 
                     {method.summary_note ? (
-                      <Text as="p" className="mt-3 text-[12.5px] text-ink/60">
+                      <Text as="p" className="mt-3 text-[12.5px] text-ink-muted">
                         <BoldLead text={method.summary_note} />
                       </Text>
                     ) : null}

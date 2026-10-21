@@ -25,7 +25,7 @@ function CategoryList({ categoryList }) {
           >
             {category.name}
             {typeof category.blogs_count === "number" && (
-              <Text as="span" className="text-ink/50">
+              <Text as="span" className="text-ink-muted">
                 {" "}
                 ({category.blogs_count})
               </Text>
@@ -88,7 +88,7 @@ export default function BlogSidebar({
               <ChevronDown
                 size={18}
                 aria-hidden="true"
-                className="text-ink/50 transition-transform duration-200 group-aria-expanded/cat-trigger:rotate-180"
+                className="text-ink-muted transition-transform duration-200 group-aria-expanded/cat-trigger:rotate-180"
               />
             </CollapsibleTrigger>
 

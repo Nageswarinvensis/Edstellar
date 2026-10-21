@@ -33,7 +33,7 @@ export default function TnaWhyEdstellar({ id, data }) {
 
         {subtitle && (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60 hyphens-none">
+            <Text as="p" className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted hyphens-none">
               {subtitle}
             </Text>
           </Reveal>
@@ -58,7 +58,7 @@ export default function TnaWhyEdstellar({ id, data }) {
                   {item.title}
                 </Text>
 
-                <Text as="p" className="text-[14px] leading-[1.6] text-ink/60 hyphens-none">
+                <Text as="p" className="text-[14px] leading-[1.6] text-ink-muted hyphens-none">
                   {item.description}
                 </Text>
               </Box>

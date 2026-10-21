@@ -30,7 +30,7 @@ export function TrainerFor({ profile, data, heading }) {
               </Text>
               {course.since ? (
                 <Text as="p" className="text-[14px]">
-                  <Text as="span" className="block font-mono text-[10.5px] tracking-[0.1em] text-ink/55 uppercase">
+                  <Text as="span" className="block font-mono text-[10.5px] tracking-[0.1em] text-ink-muted uppercase">
                     {data.since_label}
                   </Text>
                   <Text as="span" className="mt-1 block font-display text-[15px] font-semibold text-ink">
@@ -70,12 +70,12 @@ export function WorkExperience({ profile, data }) {
             <Text as="h3" className="text-[clamp(18px,1.8vw,21px)] leading-[1.3]">
               {item.role}
             </Text>
-            <Text as="p" className="mt-1.5 font-mono text-[13px] tracking-[0.02em] text-ink/55">
+            <Text as="p" className="mt-1.5 font-mono text-[13px] tracking-[0.02em] text-ink-muted">
               {[item.company_or_industry, item.duration].filter(Boolean).join(" · ")}
             </Text>
             {item.highlights.length ? (
               <>
-                <Text as="p" className="mt-5 mb-2.5 font-mono text-[10.5px] tracking-[0.14em] text-ink/55 uppercase">
+                <Text as="p" className="mt-5 mb-2.5 font-mono text-[10.5px] tracking-[0.14em] text-ink-muted uppercase">
                   {data.responsibilities_label}
                 </Text>
                 <Box as="ul" className="m-0 list-disc space-y-2.5 pl-5 text-[15px] leading-[1.65] text-ink/80 marker:text-ink/25">
@@ -148,7 +148,7 @@ export function Education({ profile, data }) {
                 </Text>
               ) : null}
               {item.years ? (
-                <Text as="p" className="mt-2.5 font-mono text-[12.5px] text-ink/55">
+                <Text as="p" className="mt-2.5 font-mono text-[12.5px] text-ink-muted">
                   {item.years}
                 </Text>
               ) : null}
@@ -185,7 +185,7 @@ export function Projects({ profile, data }) {
                 {project.role}
               </Text>
               {project.duration ? (
-                <Text as="p" className="border-t border-ink/10 pt-4 font-mono text-[12.5px] text-ink/55">
+                <Text as="p" className="border-t border-ink/10 pt-4 font-mono text-[12.5px] text-ink-muted">
                   {project.duration}
                 </Text>
               ) : null}

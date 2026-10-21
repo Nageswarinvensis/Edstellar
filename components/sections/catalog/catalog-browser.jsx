@@ -71,7 +71,7 @@ export default function CatalogBrowser({ data, domains }) {
           <label htmlFor="catalog-q" className="sr-only">
             {data.search_label}
           </label>
-          <Search size={18} aria-hidden="true" className="pointer-events-none absolute top-1/2 left-4.5 -translate-y-1/2 text-ink/50" />
+          <Search size={18} aria-hidden="true" className="pointer-events-none absolute top-1/2 left-4.5 -translate-y-1/2 text-ink-muted" />
           <input
             id="catalog-q"
             type="search"
@@ -86,7 +86,7 @@ export default function CatalogBrowser({ data, domains }) {
               type="button"
               onClick={() => setQuery("")}
               aria-label="Clear search"
-              className="absolute top-1/2 right-3 grid size-7 -translate-y-1/2 cursor-pointer place-items-center rounded-full text-ink/60 hover:bg-ink/6"
+              className="absolute top-1/2 right-3 grid size-7 -translate-y-1/2 cursor-pointer place-items-center rounded-full text-ink-muted hover:bg-ink/6"
             >
               <X size={16} aria-hidden="true" />
             </button>
@@ -138,16 +138,18 @@ export default function CatalogBrowser({ data, domains }) {
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => toggle(setOpen, domain.slug)}
-                  className="flex w-full cursor-pointer items-center gap-4 py-5 pr-2 text-left"
+                  className="flex w-full cursor-pointer items-center gap-2.5 py-5 pr-2 text-left sm:gap-4"
                 >
-                  <Text as="span" className="w-9 flex-none font-mono text-[11.5px] text-ink/50">
+                  <Text as="span" className="w-7 flex-none font-mono text-[11.5px] text-ink-muted sm:w-9">
                     {pad(index + 1)}
                   </Text>
-                  <Text as="span" className="font-display text-[clamp(17px,1.6vw,20px)] font-semibold text-ink">
+                  {/* `min-w-0` lets a long domain name wrap on a phone instead of
+                      pushing the count and chevron past the screen edge. */}
+                  <Text as="span" className="min-w-0 font-display text-[clamp(17px,1.6vw,20px)] font-semibold text-ink max-sm:flex-1">
                     {domain.name} training
                   </Text>
-                  <Box as="span" aria-hidden="true" className="h-px flex-1 border-t border-dotted border-ink/25" />
-                  <Text as="span" className="font-mono text-[12.5px] whitespace-nowrap text-ink/60">
+                  <Box as="span" aria-hidden="true" className="h-px flex-1 border-t border-dotted border-ink/25 max-sm:hidden" />
+                  <Text as="span" className="font-mono text-[12.5px] whitespace-nowrap text-ink-muted">
                     {domain.courses.length} {domain.courses.length === 1 ? "course" : "courses"}
                   </Text>
                   <ChevronDown size={18} aria-hidden="true" className={cn("flex-none text-ink transition-transform", isOpen && "rotate-180")} />
@@ -165,7 +167,7 @@ export default function CatalogBrowser({ data, domains }) {
                     return (
                       <li key={course.href} hidden={!shown}>
                         <Link href={course.href} prefetch={false}>
-                          <Text as="span" className="pt-0.5 font-mono text-[11px] text-ink/50">
+                          <Text as="span" className="pt-0.5 font-mono text-[11px] text-ink-muted">
                             {pad(position + 1, 3)}
                           </Text>
                           {course.label}

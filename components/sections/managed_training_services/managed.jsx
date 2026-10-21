@@ -12,7 +12,7 @@ function FeatureItem({ text, isHighlight }) {
     <li className="flex items-start gap-3">
       <span
         className={`mt-0.5 flex size-4.5 shrink-0 items-center justify-center rounded-full text-[12px] font-bold ${
-          isHighlight ? "text-ink" : "text-ink/40"
+          isHighlight ? "text-ink" : "text-ink-muted"
         }`}
         aria-hidden="true"
       >
@@ -42,7 +42,7 @@ function ManagedCard({ cardData, isHighlight = false }) {
       {tag && (
         <span
           className={`inline-block rounded-full px-3 py-1 font-mono text-[12px] tracking-wider uppercase mb-3.5 ${
-            isHighlight ? "bg-lime text-ink" : "bg-paper-warm text-ink/60"
+            isHighlight ? "bg-lime text-ink" : "bg-paper-warm text-ink-muted"
           }`}
         >
           {tag}
@@ -85,7 +85,7 @@ export default function Managed({ data }) {
           )}
 
           {content.description && (
-            <Text as="p" className="mt-4 text-base text-ink/60 leading-relaxed font-normal">
+            <Text as="p" className="mt-4 text-base text-ink-muted leading-relaxed font-normal">
               {content.description}
             </Text>
           )}

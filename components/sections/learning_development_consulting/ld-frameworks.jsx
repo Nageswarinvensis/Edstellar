@@ -16,7 +16,7 @@ function FrameworkPanel({ item }) {
           {item.description}
         </Text>
 
-        <Text as="p" className={`${MONO_LABEL} mb-2.75 text-ink/60`}>
+        <Text as="p" className={`${MONO_LABEL} mb-2.75 text-ink-muted`}>
           {item.steps_label}
         </Text>
         <Box className="flex flex-wrap gap-2">
@@ -48,7 +48,7 @@ function FrameworkPanel({ item }) {
             <Text as="span" className={`${MONO_LABEL} mb-1.25 block text-navy`}>
               {item.usage.label}
             </Text>
-            <Text as="p" className="text-[14.5px] leading-[1.55] text-ink/60">
+            <Text as="p" className="text-[14.5px] leading-[1.55] text-ink-muted">
               {item.usage.text}
             </Text>
           </Box>
@@ -59,7 +59,7 @@ function FrameworkPanel({ item }) {
         <Box as="aside" className="rounded-[12px] border border-ink/12 bg-paper-warm p-5.5">
           {item.meta.map((entry) => (
             <Box key={entry.label} className="mb-4.5 last:mb-0">
-              <Text as="p" className={`${MONO_LABEL} mb-1 text-ink/60`}>
+              <Text as="p" className={`${MONO_LABEL} mb-1 text-ink-muted`}>
                 {entry.label}
               </Text>
               <Text
@@ -105,7 +105,7 @@ export default function LdFrameworks({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60 hyphens-none"
+              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted hyphens-none"
             >
               {description}
             </Text>

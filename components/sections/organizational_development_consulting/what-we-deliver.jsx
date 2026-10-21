@@ -42,7 +42,7 @@ function StepBlock({ label, items }) {
           <Box
             as="li"
             key={item}
-            className="relative mb-2.25 pl-4 text-[12.5px] leading-[1.5] text-ink/60 last:mb-0"
+            className="relative mb-2.25 pl-4 text-[12.5px] leading-[1.5] text-ink-muted last:mb-0"
           >
             <Box
               aria-hidden="true"
@@ -71,7 +71,7 @@ export default function WhatWeDeliver({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {description}
             </Text>
@@ -111,7 +111,7 @@ export default function WhatWeDeliver({ data }) {
                   <Text
                     data-sc-n
                     as="span"
-                    className="font-mono text-[11px] tracking-[0.1em] text-ink/45"
+                    className="font-mono text-[11px] tracking-[0.1em] text-ink-muted"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </Text>
@@ -133,7 +133,7 @@ export default function WhatWeDeliver({ data }) {
                   >
                     <Text
                       as="span"
-                      className={`${MONO} mb-0.75 text-[9px] tracking-[0.12em] text-navy/60`}
+                      className={`${MONO} mb-0.75 text-[9px] tracking-[0.12em] text-navy/70`}
                     >
                       You get
                     </Text>
@@ -163,7 +163,7 @@ export default function WhatWeDeliver({ data }) {
             >
               <Text
                 as="span"
-                className={`${MONO} mb-2 block text-[11px] leading-[1.7] tracking-[0.14em] text-ink/45`}
+                className={`${MONO} mb-2 block text-[11px] leading-[1.7] tracking-[0.14em] text-ink-muted`}
               >
                 {`Step ${String(index + 1).padStart(2, "0")}`}
               </Text>

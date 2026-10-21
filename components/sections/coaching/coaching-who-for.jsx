@@ -34,7 +34,7 @@ export default function CoachingWhoFor({ data }) {
         </Reveal>
         {description ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
               {description}
             </Text>
           </Reveal>
@@ -44,19 +44,21 @@ export default function CoachingWhoFor({ data }) {
       {/* Two-column tab layout */}
       <Box className="grid grid-cols-[300px_1fr] items-start gap-6 max-[900px]:grid-cols-1">
         {/* Tab list */}
+        {/* The tabs sit directly in the tablist — a list wrapper around
+            them breaks the tab roles for assistive tech. */}
         <Box
-          as="ul"
           role="tablist"
           aria-label="Coaching audience"
-          className="m-0 list-none p-0 flex flex-col gap-2"
+          aria-orientation="vertical"
+          className="flex flex-col gap-2"
         >
           {tabs.map((tab, index) => {
             const Icon = coachingIcon(tab.icon);
             const isActive = index === active;
 
             return (
-              <Box as="li" key={tab.label}>
                 <button
+                  key={tab.label}
                   type="button"
                   role="tab"
                   aria-selected={isActive}
@@ -80,7 +82,6 @@ export default function CoachingWhoFor({ data }) {
                   ) : null}
                   {tab.label}
                 </button>
-              </Box>
             );
           })}
         </Box>
@@ -100,7 +101,7 @@ export default function CoachingWhoFor({ data }) {
                 {panel.title}
               </Text>
               {panel.description ? (
-                <Text as="p" className="text-[16px] leading-[1.7] text-ink/60 mb-6">
+                <Text as="p" className="text-[16px] leading-[1.7] text-ink-muted mb-6">
                   {panel.description}
                 </Text>
               ) : null}
@@ -110,12 +111,12 @@ export default function CoachingWhoFor({ data }) {
                   <Box className="my-5 h-px bg-ink/10" />
                   <Text as="p" className="text-[15px] leading-[1.7] text-ink">
                     {panel.tracks_label ? (
-                      <span className="text-ink/60">{panel.tracks_label}{" "}</span>
+                      <span className="text-ink-muted">{panel.tracks_label}{" "}</span>
                     ) : null}
                     {panel.tracks.map((track, i) => (
                       <span key={track}>
                         <span className="font-semibold underline decoration-lime underline-offset-[3px]">{track}</span>
-                        {i < panel.tracks.length - 1 ? <span className="text-ink/50"> and </span> : null}
+                        {i < panel.tracks.length - 1 ? <span className="text-ink-muted"> and </span> : null}
                       </span>
                     ))}
                   </Text>

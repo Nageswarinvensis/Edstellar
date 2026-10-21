@@ -191,7 +191,7 @@ export default function LearningSystemCard({ data }) {
               >
                 {titleOf(item)}
               </Text>
-              <Text as="span" className="mt-px block text-[12px] leading-[1.7] text-ink/60">
+              <Text as="span" className="mt-px block text-[12px] leading-[1.7] text-ink-muted">
                 {item.description}
               </Text>
             </Box>
@@ -203,7 +203,7 @@ export default function LearningSystemCard({ data }) {
       {footerText ? (
         <Text
           as="p"
-          className="mt-4 border-t border-ink/12 pt-3.5 text-center text-[12px] leading-[1.7] text-ink/60"
+          className="mt-4 border-t border-ink/12 pt-3.5 text-center text-[12px] leading-[1.7] text-ink-muted"
         >
           {footerText}
         </Text>

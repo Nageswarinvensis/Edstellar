@@ -26,7 +26,7 @@ export default function StudyHero({ title, data, breadcrumbs }) {
         {data?.image?.src ? (
           <Reveal delay={1}>
             <Box className="overflow-hidden rounded-[14px] border border-ink/12 bg-white p-3 shadow-[0_1px_2px_rgba(10,22,40,0.06),0_8px_24px_rgba(10,22,40,0.06)]">
-              <img
+              <img loading="eager"
                 src={data.image.src}
                 alt={title}
                 width={data.image.width}

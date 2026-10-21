@@ -48,7 +48,7 @@ function StepFacts({ facts }) {
           key={fact.label}
           className="flex items-baseline justify-between gap-4 px-3.5 py-2.5 [&+&]:border-t [&+&]:border-ink/12"
         >
-          <Text as="span" className={`${MONO_LABEL} flex-none tracking-[0.08em] text-ink/60`}>
+          <Text as="span" className={`${MONO_LABEL} flex-none tracking-[0.08em] text-ink-muted`}>
             {fact.label}
           </Text>
           <Text as="span" className="text-right text-[13.5px] leading-[1.7] font-semibold text-ink">
@@ -103,7 +103,7 @@ export default function StageSteps({ id, data, screens, variant }) {
                 <Text
                   as="span"
                   className={cn(
-                    "block font-mono text-[12px] leading-[1.7] tracking-[0.14em] text-ink/60",
+                    "block font-mono text-[12px] leading-[1.7] tracking-[0.14em] text-ink-muted",
                     variant === "scope" ? "mb-2" : "mb-1.5",
                   )}
                 >
@@ -126,7 +126,7 @@ export default function StageSteps({ id, data, screens, variant }) {
                   <Text
                     key={paragraph}
                     as="p"
-                    className="max-w-125 text-[16px] leading-[1.6] text-ink/60 hyphens-manual [p+&]:mt-[15px]"
+                    className="max-w-125 text-[16px] leading-[1.6] text-ink-muted hyphens-manual [p+&]:mt-[15px]"
                   >
                     {paragraph}
                   </Text>

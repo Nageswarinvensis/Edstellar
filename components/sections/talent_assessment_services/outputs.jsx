@@ -51,7 +51,7 @@ export default function Outputs({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {description}
             </Text>
@@ -91,7 +91,7 @@ export default function Outputs({ data }) {
                       >
                         {item.title}
                       </Text>
-                      <Text as="p" className="text-[14.5px] leading-[1.55] text-ink/60">
+                      <Text as="p" className="text-[14.5px] leading-[1.55] text-ink-muted">
                         {item.description}
                       </Text>
                       {item.stage ? (
@@ -122,7 +122,7 @@ export default function Outputs({ data }) {
                 {cta.heading}
               </Text>
               {cta.description ? (
-                <Text as="p" className="mt-1 text-[15px] leading-[1.5] text-ink/60">
+                <Text as="p" className="mt-1 text-[15px] leading-[1.5] text-ink-muted">
                   {cta.description}
                 </Text>
               ) : null}

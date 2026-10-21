@@ -102,7 +102,7 @@ function ModuleTrigger({ module }) {
         <Box className="flex items-start gap-3 sm:contents">
           <Text
             as="span"
-            className="w-6 flex-none pt-0.5 font-mono text-[11.5px] tracking-[0.06em] text-ink/40 sm:pt-0"
+            className="w-6 flex-none pt-0.5 font-mono text-[11.5px] tracking-[0.06em] text-ink-muted sm:pt-0"
           >
             {module.number}
           </Text>
@@ -223,7 +223,7 @@ export default function CurriculumModules({ modules }) {
                 "flex flex-none cursor-pointer items-center gap-1.75 rounded-full border px-3.25 py-1.75 font-mono text-[10.5px] tracking-[0.08em] whitespace-nowrap uppercase transition-colors duration-200",
                 activeFilter === filter.id
                   ? "border-navy bg-navy text-lime"
-                  : "border-ink/22 text-ink/60 hover:border-navy hover:text-ink",
+                  : "border-ink/22 text-ink-muted hover:border-navy hover:text-ink",
               )}
             >
               {filter.label}
@@ -234,7 +234,7 @@ export default function CurriculumModules({ modules }) {
                     "grid size-4.5 place-items-center rounded-full font-mono text-[9px] normal-case",
                     activeFilter === "all"
                       ? "bg-white/20 text-lime"
-                      : "bg-ink/8 text-ink/60",
+                      : "bg-ink/8 text-ink-muted",
                   )}
                 >
                   {modules.length}
@@ -274,7 +274,7 @@ export default function CurriculumModules({ modules }) {
                 {module.lab?.description ? (
                   <Text
                     as="p"
-                    className="mb-3.5 max-w-[44rem] text-[13.5px] leading-[1.6] text-ink/60"
+                    className="mb-3.5 max-w-[44rem] text-[13.5px] leading-[1.6] text-ink-muted"
                   >
                     {module.lab.description}
                   </Text>
@@ -299,7 +299,7 @@ export default function CurriculumModules({ modules }) {
                       as="h5"
                       className="font-display text-sm font-semibold text-ink"
                     >
-                      <span className="mr-1 font-semibold text-ink/50">
+                      <span className="mr-1 font-semibold text-ink-muted">
                         {String.fromCharCode(97 + subtitleIndex)})
                       </span>
                       {subtitle}

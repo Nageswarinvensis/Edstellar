@@ -58,7 +58,7 @@ export default function BlogDetailMoreInsights({ posts = [] }) {
                 {post.published_at ? (
                   <Text
                     as="span"
-                    className="mt-auto block border-t border-ink/12 pt-4 font-mono text-[10.5px] leading-[1.6] tracking-[0.08em] text-ink/45"
+                    className="mt-auto block border-t border-ink/12 pt-4 font-mono text-[10.5px] leading-[1.6] tracking-[0.08em] text-ink-muted"
                   >
                     <time dateTime={post.published_at}>
                       {format(new Date(post.published_at), "MMMM d, yyyy")}

@@ -63,12 +63,12 @@ export default function DeliveryCompare({ data }) {
                       as="dt"
                       className={cn(
                         "pt-0.75 font-mono text-[10.5px] leading-[1.5] tracking-[0.14em] uppercase",
-                        dark ? "text-paper/50" : "text-ink/45",
+                        dark ? "text-paper/50" : "text-ink-muted",
                       )}
                     >
                       {row.term}
                     </Box>
-                    <Box as="dd" className={cn("text-[15px] leading-[1.6]", dark ? "text-paper/72" : "text-ink/60")}>
+                    <Box as="dd" className={cn("text-[15px] leading-[1.6]", dark ? "text-paper/72" : "text-ink-muted")}>
                       {row.price ? (
                         <Text
                           as="span"

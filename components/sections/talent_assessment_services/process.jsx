@@ -26,7 +26,7 @@ export default function Process({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {description}
             </Text>
@@ -79,7 +79,7 @@ export default function Process({ data }) {
                   {step.title}
                 </Text>
 
-                <Text as="p" className="text-[13.5px] leading-[1.55] text-ink/60">
+                <Text as="p" className="text-[13.5px] leading-[1.55] text-ink-muted">
                   {step.description}
                 </Text>
 

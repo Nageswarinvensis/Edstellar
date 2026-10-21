@@ -109,7 +109,7 @@ export default function ReadinessStatus({ data }) {
                     as="span"
                     className={cn(
                       "flex-1 text-[15px] leading-[1.3]",
-                      item.done ? "text-ink" : "text-ink/60",
+                      item.done ? "text-ink" : "text-ink-muted",
                     )}
                   >
                     {item.label}
@@ -121,7 +121,7 @@ export default function ReadinessStatus({ data }) {
                         "ml-auto flex-none rounded-full px-2.5 py-1 font-mono text-[10px] leading-[1.3] tracking-[0.1em] uppercase",
                         item.done
                           ? "bg-navy text-lime"
-                          : "border border-dashed border-ink/22 text-ink/60",
+                          : "border border-dashed border-ink/22 text-ink-muted",
                       )}
                     >
                       {item.status}

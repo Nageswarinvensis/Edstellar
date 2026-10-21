@@ -13,7 +13,7 @@ html {
   --navy-deep: #050d1a;
   --lime: #c8f135;
   --lime-soft: #e4f89a;
-  --lime-ink: #6f8c0f;
+  --lime-ink: #566e0b; /* the site olive (globals.css), AA on light backgrounds */
   --lime-quote: #7c9c10;
   --paper: #fafaf7;
   --paper-warm: #f2f0e8;

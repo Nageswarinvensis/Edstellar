@@ -29,7 +29,7 @@ function FlowColumn({ column, light }) {
               <Text as="span" className={cn("block text-[15px] font-semibold", light ? "text-ink" : "text-paper")}>
                 {item.title}
               </Text>
-              <Text as="span" className={cn("block text-[13.5px]", light ? "text-ink/60" : "text-paper/70")}>
+              <Text as="span" className={cn("block text-[13.5px]", light ? "text-ink-muted" : "text-paper/70")}>
                 {item.description}
               </Text>
             </Box>

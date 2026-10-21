@@ -47,7 +47,7 @@ export default function AuthorHero({
 
         <Reveal delay={1} className="mt-5.5 flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:gap-7">
           {image ? (
-            <img
+            <img loading="eager"
               src={image}
               alt={name}
               width={110}

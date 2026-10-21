@@ -57,7 +57,7 @@ function Block({ block }) {
             >
               {/* <dt>/<dd> must be direct children here, so they stay raw
                   elements — <Text> has no definition-list tags. */}
-              <dt className="font-mono text-[10.5px] tracking-[0.12em] text-ink/60 uppercase">{item.label}</dt>
+              <dt className="font-mono text-[10.5px] tracking-[0.12em] text-ink-muted uppercase">{item.label}</dt>
               <dd className="m-0 font-body text-[15px] leading-normal font-semibold text-ink">{item.value}</dd>
             </Box>
           ))}

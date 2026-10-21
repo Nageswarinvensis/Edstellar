@@ -62,7 +62,7 @@ export default function WwsFaq({ data }) {
               </Box>
 
               {/* Answer */}
-              <Box className="pb-6 pr-14 text-[16px] leading-[1.7] text-ink/60 max-[600px]:pr-0">
+              <Box className="pb-6 pr-14 text-[16px] leading-[1.7] text-ink-muted max-[600px]:pr-0">
                 {item.link ? (
                   <Text as="p" className="m-0">
                     {item.a.split(item.link.text)[0]}

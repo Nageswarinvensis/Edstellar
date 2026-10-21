@@ -36,7 +36,7 @@ function Inline({ text }) {
 function Column({ icon: Icon, label, items, dark }) {
   return (
     <Box className={cn("rounded-[14px] px-6 py-5", dark ? "bg-navy text-paper" : "border border-ink/12 bg-white")}>
-      <Text as="p" className={cn("mb-3 flex items-center gap-2.5 font-mono text-[11px] tracking-[0.14em] uppercase", dark ? "text-paper/70" : "text-ink/60")}>
+      <Text as="p" className={cn("mb-3 flex items-center gap-2.5 font-mono text-[11px] tracking-[0.14em] uppercase", dark ? "text-paper/70" : "text-ink-muted")}>
         <Icon size={15} aria-hidden="true" className={dark ? "text-lime" : "text-ink"} />
         {label}
       </Text>
@@ -110,7 +110,7 @@ export default function JourneyTabs({ data }) {
                 active === index ? "border-navy bg-navy text-paper" : "border-ink/15 bg-white text-ink hover:border-navy",
               )}
             >
-              <Text as="span" className={cn("block font-mono text-[11px]", active === index ? "text-lime" : "text-ink/50")}>
+              <Text as="span" className={cn("block font-mono text-[11px]", active === index ? "text-lime" : "text-ink-muted")}>
                 {pad(index + 1)}
               </Text>
               <Text as="span" className={cn("block font-display text-[18px] font-semibold", active === index ? "text-paper" : "text-ink")}>

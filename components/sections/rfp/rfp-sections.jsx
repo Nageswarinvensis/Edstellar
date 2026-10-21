@@ -73,7 +73,7 @@ export function RfpHero({ data, strip, breadcrumbs }) {
               <Text as="span" className="block font-display text-[19px] font-semibold text-ink">
                 {doc.label}
               </Text>
-              <Text as="span" className="mt-1 block text-[12.5px] leading-snug text-ink/60">
+              <Text as="span" className="mt-1 block text-[12.5px] leading-snug text-ink-muted">
                 {doc.text}
               </Text>
             </Box>
@@ -87,7 +87,7 @@ export function RfpHero({ data, strip, breadcrumbs }) {
         <Box as="dl" className="mx-auto mt-14 grid max-w-7xl grid-cols-1 border-t border-ink/12 text-left sm:grid-cols-2 lg:grid-cols-4">
           {data.promises.map((promise, index) => (
             <Box key={promise.title} className={cn("flex flex-col-reverse py-5 sm:px-4 lg:pl-4", index > 0 && "lg:border-l lg:border-ink/12", index === 0 && "lg:pl-0")}>
-              <dd className="m-0 mt-1 text-[14px] text-ink/60">{promise.text}</dd>
+              <dd className="m-0 mt-1 text-[14px] text-ink-muted">{promise.text}</dd>
               <dt className="font-display text-[17px] font-semibold text-ink">{promise.title}</dt>
             </Box>
           ))}
@@ -128,14 +128,14 @@ export function RfpScope({ data }) {
                   <Text as="span" className="block font-display text-[17px] font-semibold text-ink">
                     {format.title}
                   </Text>
-                  <Text as="span" className="mt-0.5 block text-[14px] text-ink/60">
+                  <Text as="span" className="mt-0.5 block text-[14px] text-ink-muted">
                     {format.text}
                   </Text>
                 </Box>
               </li>
             ))}
           </Box>
-          <Text as="p" className="mt-3 text-[14px] text-ink/60">
+          <Text as="p" className="mt-3 text-[14px] text-ink-muted">
             {data.formats_note}
           </Text>
         </Box>
@@ -151,7 +151,7 @@ export function RfpScope({ data }) {
                     <Text as="span" className="block font-display text-[17px] font-semibold text-ink">
                       {service.title}
                     </Text>
-                    <Text as="span" className="block text-[14px] text-ink/60">
+                    <Text as="span" className="block text-[14px] text-ink-muted">
                       {service.text}
                     </Text>
                   </Box>
@@ -162,7 +162,7 @@ export function RfpScope({ data }) {
                   {service.href ? (
                     <Link href={service.href} className="group flex items-center gap-4 py-3.5 hover:text-olive">
                       {body}
-                      <ChevronRight size={18} aria-hidden="true" className="text-ink/50 transition-transform group-hover:translate-x-0.5" />
+                      <ChevronRight size={18} aria-hidden="true" className="text-ink-muted transition-transform group-hover:translate-x-0.5" />
                     </Link>
                   ) : (
                     <Box className="flex items-center gap-4 py-3.5">{body}</Box>
@@ -228,7 +228,7 @@ export function RfpIncludes({ data }) {
                 <FileText size={18} aria-hidden="true" />
               </Box>
               <Box>
-                <Text as="span" className="block font-mono text-[11px] text-ink/50">
+                <Text as="span" className="block font-mono text-[11px] text-ink-muted">
                   {pad(index + 1)}
                 </Text>
                 <Text as="h3" className="mt-1 mb-2 text-[18px] leading-snug">
@@ -356,7 +356,7 @@ export function RfpWhy({ data }) {
           <Box key={item.title} className={cn("p-7", index > 0 && "max-sm:border-t sm:max-lg:[&:nth-child(n+3)]:border-t lg:border-l", index % 2 === 1 && "sm:border-l", "border-ink/12")}>
             <dd className="m-0 font-display text-[clamp(36px,3.2vw,44px)] leading-none font-semibold text-ink">{item.value}</dd>
             <dt className="mt-4 font-display text-[17px] font-semibold text-ink">{item.title}</dt>
-            <dd className="m-0 mt-2 text-[14.5px] leading-[1.55] text-ink/60">{item.text}</dd>
+            <dd className="m-0 mt-2 text-[14.5px] leading-[1.55] text-ink-muted">{item.text}</dd>
           </Box>
         ))}
       </Reveal>

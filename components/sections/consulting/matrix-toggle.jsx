@@ -41,7 +41,7 @@ export default function MatrixToggle({ views, defaultView }) {
             className={cn(
               "cursor-pointer rounded-full px-3 py-1.5 font-body text-[11.5px] leading-[1.7] font-bold transition-colors duration-200",
               "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
-              active ? "bg-navy text-paper" : "bg-transparent text-ink/60",
+              active ? "bg-navy text-paper" : "bg-transparent text-ink-muted",
             )}
           >
             {option.label}

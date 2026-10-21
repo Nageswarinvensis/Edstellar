@@ -7,7 +7,7 @@ import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
 
 const MARKERS = {
-  problem: { icon: CircleAlert, className: "text-red-400", textClassName: "text-ink/55", strokeWidth: 1.5 },
+  problem: { icon: CircleAlert, className: "text-red-400", textClassName: "text-ink-muted", strokeWidth: 1.5 },
   solution: { icon: CircleCheck, className: "text-olive", textClassName: "text-ink", strokeWidth: 2 },
 };
 
@@ -73,7 +73,7 @@ export default function DepartmentTabs({ departments }) {
       <Box className="flex items-center gap-6 border-b border-ink/12 bg-paper px-7.5 py-4.5 max-md:flex-col max-md:items-start max-md:gap-3 max-sm:px-5">
         <Text
           as="span"
-          className="flex-none font-mono text-[10.5px] font-semibold tracking-[0.12em] text-ink/55 uppercase"
+          className="flex-none font-mono text-[10.5px] font-semibold tracking-[0.12em] text-ink-muted uppercase"
         >
           Explore by department
         </Text>
@@ -126,14 +126,14 @@ export default function DepartmentTabs({ departments }) {
             >
               {department.heading}
             </Text>
-            <Text as="p" className="max-w-[72ch] text-[15px] leading-[1.7] text-ink/60">
+            <Text as="p" className="max-w-[72ch] text-[15px] leading-[1.7] text-ink-muted">
               {department.description}
             </Text>
           </Box>
 
           <Box className="grid grid-cols-1 gap-6.5 pt-7.5 md:grid-cols-2 md:gap-x-14">
             <Box>
-              <ColumnLabel className="text-ink/55">Workflow friction</ColumnLabel>
+              <ColumnLabel className="text-ink-muted">Workflow friction</ColumnLabel>
               <PointList items={department.challenges} marker="problem" />
             </Box>
 

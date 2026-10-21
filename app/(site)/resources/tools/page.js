@@ -36,13 +36,13 @@ export default async function ToolsListingPage() {
       </Reveal>
 
       <Reveal delay={1}>
-        <Text as="p" className="max-w-[64ch] text-ink/60">
+        <Text as="p" className="max-w-[64ch] text-ink-muted">
           Calculators and planning tools for learning and development teams.
         </Text>
       </Reveal>
 
       {slugs.length === 0 ? (
-        <Text as="p" className="mt-10 font-mono text-[12px] uppercase tracking-[0.16em] text-ink/40">
+        <Text as="p" className="mt-10 font-mono text-[12px] uppercase tracking-[0.16em] text-ink-muted">
           No tools published yet
         </Text>
       ) : null}

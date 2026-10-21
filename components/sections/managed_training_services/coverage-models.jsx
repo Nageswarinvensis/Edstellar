@@ -41,7 +41,7 @@ function CoverageMap({ model, data }) {
   const headerClass = (hot) =>
     cn(
       "font-mono text-[8.5px] leading-none tracking-[0.02em] uppercase",
-      dark ? "text-paper/75" : hot ? "font-medium text-navy" : "text-ink/60",
+      dark ? "text-paper/75" : hot ? "font-medium text-navy" : "text-ink-muted",
     );
 
   return (
@@ -58,7 +58,7 @@ function CoverageMap({ model, data }) {
           as="span"
           className={cn(
             "font-mono text-[9.5px] tracking-[0.1em] uppercase",
-            dark ? "text-paper/60" : "text-ink/60",
+            dark ? "text-paper/60" : "text-ink-muted",
           )}
         >
           {coverage_label}
@@ -118,7 +118,7 @@ function CoverageMap({ model, data }) {
           <span
             className={cn(
               "mr-1.5 font-mono text-[9px] tracking-[0.1em] uppercase",
-              dark ? "text-paper/60" : "text-ink/60",
+              dark ? "text-paper/60" : "text-ink-muted",
             )}
           >
             {example_label}
@@ -153,7 +153,7 @@ export default function CoverageModels({ data }) {
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60"
+              className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted"
             >
               {description}
             </Text>
@@ -176,7 +176,7 @@ export default function CoverageModels({ data }) {
                 {model.title}
               </Text>
               {model.summary ? (
-                <Text as="p" className="mb-3.5 text-[14px] leading-[1.5] text-ink/60">
+                <Text as="p" className="mb-3.5 text-[14px] leading-[1.5] text-ink-muted">
                   {model.summary}
                 </Text>
               ) : null}
@@ -206,7 +206,7 @@ export default function CoverageModels({ data }) {
                   as="p"
                   className="mt-auto border-t border-ink/12 pt-3 text-[13px] leading-[1.45] text-ink"
                 >
-                  <span className="mb-0.75 block font-mono text-[9.5px] tracking-[0.12em] text-ink/60 uppercase">
+                  <span className="mb-0.75 block font-mono text-[9.5px] tracking-[0.12em] text-ink-muted uppercase">
                     {best_label}
                   </span>
                   {model.best_for}
@@ -218,7 +218,7 @@ export default function CoverageModels({ data }) {
       </Box>
 
       {note?.href ? (
-        <Text as="p" className="mt-6 text-center text-[14px] leading-[1.6] text-ink/60">
+        <Text as="p" className="mt-6 text-center text-[14px] leading-[1.6] text-ink-muted">
           {note.text}{" "}
           <Link href={note.href} className="font-semibold text-ink underline underline-offset-2 hover:text-olive">
             {note.link_label}

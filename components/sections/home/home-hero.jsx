@@ -1,5 +1,6 @@
+import Image from "next/image";
+
 import Box from "@/components/ui/Box";
-import TrainerFaces from "@/components/common/trainer-faces";
 import Text from "@/components/ui/Text";
 import HomeWrap from "@/components/sections/home/home-wrap";
 import RichHeading from "@/components/common/rich-heading";
@@ -17,7 +18,7 @@ function CapabilityMap({ panel }) {
     <Box aria-hidden="true" className="my-2 grid grid-cols-[108px_repeat(8,minmax(0,1fr))] items-center gap-[3px]">
       <span />
       {panel.cols.map((c) => (
-        <Text as="span" key={c} className="text-center font-mono text-[8.5px] uppercase tracking-[0.14em] text-ink/60">
+        <Text as="span" key={c} className="text-center font-mono text-[8.5px] uppercase tracking-[0.14em] text-ink-muted">
           {c}
         </Text>
       ))}
@@ -73,7 +74,13 @@ export default function HomeHero({ data }) {
 
           {people && (
             <Box className="mt-9 flex items-center gap-4">
-              <TrainerFaces people={people.trainers} />
+              <Box className="flex -space-x-3" aria-hidden="true">
+                {people.trainers.map((t, i) => (
+                  <Box key={i} className="size-10 overflow-hidden rounded-full bg-paper-warm ring-2 ring-paper">
+                    <Image loading="eager" src={t.photo} alt="Edstellar trainer" width={40} height={40} className="size-full object-cover" />
+                  </Box>
+                ))}
+              </Box>
               <Text as="span" className="text-sm leading-[1.4] text-ink">
                 <Text as="span" className="font-semibold text-ink">{people.note_strong}</Text>
                 {people.note}
@@ -86,10 +93,10 @@ export default function HomeHero({ data }) {
         <Reveal className="flex flex-col gap-6">
           <Box as="aside" aria-label="Illustrative capability heatmap" className="border border-ink/12 bg-paper px-6 py-5">
             <Box className="flex items-center justify-between">
-              <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink/60">
+              <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
                 {panel.label}
               </Text>
-              <Text as="span" className="inline-flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink/60">
+              <Text as="span" className="inline-flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
                 <span className="size-1.5 rounded-full bg-lime" aria-hidden="true" />
                 {panel.live}
               </Text>
@@ -97,22 +104,22 @@ export default function HomeHero({ data }) {
             <RichHeading as="h3" heading={panel.title} className="mb-4 mt-3 font-serif text-lg font-normal leading-[1.25] text-ink" />
             <CapabilityMap panel={panel} />
             <Box className="flex items-center justify-between border-t border-ink/12 pt-3">
-              <Text as="span" className="font-mono text-[9px] uppercase tracking-[0.12em] text-ink/60">
+              <Text as="span" className="font-mono text-[9px] uppercase tracking-[0.12em] text-ink-muted">
                 {panel.legend}
               </Text>
               <Box className="flex flex-wrap items-center gap-x-2.5 gap-y-1" aria-hidden="true">
                 <Box className="flex items-center gap-1.5">
-                  <Text as="span" className="font-mono text-[9px] uppercase tracking-[0.12em] text-ink/45">Low</Text>
+                  <Text as="span" className="font-mono text-[9px] uppercase tracking-[0.12em] text-ink-muted">Low</Text>
                   <Box className="flex gap-[2px]">
                     {["bg-navy/5", "bg-navy/[0.28]", "bg-navy/[0.52]", "bg-navy"].map((c) => (
                       <span key={c} className={`size-[9px] ${c}`} />
                     ))}
                   </Box>
-                  <Text as="span" className="font-mono text-[9px] uppercase tracking-[0.12em] text-ink/45">High</Text>
+                  <Text as="span" className="font-mono text-[9px] uppercase tracking-[0.12em] text-ink-muted">High</Text>
                 </Box>
                 <Box className="flex items-center gap-1.5 border-l border-ink/22 pl-2.5">
                   <span className={`size-[9px] ${GAP_CELL}`} />
-                  <Text as="span" className="font-mono text-[9px] uppercase tracking-[0.12em] text-ink/45">Priority gap</Text>
+                  <Text as="span" className="font-mono text-[9px] uppercase tracking-[0.12em] text-ink-muted">Priority gap</Text>
                 </Box>
               </Box>
             </Box>
@@ -120,10 +127,10 @@ export default function HomeHero({ data }) {
 
           <Box as="aside" aria-label="The Edstellar 5A methodology" className="border border-ink/12 bg-paper px-6 pb-5 pt-4">
             <Box className="flex items-center justify-between">
-              <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink/60">
+              <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
                 {methodology.label}
               </Text>
-              <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink/60">
+              <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
                 {methodology.live}
               </Text>
             </Box>

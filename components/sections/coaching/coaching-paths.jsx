@@ -28,7 +28,7 @@ export default function CoachingPaths({ data }) {
         </Reveal>
         {description ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text as="p" className="mt-4 max-w-[68ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
               {description}
             </Text>
           </Reveal>
@@ -64,7 +64,7 @@ export default function CoachingPaths({ data }) {
                     as="span"
                     className={cn(
                       "text-right font-mono text-[11px] uppercase leading-[1.4] tracking-[0.12em]",
-                      dark ? "text-paper/65" : "text-ink/60",
+                      dark ? "text-paper/65" : "text-ink-muted",
                     )}
                   >
                     {item.audience}
@@ -74,7 +74,7 @@ export default function CoachingPaths({ data }) {
                 <Text as="h3" className={cn("mb-2.5 text-[20px] leading-[1.3] font-medium tracking-[-0.01em]", dark ? "text-paper" : "text-ink")}>
                   {item.title}
                 </Text>
-                <Text as="p" className={cn("mb-5 text-[15px] leading-[1.6]", dark ? "text-paper/65" : "text-ink/60")}>
+                <Text as="p" className={cn("mb-5 text-[15px] leading-[1.6]", dark ? "text-paper/65" : "text-ink-muted")}>
                   {item.description}
                 </Text>
 

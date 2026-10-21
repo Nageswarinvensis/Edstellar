@@ -30,7 +30,7 @@ export default function ClientsRegions({ data }) {
             heading={data.heading}
             className="m-0 text-[clamp(32px,4vw,40px)] font-medium leading-[1.08] tracking-[-0.03em] text-ink"
           />
-          <Text as="p" className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+          <Text as="p" className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
             {data.lede}
           </Text>
         </Box>
@@ -74,7 +74,7 @@ export default function ClientsRegions({ data }) {
       </Reveal>
 
       {data.basis && (
-        <Text as="p" className="mt-6 text-[13px] text-ink/60">{data.basis}</Text>
+        <Text as="p" className="mt-6 text-[13px] text-ink-muted">{data.basis}</Text>
       )}
     </Section>
   );

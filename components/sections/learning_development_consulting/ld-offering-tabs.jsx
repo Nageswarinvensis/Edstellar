@@ -109,7 +109,7 @@ export default function LdOfferingTabs({ items, panels }) {
                 >
                   {item.title}
                 </Text>
-                <Text as="span" className="text-[13px] leading-[1.5] text-ink/60">
+                <Text as="span" className="text-[13px] leading-[1.5] text-ink-muted">
                   {item.summary}
                 </Text>
               </Box>

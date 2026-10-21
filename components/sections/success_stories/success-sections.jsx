@@ -57,7 +57,7 @@ export function SuccessClients({ data }) {
   return (
     <Box as="section" aria-label={data.label} className="bg-paper-warm px-5 py-10 lg:px-10">
       <Box className="mx-auto flex max-w-7xl flex-wrap items-center gap-7">
-        <Text as="p" className="flex-none font-mono text-[11px] tracking-[0.16em] text-ink/60 uppercase">
+        <Text as="p" className="flex-none font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
           {data.label}
         </Text>
         <Text as="p" className="sr-only">
@@ -66,7 +66,7 @@ export function SuccessClients({ data }) {
         <Box aria-hidden="true" className="group min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent_0,black_5%,black_95%,transparent_100%)]">
           <Box className="flex w-max animate-[marquee_60s_linear_infinite] items-center gap-13 group-hover:[animation-play-state:paused] motion-reduce:animate-none">
             {[...data.logos, ...data.logos].map((logo, index) => (
-              <img key={index} src={logo.src} alt="" title={logo.description} height={34} loading="lazy" decoding="async" className="block h-8.5 w-auto max-w-37.5 flex-none object-contain" />
+              <img key={index} src={logo.src} alt={logo.name} title={logo.description} height={34} loading="lazy" decoding="async" className="block h-8.5 w-auto max-w-37.5 flex-none object-contain" />
             ))}
           </Box>
         </Box>

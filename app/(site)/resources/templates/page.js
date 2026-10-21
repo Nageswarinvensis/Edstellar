@@ -36,13 +36,13 @@ export default async function TemplatesListingPage() {
       </Reveal>
 
       <Reveal delay={1}>
-        <Text as="p" className="max-w-[64ch] text-ink/60">
+        <Text as="p" className="max-w-[64ch] text-ink-muted">
           Ready-to-use templates for scoping, planning and measuring instructor-led training.
         </Text>
       </Reveal>
 
       {slugs.length === 0 ? (
-        <Text as="p" className="mt-10 font-mono text-[12px] uppercase tracking-[0.16em] text-ink/40">
+        <Text as="p" className="mt-10 font-mono text-[12px] uppercase tracking-[0.16em] text-ink-muted">
           No templates published yet
         </Text>
       ) : null}

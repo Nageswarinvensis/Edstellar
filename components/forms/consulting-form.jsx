@@ -154,7 +154,7 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
             as="p"
             className={cn(
               "mt-4 mb-10 max-w-[64ch] text-[clamp(15px,1.2vw,17px)] leading-[1.7]",
-              dark ? "mx-auto text-center text-white/70" : "text-ink/60",
+              dark ? "mx-auto text-center text-white/70" : "text-ink-muted",
             )}
           >
             {data.description}
@@ -164,7 +164,7 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
 
       <Reveal delay={2}>
         <Box className="overflow-hidden rounded-[22px] border border-ink/12 bg-white shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)]">
-          <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="p-6.5 sm:p-9 lg:p-13">
+          <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="px-4 py-7.5 sm:p-9 lg:p-13">
             <HoneypotField register={register} />
             <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <FormField label="Full name" required error={errors.name?.message}>
@@ -293,7 +293,7 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
 
             <Box className="mt-6.5 flex flex-col items-start gap-4 border-t border-ink/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
               {data.sla_note ? (
-                <Text as="p" className="max-w-[50ch] text-[12.5px] leading-[1.55] text-ink/60">
+                <Text as="p" className="max-w-[50ch] text-[12.5px] leading-[1.55] text-ink-muted">
                   {data.sla_note}
                 </Text>
               ) : null}

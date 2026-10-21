@@ -89,10 +89,10 @@ function CourseGroups({ groups }) {
             <Text as="span" className="flex-1 font-display text-[16.5px] leading-snug font-medium text-ink">
               {group.heading}
             </Text>
-            <Text as="span" className="font-mono text-[11.5px] text-ink/55">
+            <Text as="span" className="font-mono text-[11.5px] text-ink-muted">
               {group.links.length}
             </Text>
-            <ChevronDown size={18} aria-hidden="true" className="flex-none text-ink/50 transition-transform group-open:rotate-180" />
+            <ChevronDown size={18} aria-hidden="true" className="flex-none text-ink-muted transition-transform group-open:rotate-180" />
           </Box>
           <Box className="border-t border-ink/10 px-5 pt-4 pb-5">
             <Box as="ul" className={cn("m-0 list-none columns-1 gap-6 p-0 text-[14px] leading-normal sm:columns-2 [&_li]:mb-2.5 [&_li]:break-inside-avoid", LIST_LINKS)}>

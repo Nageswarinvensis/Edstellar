@@ -29,7 +29,7 @@ export default function HubAbout({ data }) {
               className={cn(
                 index === 0
                   ? "font-serif text-[clamp(21px,2vw,26px)] leading-[1.38] text-ink italic"
-                  : "mt-4.5 text-[16.5px] leading-[1.8] text-ink/60",
+                  : "mt-4.5 text-[16.5px] leading-[1.8] text-ink-muted",
               )}
             >
               <StrongText text={paragraph} />
@@ -43,7 +43,7 @@ export default function HubAbout({ data }) {
                   <Text as="span" className="block font-display text-[26px] leading-[1.2] font-bold tracking-[-0.03em] text-olive">
                     {fact.value}
                   </Text>
-                  <Text as="span" className="text-[13.5px] leading-[1.5] text-ink/60">
+                  <Text as="span" className="text-[13.5px] leading-[1.5] text-ink-muted">
                     {fact.label}
                   </Text>
                 </Box>

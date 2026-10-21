@@ -25,8 +25,8 @@ export default function CoachingConfidentialCompare({ data }) {
   if (!data?.window?.rows?.length) return null;
 
   const { section_id, heading, description, view1, view2, points, window: win } = data;
-  const label1 = view1 ?? "Team\u2019s view";
-  const label2 = view2 ?? "Sponsor\u2019s view";
+  const label1 = view1 || "Team\u2019s view";
+  const label2 = view2 || "Sponsor\u2019s view";
 
   return (
     <Section id={section_id} className="bg-paper-warm">
@@ -44,7 +44,7 @@ export default function CoachingConfidentialCompare({ data }) {
 
           {description ? (
             <Reveal delay={1}>
-              <Text as="p" className="mb-5 max-w-[52ch] text-[clamp(15px,1.1vw,17px)] leading-[1.7] text-ink/60">
+              <Text as="p" className="mb-5 max-w-[52ch] text-[clamp(15px,1.1vw,17px)] leading-[1.7] text-ink-muted">
                 {description}
               </Text>
             </Reveal>
@@ -64,7 +64,7 @@ export default function CoachingConfidentialCompare({ data }) {
                 aria-pressed={!sponsorView}
                 className={cn(
                   "rounded-full px-5 py-2.5 font-display text-[14px] font-semibold transition-colors duration-200 cursor-pointer border-0",
-                  !sponsorView ? "bg-navy text-lime" : "bg-transparent text-ink/50 hover:text-ink",
+                  !sponsorView ? "bg-navy text-lime" : "bg-transparent text-ink-muted hover:text-ink",
                 )}
               >
                 {label1}
@@ -75,7 +75,7 @@ export default function CoachingConfidentialCompare({ data }) {
                 aria-pressed={sponsorView}
                 className={cn(
                   "rounded-full px-5 py-2.5 font-display text-[14px] font-semibold transition-colors duration-200 cursor-pointer border-0",
-                  sponsorView ? "bg-navy text-lime" : "bg-transparent text-ink/50 hover:text-ink",
+                  sponsorView ? "bg-navy text-lime" : "bg-transparent text-ink-muted hover:text-ink",
                 )}
               >
                 {label2}
@@ -89,8 +89,7 @@ export default function CoachingConfidentialCompare({ data }) {
               {points.map((pt, i) => {
                 const Icon = POINT_ICONS[pt.icon] ?? Lock;
                 return (
-                  <Reveal key={pt.title} delay={i + 3}>
-                    <Box as="li" className="flex gap-3.5 text-[14.5px] leading-[1.5] text-ink/60">
+                  <Reveal as="li" key={pt.title} delay={i + 3} className="flex gap-3.5 text-[14.5px] leading-[1.5] text-ink-muted">
                       <Box
                         as="span"
                         aria-hidden="true"
@@ -104,7 +103,6 @@ export default function CoachingConfidentialCompare({ data }) {
                         </Text>
                         {pt.text}
                       </Box>
-                    </Box>
                   </Reveal>
                 );
               })}
@@ -149,7 +147,7 @@ export default function CoachingConfidentialCompare({ data }) {
                     {/* Label — mono uppercase */}
                     <Text
                       as="b"
-                      className="font-mono text-[10.5px] font-normal uppercase tracking-[0.1em] text-ink/50 max-[600px]:col-start-1"
+                      className="font-mono text-[10.5px] font-normal uppercase tracking-[0.1em] text-ink-muted max-[600px]:col-start-1"
                     >
                       {row.label}
                     </Text>

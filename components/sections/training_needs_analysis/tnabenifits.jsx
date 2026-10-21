@@ -52,7 +52,7 @@ export default function Benefits({ id, data }) {
                     key={idx}
                     className="flex items-center gap-3.5 px-6 py-4"
                   >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black/10 text-[12px] text-ink/60">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black/10 text-[12px] text-ink-muted">
                       ✕
                     </span>
                     <Text className="text-sm leading-normal text-ink/70">

@@ -23,7 +23,7 @@ export default function WwsWhy({ data }) {
             heading={data.heading}
             className="m-0 text-[clamp(32px,4vw,40px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink"
           />
-          <Text as="p" className="mt-5 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+          <Text as="p" className="mt-5 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
             {data.lede}
           </Text>
         </Box>
@@ -99,13 +99,13 @@ export default function WwsWhy({ data }) {
               <Text as="b" className="block font-display text-[44px] font-bold leading-none tracking-[-0.03em] text-ink">
                 {tile.big}
               </Text>
-              <Text as="span" className="mb-4 mt-1.5 block border-b border-ink/[0.12] pb-4 text-[14px] text-ink/60">
+              <Text as="span" className="mb-4 mt-1.5 block border-b border-ink/[0.12] pb-4 text-[14px] text-ink-muted">
                 {tile.unit}
               </Text>
               <Text as="h3" className="m-0 mb-1.5 font-display text-[18px] font-bold leading-[1.3] tracking-[-0.01em] text-ink">
                 {tile.heading}
               </Text>
-              <Text as="p" className="m-0 text-[14px] leading-[1.6] text-ink/60">
+              <Text as="p" className="m-0 text-[14px] leading-[1.6] text-ink-muted">
                 {tile.desc}
               </Text>
             </Box>

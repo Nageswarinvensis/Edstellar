@@ -15,7 +15,7 @@ function DecorativeRings() {
       aria-hidden="true"
       className="pointer-events-none absolute right-0 bottom-0 hidden h-full md:block"
     >
-      <img src={DECORATIVE_RINGS_SRC} alt="Decorative concentric rings" className="h-full w-auto object-cover" />
+      <img loading="eager" src={DECORATIVE_RINGS_SRC} alt="Decorative concentric rings" className="h-full w-auto object-cover" />
     </Box>
   );
 }

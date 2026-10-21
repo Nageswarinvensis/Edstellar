@@ -28,7 +28,7 @@ export default function Skills({ skills }) {
       <Reveal delay={2}>
         <Text
           as="p"
-          className="mb-6.5 max-w-[62ch] text-[16.5px] leading-[1.7] text-ink/60"
+          className="mb-6.5 max-w-[62ch] text-[16.5px] leading-[1.7] text-ink-muted"
         >
           {skills.description}
         </Text>
@@ -54,7 +54,7 @@ export default function Skills({ skills }) {
               >
                 {item.title}
               </Text>
-              <Text as="p" className="text-[13.5px] leading-[1.55] text-ink/60">
+              <Text as="p" className="text-[13.5px] leading-[1.55] text-ink-muted">
                 {item.description}
               </Text>
             </Box>

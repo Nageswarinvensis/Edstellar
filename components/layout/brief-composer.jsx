@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 import Box from "@/components/ui/Box";
@@ -9,7 +8,6 @@ import Text from "@/components/ui/Text";
 import CountryPhoneFields, { phoneForSubmit } from "@/components/forms/country-phone-fields";
 import { submitGlobalNavigation } from "@/lib/actions/submit-global-navigation";
 import { BRIEF } from "@/lib/nav-data";
-import { cn } from "@/lib/utils";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -106,7 +104,7 @@ function Slot({ slot, value, open, onToggle, onPick, onClose, idPrefix }) {
         className="group/slot inline-flex cursor-pointer items-center gap-1.5 rounded-t-lg rounded-b border-b-2 border-navy bg-lime-soft px-2.5 py-0.5 leading-snug text-navy transition-shadow duration-200 hover:shadow-[0_1px_2px_rgba(10,22,40,0.07),0_4px_12px_rgba(10,22,40,0.07)]"
       >
         <span className="sr-only">{slot.label}: </span>
-        <span className={empty ? "text-ink/60" : undefined}>{labelFor(slot, value)}</span>
+        <span className={empty ? "text-ink-muted" : undefined}>{labelFor(slot, value)}</span>
         <Chevron open={open} />
       </Box>
       {open && (
@@ -146,36 +144,12 @@ function Slot({ slot, value, open, onToggle, onPick, onClose, idPrefix }) {
   );
 }
 
-const FIELD_INPUT =
-  "w-full rounded-[10px] border border-ink/22 bg-white px-3 py-[9px] font-body text-[14px] text-navy outline-none focus:border-navy focus:shadow-[0_0_0_1px_var(--color-navy),0_0_0_4px_rgba(10,22,40,0.10)] aria-[invalid=true]:border-error aria-[invalid=true]:shadow-[0_0_0_1px_var(--color-error)]";
-
-/** The phone input in this form's field look — `FIELD_INPUT`, as `!`
- * overrides of react-phone-input-2's own styles, room left for the flag. */
-const PHONE_INPUT =
-  "!h-auto !w-full !rounded-[10px] !border-ink/22 !bg-white !py-[9px] !pl-[4.25rem] !pr-3 !font-body !text-[14px] !leading-normal !text-navy focus:!border-navy focus:!shadow-[0_0_0_1px_var(--color-navy),0_0_0_4px_rgba(10,22,40,0.10)] aria-[invalid=true]:!border-error aria-[invalid=true]:!shadow-[0_0_0_1px_var(--color-error)]";
-
-/** `CountryPhoneFields`' wrapper in this form's look: `Field`'s label and
- * error line around the phone input. */
-function PhoneFieldShell({ label, error, className, children }) {
-  return (
-    <Box as="label" className={cn("flex min-w-0 flex-col gap-1.5", className)}>
-      <Text as="span" className="font-body text-[12.5px] font-semibold text-ink">
-        {label}
-      </Text>
-      {children}
-      <Text as="span" role={error ? "alert" : undefined} className="min-h-0 text-right text-[12px] text-error empty:hidden">
-        {error}
-      </Text>
-    </Box>
-  );
-}
-
 function Field({ id, name, label, type = "text", optional, autoComplete, error, onInput }) {
   return (
     <Box className="flex min-w-0 flex-col gap-1.5">
       <label htmlFor={id} className="font-body text-[12.5px] font-semibold text-ink">
         {label}
-        {optional && <span className="font-normal text-ink/60"> (optional)</span>}
+        {optional && <span className="font-normal text-ink-muted"> (optional)</span>}
       </label>
       <input
         id={id}
@@ -185,9 +159,9 @@ function Field({ id, name, label, type = "text", optional, autoComplete, error, 
         aria-invalid={error ? "true" : undefined}
         aria-describedby={`${id}-err`}
         onInput={onInput}
-        className={FIELD_INPUT}
+        className="w-full rounded-[10px] border border-ink/22 bg-white px-3 py-[9px] font-body text-[14px] text-navy outline-none focus:border-navy focus:shadow-[0_0_0_1px_var(--color-navy),0_0_0_4px_rgba(10,22,40,0.10)] aria-[invalid=true]:border-error aria-[invalid=true]:shadow-[0_0_0_1px_var(--color-error)]"
       />
-      <Text as="span" id={`${id}-err`} className="min-h-0 text-right text-[12px] text-error empty:hidden">
+      <Text as="span" id={`${id}-err`} className="min-h-0 text-[12px] text-error empty:hidden">
         {error}
       </Text>
     </Box>
@@ -201,21 +175,21 @@ function Field({ id, name, label, type = "text", optional, autoComplete, error, 
  * on mobile. A valid brief goes to Zoho "GlobalNavigationForm" through the
  * `submitGlobalNavigation` Server Action and the shared lead pipeline
  * (`lib/leads/`): the three sentence choices, the free text as the message,
- * and the contact-us form's international phone field (`CountryPhoneFields`
- * without its country dropdown — this Zoho form has no country), required as
- * Zoho requires it. Once Zoho has the brief the composer closes and the
- * visitor lands on `/thank-you/{thankYou}`.
+ * and the contact-us form's country + international phone fields
+ * (`CountryPhoneFields`, react-hook-form), both required as Zoho requires
+ * them. The thank-you state shows in place once Zoho has the brief.
  */
-export default function BriefComposer({ open, onClose, variant = "desktop", idPrefix = "bd", thankYou = "build-your-brief" }) {
-  const router = useRouter();
+export default function BriefComposer({ open, onClose, variant = "desktop", idPrefix = "bd" }) {
   const pid = (suffix) => `${idPrefix}-${suffix}`;
   const [state, setState] = useState({ service: "", who: "", where: "" });
   const [openSlot, setOpenSlot] = useState(null);
   const [errors, setErrors] = useState({});
   const [alert, setAlert] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [done, setDone] = useState(null);
   const formRef = useRef(null);
-  const phoneForm = useForm({ defaultValues: { phone: "", dialCode: "1" } });
+  const doneRef = useRef(null);
+  const phoneForm = useForm({ defaultValues: { country: "", phone: "", dialCode: "1" } });
 
   useEffect(() => {
     if (!open) {
@@ -229,6 +203,10 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
     return () => document.removeEventListener("keydown", onKey);
   }, [open, onClose, openSlot]);
 
+  useEffect(() => {
+    if (done && doneRef.current) doneRef.current.focus();
+  }, [done]);
+
   // Lock background scroll while the full-screen mobile sheet is open.
   useEffect(() => {
     if (variant !== "mobile" || !open) return undefined;
@@ -239,6 +217,11 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
   }, [variant, open]);
 
   const slot = (k) => BRIEF.slots.find((s) => s.k === k);
+  const sentence = () =>
+    `We need ${labelFor(slot("service"), state.service)} for ${labelFor(
+      slot("who"),
+      state.who,
+    )} in ${labelFor(slot("where"), state.where)}.`;
 
   const pick = (k, v) => {
     setState((s) => ({ ...s, [k]: v }));
@@ -271,19 +254,25 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
     const data = new FormData(formRef.current);
     const next = validate(data);
     setErrors(next);
-    const phoneOk = await phoneForm.trigger("phone");
-    // Each invalid field shows its own message underneath — no summary.
+    const phoneOk = await phoneForm.trigger(["country", "phone"]);
+    const count = Object.keys(next).length + (phoneOk ? 0 : Object.keys(phoneForm.formState.errors).length || 1);
+    if (count) {
+      setAlert(`Please fix ${count === 1 ? "1 field" : `${count} fields`} before sending your brief.`);
+      return;
+    }
     setAlert("");
-    if (Object.keys(next).length || !phoneOk) return;
+    const firstName = String(data.get("name")).trim().split(/\s+/)[0];
+    const finish = () => setDone({ name: firstName, sentence: state.service ? sentence() : "" });
 
     setSubmitting(true);
-    const { phone, dialCode } = phoneForm.getValues();
+    const { country, phone, dialCode } = phoneForm.getValues();
     let result;
     try {
       result = await submitGlobalNavigation({
         name: String(data.get("name") || "").trim(),
         email: String(data.get("email") || "").trim(),
         company: String(data.get("organization") || "").trim(),
+        country,
         phone: phoneForSubmit(phone),
         dialCode,
         briefService: chosen("service"),
@@ -299,23 +288,19 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
     setSubmitting(false);
 
     if (result?.ok) {
-      onClose();
-      router.push(`/thank-you/${thankYou}`);
+      finish();
       return;
     }
     if (result?.errors) {
       // The pipeline's field names → this form's.
       const FIELD = { company: "company", message: "needs", name: "name", email: "email" };
       const mine = {};
-      const unplaced = [];
       for (const [field, msg] of Object.entries(result.errors)) {
-        if (field === "phone") phoneForm.setError(field, { message: msg });
-        else if (FIELD[field]) mine[FIELD[field]] = msg;
-        // No field of its own to show under (e.g. a sentence choice).
-        else unplaced.push(msg);
+        if (field === "country" || field === "phone") phoneForm.setError(field, { message: msg });
+        else mine[FIELD[field] ?? field] = msg;
       }
       setErrors(mine);
-      if (unplaced.length) setAlert(unplaced.join(" "));
+      setAlert("Please check the highlighted fields before sending your brief.");
       return;
     }
     setAlert(
@@ -359,7 +344,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </Box>
-          <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink/60">
+          <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
             Build your brief
           </Text>
           <Text
@@ -375,84 +360,100 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
           </Text>
         </Box>
 
-        <Box as="form" ref={formRef} onSubmit={onSubmit} noValidate className="mt-5 border-t border-ink/12 pt-5">
-          {alert && (
-            <Box role="alert" className="mb-3.5 rounded-[10px] border border-error bg-white px-3 py-2.5 text-[13px] text-error">
-              {alert}
-            </Box>
-          )}
-          {/* Honeypot */}
-          <Box aria-hidden="true" className="absolute left-[-10000px] h-px w-px overflow-hidden">
-            <label htmlFor={pid("website")}>Leave this field empty</label>
-            <input type="text" id={pid("website")} name="website" tabIndex={-1} autoComplete="off" />
-          </Box>
-
+        {done ? (
           <Box
-            className="grid gap-8 max-nav:gap-6"
-            style={isSheet ? undefined : { gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)" }}
+            ref={doneRef}
+            role="status"
+            tabIndex={-1}
+            className="mt-5 rounded-[14px] border border-ink/12 bg-white p-6 outline-none"
           >
-            <Box className="flex min-w-0 flex-col gap-1.5">
-              <label htmlFor={pid("needs")} className="font-body text-[12.5px] font-semibold text-ink">
-                Or describe what you need in your own words
-              </label>
-              <Text as="p" id={pid("needs-hint")} className="-mt-0.5 text-[12px] text-ink/60">
-                Goals, audience, number of people, locations, timelines. Optional if you chose a service above.
-              </Text>
-              <textarea
-                id={pid("needs")}
-                name="requirements"
-                rows={7}
-                maxLength={2000}
-                aria-describedby={`${pid("needs-hint")} ${pid("needs-err")}`}
-                aria-invalid={errors.needs ? "true" : undefined}
-                onInput={clearError("needs")}
-                className="min-h-42 w-full flex-1 resize-y rounded-[10px] border border-ink/22 bg-white px-3 py-2.5 font-body text-[14px] leading-normal text-navy outline-none focus:border-navy focus:shadow-[0_0_0_1px_var(--color-navy),0_0_0_4px_rgba(10,22,40,0.10)] aria-[invalid=true]:border-error aria-[invalid=true]:shadow-[0_0_0_1px_var(--color-error)]"
-              />
-              <Text as="span" id={pid("needs-err")} className="min-h-0 text-right text-[12px] text-error empty:hidden">
-                {errors.needs}
-              </Text>
+            <Text as="h3" className="font-display text-[20px] font-semibold text-navy">
+              Thanks, {done.name}.
+            </Text>
+            <Text as="p" className="mt-2 text-[14px] text-ink-muted">
+              An Edstellar expert will be in touch
+              {done.sentence ? ` about your brief: ${done.sentence}` : " about your brief."}
+            </Text>
+          </Box>
+        ) : (
+          <Box as="form" ref={formRef} onSubmit={onSubmit} noValidate className="mt-5 border-t border-ink/12 pt-5">
+            {alert && (
+              <Box role="alert" className="mb-3.5 rounded-[10px] border border-error bg-white px-3 py-2.5 text-[13px] text-error">
+                {alert}
+              </Box>
+            )}
+            {/* Honeypot */}
+            <Box aria-hidden="true" className="absolute left-[-10000px] h-px w-px overflow-hidden">
+              <label htmlFor={pid("website")}>Leave this field empty</label>
+              <input type="text" id={pid("website")} name="website" tabIndex={-1} autoComplete="off" />
             </Box>
 
-            <Box className="min-w-0 rounded-[14px] border border-ink/12 bg-white p-4.5 max-sm:p-3.5">
-              <Box className="grid grid-cols-2 gap-3 max-[899px]:grid-cols-1">
-                <Field id={pid("name")} name="name" label="Full name" autoComplete="name" error={errors.name} onInput={clearError("name")} />
-                <Field id={pid("email")} name="email" label="Work email" type="email" autoComplete="email" error={errors.email} onInput={clearError("email")} />
-                <Field id={pid("company")} name="organization" label="Organization" autoComplete="organization" error={errors.company} onInput={clearError("company")} />
-                <CountryPhoneFields
-                  form={{
-                    register: phoneForm.register,
-                    control: phoneForm.control,
-                    watch: phoneForm.watch,
-                    setValue: phoneForm.setValue,
-                    errors: phoneForm.formState.errors,
-                  }}
-                  phoneLabel="Phone"
-                  country={false}
-                  renderField={PhoneFieldShell}
-                  phoneInputClassName={PHONE_INPUT}
-                />
-              </Box>
-              <Box className="mt-3.5 flex flex-wrap items-center justify-between gap-3">
-                <Text as="p" className="max-w-80 text-[11.5px] text-ink/60">
-                  Edstellar uses these details to reply to your brief. See the{" "}
-                  <a href={BRIEF.privacyHref} className="text-navy underline underline-offset-[3px]">
-                    privacy policy
-                  </a>
-                  .
+            <Box
+              className="grid gap-8 max-nav:gap-6"
+              style={isSheet ? undefined : { gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)" }}
+            >
+              <Box className="flex min-w-0 flex-col gap-1.5">
+                <label htmlFor={pid("needs")} className="font-body text-[12.5px] font-semibold text-ink">
+                  Or describe what you need in your own words
+                </label>
+                <Text as="p" id={pid("needs-hint")} className="-mt-0.5 text-[12px] text-ink-muted">
+                  Goals, audience, number of people, locations, timelines. Optional if you chose a service above.
                 </Text>
-                <Box
-                  as="button"
-                  type="submit"
-                  disabled={submitting}
-                  className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full bg-navy px-5 py-3 font-body text-[14px] font-semibold text-lime whitespace-nowrap transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(10,22,40,0.07),0_4px_12px_rgba(10,22,40,0.07)] disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  {submitting ? "Sending" : "Send your brief"}
-                  <Arrow />
+                <textarea
+                  id={pid("needs")}
+                  name="requirements"
+                  rows={7}
+                  maxLength={2000}
+                  aria-describedby={`${pid("needs-hint")} ${pid("needs-err")}`}
+                  aria-invalid={errors.needs ? "true" : undefined}
+                  onInput={clearError("needs")}
+                  className="min-h-42 w-full flex-1 resize-y rounded-[10px] border border-ink/22 bg-white px-3 py-2.5 font-body text-[14px] leading-normal text-navy outline-none focus:border-navy focus:shadow-[0_0_0_1px_var(--color-navy),0_0_0_4px_rgba(10,22,40,0.10)] aria-[invalid=true]:border-error aria-[invalid=true]:shadow-[0_0_0_1px_var(--color-error)]"
+                />
+                <Text as="span" id={pid("needs-err")} className="min-h-0 text-[12px] text-error empty:hidden">
+                  {errors.needs}
+                </Text>
+              </Box>
+
+              <Box className="min-w-0 rounded-[14px] border border-ink/12 bg-white p-4.5 max-sm:px-4 max-sm:py-7.5">
+                <Box className="grid grid-cols-2 gap-3 max-[899px]:grid-cols-1">
+                  <Field id={pid("name")} name="name" label="Full name" autoComplete="name" error={errors.name} onInput={clearError("name")} />
+                  <Field id={pid("email")} name="email" label="Work email" type="email" autoComplete="email" error={errors.email} onInput={clearError("email")} />
+                  <Box className="col-span-2 max-[899px]:col-span-1">
+                    <Field id={pid("company")} name="organization" label="Organization" autoComplete="organization" error={errors.company} onInput={clearError("company")} />
+                  </Box>
+                  <CountryPhoneFields
+                    form={{
+                      register: phoneForm.register,
+                      control: phoneForm.control,
+                      watch: phoneForm.watch,
+                      setValue: phoneForm.setValue,
+                      errors: phoneForm.formState.errors,
+                    }}
+                    phoneLabel="Phone"
+                  />
+                </Box>
+                <Box className="mt-3.5 flex flex-wrap items-center justify-between gap-3">
+                  <Text as="p" className="max-w-80 text-[11.5px] text-ink-muted">
+                    Edstellar uses these details to reply to your brief. See the{" "}
+                    <a href={BRIEF.privacyHref} className="text-navy underline underline-offset-[3px]">
+                      privacy policy
+                    </a>
+                    .
+                  </Text>
+                  <Box
+                    as="button"
+                    type="submit"
+                    disabled={submitting}
+                    className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full bg-navy px-5 py-3 font-body text-[14px] font-semibold text-lime whitespace-nowrap transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(10,22,40,0.07),0_4px_12px_rgba(10,22,40,0.07)] disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {submitting ? "Sending" : "Send your brief"}
+                    <Arrow />
+                  </Box>
                 </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
+        )}
       </Box>
     </Box>
   );

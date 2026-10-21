@@ -9,11 +9,10 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import RichHeading from "@/components/common/rich-heading";
 import { CtaButton } from "@/components/common/cta-button";
-import CountryPhoneFields, { HoneypotField, phoneForSubmit } from "@/components/forms/country-phone-fields";
-import { submitRfp } from "@/lib/actions/submit-rfp";
-import { EMAIL_PATTERN, FREE_MAIL_DOMAINS } from "@/lib/constants";
+import { COUNTRY_DIAL_CODES, EMAIL_PATTERN, FREE_MAIL_DOMAINS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+const PHONE_PATTERN = /^[\d\s()+-]{6,20}$/;
 const ACCEPT = [".pdf", ".docx", ".xlsx"];
 const INPUT =
   "w-full rounded-xl border border-ink/20 bg-white px-4 py-3 text-[15px] text-ink outline-none placeholder:text-ink/40 focus:border-navy aria-[invalid=true]:border-red-500";
@@ -24,7 +23,7 @@ function Field({ id, label, optional, hint, error, className, children }) {
   return (
     <Box className={cn("flex flex-col gap-2", className)}>
       <label htmlFor={id} className="text-[14.5px] font-semibold text-ink">
-        {label} {optional ? <Text as="span" className="text-[14px] font-normal text-ink/55">(optional)</Text> : null}
+        {label} {optional ? <Text as="span" className="text-[14px] font-normal text-ink-muted">(optional)</Text> : null}
       </label>
       {children}
       {error ? (
@@ -32,7 +31,7 @@ function Field({ id, label, optional, hint, error, className, children }) {
           {error}
         </Text>
       ) : hint ? (
-        <Text as="span" className="text-[12.5px] text-ink/55">
+        <Text as="span" className="text-[12.5px] text-ink-muted">
           {hint}
         </Text>
       ) : null}
@@ -74,7 +73,7 @@ function Part({ number, title, children }) {
     <Box as="fieldset" className="m-0 border-0 border-b border-ink/12 p-0 pb-9 not-first:pt-9 last:border-b-0">
       <legend className="sr-only">{title}</legend>
       <Text as="p" aria-hidden="true" className="mb-6 flex items-baseline gap-3 font-display text-[21px] font-semibold text-ink">
-        <Text as="span" className="font-mono text-[11px] text-ink/50">
+        <Text as="span" className="font-mono text-[11px] text-ink-muted">
           {pad(number)}
         </Text>
         {title}
@@ -89,10 +88,8 @@ function Part({ number, title, children }) {
  * files and links, before you send) beside the "After you submit" panel.
  * Documents can be dropped or browsed: PDF, DOCX or XLSX, up to
  * `files.max_files` files and `files.max_mb` MB in total, checked here.
- * Sent with the documents to Zoho's "RequestForProposal" form through the
- * `submitRfp` Server Action and the shared lead pipeline (`lib/leads/`); on
- * success the visitor lands on `/thank-you/{thankYou}`. A field the server
- * rejects shows under that field, anything else above the button.
+ * Like the site's other forms there is no endpoint yet; a valid submit goes
+ * to the thank-you page.
  * Design: request-for-proposal `#submit`, `.f2-form`.
  */
 export default function RfpForm({ data, thankYou = "consulting" }) {
@@ -100,16 +97,11 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
   const [files, setFiles] = useState([]);
   const [fileError, setFileError] = useState("");
   const [dragging, setDragging] = useState(false);
-  const [submitError, setSubmitError] = useState("");
   const {
     register,
-    control,
     handleSubmit,
-    watch,
-    setValue,
-    setError,
     formState: { errors, isSubmitting },
-  } = useForm({ defaultValues: { country: "", phone: "", dialCode: "1" } });
+  } = useForm();
 
   function addFiles(list) {
     const incoming = [...list];
@@ -123,43 +115,12 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
     setFiles(next);
   }
 
-  async function onSubmit(values) {
-    setSubmitError("");
-    let result;
-    try {
-      result = await submitRfp({
-        ...values,
-        services: [values.services ?? []].flat().filter(Boolean),
-        phone: phoneForSubmit(values.phone),
-        files,
-        page: window.location.pathname,
-        thankYou,
-      });
-    } catch {
-      result = null;
-    }
-
-    if (result?.ok) {
-      router.push(`/thank-you/${thankYou}`);
-      return;
-    }
-    if (result?.errors) {
-      const { files: filesError, ...fieldErrors } = result.errors;
-      if (filesError) setFileError(filesError);
-      for (const [field, message] of Object.entries(fieldErrors)) setError(field, { message });
-      return;
-    }
-    setSubmitError(
-      result?.error ||
-        "We could not submit your RFP. Please try again, or email us at contact@edstellar.com.",
-    );
-  }
+  const onSubmit = () => router.push(`/thank-you/${thankYou}`);
   const required = (message) => ({ required: message });
 
   return (
     <Box className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1.65fr_1fr]">
-      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="relative rounded-[20px] border border-ink/12 bg-white p-6.5 shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)] sm:p-10">
-        <HoneypotField register={register} />
+      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="rounded-[20px] border border-ink/12 bg-white px-4 py-7.5 shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)] sm:p-10">
         <Part number={1} title="About you">
           <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <Field id="rfp-name" label="Full name" error={errors.name?.message}>
@@ -183,12 +144,25 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
             <Field id="rfp-company" label="Company" error={errors.company?.message}>
               <input id="rfp-company" {...register("company", required("Please enter your company."))} autoComplete="organization" placeholder="Company name" aria-invalid={Boolean(errors.company)} className={INPUT} />
             </Field>
-            <Field id="rfp-title" label="Job title" error={errors.jobTitle?.message}>
-              <input id="rfp-title" {...register("jobTitle", required("Please enter your job title."))} autoComplete="organization-title" placeholder="Your role" aria-invalid={Boolean(errors.jobTitle)} className={INPUT} />
+            <Field id="rfp-title" label="Job title" error={errors.job_title?.message}>
+              <input id="rfp-title" {...register("job_title", required("Please enter your job title."))} autoComplete="organization-title" placeholder="Your role" aria-invalid={Boolean(errors.job_title)} className={INPUT} />
             </Field>
-            <CountryPhoneFields form={{ register, control, watch, setValue, errors }} phoneLabel="Phone" />
-            <Field id="rfp-org" label="Organization type" optional error={errors.orgType?.message} className="sm:col-span-2">
-              <Select id="rfp-org" registration={register("orgType")} placeholder="Select type" options={data.org_types} />
+            <Field id="rfp-country" label="Country" error={errors.country?.message}>
+              <Select id="rfp-country" registration={register("country", required("Please select your country."))} placeholder="Select country" options={COUNTRY_DIAL_CODES.map((c) => c.name)} invalid={Boolean(errors.country)} />
+            </Field>
+            <Field id="rfp-phone" label="Phone" hint="Include the country code" error={errors.phone?.message}>
+              <input
+                id="rfp-phone"
+                type="tel"
+                {...register("phone", { required: "Please enter your phone number.", pattern: { value: PHONE_PATTERN, message: "Please enter a valid phone number." } })}
+                autoComplete="tel"
+                placeholder="+65 6123 4567"
+                aria-invalid={Boolean(errors.phone)}
+                className={INPUT}
+              />
+            </Field>
+            <Field id="rfp-org" label="Organization type" optional className="sm:col-span-2">
+              <Select id="rfp-org" registration={register("org_type")} placeholder="Select type" options={data.org_types} />
             </Field>
           </Box>
         </Part>
@@ -201,12 +175,12 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
               </Text>
               <Box className="flex flex-wrap gap-2">
                 {data.doc_types.map((type) => (
-                  <Pill key={type} type="radio" value={type} label={type} registration={register("docType", required("Please choose the document type."))} />
+                  <Pill key={type} type="radio" value={type} label={type} registration={register("doc_type", required("Please choose the document type."))} />
                 ))}
               </Box>
-              {errors.docType ? (
+              {errors.doc_type ? (
                 <Text as="p" role="alert" className="mt-2 text-[12.5px] text-red-600">
-                  {errors.docType.message}
+                  {errors.doc_type.message}
                 </Text>
               ) : null}
             </Box>
@@ -220,7 +194,7 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
             </Box>
             <Box role="group" aria-label="Services in scope">
               <Text as="p" className="mb-2.5 text-[14.5px] font-semibold text-ink">
-                Services in scope <Text as="span" className="text-[14px] font-normal text-ink/55">(choose all that apply)</Text>
+                Services in scope <Text as="span" className="text-[14px] font-normal text-ink-muted">(choose all that apply)</Text>
               </Text>
               <Box className="flex flex-wrap gap-2">
                 {data.services.map((service) => (
@@ -233,8 +207,8 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
                 </Text>
               ) : null}
             </Box>
-            <Field id="rfp-countries" label="Delivery countries" error={errors.deliveryCountries?.message}>
-              <input id="rfp-countries" {...register("deliveryCountries", required("Please list the delivery countries."))} placeholder="Every country where training will run" aria-invalid={Boolean(errors.deliveryCountries)} className={INPUT} />
+            <Field id="rfp-countries" label="Delivery countries" error={errors.delivery_countries?.message}>
+              <input id="rfp-countries" {...register("delivery_countries", required("Please list the delivery countries."))} placeholder="Every country where training will run" aria-invalid={Boolean(errors.delivery_countries)} className={INPUT} />
             </Field>
           </Box>
         </Part>
@@ -260,7 +234,7 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
               <Text as="p" className="font-display text-[16px] font-semibold text-ink">
                 {data.files.title}
               </Text>
-              <Text as="p" className="text-[13.5px] text-ink/60">
+              <Text as="p" className="text-[13.5px] text-ink-muted">
                 {data.files.hint}
               </Text>
             </Box>
@@ -303,25 +277,40 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
               ))}
             </Box>
           ) : null}
-          <Field id="rfp-portal" label="Portal or tender link" optional error={errors.portalLink?.message} className="mt-5">
-            <input id="rfp-portal" type="url" {...register("portalLink")} placeholder="https://" className={INPUT} />
+          <Field id="rfp-portal" label="Portal or tender link" optional className="mt-5">
+            <input id="rfp-portal" type="url" {...register("portal_link")} placeholder="https://" className={INPUT} />
           </Field>
         </Part>
 
         <Part number={4} title="Before you send">
-          <Field id="rfp-msg" label="Anything else Edstellar should know" optional error={errors.message?.message}>
+          <Field id="rfp-msg" label="Anything else Edstellar should know" optional>
             <textarea id="rfp-msg" rows={4} {...register("message")} placeholder="Evaluation criteria, documents you need, key dates" className={cn(INPUT, "resize-y")} />
           </Field>
-          {submitError ? (
-            <Text as="p" role="alert" className="mt-6 text-[13px] leading-[1.5] text-red-600">
-              {submitError}
-            </Text>
-          ) : null}
+          <Box className="mt-5 flex flex-col gap-3 text-[14.5px] text-ink">
+            <label className="flex items-start gap-3">
+              <input type="checkbox" {...register("nda_required")} className="mt-0.5 size-4.5 flex-none accent-navy" />
+              An NDA is required before we share full details
+            </label>
+            <label className="flex items-start gap-3">
+              <input type="checkbox" {...register("privacy_consent", { required: true })} aria-invalid={Boolean(errors.privacy_consent)} className="mt-0.5 size-4.5 flex-none accent-navy" />
+              <Text as="span" className={cn("text-[14.5px]", errors.privacy_consent ? "text-red-600" : "text-ink")}>
+                I agree to Edstellar&apos;s{" "}
+                <a href="/privacy-policy" target="_blank" rel="noopener" className="underline">
+                  privacy notice
+                </a>
+                . <Text as="span" className="text-[14px] text-ink-muted">(required)</Text>
+              </Text>
+            </label>
+            <label className="flex items-start gap-3">
+              <input type="checkbox" {...register("marketing_consent")} className="mt-0.5 size-4.5 flex-none accent-navy" />
+              Send me occasional updates on Edstellar programs
+            </label>
+          </Box>
           <Box className="mt-7 flex flex-wrap items-center gap-4">
             <CtaButton type="submit" arrow disabled={isSubmitting}>
-              {isSubmitting ? "Submitting…" : data.submit_label}
+              {data.submit_label}
             </CtaButton>
-            <Text as="p" className="text-[13.5px] text-ink/60">
+            <Text as="p" className="text-[13.5px] text-ink-muted">
               {data.submit_note}
             </Text>
           </Box>

@@ -89,7 +89,7 @@ export default function LeadershipRetreatForm({ data, id = "contact", thankYou =
           as="form"
           noValidate
           onSubmit={handleSubmit(onSubmit)}
-          className="relative rounded-[18px] bg-white p-6.5 sm:p-10"
+          className="relative rounded-[18px] bg-white px-4 py-7.5 sm:p-10"
         >
           <HoneypotField register={register} />
 

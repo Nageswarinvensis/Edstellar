@@ -36,7 +36,7 @@ export default function ContactReach({ data, form }) {
                 title={`Click Here to Call Edstellar ${phone.region}`}
                 className="flex items-center gap-3.5 rounded-[10px] border border-ink/12 bg-white px-4.5 py-3.5 text-ink transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(10,22,40,0.08)]"
               >
-                <Text as="span" className="w-12 flex-none font-mono text-[11px] tracking-[0.1em] text-ink/60 uppercase">
+                <Text as="span" className="w-12 flex-none font-mono text-[11px] tracking-[0.1em] text-ink-muted uppercase">
                   {phone.region}
                 </Text>
                 <Text as="span" className="text-base font-medium text-ink">
@@ -52,7 +52,7 @@ export default function ContactReach({ data, form }) {
                 key={office.name}
                 className="rounded-[14px] border border-l-3 border-ink/12 border-l-lime bg-paper-warm p-8"
               >
-                <Text as="span" className="mb-2 block font-mono text-[11px] tracking-[0.12em] text-ink/60 uppercase">
+                <Text as="span" className="mb-2 block font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">
                   {office.label}
                 </Text>
                 <Text as="h3" className="mb-1.5 text-base leading-[1.3] font-medium tracking-normal">
@@ -61,7 +61,7 @@ export default function ContactReach({ data, form }) {
                 <Box as="address" className="text-[15px] leading-[1.6] text-ink not-italic">
                   {office.address}
                   <br />
-                  <a href={`tel:${office.phone.tel}`} title={`Click Here to Call ${office.name}`} className="font-mono text-[13px] text-ink/60 hover:text-ink">
+                  <a href={`tel:${office.phone.tel}`} title={`Click Here to Call ${office.name}`} className="font-mono text-[13px] text-ink-muted hover:text-ink">
                     {office.phone.label}
                   </a>
                 </Box>

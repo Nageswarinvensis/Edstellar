@@ -97,9 +97,9 @@ export default function BlogDetailHero({
             <Reveal delay={2}>
               <Box className="mt-7.5 flex flex-wrap items-center gap-3.5 border-t border-paper/14 pt-5.5">
                 {authorAvatar ? (
-                  <img
+                  <img loading="eager"
                     src={authorAvatar}
-                    alt={authorName || ""}
+                    alt={authorName || "Blog author"}
                     width={44}
                     height={44}
                     className="size-11 flex-none rounded-full bg-navy-soft object-cover"

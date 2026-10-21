@@ -76,7 +76,7 @@ function BundleCard({ bundle, onOpen }) {
         {imageSrc ? (
           <img
             src={imageSrc}
-            alt={bundle.image_alt || bundle.name || ""}
+            alt={bundle.image_alt || bundle.name || "Edstellar training bundle"}
             width={800}
             height={450}
             loading="lazy"
@@ -511,6 +511,20 @@ export default function Bundles({ data: bundlesData, courses }) {
             {shownBundles.map((bundle) => (
               <Box as="li" key={bundle.name} className="h-full">
                 <BundleCard bundle={bundle} onOpen={setOpenBundle} />
+                {/* The drawer mounts only when opened, so the bundle's
+                    programs are also listed here, `hidden`, to keep them in
+                    the server HTML. Beside the card, not in it: the card is a
+                    button and cannot contain links. */}
+                {bundle.programs?.length ? (
+                  <Box as="ul" hidden aria-label={`${bundle.name} programs`}>
+                    {bundle.programs.map((program) => (
+                      <li key={program.number || program.title}>
+                        <a href={courseUrl(program.href)}>{program.title}</a>
+                        {program.description ? <Text as="p">{program.description}</Text> : null}
+                      </li>
+                    ))}
+                  </Box>
+                ) : null}
               </Box>
             ))}
           </Box>

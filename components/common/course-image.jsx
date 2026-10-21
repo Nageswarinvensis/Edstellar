@@ -8,9 +8,9 @@ import { DEFAULT_COURSE_IMAGE } from "@/lib/constants";
  * A course card's image: the CMS's own image when it sends one, otherwise
  * `DEFAULT_COURSE_IMAGE`. If the CMS image fails to load (e.g. a path that
  * does not exist), it swaps to the default once — so a card never shows a
- * broken-image icon. Takes plain `<img>` props.
+ * broken-image icon. Takes plain `<img>` props; lazy-loaded unless a caller passes `loading`.
  */
-export default function CourseImage({ src, alt = "", ...props }) {
+export default function CourseImage({ src, alt = "Edstellar corporate training course", ...props }) {
   const ref = useRef(null);
   const [failed, setFailed] = useState(false);
   const imageSrc = !src || failed ? DEFAULT_COURSE_IMAGE : src;
@@ -26,7 +26,7 @@ export default function CourseImage({ src, alt = "", ...props }) {
   }, [imageSrc]);
 
   return (
-    <img
+    <img decoding="async" loading="lazy"
       {...props}
       ref={ref}
       src={imageSrc}

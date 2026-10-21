@@ -42,10 +42,10 @@ export default function DeliveryTabs({ data }) {
             onClick={() => setActive(index)}
             className={cn(
               "flex cursor-pointer items-center gap-3 border-ink/12 px-4 py-5 text-left font-display text-[clamp(15px,1.5vw,19px)] font-semibold transition-colors not-last:border-r sm:px-7",
-              active === index ? "bg-navy text-paper" : "text-ink/60 hover:text-ink",
+              active === index ? "bg-navy text-paper" : "text-ink-muted hover:text-ink",
             )}
           >
-            <Text as="span" className={cn("font-mono text-[11px]", active === index ? "text-lime" : "text-ink/50")}>
+            <Text as="span" className={cn("font-mono text-[11px]", active === index ? "text-lime" : "text-ink-muted")}>
               {pad(index + 1)}
             </Text>
             {item.tab}
@@ -76,7 +76,7 @@ export default function DeliveryTabs({ data }) {
                 [data.labels.planning, item.planning],
               ].map(([label, value]) => (
                 <Box key={label} className="border-b border-ink/12 py-3.5">
-                  <dt className="font-mono text-[11px] tracking-[0.14em] text-ink/60 uppercase">{label}</dt>
+                  <dt className="font-mono text-[11px] tracking-[0.14em] text-ink-muted uppercase">{label}</dt>
                   <dd className="m-0 mt-1 text-[15.5px] text-ink">{value}</dd>
                 </Box>
               ))}

@@ -46,7 +46,7 @@ export default function SolveTabs({ data }) {
               active === index ? "border-navy bg-navy text-paper" : "border-ink/12 bg-white text-ink hover:border-ink/30",
             )}
           >
-            <Text as="span" className={cn("block font-mono text-[10px] tracking-[0.14em] uppercase", active === index ? "text-paper/60" : "text-ink/50")}>
+            <Text as="span" className={cn("block font-mono text-[10px] tracking-[0.14em] uppercase", active === index ? "text-paper/60" : "text-ink-muted")}>
               {segment.stage}
             </Text>
             <Text as="span" className={cn("mt-1 block font-display text-[15px] font-semibold", active === index ? "text-paper" : "text-ink")}>
@@ -77,9 +77,9 @@ export default function SolveTabs({ data }) {
               {segment.problem}
             </Text>
           </Box>
-          <ArrowRight aria-hidden="true" size={26} className="mx-auto rotate-90 text-ink/50 lg:rotate-0" />
+          <ArrowRight aria-hidden="true" size={26} className="mx-auto rotate-90 text-ink-muted lg:rotate-0" />
           <Box className="rounded-[18px] border border-ink/12 bg-white px-7 py-6">
-            <Text as="p" className="mb-2.5 font-mono text-[11px] tracking-[0.14em] text-ink/55 uppercase">
+            <Text as="p" className="mb-2.5 font-mono text-[11px] tracking-[0.14em] text-ink-muted uppercase">
               {data.solution_label}
             </Text>
             <Text as="p" className="text-[16.5px] leading-[1.6] text-ink">

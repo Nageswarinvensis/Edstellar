@@ -10,7 +10,7 @@ import HomeSectionHead from "@/components/sections/home/home-section-head";
 
 function PinIcon() {
   return (
-    <svg viewBox="0 0 16 16" aria-hidden="true" className="size-3.5 shrink-0 text-ink/45">
+    <svg viewBox="0 0 16 16" aria-hidden="true" className="size-3.5 shrink-0 text-ink-muted">
       <path d="M8 15s5-4.6 5-8.5A5 5 0 0 0 3 6.5C3 10.4 8 15 8 15z" fill="none" stroke="currentColor" strokeWidth="1.4" />
       <circle cx="8" cy="6.5" r="1.8" fill="currentColor" />
     </svg>
@@ -19,7 +19,7 @@ function PinIcon() {
 
 function CalIcon() {
   return (
-    <svg viewBox="0 0 16 16" aria-hidden="true" className="size-3.5 shrink-0 text-ink/45">
+    <svg viewBox="0 0 16 16" aria-hidden="true" className="size-3.5 shrink-0 text-ink-muted">
       <rect x="2" y="3" width="12" height="11" rx="2" fill="none" stroke="currentColor" strokeWidth="1.4" />
       <path d="M2 7h12M5 1.5v3M11 1.5v3" stroke="currentColor" strokeWidth="1.4" />
     </svg>
@@ -39,7 +39,7 @@ export default function HomeWhy({ data }) {
         {data.items.map((item, i) => (
           <Reveal key={item.num} delay={i} role="listitem" className="flex flex-col gap-4 border-r border-ink/22 px-9 pb-14 pt-12 last:border-r-0 max-md:border-b max-md:border-r-0 max-md:last:border-b-0">
             <span className="h-1 w-8 bg-lime" aria-hidden="true" />
-            <Text as="div" aria-hidden="true" className="font-serif text-2xl italic text-ink/40">{item.num}</Text>
+            <Text as="div" aria-hidden="true" className="font-serif text-2xl italic text-ink-muted">{item.num}</Text>
             <RichHeading as="h3" heading={item.title} className="font-serif text-[26px] font-normal leading-[1.12] text-ink" />
             <Text as="p" className="m-0 text-sm leading-[1.6] text-ink/65">{item.desc}</Text>
           </Reveal>
@@ -48,7 +48,7 @@ export default function HomeWhy({ data }) {
 
       {experts?.trainers?.length ? (
         <Reveal className="mt-[72px]">
-          <Text as="p" className="mb-6 font-mono text-[11px] uppercase tracking-[0.16em] text-ink/60">
+          <Text as="p" className="mb-6 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted">
             {experts.note}
           </Text>
 
@@ -61,7 +61,7 @@ export default function HomeWhy({ data }) {
                   </Box>
                   <Text as="b" className="font-display text-base font-medium text-ink">{t.name}</Text>
                   <Text as="span" className="text-[13px] leading-snug text-ink/65">{t.role}</Text>
-                  <Box className="mt-1 flex flex-col gap-1 font-mono text-[10px] uppercase tracking-[0.08em] text-ink/60">
+                  <Box className="mt-1 flex flex-col gap-1 font-mono text-[10px] uppercase tracking-[0.08em] text-ink-muted">
                     <span className="inline-flex items-center gap-1.5"><PinIcon />{t.location}</span>
                     <span className="inline-flex items-center gap-1.5"><CalIcon />Trainer since {t.since}</span>
                   </Box>

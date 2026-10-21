@@ -24,7 +24,7 @@ export function RailEyebrow({ children, className }) {
     <Text
       as="span"
       className={cn(
-        "block font-mono text-[10px] font-medium uppercase leading-[1.6] tracking-[0.14em] text-ink/60",
+        "block font-mono text-[10px] font-medium uppercase leading-[1.6] tracking-[0.14em] text-ink-muted",
         className,
       )}
     >
@@ -55,7 +55,7 @@ export function RailSub({ children, className }) {
   return (
     <Text
       as="p"
-      className={cn("mt-2 text-[13px] leading-[1.55] text-ink/60", className)}
+      className={cn("mt-2 text-[13px] leading-[1.55] text-ink-muted", className)}
     >
       {children}
     </Text>

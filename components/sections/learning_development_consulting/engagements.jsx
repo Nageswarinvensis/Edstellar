@@ -39,7 +39,7 @@ export default function Engagements({ data }) {
             {content.show_subheading !== false && content.subheading && (
               <Text
                 as="p"
-                className="mt-3.5 text-sm sm:text-base text-ink/60 leading-relaxed font-normal"
+                className="mt-3.5 text-sm sm:text-base text-ink-muted leading-relaxed font-normal"
                 dangerouslySetInnerHTML={{ __html: content.subheading }}
               />
             )}

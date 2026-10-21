@@ -39,7 +39,7 @@ export default function HubPicks({ data }) {
                   <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
                 </Box>
                 <Box>
-                  <Text as="span" className="block font-mono text-[10.5px] leading-[1.5] tracking-[0.16em] text-ink/45 uppercase">
+                  <Text as="span" className="block font-mono text-[10.5px] leading-[1.5] tracking-[0.16em] text-ink-muted uppercase">
                     {item.kind}
                   </Text>
                   <Text as="h3" className="mt-1.5 mb-4 text-[17px] leading-[1.35] font-medium tracking-[-0.02em]">

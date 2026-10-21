@@ -43,7 +43,7 @@ export function TemplateHero({ template, breadcrumbs }) {
           {hero.image ? (
             <Reveal delay={1}>
               <Box className="rounded-[22px] border border-paper/12 bg-[linear-gradient(160deg,var(--color-navy-soft),var(--color-navy-deep))] p-4.5 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.7)]">
-                <img
+                <img loading="eager"
                   src={hero.image.src}
                   alt={hero.image.alt}
                   width={hero.image.width}
@@ -170,7 +170,7 @@ function Benefits({ data }) {
             as="h3"
             className={cn(
               "mb-4 flex items-center gap-2.5 font-mono text-[11px] leading-none tracking-[0.2em] uppercase before:h-0.5 before:w-5.5 before:bg-lime before:content-['']",
-              group.dark ? "text-paper/60" : "text-ink/60",
+              group.dark ? "text-paper/60" : "text-ink-muted",
             )}
           >
             {group.title}

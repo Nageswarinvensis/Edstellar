@@ -104,7 +104,7 @@ export default function OurReach({ trainer, data }) {
 
               <Box className="mt-4.5 flex items-start gap-2 border-t border-[#f1f5f9] pt-4.5 text-xs text-[#64748b]">
                 <svg
-                  className="mt-1.5 h-4 w-4 shrink-0 text-[#94a3b8]"
+                  className="mt-1.5 h-4 w-4 shrink-0 text-ink-muted"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -169,7 +169,7 @@ export default function OurReach({ trainer, data }) {
               <Box className="mt-4.5 border-t border-[#f1f5f9] pt-4.5">
                 <Box className="flex items-start gap-2 text-xs text-ink-muted">
                   <svg
-                    className="mt-1.5 h-4 w-4 shrink-0 text-[#94a3b8]"
+                    className="mt-1.5 h-4 w-4 shrink-0 text-ink-muted"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

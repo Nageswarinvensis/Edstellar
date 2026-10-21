@@ -63,7 +63,7 @@ export default function MaturityModel({ data }) {
         </Reveal>
         {lede ? (
           <Reveal delay={1}>
-            <Text as="p" className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60">
+            <Text as="p" className="mt-4 max-w-[64ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted">
               {lede}
             </Text>
           </Reveal>
@@ -74,7 +74,7 @@ export default function MaturityModel({ data }) {
         <Box className="no-scrollbar overflow-x-auto pb-1">
           <Box className="mx-auto min-w-165 max-w-250">
             {axis ? (
-              <Text as="p" className="mb-3 font-mono text-[10px] uppercase tracking-[0.1em] text-ink/60">
+              <Text as="p" className="mb-3 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted">
                 {axis}
               </Text>
             ) : null}
@@ -107,7 +107,7 @@ export default function MaturityModel({ data }) {
                     <Box
                       as="li"
                       key={point}
-                      className="relative pl-4 text-[12.5px] leading-[1.4] text-ink/60 before:absolute before:left-0 before:top-[7px] before:size-1.5 before:rounded-full before:bg-lime"
+                      className="relative pl-4 text-[12.5px] leading-[1.4] text-ink-muted before:absolute before:left-0 before:top-[7px] before:size-1.5 before:rounded-full before:bg-lime"
                     >
                       {point}
                     </Box>
@@ -131,7 +131,7 @@ export default function MaturityModel({ data }) {
         <Box as="details" className="group mx-auto mt-4 max-w-225">
           <Box
             as="summary"
-            className="flex cursor-pointer list-none justify-end text-[14px] text-ink/60 [&::-webkit-details-marker]:hidden"
+            className="flex cursor-pointer list-none justify-end text-[14px] text-ink-muted [&::-webkit-details-marker]:hidden"
           >
             <Text as="span" className="border-b border-lime pb-px group-open:hidden">
               Read more…
@@ -164,7 +164,7 @@ export default function MaturityModel({ data }) {
                       <Text as="h3" className="mb-1.25 font-display text-[15px] font-medium tracking-[-0.01em] text-ink">
                         {name}
                       </Text>
-                      <Text as="p" className="text-[14.5px] leading-[1.65] text-ink/60">
+                      <Text as="p" className="text-[14.5px] leading-[1.65] text-ink-muted">
                         {level.description}
                       </Text>
                     </Box>
@@ -176,7 +176,7 @@ export default function MaturityModel({ data }) {
             {moreImpact ? (
               <Text
                 as="p"
-                className="border-t border-ink/12 pt-5 text-[14.5px] leading-[1.65] text-ink/60 [&_b]:font-semibold [&_b]:text-ink"
+                className="border-t border-ink/12 pt-5 text-[14.5px] leading-[1.65] text-ink-muted [&_b]:font-semibold [&_b]:text-ink"
                 dangerouslySetInnerHTML={{ __html: moreImpact }}
               />
             ) : null}

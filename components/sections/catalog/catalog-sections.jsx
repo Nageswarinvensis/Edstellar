@@ -52,7 +52,7 @@ export function CatalogHero({ data, breadcrumbs }) {
           </Box>
         </Reveal>
         <Reveal delay={1}>
-          <img
+          <img loading="eager"
             src={data.image.src}
             alt={data.image.alt}
             width={data.image.width}

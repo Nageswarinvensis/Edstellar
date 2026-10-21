@@ -37,7 +37,7 @@ export default function TnaCardGrid({ id, data, columns = 4, background = "paper
           <Reveal delay={1}>
             <Text
               as="p"
-              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink/60 hyphens-none"
+              className="mt-4 max-w-[60ch] text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-ink-muted hyphens-none"
             >
               {description}
             </Text>
@@ -56,7 +56,7 @@ export default function TnaCardGrid({ id, data, columns = 4, background = "paper
                 {item.title}
               </Text>
 
-              <Text as="p" className="text-[15px] leading-[1.7] text-ink/60 hyphens-none">
+              <Text as="p" className="text-[15px] leading-[1.7] text-ink-muted hyphens-none">
                 {item.description}
               </Text>
             </Box>

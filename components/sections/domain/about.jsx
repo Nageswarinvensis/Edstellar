@@ -86,7 +86,7 @@ function CategoryAbout({ about }) {
                       className={[
                         "mb-3.5 font-mono text-[10px] font-normal tracking-[0.14em] uppercase",
                         index === 0
-                          ? "text-ink/60"
+                          ? "text-ink-muted"
                           : "rounded bg-lime/10 px-2 py-1 text-ink",
                       ].join(" ")}
                     >

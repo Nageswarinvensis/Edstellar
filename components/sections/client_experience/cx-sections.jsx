@@ -72,7 +72,7 @@ export function CxHero({ data, facts, breadcrumbs }) {
         <Box as="dl" className="mx-auto my-0 grid max-w-7xl grid-cols-2 gap-y-6 lg:grid-cols-4">
           {facts.map((fact) => (
             <Box key={fact.label} className="flex flex-col-reverse border-ink/12 pr-6 lg:border-l lg:pl-6 lg:first:border-l-0 lg:first:pl-0">
-              <dt className="mt-1.5 text-[14px] leading-snug text-ink/60">{fact.label}</dt>
+              <dt className="mt-1.5 text-[14px] leading-snug text-ink-muted">{fact.label}</dt>
               <dd className="m-0 font-display text-[clamp(22px,2.2vw,28px)] leading-none font-semibold text-ink">{fact.value}</dd>
             </Box>
           ))}
@@ -104,12 +104,12 @@ export function CxTeam({ data }) {
       <Head id="team" data={data} />
       <Reveal className="overflow-hidden rounded-[16px] border border-ink/12 bg-white">
         <Box aria-hidden="true" className="hidden grid-cols-[280px_repeat(4,1fr)] border-b border-ink/12 bg-paper-warm lg:grid">
-          <Text as="span" className="px-6 py-4.5 font-mono text-[11px] tracking-[0.14em] text-ink/60 uppercase">
+          <Text as="span" className="px-6 py-4.5 font-mono text-[11px] tracking-[0.14em] text-ink-muted uppercase">
             {data.who_label}
           </Text>
           {data.steps.map((step, index) => (
             <Text as="span" key={step} className="border-l border-ink/12 px-6 py-4.5 font-display text-[16px] font-semibold text-ink">
-              <Text as="span" className="mr-2 font-mono text-[11px] text-ink/50">
+              <Text as="span" className="mr-2 font-mono text-[11px] text-ink-muted">
                 {pad(index + 1)}
               </Text>
               {step}
@@ -127,7 +127,7 @@ export function CxTeam({ data }) {
                 <Text as="span" className="block font-display text-[16.5px] font-semibold text-ink">
                   {role.name}
                 </Text>
-                <Text as="span" className="mt-0.5 block text-[14px] text-ink/60">
+                <Text as="span" className="mt-0.5 block text-[14px] text-ink-muted">
                   {role.note}
                 </Text>
               </Box>
@@ -200,7 +200,7 @@ export function CxDelivery({ data }) {
         <Reveal className="rounded-[18px] border border-ink/12 bg-white p-8">
           <CardHead icon={trainer.icon} title={trainer.title} text={trainer.text} />
           <Box className="flex flex-wrap items-center gap-2">
-            <Text as="span" className="mr-2 font-mono text-[11px] tracking-[0.14em] text-ink/60 uppercase">
+            <Text as="span" className="mr-2 font-mono text-[11px] tracking-[0.14em] text-ink-muted uppercase">
               {trainer.brief_label}
             </Text>
             {trainer.brief.map((item) => (
@@ -209,7 +209,7 @@ export function CxDelivery({ data }) {
               </Text>
             ))}
           </Box>
-          <ArrowDown size={22} aria-hidden="true" className="mx-auto my-3 text-ink/40" />
+          <ArrowDown size={22} aria-hidden="true" className="mx-auto my-3 text-ink-muted" />
           <Box className="overflow-hidden rounded-[14px] border border-ink/15">
             <Box className="flex items-center gap-4 px-6 py-4.5">
               <Box as="span" className="grid size-10 place-items-center rounded-full bg-paper-warm text-ink">
@@ -219,7 +219,7 @@ export function CxDelivery({ data }) {
                 <Text as="span" className="block font-display text-[16.5px] font-semibold text-ink">
                   {trainer.profile.title}
                 </Text>
-                <Text as="span" className="block text-[14px] text-ink/60">
+                <Text as="span" className="block text-[14px] text-ink-muted">
                   {trainer.profile.subtitle}
                 </Text>
               </Box>
@@ -241,7 +241,7 @@ export function CxDelivery({ data }) {
               </Text>
             </Box>
           </Box>
-          <Text as="p" className="mt-3 text-[13px] text-ink/55">
+          <Text as="p" className="mt-3 text-[13px] text-ink-muted">
             {trainer.note}
           </Text>
         </Reveal>
@@ -258,7 +258,7 @@ export function CxDelivery({ data }) {
                   <Text as="span" className="block font-display text-[16.5px] font-semibold text-ink">
                     {item.title}
                   </Text>
-                  <Text as="span" className="mt-0.5 block text-[14px] text-ink/60">
+                  <Text as="span" className="mt-0.5 block text-[14px] text-ink-muted">
                     {item.text}
                   </Text>
                 </Box>
@@ -321,14 +321,14 @@ export function CxRelated({ data }) {
               <Box as="span" className={cn("grid size-12 place-items-center rounded-xl", item.featured ? "bg-navy-soft text-lime" : "bg-paper-warm text-ink")}>
                 <CxIcon name={item.icon} size={20} />
               </Box>
-              <Text as="span" className={cn("rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] uppercase", item.featured ? "border-lime text-lime" : "border-ink/15 text-ink/60")}>
+              <Text as="span" className={cn("rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] uppercase", item.featured ? "border-lime text-lime" : "border-ink/15 text-ink-muted")}>
                 {item.tag}
               </Text>
             </Box>
             <Text as="span" className={cn("mb-2 font-display text-[19px] leading-snug font-semibold", item.featured ? "text-paper" : "text-ink")}>
               {item.title}
             </Text>
-            <Text as="span" className={cn("mb-6 text-[14.5px] leading-[1.55]", item.featured ? "text-paper/70" : "text-ink/60")}>
+            <Text as="span" className={cn("mb-6 text-[14.5px] leading-[1.55]", item.featured ? "text-paper/70" : "text-ink-muted")}>
               {item.text}
             </Text>
             <Text as="span" className={cn("mt-auto flex items-center justify-between gap-3 font-display text-[14.5px] font-semibold", item.featured ? "text-paper" : "text-ink")}>

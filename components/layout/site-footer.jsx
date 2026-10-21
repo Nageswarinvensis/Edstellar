@@ -161,7 +161,7 @@ export default function SiteFooter() {
       </Box>
 
       <Box className="bg-navy-deep text-paper/60">
-        <Box className="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-x-6 gap-y-3 px-10 py-6 max-sm:px-4 max-sm:pb-22">
+        <Box className="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-x-6 gap-y-3 px-10 py-6 max-sm:px-4">
           <Text as="p" className="m-0 text-[12px] text-paper/60">
             © 2021 to 2026 {SITE.legalName}. All rights reserved.
           </Text>
