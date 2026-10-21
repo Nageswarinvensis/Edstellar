@@ -1842,7 +1842,7 @@ export const CLIENTS = {
         },
         {
           "label": "Managed training services",
-          "href": "/managed-training-services"
+          "href": "/managed-learning-services/managed-training"
         }
       ]
     }

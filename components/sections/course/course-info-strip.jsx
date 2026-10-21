@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Clock, Download, FileText, Monitor, Play, Star } from "lucide-react";
 
@@ -6,6 +5,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { newTabProps } from "@/lib/links";
 import { cn } from "@/lib/utils";
+import TrainerFaces from "@/components/common/trainer-faces";
 
 /**
  * The course page's dark info strip: hours · modules · delivery · trainers,
@@ -133,8 +133,6 @@ function DeliveryStat({ delivery }) {
 }
 
 function TrainersStat({ trainers }) {
-  const photo = trainers.people?.[0]?.photo;
-
   return (
     <Box
       className={cn(
@@ -144,17 +142,7 @@ function TrainersStat({ trainers }) {
       )}
     >
       <Box className="flex items-center gap-2.5">
-        {photo && (
-          <Image
-            src={photo}
-            alt="Edstellar expert trainers"
-            aria-hidden="true"
-            width={84}
-            height={27}
-            sizes="84px"
-            className="h-6.75 w-21 flex-none object-contain"
-          />
-        )}
+        <TrainerFaces people={trainers.people} className="-space-x-2" faceClassName="size-7 ring-navy" />
 
         <Text
           as="span"

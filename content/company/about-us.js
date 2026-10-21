@@ -245,7 +245,6 @@ export const ABOUT_US = {
         services: [
           { label: "Training needs analysis", href: "/training-needs-analysis-solutions" },
           { label: "Talent assessments", href: "/talent-assessment-services" },
-          { label: "Skills-based organization", href: `${LIVE}/skill-based-organization` },
         ],
         tools: ["TNA/TNI Engine", "Zenith", "Orbit", "Polaris"],
         output: "Skills-gap report",

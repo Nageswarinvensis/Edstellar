@@ -7,6 +7,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import CtaButton from "@/components/common/cta-button";
 import RichHeading from "@/components/common/rich-heading";
+import { cn } from "@/lib/utils";
 
 const ORG_ICONS = {
   startup:    <path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M9 13l-3-1 2-4h5M11 15l1 3 4-2v-5M9 13l2 2M14.5 4.5C17 3 21 3 21 3s0 4-1.5 6.5L13 16l-5-5 6.5-6.5Z" />,
@@ -252,15 +253,26 @@ export default function WwsOrgExplorer({ data }) {
             <Box className="flex flex-1 flex-col">
               {data.services.map((service, i) => {
                 const fitValue = activeType.fit[i] ?? 0;
-                return (
-                  <Link
-                    key={service.href}
-                    href={service.href}
-                    className="flex min-h-[36px] items-center justify-between gap-4 border-b border-paper/[0.12] py-[6px] no-underline last:border-0 hover:underline hover:underline-offset-[4px]"
-                  >
+                const row = "flex min-h-[36px] items-center justify-between gap-4 border-b border-paper/[0.12] py-[6px] last:border-0";
+                const content = (
+                  <>
                     <span className="text-[15px] font-semibold text-paper">{service.label}</span>
                     <FitMeter value={fitValue} />
+                  </>
+                );
+                // A service without a page yet (Academies) is a plain row.
+                return service.href ? (
+                  <Link
+                    key={service.label}
+                    href={service.href}
+                    className={cn(row, "no-underline hover:underline hover:underline-offset-[4px]")}
+                  >
+                    {content}
                   </Link>
+                ) : (
+                  <Box key={service.label} className={row}>
+                    {content}
+                  </Box>
                 );
               })}
             </Box>

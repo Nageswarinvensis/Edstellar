@@ -8,9 +8,10 @@ import { cn } from "@/lib/utils";
  * shared with the course and domain proof bars. Decorative: the count and
  * label beside it carry the meaning. `faceClassName` sizes each face and sets
  * its ring to the background it sits on.
- * `people`: `{ photo }[]` (`getTrainerFaces()`).
+ * `people`: `{ photo }[]` (`getTrainerFaces()`). `eager` for a hero, where
+ * the faces are above the fold.
  */
-export default function TrainerFaces({ people, className, faceClassName }) {
+export default function TrainerFaces({ people, className, faceClassName, eager = false }) {
   if (!people?.length) return null;
 
   return (
@@ -20,7 +21,7 @@ export default function TrainerFaces({ people, className, faceClassName }) {
           key={person.photo}
           className={cn("size-10 overflow-hidden rounded-full bg-paper-warm ring-2 ring-paper", faceClassName)}
         >
-          <Image src={person.photo} alt="" width={40} height={40} className="size-full object-cover" />
+          <Image loading={eager ? "eager" : "lazy"} src={person.photo} alt="Edstellar trainer" width={40} height={40} className="size-full object-cover" />
         </Box>
       ))}
     </Box>
