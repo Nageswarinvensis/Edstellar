@@ -50,7 +50,7 @@ export const ABOUT_US = {
     heading: "The story behind the <span>Edstellar logo.</span>",
     description: "The Edstellar logo was designed around one idea: capable people are the key to organizational success.",
     logo: {
-      src: "/images/company/edstellar-logo-story.webp",
+      src: "https://media.edstellar.com/website_assets/edstellar-logo-story.webp",
       alt: "The Edstellar logo: the letter e inside three concentric rings, followed by the word edstellar",
       width: 441,
       height: 181,
@@ -142,7 +142,7 @@ export const ABOUT_US = {
       { icon: "languages", label: "Languages", from: "One language", to: "Multiple languages" },
     ],
     map: {
-      src: "/images/company/world-delivery-map.svg",
+      src: "https://media.edstellar.com/website_assets/world-delivery-map.svg",
       alt: "World map with dots across the countries where Edstellar delivers capability programs",
     },
     promises: [

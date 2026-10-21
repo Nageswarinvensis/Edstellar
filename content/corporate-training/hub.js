@@ -38,7 +38,7 @@ export const CORPORATE_TRAINING_HUB = {
     secondary_cta: { label: "Explore Training Programs", href: "#training-programs" },
     microcopy: "Share your business requirement, even if you haven't chosen a course.",
     image: {
-      src: "/images/corporate-training/onsite-instructor-led.webp",
+      src: "https://media.edstellar.com/website_assets/onsite-instructor-led.webp",
       alt: "Illustration of an instructor guiding colleagues through a collaborative tabletop exercise in a bright office.",
       width: 1672,
       height: 941,
@@ -256,7 +256,7 @@ export const CORPORATE_TRAINING_HUB = {
         tab: "Onsite",
         title: "Onsite Instructor-Led Training",
         image: {
-          src: "/images/corporate-training/onsite-instructor-led.webp",
+          src: "https://media.edstellar.com/website_assets/onsite-instructor-led.webp",
           alt: "Illustration of an instructor guiding colleagues through a collaborative tabletop exercise in a bright office.",
         },
         text: "Face-to-face training at your workplace, built around the tools, spaces, and shared tasks your team uses every day.",
@@ -267,7 +267,7 @@ export const CORPORATE_TRAINING_HUB = {
         tab: "Virtual",
         title: "Live Virtual Training",
         image: {
-          src: "/images/corporate-training/live-virtual.webp",
+          src: "https://media.edstellar.com/website_assets/live-virtual.webp",
           alt: "Illustration of a learner joining a live instructor-led video session with a notebook beside her laptop.",
         },
         text: "Live online sessions with an instructor, so distributed teams can ask questions and work through guided activities without travel.",
@@ -278,7 +278,7 @@ export const CORPORATE_TRAINING_HUB = {
         tab: "Hybrid & offsite",
         title: "Hybrid and Offsite Options",
         image: {
-          src: "/images/corporate-training/offsite.webp",
+          src: "https://media.edstellar.com/website_assets/offsite.webp",
           alt: "Illustration of colleagues discussing leadership ideas at an offsite meeting room overlooking trees and water.",
         },
         text: "Combine in-person and virtual sessions, or take the group off site for leadership and team programs that need space to reflect.",
