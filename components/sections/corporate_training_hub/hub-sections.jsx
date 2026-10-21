@@ -373,10 +373,14 @@ export function HubDelivery({ data }) {
       <Reveal>
         <DeliveryTabs data={data} />
       </Reveal>
-      <Box className="mt-8 flex flex-wrap justify-center gap-3">
-        <LinkButton cta={data.primary_cta} />
-        <LinkButton cta={data.secondary_cta} variant="ghost" />
-      </Box>
+      {/* The live site's delivery pages these linked to don't exist on the
+          new site yet, so the CTAs are off; the row returns with them. */}
+      {data.primary_cta || data.secondary_cta ? (
+        <Box className="mt-8 flex flex-wrap justify-center gap-3">
+          {data.primary_cta ? <LinkButton cta={data.primary_cta} /> : null}
+          {data.secondary_cta ? <LinkButton cta={data.secondary_cta} variant="ghost" /> : null}
+        </Box>
+      ) : null}
     </Section>
   );
 }

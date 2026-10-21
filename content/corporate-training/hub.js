@@ -286,8 +286,6 @@ export const CORPORATE_TRAINING_HUB = {
         planning: "Session structure, venue, travel arrangements",
       },
     ],
-    primary_cta: { label: "Explore Instructor-Led Training", href: `${LIVE}/instructor-led-training-services` },
-    secondary_cta: { label: "Explore Training Delivery", href: `${LIVE}/training-delivery` },
   },
 
   reasons: {
