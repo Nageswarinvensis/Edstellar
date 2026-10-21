@@ -64,7 +64,7 @@ export default function SiteHeader() {
           ${hidden ? "-translate-y-full" : "translate-y-0"}
         `}
       >
-        <Box className="mx-auto flex h-17 max-w-[1360px] items-center gap-5 px-5 lg:px-10">
+        <Box className="mx-auto flex h-17 max-w-[1360px] items-center gap-5 px-5 max-[1279px]:gap-4 lg:px-10">
           <Link
             href="/"
             aria-label="Edstellar home"
@@ -76,7 +76,7 @@ export default function SiteHeader() {
 
           <MegaMenu onOpenBrief={() => setBriefOpen(true)} />
 
-          <SiteSearch id="site-q" className="w-60 shrink-0 max-[1439px]:w-52 max-[1279px]:w-36 max-nav:hidden" />
+          <SiteSearch id="site-q" className="w-52 shrink-0 max-[1439px]:w-40 max-[1279px]:w-28 max-nav:hidden" />
 
           <Box
             as="button"

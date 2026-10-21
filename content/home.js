@@ -25,7 +25,8 @@ export const HOME = {
       {
         "label": "Explore the Platform",
         "href": "#platform",
-        "variant": "ghost"
+        "variant": "ghost",
+        "arrow": true
       }
     ],
     "people": {
@@ -347,6 +348,7 @@ export const HOME = {
   },
   "taxonomy": {
     "heading": "How we model <span>capability,</span> end to end.",
+    "start": 1,
     "lede": "Every Edstellar engagement breaks capability down the same way, from function and role to the capabilities, skills and proficiency behind them, so your CHRO, CFO and line managers share one language.",
     "steps": [
       {
@@ -358,8 +360,7 @@ export const HOME = {
           "Operations",
           "Commercial",
           "Risk & Compliance"
-        ],
-        "active": 1
+        ]
       },
       {
         "layer": "Layer 02",
@@ -370,8 +371,7 @@ export const HOME = {
           "Operations Director",
           "Sales Manager",
           "Compliance Lead"
-        ],
-        "active": 1
+        ]
       },
       {
         "layer": "Layer 03",
@@ -382,8 +382,7 @@ export const HOME = {
           "Cross-functional Delivery",
           "Customer Value",
           "Regulatory Judgment"
-        ],
-        "active": 1
+        ]
       },
       {
         "layer": "Layer 04",
@@ -394,8 +393,7 @@ export const HOME = {
           "Conflict resolution",
           "Value-based negotiation",
           "Scenario planning"
-        ],
-        "active": 1
+        ]
       },
       {
         "layer": "Layer 05",
@@ -407,7 +405,7 @@ export const HOME = {
           "L3: Proficient",
           "L4: Expert"
         ],
-        "active": 2
+        "paths": [3, 0, 1, 2]
       }
     ]
   },
@@ -563,7 +561,8 @@ export const HOME = {
       {
         "label": "Explore Edstellar services",
         "href": "#pillars",
-        "variant": "ghost"
+        "variant": "ghost",
+        "arrow": true
       }
     ]
   }

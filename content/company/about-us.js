@@ -9,7 +9,6 @@
 import { CLIENT_LOGOS } from "@/content/company/client-logos";
 
 const CONSULTATION = { label: "Book a consultation", href: "#contact" };
-const LIVE = "https://www.edstellar.com";
 
 export const ABOUT_US = {
   seo: {
@@ -275,8 +274,9 @@ export const ABOUT_US = {
         name: "Advance",
         description: "Measure, govern and improve each cycle, so the function compounds rather than resets.",
         services: [
-          { label: "Learning governance, analytics and ROI", href: `${LIVE}/learning-governance-analytics-roi-consulting` },
-          { label: "Learning engagement and sustainment", href: `${LIVE}/learning-engagement-sustainment-consulting` },
+          // No pages for these yet: shown as text, not links.
+          { label: "Learning governance, analytics and ROI", href: null },
+          { label: "Learning engagement and sustainment", href: null },
         ],
         tools: ["Capability Intelligence Platform", "Spectra LMS"],
         output: "Measured results and the next cycle's priorities",

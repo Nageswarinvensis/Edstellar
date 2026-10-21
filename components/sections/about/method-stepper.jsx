@@ -93,10 +93,14 @@ export default function MethodStepper({ data }) {
                 </Text>
                 <Box as="ul" className="m-0 grid list-none gap-2.5 p-0">
                   {item.services.map((service) => (
-                    <li key={service.href}>
-                      <Link href={service.href} className="text-[15.5px] text-ink underline underline-offset-3 hover:text-olive">
-                        {service.label}
-                      </Link>
+                    <li key={service.label}>
+                      {service.href ? (
+                        <Link href={service.href} className="text-[15.5px] text-ink underline underline-offset-3 hover:text-olive">
+                          {service.label}
+                        </Link>
+                      ) : (
+                        <Text as="span" className="text-[15.5px] text-ink">{service.label}</Text>
+                      )}
                     </li>
                   ))}
                 </Box>

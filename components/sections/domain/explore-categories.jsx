@@ -40,6 +40,8 @@ function AllLink({ link }) {
     <Box
       as="a"
       href={link.href || "#"}
+      target="_blank"
+      rel="noopener"
       className="group inline-flex flex-none items-center gap-2 self-end border-b-2 border-ink pb-1.5 font-body text-[14px] font-semibold text-ink max-sm:self-start"
     >
       {link.label}
@@ -61,6 +63,8 @@ function CategoryCard({ category }) {
       <Box
         as="a"
         href={category.href || "#"}
+        target="_blank"
+        rel="noopener"
         className="group grid h-full grid-cols-[auto_1fr_auto] grid-rows-[auto_auto] items-center gap-x-3.5 gap-y-0.5 rounded-[14px] border border-ink/12 bg-white px-[18px] py-4 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-[3px] hover:border-ink/22 hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.45)] max-sm:p-[22px]"
       >
         <Box

@@ -184,7 +184,19 @@ function ProgramCard({ program }) {
           as="h4"
           className="mb-3 line-clamp-3 text-[15px] font-semibold leading-[1.2] tracking-[-0.25px] text-ink sm:min-h-[3.6em]"
         >
-          {program.title}
+          {program.href ? (
+            <a
+              href={program.href}
+              target="_blank"
+              rel="noopener"
+              title={`Click Here to View ${program.title}`}
+              className="hover:underline hover:underline-offset-3"
+            >
+              {program.title}
+            </a>
+          ) : (
+            program.title
+          )}
         </Text>
 
         <Box className="mb-2.5 flex flex-nowrap items-center gap-2 whitespace-nowrap text-[11px] text-ink">
@@ -232,7 +244,7 @@ function ProgramCard({ program }) {
 
         <Box className="mt-auto flex items-center gap-2.5">
           <CtaButton
-            render={<a href={program.href || "#"} />}
+            render={<a href={program.href || "#"} target={program.href ? "_blank" : undefined} rel={program.href ? "noopener" : undefined} />}
             arrow
             className="px-[18px] py-[11px] text-[13px]"
           >

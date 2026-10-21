@@ -199,7 +199,7 @@ function CourseCard({ course, data }) {
           </div>
         )}
 
-        <a href={course.href}>
+        <a href={course.href} target="_blank" rel="noopener">
           <Text
             as="h3"
             className="text-[15px] font-medium leading-[1.2] tracking-[-0.25px] text-[#07182C] hover:underline"
@@ -220,6 +220,8 @@ function CourseCard({ course, data }) {
 
           <a
             href={course.href}
+            target="_blank"
+            rel="noopener"
             className="group flex shrink-0 items-center gap-1"
           >
             <Text

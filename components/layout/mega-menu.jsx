@@ -40,29 +40,52 @@ const firstLinkHref = (item) => item.groups[0].links[0].href;
 const linkKey = (link) => `${link.href}::${link.label}`;
 
 function PanelLink({ link, divider, active, onNavigate, onPreview }) {
+  const label = (
+    <span className="min-w-0">
+      {link.label}
+      {link.sub && <span className="block text-[12.5px] font-normal text-ink-muted">{link.sub}</span>}
+    </span>
+  );
   return (
     <li className={divider ? "mb-1.5 border-b border-dashed border-ink/12 pb-1.5" : undefined}>
-      <Link
-        href={link.href}
-        title={`Click Here to View ${link.label}`}
-        onClick={onNavigate}
-        onMouseEnter={() => onPreview(link)}
-        onFocus={() => onPreview(link)}
-        className={`group/mi flex items-center gap-2.5 py-[5px] text-[14px] leading-snug text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4 ${
-          link.main ? "font-semibold" : ""
-        }`}
-      >
-        {!link.main && (
-          <span
-            aria-hidden="true"
-            className={`size-[5px] flex-none rounded-full border transition-transform duration-200 ${
-              active ? "scale-[1.3] border-navy bg-navy" : "border-ink/22 group-hover/mi:scale-110"
-            }`}
-          />
-        )}
-        <span className="min-w-0">{link.label}</span>
-        {link.main && <Arrow className="size-3.5 flex-none" />}
-      </Link>
+      {/* No page yet (`href: null`): static text that still drives the preview. */}
+      {!link.href ? (
+        <Box
+          as="span"
+          onMouseEnter={() => onPreview(link)}
+          className={`flex items-center gap-2.5 py-[5px] text-[14px] leading-snug text-navy ${link.main ? "font-semibold" : ""}`}
+        >
+          {!link.main && (
+            <span
+              aria-hidden="true"
+              className={`size-[5px] flex-none rounded-full border ${active ? "scale-[1.3] border-navy bg-navy" : "border-ink/22"}`}
+            />
+          )}
+          {label}
+        </Box>
+      ) : (
+        <Link
+          href={link.href}
+          title={`Click Here to View ${link.label}`}
+          onClick={onNavigate}
+          onMouseEnter={() => onPreview(link)}
+          onFocus={() => onPreview(link)}
+          className={`group/mi flex items-center gap-2.5 py-[5px] text-[14px] leading-snug text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4 ${
+            link.main ? "font-semibold" : ""
+          }`}
+        >
+          {!link.main && (
+            <span
+              aria-hidden="true"
+              className={`size-[5px] flex-none rounded-full border transition-transform duration-200 ${
+                active ? "scale-[1.3] border-navy bg-navy" : "border-ink/22 group-hover/mi:scale-110"
+              }`}
+            />
+          )}
+          {label}
+          {link.main && <Arrow className="size-3.5 flex-none" />}
+        </Link>
+      )}
     </li>
   );
 }
@@ -106,7 +129,8 @@ function PanelGroup({ group, first, activeKey, onNavigate, onPreview }) {
   );
 }
 
-/* Right-hand preview pane: reflects the hovered/focused item. */
+/* Right-hand preview pane: reflects the hovered/focused item. No CTA when
+ * the item has no page yet. */
 function Preview({ pv, ctaHref }) {
   return (
     <Box className="flex min-w-0 flex-col gap-2.5 self-start border-l border-ink/12 pl-8 max-[1439px]:pl-6">
@@ -119,16 +143,18 @@ function Preview({ pv, ctaHref }) {
         </Text>
       )}
       {pv.m && <Text as="p" className="-mt-1 text-[12px] leading-normal text-ink-muted">{pv.m}</Text>}
-      <Box className="mt-0.5 border-t border-ink/12 pt-3.5">
-        <Link
-          href={ctaHref}
-          title={`Click Here to View ${pv.t || pv.b || "Page"}`}
-          className="inline-flex items-center gap-1.5 rounded-full border border-navy px-3.5 py-2 text-[13px] font-semibold leading-none text-navy whitespace-nowrap transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(10,22,40,0.07),0_4px_12px_rgba(10,22,40,0.07)]"
-        >
-          {pv.b || "View page"}
-          <Arrow className="size-3.5" />
-        </Link>
-      </Box>
+      {ctaHref && (
+        <Box className="mt-0.5 border-t border-ink/12 pt-3.5">
+          <Link
+            href={ctaHref}
+            title={`Click Here to View ${pv.t || pv.b || "Page"}`}
+            className="inline-flex items-center gap-1.5 rounded-full border border-navy px-3.5 py-2 text-[13px] font-semibold leading-none text-navy whitespace-nowrap transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(10,22,40,0.07),0_4px_12px_rgba(10,22,40,0.07)]"
+          >
+            {pv.b || "View page"}
+            <Arrow className="size-3.5" />
+          </Link>
+        </Box>
+      )}
     </Box>
   );
 }
@@ -172,7 +198,7 @@ function Rail({ lit, onOpenBrief }) {
 }
 
 /**
- * Desktop mega menu — five tabs, each opening a full-width panel with numbered
+ * Desktop mega menu — six tabs, each opening a full-width panel with numbered
  * link groups, a live preview pane and the 5A methodology rail. Client
  * Component: owns open/hover and preview state. Panels stay in the DOM (hidden
  * only visually) so every link is crawlable; `invisible` keeps closed panels
@@ -239,7 +265,7 @@ export default function MegaMenu({ onOpenBrief }) {
 
   const onPreview = (link) => {
     setPv(link.pv);
-    setActiveHref(link.href);
+    setActiveHref(link.href ?? null);
     setActiveKey(linkKey(link));
   };
 
@@ -271,7 +297,7 @@ export default function MegaMenu({ onOpenBrief }) {
                   onClick={() => onTabClick(item.id)}
                   onMouseEnter={() => onTabEnter(item.id)}
                   onMouseLeave={clearTimers}
-                  className="group/tab relative inline-flex cursor-pointer items-center gap-1 whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy max-[1279px]:px-1.5"
+                  className="group/tab relative inline-flex cursor-pointer items-center gap-1 whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy max-[1439px]:px-1.5 max-[1279px]:px-1"
                 >
                   {item.tab}
                   <Chevron className={`size-3 opacity-60 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
