@@ -1,12 +1,4 @@
 import Image from "next/image";
-import {
-  MessageCircle,
-  Route,
-  UserCheck,
-  Wrench,
-  Rocket,
-  Award,
-} from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -20,7 +12,6 @@ import { cn } from "@/lib/utils";
  * of the eight FEATURE CARDS is chosen by position, not by CMS/content data.
  */
 const FEATURE_ICONS = ["✏️", "⚙️", "🧪", "👤", "🌐", "📊"];
-const APPROACH_ICONS = [MessageCircle, Route, UserCheck, Wrench, Rocket, Award];
 
 const STATS = [
   { value: "5000+", label: "EXPERT TRAINERS" },
@@ -34,74 +25,11 @@ const STATS = [
   },
 ];
 
-const APPROACH_STEPS = [
-  {
-    number: "01",
-    title: "Consult",
-    description:
-      "We start with your monitoring reality: what is in production, what broke last quarter, and which teams own the response.",
-  },
-  {
-    number: "02",
-    title: "Plan",
-    description:
-      "A scoped roadmap with module sequence, cohort split and the dates that fit around your release calendar.",
-  },
-  {
-    number: "03",
-    title: "Align",
-    description:
-      "A practitioner trainer matched to your stack, briefed on your tooling before the first session.",
-  },
-  {
-    number: "04",
-    title: "Customize",
-    description:
-      "Exercises rebuilt around your models and your alerting, so the practice transfers on Monday.",
-  },
-  {
-    number: "05",
-    title: "Execute",
-    description:
-      "Instructor-led delivery, on-site, virtual or blended, with hands-on labs rather than slideware.",
-  },
-  {
-    number: "06",
-    title: "Evaluate",
-    description:
-      "Impact measured against a number you already track, plus competency evidence for every participant.",
-  },
-];
-
-function ApproachStep({ step, Icon }) {
-  return (
-    <Box as="li" className="flex min-w-0 flex-col gap-2">
-      <Box className="relative z-10 flex size-12 flex-none items-center justify-center rounded-full border border-lime/65 bg-navy text-lime">
-        <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
-      </Box>
-      <Text
-        as="span"
-        className="mt-4 font-mono text-[10px] font-medium tracking-[0.12em] text-lime uppercase"
-      >
-        Step {step.number}
-      </Text>
-      <Text
-        as="h4"
-        className="font-display text-base font-semibold tracking-[-0.01em] text-paper"
-      >
-        {step.title}
-      </Text>
-      <Text as="p" className="text-[14px] leading-[1.6] text-paper/60">
-        {step.description}
-      </Text>
-    </Box>
-  );
-}
-
 /**
  * Course page "why Edstellar" map section. The stats and the map are fixed
  * for every course — only the heading and description come from the course's
- * `mapsectionData`. Domain pages use their own CMS-driven copy,
+ * `mapsectionData`. The six-step "approach" rail is deliberately not shown
+ * (removed from every course page). Domain pages use their own CMS-driven copy,
  * `components/sections/domain/domain-map-section.jsx`.
  */
 export default function CourseMapSection({ data, className }) {
@@ -246,49 +174,6 @@ export default function CourseMapSection({ data, className }) {
             </Box>
           </Reveal>
         )}
-
-        {/* =========================================================
-            APPROACH — six-stage process rail
-            Only render when approach data exists
-        ========================================================== */}
-        {data.approach?.heading && (
-          <Reveal delay={4}>
-            <Box className="mt-9 rounded-[18px] bg-ink p-10 max-[600px]:p-6">
-              <RichHeading
-                as="h3"
-                heading={data.approach.heading}
-                emphasisClassName="font-serif font-normal italic text-lime"
-                className="max-w-[36ch] font-display text-[clamp(20px,2vw,24px)] leading-tight font-medium tracking-[-0.02em] text-paper"
-              />
-              <Text
-                as="p"
-                className="mt-4 max-w-[66ch] text-base leading-[1.7] text-paper/60"
-              >
-                {data.approach.description}
-              </Text>
-
-              <Box
-                as="ol"
-                className="relative mt-10 grid grid-cols-1 gap-8 min-[541px]:grid-cols-2 min-[761px]:grid-cols-3 min-[1081px]:grid-cols-6"
-              >
-                <Box
-                  aria-hidden="true"
-                  className="pointer-events-none absolute top-6 left-6 hidden h-px bg-paper/12 min-[1081px]:block"
-                  style={{ right: "calc((100% - 5 * 2rem) / 6 - 1.5rem)" }}
-                />
-
-                {APPROACH_STEPS.map((step, index) => (
-                  <ApproachStep
-                    key={step.number}
-                    step={step}
-                    Icon={APPROACH_ICONS[index] || MessageCircle}
-                  />
-                ))}
-              </Box>
-            </Box>
-          </Reveal>
-        )}
-
       </Box>
     </Section>
   );

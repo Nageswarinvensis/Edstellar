@@ -20,11 +20,14 @@ const COLUMN_MOTION = [
  * up and down (paused on hover, still under reduced motion). Each column
  * repeats its photos once for a seamless loop; the repeat is aria-hidden.
  *
- * Design: Join as a Trainer `.hero`, `.wall`, `.hero-art .badge`.
+ * The CMS's `badge` ("Global network · Edstellar-Verified Trainers") is
+ * deliberately not shown.
+ *
+ * Design: Join as a Trainer `.hero`, `.wall`.
  */
 export default function TrainerHero({ data, breadcrumbs }) {
   if (!data) return null;
-  const { heading, description, cta, badge, columns = [] } = data;
+  const { heading, description, cta, columns = [] } = data;
 
   return (
     <Box
@@ -100,17 +103,6 @@ export default function TrainerHero({ data, breadcrumbs }) {
                   </Box>
                 ))}
               </Box>
-
-              {badge ? (
-                <Box className="absolute bottom-7 left-3 z-2 rounded-2xl bg-lime px-4.5 py-3.5 text-navy shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)] min-[901px]:-left-4.5">
-                  <Text as="span" className="mb-1 block font-mono text-[9.5px] leading-none font-medium tracking-[0.16em] text-navy uppercase">
-                    {badge.label}
-                  </Text>
-                  <Text as="span" className="block font-display text-[15px] leading-[1.25] font-bold tracking-[-0.02em] text-navy">
-                    {badge.text}
-                  </Text>
-                </Box>
-              ) : null}
             </Reveal>
           ) : null}
         </Box>

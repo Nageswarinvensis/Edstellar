@@ -3,12 +3,13 @@ import { Sora, Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 import { SITE } from "@/lib/constants";
 import SchemaOrg from "@/components/seo/schema-org";
 import ZohoSalesIq from "@/components/layout/zoho-salesiq";
+import GoogleAnalytics from "@/components/layout/google-analytics";
 import "./globals.css";
 
 /**
- * Root layout. Fonts, `metadataBase`, the document shell, and the Zoho
- * SalesIQ chat widget (here rather than in the footer so `(bare)` pages get it
- * too).
+ * Root layout. Fonts, `metadataBase`, the document shell, Google Analytics
+ * and the Zoho SalesIQ chat widget (here rather than in the footer so `(bare)`
+ * pages get them too).
  *
  * The header and footer live in `(site)/layout.js` rather than here, so a page
  * can opt out of them by living in `(bare)/` instead. There is exactly one
@@ -51,6 +52,10 @@ export const metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
+  // Domain ownership check for Twilio; every page inherits it.
+  other: {
+    "twilio-domain-verification": "df46382efd09591bc409fe52bb17223c",
+  },
 };
 
 export const viewport = {
@@ -67,6 +72,7 @@ export default function RootLayout({ children }) {
         <SchemaOrg website />
         {children}
         <ZohoSalesIq />
+        <GoogleAnalytics />
       </body>
     </html>
   );

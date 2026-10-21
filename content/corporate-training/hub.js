@@ -207,8 +207,8 @@ export const CORPORATE_TRAINING_HUB = {
         name: "Advance",
         tagline: "Sustain and measure",
         links: [
-          { label: "Learning Governance, Analytics & ROI", href: `${LIVE}/learning-governance-analytics-roi-consulting` },
-          { label: "Learning Engagement & Sustainment", href: `${LIVE}/learning-engagement-sustainment-consulting` },
+          { label: "Learning Governance, Analytics & ROI", href: null },
+          { label: "Learning Engagement & Sustainment", href: null },
           { label: "Spectra LMS", href: null },
         ],
       },

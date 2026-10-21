@@ -101,14 +101,22 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
                     <Box as="ul" className="list-none">
                       {group.links.map((link) => (
                         <li key={link.href + link.label}>
-                          <Link
-                            href={link.href}
-                            title={`Click Here to View ${link.label}`}
-                            onClick={onClose}
-                            className="block min-h-11 py-2 text-[15px] leading-relaxed text-ink/75 transition-colors duration-200 hover:text-ink hover:underline hover:underline-offset-4"
-                          >
-                            {link.label}
-                          </Link>
+                          {/* No page yet (`href: null`): static text. */}
+                          {!link.href ? (
+                            <Text as="span" className="block py-2 text-[15px] leading-relaxed text-ink/75">
+                              {link.label}
+                              {link.sub && <span className="block text-[13px] text-ink-muted">{link.sub}</span>}
+                            </Text>
+                          ) : (
+                            <Link
+                              href={link.href}
+                              title={`Click Here to View ${link.label}`}
+                              onClick={onClose}
+                              className="block min-h-11 py-2 text-[15px] leading-relaxed text-ink/75 transition-colors duration-200 hover:text-ink hover:underline hover:underline-offset-4"
+                            >
+                              {link.label}
+                            </Link>
+                          )}
                         </li>
                       ))}
                     </Box>
