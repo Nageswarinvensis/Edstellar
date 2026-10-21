@@ -1,24 +1,15 @@
 import { NextResponse } from "next/server";
 
-// Node.js runtime is required so fetch with redirect:'manual' returns the real
-// HTTP status code. Edge runtime returns an opaque response (status=0) for
-// manual-redirect fetches, making it impossible to detect 3xx responses.
-// This shows a build warning on Next.js 15 stable but works correctly —
-// do NOT add experimental.nodeMiddleware to next.config (canary-only, causes
-// a hard build error on stable).
-export const runtime = "nodejs";
-
 /**
  * CMS Redirect Middleware
  *
  * Intercepts every page request before Next.js renders anything, hits the
  * same CMS endpoint the page renderer would use, and — if the CMS returns a
- * 3xx — issues the correct HTTP redirect via NextResponse.redirect().
+ * 3xx — issues a 301 redirect via NextResponse.redirect().
  *
  * The CMS signals a retired slug by responding with:
  *   HTTP 301 Moved Permanently
- *   Location: destination-slug          ← bare slug, no leading slash
- *   { "redirect": { … }, "components": […] }
+ *   Location: /api/v2/site-pages/destination-slug
  *
  * WHY MIDDLEWARE (not Server Components):
  *   permanentRedirect() inside a Server Component is caught by the nearest
@@ -26,13 +17,21 @@ export const runtime = "nodejs";
  *   renders 200. Middleware runs before React, so NextResponse.redirect()
  *   always fires correctly.
  *
+ * WHY redirect:"follow" (not "manual"):
+ *   Edge runtime (the default middleware runtime, used by both Vercel and
+ *   self-hosted Next.js) returns an opaque response (type="opaqueredirect",
+ *   status=0) for redirect:"manual" fetches — the status code and Location
+ *   header are both unreadable. Using redirect:"follow" (the default) lets
+ *   the fetch resolve the redirect normally; response.redirected tells us it
+ *   happened, and response.url gives the final CMS URL, which we reverse-map
+ *   back to the site path. All CMS slug redirects are permanent, so we always
+ *   emit 301 — correct for SEO (passes link equity to the new URL).
+ *
  * Cannot import lib/api/client.js or lib/api/endpoints.js — both carry
  * `import "server-only"`, incompatible with the middleware runtime.
  */
 
 const CMS_BASE = process.env.CMS_API_URL ?? "http://localhost:8000";
-
-const REDIRECT_STATUSES = new Set([301, 302, 307, 308, 410]);
 
 /**
  * Maps an incoming pathname to the CMS API URL that owns that slug.
@@ -59,6 +58,38 @@ function getCmsUrl(pathname) {
   // Corporate training, consulting pillars, resources, and all other site
   // pages — preserving nested path segments.
   return `${CMS_BASE}/api/v2/site-pages/${slug.split("/").map(encodeURIComponent).join("/")}`;
+}
+
+/**
+ * Reverse-maps a final CMS API URL (after following redirects) back to the
+ * site pathname. The CMS Location header is an absolute or root-relative API
+ * URL; stripping the API prefix gives the site slug.
+ * Returns null if the URL is not a recognised CMS API path.
+ */
+function sitePathFromCmsUrl(finalUrl) {
+  let path;
+  try {
+    path = new URL(finalUrl).pathname;
+  } catch {
+    return null;
+  }
+
+  if (path.startsWith("/api/v2/blog/authors/")) {
+    return `/blog/author/${path.slice("/api/v2/blog/authors/".length)}`;
+  }
+  if (path.startsWith("/api/v2/blog/categories/")) {
+    return `/blog/category/${path.slice("/api/v2/blog/categories/".length)}`;
+  }
+  if (path.startsWith("/api/v2/blog/")) {
+    return `/blog/${path.slice("/api/v2/blog/".length)}`;
+  }
+  if (path.startsWith("/api/v2/trainer/")) {
+    return `/trainer/${path.slice("/api/v2/trainer/".length)}`;
+  }
+  if (path.startsWith("/api/v2/site-pages/")) {
+    return `/${path.slice("/api/v2/site-pages/".length)}`;
+  }
+  return null;
 }
 
 /** Blog listings whose pagination swaps posts in place on the client
@@ -100,37 +131,35 @@ export async function middleware(request) {
   if (!cmsUrl) return withNoindexOnPreview(NextResponse.next());
 
   try {
+    // Default redirect:"follow" works in both edge and Node.js runtimes.
+    // redirect:"manual" returns an opaque response (status=0) in edge runtime,
+    // making it impossible to read the status or Location header.
     const res = await fetch(cmsUrl, {
       headers: { Accept: "application/json" },
-      // Must not auto-follow — we need to read the 3xx status and Location
-      // header ourselves. Requires Node.js runtime (see top of file).
-      redirect: "manual",
     });
 
-    if (!REDIRECT_STATUSES.has(res.status)) {
-      // 200 or 404 — pass through to the page renderer unchanged.
+    // 410 Gone — rewrite to the branded /gone page while preserving the 410
+    // status so crawlers de-index the URL. 410 is not a redirect so it is
+    // never followed; we read it directly from the response.
+    if (res.status === 410) {
+      return withNoindexOnPreview(
+        NextResponse.rewrite(new URL("/gone", request.url), { status: 410 })
+      );
+    }
+
+    // No redirect was followed — 200 or 404, pass through to the page renderer.
+    if (!res.redirected) {
       return withNoindexOnPreview(NextResponse.next());
     }
 
-    // 410 Gone — rewrite to the branded /gone page while preserving the 410
-    // status so crawlers de-index the URL.
-    if (res.status === 410) {
-      return withNoindexOnPreview(NextResponse.rewrite(new URL("/gone", request.url), { status: 410 }));
-    }
+    // A redirect was followed. res.url is the final CMS URL after all hops;
+    // reverse-map it to the site path and issue a permanent 301.
+    const sitePath = sitePathFromCmsUrl(res.url);
+    if (!sitePath) return withNoindexOnPreview(NextResponse.next());
 
-    // The CMS puts the destination in the Location header as a bare slug,
-    // e.g. "software-development/net-architecture-design-patterns-course".
-    const location = res.headers.get("location");
-    if (!location) return withNoindexOnPreview(NextResponse.next());
-
-    const destPath =
-      location.startsWith("/") || location.startsWith("http")
-        ? location
-        : `/${location}`;
-
-    const dest = new URL(destPath, request.url);
+    const dest = new URL(sitePath, request.url);
     dest.search = search; // preserve query string
-    return withNoindexOnPreview(NextResponse.redirect(dest, { status: res.status }));
+    return withNoindexOnPreview(NextResponse.redirect(dest, { status: 301 }));
   } catch {
     // CMS unreachable — fail open, pass through to the page renderer.
     return withNoindexOnPreview(NextResponse.next());
