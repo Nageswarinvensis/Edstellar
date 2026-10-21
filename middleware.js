@@ -31,7 +31,13 @@ import { NextResponse } from "next/server";
  * `import "server-only"`, incompatible with the middleware runtime.
  */
 
-const CMS_BASE = process.env.CMS_API_URL ?? "http://localhost:8000";
+// NEXT_PUBLIC_* variables are inlined at build time and available in the edge
+// runtime on all hosts (Vercel and self-hosted). Plain CMS_API_URL is
+// server-only and is not inlined into the middleware bundle, so it always
+// falls back to localhost. NEXT_PUBLIC_CMS_API_URL must be set to the same
+// value as CMS_API_URL in the build environment. lib/api/client.js continues
+// to use CMS_API_URL — this variable is only read here.
+const CMS_BASE = process.env.NEXT_PUBLIC_CMS_API_URL ?? "http://localhost:8000";
 
 /**
  * Maps an incoming pathname to the CMS API URL that owns that slug.
