@@ -4,6 +4,7 @@ import { SITE } from "@/lib/constants";
 import SchemaOrg from "@/components/seo/schema-org";
 import ZohoSalesIq from "@/components/layout/zoho-salesiq";
 import GoogleAnalytics from "@/components/layout/google-analytics";
+import MicrosoftClarity from "@/components/layout/microsoft-clarity";
 import "./globals.css";
 
 /**
@@ -73,6 +74,7 @@ export default function RootLayout({ children }) {
         {children}
         <ZohoSalesIq />
         <GoogleAnalytics />
+        <MicrosoftClarity />
       </body>
     </html>
   );

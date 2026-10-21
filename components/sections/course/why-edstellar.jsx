@@ -95,7 +95,7 @@ function ProgramCard({ program }) {
           >
             <Clock3 size={11} strokeWidth={1.5} className="shrink-0" />
 
-            <span className="text-[10px]">{program.duration}</span>
+            <span className="text-[10px]">~ {program.duration}</span>
           </Box>
         </Box>
       </Box>
@@ -142,7 +142,10 @@ function RelatedCourseCard({ course }) {
         <Box className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[11px] uppercase leading-[1.4] tracking-[0.14em] text-ink-muted">
           {duration ? (
             <>
-              <span>{duration}</span>
+              <span className="inline-flex items-center gap-1.5">
+                <Clock3 size={11} strokeWidth={1.5} className="shrink-0" />
+                ~ {duration}
+              </span>
               <span aria-hidden="true" className="size-1 rounded-full bg-ink/30" />
             </>
           ) : null}
