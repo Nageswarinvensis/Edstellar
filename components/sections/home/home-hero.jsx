@@ -1,6 +1,5 @@
-import Image from "next/image";
-
 import Box from "@/components/ui/Box";
+import TrainerFaces from "@/components/common/trainer-faces";
 import Text from "@/components/ui/Text";
 import HomeWrap from "@/components/sections/home/home-wrap";
 import RichHeading from "@/components/common/rich-heading";
@@ -74,13 +73,7 @@ export default function HomeHero({ data }) {
 
           {people && (
             <Box className="mt-9 flex items-center gap-4">
-              <Box className="flex -space-x-3" aria-hidden="true">
-                {people.trainers.map((t, i) => (
-                  <Box key={i} className="size-10 overflow-hidden rounded-full bg-paper-warm ring-2 ring-paper">
-                    <Image loading="eager" src={t.photo} alt="Edstellar trainer" width={40} height={40} className="size-full object-cover" />
-                  </Box>
-                ))}
-              </Box>
+              <TrainerFaces people={people.trainers} eager />
               <Text as="span" className="text-sm leading-[1.4] text-ink">
                 <Text as="span" className="font-semibold text-ink">{people.note_strong}</Text>
                 {people.note}
