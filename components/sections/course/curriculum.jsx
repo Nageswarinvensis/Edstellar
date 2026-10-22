@@ -81,8 +81,8 @@ const DELIVERY_ICON_MAP = {
 };
 
 const METHOD_IMAGE = {
-  src: "/course/ml-model-monitoring-method.jpg",
-  alt: "A team reviewing a model monitoring dashboard together on a laptop",
+  src: "/course/course_curriculum.webp",
+  alt: "A team working through a course curriculum together on a laptop",
 };
 
 const SUMMARY_PILL_META = [

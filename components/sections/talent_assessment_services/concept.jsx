@@ -5,6 +5,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import SvgOrImage from "@/components/common/svg-or-image";
 
 /**
  * The concept section shared across the talent-assessment family: a decorative
@@ -160,11 +161,11 @@ export default function Concept({ data }) {
         <Reveal>
           <Box as="figure" className="m-0 max-[900px]:mx-auto max-[900px]:max-w-[420px]">
             {/* A page's own diagram from the CMS (`svg_image`) wins over the
-                built-in ones picked by `art`. */}
+                built-in ones picked by `art` — inline SVG code or a webp URL. */}
             {svg_image ? (
-              <Box
-                className="[&_svg]:block [&_svg]:h-auto [&_svg]:w-full"
-                dangerouslySetInnerHTML={{ __html: svg_image }}
+              <SvgOrImage
+                value={svg_image}
+                className="[&_svg]:block [&_svg]:h-auto [&_svg]:w-full [&_img]:block [&_img]:h-auto [&_img]:w-full [&_img]:rounded-[18px]"
               />
             ) : art === "competency-grid" ? (
               <CompetencyGrid grid={grid} />

@@ -73,7 +73,7 @@ export default function DomainMapSection({ data, className }) {
           <Box className="flex w-full items-center justify-center lg:justify-end">
             <Box className="relative aspect-[719/292] w-full max-w-[560px] overflow-hidden">
               <Image
-                src="/course/map1.png"
+                src="/course/world-map.webp"
                 alt="Global delivery map"
                 fill
                 sizes="(max-width: 1024px) 100vw, 560px"

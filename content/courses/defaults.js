@@ -23,7 +23,7 @@ export const COURSE_DEFAULTS = {
     // Extracted from the source's inline base64 <img> and saved as a real
     // static asset — `#about`'s only media in that file, no CMS field for it.
     media: {
-      src: "/course/ml-model-monitoring-about.jpg",
+      src: "/course/about_course.webp",
       alt: "An instructor leading a corporate training session with a team around a boardroom table",
     },
 
@@ -54,9 +54,9 @@ export const COURSE_DEFAULTS = {
 
   pageToc: {
     cta: {
-      label: "Request a Proposal",
+      label: "Get a Custom Proposal",
       href: APPLY_ANCHOR,
-      note: "A specialist replies within one business day.",
+      note: "We'll review your needs and get back to you with a tailored approach.",
     },
   },
 
@@ -71,25 +71,26 @@ export const COURSE_DEFAULTS = {
 
   audience: {
     section_cta: {
-      title: "Mixed cohort, or several teams at once?",
+      title:
+        "Different Teams, Locations, Time Zones, or Languages? We've Got You Covered.",
       description:
-        "We can tailor the training to different teams, roles, and experience levels within the same program.",
-      cta: { label: "Share Your Requirements", href: APPLY_ANCHOR },
+        "Whether your teams are spread across countries, time zones, languages, or experience levels, we deliver tailored training programs that ensure a consistent learning experience across your global workforce.",
+      cta: { label: "Customize Your Training", href: APPLY_ANCHOR },
     },
   },
 
   deliveryModes: {
     section_cta: {
-      title: "Need a training format that works for your team?",
+      title: "Need a customized training format that works for your team?",
       description:
-        "Full days, half days across weeks, or split by module. Tell us the delivery window and we schedule the cohort around it.",
+        "Our training delivery is customized to your team's schedule, full days, half days, sessions spread across weeks, or modular formats. Share your preferred timeline, and we'll plan the training around it.",
       cta: { label: "Plan Your Training", href: APPLY_ANCHOR },
     },
   },
 
   mapsectionData: {
     image: {
-      src: "/course/map1.png",
+      src: "/course/world-map.webp",
       alt: "Global delivery map",
     },
     stats: [

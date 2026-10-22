@@ -3,6 +3,7 @@ import Section from "@/components/ui/Section";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
+import SvgOrImage from "@/components/common/svg-or-image";
 
 /** Render a heading that may contain `<span>` or `<em>` tags for emphasis. */
 function SuiteHeading({ html, className, ...props }) {
@@ -25,9 +26,9 @@ function ToolEmblem({ tool }) {
       className="mb-5 flex flex-col gap-3.5 rounded-2xl bg-navy p-5"
     >
       {tool.svg_image ? (
-        <Box
-          dangerouslySetInnerHTML={{ __html: tool.svg_image }}
-          className="mx-auto w-full max-w-[320px] [&_svg]:block [&_svg]:w-full"
+        <SvgOrImage
+          value={tool.svg_image}
+          className="mx-auto w-full max-w-[320px] [&_svg]:block [&_svg]:w-full [&_img]:block [&_img]:w-full"
         />
       ) : (
         <Box className="flex items-center gap-3">
@@ -140,9 +141,9 @@ function Spotlight({ data, tool }) {
               as="figure"
               className="m-0 rounded-[20px] border border-lime/28 bg-navy-soft p-6 max-[900px]:p-3.5"
             >
-              <Box
-                dangerouslySetInnerHTML={{ __html: tool.svg_image }}
-                className="mx-auto max-w-[440px] [&_svg]:block [&_svg]:w-full"
+              <SvgOrImage
+                value={tool.svg_image}
+                className="mx-auto max-w-[440px] [&_svg]:block [&_svg]:w-full [&_img]:block [&_img]:w-full"
               />
             </Box>
           </Reveal>
@@ -160,9 +161,9 @@ function ToolVisual({ tool }) {
   if (!tool.svg_image) return <ToolEmblem tool={tool} />;
 
   return (
-    <Box
-      className="mb-5 rounded-[14px] bg-paper/4 p-3.5 [&_svg]:mx-auto [&_svg]:block [&_svg]:w-full [&_svg]:max-w-[340px]"
-      dangerouslySetInnerHTML={{ __html: tool.svg_image }}
+    <SvgOrImage
+      value={tool.svg_image}
+      className="mb-5 rounded-[14px] bg-paper/4 p-3.5 [&_svg]:mx-auto [&_svg]:block [&_svg]:w-full [&_svg]:max-w-[340px] [&_img]:mx-auto [&_img]:block [&_img]:w-full [&_img]:max-w-[340px]"
     />
   );
 }

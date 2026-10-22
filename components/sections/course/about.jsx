@@ -277,7 +277,8 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
         <Reveal delay={2}>
           <Box
             className={[
-              "relative mt-8.5 aspect-video w-full max-w-155 overflow-hidden rounded-[20px] bg-paper-cream",
+              // Hidden below 768px (md) — the design drops this photo on phones.
+              "relative mt-8.5 aspect-video w-full max-w-155 overflow-hidden rounded-[20px] bg-paper-cream max-md:hidden",
               threeCol ? "lg:hidden" : "",
             ].join(" ")}
           >
