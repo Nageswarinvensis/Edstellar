@@ -9,7 +9,7 @@ import EnquiryIntro from "@/components/sections/company/enquiry-intro";
 import EnquiryFallback from "@/components/sections/company/enquiry-fallback";
 import EnquiryForm from "@/components/forms/enquiry-form";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const PATH = "/enquiry-now";
 

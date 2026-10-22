@@ -6,7 +6,7 @@ import SchemaOrg from "@/components/seo/schema-org";
 import SitemapPage from "@/components/templates/sitemap-page";
 
 // Rebuilt hourly from the CMS sitemap, like the XML one (`app/sitemap.js`).
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const PATH = "/sitemap";
 const TITLE = "Sitemap";

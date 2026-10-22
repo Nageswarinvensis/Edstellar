@@ -24,7 +24,7 @@ import BlogRail from "@/components/sections/blog/detail/rail/blog-rail";
 
 import "@/components/sections/blog/detail/blog-content/Global.css";
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 
 const INTERACTIVE_BLOCKS = ["faq", "companies"];
 

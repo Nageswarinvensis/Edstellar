@@ -6,7 +6,7 @@ import CareersHero from "@/components/sections/company/careers/careers-hero";
 import WhyWork from "@/components/sections/company/careers/why-work";
 import TrainerSpotlight from "@/components/sections/company/careers/trainer-spotlight";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 export function generateMetadata() {
   const { seo } = getCareersPage();

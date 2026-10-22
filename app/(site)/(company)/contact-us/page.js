@@ -7,7 +7,7 @@ import SchemaOrg from "@/components/seo/schema-org";
 import CompanyHero from "@/components/sections/company/company-hero";
 import ContactReach from "@/components/sections/company/contact-reach";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const PATH = "/contact-us";
 

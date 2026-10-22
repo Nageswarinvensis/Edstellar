@@ -22,7 +22,7 @@ import CoachingSchedules from "@/components/sections/coaching/coaching-schedules
 import CoachingReadiness from "@/components/sections/coaching/coaching-readiness";
 import CoachingWhy from "@/components/sections/coaching/coaching-why";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const PATH = "/coaching-solutions";
 

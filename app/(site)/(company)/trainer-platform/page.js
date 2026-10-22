@@ -5,7 +5,7 @@ import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import TrainerPlatformPage from "@/components/templates/trainer-platform-page";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const PATH = "/trainer-platform";
 

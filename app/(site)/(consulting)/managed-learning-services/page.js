@@ -20,7 +20,7 @@ import RelatedServices from "@/components/sections/consulting/related-services";
 import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const CMS_SLUG = "managed-learning-services";
 

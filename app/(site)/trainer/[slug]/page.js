@@ -16,7 +16,7 @@ import {
 } from "@/lib/trainer-history";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 /** "Emotional Intelligence Trainer in Pune" → the city as the heading's
  * italic accent. Titles without a trailing "in {city}" stay plain. */

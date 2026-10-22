@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import CaseStudyPage from "@/components/templates/case-study-page";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const pathOf = (slug) => `/case-study/${slug}`;
 

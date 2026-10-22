@@ -6,7 +6,7 @@ import SchemaOrg from "@/components/seo/schema-org";
 import TemplateDetailPage from "@/components/templates/template-detail-page";
 import TemplateToolPage from "@/components/templates/template-tool-page";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const pathOf = (slug) => `/templates/${slug}`;
 

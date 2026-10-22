@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 
 import BlogMainPageContent from "@/components/sections/blog/main/blog-main-page-content";
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 
 export function generateMetadata() {
   return buildMetadata({

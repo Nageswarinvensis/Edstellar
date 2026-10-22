@@ -14,7 +14,7 @@ import Terms from "@/components/sections/company/guest-author/terms";
 import Pitch from "@/components/sections/company/guest-author/pitch";
 import TrainerCta from "@/components/sections/company/guest-author/trainer-cta";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const PATH = "/become-a-guest-author";
 

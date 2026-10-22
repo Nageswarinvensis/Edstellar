@@ -21,7 +21,7 @@ import Suite from "@/components/sections/talent_assessment_services/suite";
 import Centers from "@/components/sections/talent_assessment_services/centers";
 import RelatedLinks from "@/components/sections/talent_assessment_services/related-links";
 
-export const revalidate = 30;
+export const revalidate = 300;
 
 const PATH = "/talent-assessment-services";
 

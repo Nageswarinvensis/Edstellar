@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import SchemaOrg from "@/components/seo/schema-org";
 import AboutUsPage from "@/components/templates/about-us-page";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 export function generateMetadata() {
   const { seo } = getAboutUsPage();

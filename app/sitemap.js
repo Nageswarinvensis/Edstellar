@@ -27,7 +27,7 @@ import { getTemplateSlugs } from "@/lib/content/templates";
  * Catalog pagination is client-side; the sitemap is the only crawler path to
  * the long tail (TASTE.md §2.3).
  */
-export const revalidate = 3600;
+export const revalidate = 300;
 
 /** CMS site_page slugs whose public URL differs from `/{slug}`. `null` = skip. */
 const SITE_PAGE_URL = {

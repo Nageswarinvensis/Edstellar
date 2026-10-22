@@ -13,7 +13,7 @@ import { getResourceSlugs } from "@/lib/content/resources";
  * `lib/content/resources.js`, which returns empty until this type is modeled.
  */
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 export const metadata = buildMetadata({
   title: "Templates",

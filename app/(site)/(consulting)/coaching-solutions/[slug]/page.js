@@ -37,7 +37,7 @@ const PROOF_STATS = {
   secondaryBtnHref: "#contact",
 };
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;

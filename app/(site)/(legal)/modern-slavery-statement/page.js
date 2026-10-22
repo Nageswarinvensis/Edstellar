@@ -4,7 +4,7 @@ import { getModernSlaveryPage } from "@/lib/content/legal";
 import { buildMetadata } from "@/lib/seo/metadata";
 import LegalPage, { legalTitle } from "@/components/templates/legal-page";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const PATH = "/modern-slavery-statement";
 

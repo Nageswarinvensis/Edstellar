@@ -5,7 +5,7 @@ import SchemaOrg from "@/components/seo/schema-org";
 import CorporateTrainingCatalogPage from "@/components/templates/corporate-training-catalog-page";
 
 // Domains and courses come from the CMS sitemap API; refreshed hourly.
-export const revalidate = 3600;
+export const revalidate = 300;
 
 export function generateMetadata() {
   return buildMetadata(getCatalogPage().seo);

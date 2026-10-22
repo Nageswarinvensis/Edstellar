@@ -4,7 +4,7 @@ import { getThankYouPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
 import ThankYou from "@/components/sections/company/thank-you";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
