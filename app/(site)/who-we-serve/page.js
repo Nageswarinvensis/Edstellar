@@ -1,4 +1,5 @@
 import { pageData } from "@/lib/content/who-we-serve";
+import SchemaOrg from "@/components/seo/schema-org";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import WwsHero from "@/components/sections/who-we-serve/wws-hero";
 import ProofBar from "@/components/common/proof-bar";
@@ -30,9 +31,15 @@ export const metadata = {
   },
 };
 
+const BREADCRUMBS = [
+  { href: "/", label: "Home" },
+  { label: "Who We Serve" },
+];
+
 export default function WhoWeServePage() {
   return (
     <main id="main" tabIndex={-1}>
+      <SchemaOrg breadcrumbs={BREADCRUMBS} />
       <WwsHero data={pageData.hero} />
       <Section aria-label="Edstellar at a glance" className="bg-navy-deep">
         <ProofBar layout="spread" stats={pageData.proof} />

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getBlogCategory } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
+import SchemaOrg from "@/components/seo/schema-org";
 
 import CategoryPageContent from "@/components/sections/blog/category/category-page-content";
 
@@ -32,11 +33,20 @@ export default async function CategoryPage({ params }) {
 
   if (!category) notFound();
 
+  const breadcrumbs = [
+    { href: "/", label: "Home" },
+    { href: "/blog", label: "Blog" },
+    { label: category.name },
+  ];
+
   return (
-    <CategoryPageContent
-      category={category}
-      slug={slug}
-      categories={categories}
-    />
+    <>
+      <SchemaOrg breadcrumbs={breadcrumbs} />
+      <CategoryPageContent
+        category={category}
+        slug={slug}
+        categories={categories}
+      />
+    </>
   );
 }

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getCoachingSubPage } from "@/lib/content/coaching";
 import { buildMetadata } from "@/lib/seo/metadata";
+import SchemaOrg from "@/components/seo/schema-org";
 
 import ClientLogos from "@/components/common/client-logos";
 import Faq from "@/components/common/faq";
@@ -58,6 +59,7 @@ export default async function CoachingSubPage({ params }) {
 
   return (
     <>
+      <SchemaOrg breadcrumbs={page.breadcrumbs?.items} faqs={page.faqs?.items} />
       <CoachingHero cms={page.consulting_Hero} />
       <ProofStats data={PROOF_STATS} />
       <ClientLogos />
