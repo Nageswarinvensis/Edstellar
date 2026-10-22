@@ -3,6 +3,7 @@ import AppProviders from "@/components/providers/app-providers";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
 import ReadingProgress from "@/components/common/reading-progress";
+import NavigationProgress from "@/components/common/navigation-progress";
 
 /**
  * The site shell — header, `<main>` landmark, footer.
@@ -19,6 +20,7 @@ import ReadingProgress from "@/components/common/reading-progress";
 export default function SiteLayout({ children }) {
   return (
     <>
+      <NavigationProgress />
       <ReadingProgress />
       <SiteHeader />
       <AppProviders>
