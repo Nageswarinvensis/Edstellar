@@ -36,7 +36,7 @@ export default function BlogDetailMoreInsights({ posts = [] }) {
             <Box as="li" key={post.slug} className="h-full">
               <Link
                 href={`/blog/${post.slug}`}
-                title={`Click Here to View ${post.title}`}
+               
                 className="flex h-full flex-col rounded-2xl border border-ink/12 bg-white p-6.5 no-underline transition-[transform,box-shadow,border-color] duration-250 hover:-translate-y-1.25 hover:border-ink/22 hover:shadow-[0_22px_46px_-28px_rgba(10,22,40,0.5)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
               >
                 {post.category_name ? (

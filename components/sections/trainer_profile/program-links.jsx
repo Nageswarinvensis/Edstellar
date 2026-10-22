@@ -25,7 +25,7 @@ export default function ProgramLinks({ heading, items }) {
       >
         {items.map((item) => (
           <li key={item.href}>
-            <a href={item.href} title={`Click Here to View ${item.label}`}>
+            <a href={item.href}>
               {item.label}
               <ArrowRight size={16} aria-hidden="true" />
             </a>

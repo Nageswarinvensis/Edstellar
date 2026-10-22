@@ -82,7 +82,7 @@ export default function DeliveryModeTabs({ tabs }) {
               id={`mode-tab-${key}`}
               type="button"
               role="tab"
-              title={`Click Here to View ${tab.label}`}
+             
               aria-selected={isActive}
               aria-controls={`mode-panel-${key}`}
               onClick={() => setActiveKey(key)}

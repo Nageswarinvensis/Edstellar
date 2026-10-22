@@ -18,7 +18,7 @@ export default function CourseChips({ data }) {
           <Box as="li" key={item.href}>
             <a
               href={item.href}
-              title={`Click Here to View ${item.label}`}
+             
               className="inline-block rounded-full border border-ink/12 bg-white px-4 py-2.5 font-body text-sm font-medium text-ink no-underline transition-[border-color,transform,box-shadow] duration-200 after:text-olive after:content-['_→'] hover:-translate-y-0.5 hover:border-navy hover:shadow-[0_1px_2px_rgba(10,22,40,0.06),0_8px_24px_rgba(10,22,40,0.06)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               {item.label}

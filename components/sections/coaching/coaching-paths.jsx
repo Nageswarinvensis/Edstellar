@@ -44,7 +44,7 @@ export default function CoachingPaths({ data }) {
               <Box
                 as={Link}
                 href={item.cta?.href ?? "#apply"}
-                title={`Click Here to View ${item.title}`}
+               
                 className={cn(
                   "group flex h-full flex-col rounded-[14px] border p-7 no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lift motion-reduce:hover:translate-y-0 max-[600px]:p-6",
                   dark ? "border-navy bg-navy text-paper focus-visible:outline-lime" : "border-ink/12 bg-white text-ink",

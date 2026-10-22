@@ -1913,7 +1913,7 @@ export const CLIENTS = {
       },
       {
         "q": "Which Edstellar services do clients use?",
-        "a": "Clients work with Edstellar for corporate training programs across 75 domains, learning and development consulting, organizational development consulting, training needs analysis, talent assessments, coaching and managed training services."
+        "a": "Clients work with Edstellar for corporate training programs across 77 domains, learning and development consulting, organizational development consulting, training needs analysis, talent assessments, coaching and managed training services."
       },
       {
         "q": "How does Edstellar support each client account?",

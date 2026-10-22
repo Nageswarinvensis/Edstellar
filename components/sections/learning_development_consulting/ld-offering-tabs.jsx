@@ -82,7 +82,7 @@ export default function LdOfferingTabs({ items, panels }) {
               id={`oft-${item.id}`}
               type="button"
               role="tab"
-              title={`Click Here to View ${item.title}`}
+             
               aria-selected={isActive}
               aria-controls={`ofp-${item.id}`}
               tabIndex={isActive ? 0 : -1}

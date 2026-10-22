@@ -44,7 +44,7 @@ export default function SuccessStories({ data }) {
           >
             <Box
               as="summary"
-              title={`Click Here to View ${item.title}`}
+             
               className="flex cursor-pointer list-none items-center gap-4 px-5.5 py-4.25 hover:bg-paper-warm focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-navy max-sm:gap-3.25 max-sm:px-4 max-sm:py-3.75 [&::-webkit-details-marker]:hidden"
             >
               {item.flag ? (

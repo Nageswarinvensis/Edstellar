@@ -147,7 +147,7 @@ export default function CoachingBenefits({ data }) {
                 {(typeof item.link === "string" ? item.link : item.link?.href) ? (
                   <Link
                     href={typeof item.link === "string" ? item.link : item.link.href}
-                    title={`Click Here to View ${item.title}`}
+                   
                     className="mt-4.5 inline-flex items-center gap-2 self-start text-[14px] font-semibold text-navy underline-offset-3 hover:underline"
                   >
                     {(typeof item.link === "string" ? null : item.link.label) || "Learn more"}

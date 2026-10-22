@@ -54,7 +54,7 @@ export const HOME = {
     "panel": {
       "label": "Capability Map · By Function",
       "live": "Illustrative",
-      "title": "Every role, modelled across <span>capability</span> x function.",
+      "title": "Every role, modeled across <span>capability</span> x function.",
       "cols": [
         "Eng",
         "Ops",
@@ -313,7 +313,7 @@ export const HOME = {
   },
   "pillars": {
     "heading": "Four pillars, <span>one operating system</span> for capability.",
-    "lede": "From C-suite coaching to enterprise-wide skills intelligence, Edstellar's practices are designed to interlock: so the strategy your CHRO sets becomes the behaviour your business sees, on the ground, in measurable weeks.",
+    "lede": "From C-suite coaching to enterprise-wide skills intelligence, Edstellar's practices are designed to interlock: so the strategy your CHRO sets becomes the behavior your business sees, on the ground, in measurable weeks.",
     "items": [
       {
         "img": "/home/pillar-consulting.svg",
@@ -340,8 +340,8 @@ export const HOME = {
       {
         "img": "/home/pillar-training.svg",
         "title": "Corporate <span>Training</span>",
-        "desc": "Outcome-first training programmes across 2,000+ skill areas: instructor-led, virtual, blended: delivered in your languages, your time zones, your standards.",
-        "cta": "Explore programmes",
+        "desc": "Outcome-first training programs across 2,000+ skill areas: instructor-led, virtual, blended: delivered in your languages, your time zones, your standards.",
+        "cta": "Explore programs",
         "href": "/corporate-training"
       }
     ]
@@ -483,8 +483,8 @@ export const HOME = {
     "items": [
       {
         "num": "i.",
-        "title": "Outcomes, <span>not enrolments.</span>",
-        "desc": "Every engagement is scoped against a measurable behaviour change and a board-line metric. Edstellar signs for the result, not the seat count: and your CFO sees the throughline."
+        "title": "Outcomes, <span>not enrollments.</span>",
+        "desc": "Every engagement is scoped against a measurable behavior change and a board-line metric. Edstellar signs for the result, not the seat count: and your CFO sees the throughline."
       },
       {
         "num": "ii.",

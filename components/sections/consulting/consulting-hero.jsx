@@ -22,7 +22,7 @@ const HERO_META = [
     },
   },
   {
-    label: "100+ locations",
+    label: "100+ countries",
     tooltip: {
       heading: "Global delivery",
       body: "Global delivery across APAC, the Middle East, Europe, North America and India",

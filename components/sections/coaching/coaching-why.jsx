@@ -283,7 +283,7 @@ export default function CoachingWhy({ data }) {
                   <Box
                     as={Link}
                     href={item.href}
-                    title={`Click Here to View ${item.title}`}
+                   
                     className="group flex h-full flex-col gap-3 rounded-[14px] border border-ink/12 bg-white p-7 text-ink no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lift motion-reduce:hover:translate-y-0 max-[600px]:p-5.5"
                   >
                     <span className="grid size-12 place-items-center rounded-xl bg-lime-soft text-navy">

@@ -401,7 +401,7 @@ function FrameworkTrigger({ item }) {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
-        title={`Click Here to View ${item.name}`}
+       
         className="group/acc flex w-full cursor-pointer items-center gap-4 px-[22px] py-[17px] text-left outline-none hover:bg-paper-warm focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-navy max-[640px]:gap-3.25 max-[640px]:px-4"
       >
         <Box

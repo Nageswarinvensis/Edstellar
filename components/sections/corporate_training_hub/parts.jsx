@@ -66,7 +66,7 @@ export function InlineText({ text, linkClassName }) {
       <Link
         key={index}
         href={href}
-        title={`Click Here to View ${label}`}
+       
         className={cn("border-b border-current text-olive hover:text-ink", linkClassName)}
       >
         {label}

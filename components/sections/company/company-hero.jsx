@@ -74,7 +74,7 @@ export default function CompanyHero({ id, heading, description, breadcrumbs, ima
                     </Box>
                   ) : null}
                   {item.href ? (
-                    <Link href={item.href} title={`Click Here to View ${item.label}`} className="hover:underline">
+                    <Link href={item.href} className="hover:underline">
                       {item.label}
                     </Link>
                   ) : (

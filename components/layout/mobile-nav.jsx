@@ -110,7 +110,7 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
                           ) : (
                             <Link
                               href={link.href}
-                              title={`Click Here to View ${link.label}`}
+                             
                               onClick={onClose}
                               className="block min-h-11 py-2 text-[15px] leading-relaxed text-ink/75 transition-colors duration-200 hover:text-ink hover:underline hover:underline-offset-4"
                             >
@@ -123,7 +123,7 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
                     {group.more && (
                       <Link
                         href={group.more.href}
-                        title={`Click Here to View ${group.more.label}`}
+                       
                         onClick={onClose}
                         className="mb-1 inline-flex min-h-11 items-center gap-2 py-2 text-[15px] font-semibold text-navy transition-colors duration-200 hover:underline hover:underline-offset-4"
                       >
@@ -149,7 +149,7 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
                 {section.foot && (
                   <Link
                     href={section.foot.href}
-                    title={`Click Here to View ${section.foot.label}`}
+                   
                     onClick={onClose}
                     className="mt-1 inline-flex min-h-11 items-center gap-2 py-2 text-[15px] font-semibold text-navy transition-colors duration-200 hover:underline hover:underline-offset-4"
                   >
@@ -176,7 +176,7 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
 
           <Link
             href="/contact-us"
-            title="Click Here to View Contact Us"
+           
             onClick={onClose}
             className="border-b border-ink/12 py-4 font-display text-[17px] font-semibold text-ink"
           >

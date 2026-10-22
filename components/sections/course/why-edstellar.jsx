@@ -25,7 +25,7 @@ function ProgramCard({ program }) {
     <Box
       as="a"
       href={resolveHref(program.href)}
-      title={`Click Here to View ${program.title}`}
+     
       className={[
         "group relative block min-w-0 overflow-hidden rounded-[16px] border",
         "border-ink/12 bg-white",
@@ -127,7 +127,7 @@ function RelatedCourseCard({ course }) {
       // The CMS sends some slugs with a trailing slash ("ai/"), which would
       // cost a 308 redirect on every click.
       href={`/corporate-training/${String(course.slug).replace(/\/+$/, "")}`}
-      title={`Click Here to View ${course.name}`}
+     
       className="group flex h-full flex-col rounded-[14px] border border-ink/12 bg-white p-6 no-underline transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-ink/22 hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.5)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 max-[600px]:p-5"
     >
       <Text

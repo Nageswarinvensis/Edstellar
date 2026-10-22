@@ -118,7 +118,7 @@ export default function ToolSpotlight({ data }) {
                 {link?.href ? (
                   <Link
                     href={link.href}
-                    title={`Click Here to View ${link.label}`}
+                   
                     className="text-[14px] font-semibold text-lime underline-offset-4 hover:underline"
                   >
                     {link.label}

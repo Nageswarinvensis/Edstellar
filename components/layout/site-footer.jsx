@@ -79,7 +79,7 @@ function IsoSeal() {
 function Brand() {
   return (
     <Box>
-      <Link href="/" aria-label="Edstellar home" title="Click Here to View Edstellar Home" className="inline-flex items-center">
+      <Link href="/" aria-label="Edstellar home" className="inline-flex items-center">
         <Image src="/course/Edstellar.svg" alt="Edstellar" width={139} height={50} className="block h-[50px] w-auto brightness-0 invert" />
       </Link>
       <Text as="p" className="mt-4 max-w-[44ch] text-[14px] leading-[1.7] text-paper/60">
@@ -93,7 +93,7 @@ function Brand() {
             key={social.key}
             href={social.href}
             aria-label={social.label}
-            title={`Click Here to View ${social.label}`}
+           
             rel="nofollow noopener noreferrer"
             target="_blank"
             className="grid size-10 place-items-center rounded-full border border-paper/[0.22] text-paper transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(5,13,26,0.4)]"
@@ -130,7 +130,7 @@ function Contact() {
         {FOOTER_CONTACT.map((item) => (
           <li key={item.label} className="flex items-center justify-between gap-4 border-t border-paper/12 py-2 first:border-t-0">
             <Text as="b" className="text-[14px] font-semibold text-paper">{item.label}</Text>
-            <a href={item.href} title={`Click Here to View ${item.value}`} className="whitespace-nowrap text-[14px] font-medium text-paper transition-colors hover:text-lime-soft">
+            <a href={item.href} className="whitespace-nowrap text-[14px] font-medium text-paper transition-colors hover:text-lime-soft">
               {item.value}
             </a>
           </li>
@@ -167,7 +167,7 @@ export default function SiteFooter() {
           </Text>
           <Box as="nav" aria-label="Legal" className="flex flex-wrap items-center gap-x-5 gap-y-1">
             {FOOTER_LEGAL_LINKS.map((link) => (
-              <Link key={link.href} href={link.href} title={`Click Here to View ${link.label}`} className="text-[14px] text-paper/[0.78] transition-colors duration-200 hover:text-paper">
+              <Link key={link.href} href={link.href} className="text-[14px] text-paper/[0.78] transition-colors duration-200 hover:text-paper">
                 {link.label}
               </Link>
             ))}

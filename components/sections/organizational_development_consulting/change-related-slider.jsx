@@ -117,7 +117,7 @@ export default function ChangeRelatedSlider({ id, data }) {
                   key={item.title}
                   data-rel-card
                   href={item.href || "#"}
-                  title={`Click Here to View ${item.title}`}
+                 
                   className="
                     group/rel flex shrink-0 basis-[clamp(250px,78vw,300px)] snap-start flex-col rounded-[14px] border border-ink/12 bg-white p-6.5
                     transition-[transform,box-shadow] duration-200 hover:-translate-y-0.75 hover:shadow-lift

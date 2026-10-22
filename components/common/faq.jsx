@@ -75,11 +75,6 @@ function FaqTrigger({ children }) {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
-        title={
-          typeof children === "string"
-            ? `Click Here to View ${children}`
-            : undefined
-        }
         className="group/faq-trigger flex flex-1 items-center justify-between gap-6 py-6 text-left font-display text-lg font-medium tracking-[-0.01em] text-ink outline-none cursor-pointer"
       >
         <span className="font-display font-medium not-italic">{children}</span>
@@ -171,7 +166,7 @@ export default function Faq({
             <Box className="mt-6 flex justify-center">
               <button
                 type="button"
-                title="Click Here to View Load more questions"
+               
                 onClick={() => setExpanded(true)}
                 className="inline-flex cursor-pointer items-center gap-2.25 rounded-full border border-ink/14 bg-white px-5.5 py-2.75 font-body text-[13.5px] font-semibold text-ink transition-[border-color,box-shadow] duration-200 hover:border-ink hover:shadow-[0_10px_24px_-16px_rgba(10,22,40,0.6)]"
               >

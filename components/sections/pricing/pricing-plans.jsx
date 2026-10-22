@@ -20,7 +20,7 @@ function Footnote({ mark, dark }) {
   return (
     <a
       href="#points"
-      title={`Click Here to View Note ${mark}`}
+     
       className={cn(
         "ml-0.5 align-super font-mono text-[10px] leading-none underline underline-offset-2",
         dark ? "text-lime" : "text-olive",
@@ -95,7 +95,7 @@ function PlanValue({ value, programs, tab, dark, tipAlign }) {
         {line.count}{" "}
         <Link
           href={programs.href}
-          title="Click Here to View Training Programs"
+         
           className={cn("border-b border-current", dark ? "text-lime" : "text-olive")}
         >
           {programs.link_label}

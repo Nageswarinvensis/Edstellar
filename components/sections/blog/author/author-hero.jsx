@@ -32,11 +32,11 @@ export default function AuthorHero({
           aria-label="Breadcrumb"
           className="flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-paper/50"
         >
-          <Link href="/" title="Click Here to View Home" className="text-paper/65 transition-colors hover:text-lime">
+          <Link href="/" className="text-paper/65 transition-colors hover:text-lime">
             Home
           </Link>
           <span aria-hidden="true">/</span>
-          <Link href="/blog" title="Click Here to View Blog" className="text-paper/65 transition-colors hover:text-lime">
+          <Link href="/blog" className="text-paper/65 transition-colors hover:text-lime">
             Blog
           </Link>
           <span aria-hidden="true">/</span>

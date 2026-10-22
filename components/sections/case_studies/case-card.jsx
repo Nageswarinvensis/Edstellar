@@ -15,7 +15,7 @@ export default function CaseCard({ study, featured = false }) {
   return (
     <Link
       href={`/case-study/${slug}`}
-      title={`Click Here to View ${title}`}
+     
       className={cn(
         "group flex flex-col overflow-hidden border border-ink/12 bg-white no-underline transition-[transform,box-shadow] duration-250 hover:-translate-y-1 hover:shadow-[0_22px_46px_-28px_rgba(10,22,40,0.5)] motion-reduce:transition-none motion-reduce:hover:translate-y-0",
         featured ? "col-span-full rounded-[22px] lg:grid lg:grid-cols-[1fr_1.15fr]" : "rounded-[14px]",

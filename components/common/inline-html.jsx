@@ -18,11 +18,11 @@ export default function InlineHtml({ text, linkClassName, emClassName }) {
     if (link) {
       const [, href, label] = link;
       return href.startsWith("/") ? (
-        <Link key={index} href={href} title={`Click Here to View ${decodeEntities(label)}`} className={linkClassName}>
+        <Link key={index} href={href} className={linkClassName}>
           {decodeEntities(label)}
         </Link>
       ) : (
-        <a key={index} href={href} title={`Click Here to View ${decodeEntities(label)}`} className={linkClassName}>
+        <a key={index} href={href} className={linkClassName}>
           {decodeEntities(label)}
         </a>
       );

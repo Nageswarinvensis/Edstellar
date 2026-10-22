@@ -1,34 +1,9 @@
-import { Children } from "react";
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import { cva } from "class-variance-authority";
 import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-/** Pulls the visible label out of children — a plain string, or the text
- * node inside an icon + label pairing (e.g. `<ArrowLeft /> Previous`). */
-function labelFromChildren(children) {
-  let label = "";
-  Children.forEach(children, (child) => {
-    if (typeof child === "string" || typeof child === "number") {
-      label += child;
-    }
-  });
-  return label.trim() || undefined;
-}
-
-function titleCase(str) {
-  return str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
-}
-
-/** "View trainer profile" -> "Click Here to View Trainer Profile" — the
- * label already carries its own "View", so it's stripped before re-adding
- * the fixed lead-in instead of doubling it up. */
-function deriveTitle(label) {
-  if (!label) return undefined;
-  const subject = label.replace(/^view\s+/i, "");
-  return `Click Here to View ${titleCase(subject)}`;
-}
 
 /**
  * The pill button from the designs.
@@ -114,15 +89,12 @@ function CtaButton({
   title,
   ...props
 }) {
-  const label = labelFromChildren(children) || props["aria-label"];
-  const derivedTitle = title ?? deriveTitle(label);
-
   return (
     <ButtonPrimitive
       data-slot="cta-button"
       render={render}
       nativeButton={!render}
-      title={derivedTitle}
+      title={title}
       className={cn(
         ctaButtonVariants({ variant, color, size, block }),
         className,

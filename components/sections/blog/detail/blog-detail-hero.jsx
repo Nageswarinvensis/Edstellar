@@ -60,7 +60,7 @@ export default function BlogDetailHero({
               {categorySlug ? (
                 <Link
                   href={`/blog/category/${categorySlug}`}
-                  title={`Click Here to View ${category} Related Articles`}
+                 
                   className="inline-flex rounded-full border border-paper/28 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-lime transition-colors hover:border-lime"
                 >
                   {category}

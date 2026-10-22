@@ -73,7 +73,7 @@ export default function HomeHero({ data }) {
 
           {people && (
             <Box className="mt-9 flex items-center gap-4">
-              <TrainerFaces people={people.trainers} eager />
+              <TrainerFaces people={people.trainers} />
               <Text as="span" className="text-sm leading-[1.4] text-ink">
                 <Text as="span" className="font-semibold text-ink">{people.note_strong}</Text>
                 {people.note}
@@ -94,7 +94,7 @@ export default function HomeHero({ data }) {
                 {panel.live}
               </Text>
             </Box>
-            <RichHeading as="h3" heading={panel.title} className="mb-4 mt-3 font-serif text-lg font-normal leading-[1.25] text-ink" />
+            <RichHeading as="p" heading={panel.title} className="mb-4 mt-3 font-serif text-lg font-normal leading-[1.25] text-ink" />
             <CapabilityMap panel={panel} />
             <Box className="flex items-center justify-between border-t border-ink/12 pt-3">
               <Text as="span" className="font-mono text-[9px] uppercase tracking-[0.12em] text-ink-muted">

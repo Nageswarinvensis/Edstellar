@@ -46,7 +46,7 @@ export default function FaqDetails({ items, className, startAt = 1, openFirst = 
         <Box as="details" key={item.question} open={openFirst && index === 0} className="group border-b border-ink/12">
           <Box
             as="summary"
-            title={`Click Here to View ${item.question}`}
+           
             className="flex cursor-pointer list-none items-start gap-4.5 py-5.5 transition-colors duration-200 hover:text-olive [&::-webkit-details-marker]:hidden"
           >
             <Text

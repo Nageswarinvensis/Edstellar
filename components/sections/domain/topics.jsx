@@ -189,7 +189,7 @@ function ProgramCard({ program }) {
               href={program.href}
               target="_blank"
               rel="noopener"
-              title={`Click Here to View ${program.title}`}
+             
               className="hover:underline hover:underline-offset-3"
             >
               {program.title}

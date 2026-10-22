@@ -25,7 +25,7 @@ export default function HomePillars({ data }) {
               className="group flex min-h-[480px] flex-1 flex-col border-b-[1.5px] border-r border-ink/12 no-underline"
             >
               <Box className="relative aspect-[4/3] overflow-hidden border-b border-ink/12 bg-paper-warm">
-                <Image src={item.img} alt={item.title} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+                <Image src={item.img} alt="" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
                 {item.badge && (
                   <Text as="span" className="absolute right-[18px] top-[18px] rounded-full border border-ink/12 bg-paper/80 px-2.5 py-1.5 font-mono text-[9.5px] uppercase tracking-[0.18em] text-navy">
                     {item.badge}

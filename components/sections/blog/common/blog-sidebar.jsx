@@ -78,7 +78,7 @@ export default function BlogSidebar({
         {categoryList.length > 0 && (
           <Collapsible className="rounded-lg border border-ink/15 bg-white px-4">
             <CollapsibleTrigger
-              title="Click Here to View Blog Categories"
+             
               className="group/cat-trigger flex h-11 w-full cursor-pointer items-center justify-between text-left outline-none"
             >
               <Text as="span" className="font-display text-base font-semibold text-ink">

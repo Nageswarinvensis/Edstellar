@@ -181,7 +181,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
           </CtaButton>
           <Text as="p" className="mt-4 text-[13px] leading-[1.6] text-ink-muted">
             Your details are used only to respond to your enquiry. See our{" "}
-            <a href="/privacy-policy" title="Click Here to View Privacy Policy" className="underline hover:text-ink">
+            <a href="/privacy-policy" className="underline hover:text-ink">
               Privacy Policy
             </a>
             .

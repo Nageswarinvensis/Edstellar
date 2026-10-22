@@ -37,7 +37,7 @@ export default function BlogDetailContinueReading({ orphanLinks = [] }) {
 
             <Link
               href={`/blog/${item.link}`}
-              title={`Click Here to View ${item.orphan_title}`}
+             
               className="text-[15px] font-medium text-ink underline underline-offset-2 transition-colors duration-200 hover:text-olive"
             >
               {item.orphan_title}

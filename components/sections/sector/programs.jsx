@@ -103,7 +103,7 @@ export default function Programs({ data }) {
                   <Box className="mt-auto">
                     <ProgramCatalog
                       label={item.catalog_label}
-                      title={`Click Here to View ${item.title} Catalog`}
+                     
                       titleId={titleId}
                     >
                       <Text

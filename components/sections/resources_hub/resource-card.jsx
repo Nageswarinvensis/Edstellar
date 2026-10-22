@@ -51,7 +51,7 @@ export default function ResourceCard({ item, linkTitle = false }) {
           {linkTitle && item.cta?.href ? (
             <Link
               {...linkProps(item.cta)}
-              title={`Click Here to View ${item.title}`}
+             
               className="transition-colors duration-200 hover:text-olive"
             >
               {item.title}

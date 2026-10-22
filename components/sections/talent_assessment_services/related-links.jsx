@@ -78,7 +78,7 @@ export default function RelatedLinks({ data }) {
               <Box
                 as={Link}
                 href={item.href}
-                title={`Click Here to View ${item.title}`}
+               
                 className="group flex h-full flex-col rounded-2xl border border-ink/12 bg-white p-8 no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lift"
               >
                 {Icon ? (

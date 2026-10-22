@@ -77,7 +77,7 @@ export default function HubHero({ data, types = [], breadcrumbs }) {
                     <Box as="li" key={type.key}>
                       <a
                         href={`#type-${type.key}`}
-                        title={`Click Here to View ${type.label}`}
+                       
                         className="flex items-center gap-3 border-b border-paper/12 py-2.75 text-[14px] text-paper/72 transition-colors duration-200 hover:text-lime"
                       >
                         <Box className="grid size-7.5 flex-none place-items-center rounded-[9px] bg-lime/12 text-lime">

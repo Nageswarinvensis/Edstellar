@@ -69,7 +69,7 @@ export default function AlsoFromEdstellar() {
                 as="a"
                 key={service.title}
                 href={service.href}
-                title={`Click Here to View ${service.title}`}
+               
                 className={`group relative min-h-23 border-[#D9DDE1] px-5 py-4 transition-colors duration-200 ${BORDER_CLASSES[i]} hover:bg-[#F5F3EB]`}
               >
                 <Text

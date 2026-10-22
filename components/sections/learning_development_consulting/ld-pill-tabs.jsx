@@ -67,7 +67,7 @@ export default function LdPillTabs({
               id={`${idPrefix}t-${item.id}`}
               type="button"
               role="tab"
-              title={`Click Here to View ${item.name}`}
+             
               aria-selected={isActive}
               aria-controls={`${idPrefix}p-${item.id}`}
               tabIndex={isActive ? 0 : -1}

@@ -42,7 +42,7 @@ export default function ImperiumAbout({ data }) {
               <Box as="li" key={link.href} className={index > 0 ? "border-l border-ink/15 pl-4.5" : undefined}>
                 <Link
                   href={link.href}
-                  title={`Click Here to View ${link.label}`}
+                 
                   className="inline-flex items-center gap-2 py-2 pr-4.5 font-display text-[15px] font-semibold text-ink hover:text-olive"
                 >
                   {link.label}

@@ -55,16 +55,15 @@ export default function HeaderSearch({ className }) {
         {open ? <X size={18} strokeWidth={1.8} /> : <Search size={18} strokeWidth={1.8} />}
       </Box>
 
-      {open && (
-        <Box
-          id="header-search-panel"
-          className="absolute inset-x-0 top-full z-10 border-b border-ink/12 bg-white shadow-[0_12px_32px_rgba(10,22,40,0.10)]"
-        >
-          <Box className="mx-auto max-w-[1360px] px-10 py-5">
-            <SiteSearch id={INPUT_ID} mobile className="mx-auto max-w-[720px]" />
-          </Box>
+      <Box
+        id="header-search-panel"
+        hidden={!open}
+        className="absolute inset-x-0 top-full z-10 border-b border-ink/12 bg-white shadow-[0_12px_32px_rgba(10,22,40,0.10)]"
+      >
+        <Box className="mx-auto max-w-[1360px] px-10 py-5">
+          <SiteSearch id={INPUT_ID} mobile className="mx-auto max-w-[720px]" />
         </Box>
-      )}
+      </Box>
     </Box>
   );
 }

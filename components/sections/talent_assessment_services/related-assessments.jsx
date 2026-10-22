@@ -150,7 +150,7 @@ export default function RelatedAssessments({ data }) {
               href={item.href}
               key={item.title}
               data-card
-              title={`Click Here to View ${item.title}`}
+             
               // Navy fill slides up from the bottom on hover/focus (`.rb::before`),
               // under the content (`isolate` + `-z-10`).
               className="group relative isolate flex shrink-0 basis-[calc((100%-60px)/4)] snap-start flex-col overflow-hidden rounded-[14px] border border-ink/12 bg-white p-7 no-underline transition-[transform,box-shadow] duration-250 ease-[cubic-bezier(.2,.7,.2,1)] before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-navy before:transition-transform before:duration-450 before:ease-[cubic-bezier(.2,.7,.2,1)] before:content-[''] hover:-translate-y-1 hover:shadow-lift hover:before:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-lime focus-visible:before:translate-y-0 motion-reduce:before:transition-none max-[1100px]:basis-[calc((100%-20px)/2)] max-[760px]:basis-[78%]"

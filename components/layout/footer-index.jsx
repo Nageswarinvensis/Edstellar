@@ -33,7 +33,7 @@ function FooterLink({ link, stage }) {
   return (
     <Link
       href={link.href}
-      title={`Click Here to View ${link.label}`}
+     
       className={cn(
         "group/all text-[14px] leading-[1.5] transition-colors duration-200 hover:text-paper",
         link.all ? "inline" : "inline-flex min-h-6 items-center py-0.5",

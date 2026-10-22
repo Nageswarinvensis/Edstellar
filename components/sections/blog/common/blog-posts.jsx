@@ -210,7 +210,7 @@ export default function BlogPosts({
               <PaginationButton
                 disabled={isPending || pagination.current_page === 1}
                 onClick={() => onPageChange(pagination.current_page - 1)}
-                title="Click Here to View Previous Page"
+               
                 ariaLabel="Go to previous page"
               >
                 <ChevronLeft size={14} strokeWidth={1.5} />
@@ -227,7 +227,7 @@ export default function BlogPosts({
                     active={n === pagination.current_page}
                     disabled={isPending}
                     onClick={() => onPageChange(n)}
-                    title={`Click Here to View Page ${n}`}
+                   
                   >
                     {n}
                   </PaginationButton>
@@ -245,7 +245,7 @@ export default function BlogPosts({
                   isPending || pagination.current_page === pagination.last_page
                 }
                 onClick={() => onPageChange(pagination.current_page + 1)}
-                title="Click Here to View Next Page"
+               
                 ariaLabel="Go to next page"
               >
                 <ChevronRight size={14} strokeWidth={1.5} />

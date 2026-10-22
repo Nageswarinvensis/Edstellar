@@ -23,7 +23,7 @@ export default function LdFormatSample({ name, label, sample, dialog }) {
   return (
     <Dialog.Root>
       <Dialog.Trigger
-        title={`Click Here to View a ${name} Sample`}
+       
         className="inline-flex cursor-pointer items-center gap-1.5 bg-transparent p-0 font-mono text-[11px] leading-normal tracking-[0.06em] whitespace-nowrap text-navy uppercase after:content-['→'] hover:underline hover:underline-offset-3"
       >
         {label}
