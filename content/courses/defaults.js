@@ -23,7 +23,7 @@ export const COURSE_DEFAULTS = {
     // Extracted from the source's inline base64 <img> and saved as a real
     // static asset — `#about`'s only media in that file, no CMS field for it.
     media: {
-      src: "/course/ml-model-monitoring-about.jpg",
+      src: "/course/about_course.webp",
       alt: "An instructor leading a corporate training session with a team around a boardroom table",
     },
 
@@ -90,7 +90,7 @@ export const COURSE_DEFAULTS = {
 
   mapsectionData: {
     image: {
-      src: "/course/map1.png",
+      src: "/course/world-map.webp",
       alt: "Global delivery map",
     },
     stats: [

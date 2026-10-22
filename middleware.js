@@ -61,8 +61,27 @@ function getCmsUrl(pathname) {
     return `${CMS_BASE}/api/v2/trainer/${encodeURIComponent(slug.slice("trainer/".length))}`;
   }
 
-  // Corporate training, consulting pillars, resources, and all other site
-  // pages — preserving nested path segments.
+  // Corporate training is NOT a site page. A domain (`/corporate-training/
+  // {domain}`) is served from `/api/v2/domains/{slug}` and a course
+  // (`/corporate-training/{domain}/{course}`) from `/api/v2/pages/{slug}`
+  // (see lib/content/domains.js and lib/content/courses.js). Probing
+  // `site-pages/{path}` for these always 404s — it was ~a third of all CMS
+  // load in production (144,615 wasted 404s in 30h) — and never produced a
+  // redirect, since the 404 falls straight through to the renderer. Skip it:
+  // the renderer already fetches the real endpoint, so a duplicate probe here
+  // would only double that load. Retired domain/course slugs are not wired to
+  // this redirect mechanism; handle those via next.config `redirects()` or a
+  // sitemap-backed check if they're ever needed.
+  if (slug === "corporate-training" || slug.startsWith("corporate-training/")) {
+    return null;
+  }
+
+  // The blog index is a listing, not a redirectable slug (individual posts are
+  // caught by the `blog/` branch above); skip its always-404 site-pages probe.
+  if (slug === "blog") return null;
+
+  // Consulting pillars, resources, and all other flat/nested site pages —
+  // preserving nested path segments.
   return `${CMS_BASE}/api/v2/site-pages/${slug.split("/").map(encodeURIComponent).join("/")}`;
 }
 

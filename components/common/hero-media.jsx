@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
  * The hero visual.
  *
  * Design: `.hero-photo` / `.hero-vid`. Three distinct behaviours:
- *   ≤620px       hidden entirely — the design drops it on phones
- *   621–1140px   a 280px block above the copy, faded out at the bottom
+ *   <768px       hidden entirely — the design drops it on phones/small tablets
+ *   768–1140px   a 280px block above the copy, faded out at the bottom
  *   ≥1141px      absolutely positioned, bleeding off the right viewport edge
  *                and masked in from the left so the copy stays readable
  *
@@ -34,7 +34,7 @@ function HeroMedia({ image, video, alt = "", poster, className }) {
       aria-hidden={hasMedia ? undefined : "true"}
       className={cn(
         "hidden",
-        "sm:mb-1.5 sm:block sm:h-70 sm:w-full sm:overflow-hidden sm:rounded-[14px] sm:hero-mask-y",
+        "md:mb-1.5 md:block md:h-70 md:w-full md:overflow-hidden md:rounded-[14px] md:hero-mask-y",
         "lg:pointer-events-none lg:absolute lg:top-0 lg:bottom-0 lg:left-[calc(26%+56px)] lg:right-[calc(50%-50vw-20px)] lg:z-0 lg:mb-0 lg:h-auto lg:w-auto lg:rounded-none lg:hero-mask-x lg:bg-cover",
         className,
       )}
@@ -58,7 +58,7 @@ function HeroMedia({ image, video, alt = "", poster, className }) {
           fill
           priority
           quality={100}
-          sizes="(max-width: 620px) 0px, (max-width: 1140px) 100vw, 80vw"
+          sizes="(max-width: 767px) 0px, (max-width: 1140px) 100vw, 80vw"
           className="object-cover object-right"
         />
       ) : (

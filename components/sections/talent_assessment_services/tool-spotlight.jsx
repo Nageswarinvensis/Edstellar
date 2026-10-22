@@ -5,6 +5,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import SvgOrImage from "@/components/common/svg-or-image";
 
 /**
  * One Edstellar tool in the spotlight (e.g. Polaris on the team effectiveness
@@ -135,9 +136,9 @@ export default function ToolSpotlight({ data }) {
               as="figure"
               className="m-0 rounded-[20px] border border-lime/28 bg-navy-soft p-6 max-[600px]:p-3.5"
             >
-              <Box
-                className="mx-auto max-w-[440px] [&_svg]:block [&_svg]:h-auto [&_svg]:w-full"
-                dangerouslySetInnerHTML={{ __html: svg_image }}
+              <SvgOrImage
+                value={svg_image}
+                className="mx-auto max-w-[440px] [&_svg]:block [&_svg]:h-auto [&_svg]:w-full [&_img]:block [&_img]:h-auto [&_img]:w-full"
               />
             </Box>
           </Reveal>
