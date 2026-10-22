@@ -66,7 +66,7 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
       ) : (
         <Link
           href={link.href}
-         
+          title={`Click Here to View ${link.label}`}
           onClick={onNavigate}
           onMouseEnter={() => onPreview(link)}
           onFocus={() => onPreview(link)}
@@ -117,7 +117,7 @@ function PanelGroup({ group, first, activeKey, onNavigate, onPreview }) {
       {group.more && (
         <Link
           href={group.more.href}
-         
+          title={`Click Here to View ${group.more.label}`}
           onClick={onNavigate}
           className="mt-3.5 inline-flex w-fit max-w-full items-center gap-2 py-1 text-[14px] leading-[1.45] font-semibold text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4"
         >
@@ -147,7 +147,7 @@ function Preview({ pv, ctaHref }) {
         <Box className="mt-0.5 border-t border-ink/12 pt-3.5">
           <Link
             href={ctaHref}
-           
+            title={`Click Here to View ${pv.b || "View page"}`}
             className="inline-flex items-center gap-1.5 rounded-full border border-navy px-3.5 py-2 text-[13px] font-semibold leading-none text-navy whitespace-nowrap transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(10,22,40,0.07),0_4px_12px_rgba(10,22,40,0.07)]"
           >
             {pv.b || "View page"}
@@ -315,7 +315,7 @@ export default function MegaMenu({ onOpenBrief }) {
           <li className="flex">
             <Link
               href="/contact-us"
-             
+              title="Click Here to View Contact Us"
               onMouseEnter={close}
               onFocus={close}
               className="group/tab relative inline-flex items-center whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy max-[1439px]:px-1.5 max-[1279px]:px-1"
@@ -377,7 +377,7 @@ export default function MegaMenu({ onOpenBrief }) {
                   <Box className="mt-6 border-t border-ink/12 pt-4">
                     <Link
                       href={item.foot.href}
-                     
+                      title={`Click Here to View ${item.foot.label}`}
                       onClick={close}
                       className="inline-flex items-center gap-2 text-[14px] font-semibold text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4"
                     >
