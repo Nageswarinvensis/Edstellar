@@ -69,7 +69,7 @@ function Breadcrumbs({ items: itemsProp, className, tone = "light" }) {
               </span>
             ) : (
               <Link
-                href={item.href}
+                href={item.href === "/" ? "/" : item.href.replace(/\/$/, "")}
                
                 className={cn(
                   "transition-colors focus-visible:outline-2 focus-visible:outline-offset-2",

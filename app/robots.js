@@ -39,6 +39,5 @@ export default function robots() {
       AI_BOT_RULE,
     ],
     sitemap: `${SITE.url}/sitemap.xml`,
-    host: SITE.url,
   };
 }
