@@ -48,7 +48,7 @@ export default function CoachingTracks({ data }) {
   const centerLines = (center_label ?? "").split(/\\n|\n/);
 
   return (
-    <Section id={section_id} className="bg-white">
+    <Section id={section_id ?? "track"} className="bg-white">
       {/* Section heading */}
       <Box className="mb-12 max-w-205 max-[600px]:mb-8">
         <Reveal>

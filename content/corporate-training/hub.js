@@ -1,6 +1,6 @@
 /**
  * Corporate Training hub (`/corporate-training`) — local copy; the CMS has
- * no page for it. The 75-domain list is NOT here: it comes from the CMS
+ * no page for it. The 77-domain list is NOT here: it comes from the CMS
  * sitemap API (`lib/content/training-catalog.js`), so every domain link is
  * a page that exists.
  *

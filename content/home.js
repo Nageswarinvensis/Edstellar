@@ -22,12 +22,6 @@ export const HOME = {
         "href": "#contact",
         "variant": "primary",
         "arrow": true
-      },
-      {
-        "label": "Explore the Platform",
-        "href": "#platform",
-        "variant": "ghost",
-        "arrow": true
       }
     ],
     "people": {

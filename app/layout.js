@@ -2,8 +2,10 @@ import { Sora, Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 
 import { SITE } from "@/lib/constants";
 import SchemaOrg from "@/components/seo/schema-org";
-import ZohoSalesIq from "@/components/layout/zoho-salesiq";
+// Zoho SalesIQ chat widget temporarily disabled — re-enable when ready.
+// import ZohoSalesIq from "@/components/layout/zoho-salesiq";
 import GoogleAnalytics from "@/components/layout/google-analytics";
+import MicrosoftClarity from "@/components/layout/microsoft-clarity";
 import "./globals.css";
 
 /**
@@ -71,8 +73,9 @@ export default function RootLayout({ children }) {
       >
         <SchemaOrg website />
         {children}
-        <ZohoSalesIq />
+        {/* <ZohoSalesIq /> */}
         <GoogleAnalytics />
+        <MicrosoftClarity />
       </body>
     </html>
   );
