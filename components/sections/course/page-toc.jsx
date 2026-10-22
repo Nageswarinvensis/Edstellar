@@ -60,13 +60,20 @@ const TOC_ITEMS = [
   },
 ];
 
+/** Fallback CTA when the course sends no `pageToc.cta` (see
+ * `content/courses/defaults.js`). The course's value, when present, wins. */
 const TOC_CTA = {
   label: "Request a Proposal",
   href: "#apply",
   note: "A specialist replies within one business day.",
 };
 
-export default function PageToc({ modules, hasTrainers, children }) {
+export default function PageToc({ toc, modules, hasTrainers, children }) {
+  // The TOC item list is static; only the CTA is content-driven. A course's
+  // `pageToc.cta` (COURSE_DEFAULTS, overridable by the CMS) replaces the
+  // fallback field by field, so a partial `cta` still renders.
+  const cta = { ...TOC_CTA, ...(toc?.cta ?? {}) };
+
   /**
    * Keep the static TOC, but hide Trainers when there are
    * no trainers available on the course.
@@ -389,16 +396,18 @@ export default function PageToc({ modules, hasTrainers, children }) {
 
           {/* CTA */}
           <Box className="mt-5.5 border-t border-ink/12 pt-5">
-            <CtaButton block arrow render={<a href={TOC_CTA.href} />}>
-              {TOC_CTA.label}
+            <CtaButton block arrow render={<a href={cta.href} />}>
+              {cta.label}
             </CtaButton>
 
-            <Text
-              as="p"
-              className="mt-2.25 text-[11.5px] leading-normal text-ink-muted"
-            >
-              {TOC_CTA.note}
-            </Text>
+            {cta.note ? (
+              <Text
+                as="p"
+                className="mt-2.25 text-[11.5px] leading-normal text-ink-muted"
+              >
+                {cta.note}
+              </Text>
+            ) : null}
           </Box>
         </nav>
 
