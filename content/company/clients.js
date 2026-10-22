@@ -367,7 +367,7 @@ export const CLIENTS = {
         "logo": "https://media.edstellar.com/client_logo/Uber.svg",
         "description": "Ride-hailing and mobility. Headquartered in Americas.",
         "industry": {
-          "href": "/industries/automotive",
+          "href": "/corporate-training/automotive",
           "label": "Edstellar for automotive"
         }
       },
@@ -380,7 +380,7 @@ export const CLIENTS = {
         "logo": "https://media.edstellar.com/client_logo/ADB_SAFE_Gate.svg",
         "description": "Airport and airside technology. Headquartered in Europe and Africa.",
         "industry": {
-          "href": "/industries/automotive",
+          "href": "/corporate-training/automotive",
           "label": "Edstellar for automotive"
         }
       },
@@ -466,7 +466,7 @@ export const CLIENTS = {
         "logo": "https://media.edstellar.com/client_logo/Blu_Smart_Mobility.webp",
         "description": "Electric vehicles and mobility. Headquartered in Asia Pacific.",
         "industry": {
-          "href": "/industries/automotive",
+          "href": "/corporate-training/automotive",
           "label": "Edstellar for automotive"
         }
       },
@@ -575,7 +575,7 @@ export const CLIENTS = {
         "logo": "https://media.edstellar.com/client_logo/Cloyes.webp",
         "description": "Timing drive systems and automotive components. Headquartered in Americas.",
         "industry": {
-          "href": "/industries/automotive",
+          "href": "/corporate-training/automotive",
           "label": "Edstellar for automotive"
         }
       },
@@ -598,7 +598,7 @@ export const CLIENTS = {
         "logo": "https://media.edstellar.com/client_logo/Cummins_logo.svg_1.png",
         "description": "Engines, power systems and zero-emission technology. Headquartered in Americas.",
         "industry": {
-          "href": "/industries/automotive",
+          "href": "/corporate-training/automotive",
           "label": "Edstellar for automotive"
         }
       },
@@ -846,7 +846,7 @@ export const CLIENTS = {
         "logo": "https://media.edstellar.com/client_logo/GreenCell_Mobility.webp",
         "description": "Electric public transport. Headquartered in Asia Pacific.",
         "industry": {
-          "href": "/industries/automotive",
+          "href": "/corporate-training/automotive",
           "label": "Edstellar for automotive"
         }
       },
@@ -962,7 +962,7 @@ export const CLIENTS = {
         "logo": "https://media.edstellar.com/client_logo/Jet_parts.svg",
         "description": "Aerospace aftermarket parts and repair. Headquartered in Americas.",
         "industry": {
-          "href": "/industries/automotive",
+          "href": "/corporate-training/automotive",
           "label": "Edstellar for automotive"
         }
       },
@@ -1108,7 +1108,7 @@ export const CLIENTS = {
         "logo": "https://media.edstellar.com/client_logo/Motorq.webp",
         "description": "Connected-vehicle data and insights software. Headquartered in Americas.",
         "industry": {
-          "href": "/industries/automotive",
+          "href": "/corporate-training/automotive",
           "label": "Edstellar for automotive"
         }
       },
@@ -1913,7 +1913,7 @@ export const CLIENTS = {
       },
       {
         "q": "Which Edstellar services do clients use?",
-        "a": "Clients work with Edstellar for corporate training programs across 75 domains, learning and development consulting, organizational development consulting, training needs analysis, talent assessments, coaching and managed training services."
+        "a": "Clients work with Edstellar for corporate training programs across 77 domains, learning and development consulting, organizational development consulting, training needs analysis, talent assessments, coaching and managed training services."
       },
       {
         "q": "How does Edstellar support each client account?",

@@ -323,7 +323,7 @@ export default function MegaMenu({ onOpenBrief }) {
               Contact Us
               <span
                 aria-hidden="true"
-                className="absolute inset-x-2 -bottom-px h-[2px] origin-left scale-x-0 bg-navy transition-transform duration-200 group-hover/tab:scale-x-[0.35]"
+                className="absolute inset-x-2 -bottom-px h-[2px] origin-left scale-x-0 bg-navy transition-transform duration-200 group-hover/tab:scale-x-100"
               />
             </Link>
           </li>

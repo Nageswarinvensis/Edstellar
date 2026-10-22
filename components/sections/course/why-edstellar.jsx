@@ -23,15 +23,9 @@ function resolveHref(href) {
 function ProgramCard({ program }) {
   return (
     <Box
-      as="a"
-      href={resolveHref(program.href)}
-      title={`Click Here to View ${program.title}`}
       className={[
-        "group relative block min-w-0 overflow-hidden rounded-[16px] border",
+        "relative block min-w-0 overflow-hidden rounded-[16px] border",
         "border-ink/12 bg-white",
-        "transition-all duration-300 ease-out",
-        "hover:-translate-y-1 hover:border-[#0a162838]",
-        "hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.5)]",
         program.is_featured
           ? "border-navy-soft bg-navy-soft text-white shadow-[0_14px_30px_rgba(10,22,40,0.14)]"
           : "",
@@ -50,7 +44,7 @@ function ProgramCard({ program }) {
             title={program.image_title}
             fill
             sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+            className="object-cover"
           />
         ) : null}
       </Box>
@@ -73,7 +67,13 @@ function ProgramCard({ program }) {
             program.is_featured ? "text-white" : "text-ink",
           ].join(" ")}
         >
-          {program.title}
+          <a
+            href={resolveHref(program.href)}
+            title={`Click Here to View ${program.title}`}
+            className="underline-offset-[3px] hover:underline"
+          >
+            {program.title}
+          </a>
         </Text>
 
         <Text
@@ -87,6 +87,21 @@ function ProgramCard({ program }) {
         </Text>
 
         <Box className="mt-auto pt-5">
+          {/* Delivery modes — standard for every program */}
+          <Box className="mb-2 flex items-center gap-1.25">
+            <span className="size-1 shrink-0 rounded-full bg-olive" />
+            <Text
+              as="span"
+              className={[
+                "font-mono text-[8px] font-semibold uppercase tracking-[0.1em]",
+                program.is_featured ? "text-white/80" : "text-[#07182C]",
+              ].join(" ")}
+            >
+              Instructor-led<span className="mx-1">·</span>On-site
+              <span className="mx-1">·</span>Virtual
+            </Text>
+          </Box>
+
           <Box
             className={[
               "flex items-center gap-2 font-mono text-[8px] uppercase tracking-[0.14em]",

@@ -996,7 +996,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             as="h3"
             className="mb-2.5 max-w-[26ch] font-display text-[clamp(19px,2vw,24px)] font-medium leading-[1.25] tracking-[-0.025em] text-ink"
           >
-            {courseName ? `${courseName} Training Packages & Pricing` : "Training Packages & Pricing"}
+            {courseName ? `${stripTrainingSuffix(courseName)} Training Packages & Pricing` : "Training Packages & Pricing"}
           </Text>
           <Text
             as="p"
