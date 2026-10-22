@@ -161,6 +161,14 @@ export default function CountryPhoneFields({
                 <PhoneInput
                   country={selectedIso}
                   preferredCountries={PREFERRED_COUNTRIES}
+                  // Keep the chosen country fixed. Without these, the input
+                  // re-guesses the country from the national digits as they are
+                  // typed (observed flipping US → Russia → India on a plain
+                  // local number) and lets the dial code be edited away. The
+                  // country still changes only when the user picks it — from
+                  // the dropdown (via `selectedIso`) or the flag menu.
+                  disableCountryGuess
+                  countryCodeEditable={false}
                   // Territories (Bermuda, Gibraltar…) are hidden by default;
                   // shown so the flag list matches the Country dropdown.
                   enableTerritories

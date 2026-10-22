@@ -94,7 +94,7 @@ export const COURSE_DEFAULTS = {
     },
     stats: [
       { value: "10,000+", label: "EXPERT TRAINERS" },
-      { value: "13+", label: "YEARS DELIVERING" },
+      { value: "5+", label: "YEARS DELIVERING" },
       { value: "1,000+", label: "ORGANIZATIONS TRAINED" },
       {
         value: "ISO 9001",

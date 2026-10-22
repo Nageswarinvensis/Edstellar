@@ -171,19 +171,19 @@ export const HOME = {
       "label": "Enterprise Clients"
     },
     {
-      "value": "100",
+      "value": "20",
       "suffix": "+",
-      "label": "Countries · Live Delivery"
+      "label": "Industries Served"
     },
     {
       "value": "5,000",
       "suffix": "+",
-      "label": "Vetted Subject Experts"
+      "label": "Consultants, Coaches and Experts"
     },
     {
-      "value": "500",
-      "suffix": "K+",
-      "label": "Training Hours Delivered"
+      "value": "100",
+      "suffix": "+",
+      "label": "Countries · Languages"
     }
   ],
   "clients": {
