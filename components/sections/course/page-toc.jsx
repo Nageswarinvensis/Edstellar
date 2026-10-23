@@ -19,43 +19,36 @@ const TOC_ITEMS = [
   {
     id: "curriculum",
     label: "Course syllabus",
-    number: "01",
     has_modules: true,
   },
   {
     id: "skills",
     label: "What You'll Learn",
-    number: "02",
     has_modules: false,
   },
   {
     id: "audience",
     label: "Who is it for",
-    number: "03",
     has_modules: false,
   },
   {
     id: "certificate",
     label: "Certificate",
-    number: "04",
     has_modules: false,
   },
   {
     id: "delivery",
     label: "Delivery format",
-    number: "05",
     has_modules: false,
   },
   {
     id: "trainers",
     label: "Industry experts",
-    number: "06",
     has_modules: false,
   },
   {
     id: "faqs",
     label: "FAQs",
-    number: "07",
     has_modules: false,
   },
 ];
@@ -294,8 +287,11 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
           className="hidden xl:block xl:sticky xl:top-17 xl:max-h-[calc(100vh-6.25rem)] xl:self-start xl:overflow-y-auto xl:pt-6 xl:pb-6"
         >
           <Box as="ol" className="space-y-1">
-            {items.map((item) => {
+            {items.map((item, index) => {
               const isActive = item.id === activeId;
+              // Number by visible position, so hiding a row (e.g. Industry
+              // experts when a course has no trainers) never leaves a gap.
+              const number = String(index + 1).padStart(2, "0");
 
               const showModules =
                 item.has_modules && isActive && modules?.length;
@@ -322,7 +318,7 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
                         isActive ? "text-ink" : "text-ink-muted",
                       )}
                     >
-                      {item.number}
+                      {number}
                     </Text>
 
                     <Text

@@ -149,13 +149,13 @@ export default function StickyFooter({ data }) {
           >
             <Text
               as="span"
-              className="font-mono text-[11px] tracking-[0.12em] text-lime uppercase max-md:text-[10px]"
+              className="font-mono text-[11px] text-lime max-md:text-[10px]"
             >
               {message.highlight}
             </Text>
             <Text
               as="span"
-              className="font-mono text-[11px] tracking-[0.12em] whitespace-nowrap text-paper/62 uppercase max-md:text-[10px]"
+              className="font-mono text-[11px] whitespace-nowrap text-paper/62 max-md:text-[10px]"
             >
               {message.suffix}
             </Text>

@@ -60,6 +60,14 @@ export const COURSE_DEFAULTS = {
     },
   },
 
+  // Turns on the enquiry bar's email pill (contact@edstellar.com, set in
+  // components/common/sticky-footer.jsx), mirroring the domain pages. The CMS
+  // `stickyFooter` component's messages/brochure deep-merge on top of this.
+  stickyFooter: {
+    email: true,
+    form_anchor_id: "apply",
+  },
+
   curriculum: {
     section_cta: {
       title: "Customize this program tailored to your team?",
