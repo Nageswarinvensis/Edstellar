@@ -45,6 +45,7 @@ const dmMono = DM_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   display: "swap",
+  preload: false,
 });
 
 export const metadata = {

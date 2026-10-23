@@ -47,7 +47,9 @@ export default async function CourseRoute({ params }) {
     <>
       <SchemaOrg
         course={{
-          name: course.name,
+          name: course.seo?.meta_title
+            ? course.seo.meta_title.replace(/\s*\|\s*Edstellar\s*$/i, "").trim()
+            : course.name,
           description: course.seo?.Meta_description,
           path: `/corporate-training/${slug}/${courseSlug}`,
           image: course.seo?.og_image_url || course.banner_image,
