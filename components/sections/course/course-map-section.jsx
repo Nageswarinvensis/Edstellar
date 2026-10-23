@@ -6,6 +6,12 @@ import {
   Wrench,
   Rocket,
   Award,
+  PencilLine,
+  Settings,
+  FlaskConical,
+  User,
+  Globe,
+  ChartColumn,
 } from "lucide-react";
 
 import Box from "@/components/ui/Box";
@@ -17,9 +23,11 @@ import { cn } from "@/lib/utils";
 
 /**
  * Fixed regardless of which domain sends `feature.icon` — the icon on each
- * of the eight FEATURE CARDS is chosen by position, not by CMS/content data.
+ * FEATURE CARD is chosen by position, not by CMS/content data. SVGs rather
+ * than emoji: emoji are read aloud ("pencil", "gear") and render differently
+ * on every OS. Same order as the design's ✏️ ⚙️ 🧪 👤 🌐 📊.
  */
-const FEATURE_ICONS = ["✏️", "⚙️", "🧪", "👤", "🌐", "📊"];
+const FEATURE_ICONS = [PencilLine, Settings, FlaskConical, User, Globe, ChartColumn];
 
 /**
  * Icon per APPROACH step, chosen by position like `FEATURE_ICONS` — the CMS
@@ -38,6 +46,16 @@ const STATS = [
     label: "CERTIFIED",
   },
 ];
+
+/** A feature card's icon tile; past the sixth card the icons repeat. */
+function FeatureIcon({ index }) {
+  const Icon = FEATURE_ICONS[index % FEATURE_ICONS.length];
+  return (
+    <Box className="flex size-10.5 items-center justify-center rounded-[11px] bg-[#F0F9D3] text-olive">
+      <Icon size={20} strokeWidth={1.75} aria-hidden="true" />
+    </Box>
+  );
+}
 
 /**
  * One stage of the six-step approach rail. `number` is derived from the
@@ -194,9 +212,7 @@ export default function CourseMapSection({ data, className }) {
                   `}
                 >
                   {/* Icon — static by position, not read from content */}
-                  <Box className="flex size-10.5 items-center justify-center rounded-[11px] bg-[#F0F9D3] text-[20px]">
-                    {FEATURE_ICONS[index]}
-                  </Box>
+                  <FeatureIcon index={index} />
 
                   {/* Title */}
                   <Text
@@ -243,23 +259,28 @@ export default function CourseMapSection({ data, className }) {
                 </Text>
               )}
 
-              <Box
-                as="ol"
-                className="relative mt-10 grid grid-cols-1 gap-8 min-[541px]:grid-cols-2 min-[761px]:grid-cols-3 min-[1081px]:grid-cols-6"
-              >
+              {/* The connector line sits beside the <ol>, not in it — an
+                  <ol> may only contain <li>s. Same width as the list, so
+                  its position is unchanged. */}
+              <Box className="relative mt-10">
                 <Box
                   aria-hidden="true"
                   className="pointer-events-none absolute top-6 left-6 right-[calc((100%-5*2rem)/6-1.5rem)] hidden h-px bg-paper/12 min-[1081px]:block"
                 />
 
-                {data.approach.steps.map((step, index) => (
-                  <ApproachStep
-                    key={index}
-                    number={String(index + 1).padStart(2, "0")}
-                    step={step}
-                    Icon={APPROACH_ICONS[index] || MessageCircle}
-                  />
-                ))}
+                <Box
+                  as="ol"
+                  className="grid grid-cols-1 gap-8 min-[541px]:grid-cols-2 min-[761px]:grid-cols-3 min-[1081px]:grid-cols-6"
+                >
+                  {data.approach.steps.map((step, index) => (
+                    <ApproachStep
+                      key={index}
+                      number={String(index + 1).padStart(2, "0")}
+                      step={step}
+                      Icon={APPROACH_ICONS[index] || MessageCircle}
+                    />
+                  ))}
+                </Box>
               </Box>
             </Box>
           </Reveal>

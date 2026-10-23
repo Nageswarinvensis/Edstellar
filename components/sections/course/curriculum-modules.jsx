@@ -78,7 +78,7 @@ function ModuleExpandIcon({ className }) {
       as="span"
       aria-hidden="true"
       className={cn(
-        "relative flex size-7.5 flex-none items-center justify-center rounded-full border border-ink/22 transition-[transform,background-color,border-color,color] duration-300 group-aria-expanded/mod-trigger:rotate-[135deg] group-aria-expanded/mod-trigger:border-navy group-aria-expanded/mod-trigger:bg-navy group-aria-expanded/mod-trigger:text-lime",
+        "relative flex size-7.5 flex-none items-center justify-center rounded-full border border-ink/22 transition-[transform,background-color,border-color,color] duration-300 group-data-open/mod-trigger:rotate-[135deg] group-data-open/mod-trigger:border-navy group-data-open/mod-trigger:bg-navy group-data-open/mod-trigger:text-lime",
         className,
       )}
     >
@@ -95,34 +95,39 @@ function ModuleExpandIcon({ className }) {
  * the design's own mobile breakpoint (1023px) does the same.
  */
 function ModuleTrigger({ module }) {
+  // The header is a plain div and only the title sits in the <h3>, so the
+  // heading outline reads "Prompt Foundations" rather than
+  // "01Prompt Foundations4 topics". The trigger's `after:` overlay stretches
+  // over the whole row to keep it one click target; the number, icon and
+  // meta are siblings of the heading, not part of it.
   return (
-    <AccordionPrimitive.Header className="flex">
-      <AccordionPrimitive.Trigger
+    <AccordionPrimitive.Header
+      render={<div />}
+      className="group/mod-trigger relative flex flex-col gap-2 px-4 py-3.5 sm:flex-row sm:items-center sm:gap-3.5 sm:px-5"
+    >
+      <Box className="flex items-start gap-3 sm:contents">
+        <Text
+          as="span"
+          className="w-6 flex-none pt-0.5 font-mono text-[11.5px] tracking-[0.06em] text-ink-muted sm:pt-0"
+        >
+          {module.number}
+        </Text>
 
-        className="group/mod-trigger flex flex-1 flex-col gap-2 px-4 py-3.5 text-left outline-none cursor-pointer sm:flex-row sm:items-center sm:gap-3.5 sm:px-5"
-      >
-        <Box as="span" className="flex items-start gap-3 sm:contents">
-          <Text
-            as="span"
-            className="w-6 flex-none pt-0.5 font-mono text-[11.5px] tracking-[0.06em] text-ink-muted sm:pt-0"
-          >
-            {module.number}
-          </Text>
-
-          <Text
-            as="span"
-            className="min-w-0 flex-1 font-display text-[15px] font-bold tracking-[-0.015em] text-ink sm:truncate"
-          >
+        <Text
+          as="h3"
+          className="min-w-0 flex-1 font-display text-[15px] leading-[1.5] font-bold tracking-[-0.015em] text-ink"
+        >
+          <AccordionPrimitive.Trigger className="block w-full cursor-pointer text-left outline-none after:absolute after:inset-0 after:content-[''] sm:truncate">
             {module.title}
-          </Text>
+          </AccordionPrimitive.Trigger>
+        </Text>
 
-          <ModuleExpandIcon className="sm:order-last" />
-        </Box>
+        <ModuleExpandIcon className="pointer-events-none sm:order-last" />
+      </Box>
 
-        <Box as="span" className="pl-9 sm:pl-0">
-          <ModuleMeta module={module} />
-        </Box>
-      </AccordionPrimitive.Trigger>
+      <Box className="pl-9 sm:pl-0">
+        <ModuleMeta module={module} />
+      </Box>
     </AccordionPrimitive.Header>
   );
 }
@@ -296,16 +301,20 @@ export default function CurriculumModules({ modules }) {
 
                 <Box className="grid grid-cols-1 gap-x-10 gap-y-4.5 sm:grid-cols-2">
                   {module.subtitles?.map((subtitle, subtitleIndex) => (
-                    <Text
-                      key={subtitle}
-                      as="h4"
-                      className="font-display text-sm font-semibold text-ink"
-                    >
-                      <span className="mr-1 font-semibold text-ink-muted">
+                    <Box key={subtitle} className="flex gap-1">
+                      <Text
+                        as="span"
+                        className="flex-none font-display text-sm font-semibold text-ink-muted"
+                      >
                         {String.fromCharCode(97 + subtitleIndex)})
-                      </span>
-                      {subtitle}
-                    </Text>
+                      </Text>
+                      <Text
+                        as="h4"
+                        className="font-display text-sm font-semibold text-ink"
+                      >
+                        {subtitle}
+                      </Text>
+                    </Box>
                   ))}
                 </Box>
               </AccordionContent>

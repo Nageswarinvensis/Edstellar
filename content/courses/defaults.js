@@ -4,7 +4,7 @@ const APPLY_ANCHOR = "#apply";
 
 const DELIVERY_META = [
   "Instructor-led group training",
-  "Virtual / on-site / off-site",
+  "Virtual / on-site / hybrid",
   {
     label: "10 languages",
     tooltip: { heading: "Delivered in", body: DELIVERY_LANGUAGES.join(", ") },

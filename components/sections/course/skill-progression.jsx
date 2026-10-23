@@ -105,16 +105,16 @@ export default function SkillProgression({ progression }) {
 
         <Box className="flex items-center gap-2.25 font-mono text-[10px] tracking-[0.06em] text-ink-muted uppercase">
           <span className="inline-flex items-center gap-1.5">
-            <Box aria-hidden="true" className={cn(DOT_BASE, DOT_ENTRY)} />
+            <Box as="span" aria-hidden="true" className={cn(DOT_BASE, DOT_ENTRY)} />
             Entry
           </span>
           <Box aria-hidden="true" className={cn("h-0.5 w-6.5 flex-none rounded-full", LINE_ON)} />
           <span className="inline-flex items-center gap-1.5">
-            <Box aria-hidden="true" className={cn(DOT_BASE, DOT_EXIT)} />
+            <Box as="span" aria-hidden="true" className={cn(DOT_BASE, DOT_EXIT)} />
             Exit
           </span>
           <span className="ml-2 inline-flex items-center gap-1.5">
-            <Box aria-hidden="true" className={cn(DOT_BASE, DOT_OFF)} />
+            <Box as="span" aria-hidden="true" className={cn(DOT_BASE, DOT_OFF)} />
             Not covered
           </span>
         </Box>

@@ -43,6 +43,7 @@ export default function SectorHero({ data, breadcrumbs }) {
 
   return (
     <ConsultingHero
+      className="py-10 lg:py-20"
       breadcrumbItems={breadcrumbs}
       data={{
         title: headingNodes(heading),

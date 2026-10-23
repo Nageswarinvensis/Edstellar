@@ -39,6 +39,7 @@ export default function PartnerHero({ data, breadcrumbs }) {
 
   return (
     <ConsultingHero
+      className="py-10 lg:py-20"
       data={data}
       breadcrumbItems={breadcrumbs}
       rightSideComponent={<HeroPhoto image={data.image} />}

@@ -11,11 +11,15 @@ import { cn } from "@/lib/utils";
 export const formInputClasses =
   "w-full min-w-0 rounded-xl border border-ink/15 bg-paper px-3.5 py-3 text-[13.5px] text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-navy focus:bg-white";
 
-export function FormField({ label, required, error, className, children }) {
+export function FormField({ label, required, error, htmlFor, className, children }) {
+  // With `htmlFor`, the wrapper is a div and only the label text is a
+  // <label> — for a control like the phone widget, whose <div>s are not
+  // allowed inside a <label>.
   return (
-    <Box as="label" className={cn("relative flex flex-col gap-1.75", className)}>
+    <Box as={htmlFor ? "div" : "label"} className={cn("relative flex flex-col gap-1.75", className)}>
       <Text
-        as="span"
+        as={htmlFor ? "label" : "span"}
+        htmlFor={htmlFor}
         className="font-mono text-[10px] tracking-[0.15em] text-ink-muted uppercase"
       >
         {label}{" "}

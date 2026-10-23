@@ -36,6 +36,7 @@ export default function ConsultingHero({
   customWeight,
   customColor,
   rightSideComponent,
+  className,
 }) {
   if (!data) return null;
 
@@ -67,18 +68,15 @@ export default function ConsultingHero({
   const colorClass = customColor || left.textColor || "text-ink-muted";
 
   return (
-    <Section id="top" className="bg-[#f8f7f4]">
+    // 60px above and below on the consulting pages; the sector and partner
+    // heroes, which reuse this one, pass their own `className` padding.
+    <Section id="top" className={cn("bg-[#f8f7f4] py-[60px] lg:py-[60px]", className)}>
       <Box>
         <Box className="grid grid-cols-[1.05fr_1fr] items-center gap-12 max-[901px]:grid-cols-1 max-[901px]:gap-9">
           {/* Left Side Content */}
           <Box className="min-w-0">
-            {breadcrumbItems ? (
-              <Reveal>
-                <Breadcrumbs items={breadcrumbItems} className="mt-0" />
-              </Reveal>
-            ) : null}
             <Reveal>
-              <Text as="h1" className="mt-4">
+              <Text as="h1">
                 {left.title}
               </Text>
             </Reveal>
@@ -155,6 +153,13 @@ export default function ConsultingHero({
                 )}
               </Box>
             </Reveal>
+
+            {/* Below the buttons, as in the course and domain heroes. */}
+            {breadcrumbItems ? (
+              <Reveal delay={4}>
+                <Breadcrumbs items={breadcrumbItems} />
+              </Reveal>
+            ) : null}
           </Box>
 
           {/* Right Side Conditional Rendering per page. Each panel needs actual

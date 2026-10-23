@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useRef, useState, useTransition } from "react";
+import { useCallback, useId, useMemo, useRef, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Minus, Plus, Search } from "lucide-react";
@@ -85,6 +85,9 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
     : SECTION_DATA.lockedProgram;
 
   const [mode, setMode] = useState("one-time");
+  const tabsId = useId();
+  const tabId = (id) => `${tabsId}-tab-${id}`;
+  const panelId = `${tabsId}-panel`;
   const [stepIndex, setStepIndex] = useState(0);
   const [showError, setShowError] = useState(false);
 
@@ -227,6 +230,24 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
     setMode(nextMode);
     setStepIndex(0);
     setShowError(false);
+  }
+
+  // WAI-ARIA tabs keyboard pattern: only the selected tab is in the tab
+  // order, and the arrow/Home/End keys move between tabs and select them.
+  function handleTabKeyDown(event) {
+    const index = TABS.findIndex((tab) => tab.id === mode);
+    const nextIndex = {
+      ArrowRight: (index + 1) % TABS.length,
+      ArrowLeft: (index - 1 + TABS.length) % TABS.length,
+      Home: 0,
+      End: TABS.length - 1,
+    }[event.key];
+    if (nextIndex === undefined) return;
+
+    event.preventDefault();
+    const nextId = TABS[nextIndex].id;
+    handleTab(nextId);
+    document.getElementById(tabId(nextId))?.focus();
   }
 
   function handleNext() {
@@ -941,11 +962,14 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             {TABS.map((tab) => (
               <button
                 key={tab.id}
+                id={tabId(tab.id)}
                 type="button"
                 role="tab"
-               
                 aria-selected={mode === tab.id}
+                aria-controls={panelId}
+                tabIndex={mode === tab.id ? 0 : -1}
                 onClick={() => handleTab(tab.id)}
+                onKeyDown={handleTabKeyDown}
                 className={cn(
                   "flex-1 border-b-2 px-3 py-4 font-body text-[13px] font-semibold transition-colors duration-200 sm:px-5 sm:text-[14px]",
                   mode === tab.id
@@ -958,7 +982,12 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             ))}
           </Box>
 
-          <Box className="px-4 py-7.5 sm:p-8 lg:p-10">
+          <Box
+            id={panelId}
+            role="tabpanel"
+            aria-labelledby={tabId(mode)}
+            className="px-4 py-7.5 sm:p-8 lg:p-10"
+          >
             <Box
               as="ol"
               aria-hidden="true"

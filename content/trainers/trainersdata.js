@@ -85,7 +85,7 @@ export const TRAINERS_DATA = {
   // ==========================================================================
   stickyNavbarData: {
     logo: {
-      src: "/course/Edstellar.svg",
+      src: "/course/edstellar.svg",
       alt: "Edstellar",
     },
     tabs: [
@@ -509,78 +509,6 @@ export const TRAINERS_DATA = {
       href: "#contact",
       showArrow: true,
     },
-  },
-
-  // ==========================================================================
-  // 12. OTHER TRAINERS
-  // The trainer whose page it is gets filtered out by `slug`.
-  // ==========================================================================
-  otherTrainersData: {
-    heading: "Other <span>trainers</span>.",
-    trainers: [
-      {
-        slug: "daniel-roth",
-        name: "Daniel Roth",
-        image: "/course/hero-photo.jpg",
-        role: "Principal MLOps engineer",
-        years: "12+ years in production ML",
-        rating: "4.9",
-        sessions: "180+",
-        specializations: [
-          "Drift detection",
-          "Observability stack",
-          "Dashboards",
-        ],
-      },
-      {
-        slug: "marco-bianchi",
-        name: "Marco Bianchi",
-        image: "/course/image2.png",
-        role: "Staff ML engineer, platform",
-        years: "10+ years in production ML",
-        rating: "4.8",
-        sessions: "140+",
-        specializations: [
-          "Retraining pipelines",
-          "A/B & shadow deploys",
-          "Orchestration",
-        ],
-      },
-      {
-        slug: "annika-lund",
-        name: "Annika Lund",
-        image: "/course/image3.png",
-        role: "Lead data scientist, model risk",
-        years: "9+ years in regulated ML",
-        rating: "4.9",
-        sessions: "120+",
-        specializations: ["Fairness monitoring", "Explainability", "EU AI Act"],
-      },
-      {
-        slug: "priya-raghavan",
-        name: "Priya Raghavan",
-        image: "/course/image4.png",
-        role: "SRE lead, ML systems",
-        years: "11+ years in reliability",
-        rating: "4.8",
-        sessions: "160+",
-        specializations: ["Alerting design", "Incident response", "Tracing"],
-      },
-      {
-        slug: "lucas-moreau",
-        name: "Lucas Moreau",
-        image: "/course/image.png",
-        role: "ML platform architect",
-        years: "13+ years in data platforms",
-        rating: "4.9",
-        sessions: "200+",
-        specializations: [
-          "Feature stores",
-          "Model serving",
-          "Cost optimisation",
-        ],
-      },
-    ],
   },
 
   // ==========================================================================

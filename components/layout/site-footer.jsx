@@ -80,7 +80,7 @@ function Brand() {
   return (
     <Box>
       <Link href="/" aria-label="Edstellar home" className="inline-flex items-center">
-        <Image src="/course/Edstellar.svg" alt="Edstellar" width={139} height={50} className="block h-[50px] w-auto brightness-0 invert" />
+        <Image src="/course/edstellar.svg" alt="Edstellar" width={139} height={50} className="block h-[50px] w-auto brightness-0 invert" />
       </Link>
       <Text as="p" className="mt-4 max-w-[44ch] text-[14px] leading-[1.7] text-paper/60">
         Edstellar is a capability transformation partner. Consulting, talent assessments, academies,
@@ -109,7 +109,7 @@ function Brand() {
           <li key={cert.title} className="flex items-center gap-1.5 text-paper">
             <IsoSeal />
             <Text as="span" className="text-paper">
-              <Text as="b" className="block text-[11px] leading-[1.2] font-semibold text-paper">{cert.title}</Text>
+              <Text as="span" className="block text-[11px] leading-[1.2] font-semibold text-paper">{cert.title}</Text>
               <Text as="span" className="block text-[10px] leading-[1.3] text-paper/60">{cert.label}</Text>
             </Text>
           </li>

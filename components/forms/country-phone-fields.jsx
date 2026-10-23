@@ -1,5 +1,6 @@
 "use client";
 
+import { useId, useState } from "react";
 import { Controller } from "react-hook-form";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -8,7 +9,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { FormField, formInputClasses } from "@/components/common/form-field";
 import { cn } from "@/lib/utils";
-import { COUNTRIES, PREFERRED_COUNTRIES } from "@/lib/countries";
+import { COUNTRIES, PHONE_LOCALIZATION, PREFERRED_COUNTRIES } from "@/lib/countries";
 
 /** react-phone-input-2's value is the full number as digits, dial code
  * first ("919876543210") — at least 6 digits must follow the dial code. */
@@ -26,10 +27,10 @@ const darkInputClasses =
  * no visible label (the control carries an `aria-label`) and the error below
  * the field, as the pricing card's other fields do.
  */
-function Field({ dark, labelled, label, error, className, children }) {
+function Field({ dark, labelled, label, error, inputId, className, children }) {
   if (!dark) {
     return (
-      <FormField label={label} required error={error} className={className}>
+      <FormField label={label} required error={error} htmlFor={inputId} className={className}>
         {children}
       </FormField>
     );
@@ -93,6 +94,15 @@ export default function CountryPhoneFields({
   renderField,
   phoneInputClassName,
 }) {
+  const phoneId = useId();
+  // The ~235 country <option>s render only once the dropdown is first
+  // touched: this field sits in up to three forms per course page, and the
+  // full lists otherwise add ~700 elements to the initial HTML. Mounted on
+  // pointer-down and key-down as well as focus, so the list is in place
+  // before the native dropdown opens.
+  const [listMounted, setListMounted] = useState(false);
+  const mountList = () => setListMounted(true);
+  const selectedCountry = watch("country");
   const selectedIso =
     COUNTRIES.find((country) => country.name === watch("country"))?.iso2 || "us";
 
@@ -117,6 +127,9 @@ export default function CountryPhoneFields({
           autoComplete="country-name"
           aria-label={dark ? "Country" : undefined}
           aria-invalid={Boolean(errors.country)}
+          onPointerDown={mountList}
+          onKeyDown={mountList}
+          onFocus={mountList}
           className={
             dark
               ? cn(
@@ -129,19 +142,27 @@ export default function CountryPhoneFields({
           <option value="" disabled>
             {dark ? "Select Country*" : "Select your country"}
           </option>
-          {/* Same list and order as the phone input's: preferred
-              countries, a divider, then everything A–Z. */}
-          {PREFERRED_COUNTRIES.map((iso2) => COUNTRIES.find((country) => country.iso2 === iso2)).map((country) => (
-            <option key={`preferred-${country.iso2}`} value={country.name}>
-              {country.name}
-            </option>
-          ))}
-          <option disabled>──────────</option>
-          {COUNTRIES.filter((country) => !PREFERRED_COUNTRIES.includes(country.iso2)).map((country) => (
-            <option key={country.iso2} value={country.name}>
-              {country.name}
-            </option>
-          ))}
+          {listMounted ? (
+            <>
+              {/* Same list and order as the phone input's: preferred
+                  countries, a divider, then everything A–Z. */}
+              {PREFERRED_COUNTRIES.map((iso2) => COUNTRIES.find((country) => country.iso2 === iso2)).map((country) => (
+                <option key={`preferred-${country.iso2}`} value={country.name}>
+                  {country.name}
+                </option>
+              ))}
+              <option disabled>──────────</option>
+              {COUNTRIES.filter((country) => !PREFERRED_COUNTRIES.includes(country.iso2)).map((country) => (
+                <option key={country.iso2} value={country.name}>
+                  {country.name}
+                </option>
+              ))}
+            </>
+          ) : selectedCountry ? (
+            // A value set before the list mounts (e.g. by picking a phone
+            // flag) still needs its own <option> for the select to show it.
+            <option value={selectedCountry}>{selectedCountry}</option>
+          ) : null}
         </select>
       </Field>
       ) : null}
@@ -149,6 +170,9 @@ export default function CountryPhoneFields({
       {phoneField({
         label: phoneLabel,
         error: errors.phone?.message,
+        // The wrapper labels the input with `htmlFor` rather than wrapping it:
+        // the widget's <div>s are not allowed inside a <label>.
+        inputId: phoneId,
         className: phoneClassName,
         children: (
           <>
@@ -172,10 +196,14 @@ export default function CountryPhoneFields({
                   // Territories (Bermuda, Gibraltar…) are hidden by default;
                   // shown so the flag list matches the Country dropdown.
                   enableTerritories
+                  // Our names over the library's dated ones (Macedonia,
+                  // Swaziland, two "Congo"s) — see `lib/countries.js`.
+                  localization={PHONE_LOCALIZATION}
                   value={field.value}
                   onChange={(value, data) => onPhoneChange(field, value, data)}
                   onBlur={field.onBlur}
                   inputProps={{
+                    id: phoneId,
                     name: field.name,
                     ref: field.ref,
                     autoComplete: "tel",
