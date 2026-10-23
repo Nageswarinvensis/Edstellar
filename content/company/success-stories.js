@@ -240,7 +240,7 @@ export const SUCCESS_STORIES_PAGE = {
       },
       {
         "title": "Generative AI (GenAI) Corporate Training",
-        "href": "/corporate-training/ai/generative-ai-genai-course",
+        "href": "/corporate-training/ai/generative-ai-course",
         "image": "https://media.edstellar.com/website/Generative_AI.webp",
         "training_type": "Artificial Intelligence",
         "region": "United States",

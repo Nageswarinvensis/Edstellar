@@ -148,11 +148,6 @@ function TrainersStat({ trainers }) {
           as="span"
           className="font-display text-[13px] leading-none font-semibold whitespace-nowrap text-paper"
         >
-          {trainers.count && (
-            <Box as="span" className="font-bold text-lime">
-              {trainers.count}{" "}
-            </Box>
-          )}
           {trainers.trainer_label || "Expert trainers"}
         </Text>
       </Box>

@@ -11,7 +11,7 @@ export const HOME = {
     "title": "Capability Development & Transformation Partner",
     "description": "Edstellar helps organizations develop capabilities through training, coaching, assessments and consulting, connecting people development with business goals.",
     "path": "/",
-    "image": "/og/edstellar-og.png"
+    "image": "/og/edstellar-og-v2.png"
   },
   "hero": {
     "heading": "The science of <span>capability,</span> delivered with precision.",
