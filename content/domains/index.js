@@ -14,7 +14,6 @@ export const DOMAINS = {
   "ai": {
     cmsSlug: "ai",
     name: "Artificial Intelligence",
-    heroImage: "/category/Welcoming Corporate Training Workshop.png",
   },
   "software-development": {
     cmsSlug: "software-development",

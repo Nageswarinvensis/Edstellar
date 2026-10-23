@@ -108,8 +108,8 @@ const CLIENT_LOGOS = {
     },
     {
       src: "https://media.edstellar.com/clients_logos/total.webp",
-      alt: "total",
-      title: "total",
+      alt: "TotalEnergies",
+      title: "TotalEnergies",
       width: 162,
       height: 48,
     },

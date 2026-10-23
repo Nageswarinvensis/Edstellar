@@ -156,10 +156,10 @@ const PHONE_INPUT =
 
 /** `CountryPhoneFields`' wrapper in this form's look: `Field`'s label and
  * error line around the phone input. */
-function PhoneFieldShell({ label, error, className, children }) {
+function PhoneFieldShell({ label, error, inputId, className, children }) {
   return (
-    <Box as="label" className={cn("flex min-w-0 flex-col gap-1.5", className)}>
-      <Text as="span" className="font-body text-[12.5px] font-semibold text-ink">
+    <Box className={cn("flex min-w-0 flex-col gap-1.5", className)}>
+      <Text as="label" htmlFor={inputId} className="font-body text-[12.5px] font-semibold text-ink">
         {label}
       </Text>
       {children}

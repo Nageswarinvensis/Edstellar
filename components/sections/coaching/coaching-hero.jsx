@@ -9,8 +9,8 @@ import Breadcrumbs from "@/components/common/breadcrumbs";
 import { coachingIcon } from "@/components/sections/coaching/icons";
 
 /**
- * Coaching hub hero: breadcrumb, heading, lede, two CTAs and an icon row on
- * the left, the session illustration on the right.
+ * Coaching hub hero: heading, lede, two CTAs, an icon row and the breadcrumb
+ * on the left, the session illustration on the right.
  *
  * `cms` is the CMS `consulting_Hero`, read verbatim: `heroLeft.title` +
  * `tagline` make the heading, then `description`, the two buttons, the
@@ -41,14 +41,11 @@ export default function CoachingHero({ cms, breadcrumbs }) {
     <Box
       as="header"
       id="top"
-      className="bg-paper px-5 pt-8 pb-6 lg:px-10 lg:pt-16 lg:pb-8"
+      className="bg-paper px-5 py-[60px] lg:px-10"
     >
       <Box className="mx-auto grid max-w-7xl grid-cols-[1.1fr_0.9fr] items-center gap-14 max-[1200px]:grid-cols-1 max-[1200px]:gap-10">
         <Box>
           <Reveal>
-            <Box className="my-6">
-              <Breadcrumbs items={breadcrumbs} />
-            </Box>
             <RichHeading
               as="h1"
               heading={heading}
@@ -117,6 +114,11 @@ export default function CoachingHero({ cms, breadcrumbs }) {
               </Box>
             </Reveal>
           ) : null}
+
+          {/* Below the buttons, as in the course and domain heroes. */}
+          <Reveal delay={3}>
+            <Breadcrumbs items={breadcrumbs} />
+          </Reveal>
         </Box>
 
         {image ? (

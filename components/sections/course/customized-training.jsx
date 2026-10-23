@@ -20,12 +20,18 @@ const CONTENT = {
     "Scale Your Training: Small to Large Teams",
     "In-person Onsite, Live Virtual or Hybrid Training Modes",
     "Plan from 2000+ Industry-ready Training Programs",
+    // Default fifth point; a course's CMS `about.delivery_mode_text`
+    // replaces it (e.g. "Workplace Scenarios and Role-Play, Led by
+    // Industry Experts" for a soft-skills course with no labs).
     "Hands-On Labs on Live Infrastructure, Led by Industry Experts",
   ],
 };
 
-export default function CustomizedTraining() {
+export default function CustomizedTraining({ deliveryModeText }) {
   const data = CONTENT;
+  const benefits = deliveryModeText?.trim()
+    ? [...data.benefits.slice(0, 4), deliveryModeText.trim()]
+    : data.benefits;
 
   return (
     <Box
@@ -39,9 +45,9 @@ export default function CustomizedTraining() {
           className="!absolute inset-0 !z-[-1] hidden min-[901px]:block"
         >
           <Image
-            src="/course/Custimized Training.webp"
+            src="/course/custimized-training.webp"
             alt="Customized training"
-            title="Custimized Training"
+            title="Customized Training"
             fill
             className="object-cover rounded-[18px] "
           />
@@ -67,7 +73,7 @@ export default function CustomizedTraining() {
 
         <Reveal delay={1}>
           <Box as="ul" className="grid grid-cols-1 gap-3.25">
-            {data.benefits?.map((benefit) => (
+            {benefits.map((benefit) => (
               <Box as="li" key={benefit} className="flex items-start gap-3">
                 <Box className="mt-0.5 grid size-5.5 flex-none place-items-center rounded-full bg-lime/16 text-lime">
                   <Check size={12} strokeWidth={3} />

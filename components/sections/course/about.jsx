@@ -295,7 +295,9 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
 
       {!inclusions ? <AboutChips chips={about.chips} /> : null}
 
-      {showCustomizedTraining ? <CustomizedTraining /> : null}
+      {showCustomizedTraining ? (
+        <CustomizedTraining deliveryModeText={about.delivery_mode_text} />
+      ) : null}
     </Section>
   );
 }

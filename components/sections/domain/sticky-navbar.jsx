@@ -145,8 +145,11 @@ export default function StickyTabs({ data, hasTrainers }) {
             onClick={scrollToHash}
             className="flex shrink-0 items-center pr-1"
           >
+            {/* Always our own logo file: the CMS sends a hand-typed path
+                (still "/course/Edstellar.svg", which 404s since the file
+                was renamed). Only its alt text is used. */}
             <img decoding="async" loading="lazy"
-              src={data?.logo?.src ?? "/course/Edstellar.svg"}
+              src="/course/edstellar.svg"
               alt={data?.logo?.alt || "Edstellar"}
               className="h-6 sm:h-7 w-auto object-contain"
             />

@@ -63,7 +63,7 @@ export const DOMAIN_DEFAULTS = {
   },
   sticky_nav: {
     logo: {
-      src: "/course/Edstellar.svg",
+      src: "/course/edstellar.svg",
       alt: "Edstellar",
     },
     tabs: [

@@ -43,24 +43,25 @@ function InfoTooltip({ label, heading, children, className }) {
       className={cn("relative inline-flex items-center gap-2", className)}
     >
       {label}
+      {/* The "i" is drawn with CSS `content`, not a text node, and the
+          heading lives only in the popover: crawlers and screen readers
+          then get "10 languages — Delivered in English, …" once, instead of
+          "i Delivered in Delivered in …". */}
       <button
         type="button"
-       
+        aria-label={`More about ${label}`}
         aria-expanded={open}
-        aria-describedby={open ? popoverId : undefined}
+        aria-describedby={popoverId}
         onClick={() => setOpen((value) => !value)}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
         className={cn(
-          "grid size-4 flex-none cursor-pointer place-items-center rounded-full border font-serif text-[11px] leading-none italic transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
+          "grid size-4 flex-none cursor-pointer place-items-center rounded-full border font-serif text-[11px] leading-none italic transition-colors before:content-['i'] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
           open
             ? "border-navy bg-navy text-lime"
             : "border-ink/22 text-ink-muted hover:border-navy hover:bg-navy hover:text-lime",
         )}
-      >
-        <span aria-hidden="true">i</span>
-        <span className="sr-only">{heading}</span>
-      </button>
+      />
 
       <Box
         as="span"
@@ -80,7 +81,7 @@ function InfoTooltip({ label, heading, children, className }) {
       >
         <b className="mb-2 block font-mono text-[9.5px] tracking-[0.15em] text-lime uppercase">
           {heading}
-        </b>
+        </b>{" "}
         {children}
       </Box>
     </Box>
