@@ -10,7 +10,7 @@ import RichHeading from "@/components/common/rich-heading";
  * there is nothing here for a course record to model.
  */
 const CONTENT = {
-  heading: "Certificate of <span>Training Completion</span>.",
+  heading: "Certificate of <span>Training Completion</span>",
   description:
     "On successful completion, employees receive an Edstellar course completion certificate, recognizing their commitment to ongoing learning and professional development. It validates the skills they have built and motivates them to keep growing and contribute to organizational success.",
   highlight: {

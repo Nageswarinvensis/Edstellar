@@ -54,6 +54,9 @@ export const metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
+  openGraph: {
+    locale: "en_US",
+  },
   // Domain ownership check for Twilio; every page inherits it.
   other: {
     "twilio-domain-verification": "df46382efd09591bc409fe52bb17223c",
@@ -67,7 +70,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-US" suppressHydrationWarning>
       <body
         className={`${sora.variable} ${cormorant.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
       >

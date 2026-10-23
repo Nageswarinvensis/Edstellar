@@ -50,8 +50,9 @@ export default async function CourseRoute({ params }) {
           name: course.name,
           description: course.seo?.Meta_description,
           path: `/corporate-training/${slug}/${courseSlug}`,
-          image: course.seo?.og_image_url,
+          image: course.seo?.og_image_url || course.banner_image,
           audience: course.audience?.[0],
+          duration: course.duration,
         }}
         breadcrumbs={course.breadcrumbs?.items}
         faqs={course.faqs?.items ?? course.Faqs?.items}

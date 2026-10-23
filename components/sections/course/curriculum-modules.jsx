@@ -48,7 +48,7 @@ function ModuleMeta({ module }) {
   const hasHours = Number.isFinite(module.hours);
 
   return (
-    <Box className="flex items-center gap-2.5">
+    <Box as="span" className="flex items-center gap-2.5">
       {module.topics ? (
         <>
           <ModuleStat icon={List} iconClassName="text-blue-600">
@@ -56,6 +56,7 @@ function ModuleMeta({ module }) {
           </ModuleStat>
           {hasHours ? (
             <Box
+              as="span"
               className="h-4.25 w-px flex-none bg-ink/12"
               aria-hidden="true"
             />
@@ -74,6 +75,7 @@ function ModuleMeta({ module }) {
 function ModuleExpandIcon({ className }) {
   return (
     <Box
+      as="span"
       aria-hidden="true"
       className={cn(
         "relative flex size-7.5 flex-none items-center justify-center rounded-full border border-ink/22 transition-[transform,background-color,border-color,color] duration-300 group-aria-expanded/mod-trigger:rotate-[135deg] group-aria-expanded/mod-trigger:border-navy group-aria-expanded/mod-trigger:bg-navy group-aria-expanded/mod-trigger:text-lime",
@@ -96,10 +98,10 @@ function ModuleTrigger({ module }) {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
-       
+
         className="group/mod-trigger flex flex-1 flex-col gap-2 px-4 py-3.5 text-left outline-none cursor-pointer sm:flex-row sm:items-center sm:gap-3.5 sm:px-5"
       >
-        <Box className="flex items-start gap-3 sm:contents">
+        <Box as="span" className="flex items-start gap-3 sm:contents">
           <Text
             as="span"
             className="w-6 flex-none pt-0.5 font-mono text-[11.5px] tracking-[0.06em] text-ink-muted sm:pt-0"
@@ -108,7 +110,7 @@ function ModuleTrigger({ module }) {
           </Text>
 
           <Text
-            as="p"
+            as="span"
             className="min-w-0 flex-1 font-display text-[15px] font-bold tracking-[-0.015em] text-ink sm:truncate"
           >
             {module.title}
@@ -117,7 +119,7 @@ function ModuleTrigger({ module }) {
           <ModuleExpandIcon className="sm:order-last" />
         </Box>
 
-        <Box className="pl-9 sm:pl-0">
+        <Box as="span" className="pl-9 sm:pl-0">
           <ModuleMeta module={module} />
         </Box>
       </AccordionPrimitive.Trigger>
@@ -296,7 +298,7 @@ export default function CurriculumModules({ modules }) {
                   {module.subtitles?.map((subtitle, subtitleIndex) => (
                     <Text
                       key={subtitle}
-                      as="h5"
+                      as="h4"
                       className="font-display text-sm font-semibold text-ink"
                     >
                       <span className="mr-1 font-semibold text-ink-muted">

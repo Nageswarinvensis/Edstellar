@@ -1,6 +1,5 @@
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
 
 const SERVICES = [
@@ -53,9 +52,9 @@ const BORDER_CLASSES = [
 
 export default function AlsoFromEdstellar() {
   return (
-    <Section className="bg-paper-warm !pt-0">
+    <Box className="bg-paper-warm px-5 pb-10 lg:px-10 lg:pb-20">
       <Reveal>
-        <Box className="border-t border-[#D6D5CF] pt-8">
+        <Box className="rail-container mx-auto max-w-7xl border-t border-[#D6D5CF] pt-8">
           <Text
             as="p"
             className="mb-5 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted"
@@ -97,6 +96,6 @@ export default function AlsoFromEdstellar() {
           </Box>
         </Box>
       </Reveal>
-    </Section>
+    </Box>
   );
 }
