@@ -4,16 +4,11 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
 
-// The design's dot/pill greens are a muted, olive-leaning green with no
+// The design's dot greens are a muted, olive-leaning green with no
 // equivalent design token (`--color-olive` is a different, more yellow
 // shade) — arbitrary hex here matches the source exactly rather than
 // approximating with Tailwind's more saturated default green scale, which
 // reads visibly "off" next to the source at this size.
-const PILL_CLASSES = {
-  true: "bg-[#eaf6e3] text-[#3f7d27]",
-  false: "bg-[#f1f3f6] text-ink/65",
-};
-
 const DOT_BASE = "block size-3.25 rounded-full";
 const DOT_OFF = "border border-[#d5dae1] bg-[#eaedf1]";
 const DOT_ENTRY = "border-2 border-[#4a9e2b] bg-white";
@@ -120,18 +115,12 @@ export default function SkillProgression({ progression }) {
         </Box>
       </Box>
 
-      <Box className="grid grid-cols-[minmax(0,1fr)_84px] border-t border-ink/12 min-[901px]:grid-cols-[minmax(0,1.5fr)_104px_repeat(4,minmax(0,1fr))]">
+      <Box className="grid grid-cols-1 border-t border-ink/12 min-[901px]:grid-cols-[minmax(0,1.5fr)_repeat(4,minmax(0,1fr))]">
         <Text
           as="span"
           className="border-b border-ink/12 bg-slate-50 py-2.75 pl-6 text-[11.5px] font-semibold text-ink/70"
         >
           Skill / Topic
-        </Text>
-        <Text
-          as="span"
-          className="border-b border-ink/12 bg-slate-50 py-2.75 pr-3 text-[11.5px] font-semibold text-ink/70"
-        >
-          Prerequisite?
         </Text>
         {levels.map((level) => (
           <Text
@@ -149,22 +138,11 @@ export default function SkillProgression({ progression }) {
               <Box key={row.skill} className="contents">
                 <Text
                   as="span"
-                  className="flex items-center border-b border-ink/8 py-3.25 pl-6 text-[13px] leading-[1.35] text-ink"
+                  className="flex items-center py-3.25 pl-6 text-[13px] leading-[1.35] text-ink min-[901px]:border-b min-[901px]:border-ink/8"
                 >
                   {row.skill}
                 </Text>
-                <Box className="flex items-center border-b border-ink/8 py-3.25">
-                  <Text
-                    as="span"
-                    className={cn(
-                      "inline-block rounded-[6px] px-3.25 py-1 text-[11.5px] font-semibold",
-                      PILL_CLASSES[String(Boolean(row.prerequisite))],
-                    )}
-                  >
-                    {row.prerequisite ? "Yes" : "No"}
-                  </Text>
-                </Box>
-                <Box className="col-span-full border-b border-ink/8 px-6 pb-3 min-[901px]:col-span-4 min-[901px]:col-start-3 min-[901px]:grid min-[901px]:content-center min-[901px]:px-0 min-[901px]:pb-0">
+                <Box className="col-span-full border-b border-ink/8 px-6 pb-3 min-[901px]:col-span-4 min-[901px]:col-start-2 min-[901px]:grid min-[901px]:content-center min-[901px]:px-0 min-[901px]:pb-0">
                   <Rail levels={levels} entry={row.entry} exit={row.exit} />
                 </Box>
               </Box>
