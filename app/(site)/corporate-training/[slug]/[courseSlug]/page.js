@@ -13,7 +13,7 @@ import CoursePage from "@/components/templates/training/course-page";
  * never host one (TASTE.md §1.2).
  */
 
-export const revalidate = 20;
+export const revalidate = 300;
 
 export async function generateMetadata({ params }) {
   const { slug, courseSlug } = await params;

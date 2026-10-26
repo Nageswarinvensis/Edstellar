@@ -22,7 +22,7 @@ function stripSiteSuffix(title) {
  * a template (TASTE.md §1.2).
  */
 
-export const revalidate = 20;
+export const revalidate = 300;
 
 /**
  * One template per entity type. Industry and vendor content is not modeled
