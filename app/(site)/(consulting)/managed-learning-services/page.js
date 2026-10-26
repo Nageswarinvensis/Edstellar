@@ -19,6 +19,8 @@ import Faq from "@/components/common/faq";
 import RelatedServices from "@/components/sections/consulting/related-services";
 import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
+import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 
 export const revalidate = 300;
 
@@ -52,7 +54,7 @@ export default async function ManagedTrainingServicesPage() {
   if (!cms) notFound();
 
   return (
-    <>
+    <BrochureGate {...consultingBrochure("managed-learning-services")}>
       <SchemaOrg
         breadcrumbs={cms.breadcrumbs?.items}
         faqs={cms.faqs?.items}
@@ -89,6 +91,6 @@ export default async function ManagedTrainingServicesPage() {
         data={cms.leadForm}
       />
       <StickyFooter data={{ ...cms.stickyFooter, email: true }} />
-    </>
+    </BrochureGate>
   );
 }

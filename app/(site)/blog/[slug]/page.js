@@ -24,7 +24,19 @@ import BlogRail from "@/components/sections/blog/detail/rail/blog-rail";
 
 import "@/components/sections/blog/detail/blog-content/Global.css";
 
-export const revalidate = 3600;
+export const revalidate = 300;
+
+/**
+ * Nothing is prerendered at build time (SSG is off until launch), but this
+ * export is what makes the route ISR: each post is cached on its first visit
+ * and re-rendered at most every 5 minutes. Without it the route renders on
+ * every request, and a post deactivated in the CMS stays live indefinitely —
+ * Next keeps serving the stale cached CMS response, because it only ever
+ * replaces a cached fetch with a 200, never with the CMS's 404.
+ */
+export async function generateStaticParams() {
+  return [];
+}
 
 const INTERACTIVE_BLOCKS = ["faq", "companies"];
 

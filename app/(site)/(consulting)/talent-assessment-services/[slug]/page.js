@@ -14,6 +14,8 @@ import WhyUs from "@/components/sections/consulting/why-us";
 import Faq from "@/components/common/faq";
 import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
+import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 
 import Concept from "@/components/sections/talent_assessment_services/concept";
 import Benefits from "@/components/sections/talent_assessment_services/benefits";
@@ -116,7 +118,7 @@ export default async function TalentAssessmentServicePage({ params }) {
   if (!service) notFound();
 
   return (
-    <>
+    <BrochureGate {...consultingBrochure(slug)}>
       <SchemaOrg
         breadcrumbs={service.breadcrumbs}
         faqs={service.faqs?.items}
@@ -134,6 +136,6 @@ export default async function TalentAssessmentServicePage({ params }) {
 
       <ConsultingForm id="apply" background="navy" data={service.lead_form} />
       <StickyFooter data={service.sticky_footer} />
-    </>
+    </BrochureGate>
   );
 }

@@ -13,6 +13,7 @@ import DomainMapSection from "@/components/sections/domain/domain-map-section";
 import Delivered from "@/components/sections/domain/delivered";
 import DeliveryModes from "@/components/common/delivery-modes";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
 import FromEdstellar from "@/components/sections/domain/from_edstellar";
 import Faq from "@/components/common/faq";
 import Scope from "@/components/sections/domain/scope";
@@ -51,8 +52,12 @@ export default function DomainPage({ domain }) {
     },
   };
 
+  // Every brochure button on the page opens the gated-download drawer.
   return (
-    <>
+    <BrochureGate
+      brochure={domain.brochure}
+      title={domain.name ? `${domain.name} training brochure` : "Training brochure"}
+    >
       <Hero hero={hero} breadcrumbs={domain.breadcrumbs} />
       <DomainProof proof={domain.proof} />
       <ClientLogos heading="Trusted as a Leading Corporate Training Provider by" />
@@ -101,6 +106,6 @@ export default function DomainPage({ domain }) {
       <Scope data={domain.scopeData} />
       <LeadForm data={domain.leadForm} background="paper-warm" thankYou="category" />
       <StickyFooter data={domain.stickyFooter} />
-    </>
+    </BrochureGate>
   );
 }

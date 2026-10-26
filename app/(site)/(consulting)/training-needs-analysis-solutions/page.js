@@ -19,6 +19,8 @@ import RelatedServices from "@/components/sections/consulting/related-services";
 import Faq from "@/components/common/faq";
 import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
+import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 
 export const revalidate = 300;
 
@@ -46,7 +48,7 @@ export default async function TrainingNeedsAnalysisPage() {
   if (!tna) notFound();
 
   return (
-    <>
+    <BrochureGate {...consultingBrochure("training-needs-analysis-solutions")}>
       <SchemaOrg
         breadcrumbs={tna.breadcrumbs?.items}
         faqs={tna.faqs?.items}
@@ -79,6 +81,6 @@ export default async function TrainingNeedsAnalysisPage() {
           "EdstellarLDConsultingform1"). */}
       <ConsultingForm id="apply" background="navy" data={tna.leadForm} />
       <StickyFooter data={{ ...tna.stickyFooter, email: true }} />
-    </>
+    </BrochureGate>
   );
 }

@@ -10,6 +10,8 @@ import WhyUs from "@/components/sections/consulting/why-us";
 import Faq from "@/components/common/faq";
 import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
+import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 import Methodology from "@/components/sections/learning_development_consulting/methodology";
 import Transform from "@/components/sections/learning_development_consulting/transform";
 
@@ -80,7 +82,7 @@ export default async function TalentAssessmentServicesPage() {
   const breadcrumbs = cms?.breadcrumbs?.items ?? [];
 
   return (
-    <>
+    <BrochureGate {...consultingBrochure("talent-assessment-services")}>
       <SchemaOrg
         breadcrumbs={breadcrumbs}
         faqs={cms?.faqs?.items}
@@ -119,6 +121,6 @@ export default async function TalentAssessmentServicesPage() {
 
       <ConsultingForm id="apply" background="navy" data={cms?.leadForm} />
       <StickyFooter data={cms?.stickyFooter} />
-    </>
+    </BrochureGate>
   );
 }

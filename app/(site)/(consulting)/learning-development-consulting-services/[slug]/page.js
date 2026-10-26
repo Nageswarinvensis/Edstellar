@@ -23,6 +23,8 @@ import Faq from "@/components/common/faq";
 import RelatedServices from "@/components/sections/consulting/related-services";
 import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
+import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 
 
 const PILLAR = "learning-development-consulting-services";
@@ -147,7 +149,7 @@ export default async function LearningDevelopmentServicePage({ params }) {
   if (!service) notFound();
 
   return (
-    <>
+    <BrochureGate {...consultingBrochure(slug)}>
       <SchemaOrg
         breadcrumbs={service.BreadcrumbData}
         faqs={service.faqData?.items}
@@ -171,6 +173,6 @@ export default async function LearningDevelopmentServicePage({ params }) {
       <StickyFooter
         data={service.stickyFooter && { ...service.stickyFooter, email: true }}
       />
-    </>
+    </BrochureGate>
   );
 }

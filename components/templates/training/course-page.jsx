@@ -6,6 +6,7 @@ import About from "@/components/sections/course/about";
 import Faq from "@/components/common/faq";
 import CourseMapSection from "@/components/sections/course/course-map-section";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
 
 import PageToc from "@/components/sections/course/page-toc";
 import Curriculum from "@/components/sections/course/curriculum";
@@ -40,8 +41,13 @@ export default function CoursePage({ course }) {
   //   (course.trainers?.dynamic_data ?? course.trainers?.people)?.length,
   // );
 
+  // Every brochure button on the page (the domain's PDF) opens the
+  // gated-download drawer.
   return (
-    <>
+    <BrochureGate
+      brochure={course.brochure}
+      title={course.domain_name ? `${course.domain_name} training brochure` : "Training brochure"}
+    >
       <Hero hero={course.hero} breadcrumbs={course.breadcrumbs?.items} />
       <CourseInfo proof={course.proof} capabilityModel={course.CapabilityModel} />
       <ClientLogos heading="Trusted as a Leading Corporate Training Provider by" />
@@ -67,7 +73,7 @@ export default function CoursePage({ course }) {
       <GroupQuote courseName={course.name} />
       <LeadForm data={course.leadForm} thankYou="course" branch="course" />
       <StickyFooter data={course.stickyFooter} />
-    </>
+    </BrochureGate>
   );
 }
 

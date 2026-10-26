@@ -10,6 +10,8 @@ import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import Faq from "@/components/common/faq";
 import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
+import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 
 import CoachingHero from "@/components/sections/coaching/coaching-hero";
 import CoachingPaths from "@/components/sections/coaching/coaching-paths";
@@ -58,7 +60,7 @@ export default async function CoachingSolutionsPage() {
   const breadcrumbs = page.breadcrumbs?.items;
 
   return (
-    <>
+    <BrochureGate {...consultingBrochure("coaching-solutions")}>
       <SchemaOrg
         service={{
           name: "Corporate Coaching",
@@ -94,6 +96,6 @@ export default async function CoachingSolutionsPage() {
       />
       <ConsultingForm id="apply" background="navy" data={page.lead_form} />
       <StickyFooter data={page.stickyFooter && { ...page.stickyFooter, email: true }} />
-    </>
+    </BrochureGate>
   );
 }
