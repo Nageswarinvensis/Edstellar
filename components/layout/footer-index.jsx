@@ -152,7 +152,7 @@ export default function FooterIndex({ brand, contact }) {
 
         <Box className="rounded-[14px] border border-paper/12 bg-navy-soft px-6 py-5">
           <Box className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
-            <Text as="h3" className="m-0 font-serif text-[22px] leading-[1.2] font-semibold text-paper">
+            <Text as="p" className="m-0 font-serif text-[22px] leading-[1.2] font-semibold text-paper">
               Find services by Edstellar 5A stage
             </Text>
             <Text as="p" className="m-0 text-[14px] text-paper/60">

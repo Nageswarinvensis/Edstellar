@@ -207,7 +207,7 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
                     rows={4}
                     placeholder={
                       data.requirements_placeholder ||
-                      "Tell us about your training requirements: team size, delivery format, your production stack, and preferred timing."
+                      "Tell us about your training requirements: team size, delivery format, tools you use, and preferred timing."
                     }
                     className={cn(formInputClasses, "resize-none")}
                   />

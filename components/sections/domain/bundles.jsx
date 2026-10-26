@@ -67,10 +67,8 @@ function BundleCard({ bundle, onOpen }) {
 
   return (
     <Box
-      as="button"
-      type="button"
-      onClick={() => onOpen(bundle)}
-      className="group flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-[14px] border border-ink/12 bg-white text-left shadow-[0_1px_0_rgba(10,22,40,0.04)] transition-[transform,border-color,box-shadow] duration-[250ms] hover:-translate-y-1 hover:border-ink/22 hover:shadow-[0_24px_48px_-30px_rgba(10,22,40,0.45)]"
+      as="article"
+      className="group flex h-full w-full flex-col overflow-hidden rounded-[14px] border border-ink/12 bg-white shadow-[0_1px_0_rgba(10,22,40,0.04)] transition-[transform,border-color,box-shadow] duration-[250ms] hover:-translate-y-1 hover:border-ink/22 hover:shadow-[0_24px_48px_-30px_rgba(10,22,40,0.45)]"
     >
       <Box className="relative block aspect-[16/9] overflow-hidden bg-paper-warm">
         {imageSrc ? (
@@ -89,14 +87,14 @@ function BundleCard({ bundle, onOpen }) {
       <Box className="relative flex flex-1 flex-col gap-2.5 px-[18px] pt-[18px] pb-[18px]">
 
         <Text
-          as="span"
+          as="h3"
           className="font-display text-[16px] font-bold leading-[1.25] tracking-[-0.01em] text-ink"
         >
           {bundle.name}
         </Text>
 
         <Text
-          as="span"
+          as="p"
           className="flex-1 text-[13.5px] leading-[1.55] text-ink-muted"
         >
           {bundle.description}
@@ -119,9 +117,10 @@ function BundleCard({ bundle, onOpen }) {
           </Box>
         </Box>
 
-        <Box
-          as="span"
-          className="mt-4 inline-flex items-center gap-[7px] self-end text-[13.5px] font-semibold text-navy underline-offset-4 hover:underline"
+        <button
+          type="button"
+          onClick={() => onOpen(bundle)}
+          className="mt-4 inline-flex cursor-pointer items-center gap-[7px] self-end text-[13.5px] font-semibold text-navy underline-offset-4 hover:underline"
         >
           View program topics
           <ArrowRight
@@ -130,7 +129,7 @@ function BundleCard({ bundle, onOpen }) {
             aria-hidden="true"
             className="transition-transform duration-200 group-hover:translate-x-[3px]"
           />
-        </Box>
+        </button>
       </Box>
     </Box>
   );

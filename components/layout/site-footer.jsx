@@ -123,7 +123,7 @@ function Brand() {
 function Contact() {
   return (
     <Box>
-      <Text as="h3" id="footer-contact-h" className="m-0 mb-2.5 font-serif text-[20px] leading-[1.2] font-semibold text-paper">
+      <Text as="p" id="footer-contact-h" className="m-0 mb-2.5 font-serif text-[20px] leading-[1.2] font-semibold text-paper">
         Talk to Edstellar
       </Text>
       <Box as="ul" aria-labelledby="footer-contact-h" className="m-0 list-none p-0">
