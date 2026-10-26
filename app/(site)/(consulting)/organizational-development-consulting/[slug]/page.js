@@ -20,6 +20,8 @@ import Faq from "@/components/common/faq";
 import ChangeRelatedSlider from "@/components/sections/organizational_development_consulting/change-related-slider";
 import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
+import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 
 const PILLAR = "organizational-development-consulting";
 
@@ -119,7 +121,7 @@ export default async function OrganizationalDevelopmentServicePage({ params }) {
   if (!service) notFound();
 
   return (
-    <>
+    <BrochureGate {...consultingBrochure(slug)}>
       <SchemaOrg
         breadcrumbs={service.BreadcrumbData}
         faqs={service.faqData?.items}
@@ -143,6 +145,6 @@ export default async function OrganizationalDevelopmentServicePage({ params }) {
       <StickyFooter
         data={service.stickyFooter && { ...service.stickyFooter, email: true }}
       />
-    </>
+    </BrochureGate>
   );
 }

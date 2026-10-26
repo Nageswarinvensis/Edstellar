@@ -18,6 +18,10 @@ export const CATALOG_PAGE = {
       "Browse Edstellar's corporate training courses by domain. Explore program details and find courses that match your team's skills and development priorities.",
     path: "/corporate-training-catalog",
   },
+  // The proof card's "Download the full catalog" PDF, gated by the page's
+  // `BrochureGate` drawer.
+  brochure: FULL_CATALOG_PDF,
+
   breadcrumbs: [
     { label: "Home", href: "/" },
     { label: "Corporate Training", href: "/corporate-training" },

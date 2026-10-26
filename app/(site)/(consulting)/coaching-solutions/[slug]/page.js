@@ -8,6 +8,8 @@ import ClientLogos from "@/components/common/client-logos";
 import Faq from "@/components/common/faq";
 import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
+import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 import ProofStats from "@/components/sections/consulting/proof-stats";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import MeridianShowcase from "@/components/sections/coaching/meridian-showcase";
@@ -58,7 +60,7 @@ export default async function CoachingSubPage({ params }) {
   if (!page) notFound();
 
   return (
-    <>
+    <BrochureGate {...consultingBrochure(slug)}>
       <SchemaOrg breadcrumbs={page.breadcrumbs?.items} faqs={page.faqs?.items} />
       <CoachingHero cms={page.consulting_Hero} />
       <ProofStats data={PROOF_STATS} />
@@ -87,6 +89,6 @@ export default async function CoachingSubPage({ params }) {
       />
       <ConsultingForm id="contact" background="navy" data={page.lead_form} />
       <StickyFooter data={page.stickyFooter && { ...page.stickyFooter, email: true }} />
-    </>
+    </BrochureGate>
   );
 }

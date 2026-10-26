@@ -19,6 +19,8 @@ import Faq from "@/components/common/faq";
 import RelatedServices from "@/components/sections/consulting/related-services";
 import ConsultingForm from "@/components/forms/consulting-form";
 import StickyFooter from "@/components/common/sticky-footer";
+import BrochureGate from "@/components/common/brochure-gate";
+import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 
 export const revalidate = 300;
 
@@ -53,7 +55,7 @@ export default async function ManagedTrainingServicesPage() {
   const breadcrumbs = page.breadcrumbs?.items;
 
   return (
-    <>
+    <BrochureGate {...consultingBrochure("managed-training")}>
       <SchemaOrg
         service={{
           name: page.consulting_Hero?.heroLeft?.title,
@@ -97,6 +99,6 @@ export default async function ManagedTrainingServicesPage() {
       <RelatedServices id="related" data={page.relatedServices} columns={4} />
       <ConsultingForm id="apply" background="navy" data={page.leadForm} />
       <StickyFooter data={page.stickyFooter && { ...page.stickyFooter, email: true }} />
-    </>
+    </BrochureGate>
   );
 }
