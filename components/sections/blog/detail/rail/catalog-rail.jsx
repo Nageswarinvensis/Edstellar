@@ -13,8 +13,8 @@ import { RailEyebrow } from "./rail-card";
 const CATALOG_PDF = "https://media.edstellar.com/brochures/all-courses-catalog.pdf";
 
 /**
- * "Free download" rail card: navy panel with a white work-email form. The
- * email goes to Zoho "DownloadCatalog" (Branch and PAGE NAME "blog") through
+ * "Free download" rail card: navy panel with a white name / company / work
+ * email form. The lead goes to Zoho "DownloadCatalog" (Branch and PAGE NAME "blog") through
  * the `submitCatalogDownload` Server Action; once Zoho has it, the catalog
  * opens in a new tab and this tab goes to `/thank-you/{thankYou}`. If the
  * browser blocked the new tab, the form gives way to the PDF link instead —
@@ -28,6 +28,8 @@ const CATALOG_PDF = "https://media.edstellar.com/brochures/all-courses-catalog.p
  */
 export default function CatalogRail({ thankYou = "download-catalog" }) {
   const router = useRouter();
+  const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
@@ -35,6 +37,14 @@ export default function CatalogRail({ thankYou = "download-catalog" }) {
 
   async function submit(event) {
     event.preventDefault();
+    if (name.trim().length < 2) {
+      setError("Enter your name.");
+      return;
+    }
+    if (!company.trim()) {
+      setError("Enter your company name.");
+      return;
+    }
     if (!/^[^@\s]+@[^@\s.]+\.[^@\s]+$/.test(email)) {
       setError("Use your work email so we can send the catalog.");
       return;
@@ -49,6 +59,8 @@ export default function CatalogRail({ thankYou = "download-catalog" }) {
     let result;
     try {
       result = await submitCatalogDownload({
+        name,
+        company,
         email,
         company_website: event.currentTarget.elements.company_website?.value ?? "",
         page: window.location.pathname,
@@ -69,7 +81,9 @@ export default function CatalogRail({ thankYou = "download-catalog" }) {
     }
     tab?.close();
     setError(
-      result?.errors?.email ||
+      result?.errors?.name ||
+        result?.errors?.company ||
+        result?.errors?.email ||
         result?.error ||
         "We could not send your request. Please try again, or email us at contact@edstellar.com.",
     );
@@ -126,21 +140,32 @@ export default function CatalogRail({ thankYou = "download-catalog" }) {
               </Text>
             ) : null}
 
-            <label
-              htmlFor="rail-catalog-email"
-              className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted"
-            >
-              Work email <span className="text-destructive">*</span>
-            </label>
-            <input
+            <RailField
+              id="rail-catalog-name"
+              label="Name"
+              autoComplete="name"
+              placeholder="Your full name"
+              value={name}
+              onChange={setName}
+            />
+            <RailField
+              id="rail-catalog-company"
+              label="Company name"
+              autoComplete="organization"
+              placeholder="Your company"
+              value={company}
+              onChange={setCompany}
+              className="mt-3"
+            />
+            <RailField
               id="rail-catalog-email"
+              label="Work email"
               type="email"
-              required
               autoComplete="email"
               placeholder="you@company.com"
               value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              className="w-full rounded-[10px] border border-ink/22 bg-paper px-3.5 py-3 text-[14px] text-ink outline-none placeholder:text-ink/45 focus:border-navy"
+              onChange={setEmail}
+              className="mt-3"
             />
 
             <input
@@ -158,6 +183,28 @@ export default function CatalogRail({ thankYou = "download-catalog" }) {
           </form>
         )}
       </Box>
+    </Box>
+  );
+}
+
+/** One labelled, required text input of the rail form. */
+function RailField({ id, label, type = "text", onChange, className, ...props }) {
+  return (
+    <Box className={className}>
+      <label
+        htmlFor={id}
+        className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted"
+      >
+        {label} <span className="text-destructive">*</span>
+      </label>
+      <input
+        id={id}
+        type={type}
+        required
+        onChange={(event) => onChange(event.target.value)}
+        className="w-full rounded-[10px] border border-ink/22 bg-paper px-3.5 py-3 text-[14px] text-ink outline-none placeholder:text-ink/45 focus:border-navy"
+        {...props}
+      />
     </Box>
   );
 }

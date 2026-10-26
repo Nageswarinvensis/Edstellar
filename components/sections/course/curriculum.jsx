@@ -102,7 +102,7 @@ const SUMMARY_PILL_META = [
 const META_PILL_FIELDS = [
   { label: "hands-on labs", format: (value) => `${value} labs` },
   { label: "capstone", format: (value) => `${value} capstone` },
-  { label: "hours", format: (value) => `${value} hours` },
+  { label: "hours", format: (value) => `~${value} hours` },
 ];
 
 function MethodChip({ meta, children }) {
@@ -217,7 +217,9 @@ export default function Curriculum({ curriculum }) {
           <Box className="mb-7.5 flex flex-wrap gap-x-5 gap-y-1.5 border-y border-ink/12 py-3.5 font-mono text-[11px] tracking-[0.09em] text-ink-muted uppercase">
             {meta.map((item) => (
               <Text as="span" key={item.label}>
-                <b className="font-semibold text-ink">{item.value}</b>{" "}
+                <b className="font-semibold text-ink">
+                  {item.label === "hours" ? `~${item.value}` : item.value}
+                </b>{" "}
                 {item.label}
               </Text>
             ))}
@@ -380,9 +382,12 @@ export default function Curriculum({ curriculum }) {
                         const chipMeta = IconFromApi
                           ? { ...baseMeta, icon: IconFromApi }
                           : baseMeta;
+                        // A duration chip is an estimate, so it reads "~28 hours".
+                        const isDuration =
+                          typeof item === "object" && item.icon === "clock";
                         return (
                           <MethodChip key={label} meta={chipMeta}>
-                            {label}
+                            {isDuration ? `~${label}` : label}
                           </MethodChip>
                         );
                       })}

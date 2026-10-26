@@ -42,7 +42,11 @@ export const COURSE_DEFAULTS = {
   hero: {
     meta: DELIVERY_META,
     actions: [
-      { label: "View course outline", href: "#curriculum", variant: "primary" },
+      {
+        label: "View Training Outline",
+        href: "#curriculum",
+        variant: "primary",
+      },
       { label: "Enquire now", href: APPLY_ANCHOR, variant: "ghost" },
     ],
     group_quote: {
