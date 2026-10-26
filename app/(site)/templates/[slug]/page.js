@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getTemplate } from "@/lib/content/templates";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import TemplateDetailPage from "@/components/templates/template-detail-page";
 import TemplateToolPage from "@/components/templates/template-tool-page";
 
@@ -43,11 +43,11 @@ export default async function TemplateRoute({ params }) {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{ name: template.title, description: template.seo.description, path: pathOf(slug) }}
         breadcrumbs={breadcrumbs}
         faqs={template.faqs?.items}
-      />
+      /> */}
       {template.directTool ? (
         <TemplateToolPage template={template} />
       ) : (

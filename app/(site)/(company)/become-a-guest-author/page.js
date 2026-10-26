@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getGuestAuthorPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import { CtaButton } from "@/components/common/cta-button";
 
 import CompanyHero from "@/components/sections/company/company-hero";
@@ -56,10 +56,10 @@ export default async function BecomeAGuestAuthorPage() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{ name: titleOf(page.seo), description: page.seo?.Meta_description, path: PATH }}
         breadcrumbs={BREADCRUMBS}
-      />
+      /> */}
 
       <CompanyHero
         heading={hero?.heading}

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTrainer, getTrainersBySlugs } from "@/lib/content/trainers";
 import { TRAINER_PAGE } from "@/content/trainers/trainer-page";
 import { getLatestCourses } from "@/lib/content/latest-courses";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import TrainerProfilePage from "@/components/templates/trainer-profile-page";
 import {
   countryFlag,
@@ -104,7 +104,7 @@ export default async function TrainerPage({ params }) {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         person={{
           name: trainer.name,
           jobTitle: trainer.profile_title,
@@ -114,7 +114,7 @@ export default async function TrainerPage({ params }) {
           country: trainer.country,
         }}
         breadcrumbs={breadcrumbs}
-      />
+      /> */}
       <TrainerProfilePage
         profile={profile}
         page={TRAINER_PAGE}

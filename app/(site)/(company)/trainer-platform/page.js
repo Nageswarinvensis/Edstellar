@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getTrainerPlatformPage } from "@/lib/content/company";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import TrainerPlatformPage from "@/components/templates/trainer-platform-page";
 
 export const revalidate = 300;
@@ -34,14 +34,14 @@ export default async function TrainerPlatformRoute() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{
           name: stripSiteSuffix(page.seo?.meta_title),
           description: page.seo?.Meta_description,
           path: PATH,
         }}
         breadcrumbs={page.breadcrumbs?.items}
-      />
+      /> */}
 
       <TrainerPlatformPage page={page} />
     </>

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -55,10 +55,10 @@ export default async function ManagedTrainingServicesPage() {
 
   return (
     <BrochureGate {...consultingBrochure("managed-learning-services")}>
-      <SchemaOrg
+      {/* <SchemaOrg
         breadcrumbs={cms.breadcrumbs?.items}
         faqs={cms.faqs?.items}
-      />
+      /> */}
       <ConsultingHero
         data={cms.consulting_Hero}
         breadcrumbItems={cms.breadcrumbs?.items}

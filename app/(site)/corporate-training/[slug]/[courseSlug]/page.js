@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getCourse } from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import CoursePage from "@/components/templates/training/course-page";
 
 /**
@@ -45,7 +45,7 @@ export default async function CourseRoute({ params }) {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         course={{
           name: course.seo?.meta_title
             ? course.seo.meta_title.replace(/\s*\|\s*Edstellar\s*$/i, "").trim()
@@ -58,7 +58,7 @@ export default async function CourseRoute({ params }) {
         }}
         breadcrumbs={course.breadcrumbs?.items}
         faqs={course.faqs?.items ?? course.Faqs?.items}
-      />
+      /> */}
       <CoursePage course={course} />
     </>
   );

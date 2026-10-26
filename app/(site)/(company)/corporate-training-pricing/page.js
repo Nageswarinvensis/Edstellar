@@ -1,6 +1,6 @@
 import { getPricingPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import PricingPage from "@/components/templates/pricing-page";
 
 export const revalidate = 300;
@@ -24,7 +24,7 @@ export default function CorporateTrainingPricingPage() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         service={{
           name: "Corporate Training Packages",
           description: page.seo.description,
@@ -37,7 +37,7 @@ export default function CorporateTrainingPricingPage() {
         }}
         breadcrumbs={page.breadcrumbs}
         faqs={page.faqs.items}
-      />
+      /> */}
 
       <PricingPage page={page} />
     </>

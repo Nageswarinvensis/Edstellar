@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getEnquiryPage } from "@/lib/content/company";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 
 import CompanyHero from "@/components/sections/company/company-hero";
 import EnquiryIntro from "@/components/sections/company/enquiry-intro";
@@ -42,14 +42,14 @@ export default async function EnquiryNowPage() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{
           name: stripSiteSuffix(page.seo?.meta_title),
           description: page.seo?.Meta_description,
           path: PATH,
         }}
         breadcrumbs={enquiry.breadcrumbs}
-      />
+      /> */}
 
       <CompanyHero
         heading={enquiry.heading}

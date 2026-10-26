@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getSitemapPage } from "@/lib/content/sitemap";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import SitemapPage from "@/components/templates/sitemap-page";
 
 // Rebuilt hourly from the CMS sitemap, like the XML one (`app/sitemap.js`).
@@ -31,7 +31,7 @@ export default async function SitemapRoute() {
 
   return (
     <>
-      <SchemaOrg webpage={{ name: TITLE, description: DESCRIPTION, path: PATH }} breadcrumbs={BREADCRUMBS} />
+      {/* <SchemaOrg webpage={{ name: TITLE, description: DESCRIPTION, path: PATH }} breadcrumbs={BREADCRUMBS} /> */}
       <SitemapPage page={page} breadcrumbs={BREADCRUMBS} />
     </>
   );

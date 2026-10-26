@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getBlogCategory } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 
 import CategoryPageContent from "@/components/sections/blog/category/category-page-content";
 
@@ -41,7 +41,7 @@ export default async function CategoryPage({ params }) {
 
   return (
     <>
-      <SchemaOrg breadcrumbs={breadcrumbs} />
+      {/* <SchemaOrg breadcrumbs={breadcrumbs} /> */}
       <CategoryPageContent
         category={category}
         slug={slug}

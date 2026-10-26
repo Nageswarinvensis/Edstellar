@@ -1,6 +1,6 @@
 import { getTalentAssessmentHub } from "@/lib/content/talent-assessment";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -83,10 +83,10 @@ export default async function TalentAssessmentServicesPage() {
 
   return (
     <BrochureGate {...consultingBrochure("talent-assessment-services")}>
-      <SchemaOrg
+      {/* <SchemaOrg
         breadcrumbs={breadcrumbs}
         faqs={cms?.faqs?.items}
-      />
+      /> */}
 
       <ConsultingHero data={cms?.consulting_Hero} breadcrumbItems={breadcrumbs} />
       <ProofStats data={cms?.generalProof} />

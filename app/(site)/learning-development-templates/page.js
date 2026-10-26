@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getTemplatesPage } from "@/lib/content/resources";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import TemplatesHubPage from "@/components/templates/templates-hub-page";
 
 export const revalidate = 300;
@@ -34,14 +34,14 @@ export default async function LearningDevelopmentTemplatesPage() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{
           name: stripSiteSuffix(page.seo?.meta_title),
           description: page.seo?.Meta_description,
           path: PATH,
         }}
         breadcrumbs={page.breadcrumbs?.items}
-      />
+      /> */}
 
       <TemplatesHubPage page={page} />
     </>

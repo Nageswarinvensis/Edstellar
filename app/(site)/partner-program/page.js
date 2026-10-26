@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getPartnerProgramPage } from "@/lib/content/partner";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import PartnerProgramPage from "@/components/templates/partner-program-page";
 
 export const revalidate = 300;
@@ -32,7 +32,7 @@ export default function PartnerProgramRoute() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{
           name: stripSiteSuffix(page.seo?.title),
           description: page.seo?.description,
@@ -40,7 +40,7 @@ export default function PartnerProgramRoute() {
         }}
         breadcrumbs={page.breadcrumbs}
         faqs={page.faq?.groups?.flatMap((group) => group.items ?? [])}
-      />
+      /> */}
 
       <PartnerProgramPage page={page} />
     </>

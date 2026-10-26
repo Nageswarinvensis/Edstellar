@@ -1,7 +1,7 @@
 import { getCatalogPage } from "@/lib/content/corporate-training-catalog";
 import { getTrainingDomains } from "@/lib/content/training-catalog";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import CorporateTrainingCatalogPage from "@/components/templates/corporate-training-catalog-page";
 
 // Domains and courses come from the CMS sitemap API; refreshed hourly.
@@ -24,11 +24,11 @@ export default async function CorporateTrainingCatalogRoute() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{ name: page.seo.title, description: page.seo.description, path: page.seo.path }}
         breadcrumbs={page.breadcrumbs}
         faqs={page.faqs.items}
-      />
+      /> */}
       <CorporateTrainingCatalogPage page={page} domains={domains} />
     </>
   );

@@ -1,6 +1,6 @@
 import { getCareersPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 
 import CareersHero from "@/components/sections/company/careers/careers-hero";
 import WhyWork from "@/components/sections/company/careers/why-work";
@@ -26,10 +26,10 @@ export default function CareersPage() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{ name: seo.title, description: seo.description, path: seo.path }}
         breadcrumbs={breadcrumbs}
-      />
+      /> */}
 
       <CareersHero heading={hero.heading} breadcrumbs={breadcrumbs} image={hero.image} />
       <WhyWork data={why} />

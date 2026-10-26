@@ -5,7 +5,7 @@ import { getBlogMain, getBlogPost } from "@/lib/content/blog";
 import { getBlogRailCategories } from "@/lib/content/blog-rail";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import Section from "@/components/ui/Section";
 import Breadcrumbs from "@/components/common/breadcrumbs";
 import Box from "@/components/ui/Box";
@@ -154,7 +154,7 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         blogPosting={{
           title: blog.title,
           description: blog.excerpt,
@@ -165,7 +165,7 @@ export default async function BlogPostPage({ params }) {
           authorName: author?.name,
         }}
         breadcrumbs={breadcrumb}
-      />
+      /> */}
       <BlogDetailHero
         title={blog.title}
         excerpt={blog.excerpt}

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getContactPage } from "@/lib/content/company";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 
 import CompanyHero from "@/components/sections/company/company-hero";
 import ContactReach from "@/components/sections/company/contact-reach";
@@ -42,14 +42,14 @@ export default async function ContactUsPage() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{
           name: stripSiteSuffix(page.seo?.meta_title),
           description: page.seo?.Meta_description,
           path: PATH,
         }}
         breadcrumbs={contact.breadcrumbs}
-      />
+      /> */}
 
       <CompanyHero
         heading={contact.heading}

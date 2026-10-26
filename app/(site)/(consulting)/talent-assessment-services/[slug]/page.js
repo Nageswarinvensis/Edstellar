@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { getTalentAssessmentService } from "@/lib/content/talent-assessment";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -119,10 +119,10 @@ export default async function TalentAssessmentServicePage({ params }) {
 
   return (
     <BrochureGate {...consultingBrochure(slug)}>
-      <SchemaOrg
+      {/* <SchemaOrg
         breadcrumbs={service.breadcrumbs}
         faqs={service.faqs?.items}
-      />
+      /> */}
 
       <ConsultingHero data={service.hero} breadcrumbItems={service.breadcrumbs} />
       <ProofStats data={service.proof} />

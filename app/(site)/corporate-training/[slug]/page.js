@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { resolveTrainingSlug } from "@/lib/content/taxonomy";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import DomainPage from "@/components/templates/training/domain-page";
 
 /** Same fix as the blog author page: the CMS's `meta_title` already ends in
@@ -61,7 +61,7 @@ export default async function TrainingPage({ params }) {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         breadcrumbs={entry.data.breadcrumbs}
         faqs={entry.data.faqs?.items}
         collectionPage={entry.type === "domain" && courses.length ? {
@@ -70,7 +70,7 @@ export default async function TrainingPage({ params }) {
           path: `/corporate-training/${slug}`,
           courses,
         } : null}
-      />
+      /> */}
       <Template domain={entry.data} />
     </>
   );

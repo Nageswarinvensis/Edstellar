@@ -1,6 +1,6 @@
 import { getHomePage } from "@/lib/content/home";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import HomePage from "@/components/templates/home-page";
 
 export const revalidate = 300;
@@ -20,9 +20,9 @@ export default function HomeRoute() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{ name: page.seo.title, description: page.seo.description, path: page.seo.path }}
-      />
+      /> */}
       <HomePage page={page} />
     </>
   );

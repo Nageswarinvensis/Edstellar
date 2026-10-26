@@ -1,6 +1,6 @@
 import { getGovernmentPage } from "@/lib/content/sectors";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import SectorPage from "@/components/templates/sector-page";
 
 export const revalidate = 300;
@@ -25,14 +25,14 @@ export default function GovernmentTrainingPage() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{
           name: stripSiteSuffix(page.seo.title),
           description: page.seo.description,
           path: page.seo.path,
         }}
         breadcrumbs={page.breadcrumbs}
-      />
+      /> */}
 
       <SectorPage page={page} />
     </>

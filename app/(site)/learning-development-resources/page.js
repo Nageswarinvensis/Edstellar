@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getResourcesHub } from "@/lib/content/resources";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import ResourcesHubPage from "@/components/templates/resources-hub-page";
 
 export const revalidate = 300;
@@ -36,7 +36,7 @@ export default async function LearningDevelopmentResourcesPage() {
 
   return (
     <>
-      <SchemaOrg
+      {/* <SchemaOrg
         webpage={{
           name: stripSiteSuffix(page.seo?.meta_title),
           description: page.seo?.Meta_description,
@@ -44,7 +44,7 @@ export default async function LearningDevelopmentResourcesPage() {
         }}
         breadcrumbs={page.breadcrumbs?.items}
         faqs={page.faqs?.items?.length ? page.faqs.items : undefined}
-      />
+      /> */}
 
       <ResourcesHubPage page={page} />
     </>

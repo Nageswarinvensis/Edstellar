@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getCoachingHub } from "@/lib/content/coaching";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 
 import ProofStats from "@/components/sections/consulting/proof-stats";
 import ClientLogos from "@/components/common/client-logos";
@@ -61,7 +61,7 @@ export default async function CoachingSolutionsPage() {
 
   return (
     <BrochureGate {...consultingBrochure("coaching-solutions")}>
-      <SchemaOrg
+      {/* <SchemaOrg
         service={{
           name: "Corporate Coaching",
           description: page.seo?.Meta_description,
@@ -70,7 +70,7 @@ export default async function CoachingSolutionsPage() {
         }}
         breadcrumbs={breadcrumbs}
         faqs={page.faqs?.items}
-      />
+      /> */}
 
       <CoachingHero cms={page.consulting_Hero} breadcrumbs={breadcrumbs} />
       <ProofStats data={page.generalProof} />

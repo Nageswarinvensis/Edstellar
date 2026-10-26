@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getManagedTrainingPage } from "@/lib/content/managed-training";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -56,7 +56,7 @@ export default async function ManagedTrainingServicesPage() {
 
   return (
     <BrochureGate {...consultingBrochure("managed-training")}>
-      <SchemaOrg
+      {/* <SchemaOrg
         service={{
           name: page.consulting_Hero?.heroLeft?.title,
           description: page.seo?.Meta_description,
@@ -65,7 +65,7 @@ export default async function ManagedTrainingServicesPage() {
         }}
         breadcrumbs={breadcrumbs}
         faqs={page.faqs?.items}
-      />
+      /> */}
 
       <ConsultingHero data={page.consulting_Hero} breadcrumbItems={breadcrumbs} />
       <ProofStats data={page.generalProof} />

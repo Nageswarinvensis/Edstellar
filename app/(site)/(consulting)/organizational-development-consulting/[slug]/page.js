@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { getConsultingService } from "@/lib/content/consulting";
 import { buildMetadata } from "@/lib/seo/metadata";
-import SchemaOrg from "@/components/seo/schema-org";
+// import SchemaOrg from "@/components/seo/schema-org";
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
 import ClientLogos from "@/components/common/client-logos";
@@ -122,10 +122,10 @@ export default async function OrganizationalDevelopmentServicePage({ params }) {
 
   return (
     <BrochureGate {...consultingBrochure(slug)}>
-      <SchemaOrg
+      {/* <SchemaOrg
         breadcrumbs={service.BreadcrumbData}
         faqs={service.faqData?.items}
-      />
+      /> */}
       <ConsultingHero
         data={service.heroData}
         breadcrumbItems={service.BreadcrumbData}
