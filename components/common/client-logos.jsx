@@ -148,7 +148,7 @@ function ClientLogos({ heading = CLIENT_LOGOS.heading, className }) {
 
   return (
     <Box
-      as="section"
+      as="div"
       className={cn("px-5 lg:px-10 overflow-hidden bg-sand py-12", className,
       )}
     >

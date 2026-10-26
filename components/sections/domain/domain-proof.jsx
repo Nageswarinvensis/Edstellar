@@ -43,10 +43,11 @@ function DomainProof({ proof }) {
   if (!stats.length) return null;
 
   return (
-    <Section className="pt-0 pb-10 lg:pt-0 lg:pb-10">
+    <Section as="div" className="pt-0 pb-10 lg:pt-0 lg:pb-10">
       <Reveal delay={4}>
         <Box className="rounded-[14px] border border-ink/12 bg-white px-6 py-[18px] shadow-[0_18px_44px_-34px_rgba(10,22,40,0.45)]">
           <Box
+            role="group"
             aria-label="Edstellar at a glance"
             className="flex w-full min-w-0 items-stretch max-md:flex-wrap"
           >
