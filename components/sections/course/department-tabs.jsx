@@ -75,7 +75,7 @@ export default function DepartmentTabs({ departments }) {
           as="span"
           className="flex-none font-mono text-[10.5px] font-semibold tracking-[0.12em] text-ink-muted uppercase"
         >
-          Explore by department
+          Explore by Function/Department/Teams
         </Text>
 
         <Box
