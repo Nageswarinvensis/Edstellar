@@ -27,7 +27,7 @@ export function CatalogHero({ data, breadcrumbs }) {
       <Box className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.25fr_0.9fr] lg:gap-16">
         <Reveal>
           <Breadcrumbs items={breadcrumbs} className="mt-0 mb-6" />
-          <Text as="h1">{data.heading}</Text>
+          <RichHeading as="h1" heading={data.heading} />
           <Text as="p" className="mt-4 max-w-[32ch] font-serif text-[clamp(20px,1.8vw,24px)] leading-[1.3] text-ink italic">
             {data.subheading}
           </Text>

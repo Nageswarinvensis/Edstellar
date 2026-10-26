@@ -35,7 +35,7 @@ import { cn } from "@/lib/utils";
 const TAB_IMAGE_RULES = [
   // Hybrid first: a hybrid tab can also mention "virtual" / "online".
   { image: { src: "/course/hybrid.webp", alt: "Hybrid training" }, match: /hybrid|blended/i },
-  { image: { src: "/course/vertual.webp", alt: "Virtual training" }, match: /virtual|online/i },
+  { image: { src: "/course/virtual.webp", alt: "Virtual training" }, match: /virtual|online/i },
   { image: { src: "/course/on-site.webp", alt: "On-site training" }, match: /on.?site|in.?house/i },
   { image: { src: "/course/off-site.webp", alt: "Off-site training" }, match: /off.?site|away/i },
 ];

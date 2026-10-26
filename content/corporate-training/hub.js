@@ -30,7 +30,7 @@ export const CORPORATE_TRAINING_HUB = {
   ],
 
   hero: {
-    heading: "Corporate Training for Your <span>Workforce</span>",
+    heading: "Instructor-led Corporate Training Solutions for Your Enterprise <span>Workforce</span>",
     lede: "Build the skills your people need for the work ahead. Edstellar delivers more than 2,000 instructor-led corporate training programs across 77 domains, tailored to your roles and run onsite or virtually for a single team or a workforce-wide initiative.",
     definition:
       "Corporate training develops employees' job-related knowledge and skills around a business requirement. Start with a training domain, your type of organization, or the capability you want to build, and Edstellar shapes the engagement around your roles, learning goals, and delivery needs.",

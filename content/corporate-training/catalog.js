@@ -25,7 +25,7 @@ export const CATALOG_PAGE = {
   ],
 
   hero: {
-    heading: "Corporate Training Catalog",
+    heading: "Corporate Training Catalog Designed & Curated for <span>Next-Gen Companies</span>",
     subheading: "Every Edstellar program, organized by domain.",
     description:
       "Browse 77 training domains and 2,000+ instructor-led programs in one place, from artificial intelligence and cloud computing to leadership, sales and compliance. Open any domain to see all of its courses and request a program tailored to your team.",

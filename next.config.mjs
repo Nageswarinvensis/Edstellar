@@ -11,6 +11,14 @@ const nextConfig = {
   // Old URLs → their current ones (the CMS renamed these site pages,
   // Oct 2026). Permanent, so links and rankings carry over. Each goes straight
   // to its final URL — no redirect chains.
+  async rewrites() {
+    return [
+      { source: "/platforms/polaris", destination: "/polaris.html" },
+      { source: "/platforms/orbit", destination: "/orbit.html" },
+      { source: "/platforms/meridian", destination: "/meridian.html" },
+      { source: "/platforms/spectra-lms", destination: "/spectra-lms.html" },
+    ];
+  },
   async redirects() {
     const moved = [
       ["/training-needs-analysis", "/training-needs-analysis-solutions"],

@@ -7,6 +7,7 @@ import {
   serviceJsonLd,
   blogPostingJsonLd,
   personJsonLd,
+  collectionPageJsonLd,
 } from "@/lib/seo/json-ld";
 import JsonLd from "@/components/seo/json-ld";
 
@@ -18,20 +19,22 @@ import JsonLd from "@/components/seo/json-ld";
  *
  * Prop reference
  * ──────────────
- * website      boolean                 Organization + WebSite @graph (root layout only)
- * course       object                  { name, description, path, image, audience }
- * breadcrumbs  { label, href }[]       Same array the visible breadcrumb rail renders
- * faqs         { question, answer }[]  Same .items the visible FAQ section renders
- * service      object                  { name, description, path, serviceType?, offers? }
- * webpage      object                  { name, description, path }
- * blogPosting  object                  { title, description, path, image, datePublished, dateModified, authorName? }
- * person       object                  { name, jobTitle, image, path, city?, country?, languages? }
+ * website        boolean                 Organization + WebSite @graph (root layout only)
+ * course         object                  { name, description, path, image, audience }
+ * breadcrumbs    { label, href }[]       Same array the visible breadcrumb rail renders
+ * faqs           { question, answer }[]  Same .items the visible FAQ section renders
+ * service        object                  { name, description, path, serviceType?, offers? }
+ * webpage        object                  { name, description, path }
+ * blogPosting    object                  { title, description, path, image, datePublished, dateModified, authorName? }
+ * person         object                  { name, jobTitle, image, path, city?, country?, languages? }
+ * collectionPage object                  { name, description, path, courses: { title, href }[] }
  *
  * Usage examples
  * ──────────────
  * Root layout:    <SchemaOrg website />
  * Course page:    <SchemaOrg course={c} breadcrumbs={b} faqs={f} />
  * Category page:  <SchemaOrg service={s} breadcrumbs={b} faqs={f} />
+ * Domain page:    <SchemaOrg collectionPage={c} breadcrumbs={b} faqs={f} />
  * Catalog page:   <SchemaOrg webpage={w} />
  * Blog post:      <SchemaOrg blogPosting={p} breadcrumbs={b} />
  * Trainer page:   <SchemaOrg person={p} breadcrumbs={b} />
@@ -45,6 +48,7 @@ export default function SchemaOrg({
   webpage,
   blogPosting,
   person,
+  collectionPage,
 }) {
   const schemas = [
     website ? siteGraphJsonLd() : null,
@@ -53,6 +57,7 @@ export default function SchemaOrg({
     service ? serviceJsonLd(service) : null,
     blogPosting ? blogPostingJsonLd(blogPosting) : null,
     person ? personJsonLd(person) : null,
+    collectionPage ? collectionPageJsonLd(collectionPage) : null,
     breadcrumbs ? breadcrumbJsonLd(breadcrumbs) : null,
     faqs ? faqJsonLd(faqs) : null,
   ];

@@ -53,7 +53,7 @@ export function HubHero({ data, proof, breadcrumbs }) {
         <Box className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr] lg:gap-16">
           <Reveal>
             <Breadcrumbs items={breadcrumbs} className="mt-0 mb-6" />
-            <RichHeading as="h1" id="hub-h1" heading={data.heading} className="max-w-[13ch]" emphasisClassName="text-ink" />
+            <RichHeading as="h1" id="hub-h1" heading={data.heading}  emphasisClassName="text-ink" />
             <Text as="p" className="mt-7 max-w-[56ch] text-[clamp(17px,1.4vw,19px)] leading-[1.6] text-ink/80">
               {data.lede}
             </Text>

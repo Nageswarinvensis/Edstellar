@@ -43,7 +43,7 @@ export async function generateMetadata({ params }) {
     title: stripSiteSuffix(entry.data.seo.meta_title),
     description: entry.data.seo.Meta_description,
     path: `/corporate-training/${slug}`,
-    image: entry.data.seo.og_image_url,
+    image: entry.data.seo.og_image_url || entry.data.banner_image,
   });
 }
 
@@ -57,11 +57,19 @@ export default async function TrainingPage({ params }) {
 
   if (!Template) notFound();
 
+  const courses = entry.data.coursesData?.courses ?? [];
+
   return (
     <>
       <SchemaOrg
         breadcrumbs={entry.data.breadcrumbs}
         faqs={entry.data.faqs?.items}
+        collectionPage={entry.type === "domain" && courses.length ? {
+          name: entry.data.name,
+          description: entry.data.seo?.Meta_description,
+          path: `/corporate-training/${slug}`,
+          courses,
+        } : null}
       />
       <Template domain={entry.data} />
     </>

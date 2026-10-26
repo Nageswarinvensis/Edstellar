@@ -63,6 +63,28 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
           )}
           {label}
         </Box>
+      ) : link.anchor ? (
+        <a
+          href={link.href}
+          title={`Click Here to View ${link.label}`}
+          onClick={onNavigate}
+          onMouseEnter={() => onPreview(link)}
+          onFocus={() => onPreview(link)}
+          className={`group/mi flex items-center gap-2.5 py-[5px] text-[14px] leading-snug text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4 ${
+            link.main ? "font-semibold" : ""
+          }`}
+        >
+          {!link.main && (
+            <span
+              aria-hidden="true"
+              className={`size-[5px] flex-none rounded-full border transition-transform duration-200 ${
+                active ? "scale-[1.3] border-navy bg-navy" : "border-ink/22 group-hover/mi:scale-110"
+              }`}
+            />
+          )}
+          {label}
+          {link.main && <Arrow className="size-3.5 flex-none" />}
+        </a>
       ) : (
         <Link
           href={link.href}
