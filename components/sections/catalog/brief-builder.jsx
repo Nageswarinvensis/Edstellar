@@ -246,7 +246,7 @@ export default function BriefBuilder({ data, thankYou = "catalog-build-your-brie
         </Box>
       ) : null}
 
-      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit, onInvalid)} className="relative">
+      <Box as="form" aria-label="Build your brief" noValidate onSubmit={handleSubmit(onSubmit, onInvalid)} className="relative">
         {alert ? (
           <Text as="p" role="alert" className="mt-4 rounded-[10px] border border-[#FF8A80]/45 bg-[#FF8A80]/8 px-3 py-2.5 text-[13px] leading-[1.5] text-[#FFB4AB]">
             {alert}

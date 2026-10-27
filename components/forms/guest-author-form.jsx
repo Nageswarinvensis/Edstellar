@@ -69,7 +69,7 @@ export default function GuestAuthorForm({ data, thankYou = "become-a-guest-autho
         Fields marked <Text as="span" className="text-red-600">*</Text> are required
       </Text>
 
-      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="relative flex flex-col gap-6">
+      <Box as="form" aria-label="Guest author pitch" noValidate onSubmit={handleSubmit(onSubmit)} className="relative flex flex-col gap-6">
         <HoneypotField register={register} />
 
         <FormField label="Full name" required error={errors.name?.message}>

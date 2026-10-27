@@ -59,7 +59,7 @@ function FaqAnswer({ answer }) {
 }
 
 const SECTION_CTA = {
-  title: "Question not answered here?",
+  title: "Question Not Answered Here?",
   description:
     "Put it in the request. A training specialist answers it directly, within one business day.",
   cta: { label: "Talk to a Training Advisor", href: "#apply" },
@@ -74,9 +74,7 @@ const SECTION_CTA = {
 function FaqTrigger({ children }) {
   return (
     <AccordionPrimitive.Header className="flex">
-      <AccordionPrimitive.Trigger
-        className="group/faq-trigger flex flex-1 items-center justify-between gap-6 py-6 text-left font-display text-lg font-medium tracking-[-0.01em] text-ink outline-none cursor-pointer"
-      >
+      <AccordionPrimitive.Trigger className="group/faq-trigger flex flex-1 items-center justify-between gap-6 py-6 text-left font-display text-lg font-medium tracking-[-0.01em] text-ink outline-none cursor-pointer">
         <span className="font-display font-medium not-italic">{children}</span>
 
         <span
@@ -166,12 +164,14 @@ export default function Faq({
             <Box className="mt-6 flex justify-center">
               <button
                 type="button"
-               
                 onClick={() => setExpanded(true)}
                 className="inline-flex cursor-pointer items-center gap-2.25 rounded-full border border-ink/14 bg-white px-5.5 py-2.75 font-body text-[13.5px] font-semibold text-ink transition-[border-color,box-shadow] duration-200 hover:border-ink hover:shadow-[0_10px_24px_-16px_rgba(10,22,40,0.6)]"
               >
                 Load more questions
-                <Text as="span" className="font-mono text-[11px] text-ink-muted">
+                <Text
+                  as="span"
+                  className="font-mono text-[11px] text-ink-muted"
+                >
                   {hiddenCount} more
                 </Text>
                 <ChevronDown size={15} strokeWidth={2} aria-hidden="true" />

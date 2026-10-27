@@ -26,6 +26,28 @@ function Spark() {
 }
 
 /**
+ * Open state for a panel that is not in the HTML until first used. `show`
+ * mounts it closed, then opens it two frames later, so its enter transition
+ * still plays the first time; after that it stays mounted (closing animates
+ * out, reopening is instant).
+ */
+function useLazyPanel() {
+  const [mounted, setMounted] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const show = () => {
+    if (mounted) {
+      setOpen(true);
+      return;
+    }
+    setMounted(true);
+    requestAnimationFrame(() => requestAnimationFrame(() => setOpen(true)));
+  };
+
+  return { mounted, open, show, hide: () => setOpen(false) };
+}
+
+/**
  * Global sticky nav. Client Component: owns the mobile-drawer and
  * "Build your brief" open state, and hosts the desktop mega menu (which carries
  * its own open/hover/preview state). The header is the positioning context for
@@ -36,13 +58,18 @@ function Spark() {
  * (absolute) and a mobile sheet outside it (fixed — a `transform` on the header
  * would otherwise capture it), with distinct id prefixes to avoid id clashes.
  *
+ * The mobile drawer and both brief panels are mounted only on first open
+ * (`useLazyPanel`). Every page would otherwise ship ~55 KB of hidden markup:
+ * the drawer repeats the mega menu's links, which stay in the HTML through
+ * the desktop menu, so crawlers lose nothing; the brief panels are a form.
+ *
  * On course pages the sticky tab bar takes over the top of the viewport once
  * pinned, so the header hides itself rather than sit underneath — see
  * `lib/client/header-visibility.js`.
  */
 export default function SiteHeader() {
-  const [open, setOpen] = useState(false);
-  const [briefOpen, setBriefOpen] = useState(false);
+  const nav = useLazyPanel();
+  const brief = useLazyPanel();
   const hidden = useSyncExternalStore(
     subscribeHeaderHidden,
     getHeaderHiddenSnapshot,
@@ -50,8 +77,8 @@ export default function SiteHeader() {
   );
 
   const openBrief = () => {
-    setOpen(false);
-    setBriefOpen(true);
+    nav.hide();
+    brief.show();
   };
 
   return (
@@ -74,7 +101,7 @@ export default function SiteHeader() {
             <Image src="/course/edstellar.svg" alt="Edstellar" width={139} height={50} priority />
           </Link>
 
-          <MegaMenu onOpenBrief={() => setBriefOpen(true)} />
+          <MegaMenu onOpenBrief={brief.show} />
 
           <HeaderSearch className="shrink-0 max-nav:hidden" />
 
@@ -83,7 +110,7 @@ export default function SiteHeader() {
             type="button"
             onClick={openBrief}
             aria-haspopup="dialog"
-            aria-expanded={briefOpen}
+            aria-expanded={brief.open}
             className="ml-auto inline-flex shrink-0 cursor-pointer items-center gap-2 whitespace-nowrap rounded-full bg-navy px-6 py-3 font-body text-[14px] font-semibold text-lime transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(10,22,40,0.14)] max-nav:hidden"
           >
             <Spark />
@@ -93,41 +120,48 @@ export default function SiteHeader() {
           <Box
             as="button"
             type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((value) => !value)}
+            aria-label={nav.open ? "Close menu" : "Open menu"}
+            aria-expanded={nav.open}
+            // Only once the drawer exists — it is not in the HTML until opened.
+            aria-controls={nav.mounted ? "mobile-nav" : undefined}
+            onClick={nav.open ? nav.hide : nav.show}
             className="ml-auto hidden shrink-0 cursor-pointer items-center justify-center rounded-full p-2 text-ink transition-colors duration-200 hover:bg-ink/6 max-nav:flex"
           >
-            {open ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
+            {nav.open ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
           </Box>
         </Box>
 
         {/* Desktop brief composer — absolute, positioned to the header. */}
-        <BriefComposer
-          open={briefOpen}
-          onClose={() => setBriefOpen(false)}
-          variant="desktop"
-          idPrefix="bd"
-        />
+        {brief.mounted ? (
+          <BriefComposer
+            open={brief.open}
+            onClose={brief.hide}
+            variant="desktop"
+            idPrefix="bd"
+          />
+        ) : null}
       </Box>
 
       {/* Rendered as siblings, not children, of the header: a `transform` on
           an ancestor creates a new containing block for `fixed` descendants,
           which would otherwise drag these along whenever the header hides. */}
-      <MobileNav
-        id="mobile-nav"
-        open={open}
-        onClose={() => setOpen(false)}
-        onOpenBrief={openBrief}
-        cta={MEGA_CTA}
-      />
-      <BriefComposer
-        open={briefOpen}
-        onClose={() => setBriefOpen(false)}
-        variant="mobile"
-        idPrefix="bm"
-      />
+      {nav.mounted ? (
+        <MobileNav
+          id="mobile-nav"
+          open={nav.open}
+          onClose={nav.hide}
+          onOpenBrief={openBrief}
+          cta={MEGA_CTA}
+        />
+      ) : null}
+      {brief.mounted ? (
+        <BriefComposer
+          open={brief.open}
+          onClose={brief.hide}
+          variant="mobile"
+          idPrefix="bm"
+        />
+      ) : null}
     </>
   );
 }

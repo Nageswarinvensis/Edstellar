@@ -99,7 +99,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
       </Text>
 
 
-      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <Box as="form" aria-label="Training enquiry" noValidate onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {queryParam ? <input type="hidden" {...register("program")} /> : null}
 
         <HoneypotField register={register} />

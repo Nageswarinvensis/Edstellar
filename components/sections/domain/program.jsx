@@ -731,6 +731,8 @@ export default function Program({ data, courses: cmsCourses }) {
               value={search}
               onChange={handleSearchChange}
               placeholder={data.catalog.searchPlaceholder}
+              // The placeholder disappears on typing; this keeps a name.
+              aria-label={data.catalog.searchPlaceholder || "Search programs"}
               className={[
                 "h-8.5 w-full rounded-[8px]",
                 "border border-[#BFC4CA]",

@@ -164,7 +164,7 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
 
       <Reveal delay={2}>
         <Box className="overflow-hidden rounded-[22px] border border-ink/12 bg-white shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)]">
-          <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="px-4 py-7.5 sm:p-9 lg:p-13">
+          <Box as="form" aria-label="Consulting enquiry" noValidate onSubmit={handleSubmit(onSubmit)} className="px-4 py-7.5 sm:p-9 lg:p-13">
             <HoneypotField register={register} />
             <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <FormField label="Full name" required error={errors.name?.message}>

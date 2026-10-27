@@ -30,7 +30,9 @@ function Chevron() {
 /**
  * Slide-down drawer for SiteHeader below the mega-menu breakpoint. Controlled
  * by the parent (no open state here). Each top-level section is a native
- * <details> accordion — no JS, and every link stays in the HTML for crawlers.
+ * <details> accordion. Mounted only on first open (`SiteHeader`), so it is
+ * not in the server HTML — crawlers get the same links from the desktop mega
+ * menu, which always renders.
  */
 export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
   useEffect(() => {

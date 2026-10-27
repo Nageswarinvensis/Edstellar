@@ -157,7 +157,7 @@ export default function PricingQuoteForm({ data, thankYou = "pricing" }) {
       ) : null}
 
 
-      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="relative grid gap-3">
+      <Box as="form" aria-label="Pricing quote request" noValidate onSubmit={handleSubmit(onSubmit)} className="relative grid gap-3">
         <HoneypotField register={register} />
         <Box>
           <input

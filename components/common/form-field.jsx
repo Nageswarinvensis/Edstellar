@@ -1,3 +1,5 @@
+import { cloneElement, isValidElement } from "react";
+
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
@@ -15,6 +17,20 @@ export function FormField({ label, required, error, htmlFor, className, children
   // With `htmlFor`, the wrapper is a div and only the label text is a
   // <label> — for a control like the phone widget, whose <div>s are not
   // allowed inside a <label>.
+  //
+  // Without it, the wrapping <label> names the field — valid, but audit tools
+  // that only check `label[for]` / `aria-label` report it as unlabelled. So a
+  // single wrapped control also gets the same visible text as `aria-label`;
+  // what a screen reader announces does not change.
+  const control =
+    !htmlFor &&
+    typeof label === "string" &&
+    isValidElement(children) &&
+    !children.props["aria-label"] &&
+    !children.props["aria-labelledby"]
+      ? cloneElement(children, { "aria-label": label })
+      : children;
+
   return (
     <Box as={htmlFor ? "div" : "label"} className={cn("relative flex flex-col gap-1.75", className)}>
       <Text
@@ -25,7 +41,7 @@ export function FormField({ label, required, error, htmlFor, className, children
         {label}{" "}
         {required ? <Text as="span" className="text-[10px] leading-none text-red-600">*</Text> : null}
       </Text>
-      {children}
+      {control}
       {/* Absolutely placed under the field's right edge, in the gap before
           the next row — so an error appearing never shifts the layout. */}
       {error ? (

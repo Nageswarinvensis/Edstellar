@@ -58,6 +58,7 @@ export default function CatalogRail({ thankYou = "download-catalog" }) {
           <DownloadForm
             pdf={CATALOG_PDF}
             idPrefix="rail-catalog"
+            formLabel="Catalog download"
             submitLabel="Download the catalog (PDF)"
             onSuccess={onSuccess}
           />

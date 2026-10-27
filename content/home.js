@@ -8,7 +8,7 @@
 
 export const HOME = {
   "seo": {
-    "title": "Capability Development & Transformation Partner",
+    "title": "Enterprise Capability Development and Transformation Partner",
     "description": "Edstellar helps organizations develop capabilities through training, coaching, assessments and consulting, connecting people development with business goals.",
     "path": "/",
     "image": "/og/edstellar-og-v2.png"

@@ -81,6 +81,7 @@ export default function PlatformEnquiryForm({ data }) {
   return (
     <Box
       as="form"
+      aria-label="Platform enquiry"
       noValidate
       onSubmit={handleSubmit(onSubmit)}
       className="overflow-hidden rounded-[22px] border border-ink/12 bg-white shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)]"

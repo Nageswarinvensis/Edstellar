@@ -15,7 +15,9 @@ import { InlineText } from "@/components/sections/corporate_training_hub/parts";
  */
 export default function DomainFinder({ data, domains }) {
   const [query, setQuery] = useState("");
-  const inputId = useId();
+  // Plain-ASCII id: React's `«R…»` ids trip checkers that match `label[for]`
+  // with a plain selector.
+  const inputId = `domain-finder-${useId().replace(/[^\w-]/g, "")}`;
   const needle = query.trim().toLowerCase();
   const matches = (domain) => !needle || domain.label.toLowerCase().includes(needle);
   const count = domains.filter(matches).length;

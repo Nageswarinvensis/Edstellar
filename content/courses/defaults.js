@@ -47,7 +47,7 @@ export const COURSE_DEFAULTS = {
         href: "#curriculum",
         variant: "primary",
       },
-      { label: "Enquire now", href: APPLY_ANCHOR, variant: "ghost" },
+      { label: "Enquire Now", href: APPLY_ANCHOR, variant: "ghost" },
     ],
     group_quote: {
       prompt: "Need more than one program?",
@@ -74,7 +74,7 @@ export const COURSE_DEFAULTS = {
 
   curriculum: {
     section_cta: {
-      title: "Customize this program tailored to your team?",
+      title: "Customize This Program Tailored to Your Team?",
       description:
         "Tell us your training needs: what your team already works with, the level they’re at, and the topics you want them to focus on. We’ll adjust the modules, duration and hands-on labs, and send you a customized outline for your group.",
       cta: { label: "Get a Tailored Outline", href: APPLY_ANCHOR },
@@ -93,7 +93,7 @@ export const COURSE_DEFAULTS = {
 
   deliveryModes: {
     section_cta: {
-      title: "Need a customized training format that works for your team?",
+      title: "Need a Customized Training Format That Works for Your Team?",
       description:
         "Our training delivery is customized to your team's schedule, full days, half days, sessions spread across weeks, or modular formats. Share your preferred timeline, and we'll plan the training around it.",
       cta: { label: "Plan Your Training", href: APPLY_ANCHOR },

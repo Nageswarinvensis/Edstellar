@@ -375,7 +375,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
           </Text>
         </Box>
 
-        <Box as="form" ref={formRef} onSubmit={onSubmit} noValidate className="mt-5 border-t border-ink/12 pt-5">
+        <Box as="form" aria-label="Build your brief" ref={formRef} onSubmit={onSubmit} noValidate className="mt-5 border-t border-ink/12 pt-5">
           {alert && (
             <Box role="alert" className="mb-3.5 rounded-[10px] border border-error bg-white px-3 py-2.5 text-[13px] text-error">
               {alert}
