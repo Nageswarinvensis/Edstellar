@@ -1,5 +1,4 @@
 import Box from "@/components/ui/Box";
-import TrainersImage from "@/components/common/trainers-image";
 import Text from "@/components/ui/Text";
 import HomeWrap from "@/components/sections/home/home-wrap";
 import RichHeading from "@/components/common/rich-heading";
@@ -37,10 +36,10 @@ function CapabilityMap({ panel }) {
 }
 
 /** Home hero — headline, lede and CTAs on the left; the illustrative Capability
- * Map and the 5A methodology panels on the right; a trainer-faces trust line. */
+ * Map and the 5A methodology panels on the right. */
 export default function HomeHero({ data }) {
   if (!data) return null;
-  const { panel, methodology, people } = data;
+  const { panel, methodology } = data;
 
   return (
     <HomeWrap aria-labelledby="hero-headline" className="bg-paper pt-20 max-lg:pt-16">
@@ -70,16 +69,6 @@ export default function HomeHero({ data }) {
               </CtaButton>
             ))}
           </Box>
-
-          {people && (
-            <Box className="mt-9 flex items-center gap-4">
-              <TrainersImage eager />
-              <Text as="span" className="text-sm leading-[1.4] text-ink">
-                <Text as="span" className="font-semibold text-ink">{people.note_strong}</Text>
-                {people.note}
-              </Text>
-            </Box>
-          )}
         </Box>
 
         {/* Right rail — two panels */}

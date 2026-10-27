@@ -6,7 +6,8 @@ export const revalidate = 300;
 
 export function generateMetadata() {
   const { seo } = getGovernmentEnquiryPage();
-  return buildMetadata(seo);
+  // An enquiry form, not a landing page: kept out of search and the sitemap.
+  return buildMetadata({ ...seo, noIndex: true });
 }
 
 /**

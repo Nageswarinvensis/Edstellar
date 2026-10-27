@@ -7,6 +7,7 @@
 /* --- Default / edstellar theme tokens --- */
 .edpf{
   --pf-ink:#0A1628; --pf-muted:rgba(10,22,40,.68); --pf-soft:rgba(10,22,40,.62);
+  --pf-head-ink:var(--pf-ink); --pf-head-muted:var(--pf-muted); /* the heading and intro above the card, on the page background */
   --pf-card:#FFFFFF; --pf-field:#FAFAF7; --pf-field-focus:#FFFFFF;
   --pf-line:rgba(10,22,40,.22); --pf-line-soft:rgba(10,22,40,.12);
   --pf-focus:#0A1628; --pf-ring:rgba(10,22,40,.10);
@@ -23,12 +24,14 @@
 
 /* --- Polaris theme tokens --- */
 .edpf[data-theme="polaris"]{
+  --pf-head-ink:#F7F1E3; --pf-head-muted:rgba(247,241,227,.78);
   --pf-btn-bg:#C9A84C; --pf-btn-fg:#0D2137;
   --pf-mark-bg:#C9A84C; --pf-mark-fg:#0D2137; --pf-num-bg:#0D2137; --pf-num-fg:#E8C96A;
 }
 
 /* --- Meridian theme tokens --- */
 .edpf[data-theme="meridian"]{
+  --pf-head-ink:#FBF8F1; --pf-head-muted:#D6D2C6;
   --pf-btn-bg:#16302E; --pf-btn-fg:#F3E3B8;
   --pf-mark-bg:#B79A5E; --pf-mark-fg:#112624; --pf-num-bg:#16302E; --pf-num-fg:#F3E3B8;
 }
@@ -38,8 +41,8 @@
 .edpf [hidden]{display:none !important}
 .edpf{font-family:var(--pf-body);color:var(--pf-ink);padding:clamp(48px,6vw,80px) clamp(16px,5vw,80px)}
 .edpf-head{text-align:center;max-width:760px;margin:0 auto clamp(24px,3vw,36px)}
-.edpf-head h2{font-family:var(--pf-head);font-weight:600;font-size:clamp(28px,3.6vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0 0 14px;color:var(--pf-ink);text-wrap:balance}
-.edpf-head p{margin:0 auto;max-width:60ch;font-size:16.5px;line-height:1.6;color:var(--pf-muted);text-wrap:pretty}
+.edpf-head h2{font-family:var(--pf-head);font-weight:600;font-size:clamp(28px,3.6vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0 0 14px;color:var(--pf-head-ink);text-wrap:balance}
+.edpf-head p{margin:0 auto;max-width:60ch;font-size:16.5px;line-height:1.6;color:var(--pf-head-muted);text-wrap:pretty}
 .edpf-card{max-width:960px;margin:0 auto;background:var(--pf-card);border:1px solid var(--pf-line-soft);border-radius:var(--pf-r-card);box-shadow:var(--pf-shadow);padding:clamp(20px,3.2vw,36px)}
 .edpf form{margin:0}
 .edpf-sum{margin:0 0 20px;padding:12px 14px;border-radius:10px;border:1px solid var(--pf-error);background:var(--pf-error-tint);color:var(--pf-error);font-size:14px;line-height:1.5;display:flex;gap:10px;align-items:flex-start}
@@ -61,15 +64,10 @@
 .edpf textarea{min-height:96px;resize:vertical;line-height:1.6}
 .edpf input::placeholder,.edpf textarea::placeholder{color:var(--pf-soft);opacity:1}
 .edpf input:focus,.edpf select:focus,.edpf textarea:focus{outline:none;border-color:var(--pf-focus);box-shadow:0 0 0 1px var(--pf-focus),0 0 0 4px var(--pf-ring);background-color:var(--pf-field-focus)}
-.edpf-tel{display:grid;grid-template-columns:auto 1fr;align-items:center;background:var(--pf-field);border:1px solid var(--pf-line);border-radius:var(--pf-r-field);transition:border-color .2s,box-shadow .2s,background-color .2s}
-.edpf-tel:focus-within{border-color:var(--pf-focus);box-shadow:0 0 0 1px var(--pf-focus),0 0 0 4px var(--pf-ring);background:var(--pf-field-focus)}
-.edpf-tel .cc{font-family:var(--pf-label);font-size:13.5px;color:var(--pf-muted);padding-left:14px;white-space:nowrap;letter-spacing:0;text-transform:none}
-.edpf .edpf-tel input{border:0;background:transparent;padding-left:8px;box-shadow:none}
-.edpf .edpf-tel input:focus{box-shadow:none;background:transparent}
 .edpf-err{display:none;align-items:center;gap:6px;font-size:12.5px;line-height:1.45;color:var(--pf-error)}
 .edpf-err::before{content:"";flex:none;width:14px;height:14px;background:currentColor;-webkit-mask:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E") center/contain no-repeat}
 .edpf .bad .edpf-err{display:flex}
-.edpf .bad input,.edpf .bad select,.edpf .bad .edpf-tel{border-color:var(--pf-error);box-shadow:0 0 0 3px var(--pf-error-tint)}
+.edpf .bad input,.edpf .bad select{border-color:var(--pf-error);box-shadow:0 0 0 3px var(--pf-error-tint)}
 .edpf-also{display:flex;flex-wrap:wrap;gap:8px}
 .edpf-chip{position:relative;display:inline-flex}
 .edpf-chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer;z-index:1}
@@ -80,12 +78,6 @@
 .edpf-chip input:focus-visible+span{box-shadow:0 0 0 1px var(--pf-focus),0 0 0 4px var(--pf-ring)}
 .edpf-chip input:disabled{cursor:not-allowed}
 .edpf-chip input:disabled+span{opacity:.45}
-.edpf-consent{display:flex;gap:11px;align-items:flex-start;margin:18px 0 0}
-.edpf-consent input{width:18px;height:18px;margin:2px 0 0;flex:none;accent-color:var(--pf-focus);cursor:pointer}
-.edpf-consent label{font-size:13px;line-height:1.6;color:var(--pf-muted)}
-.edpf-consent a{color:var(--pf-ink);text-decoration:underline;text-underline-offset:2px}
-.edpf-consent.bad label{color:var(--pf-error)}
-.edpf-consent .edpf-err{margin-top:4px}
 .edpf-foot{display:flex;align-items:center;justify-content:space-between;gap:16px 28px;flex-wrap:wrap;margin-top:22px;padding-top:22px;border-top:1px solid var(--pf-line-soft)}
 .edpf-foot p{margin:0;max-width:46ch;font-size:13.5px;line-height:1.55;color:var(--pf-muted);display:flex;gap:8px;align-items:flex-start}
 .edpf-foot p svg{flex:none;margin-top:2px}
@@ -99,11 +91,12 @@
 .edpf-btn[aria-busy="true"] .arr{display:none}
 @keyframes edpf-spin{to{transform:rotate(360deg)}}
 .edpf-hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;overflow:hidden}
-.edpf-thanks{text-align:center;padding:28px 8px 12px}
-.edpf-thanks:focus{outline:none}
-.edpf-thanks .ok{width:56px;height:56px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;background:var(--pf-mark-bg);color:var(--pf-mark-fg)}
-.edpf-thanks h3{font-family:var(--pf-head);font-weight:600;font-size:24px;line-height:1.25;margin:0 0 10px}
-.edpf-thanks p{margin:0 auto;max-width:48ch;font-size:15px;line-height:1.6;color:var(--pf-muted)}
-.edpf-thanks .also{margin-top:10px;font-size:14px}
 @media (max-width:600px){.edpf-grid{grid-template-columns:1fr}.edpf-foot{flex-direction:column;align-items:stretch}.edpf-btn{width:100%}}
 @media (prefers-reduced-motion:reduce){.edpf *{transition:none !important;animation:none !important}}
+
+/* Phone: intl-tel-input's flag menu and dial code, styled as the form's other fields */
+.edpf .iti{display:block;width:100%}
+.edpf .iti__selected-country{border-radius:var(--pf-r-field) 0 0 var(--pf-r-field)}
+.edpf .iti__selected-dial-code{font-family:var(--pf-body);font-size:14.5px;color:var(--pf-ink)}
+.edpf .iti__dropdown-content{font-family:var(--pf-body);font-size:14px;color:var(--pf-ink);border-radius:var(--pf-r-field);border:1px solid var(--pf-line);box-shadow:var(--pf-shadow)}
+.edpf .iti__search-input{font-family:var(--pf-body);min-height:40px}
