@@ -667,6 +667,96 @@ section[id]{scroll-margin-top:68px}
 
 
 </style>
+<style>
+.edpf{
+  --pf-ink:#0A1628; --pf-muted:rgba(10,22,40,.68); --pf-soft:rgba(10,22,40,.62);
+  --pf-card:#FFFFFF; --pf-field:#FAFAF7; --pf-field-focus:#FFFFFF;
+  --pf-line:rgba(10,22,40,.22); --pf-line-soft:rgba(10,22,40,.12);
+  --pf-focus:#0A1628; --pf-ring:rgba(10,22,40,.10);
+  --pf-btn-bg:#0A1628; --pf-btn-fg:#C8F135;
+  --pf-mark-bg:#C8F135; --pf-mark-fg:#0A1628; --pf-num-bg:#0A1628; --pf-num-fg:#C8F135;
+  --pf-sel-bg:#FFFFFF; --pf-sel-line:#0A1628; --pf-tint:#F2F0E8;
+  --pf-error:#B3261E; --pf-error-tint:rgba(179,38,30,.07);
+  --pf-head:'Sora',sans-serif; --pf-body:'DM Sans',sans-serif; --pf-label:'DM Mono',monospace;
+  --pf-label-size:10.5px; --pf-label-track:.14em; --pf-label-case:uppercase; --pf-label-weight:400;
+  --pf-r-field:12px; --pf-r-card:16px; --pf-r-pill:100px;
+  --pf-shadow:0 1px 2px rgba(10,22,40,.07),0 8px 24px rgba(10,22,40,.07);
+  --pf-ease:cubic-bezier(.2,.7,.2,1);
+}
+.edpf,.edpf *,.edpf *::before,.edpf *::after{box-sizing:border-box}
+.edpf [hidden]{display:none !important}
+.edpf{font-family:var(--pf-body);color:var(--pf-ink);padding:clamp(48px,6vw,80px) clamp(16px,5vw,80px)}
+.edpf-head{text-align:center;max-width:760px;margin:0 auto clamp(24px,3vw,36px)}
+.edpf-head h2{font-family:var(--pf-head);font-weight:600;font-size:clamp(28px,3.6vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0 0 14px;color:var(--pf-ink);text-wrap:balance}
+.edpf-head p{margin:0 auto;max-width:60ch;font-size:16.5px;line-height:1.6;color:var(--pf-muted);text-wrap:pretty}
+.edpf-card{max-width:960px;margin:0 auto;background:var(--pf-card);border:1px solid var(--pf-line-soft);border-radius:var(--pf-r-card);box-shadow:var(--pf-shadow);padding:clamp(20px,3.2vw,36px)}
+.edpf form{margin:0}
+.edpf-sum{margin:0 0 20px;padding:12px 14px;border-radius:10px;border:1px solid var(--pf-error);background:var(--pf-error-tint);color:var(--pf-error);font-size:14px;line-height:1.5;display:flex;gap:10px;align-items:flex-start}
+.edpf-sum svg{flex:none;margin-top:2px}
+.edpf-sum:focus{outline:2px solid var(--pf-error);outline-offset:2px}
+.edpf fieldset{border:0;margin:0;padding:0;min-width:0}
+.edpf fieldset.edpf-group{padding:0 0 26px;margin:0 0 26px;border-bottom:1px solid var(--pf-line-soft)}
+.edpf fieldset.edpf-group:last-of-type{border-bottom:0;margin-bottom:8px;padding-bottom:0}
+.edpf legend{padding:0;margin:0 0 16px;display:flex;align-items:center;gap:10px;font-family:var(--pf-head);font-weight:600;font-size:17px;line-height:1.3;color:var(--pf-ink)}
+.edpf legend .n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--pf-num-bg);color:var(--pf-num-fg);font-family:var(--pf-body);font-size:12px;font-weight:600;flex:none}
+.edpf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.edpf-f{display:flex;flex-direction:column;gap:7px;min-width:0}
+.edpf-f.full{grid-column:1/-1}
+.edpf-f>label,.edpf-lbl{font-family:var(--pf-label);font-size:var(--pf-label-size);letter-spacing:var(--pf-label-track);text-transform:var(--pf-label-case);font-weight:var(--pf-label-weight);color:var(--pf-muted);line-height:1.4}
+.edpf .req{color:var(--pf-error);margin-left:2px}
+.edpf .opt{text-transform:none;letter-spacing:0;font-family:var(--pf-body);font-weight:400;color:var(--pf-soft)}
+.edpf input[type=text],.edpf input[type=email],.edpf input[type=tel],.edpf select,.edpf textarea{width:100%;min-width:0;min-height:46px;font-family:var(--pf-body);font-size:14.5px;line-height:1.45;color:var(--pf-ink);background:var(--pf-field);border:1px solid var(--pf-line);border-radius:var(--pf-r-field);padding:11px 14px;margin:0;transition:border-color .2s,box-shadow .2s,background-color .2s}
+.edpf select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:40px;text-overflow:ellipsis;background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23596474' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:16px}
+.edpf textarea{min-height:96px;resize:vertical;line-height:1.6}
+.edpf input::placeholder,.edpf textarea::placeholder{color:var(--pf-soft);opacity:1}
+.edpf input:focus,.edpf select:focus,.edpf textarea:focus{outline:none;border-color:var(--pf-focus);box-shadow:0 0 0 1px var(--pf-focus),0 0 0 4px var(--pf-ring);background-color:var(--pf-field-focus)}
+.edpf-tel{display:grid;grid-template-columns:auto 1fr;align-items:center;background:var(--pf-field);border:1px solid var(--pf-line);border-radius:var(--pf-r-field);transition:border-color .2s,box-shadow .2s,background-color .2s}
+.edpf-tel:focus-within{border-color:var(--pf-focus);box-shadow:0 0 0 1px var(--pf-focus),0 0 0 4px var(--pf-ring);background:var(--pf-field-focus)}
+.edpf-tel .cc{font-family:var(--pf-label);font-size:13.5px;color:var(--pf-muted);padding-left:14px;white-space:nowrap;letter-spacing:0;text-transform:none}
+.edpf .edpf-tel input{border:0;background:transparent;padding-left:8px;box-shadow:none}
+.edpf .edpf-tel input:focus{box-shadow:none;background:transparent}
+.edpf-err{display:none;align-items:center;gap:6px;font-size:12.5px;line-height:1.45;color:var(--pf-error)}
+.edpf-err::before{content:"";flex:none;width:14px;height:14px;background:currentColor;-webkit-mask:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E") center/contain no-repeat}
+.edpf .bad .edpf-err{display:flex}
+.edpf .bad input,.edpf .bad select,.edpf .bad .edpf-tel{border-color:var(--pf-error);box-shadow:0 0 0 3px var(--pf-error-tint)}
+.edpf-also{display:flex;flex-wrap:wrap;gap:8px}
+.edpf-chip{position:relative;display:inline-flex}
+.edpf-chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer;z-index:1}
+.edpf-chip span{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:8px 14px;border:1px solid var(--pf-line);border-radius:var(--pf-r-pill);background:var(--pf-field);font-size:13.5px;font-weight:500;color:var(--pf-ink);transition:border-color .2s,background-color .2s}
+.edpf-chip span::before{content:"+";font-weight:600;color:var(--pf-muted);width:10px;text-align:center}
+.edpf-chip input:checked+span{background:var(--pf-sel-bg);border-color:var(--pf-sel-line);box-shadow:0 0 0 1px var(--pf-sel-line)}
+.edpf-chip input:checked+span::before{content:"✓";color:var(--pf-ink)}
+.edpf-chip input:focus-visible+span{box-shadow:0 0 0 1px var(--pf-focus),0 0 0 4px var(--pf-ring)}
+.edpf-chip input:disabled{cursor:not-allowed}
+.edpf-chip input:disabled+span{opacity:.45}
+.edpf-consent{display:flex;gap:11px;align-items:flex-start;margin:18px 0 0}
+.edpf-consent input{width:18px;height:18px;margin:2px 0 0;flex:none;accent-color:var(--pf-focus);cursor:pointer}
+.edpf-consent label{font-size:13px;line-height:1.6;color:var(--pf-muted)}
+.edpf-consent a{color:var(--pf-ink);text-decoration:underline;text-underline-offset:2px}
+.edpf-consent.bad label{color:var(--pf-error)}
+.edpf-consent .edpf-err{margin-top:4px}
+.edpf-foot{display:flex;align-items:center;justify-content:space-between;gap:16px 28px;flex-wrap:wrap;margin-top:22px;padding-top:22px;border-top:1px solid var(--pf-line-soft)}
+.edpf-foot p{margin:0;max-width:46ch;font-size:13.5px;line-height:1.55;color:var(--pf-muted);display:flex;gap:8px;align-items:flex-start}
+.edpf-foot p svg{flex:none;margin-top:2px}
+.edpf-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:14px 26px;border:0;border-radius:var(--pf-r-pill);background:var(--pf-btn-bg);color:var(--pf-btn-fg);font-family:var(--pf-body);font-weight:600;font-size:15px;line-height:1;cursor:pointer;transition:transform .2s var(--pf-ease),box-shadow .2s var(--pf-ease)}
+.edpf-btn:hover{transform:translateY(-1px);box-shadow:var(--pf-shadow)}
+.edpf-btn:active{transform:none}
+.edpf-btn:focus-visible{outline:2px solid var(--pf-focus);outline-offset:3px}
+.edpf-btn[disabled]{opacity:.6;cursor:progress;transform:none;box-shadow:none}
+.edpf-btn .spin{display:none;width:16px;height:16px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:edpf-spin .8s linear infinite}
+.edpf-btn[aria-busy="true"] .spin{display:inline-block}
+.edpf-btn[aria-busy="true"] .arr{display:none}
+@keyframes edpf-spin{to{transform:rotate(360deg)}}
+.edpf-hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;overflow:hidden}
+.edpf-thanks{text-align:center;padding:28px 8px 12px}
+.edpf-thanks:focus{outline:none}
+.edpf-thanks .ok{width:56px;height:56px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;background:var(--pf-mark-bg);color:var(--pf-mark-fg)}
+.edpf-thanks h3{font-family:var(--pf-head);font-weight:600;font-size:24px;line-height:1.25;margin:0 0 10px}
+.edpf-thanks p{margin:0 auto;max-width:48ch;font-size:15px;line-height:1.6;color:var(--pf-muted)}
+.edpf-thanks .also{margin-top:10px;font-size:14px}
+@media (max-width:600px){.edpf-grid{grid-template-columns:1fr}.edpf-foot{flex-direction:column;align-items:stretch}.edpf-btn{width:100%}}
+@media (prefers-reduced-motion:reduce){.edpf *{transition:none !important;animation:none !important}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -887,47 +977,68 @@ section[id]{scroll-margin-top:68px}
   </div>
 </section>
 
-<section class="section dark contact" id="contact" aria-labelledby="contact-h">
-  <div class="container">
-    <div class="contact-head">
-      <h2 class="h2" id="contact-h">Book an Orbit <em>consultation.</em></h2>
-      <p class="lede">Tell us about the 360 you have in mind. We reply within one business day with a scoped response, no automated sales sequence.</p>
-    </div>
-    <div class="form-card">
-      <form id="enquiry" novalidate aria-labelledby="contact-h" action="#" method="post">
-        <div class="form-sum" id="form-sum" role="alert" tabindex="-1" hidden></div>
-        <div class="fgrid">
-          <div class="f"><label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required aria-describedby="e-name"><span class="err" id="e-name"></span></div>
-          <div class="f"><label for="f-email">Work email <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="Enter your work email address" required aria-describedby="e-email"><span class="err" id="e-email"></span></div>
-          <div class="f"><label for="f-company">Company name <span class="req" aria-hidden="true">*</span></label><input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Enter your company name" required aria-describedby="e-company"><span class="err" id="e-company"></span></div>
-          <div class="f"><label for="f-title">Job title <span class="req" aria-hidden="true">*</span></label><input id="f-title" name="job_title" type="text" autocomplete="organization-title" placeholder="Enter your job title" required aria-describedby="e-title"><span class="err" id="e-title"></span></div>
-          <div class="f"><label for="f-country">Country <span class="req" aria-hidden="true">*</span></label><select id="f-country" name="country" autocomplete="country-name" required aria-describedby="e-country"><option value="">Select your country</option><option value="United States" data-dial="+1" data-iso="us">United States</option><option value="United Kingdom" data-dial="+44" data-iso="gb">United Kingdom</option><option value="India" data-dial="+91" data-iso="in">India</option><option value="Singapore" data-dial="+65" data-iso="sg">Singapore</option><option value="United Arab Emirates" data-dial="+971" data-iso="ae">United Arab Emirates</option><option value="Saudi Arabia" data-dial="+966" data-iso="sa">Saudi Arabia</option><option value="Qatar" data-dial="+974" data-iso="qa">Qatar</option><option value="Kuwait" data-dial="+965" data-iso="kw">Kuwait</option><option value="Oman" data-dial="+968" data-iso="om">Oman</option><option value="Bahrain" data-dial="+973" data-iso="bh">Bahrain</option><option value="Canada" data-dial="+1" data-iso="ca">Canada</option><option value="Australia" data-dial="+61" data-iso="au">Australia</option><option value="New Zealand" data-dial="+64" data-iso="nz">New Zealand</option><option value="Germany" data-dial="+49" data-iso="de">Germany</option><option value="France" data-dial="+33" data-iso="fr">France</option><option value="Netherlands" data-dial="+31" data-iso="nl">Netherlands</option><option value="Belgium" data-dial="+32" data-iso="be">Belgium</option><option value="Switzerland" data-dial="+41" data-iso="ch">Switzerland</option><option value="Ireland" data-dial="+353" data-iso="ie">Ireland</option><option value="Spain" data-dial="+34" data-iso="es">Spain</option><option value="Italy" data-dial="+39" data-iso="it">Italy</option><option value="Sweden" data-dial="+46" data-iso="se">Sweden</option><option value="Norway" data-dial="+47" data-iso="no">Norway</option><option value="Denmark" data-dial="+45" data-iso="dk">Denmark</option><option value="Finland" data-dial="+358" data-iso="fi">Finland</option><option value="Poland" data-dial="+48" data-iso="pl">Poland</option><option value="South Africa" data-dial="+27" data-iso="za">South Africa</option><option value="Nigeria" data-dial="+234" data-iso="ng">Nigeria</option><option value="Kenya" data-dial="+254" data-iso="ke">Kenya</option><option value="Egypt" data-dial="+20" data-iso="eg">Egypt</option><option value="Malaysia" data-dial="+60" data-iso="my">Malaysia</option><option value="Indonesia" data-dial="+62" data-iso="id">Indonesia</option><option value="Philippines" data-dial="+63" data-iso="ph">Philippines</option><option value="Thailand" data-dial="+66" data-iso="th">Thailand</option><option value="Vietnam" data-dial="+84" data-iso="vn">Vietnam</option><option value="Japan" data-dial="+81" data-iso="jp">Japan</option><option value="South Korea" data-dial="+82" data-iso="kr">South Korea</option><option value="China" data-dial="+86" data-iso="cn">China</option><option value="Hong Kong" data-dial="+852" data-iso="hk">Hong Kong</option><option value="Sri Lanka" data-dial="+94" data-iso="lk">Sri Lanka</option><option value="Bangladesh" data-dial="+880" data-iso="bd">Bangladesh</option><option value="Pakistan" data-dial="+92" data-iso="pk">Pakistan</option><option value="Brazil" data-dial="+55" data-iso="br">Brazil</option><option value="Mexico" data-dial="+52" data-iso="mx">Mexico</option><option value="Argentina" data-dial="+54" data-iso="ar">Argentina</option><option value="Other" data-dial="" data-iso="">Other</option></select><span class="err" id="e-country"></span></div>
-          <div class="f"><label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label><div class="phone"><div class="cc"><img class="cc-flag" id="f-flag" src="assets/flags/us.svg" width="20" height="15" alt=""><span class="cc-car" aria-hidden="true"></span><select id="f-cc" name="dial_country" aria-label="Country calling code"><option value="ar" data-dial="+54">Argentina +54</option><option value="au" data-dial="+61">Australia +61</option><option value="bh" data-dial="+973">Bahrain +973</option><option value="bd" data-dial="+880">Bangladesh +880</option><option value="be" data-dial="+32">Belgium +32</option><option value="br" data-dial="+55">Brazil +55</option><option value="ca" data-dial="+1">Canada +1</option><option value="cn" data-dial="+86">China +86</option><option value="dk" data-dial="+45">Denmark +45</option><option value="eg" data-dial="+20">Egypt +20</option><option value="fi" data-dial="+358">Finland +358</option><option value="fr" data-dial="+33">France +33</option><option value="de" data-dial="+49">Germany +49</option><option value="hk" data-dial="+852">Hong Kong +852</option><option value="in" data-dial="+91">India +91</option><option value="id" data-dial="+62">Indonesia +62</option><option value="ie" data-dial="+353">Ireland +353</option><option value="it" data-dial="+39">Italy +39</option><option value="jp" data-dial="+81">Japan +81</option><option value="ke" data-dial="+254">Kenya +254</option><option value="kw" data-dial="+965">Kuwait +965</option><option value="my" data-dial="+60">Malaysia +60</option><option value="mx" data-dial="+52">Mexico +52</option><option value="nl" data-dial="+31">Netherlands +31</option><option value="nz" data-dial="+64">New Zealand +64</option><option value="ng" data-dial="+234">Nigeria +234</option><option value="no" data-dial="+47">Norway +47</option><option value="om" data-dial="+968">Oman +968</option><option value="pk" data-dial="+92">Pakistan +92</option><option value="ph" data-dial="+63">Philippines +63</option><option value="pl" data-dial="+48">Poland +48</option><option value="qa" data-dial="+974">Qatar +974</option><option value="sa" data-dial="+966">Saudi Arabia +966</option><option value="sg" data-dial="+65">Singapore +65</option><option value="za" data-dial="+27">South Africa +27</option><option value="kr" data-dial="+82">South Korea +82</option><option value="es" data-dial="+34">Spain +34</option><option value="lk" data-dial="+94">Sri Lanka +94</option><option value="se" data-dial="+46">Sweden +46</option><option value="ch" data-dial="+41">Switzerland +41</option><option value="th" data-dial="+66">Thailand +66</option><option value="ae" data-dial="+971">United Arab Emirates +971</option><option value="gb" data-dial="+44">United Kingdom +44</option><option value="us" data-dial="+1" selected>United States +1</option><option value="vn" data-dial="+84">Vietnam +84</option></select></div><input id="f-phone" name="phone" type="tel" autocomplete="tel" value="+1" placeholder="1 (702) 123-4567" required aria-describedby="e-phone"></div><span class="err" id="e-phone"></span></div>
-          <div class="f"><label for="f-size">Company size <span class="req" aria-hidden="true">*</span></label><select id="f-size" name="company_size" required aria-describedby="e-size"><option value="">Select company size</option><option>Startup (1–50 employees)</option><option>Small Business (51–200 employees)</option><option>Mid-Size Organization (201–1,000 employees)</option><option>Large Enterprise (1,001–5,000 employees)</option><option>Global Enterprise / Fortune 500 (5,000+ employees)</option><option>Government Agency</option><option>Non-Profit Organization</option></select><span class="err" id="e-size"></span></div>
-          <div class="f"><label for="f-interest">Primary consulting interest <span class="req" aria-hidden="true">*</span></label><select id="f-interest" name="primary_interest" required aria-describedby="e-interest"><option value="">Select your primary interest</option><option>Learning Strategy &amp; Design</option><option>Learning Technology Consulting</option><option>Learning Content Design and Development</option><option>Learning Governance, Analytics &amp; ROI</option><option>Digital Learning Ecosystem Consulting</option><option>Training Simulations, AR/VR &amp; Case Studies</option><option>Employee Performance Support</option><option>Organizational Strategy &amp; Design</option><option>Leadership Pipeline &amp; Succession Planning</option><option>Transformation &amp; Risk Advisory</option><option>Behavioral &amp; Psychological Profiling</option><option>Skill Gap &amp; Competency Benchmarking</option><option>Organizational Alignment &amp; Multi-Rater Feedback</option><option>Assessment and Development Center</option><option>Managed Training Services</option><option>Training Operations and Administration</option><option>Learning Engagement &amp; Sustainment</option><option>Training Outsourcing Services</option><option>Instructor-led Training Services</option><option>Training Vendor Sourcing &amp; Management</option><option>Training Administration</option><option>Training Delivery</option><option>Leadership and Executive Coaching</option><option>Team and Organizational Development Coaching</option><option>Training Needs Analysis</option><option>Performance and Skill Enhancement Coaching</option><option>Personal Growth and Mindset Coaching</option><option>Specialized and Niche Coaching</option></select><span class="err" id="e-interest"></span></div>
-          <div class="f"><label for="f-challenge">Current challenge <span class="req" aria-hidden="true">*</span></label><select id="f-challenge" name="current_challenge" required aria-describedby="e-challenge"><option value="">Select your current challenge</option><option>Lack of clear learning roadmap</option><option>Misalignment between training and business goals</option><option>Difficulty measuring learning impact</option><option>Low learning engagement rates</option><option>Outdated learning approach</option><option>LMS implementation challenges</option><option>Technology integration issues</option><option>Lack of learning analytics capability</option><option>Poor user adoption of learning platforms</option><option>Need for AI/automation in learning</option><option>Outdated training content</option><option>Lack of custom content development capability</option><option>Need for multilingual content</option><option>Difficulty creating engaging content</option><option>Content scalability issues</option><option>Inability to measure training ROI</option><option>Lack of learning analytics dashboards</option><option>Compliance and governance gaps</option><option>Data quality and integration issues</option><option>No standardized reporting framework</option><option>Fragmented learning technology stack</option><option>Poor integration between learning systems</option><option>Need for digital transformation in L&amp;D</option><option>Lack of mobile learning capability</option><option>Outdated learning infrastructure</option><option>Need for immersive learning experiences</option><option>Simulation development requirements</option><option>VR/AR implementation challenges</option><option>Case study creation needs</option><option>Experiential learning design</option><option>Lack of on-the-job learning tools</option><option>Knowledge retention challenges</option><option>Need for microlearning solutions</option><option>Performance support tool requirements</option><option>Just-in-time learning needs</option><option>Organizational restructuring needs</option><option>Culture transformation challenges</option><option>Change management difficulties</option><option>Strategic alignment issues</option><option>Operating model redesign</option><option>Lack of leadership bench strength</option><option>Succession planning gaps</option><option>Leadership development program needs</option><option>High-potential identification challenges</option><option>Leadership transition management</option><option>Digital transformation challenges</option><option>Change resistance and adoption issues</option><option>Risk management gaps</option><option>Business continuity concerns</option><option>Transformation roadmap needs</option><option>Need for personality assessments</option><option>Behavioral profiling requirements</option><option>Team dynamics evaluation</option><option>Leadership style assessment</option><option>Cultural fit analysis</option><option>Skills gap identification needs</option><option>Competency framework development</option><option>Benchmarking against industry standards</option><option>Technical skills assessment</option><option>Future skills planning</option><option>360-degree feedback implementation</option><option>Multi-rater assessment needs</option><option>Organizational alignment surveys</option><option>Performance calibration challenges</option><option>Feedback culture development</option><option>Assessment center design</option><option>Development center implementation</option><option>Simulation exercises creation</option><option>Assessor training needs</option><option>Candidate evaluation framework</option><option>End-to-end training management</option><option>Training vendor consolidation</option><option>Multi-location training coordination</option><option>Training quality assurance</option><option>Training budget optimization</option><option>Training administration bottlenecks</option><option>Scheduling and logistics challenges</option><option>Registration and attendance tracking</option><option>Training coordination complexity</option><option>Administrative process optimization</option><option>Low training completion rates</option><option>Lack of learner engagement</option><option>Post-training reinforcement needs</option><option>Learning transfer challenges</option><option>Sustainment program requirements</option><option>Need to outsource training delivery</option><option>Vendor selection challenges</option><option>Quality control concerns</option><option>Cost optimization requirements</option><option>Scalability needs</option><option>Need for expert trainers</option><option>Global training delivery requirements</option><option>Virtual training facilitation</option><option>In-person training coordination</option><option>Trainer quality assurance</option><option>Multi-vendor management complexity</option><option>Vendor performance issues</option><option>Centralized vendor management needs</option><option>Vendor consolidation requirements</option><option>Contract and compliance management</option><option>Manual administrative processes</option><option>Lack of centralized training records</option><option>Reporting and compliance gaps</option><option>Budget tracking challenges</option><option>Certificate management issues</option><option>Inconsistent training quality</option><option>Delivery modality challenges</option><option>Scalability concerns</option><option>Geographic coverage gaps</option><option>Technology platform issues</option><option>C-suite leadership development</option><option>Executive presence and influence</option><option>Strategic thinking enhancement</option><option>Innovation and transformation leadership</option><option>Women's leadership development</option><option>Agile team coaching</option><option>Change management support</option><option>Continuous improvement culture</option><option>Cross-functional collaboration</option><option>Organizational coaching programs</option><option>Unclear training needs</option><option>Skills gap identification challenges</option><option>ROI measurement difficulties</option><option>Lack of data-driven training planning</option><option>Sales performance coaching</option><option>Communication skills development</option><option>Customer service excellence</option><option>Productivity and time management</option><option>Public speaking and presentation skills</option><option>Emotional intelligence development</option><option>Confidence and self-esteem building</option><option>Mindset transformation</option><option>Work-life balance and wellbeing</option><option>Personal development planning</option><option>Diversity and inclusion coaching</option><option>Cybersecurity awareness coaching</option><option>Compliance and risk management coaching</option><option>Conflict resolution coaching</option><option>Coach the coach programs</option><option>Other</option></select><span class="err" id="e-challenge"></span></div>
-          <div class="f"><label for="f-impact">Employees to be impacted</label><select id="f-impact" name="employees_impacted"><option value="">Select a range</option><option>Less than 50</option><option>50-100</option><option>101-250</option><option>251-500</option><option>501-1,000</option><option>1,000-2,500</option><option>2,500-5,000</option><option>5,000+</option><option>Not sure yet</option></select></div>
-          <div class="f"><label for="f-timeline">Timeline for implementation <span class="req" aria-hidden="true">*</span></label><select id="f-timeline" name="timeline" required aria-describedby="e-timeline"><option value="">Select a timeline</option><option>Immediate (Within 1 month)</option><option>Short-term (1-3 months)</option><option>Medium-term (3-6 months)</option><option>Long-term (6-12 months)</option><option>Exploratory (12+ months)</option></select><span class="err" id="e-timeline"></span></div>
-          <div class="f"><label for="f-budget">Budget range</label><select id="f-budget" name="budget_range"><option value="">Select a budget range</option><option>Less than $25,000</option><option>$25,000 - $50,000</option><option>$50,000 - $100,000</option><option>$100,000 - $250,000</option><option>$250,000 - $500,000</option><option>$500,000+</option><option>Budget not yet allocated</option></select></div>
-          <div class="f full"><label for="f-req">Your challenges and goals</label><textarea id="f-req" name="challenges_goals" rows="4" placeholder="Share your challenges, desired outcomes, or specific areas where you need support…"></textarea></div>
-        </div>
-        <div class="hp" aria-hidden="true"><label for="f-web">Leave this field empty</label><input id="f-web" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
-        <input type="hidden" name="intent" value="orbit">
-        <input type="hidden" name="source_page" value="hub">
-        <input type="hidden" name="page_url" id="h-url">
-        <input type="hidden" name="dial_code" id="h-dial" value="+1">
-        <input type="hidden" name="submitted_at" id="h-time">
-        <div class="form-foot">
-          <p>We reply within one business day with a scoped response, no automated sales sequence.</p>
-          <button class="btn" type="submit" id="f-submit"><span class="bt">Book a consultation →</span></button>
-        </div>
-      </form>
-      <div class="thanks" id="thanks" role="status" tabindex="-1" hidden>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg>
-        <h3>Thank you, your request is in.</h3>
-        <p>An Edstellar expert will reply within one business day with a scoped response for your Orbit 360.</p>
+<section class="edpf" id="contact" data-platform="orbit" data-theme="edstellar" aria-labelledby="edpf-h">
+  <div class="edpf-head">
+    <h2 id="edpf-h">See Edstellar platforms and tools in action.</h2>
+    <p class="edpf-intro">Tell us what you want to achieve, and an Edstellar specialist will show you how the platform or tool fits your teams.</p>
+  </div>
+  <div class="edpf-card">
+  <form novalidate aria-labelledby="edpf-h">
+    <div class="edpf-sum" role="alert" tabindex="-1" hidden></div>
+
+    <fieldset class="edpf-group" data-group="platform">
+      <legend><span class="n" aria-hidden="true">1</span>Choose a platform or tool</legend>
+      <div class="edpf-f full"><label for="edpf-platform">Platform or tool <span class="req" aria-hidden="true">*</span></label><select id="edpf-platform" name="platform" required aria-describedby="edpf-e-platform"><option value="">Select a platform or tool</option></select><span class="edpf-err" id="edpf-e-platform">Please select a platform or tool, or pick Not sure yet.</span></div>
+    </fieldset>
+
+    <fieldset class="edpf-group">
+      <legend><span class="n" aria-hidden="true">2</span>Your details</legend>
+      <div class="edpf-grid">
+        <div class="edpf-f"><label for="edpf-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="edpf-name" name="full_name" type="text" autocomplete="name" placeholder="Enter your full name" required aria-describedby="edpf-e-name"><span class="edpf-err" id="edpf-e-name">Please enter your full name.</span></div>
+        <div class="edpf-f"><label for="edpf-email">Work email <span class="req" aria-hidden="true">*</span></label><input id="edpf-email" name="work_email" type="email" autocomplete="email" placeholder="Enter your work email" required aria-describedby="edpf-e-email"><span class="edpf-err" id="edpf-e-email">Please enter a valid work email, for example name@company.com.</span></div>
+        <div class="edpf-f"><label for="edpf-company">Company name <span class="req" aria-hidden="true">*</span></label><input id="edpf-company" name="company" type="text" autocomplete="organization" placeholder="Enter your company name" required aria-describedby="edpf-e-company"><span class="edpf-err" id="edpf-e-company">Please enter your company name.</span></div>
+        <div class="edpf-f"><label for="edpf-title">Job title <span class="req" aria-hidden="true">*</span></label><input id="edpf-title" name="job_title" type="text" autocomplete="organization-title" placeholder="Enter your job title" required aria-describedby="edpf-e-title"><span class="edpf-err" id="edpf-e-title">Please enter your job title.</span></div>
+        <div class="edpf-f"><label for="edpf-country">Country <span class="req" aria-hidden="true">*</span></label><select id="edpf-country" name="country" autocomplete="country-name" required aria-describedby="edpf-e-country"><option value="">Select your country</option></select><span class="edpf-err" id="edpf-e-country">Please select your country.</span></div>
+        <div class="edpf-f"><label for="edpf-phone">Phone <span class="req" aria-hidden="true">*</span></label><div class="edpf-tel"><span class="cc" id="edpf-dial" aria-hidden="true">+</span><input id="edpf-phone" name="phone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="Enter your phone number" required aria-describedby="edpf-e-phone"></div><span class="edpf-err" id="edpf-e-phone">Please enter a phone number of 6 to 15 digits.</span></div>
       </div>
+    </fieldset>
+
+    <fieldset class="edpf-group">
+      <legend><span class="n" aria-hidden="true">3</span>Your organization and goals</legend>
+      <div class="edpf-grid">
+        <div class="edpf-f"><label for="edpf-size">Company size <span class="req" aria-hidden="true">*</span></label><select id="edpf-size" name="company_size" required aria-describedby="edpf-e-size"><option value="">Select company size</option><option>Startup (1–50 employees)</option><option>Small Business (51–200 employees)</option><option>Mid-Size Organization (201–1,000 employees)</option><option>Large Enterprise (1,001–5,000 employees)</option><option>Global Enterprise / Fortune 500 (5,000+ employees)</option><option>Government Agency</option><option>Non-Profit Organization</option></select><span class="edpf-err" id="edpf-e-size">Please select your company size.</span></div>
+        <div class="edpf-f"><label for="edpf-challenge">Current challenge <span class="req" aria-hidden="true">*</span></label><select id="edpf-challenge" name="current_challenge" required aria-describedby="edpf-e-challenge"><option value="">Select your current challenge</option></select><span class="edpf-err" id="edpf-e-challenge">Please select your current challenge.</span></div>
+        <div class="edpf-f"><label for="edpf-impact">Employees to be impacted <span class="opt">(optional)</span></label><select id="edpf-impact" name="employees_impacted"><option value="">Select a range</option><option>Less than 50</option><option>50-100</option><option>101-250</option><option>251-500</option><option>501-1,000</option><option>1,000-2,500</option><option>2,500-5,000</option><option>5,000+</option><option>Not sure yet</option></select></div>
+        <div class="edpf-f"><label for="edpf-timeline">Timeline for implementation <span class="req" aria-hidden="true">*</span></label><select id="edpf-timeline" name="timeline" required aria-describedby="edpf-e-timeline"><option value="">Select a timeline</option><option>Immediate (Within 1 month)</option><option>Short-term (1-3 months)</option><option>Medium-term (3-6 months)</option><option>Long-term (6-12 months)</option><option>Exploratory (12+ months)</option></select><span class="edpf-err" id="edpf-e-timeline">Please select a timeline.</span></div>
+        <div class="edpf-f"><label for="edpf-budget">Budget range <span class="opt">(optional)</span></label><select id="edpf-budget" name="budget_range"><option value="">Select a budget range</option><option>Less than $25,000</option><option>$25,000 - $50,000</option><option>$50,000 - $100,000</option><option>$100,000 - $250,000</option><option>$250,000 - $500,000</option><option>$500,000+</option><option>Budget not yet allocated</option></select></div>
+        <div class="edpf-f full" data-field="also"><span class="edpf-lbl" id="edpf-also-l">Also interested in <span class="opt">(optional)</span></span><div class="edpf-also" role="group" aria-labelledby="edpf-also-l"></div></div>
+        <div class="edpf-f full"><label for="edpf-goals">Your challenges and goals <span class="opt">(optional)</span></label><textarea id="edpf-goals" name="challenges_goals" rows="4"></textarea></div>
+      </div>
+      <div class="edpf-consent" data-field="consent"><input id="edpf-consent" name="consent" type="checkbox" value="yes" required aria-describedby="edpf-e-consent"><label for="edpf-consent">I agree that Edstellar may contact me about this request and store my details as described in the <a href="https://www.edstellar.com/privacy-policy" target="_blank" rel="noopener">privacy policy</a>. <span class="req" aria-hidden="true">*</span><span class="edpf-err" id="edpf-e-consent">Please accept the privacy policy to continue.</span></label></div>
+    </fieldset>
+
+    <div class="edpf-hp" aria-hidden="true"><label for="edpf-web">Leave this field empty</label><input id="edpf-web" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="form_id" value="platforms-tools-common">
+    <input type="hidden" name="intent" value="">
+    <input type="hidden" name="platform_name" value="">
+    <input type="hidden" name="source_page" value="">
+    <input type="hidden" name="also_interested" value="">
+    <input type="hidden" name="page_url" value="">
+    <input type="hidden" name="phone_dial_code" value="">
+    <input type="hidden" name="submitted_at" value="">
+
+    <div class="edpf-foot">
+      <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="edpf-reply">We reply within one business day with a scoped response, no automated sales sequence.</span></p>
+      <button class="edpf-btn" type="submit"><span class="edpf-btn-l">Request a demo</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="spin" aria-hidden="true"></span></button>
     </div>
+  </form>
+
+  <div class="edpf-thanks" role="status" tabindex="-1" hidden>
+    <div class="ok" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h3 class="edpf-thanks-h">Thank you, your request is in.</h3>
+    <p class="edpf-thanks-p">We reply within one business day with a scoped response.</p>
+    <p class="also edpf-thanks-also" hidden></p>
+  </div>
   </div>
 </section>
 </main>
@@ -1427,6 +1538,178 @@ section[id]{scroll-margin-top:68px}
   },2600);
 })();
 
+</script>
+<script>
+(function(){
+  "use strict";
+  var FORM_ENDPOINT = ""; /* TODO: CRM endpoint */
+
+  var COUNTRIES = [["Afghanistan", "+93"], ["Albania", "+355"], ["Algeria", "+213"], ["American Samoa", "+1"], ["Andorra", "+376"], ["Angola", "+244"], ["Anguilla", "+1"], ["Antigua and Barbuda", "+1"], ["Argentina", "+54"], ["Armenia", "+374"], ["Aruba", "+297"], ["Australia", "+61"], ["Austria", "+43"], ["Azerbaijan", "+994"], ["Bahamas", "+1"], ["Bahrain", "+973"], ["Bangladesh", "+880"], ["Barbados", "+1"], ["Belarus", "+375"], ["Belgium", "+32"], ["Belize", "+501"], ["Benin", "+229"], ["Bermuda", "+1"], ["Bhutan", "+975"], ["Bolivia", "+591"], ["Bosnia and Herzegovina", "+387"], ["Botswana", "+267"], ["Brazil", "+55"], ["British Indian Ocean Territory", "+246"], ["British Virgin Islands", "+1"], ["Brunei", "+673"], ["Bulgaria", "+359"], ["Burkina Faso", "+226"], ["Burundi", "+257"], ["Cambodia", "+855"], ["Cameroon", "+237"], ["Canada", "+1"], ["Cape Verde", "+238"], ["Caribbean Netherlands", "+599"], ["Cayman Islands", "+1"], ["Central African Republic", "+236"], ["Chad", "+235"], ["Chile", "+56"], ["China", "+86"], ["Christmas Island", "+61"], ["Cocos Islands", "+61"], ["Colombia", "+57"], ["Comoros", "+269"], ["Cook Islands", "+682"], ["Costa Rica", "+506"], ["Croatia", "+385"], ["Cuba", "+53"], ["Curaçao", "+599"], ["Cyprus", "+357"], ["Czech Republic", "+420"], ["Côte d'Ivoire", "+225"], ["DR Congo", "+243"], ["Denmark", "+45"], ["Djibouti", "+253"], ["Dominica", "+1"], ["Dominican Republic", "+1"], ["Ecuador", "+593"], ["Egypt", "+20"], ["El Salvador", "+503"], ["Equatorial Guinea", "+240"], ["Eritrea", "+291"], ["Estonia", "+372"], ["Eswatini", "+268"], ["Ethiopia", "+251"], ["Falkland Islands", "+500"], ["Faroe Islands", "+298"], ["Fiji", "+679"], ["Finland", "+358"], ["France", "+33"], ["French Guiana", "+594"], ["French Polynesia", "+689"], ["Gabon", "+241"], ["Gambia", "+220"], ["Georgia", "+995"], ["Germany", "+49"], ["Ghana", "+233"], ["Gibraltar", "+350"], ["Greece", "+30"], ["Greenland", "+299"], ["Grenada", "+1"], ["Guadeloupe", "+590"], ["Guam", "+1"], ["Guatemala", "+502"], ["Guernsey", "+44"], ["Guinea", "+224"], ["Guinea-Bissau", "+245"], ["Guyana", "+592"], ["Haiti", "+509"], ["Honduras", "+504"], ["Hong Kong", "+852"], ["Hungary", "+36"], ["Iceland", "+354"], ["India", "+91"], ["Indonesia", "+62"], ["Iran", "+98"], ["Iraq", "+964"], ["Ireland", "+353"], ["Isle of Man", "+44"], ["Israel", "+972"], ["Italy", "+39"], ["Jamaica", "+1"], ["Japan", "+81"], ["Jersey", "+44"], ["Jordan", "+962"], ["Kazakhstan", "+7"], ["Kenya", "+254"], ["Kiribati", "+686"], ["Kuwait", "+965"], ["Kyrgyzstan", "+996"], ["Laos", "+856"], ["Latvia", "+371"], ["Lebanon", "+961"], ["Lesotho", "+266"], ["Liberia", "+231"], ["Libya", "+218"], ["Liechtenstein", "+423"], ["Lithuania", "+370"], ["Luxembourg", "+352"], ["Macao", "+853"], ["Madagascar", "+261"], ["Malawi", "+265"], ["Malaysia", "+60"], ["Maldives", "+960"], ["Mali", "+223"], ["Malta", "+356"], ["Marshall Islands", "+692"], ["Martinique", "+596"], ["Mauritania", "+222"], ["Mauritius", "+230"], ["Mayotte", "+262"], ["Mexico", "+52"], ["Micronesia", "+691"], ["Moldova", "+373"], ["Monaco", "+377"], ["Mongolia", "+976"], ["Montenegro", "+382"], ["Montserrat", "+1"], ["Morocco", "+212"], ["Mozambique", "+258"], ["Myanmar", "+95"], ["Namibia", "+264"], ["Nauru", "+674"], ["Nepal", "+977"], ["Netherlands", "+31"], ["New Caledonia", "+687"], ["New Zealand", "+64"], ["Nicaragua", "+505"], ["Niger", "+227"], ["Nigeria", "+234"], ["Niue", "+683"], ["Norfolk Island", "+672"], ["North Korea", "+850"], ["North Macedonia", "+389"], ["Northern Mariana Islands", "+1"], ["Norway", "+47"], ["Oman", "+968"], ["Pakistan", "+92"], ["Palau", "+680"], ["Palestine", "+970"], ["Panama", "+507"], ["Papua New Guinea", "+675"], ["Paraguay", "+595"], ["Peru", "+51"], ["Philippines", "+63"], ["Poland", "+48"], ["Portugal", "+351"], ["Puerto Rico", "+1"], ["Qatar", "+974"], ["Republic of the Congo", "+242"], ["Romania", "+40"], ["Russia", "+7"], ["Rwanda", "+250"], ["Réunion", "+262"], ["Saint Barthélemy", "+590"], ["Saint Helena", "+290"], ["Saint Kitts and Nevis", "+1"], ["Saint Lucia", "+1"], ["Saint Martin", "+590"], ["Saint Pierre and Miquelon", "+508"], ["Saint Vincent and the Grenadines", "+1"], ["Samoa", "+685"], ["San Marino", "+378"], ["Sao Tome and Principe", "+239"], ["Saudi Arabia", "+966"], ["Senegal", "+221"], ["Serbia", "+381"], ["Seychelles", "+248"], ["Sierra Leone", "+232"], ["Singapore", "+65"], ["Sint Maarten", "+1"], ["Slovakia", "+421"], ["Slovenia", "+386"], ["Solomon Islands", "+677"], ["Somalia", "+252"], ["South Africa", "+27"], ["South Korea", "+82"], ["South Sudan", "+211"], ["Spain", "+34"], ["Sri Lanka", "+94"], ["Sudan", "+249"], ["Suriname", "+597"], ["Svalbard and Jan Mayen", "+47"], ["Sweden", "+46"], ["Switzerland", "+41"], ["Syria", "+963"], ["Taiwan", "+886"], ["Tajikistan", "+992"], ["Tanzania", "+255"], ["Thailand", "+66"], ["Timor-Leste", "+670"], ["Togo", "+228"], ["Tokelau", "+690"], ["Tonga", "+676"], ["Trinidad and Tobago", "+1"], ["Tunisia", "+216"], ["Turkey", "+90"], ["Turkmenistan", "+993"], ["Turks and Caicos Islands", "+1"], ["Tuvalu", "+688"], ["US Virgin Islands", "+1"], ["Uganda", "+256"], ["Ukraine", "+380"], ["United Arab Emirates", "+971"], ["United Kingdom", "+44"], ["United States", "+1"], ["Uruguay", "+598"], ["Uzbekistan", "+998"], ["Vanuatu", "+678"], ["Vatican City", "+39"], ["Venezuela", "+58"], ["Vietnam", "+84"], ["Wallis and Futuna", "+681"], ["Western Sahara", "+212"], ["Yemen", "+967"], ["Zambia", "+260"], ["Zimbabwe", "+263"], ["Åland Islands", "+358"]];
+
+  var PLATFORMS = [
+    {id:"spectra-lms", group:"Platforms", name:"Spectra LMS", desc:"AI-empowered, social and gamified LMS", cta:"Request a demo", reply:"one business day",
+     goals:"Number of learners, the roles you want to see and the Spectra LMS features that matter most",
+     challenges:["Low learner engagement or completion","Learners need to learn on mobile","Learning is scattered across tools and spreadsheets","Hard to see engagement and learning impact","Running blended programs at scale","Moving from another LMS"]},
+    {id:"capability-intelligence-platform", group:"Platforms", name:"Capability Intelligence Platform", short:"CIP", desc:"One view of workforce capability", cta:"Request a demo", reply:"one business day",
+     goals:"The assessments you run today, the teams in scope and the capability view your leaders need",
+     challenges:["No single view of workforce capability","Assessment results sit across tools and vendors","Hard to spot skill gaps across teams","Linking assessment results to development","Planning future skills and roles","Reporting capability to leadership"]},
+    {id:"tna-tni-engine", group:"Platforms", name:"TNA/TNI Engine", desc:"Training needs backed by evidence", cta:"Request a demo", reply:"one business day",
+     goals:"Roles and locations in scope, the data you hold today and when your next training cycle starts",
+     challenges:["Training needs rest on opinion, not evidence","Skill gaps are not measured by role","The annual TNA takes too long to run","The training plan is not tied to business priorities","Hard to justify the training budget","Turning needs into a training calendar"]},
+    {id:"zenith", group:"Tools", name:"Zenith", desc:"Leadership assessment and development center", cta:"Book a consultation", reply:"one business day",
+     goals:"Leadership levels in scope, the decision this supports (selection, promotion or succession) and your timeline",
+     challenges:["Identifying high-potential leaders","Succession planning for key roles","Selecting or promoting leaders objectively","Building a leadership pipeline","Developing leaders after an assessment","Thin leadership bench strength"]},
+    {id:"orbit", group:"Tools", name:"Orbit", desc:"360-degree feedback", cta:"Book a consultation", reply:"one business day",
+     goals:"Number of assessees, the rater groups you want (45 to 360 degrees) and the competencies that matter",
+     challenges:["Running 360-degree feedback for leaders","Getting honest, anonymous feedback","Turning feedback into development plans","Replacing a manual or survey-based 360","Building a feedback culture","Multi-rater feedback for a large group"]},
+    {id:"polaris", group:"Tools", name:"Polaris", desc:"Team effectiveness sessions", cta:"Get a free demo", reply:"two business days",
+     goals:"Who is in the team and the conversation it keeps avoiding",
+     challenges:["A pattern keeps repeating and nothing shifts it","The leadership team cannot get on the same page","The team is in open conflict","Trust needs repair after an incident","We just merged, restructured or reorganized","A new leader has taken over an established team","The team delivers, but burnout and turnover show"]},
+    {id:"meridian", group:"Tools", name:"Meridian", desc:"AI-assisted leadership coaching", cta:"Get a free demo", reply:"one business day",
+     goals:"Number of leaders, their levels and what you want coaching to change",
+     challenges:["Developing senior leaders","Preparing successors","Supporting first-time managers","Leaders moving into new roles","Turning around performance","Keeping high potentials"]},
+    {id:"not-sure", group:"", name:"Not sure yet", desc:"Help me choose the right fit", cta:"Talk to a specialist", reply:"one business day",
+     goals:"Tell us what you want to achieve, and we will suggest the platform or tool that fits",
+     challenges:["Building workforce capability","Finding and closing skill gaps","Developing leaders","Improving team effectiveness","Raising learning engagement","Giving leaders better feedback"]}
+  ];
+  var OTHER = "Something else";
+  var byId = {}; PLATFORMS.forEach(function(p){ byId[p.id] = p; });
+
+  var CHECK = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+
+  function init(root){
+    if (!root || root.__edpf) return; root.__edpf = true;
+    var form = root.querySelector("form");
+    var $ = function(sel){ return root.querySelector(sel); };
+    var picks = $("#edpf-platform"), alsoBox = $(".edpf-also");
+    var chSel = $("#edpf-challenge"), goals = $("#edpf-goals");
+    var btnL = $(".edpf-btn-l"), btn = $(".edpf-btn"), reply = $(".edpf-reply");
+    var sum = $(".edpf-sum"), thanks = $(".edpf-thanks");
+    var cSel = $("#edpf-country"), dial = $("#edpf-dial");
+    var H = function(n){ return form.elements[n]; };
+
+    var html = "", lastGroup = null;
+    PLATFORMS.forEach(function(p){
+      var g = p.group || "Other";
+      if (g !== lastGroup) { if (lastGroup !== null) html += '</optgroup>'; html += '<optgroup label="' + g + '">'; lastGroup = g; }
+      html += '<option value="' + p.id + '">' + esc(p.name) + '</option>';
+    });
+    picks.insertAdjacentHTML("beforeend", html + '</optgroup>');
+    alsoBox.innerHTML = PLATFORMS.filter(function(p){return p.id!=="not-sure";}).map(function(p){
+      return '<label class="edpf-chip"><input type="checkbox" value="' + p.id + '"><span>' + esc(p.short || p.name) + '</span></label>';
+    }).join("");
+
+    COUNTRIES.forEach(function(c){ var o = document.createElement("option"); o.value = c[0]; o.textContent = c[0]; o.setAttribute("data-dial", c[1]); cSel.appendChild(o); });
+    function setDial(){ var o = cSel.options[cSel.selectedIndex]; var d = o ? (o.getAttribute("data-dial") || "") : ""; dial.textContent = d || "+"; H("phone_dial_code").value = d; }
+    cSel.addEventListener("change", setDial);
+
+    function current(){ return byId[picks.value] || null; }
+
+    function apply(p){
+      var prev = chSel.value;
+      var list = (p ? p.challenges : []).concat([OTHER]);
+      chSel.innerHTML = '<option value="">' + (p ? "Select your current challenge" : "Choose a platform first") + '</option>' +
+        (p ? list.map(function(c){ return '<option' + (c===prev?' selected':'') + '>' + esc(c) + '</option>'; }).join("") : "");
+      chSel.disabled = !p;
+      goals.placeholder = p ? p.goals : "Share your challenges, desired outcomes, or specific areas where you need support";
+      btnL.textContent = p ? p.cta : "Request a demo";
+      reply.textContent = "We reply within " + (p ? p.reply : "one business day") + " with a scoped response, no automated sales sequence.";
+      H("intent").value = p ? p.id : "";
+      H("platform_name").value = p ? p.name : "";
+      Array.prototype.forEach.call(alsoBox.querySelectorAll("input"), function(cb){
+        var same = p && cb.value === p.id; if (same) cb.checked = false; cb.disabled = !!same;
+      });
+    }
+
+    picks.addEventListener("change", function(){ apply(current()); clearBad("platform"); });
+
+    var RULES = [
+      {key:"platform", id:"edpf-platform", label:"Platform or tool"},
+      {key:"full_name", id:"edpf-name", label:"Full name"},
+      {key:"work_email", id:"edpf-email", label:"Work email", ok:function(v){ return /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v); }},
+      {key:"company", id:"edpf-company", label:"Company name"},
+      {key:"job_title", id:"edpf-title", label:"Job title"},
+      {key:"country", id:"edpf-country", label:"Country"},
+      {key:"phone", id:"edpf-phone", label:"Phone", ok:function(v){ var d = v.replace(/\D/g,""); return d.length>=6 && d.length<=15 && /^[0-9 ()+.\-]+$/.test(v); }},
+      {key:"company_size", id:"edpf-size", label:"Company size"},
+      {key:"current_challenge", id:"edpf-challenge", label:"Current challenge"},
+      {key:"timeline", id:"edpf-timeline", label:"Timeline for implementation"},
+      {key:"consent", id:"edpf-consent", label:"Privacy consent", ok:function(v,el){ return el.checked; }, wrap:function(){ return root.querySelector('[data-field="consent"]'); }}
+    ];
+    function elOf(r){ return r.id ? root.querySelector("#" + r.id) : r.el(); }
+    function wrapOf(r){ return r.wrap ? r.wrap() : elOf(r).closest(".edpf-f"); }
+    function valid(r){ var el = elOf(r); var v = (el.value || "").trim(); return r.ok ? r.ok(v, el) : !!v; }
+    function mark(r, bad){
+      var w = wrapOf(r); if (w) w.classList.toggle("bad", bad);
+      elOf(r).setAttribute("aria-invalid", bad ? "true" : "false");
+    }
+    function clearBad(key){ RULES.forEach(function(r){ if (r.key===key) mark(r,false); }); }
+    RULES.forEach(function(r){
+      var el = elOf(r);
+      var ev = (el.tagName === "SELECT" || el.type === "checkbox") ? "change" : "blur";
+      el.addEventListener(ev, function(){ if (el.type !== "checkbox" && !el.value.trim() && ev==="blur" && !wrapOf(r).classList.contains("bad")) return; mark(r, !valid(r)); });
+      if (ev === "blur") el.addEventListener("input", function(){ if (wrapOf(r).classList.contains("bad") && valid(r)) mark(r, false); });
+    });
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var bad = RULES.filter(function(r){ var b = !valid(r); mark(r, b); return b; });
+      if (bad.length) {
+        sum.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>' +
+          (bad.length === 1 ? "One field needs attention: " : bad.length + " fields need attention: ") + bad.map(function(r){ return r.label; }).join(", ") + ".</span>";
+        sum.hidden = false;
+        var first = bad[0]; var target = elOf(first);
+        target.focus({preventScroll:true}); wrapOf(first).scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center"});
+        return;
+      }
+      sum.hidden = true;
+      var p = current();
+      var also = Array.prototype.filter.call(alsoBox.querySelectorAll("input"), function(cb){ return cb.checked; }).map(function(cb){ return byId[cb.value].name; });
+      H("also_interested").value = also.join(", ");
+      H("source_page").value = root.getAttribute("data-platform") || "platforms-hub";
+      H("page_url").value = location.href;
+      H("submitted_at").value = new Date().toISOString();
+
+      function done(){
+        var first = (H("full_name").value.trim().split(/\s+/)[0] || "");
+        $(".edpf-thanks-h").textContent = "Thank you" + (first ? ", " + first : "") + ". Your request is in.";
+        $(".edpf-thanks-p").textContent = (p.id === "not-sure" ? "An Edstellar specialist" : "Your Edstellar " + p.name + " specialist") + " replies within " + p.reply + " with a scoped response.";
+        var a = $(".edpf-thanks-also");
+        if (also.length) { a.textContent = "We will also cover " + also.join(", ") + "."; a.hidden = false; } else a.hidden = true;
+        form.hidden = true; thanks.hidden = false; thanks.focus();
+        try { root.dispatchEvent(new CustomEvent("edpf:submitted", {bubbles:true, detail:{platform:p.id, source_page:H("source_page").value}})); } catch(_){}
+        if (window.dataLayer) window.dataLayer.push({event:"platform_form_submit", platform:p.id, source_page:H("source_page").value});
+      }
+      if (H("company_website").value) { done(); return; }
+      if (!FORM_ENDPOINT) { done(); return; }
+      btn.disabled = true; btn.setAttribute("aria-busy","true");
+      fetch(FORM_ENDPOINT, {method:"POST", body:new FormData(form)})
+        .then(function(res){ if (!res.ok) throw new Error(res.status); done(); })
+        .catch(function(){
+          sum.innerHTML = "<span>Your request could not be sent. Please try again, or email contact@edstellar.com. Everything you entered is still here.</span>";
+          sum.hidden = false; sum.focus();
+        })
+        .then(function(){ btn.disabled = false; btn.removeAttribute("aria-busy"); });
+    });
+
+    function setPlatform(id){
+      picks.value = byId[id] ? id : "";
+      apply(byId[id] || null);
+    }
+    root.edpfSetPlatform = setPlatform;
+    root.edpfReset = function(){
+      form.reset(); form.hidden = false; thanks.hidden = true; sum.hidden = true;
+      RULES.forEach(function(r){ mark(r,false); });
+      setDial(); setPlatform(root.getAttribute("data-platform") || "");
+    };
+    setDial();
+    setPlatform(root.getAttribute("data-platform") || "");
+  }
+
+  window.EdPlatformForm = { init:init, platforms:PLATFORMS };
+  Array.prototype.forEach.call(document.querySelectorAll(".edpf"), init);
+})();
 </script>
 </body>
 </html>
