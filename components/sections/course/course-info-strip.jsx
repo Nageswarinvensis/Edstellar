@@ -5,7 +5,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { newTabProps } from "@/lib/links";
 import { cn } from "@/lib/utils";
-import TrainerFaces from "@/components/common/trainer-faces";
+import TrainersImage from "@/components/common/trainers-image";
 
 /**
  * The course page's dark info strip: hours · modules · delivery · trainers,
@@ -142,7 +142,7 @@ function TrainersStat({ trainers }) {
       )}
     >
       <Box className="flex items-center gap-2.5">
-        <TrainerFaces people={trainers.people} className="-space-x-2" faceClassName="size-7 ring-navy" />
+        <TrainersImage className="h-7" />
 
         <Text
           as="span"

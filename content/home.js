@@ -26,24 +26,7 @@ export const HOME = {
     ],
     "people": {
       "note_strong": "5,000+ trainers and coaches",
-      "note": " across 100+ countries",
-      "trainers": [
-        {
-          "photo": "https://media.edstellar.com/trainer_profile/tamer-cairo-egypt.webp"
-        },
-        {
-          "photo": "https://media.edstellar.com/trainer_profile/nibedita-bangalore-india.webp"
-        },
-        {
-          "photo": "https://media.edstellar.com/trainer_profile/simon-ubud-indonesia.webp"
-        },
-        {
-          "photo": "https://media.edstellar.com/trainer_profile/roberta-al-wajba-qatar.webp"
-        },
-        {
-          "photo": "https://media.edstellar.com/trainer_profile/harshil-ahmedabad-india.webp"
-        }
-      ]
+      "note": " across 100+ countries"
     },
     "panel": {
       "label": "Capability Map · By Function",

@@ -1,5 +1,5 @@
 import Box from "@/components/ui/Box";
-import TrainerFaces from "@/components/common/trainer-faces";
+import TrainersImage from "@/components/common/trainers-image";
 import Text from "@/components/ui/Text";
 import HomeWrap from "@/components/sections/home/home-wrap";
 import RichHeading from "@/components/common/rich-heading";
@@ -73,7 +73,7 @@ export default function HomeHero({ data }) {
 
           {people && (
             <Box className="mt-9 flex items-center gap-4">
-              <TrainerFaces people={people.trainers} />
+              <TrainersImage eager />
               <Text as="span" className="text-sm leading-[1.4] text-ink">
                 <Text as="span" className="font-semibold text-ink">{people.note_strong}</Text>
                 {people.note}
