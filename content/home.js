@@ -24,10 +24,6 @@ export const HOME = {
         "arrow": true
       }
     ],
-    "people": {
-      "note_strong": "5,000+ trainers and coaches",
-      "note": " across 100+ countries"
-    },
     "panel": {
       "label": "Capability Map · By Function",
       "live": "Illustrative",

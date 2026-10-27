@@ -2,16 +2,42 @@
    Edstellar Platform Form (edpf) — shared script
    Loaded by: orbit.html, polaris.html, meridian.html, spectra-lms.html
 
-   To update form logic or wire Zoho CRM:
-     1. Set FORM_ENDPOINT to your CRM POST URL (line ~5 below)
-     2. Save — all 4 pages update automatically
+   Submits as JSON to the site's lead API (/api/leads, source
+   "platform-enquiry"), which validates and delivers to Zoho Forms'
+   "EdstellarPlatforms" — see lib/leads/. Field names and option values
+   must stay Zoho's own: content/platform-form.js is the server's copy.
    ============================================================ */
 
 (function(){
   "use strict";
-  var FORM_ENDPOINT = ""; /* TODO: CRM endpoint */
+  var FORM_ENDPOINT = "/api/leads";
+  var THANK_YOU_URL = "/thank-you/platform";
 
-  var COUNTRIES = [["Afghanistan", "+93"], ["Albania", "+355"], ["Algeria", "+213"], ["American Samoa", "+1"], ["Andorra", "+376"], ["Angola", "+244"], ["Anguilla", "+1"], ["Antigua and Barbuda", "+1"], ["Argentina", "+54"], ["Armenia", "+374"], ["Aruba", "+297"], ["Australia", "+61"], ["Austria", "+43"], ["Azerbaijan", "+994"], ["Bahamas", "+1"], ["Bahrain", "+973"], ["Bangladesh", "+880"], ["Barbados", "+1"], ["Belarus", "+375"], ["Belgium", "+32"], ["Belize", "+501"], ["Benin", "+229"], ["Bermuda", "+1"], ["Bhutan", "+975"], ["Bolivia", "+591"], ["Bosnia and Herzegovina", "+387"], ["Botswana", "+267"], ["Brazil", "+55"], ["British Indian Ocean Territory", "+246"], ["British Virgin Islands", "+1"], ["Brunei", "+673"], ["Bulgaria", "+359"], ["Burkina Faso", "+226"], ["Burundi", "+257"], ["Cambodia", "+855"], ["Cameroon", "+237"], ["Canada", "+1"], ["Cape Verde", "+238"], ["Caribbean Netherlands", "+599"], ["Cayman Islands", "+1"], ["Central African Republic", "+236"], ["Chad", "+235"], ["Chile", "+56"], ["China", "+86"], ["Christmas Island", "+61"], ["Cocos Islands", "+61"], ["Colombia", "+57"], ["Comoros", "+269"], ["Cook Islands", "+682"], ["Costa Rica", "+506"], ["Croatia", "+385"], ["Cuba", "+53"], ["Curaçao", "+599"], ["Cyprus", "+357"], ["Czech Republic", "+420"], ["Côte d'Ivoire", "+225"], ["DR Congo", "+243"], ["Denmark", "+45"], ["Djibouti", "+253"], ["Dominica", "+1"], ["Dominican Republic", "+1"], ["Ecuador", "+593"], ["Egypt", "+20"], ["El Salvador", "+503"], ["Equatorial Guinea", "+240"], ["Eritrea", "+291"], ["Estonia", "+372"], ["Eswatini", "+268"], ["Ethiopia", "+251"], ["Falkland Islands", "+500"], ["Faroe Islands", "+298"], ["Fiji", "+679"], ["Finland", "+358"], ["France", "+33"], ["French Guiana", "+594"], ["French Polynesia", "+689"], ["Gabon", "+241"], ["Gambia", "+220"], ["Georgia", "+995"], ["Germany", "+49"], ["Ghana", "+233"], ["Gibraltar", "+350"], ["Greece", "+30"], ["Greenland", "+299"], ["Grenada", "+1"], ["Guadeloupe", "+590"], ["Guam", "+1"], ["Guatemala", "+502"], ["Guernsey", "+44"], ["Guinea", "+224"], ["Guinea-Bissau", "+245"], ["Guyana", "+592"], ["Haiti", "+509"], ["Honduras", "+504"], ["Hong Kong", "+852"], ["Hungary", "+36"], ["Iceland", "+354"], ["India", "+91"], ["Indonesia", "+62"], ["Iran", "+98"], ["Iraq", "+964"], ["Ireland", "+353"], ["Isle of Man", "+44"], ["Israel", "+972"], ["Italy", "+39"], ["Jamaica", "+1"], ["Japan", "+81"], ["Jersey", "+44"], ["Jordan", "+962"], ["Kazakhstan", "+7"], ["Kenya", "+254"], ["Kiribati", "+686"], ["Kuwait", "+965"], ["Kyrgyzstan", "+996"], ["Laos", "+856"], ["Latvia", "+371"], ["Lebanon", "+961"], ["Lesotho", "+266"], ["Liberia", "+231"], ["Libya", "+218"], ["Liechtenstein", "+423"], ["Lithuania", "+370"], ["Luxembourg", "+352"], ["Macao", "+853"], ["Madagascar", "+261"], ["Malawi", "+265"], ["Malaysia", "+60"], ["Maldives", "+960"], ["Mali", "+223"], ["Malta", "+356"], ["Marshall Islands", "+692"], ["Martinique", "+596"], ["Mauritania", "+222"], ["Mauritius", "+230"], ["Mayotte", "+262"], ["Mexico", "+52"], ["Micronesia", "+691"], ["Moldova", "+373"], ["Monaco", "+377"], ["Mongolia", "+976"], ["Montenegro", "+382"], ["Montserrat", "+1"], ["Morocco", "+212"], ["Mozambique", "+258"], ["Myanmar", "+95"], ["Namibia", "+264"], ["Nauru", "+674"], ["Nepal", "+977"], ["Netherlands", "+31"], ["New Caledonia", "+687"], ["New Zealand", "+64"], ["Nicaragua", "+505"], ["Niger", "+227"], ["Nigeria", "+234"], ["Niue", "+683"], ["Norfolk Island", "+672"], ["North Korea", "+850"], ["North Macedonia", "+389"], ["Northern Mariana Islands", "+1"], ["Norway", "+47"], ["Oman", "+968"], ["Pakistan", "+92"], ["Palau", "+680"], ["Palestine", "+970"], ["Panama", "+507"], ["Papua New Guinea", "+675"], ["Paraguay", "+595"], ["Peru", "+51"], ["Philippines", "+63"], ["Poland", "+48"], ["Portugal", "+351"], ["Puerto Rico", "+1"], ["Qatar", "+974"], ["Republic of the Congo", "+242"], ["Romania", "+40"], ["Russia", "+7"], ["Rwanda", "+250"], ["Réunion", "+262"], ["Saint Barthélemy", "+590"], ["Saint Helena", "+290"], ["Saint Kitts and Nevis", "+1"], ["Saint Lucia", "+1"], ["Saint Martin", "+590"], ["Saint Pierre and Miquelon", "+508"], ["Saint Vincent and the Grenadines", "+1"], ["Samoa", "+685"], ["San Marino", "+378"], ["Sao Tome and Principe", "+239"], ["Saudi Arabia", "+966"], ["Senegal", "+221"], ["Serbia", "+381"], ["Seychelles", "+248"], ["Sierra Leone", "+232"], ["Singapore", "+65"], ["Sint Maarten", "+1"], ["Slovakia", "+421"], ["Slovenia", "+386"], ["Solomon Islands", "+677"], ["Somalia", "+252"], ["South Africa", "+27"], ["South Korea", "+82"], ["South Sudan", "+211"], ["Spain", "+34"], ["Sri Lanka", "+94"], ["Sudan", "+249"], ["Suriname", "+597"], ["Svalbard and Jan Mayen", "+47"], ["Sweden", "+46"], ["Switzerland", "+41"], ["Syria", "+963"], ["Taiwan", "+886"], ["Tajikistan", "+992"], ["Tanzania", "+255"], ["Thailand", "+66"], ["Timor-Leste", "+670"], ["Togo", "+228"], ["Tokelau", "+690"], ["Tonga", "+676"], ["Trinidad and Tobago", "+1"], ["Tunisia", "+216"], ["Turkey", "+90"], ["Turkmenistan", "+993"], ["Turks and Caicos Islands", "+1"], ["Tuvalu", "+688"], ["US Virgin Islands", "+1"], ["Uganda", "+256"], ["Ukraine", "+380"], ["United Arab Emirates", "+971"], ["United Kingdom", "+44"], ["United States", "+1"], ["Uruguay", "+598"], ["Uzbekistan", "+998"], ["Vanuatu", "+678"], ["Vatican City", "+39"], ["Venezuela", "+58"], ["Vietnam", "+84"], ["Wallis and Futuna", "+681"], ["Western Sahara", "+212"], ["Yemen", "+967"], ["Zambia", "+260"], ["Zimbabwe", "+263"], ["Åland Islands", "+358"]];
+  /* Zoho's "Also interested in" options: its own names, CIP abbreviated,
+     and no Meridian (that one rides in the message instead). */
+  /* The phone input (intl-tel-input): flag menu and dial code, loaded from
+     jsDelivr. Without it the field stays a plain input and the dial code
+     follows the Country dropdown. */
+  var ITI = "https://cdn.jsdelivr.net/npm/intl-tel-input@25.11.2/build/";
+  var itiReady = null;
+  function loadIti(){
+    if (itiReady) return itiReady;
+    itiReady = new Promise(function(resolve, reject){
+      if (window.intlTelInput) return resolve(window.intlTelInput);
+      var css = document.createElement("link"); css.rel = "stylesheet"; css.href = ITI + "css/intlTelInput.min.css"; document.head.appendChild(css);
+      var js = document.createElement("script"); js.src = ITI + "js/intlTelInput.min.js"; js.async = true;
+      js.onload = function(){ window.intlTelInput ? resolve(window.intlTelInput) : reject(); };
+      js.onerror = reject; document.head.appendChild(js);
+    });
+    return itiReady;
+  }
+
+  var ZOHO_ALSO = {"spectra-lms":"Spectra LMS","capability-intelligence-platform":"CIP","tna-tni-engine":"TNA/TNI Engine","zenith":"Zenith","orbit":"Orbit","polaris":"Polaris"};
+
+  /* The server's country list (lib/countries.js): name and ISO code, A–Z. */
+  var COUNTRIES = [["Afghanistan","af"],["Albania","al"],["Algeria","dz"],["American Samoa","as"],["Andorra","ad"],["Angola","ao"],["Anguilla","ai"],["Antigua and Barbuda","ag"],["Argentina","ar"],["Armenia","am"],["Aruba","aw"],["Australia","au"],["Austria","at"],["Azerbaijan","az"],["Bahamas","bs"],["Bahrain","bh"],["Bangladesh","bd"],["Barbados","bb"],["Belarus","by"],["Belgium","be"],["Belize","bz"],["Benin","bj"],["Bermuda","bm"],["Bhutan","bt"],["Bolivia","bo"],["Bosnia and Herzegovina","ba"],["Botswana","bw"],["Brazil","br"],["British Indian Ocean Territory","io"],["British Virgin Islands","vg"],["Brunei","bn"],["Bulgaria","bg"],["Burkina Faso","bf"],["Burundi","bi"],["Cambodia","kh"],["Cameroon","cm"],["Canada","ca"],["Cape Verde","cv"],["Caribbean Netherlands","bq"],["Cayman Islands","ky"],["Central African Republic","cf"],["Chad","td"],["Chile","cl"],["China","cn"],["Colombia","co"],["Comoros","km"],["Congo","cg"],["Cook Islands","ck"],["Costa Rica","cr"],["Croatia","hr"],["Cuba","cu"],["Curaçao","cw"],["Cyprus","cy"],["Czech Republic","cz"],["Côte d’Ivoire","ci"],["Denmark","dk"],["Djibouti","dj"],["Dominica","dm"],["Dominican Republic","do"],["DR Congo","cd"],["Ecuador","ec"],["Egypt","eg"],["El Salvador","sv"],["Equatorial Guinea","gq"],["Eritrea","er"],["Estonia","ee"],["Eswatini","sz"],["Ethiopia","et"],["Falkland Islands","fk"],["Faroe Islands","fo"],["Fiji","fj"],["Finland","fi"],["France","fr"],["French Guiana","gf"],["French Polynesia","pf"],["Gabon","ga"],["Gambia","gm"],["Georgia","ge"],["Germany","de"],["Ghana","gh"],["Gibraltar","gi"],["Greece","gr"],["Greenland","gl"],["Grenada","gd"],["Guadeloupe","gp"],["Guam","gu"],["Guatemala","gt"],["Guinea","gn"],["Guinea-Bissau","gw"],["Guyana","gy"],["Haiti","ht"],["Honduras","hn"],["Hong Kong","hk"],["Hungary","hu"],["Iceland","is"],["India","in"],["Indonesia","id"],["Iran","ir"],["Iraq","iq"],["Ireland","ie"],["Israel","il"],["Italy","it"],["Jamaica","jm"],["Japan","jp"],["Jersey","je"],["Jordan","jo"],["Kazakhstan","kz"],["Kenya","ke"],["Kiribati","ki"],["Kosovo","xk"],["Kuwait","kw"],["Kyrgyzstan","kg"],["Laos","la"],["Latvia","lv"],["Lebanon","lb"],["Lesotho","ls"],["Liberia","lr"],["Libya","ly"],["Liechtenstein","li"],["Lithuania","lt"],["Luxembourg","lu"],["Macau","mo"],["Madagascar","mg"],["Malawi","mw"],["Malaysia","my"],["Maldives","mv"],["Mali","ml"],["Malta","mt"],["Marshall Islands","mh"],["Martinique","mq"],["Mauritania","mr"],["Mauritius","mu"],["Mexico","mx"],["Micronesia","fm"],["Moldova","md"],["Monaco","mc"],["Mongolia","mn"],["Montenegro","me"],["Montserrat","ms"],["Morocco","ma"],["Mozambique","mz"],["Myanmar","mm"],["Namibia","na"],["Nauru","nr"],["Nepal","np"],["Netherlands","nl"],["New Caledonia","nc"],["New Zealand","nz"],["Nicaragua","ni"],["Niger","ne"],["Nigeria","ng"],["Niue","nu"],["Norfolk Island","nf"],["North Korea","kp"],["North Macedonia","mk"],["Northern Mariana Islands","mp"],["Norway","no"],["Oman","om"],["Pakistan","pk"],["Palau","pw"],["Palestine","ps"],["Panama","pa"],["Papua New Guinea","pg"],["Paraguay","py"],["Peru","pe"],["Philippines","ph"],["Poland","pl"],["Portugal","pt"],["Puerto Rico","pr"],["Qatar","qa"],["Romania","ro"],["Russia","ru"],["Rwanda","rw"],["Réunion","re"],["Saint Barthélemy","bl"],["Saint Helena","sh"],["Saint Kitts and Nevis","kn"],["Saint Lucia","lc"],["Saint Martin","mf"],["Saint Pierre and Miquelon","pm"],["Saint Vincent and the Grenadines","vc"],["Samoa","ws"],["San Marino","sm"],["Saudi Arabia","sa"],["Senegal","sn"],["Serbia","rs"],["Seychelles","sc"],["Sierra Leone","sl"],["Singapore","sg"],["Sint Maarten","sx"],["Slovakia","sk"],["Slovenia","si"],["Solomon Islands","sb"],["Somalia","so"],["South Africa","za"],["South Korea","kr"],["South Sudan","ss"],["Spain","es"],["Sri Lanka","lk"],["Sudan","sd"],["Suriname","sr"],["Sweden","se"],["Switzerland","ch"],["Syria","sy"],["São Tomé and Príncipe","st"],["Taiwan","tw"],["Tajikistan","tj"],["Tanzania","tz"],["Thailand","th"],["Timor-Leste","tl"],["Togo","tg"],["Tokelau","tk"],["Tonga","to"],["Trinidad and Tobago","tt"],["Tunisia","tn"],["Turkey","tr"],["Turkmenistan","tm"],["Turks and Caicos Islands","tc"],["Tuvalu","tv"],["U.S. Virgin Islands","vi"],["Uganda","ug"],["Ukraine","ua"],["United Arab Emirates","ae"],["United Kingdom","gb"],["United States","us"],["Uruguay","uy"],["Uzbekistan","uz"],["Vanuatu","vu"],["Vatican City","va"],["Venezuela","ve"],["Vietnam","vn"],["Wallis and Futuna","wf"],["Yemen","ye"],["Zambia","zm"],["Zimbabwe","zw"]];
+  /* Listed first, as on the site's other forms. */
+  var PREFERRED = ["us","gb","in","au","ca"];
 
   var PLATFORMS = [
     {id:"spectra-lms", group:"Platforms", name:"Spectra LMS", desc:"AI-empowered, social and gamified LMS", cta:"Request a demo", reply:"one business day",
@@ -52,8 +78,8 @@
     var picks = $("#edpf-platform"), alsoBox = $(".edpf-also");
     var chSel = $("#edpf-challenge"), goals = $("#edpf-goals");
     var btnL = $(".edpf-btn-l"), btn = $(".edpf-btn"), reply = $(".edpf-reply");
-    var sum = $(".edpf-sum"), thanks = $(".edpf-thanks");
-    var cSel = $("#edpf-country"), dial = $("#edpf-dial");
+    var sum = $(".edpf-sum");
+    var cSel = $("#edpf-country"), phone = $("#edpf-phone"), iti = null;
     var H = function(n){ return form.elements[n]; };
 
     var html = "", lastGroup = null;
@@ -67,9 +93,39 @@
       return '<label class="edpf-chip"><input type="checkbox" value="' + p.id + '"><span>' + esc(p.short || p.name) + '</span></label>';
     }).join("");
 
-    COUNTRIES.forEach(function(c){ var o = document.createElement("option"); o.value = c[0]; o.textContent = c[0]; o.setAttribute("data-dial", c[1]); cSel.appendChild(o); });
-    function setDial(){ var o = cSel.options[cSel.selectedIndex]; var d = o ? (o.getAttribute("data-dial") || "") : ""; dial.textContent = d || "+"; H("phone_dial_code").value = d; }
-    cSel.addEventListener("change", setDial);
+    /* Country dropdown: the preferred countries, a divider, then A–Z — the
+       same list and order as the phone input's flag menu. */
+    var byIso = {}; COUNTRIES.forEach(function(c){ byIso[c[1]] = c[0]; });
+    function addOpt(name, iso){ var o = document.createElement("option"); o.value = name; o.textContent = name; if (iso) o.setAttribute("data-iso", iso); cSel.appendChild(o); return o; }
+    PREFERRED.forEach(function(iso){ addOpt(byIso[iso], iso); });
+    addOpt("──────────").disabled = true;
+    COUNTRIES.forEach(function(c){ if (PREFERRED.indexOf(c[1]) < 0) addOpt(c[0], c[1]); });
+
+    /* The flag and the dropdown follow each other: picking a country sets
+       the flag, picking a flag sets the country. */
+    function setDial(){
+      var d = iti ? iti.getSelectedCountryData().dialCode : "";
+      H("phone_dial_code").value = d ? "+" + d : "";
+    }
+    cSel.addEventListener("change", function(){
+      var o = cSel.options[cSel.selectedIndex], iso = o && o.getAttribute("data-iso");
+      if (iti && iso) { try { iti.setCountry(iso); } catch(_){} }
+      setDial();
+    });
+    loadIti().then(function(intlTelInput){
+      iti = intlTelInput(phone, {
+        initialCountry: "us",
+        countryOrder: PREFERRED,
+        separateDialCode: true,
+        autoPlaceholder: "off"
+      });
+      phone.addEventListener("countrychange", function(){
+        var iso = iti.getSelectedCountryData().iso2, name = byIso[iso];
+        if (name && cSel.value !== name) { cSel.value = name; clearBad("country"); }
+        setDial();
+      });
+      setDial();
+    }).catch(function(){ /* plain phone field; the server takes the country's dial code */ });
 
     function current(){ return byId[picks.value] || null; }
 
@@ -101,8 +157,7 @@
       {key:"phone", id:"edpf-phone", label:"Phone", ok:function(v){ var d = v.replace(/\D/g,""); return d.length>=6 && d.length<=15 && /^[0-9 ()+.\-]+$/.test(v); }},
       {key:"company_size", id:"edpf-size", label:"Company size"},
       {key:"current_challenge", id:"edpf-challenge", label:"Current challenge"},
-      {key:"timeline", id:"edpf-timeline", label:"Timeline for implementation"},
-      {key:"consent", id:"edpf-consent", label:"Privacy consent", ok:function(v,el){ return el.checked; }, wrap:function(){ return root.querySelector('[data-field="consent"]'); }}
+      {key:"timeline", id:"edpf-timeline", label:"Timeline for implementation"}
     ];
     function elOf(r){ return r.id ? root.querySelector("#" + r.id) : r.el(); }
     function wrapOf(r){ return r.wrap ? r.wrap() : elOf(r).closest(".edpf-f"); }
@@ -138,26 +193,65 @@
       H("page_url").value = location.href;
       H("submitted_at").value = new Date().toISOString();
 
+      /* Straight to the thank-you page; the button stays busy until it loads. */
+      var redirecting = false;
       function done(){
-        var first = (H("full_name").value.trim().split(/\s+/)[0] || "");
-        $(".edpf-thanks-h").textContent = "Thank you" + (first ? ", " + first : "") + ". Your request is in.";
-        $(".edpf-thanks-p").textContent = (p.id === "not-sure" ? "An Edstellar specialist" : "Your Edstellar " + p.name + " specialist") + " replies within " + p.reply + " with a scoped response.";
-        var a = $(".edpf-thanks-also");
-        if (also.length) { a.textContent = "We will also cover " + also.join(", ") + "."; a.hidden = false; } else a.hidden = true;
-        form.hidden = true; thanks.hidden = false; thanks.focus();
+        redirecting = true;
         try { root.dispatchEvent(new CustomEvent("edpf:submitted", {bubbles:true, detail:{platform:p.id, source_page:H("source_page").value}})); } catch(_){}
         if (window.dataLayer) window.dataLayer.push({event:"platform_form_submit", platform:p.id, source_page:H("source_page").value});
+        location.assign(THANK_YOU_URL);
       }
       if (H("company_website").value) { done(); return; }
-      if (!FORM_ENDPOINT) { done(); return; }
+      var alsoIds = Array.prototype.filter.call(alsoBox.querySelectorAll("input"), function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
+      var alsoOther = alsoIds.filter(function(id){ return !ZOHO_ALSO[id]; }).map(function(id){ return byId[id].name; });
+      var goalsText = H("challenges_goals").value.trim();
+      var payload = {
+        source: "platform-enquiry",
+        company_website: H("company_website").value,
+        page: location.pathname,
+        platform: p.name,
+        name: H("full_name").value.trim(),
+        email: H("work_email").value.trim(),
+        company: H("company").value.trim(),
+        jobTitle: H("job_title").value.trim(),
+        country: H("country").value,
+        dialCode: H("phone_dial_code").value,
+        phone: H("phone").value.trim(),
+        companySize: H("company_size").value,
+        challenge: H("current_challenge").value,
+        employeesImpacted: H("employees_impacted").value,
+        timeline: H("timeline").value,
+        budget: H("budget_range").value,
+        alsoInterested: alsoIds.filter(function(id){ return ZOHO_ALSO[id]; }).map(function(id){ return ZOHO_ALSO[id]; }),
+        message: (alsoOther.length ? "Also interested in: " + alsoOther.join(", ") + (goalsText ? "\n\n" : "") : "") + goalsText
+      };
+      /* The server's field names → this form's rules, to mark what it rejects. */
+      var SERVER_FIELDS = {name:"full_name", email:"work_email", company:"company", jobTitle:"job_title", country:"country", phone:"phone", companySize:"company_size", challenge:"current_challenge", timeline:"timeline", platform:"platform"};
+      function fail(text){
+        sum.innerHTML = "<span>" + esc(text) + "</span>";
+        sum.hidden = false; sum.focus();
+      }
       btn.disabled = true; btn.setAttribute("aria-busy","true");
-      fetch(FORM_ENDPOINT, {method:"POST", body:new FormData(form)})
-        .then(function(res){ if (!res.ok) throw new Error(res.status); done(); })
-        .catch(function(){
-          sum.innerHTML = "<span>Your request could not be sent. Please try again, or email contact@edstellar.com. Everything you entered is still here.</span>";
-          sum.hidden = false; sum.focus();
+      fetch(FORM_ENDPOINT, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload)})
+        .then(function(res){ return res.json().catch(function(){ return {}; }).then(function(body){ return {status:res.status, body:body}; }); })
+        .then(function(r){
+          if (r.body && r.body.ok) { done(); return; }
+          if (r.body && r.body.errors) {
+            var labels = [];
+            Object.keys(r.body.errors).forEach(function(k){
+              var rule = RULES.filter(function(x){ return x.key === SERVER_FIELDS[k]; })[0];
+              if (rule) { mark(rule, true); labels.push(rule.label); }
+              else labels.push(r.body.errors[k]);
+            });
+            fail((labels.length === 1 ? "One field needs attention: " : labels.length + " fields need attention: ") + labels.join(", ") + ".");
+            return;
+          }
+          fail((r.body && r.body.error) || "Your request could not be sent. Please try again, or email contact@edstellar.com. Everything you entered is still here.");
         })
-        .then(function(){ btn.disabled = false; btn.removeAttribute("aria-busy"); });
+        .catch(function(){
+          fail("Your request could not be sent. Please try again, or email contact@edstellar.com. Everything you entered is still here.");
+        })
+        .then(function(){ if (!redirecting) { btn.disabled = false; btn.removeAttribute("aria-busy"); } });
     });
 
     function setPlatform(id){
@@ -166,8 +260,9 @@
     }
     root.edpfSetPlatform = setPlatform;
     root.edpfReset = function(){
-      form.reset(); form.hidden = false; thanks.hidden = true; sum.hidden = true;
+      form.reset(); sum.hidden = true;
       RULES.forEach(function(r){ mark(r,false); });
+      if (iti) { try { iti.setCountry("us"); } catch(_){} }
       setDial(); setPlatform(root.getAttribute("data-platform") || "");
     };
     setDial();
