@@ -95,7 +95,7 @@ export default function SiteHeader() {
           <Link
             href="/"
             aria-label="Edstellar home"
-           
+            title="Click here to view the Edstellar homepage"
             className="mr-3 flex shrink-0 items-center duration-200 min-[1280px]:mr-6"
           >
             <Image src="/course/edstellar.svg" alt="Edstellar" width={139} height={50} priority />

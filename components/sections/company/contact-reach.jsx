@@ -6,7 +6,7 @@ import EnquiryForm from "@/components/forms/enquiry-form";
 
 /**
  * Contact page body: regional phone lines and office addresses on the left,
- * the enquiry form on the right.
+ * the enquiry form on the right (first, above them, below 1024px).
  *
  * Design: contact-us `.contact-grid`, `.phones`, `.phone-row`, `.offices`.
  */
@@ -70,7 +70,7 @@ export default function ContactReach({ data, form }) {
           </Box>
         </Reveal>
 
-        <Reveal delay={1} id="form" className="scroll-mt-20">
+        <Reveal delay={1} id="form" className="scroll-mt-20 max-lg:order-first">
           <EnquiryForm data={form} />
         </Reveal>
       </Box>

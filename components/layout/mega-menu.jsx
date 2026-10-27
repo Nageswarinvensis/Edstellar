@@ -38,6 +38,12 @@ const firstLinkHref = (item) => item.groups[0].links[0].href;
  * AI courses point at the AI domain), so the active-dot highlight keys on this,
  * not the href — otherwise hovering one lights every link that shares its URL. */
 const linkKey = (link) => `${link.href}::${link.label}`;
+/* One equal column per link group. Full class names, so Tailwind generates
+ * them (a panel has three groups, Company four). */
+const GROUP_COLS = { 1: "grid-cols-1", 2: "grid-cols-2", 3: "grid-cols-3", 4: "grid-cols-4" };
+/* The link's hover title: the menu design's own (`title` in nav-data), else
+ * one built from the label. */
+const linkTitle = (link) => link.title || `Click Here to View ${link.label}`;
 
 /* The bullet before each non-main link, drawn as the link's own ::before
  * rather than an empty <span> — about 80 fewer DOM nodes on every page. The
@@ -82,7 +88,7 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
       ) : link.anchor ? (
         <a
           href={link.href}
-          title={`Click Here to View ${link.label}`}
+          title={linkTitle(link)}
           onClick={onNavigate}
           onMouseEnter={() => onPreview(link)}
           onFocus={() => onPreview(link)}
@@ -96,7 +102,7 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
       ) : (
         <Link
           href={link.href}
-          title={`Click Here to View ${link.label}`}
+          title={linkTitle(link)}
           onClick={onNavigate}
           onMouseEnter={() => onPreview(link)}
           onFocus={() => onPreview(link)}
@@ -139,7 +145,7 @@ function PanelGroup({ group, first, activeKey, onNavigate, onPreview }) {
       {group.more && (
         <Link
           href={group.more.href}
-          title={`Click Here to View ${group.more.label}`}
+          title={linkTitle(group.more)}
           onClick={onNavigate}
           className="mt-3.5 inline-flex w-fit max-w-full items-center gap-2 py-1 text-[14px] leading-[1.45] font-semibold text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4"
         >
@@ -153,7 +159,7 @@ function PanelGroup({ group, first, activeKey, onNavigate, onPreview }) {
 
 /* Right-hand preview pane: reflects the hovered/focused item. No CTA when
  * the item has no page yet. */
-function Preview({ pv, ctaHref }) {
+function Preview({ pv, ctaHref, ctaTitle }) {
   return (
     <Box className="flex min-w-0 flex-col gap-2.5 self-start border-l border-ink/12 pl-8 max-[1439px]:pl-6">
       <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">{pv.c}</Text>
@@ -169,7 +175,7 @@ function Preview({ pv, ctaHref }) {
         <Box className="mt-0.5 border-t border-ink/12 pt-3.5">
           <Link
             href={ctaHref}
-            title={`Click Here to View ${pv.b || "View page"}`}
+            title={ctaTitle || `Click Here to View ${pv.b || "View page"}`}
             className="inline-flex items-center gap-1.5 rounded-full border border-navy px-3.5 py-2 text-[13px] font-semibold leading-none text-navy whitespace-nowrap transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(10,22,40,0.07),0_4px_12px_rgba(10,22,40,0.07)]"
           >
             {pv.b || "View page"}
@@ -333,7 +339,7 @@ export default function MegaMenu({ onOpenBrief }) {
           <li className="flex">
             <Link
               href="/contact-us"
-              title="Click Here to View Contact Us"
+              title="Click here to view Edstellar's contact details"
               onMouseEnter={close}
               onFocus={close}
               className={`relative inline-flex items-center whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy max-[1439px]:px-1.5 max-[1279px]:px-1 ${TAB_UNDERLINE} after:scale-x-0 hover:after:scale-x-100`}
@@ -349,6 +355,9 @@ export default function MegaMenu({ onOpenBrief }) {
         const shownPv = isOpen ? pv || item.first : item.first;
         const lit = shownPv?.s?.length ? shownPv.s : item.stages;
         const ctaHref = isOpen ? activeHref || firstLinkHref(item) : firstLinkHref(item);
+        const ctaLink =
+          item.groups.flatMap((g) => g.links).find((l) => (isOpen && activeKey ? linkKey(l) === activeKey : l.href === ctaHref)) ??
+          item.groups[0].links[0];
         return (
           <Box
             key={item.id}
@@ -369,10 +378,7 @@ export default function MegaMenu({ onOpenBrief }) {
                       : "grid grid-cols-[minmax(0,1fr)_340px] gap-10 max-[1439px]:grid-cols-[minmax(0,1fr)_300px] max-[1439px]:gap-8"
                   }
                 >
-                  <Box
-                    className="grid gap-8 max-[1439px]:gap-6"
-                    style={{ gridTemplateColumns: `repeat(${item.groups.length}, minmax(0, 1fr))` }}
-                  >
+                  <Box className={`grid gap-8 max-[1439px]:gap-6 ${GROUP_COLS[item.groups.length] ?? "grid-cols-3"}`}>
                     {item.groups.map((group, i) => (
                       <PanelGroup
                         key={group.heading}
@@ -385,13 +391,13 @@ export default function MegaMenu({ onOpenBrief }) {
                     ))}
                   </Box>
                   {/* A `full` panel (Company) has no preview pane: its groups take the width. */}
-                  {shownPv && !item.full && <Preview pv={shownPv} ctaHref={ctaHref} />}
+                  {shownPv && !item.full && <Preview pv={shownPv} ctaHref={ctaHref} ctaTitle={ctaLink.href ? linkTitle(ctaLink) : undefined} />}
                 </Box>
                 {item.foot && (
                   <Box className="mt-6 border-t border-ink/12 pt-4">
                     <Link
                       href={item.foot.href}
-                      title={`Click Here to View ${item.foot.label}`}
+                      title={linkTitle(item.foot)}
                       onClick={close}
                       className="inline-flex items-center gap-2 text-[14px] font-semibold text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4"
                     >
