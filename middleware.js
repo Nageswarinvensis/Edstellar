@@ -61,19 +61,22 @@ function getCmsUrl(pathname) {
     return `${CMS_BASE}/api/v2/trainer/${encodeURIComponent(slug.slice("trainer/".length))}`;
   }
 
-  // Corporate training is NOT a site page. A domain (`/corporate-training/
-  // {domain}`) is served from `/api/v2/domains/{slug}` and a course
-  // (`/corporate-training/{domain}/{course}`) from `/api/v2/pages/{slug}`
-  // (see lib/content/domains.js and lib/content/courses.js). Probing
-  // `site-pages/{path}` for these always 404s — it was ~a third of all CMS
-  // load in production (144,615 wasted 404s in 30h) — and never produced a
-  // redirect, since the 404 falls straight through to the renderer. Skip it:
-  // the renderer already fetches the real endpoint, so a duplicate probe here
-  // would only double that load. Retired domain/course slugs are not wired to
-  // this redirect mechanism; handle those via next.config `redirects()` or a
-  // sitemap-backed check if they're ever needed.
-  if (slug === "corporate-training" || slug.startsWith("corporate-training/")) {
-    return null;
+  // Corporate training is NOT a site page — probe the real endpoints so
+  // retired domain/course slugs are caught by the redirect mechanism.
+  // - /corporate-training/{domain}         → /api/v2/domains/{domain}
+  // - /corporate-training/{domain}/{course} → /api/v2/pages/{domain}/{course}
+  // The listing page itself has no redirect target, so skip it.
+  if (slug === "corporate-training") return null;
+  if (slug.startsWith("corporate-training/")) {
+    const rest = slug.slice("corporate-training/".length);
+    const parts = rest.split("/");
+    if (parts.length === 1) {
+      return `${CMS_BASE}/api/v2/domains/${encodeURIComponent(parts[0])}`;
+    }
+    if (parts.length === 2) {
+      return `${CMS_BASE}/api/v2/pages/${encodeURIComponent(parts[0])}/${encodeURIComponent(parts[1])}`;
+    }
+    return null; // 4+ segments don't exist
   }
 
   // The blog index is a listing, not a redirectable slug (individual posts are
@@ -110,6 +113,12 @@ function sitePathFromCmsUrl(finalUrl) {
   }
   if (path.startsWith("/api/v2/trainer/")) {
     return `/trainer/${path.slice("/api/v2/trainer/".length)}`;
+  }
+  if (path.startsWith("/api/v2/domains/")) {
+    return `/corporate-training/${path.slice("/api/v2/domains/".length)}`;
+  }
+  if (path.startsWith("/api/v2/pages/")) {
+    return `/corporate-training/${path.slice("/api/v2/pages/".length)}`;
   }
   if (path.startsWith("/api/v2/site-pages/")) {
     return `/${path.slice("/api/v2/site-pages/".length)}`;

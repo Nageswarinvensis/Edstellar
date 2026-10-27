@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { resolveTrainingSlug } from "@/lib/content/taxonomy";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
-// import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
 import DomainPage from "@/components/templates/training/domain-page";
 
 /** Same fix as the blog author page: the CMS's `meta_title` already ends in
@@ -57,20 +57,68 @@ export default async function TrainingPage({ params }) {
 
   if (!Template) notFound();
 
-  const courses = entry.data.coursesData?.courses ?? [];
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/corporate-training/${slug}`;
+  const rawTitle = entry.data.seo?.meta_title ?? entry.data.name;
+  const pageTitle = stripSiteSuffix(rawTitle) ?? rawTitle;
+  const pageDescription = entry.data.seo?.Meta_description;
+  const breadcrumbs = entry.data.breadcrumbs ?? [];
+  const faqItems = entry.data.faqs?.items ?? [];
 
   return (
     <>
-      {/* <SchemaOrg
-        breadcrumbs={entry.data.breadcrumbs}
-        faqs={entry.data.faqs?.items}
-        collectionPage={entry.type === "domain" && courses.length ? {
-          name: entry.data.name,
-          description: entry.data.seo?.Meta_description,
-          path: `/corporate-training/${slug}`,
-          courses,
-        } : null}
-      /> */}
+      {/* 1 — WebSite + WebPage */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": `${BASE}/#website`,
+            "url": BASE,
+            "name": "Edstellar"
+          },
+          {
+            "@type": "WebPage",
+            "@id": `${pageUrl}#webpage`,
+            "url": pageUrl,
+            "name": pageTitle,
+            ...(pageDescription && { "description": pageDescription }),
+            "inLanguage": "en-US",
+            "isPartOf": { "@id": `${BASE}/#website` },
+            "breadcrumb": { "@id": `${pageUrl}#breadcrumb` },
+            ...(faqItems.length && { "hasPart": { "@id": `${pageUrl}#faq` } })
+          }
+        ]
+      }} />
+
+      {/* 2 — BreadcrumbList + FAQPage */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          ...(breadcrumbs.length ? [{
+            "@type": "BreadcrumbList",
+            "@id": `${pageUrl}#breadcrumb`,
+            "itemListElement": breadcrumbs.map((item, i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "name": item.label,
+              "item": item.href?.startsWith("http") ? item.href : `${BASE}${item.href}`
+            }))
+          }] : []),
+          ...(faqItems.length ? [{
+            "@type": "FAQPage",
+            "@id": `${pageUrl}#faq`,
+            "isPartOf": { "@id": `${pageUrl}#webpage` },
+            "inLanguage": "en-US",
+            "mainEntity": faqItems.map((faq) => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+            }))
+          }] : [])
+        ]
+      }} />
+
       <Template domain={entry.data} />
     </>
   );
