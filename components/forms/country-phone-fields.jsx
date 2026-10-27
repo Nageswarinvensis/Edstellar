@@ -94,7 +94,9 @@ export default function CountryPhoneFields({
   renderField,
   phoneInputClassName,
 }) {
-  const phoneId = useId();
+  // React's ids look like `«R1a»`; keep only [A-Za-z0-9_-] so a checker that
+  // matches `label[for]` with a plain selector still pairs label and input.
+  const phoneId = `phone-${useId().replace(/[^\w-]/g, "")}`;
   // The ~235 country <option>s render only once the dropdown is first
   // touched: this field sits in up to three forms per course page, and the
   // full lists otherwise add ~700 elements to the initial HTML. Mounted on
@@ -125,7 +127,7 @@ export default function CountryPhoneFields({
         <select
           {...register("country", { required: "Please select your country." })}
           autoComplete="country-name"
-          aria-label={dark ? "Country" : undefined}
+          aria-label="Country"
           aria-invalid={Boolean(errors.country)}
           onPointerDown={mountList}
           onKeyDown={mountList}
@@ -249,6 +251,7 @@ export function HoneypotField({ register }) {
     <input
       {...register("company_website")}
       type="text"
+      aria-label="Leave this field empty"
       tabIndex={-1}
       autoComplete="off"
       aria-hidden="true"

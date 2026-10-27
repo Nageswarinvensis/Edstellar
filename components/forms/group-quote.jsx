@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useId, useMemo, useRef, useState, useTransition } from "react";
+import {
+  useCallback,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+  useTransition,
+} from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Minus, Plus, Search } from "lucide-react";
@@ -15,7 +22,10 @@ import RichHeading from "@/components/common/rich-heading";
 import SecCta from "@/components/common/sec-cta";
 import { CtaButton } from "@/components/common/cta-button";
 import { FormField, formInputClasses } from "@/components/common/form-field";
-import CountryPhoneFields, { HoneypotField, phoneForSubmit } from "@/components/forms/country-phone-fields";
+import CountryPhoneFields, {
+  HoneypotField,
+  phoneForSubmit,
+} from "@/components/forms/country-phone-fields";
 import { cn } from "@/lib/utils";
 import { EMAIL_PATTERN, FREE_MAIL_DOMAINS } from "@/lib/constants";
 import { LICENSE_PACKAGES } from "@/content/group-quote-catalog";
@@ -31,7 +41,7 @@ const SECTION_CTA = {
   title: "Training Packages & Pricing",
   description:
     "Choose the training format that works for your team. Pricing is customized based on your requirements, cohort size, and delivery needs.",
-  cta: { label: "See the full package table", href: "#apply" },
+  cta: { label: "See the Full Package Table", href: "#apply" },
 };
 
 const SECTION_DATA = {
@@ -46,7 +56,15 @@ const FILE_TYPES = /\.(xls|xlsx)$/i;
 const FILE_MAX_BYTES = 4 * 1024 * 1024;
 
 /** Contact-step fields; any other field the server rejects shows above the button. */
-const CONTACT_FIELDS = ["name", "workEmail", "company", "jobTitle", "country", "phone", "needs"];
+const CONTACT_FIELDS = [
+  "name",
+  "workEmail",
+  "company",
+  "jobTitle",
+  "country",
+  "phone",
+  "needs",
+];
 
 function pathFor(mode) {
   return mode === "multiple"
@@ -73,7 +91,11 @@ function stripTrainingSuffix(name) {
  * `/thank-you/{thankYou}` (default `course-multistep-form`); a field the server rejects
  * shows under that field, anything else above the button.
  */
-export default function GroupQuote({ heading, courseName, thankYou = "course-multistep-form" }) {
+export default function GroupQuote({
+  heading,
+  courseName,
+  thankYou = "course-multistep-form",
+}) {
   const cardRef = useRef(null);
 
   // The current course is pre-selected and locked in the RFP builder (shown as
@@ -102,9 +124,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, startSearchTransition] = useTransition();
-  const [selected, setSelected] = useState(
-    () => new Set([lockedProgram]),
-  );
+  const [selected, setSelected] = useState(() => new Set([lockedProgram]));
   const [file, setFile] = useState(null);
   const [fileError, setFileError] = useState("");
   const fileName = file?.name ?? "";
@@ -337,6 +357,7 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
                 type="radio"
                 name="gq-team-size"
                 value={option}
+                aria-label={option === "custom" ? "Custom team size" : `${option} people`}
                 checked={teamSize === option}
                 onChange={() => {
                   setTeamSize(option);
@@ -354,7 +375,6 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             <button
               type="button"
               onClick={() => setTeamSizeCustom((n) => Math.max(1, n - 1))}
-             
               aria-label="Decrease number of team members"
               className="grid w-11 flex-none place-items-center bg-paper-warm text-ink transition-colors duration-200 hover:bg-paper-cream"
             >
@@ -373,7 +393,6 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             <button
               type="button"
               onClick={() => setTeamSizeCustom((n) => n + 1)}
-             
               aria-label="Increase number of team members"
               className="grid w-11 flex-none place-items-center bg-paper-warm text-ink transition-colors duration-200 hover:bg-paper-cream"
             >
@@ -408,10 +427,11 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
           <button
             type="button"
             onClick={() => setProgramMode("catalog")}
-           
             className={cn(
               "rounded-full px-4.5 py-2 font-body text-[12.5px] font-semibold transition-colors duration-200",
-              programMode === "catalog" ? "bg-navy text-lime" : "text-ink-muted",
+              programMode === "catalog"
+                ? "bg-navy text-lime"
+                : "text-ink-muted",
             )}
           >
             Select from the catalog
@@ -419,7 +439,6 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
           <button
             type="button"
             onClick={() => setProgramMode("upload")}
-           
             className={cn(
               "rounded-full px-4.5 py-2 font-body text-[12.5px] font-semibold transition-colors duration-200",
               programMode === "upload" ? "bg-navy text-lime" : "text-ink-muted",
@@ -454,7 +473,6 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
                 <button
                   type="button"
                   onClick={clearPrograms}
-                 
                   className="text-[13px] text-ink-muted underline underline-offset-3 hover:text-ink"
                 >
                   Clear all
@@ -462,7 +480,12 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               ) : null}
             </Box>
 
-            <Box className={cn("max-h-[266px] overflow-y-auto rounded-xl border border-ink/12 bg-white", isSearching && "opacity-50")}>
+            <Box
+              className={cn(
+                "max-h-[266px] overflow-y-auto rounded-xl border border-ink/12 bg-white",
+                isSearching && "opacity-50",
+              )}
+            >
               {query.trim() && searchResults.length ? (
                 searchResults.map((item) => {
                   const locked = item.title === lockedProgram;
@@ -587,7 +610,11 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               </Text>
             ) : null}
             {fileError ? (
-              <Text as="p" role="alert" className="mt-3 text-center text-[12.5px] text-red-600">
+              <Text
+                as="p"
+                role="alert"
+                className="mt-3 text-center text-[12.5px] text-red-600"
+              >
                 {fileError}
               </Text>
             ) : null}
@@ -694,7 +721,6 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
                 <button
                   type="button"
                   onClick={() => setSessionsCustom((n) => Math.max(2, n - 1))}
-                 
                   aria-label="Decrease number of sessions"
                   className="grid w-11 flex-none place-items-center bg-paper-warm text-ink transition-colors duration-200 hover:bg-paper-cream"
                 >
@@ -713,7 +739,6 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
                 <button
                   type="button"
                   onClick={() => setSessionsCustom((n) => n + 1)}
-                 
                   aria-label="Increase number of sessions"
                   className="grid w-11 flex-none place-items-center bg-paper-warm text-ink transition-colors duration-200 hover:bg-paper-cream"
                 >
@@ -807,13 +832,13 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               as="p"
               className="mb-5 text-[13px] leading-[1.6] text-ink-muted"
             >
-              Send this requirement straight from here. A training
-              specialist replies within one business day with a tailored
-              proposal.
+              Send this requirement straight from here. A training specialist
+              replies within one business day with a tailored proposal.
             </Text>
 
             <Box
               as="form"
+              aria-label="Group quote request"
               noValidate
               onSubmit={handleContactSubmit(onContactSubmit)}
               className="relative grid grid-cols-1 gap-4 sm:grid-cols-2"
@@ -893,7 +918,13 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               </FormField>
 
               <CountryPhoneFields
-                form={{ register: registerContact, control, watch, setValue, errors: contactErrors }}
+                form={{
+                  register: registerContact,
+                  control,
+                  watch,
+                  setValue,
+                  errors: contactErrors,
+                }}
                 phoneLabel="Phone"
               />
 
@@ -911,7 +942,11 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
               </FormField>
 
               {submitError ? (
-                <Text as="p" role="alert" className="mt-3 text-[13px] leading-[1.5] text-destructive sm:col-span-2">
+                <Text
+                  as="p"
+                  role="alert"
+                  className="mt-3 text-[13px] leading-[1.5] text-destructive sm:col-span-2"
+                >
                   {submitError}
                 </Text>
               ) : null}
@@ -937,7 +972,10 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
       className="border-t border-ink/10 bg-paper-warm"
     >
       <Reveal delay={1}>
-        <RichHeading heading={heading || SECTION_DATA.heading} className="mb-5 max-w-[18ch]" />
+        <RichHeading
+          heading={heading || SECTION_DATA.heading}
+          className="mb-5 max-w-[18ch]"
+        />
       </Reveal>
 
       <Reveal delay={2}>
@@ -1025,7 +1063,9 @@ export default function GroupQuote({ heading, courseName, thankYou = "course-mul
             as="h3"
             className="mb-2.5 max-w-[26ch] font-display text-[clamp(19px,2vw,24px)] font-medium leading-[1.25] tracking-[-0.025em] text-ink"
           >
-            {courseName ? `${stripTrainingSuffix(courseName)} Training Packages & Pricing` : "Training Packages & Pricing"}
+            {courseName
+              ? `${stripTrainingSuffix(courseName)} Training Packages & Pricing`
+              : "Training Packages & Pricing"}
           </Text>
           <Text
             as="p"

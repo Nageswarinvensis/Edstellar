@@ -39,6 +39,26 @@ const firstLinkHref = (item) => item.groups[0].links[0].href;
  * not the href — otherwise hovering one lights every link that shares its URL. */
 const linkKey = (link) => `${link.href}::${link.label}`;
 
+/* The bullet before each non-main link, drawn as the link's own ::before
+ * rather than an empty <span> — about 80 fewer DOM nodes on every page. The
+ * link is a flex row with `gap-2.5`, so the pseudo-element sits exactly where
+ * the span did. `interactive`: links grow it on hover; static text does not. */
+const dotClasses = (active, interactive) =>
+  [
+    "before:size-[5px] before:flex-none before:rounded-full before:border before:content-['']",
+    interactive && "before:transition-transform before:duration-200",
+    active
+      ? "before:scale-[1.3] before:border-navy before:bg-navy"
+      : `before:border-ink/22${interactive ? " hover:before:scale-110" : ""}`,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+/* A tab's underline, drawn as its ::after (the tab is `relative`) instead of
+ * an empty <span>; each tab adds its own `after:scale-x-*` for open/hover. */
+const TAB_UNDERLINE =
+  "after:absolute after:inset-x-2 after:-bottom-px after:h-[2px] after:origin-left after:bg-navy after:transition-transform after:duration-200 after:content-['']";
+
 function PanelLink({ link, divider, active, onNavigate, onPreview }) {
   const label = (
     <span className="min-w-0">
@@ -53,14 +73,10 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
         <Box
           as="span"
           onMouseEnter={() => onPreview(link)}
-          className={`flex items-center gap-2.5 py-[5px] text-[14px] leading-snug text-navy ${link.main ? "font-semibold" : ""}`}
+          className={`flex items-center gap-2.5 py-[5px] text-[14px] leading-snug text-navy ${
+            link.main ? "font-semibold" : dotClasses(active, false)
+          }`}
         >
-          {!link.main && (
-            <span
-              aria-hidden="true"
-              className={`size-[5px] flex-none rounded-full border ${active ? "scale-[1.3] border-navy bg-navy" : "border-ink/22"}`}
-            />
-          )}
           {label}
         </Box>
       ) : link.anchor ? (
@@ -70,18 +86,10 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
           onClick={onNavigate}
           onMouseEnter={() => onPreview(link)}
           onFocus={() => onPreview(link)}
-          className={`group/mi flex items-center gap-2.5 py-[5px] text-[14px] leading-snug text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4 ${
-            link.main ? "font-semibold" : ""
+          className={`flex items-center gap-2.5 py-[5px] text-[14px] leading-snug text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4 ${
+            link.main ? "font-semibold" : dotClasses(active, true)
           }`}
         >
-          {!link.main && (
-            <span
-              aria-hidden="true"
-              className={`size-[5px] flex-none rounded-full border transition-transform duration-200 ${
-                active ? "scale-[1.3] border-navy bg-navy" : "border-ink/22 group-hover/mi:scale-110"
-              }`}
-            />
-          )}
           {label}
           {link.main && <Arrow className="size-3.5 flex-none" />}
         </a>
@@ -92,18 +100,10 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
           onClick={onNavigate}
           onMouseEnter={() => onPreview(link)}
           onFocus={() => onPreview(link)}
-          className={`group/mi flex items-center gap-2.5 py-[5px] text-[14px] leading-snug text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4 ${
-            link.main ? "font-semibold" : ""
+          className={`flex items-center gap-2.5 py-[5px] text-[14px] leading-snug text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4 ${
+            link.main ? "font-semibold" : dotClasses(active, true)
           }`}
         >
-          {!link.main && (
-            <span
-              aria-hidden="true"
-              className={`size-[5px] flex-none rounded-full border transition-transform duration-200 ${
-                active ? "scale-[1.3] border-navy bg-navy" : "border-ink/22 group-hover/mi:scale-110"
-              }`}
-            />
-          )}
           {label}
           {link.main && <Arrow className="size-3.5 flex-none" />}
         </Link>
@@ -319,16 +319,12 @@ export default function MegaMenu({ onOpenBrief }) {
                   onClick={() => onTabClick(item.id)}
                   onMouseEnter={() => onTabEnter(item.id)}
                   onMouseLeave={clearTimers}
-                  className="group/tab relative inline-flex cursor-pointer items-center gap-1 whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy max-[1439px]:px-1.5 max-[1279px]:px-1"
+                  className={`relative inline-flex cursor-pointer items-center gap-1 whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy max-[1439px]:px-1.5 max-[1279px]:px-1 ${TAB_UNDERLINE} ${
+                    isOpen ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-[0.35]"
+                  }`}
                 >
                   {item.tab}
                   <Chevron className={`size-3 opacity-60 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
-                  <span
-                    aria-hidden="true"
-                    className={`absolute inset-x-2 -bottom-px h-[2px] origin-left bg-navy transition-transform duration-200 ${
-                      isOpen ? "scale-x-100" : "scale-x-0 group-hover/tab:scale-x-[0.35]"
-                    }`}
-                  />
                 </Box>
               </li>
             );
@@ -340,13 +336,9 @@ export default function MegaMenu({ onOpenBrief }) {
               title="Click Here to View Contact Us"
               onMouseEnter={close}
               onFocus={close}
-              className="group/tab relative inline-flex items-center whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy max-[1439px]:px-1.5 max-[1279px]:px-1"
+              className={`relative inline-flex items-center whitespace-nowrap px-2 py-[22px] font-body text-[14px] font-medium text-navy max-[1439px]:px-1.5 max-[1279px]:px-1 ${TAB_UNDERLINE} after:scale-x-0 hover:after:scale-x-100`}
             >
               Contact Us
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-2 -bottom-px h-[2px] origin-left scale-x-0 bg-navy transition-transform duration-200 group-hover/tab:scale-x-100"
-              />
             </Link>
           </li>
         </Box>

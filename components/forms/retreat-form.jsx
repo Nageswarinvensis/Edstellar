@@ -140,6 +140,7 @@ export default function RetreatForm({
         <Reveal delay={1} className={split ? "w-full" : "mx-auto max-w-240"}>
           <Box
             as="form"
+            aria-label="Training enquiry"
             noValidate
             onSubmit={handleSubmit(onSubmit)}
             className="relative rounded-[18px] bg-white px-4 py-7.5 sm:p-10"

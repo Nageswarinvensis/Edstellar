@@ -83,7 +83,7 @@ export default function BlogDetailToc() {
           Content
         </h3>
 
-        <nav>
+        <nav aria-label="Article contents">
           {headings.map((item) => (
             <a
               key={item.id}

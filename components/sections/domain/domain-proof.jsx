@@ -1,6 +1,5 @@
 import Reveal from "@/components/common/reveal";
-import TrainerFaces from "@/components/common/trainer-faces";
-import { getTrainerFaces } from "@/lib/content/home";
+import TrainersImage from "@/components/common/trainers-image";
 import Box from "@/components/ui/Box";
 import Section from "@/components/ui/Section";
 import { cn } from "@/lib/utils";
@@ -18,8 +17,8 @@ import { cn } from "@/lib/utils";
  *
  * Driven by `proof.stats`: the stat whose label names the trainers renders as
  * the avatar-stack cell; every other stat as a figure + label. The faces are
- * the home hero's trainer photos (`getTrainerFaces()`), not CMS data — the
- * CMS `stats` only carry the figures and labels.
+ * one local image strip (`TrainersImage`), not CMS data — the CMS `stats`
+ * only carry the figures and labels.
  */
 
 function StatValue({ children }) {
@@ -70,7 +69,7 @@ function DomainProof({ proof }) {
                     key={index}
                     className={cn(cell, "flex-row items-center gap-3")}
                   >
-                    <TrainerFaces people={getTrainerFaces()} className="-space-x-2.5" faceClassName="size-8 ring-white" />
+                    <TrainersImage className="h-8" />
                     <Box className="flex shrink-0 flex-col gap-[5px]">
                       <StatValue>{stat.value}</StatValue>
                       {/* Kept on one line: beside the avatar stack it otherwise wraps to two. */}

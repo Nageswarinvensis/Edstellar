@@ -110,6 +110,7 @@ export default function PartnerForm({
     <Box className="overflow-hidden rounded-[22px] border border-ink/12 bg-white shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)]">
       <Box
         as="form"
+        aria-label="Partner program application"
         id={id}
         noValidate
         aria-label={business ? "Partner application for businesses" : "Partner application for individuals"}

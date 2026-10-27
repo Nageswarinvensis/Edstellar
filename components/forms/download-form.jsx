@@ -22,7 +22,7 @@ import { submitCatalogDownload } from "@/lib/actions/submit-catalog-download";
  * blocked it, so the caller must offer the PDF link itself — see
  * `DownloadReady`), with the `{ name, email }` the visitor entered.
  */
-export default function DownloadForm({ pdf, idPrefix, submitLabel, onSuccess }) {
+export default function DownloadForm({ pdf, idPrefix, submitLabel, onSuccess, formLabel = "Brochure download" }) {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
@@ -91,7 +91,7 @@ export default function DownloadForm({ pdf, idPrefix, submitLabel, onSuccess }) 
   }
 
   return (
-    <form noValidate onSubmit={submit}>
+    <form noValidate onSubmit={submit} aria-label={formLabel}>
       <Field
         id={`${idPrefix}-name`}
         label="Name"
@@ -138,6 +138,7 @@ export default function DownloadForm({ pdf, idPrefix, submitLabel, onSuccess }) 
       <input
         type="text"
         name="company_website"
+        aria-label="Leave this field empty"
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"

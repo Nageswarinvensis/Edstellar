@@ -2,7 +2,6 @@ import Box from "@/components/ui/Box";
 import Reveal from "@/components/common/reveal";
 import CourseInfoStrip from "@/components/sections/course/course-info-strip";
 import CapabilityModel from "@/components/sections/course/capability-model";
-import { getTrainerFaces } from "@/lib/content/home";
 
 const DELIVERY = {
   title: "Delivery",
@@ -17,8 +16,6 @@ const GROUP_QUOTE = {
 };
 
 const TRAINERS_STATIC = {
-  // The home hero's trainer photos, not a pre-composed avatar strip.
-  people: getTrainerFaces(),
   trainer_label: "Expert trainers",
   meet_label: "Meet them",
 };

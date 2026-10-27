@@ -58,7 +58,7 @@ function Select({ id, registration, placeholder, options, invalid }) {
 function Pill({ type, registration, value, label }) {
   return (
     <label className="cursor-pointer">
-      <input type={type} value={value} {...registration} className="peer sr-only" />
+      <input type={type} value={value} {...registration} aria-label={label} className="peer sr-only" />
       <Text
         as="span"
         className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-white px-4 py-2 text-[14.5px] text-ink transition-colors peer-checked:border-navy peer-checked:bg-navy peer-checked:text-lime peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-navy"
@@ -158,7 +158,7 @@ export default function RfpForm({ data, thankYou = "consulting" }) {
 
   return (
     <Box className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1.65fr_1fr]">
-      <Box as="form" noValidate onSubmit={handleSubmit(onSubmit)} className="relative rounded-[20px] border border-ink/12 bg-white px-4 py-7.5 shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)] sm:p-10">
+      <Box as="form" aria-label="Request for proposal" noValidate onSubmit={handleSubmit(onSubmit)} className="relative rounded-[20px] border border-ink/12 bg-white px-4 py-7.5 shadow-[0_30px_70px_-50px_rgba(10,22,40,0.55)] sm:p-10">
         <HoneypotField register={register} />
         <Part number={1} title="About you">
           <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2">

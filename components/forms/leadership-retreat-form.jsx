@@ -87,6 +87,7 @@ export default function LeadershipRetreatForm({ data, id = "contact", thankYou =
       <Reveal delay={1} className="mx-auto max-w-240">
         <Box
           as="form"
+          aria-label="Leadership retreat request"
           noValidate
           onSubmit={handleSubmit(onSubmit)}
           className="relative rounded-[18px] bg-white px-4 py-7.5 sm:p-10"
