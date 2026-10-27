@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
-// import SchemaOrg from "@/components/seo/schema-org";
+import SchemaOrg from "@/components/seo/schema-org";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -51,10 +51,23 @@ export default async function LDConsultingPage() {
 
   return (
     <BrochureGate {...consultingBrochure("learning-development-consulting-services")}>
-      {/* <SchemaOrg
-        breadcrumbs={cms.breadcrumbs?.items}
-        faqs={cms.faqs?.items}
-      /> */}
+      <SchemaOrg
+        webpage={{
+          name: "Learning and Development Consulting Services | Edstellar",
+          description: "Align learning with business goals through Edstellar's L&D consulting services, covering strategy, content, technology, governance and training delivery.",
+          path: "/learning-development-consulting-services",
+        }}
+        service={{
+          name: "Learning and Development Consulting Services",
+          description: "Edstellar is a learning and development consulting firm helping enterprises connect learning strategy, content, technology, governance and delivery with business priorities. Our expert consultants work with organizational teams to build a coordinated learning function that addresses capability gaps and supports ongoing workforce development.",
+          path: "/learning-development-consulting-services",
+          serviceType: "Learning and Development Consulting",
+        }}
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Learning & Development Consulting Services", href: "/learning-development-consulting-services" },
+        ]}
+      />
       <ConsultingHero
         data={cms.consulting_Hero}
         breadcrumbItems={cms.breadcrumbs?.items}
