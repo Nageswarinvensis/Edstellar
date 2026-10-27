@@ -1,18 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Meridian AI-Assisted 1:1 Leadership Coaching · Edstellar</title>
 <meta name="description" content="Meridian by Edstellar: AI-assisted one-on-one leadership coaching. A certified coach, a structured track of six phases and a private session room for every leader. Get a free demo.">
 <link rel="canonical" href="https://www.edstellar.com/platforms/meridian">
-<meta name="robots" content="noindex, nofollow">
 <script>document.documentElement.classList.add('js')</script>
 <meta property="og:type" content="website"><meta property="og:title" content="Meridian AI-Assisted 1:1 Leadership Coaching · Edstellar"><meta property="og:description" content="Meridian by Edstellar: AI-assisted one-on-one leadership coaching. A certified coach, a structured track of six phases and a private session room for every leader. Get a free demo.">
 <meta property="og:url" content="https://www.edstellar.com/platforms/meridian"><meta property="og:image" content="https://www.edstellar.com/images/meridian-og.webp">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Meridian AI-Assisted 1:1 Leadership Coaching · Edstellar"><meta name="twitter:description" content="Meridian by Edstellar: AI-assisted one-on-one leadership coaching. A certified coach, a structured track of six phases and a private session room for every leader. Get a free demo.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <style>
 /* Meridian hub. Meridian palette (from the product prototypes), Cormorant Garamond + Inter, US English. */
 :root{
@@ -26,7 +25,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
+html{scroll-behavior:smooth;scroll-padding-top:58px}
 body{margin:0;background:var(--pine-deep);color:var(--cream);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
 img,svg{display:block}
 a{color:inherit}
@@ -92,7 +91,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .js .rv.in{opacity:1;transform:none}
 
 /* ---------- hero ---------- */
-.hero{--top:120px;background:radial-gradient(760px 560px at 76% 46%,rgba(183,154,94,.12),transparent 70%),var(--pine-deep);overflow:hidden;display:flex;flex-direction:column;min-height:calc(100vh - var(--top));min-height:calc(100svh - var(--top))}
+.hero{--top:58px;background:radial-gradient(760px 560px at 76% 46%,rgba(183,154,94,.12),transparent 70%),var(--pine-deep);overflow:hidden;display:flex;flex-direction:column;min-height:calc(100vh - var(--top));min-height:calc(100svh - var(--top))}
 /* globe scales with the screen height so the whole hero, breadcrumb included, fits one viewport */
 .hero{--gmax:min(600px,calc(100svh - var(--top) - 178px))}
 .hero .container{max-width:1320px}
@@ -450,7 +449,7 @@ button,input,select,textarea{font:inherit;color:inherit}
   .subnav ul{display:none}
   .subnav-in{justify-content:space-between}
   .hero{min-height:0;--gmax:520px}
-  .hero-in{grid-template-columns:minmax(0,1fr);gap:28px;min-height:0;padding-top:22px}
+  .hero-in{grid-template-columns:minmax(0,1fr);gap:28px;min-height:0;padding-top:48px}
   .globe{max-width:520px}
   .why-in,.ss,.mt,.pv-in,.faq-in,.demo-in{grid-template-columns:minmax(0,1fr);gap:36px}
   .why-copy{position:static}
@@ -530,6 +529,74 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* Section spacing per Edstellar brand guidelines 4.2: 80px desktop, 60px tablet, 40px mobile */
 @media (max-width:900px){.section{padding:60px 0}}
 @media (max-width:600px){.section{padding:40px 0}}
+
+
+/* ===== hub: Edstellar bar with in-page menu (Oct 26) ===== */
+.hubnav .subnav-in{gap:20px;position:relative}
+.sn-logo{position:relative;display:inline-flex;align-items:center;flex:none;color:#fff;text-decoration:none;padding-right:20px;margin-right:4px;border-right:1px solid var(--pine-70)}
+.sn-mark{display:block;height:40px;width:auto;aspect-ratio:139/50}
+.sn-logo:focus-visible,.sn-tog:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:6px}
+.sn-tog{display:none;align-items:center;gap:8px;border:1px solid var(--pine-70);background:transparent;color:var(--cream);border-radius:999px;padding:7px 14px;font:inherit;font-size:.82rem;font-weight:600;cursor:pointer}
+.sn-bars{display:grid;gap:3px;width:16px}.sn-bars i{display:block;height:2px;border-radius:1px;background:currentColor;transition:transform .25s,opacity .25s}
+.hubnav.open .sn-bars i:nth-child(1){transform:translateY(5px) rotate(45deg)}.hubnav.open .sn-bars i:nth-child(2){opacity:0}.hubnav.open .sn-bars i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.hubnav ul{margin:0 auto 0 0}
+.hubnav li a{font-size:.84rem;padding:8px 11px}
+.hubnav li a[aria-current]{color:var(--pine);background:var(--gold)}
+.sn-cta .s{display:none}
+@media (max-width:1180px){.hubnav li a{padding:8px 8px;font-size:.8rem}.hubnav .subnav-in{gap:14px}}
+@media (max-width:1100px){
+  .hubnav .subnav-in{justify-content:flex-start}
+  .sn-tog{display:inline-flex;margin-right:auto}
+  .hubnav ul{display:none;position:absolute;left:0;right:0;top:100%;margin:0;padding:12px 16px 16px;background:#0D1F1D;border-bottom:1px solid var(--pine-80);box-shadow:0 20px 40px rgba(0,0,0,.4);grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;overflow:visible}
+  .hubnav.open ul{display:grid}
+  .hubnav li a{padding:12px 14px;font-size:.95rem;border-radius:12px}
+}
+@media (max-width:560px){
+  .hubnav ul{grid-template-columns:minmax(0,1fr)}
+  .sn-logo{padding-right:12px}.sn-mark{height:34px}
+  .hubnav .subnav-in{gap:10px}
+  .sn-tl{display:none}.sn-tog{padding:9px 11px}
+}
+@media (max-width:380px){.sn-cta .l{display:none}.sn-cta .s{display:inline}.sn-cta{padding:0 14px}}
+
+/* ===== demo form, Edstellar consultation style (Oct 26) ===== */
+.demo-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;align-items:end;margin-bottom:36px}
+.demo-head .nx{margin:0}
+.form-card.df{background:#fff;border-radius:28px;padding:48px 44px 36px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.df .fr2{gap:0 28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.df .fr2{align-items:start}.df .fg{gap:10px;margin-bottom:24px;align-content:start}
+.df .fg label{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:500;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#3F5754}
+.df .fg label b{color:#C0392B;margin-left:2px}
+.df .fg input,.df .fg select,.df .fg textarea{background:#F8F7F2;border:1px solid #DCD7CA;border-radius:16px;padding:17px 20px;font-size:1rem;color:var(--ink);font-family:var(--sans)}
+.df .fg input::placeholder,.df .fg textarea::placeholder{color:#8A8F87}
+.df .fg select{appearance:none;-webkit-appearance:none;padding-right:48px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%231A2B29' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 20px center}
+.df .fg input:focus,.df .fg select:focus,.df .fg textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--pine);background-color:#fff}
+.df .fg textarea{min-height:150px;resize:vertical}
+.df-ph{display:flex;align-items:stretch;border:1px solid #DCD7CA;border-radius:16px;background:#F8F7F2;position:relative}
+.df-ph:focus-within{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--pine);background:#fff}
+.df-fl{position:relative;display:flex;align-items:center;gap:6px;padding:0 14px 0 20px;border-right:1px solid #DCD7CA}
+.df-fl svg{display:block;border-radius:2px;box-shadow:0 0 0 .5px rgba(0,0,0,.15)}
+.df-fl i{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #1A2B29}
+.df-ph select#f-cc{position:absolute;left:0;top:0;bottom:0;width:78px;opacity:0;cursor:pointer;border:0;padding:0;font-size:1rem}
+.df-ph select#f-cc:focus-visible+.df-code{outline:none}
+.df-code{display:flex;align-items:center;padding-left:16px;font-size:1rem;color:var(--ink)}
+.df .df-ph input{border:0;background:transparent;border-radius:0 16px 16px 0;padding-left:8px}
+.df .df-ph input:focus{outline:none;background:transparent}
+.df .fg.bad input,.df .fg.bad select,.df .fg.bad .df-ph{border-color:#C0392B}
+.df .err{font-size:.78rem;color:#B03A2E}
+.df-foot{display:flex;justify-content:space-between;align-items:center;gap:20px 32px;margin-top:8px;padding-top:28px;border-top:1px solid #E7E2D6}
+.df-foot p{margin:0;max-width:52ch;font-size:.98rem;color:#58605C;line-height:1.55}
+.df-foot .df-pp{margin-top:6px;font-size:.8rem}.df-foot .df-pp a{color:var(--pine)}
+.btn.df-go{flex:none;background:var(--pine);color:var(--gold-hi);min-height:62px;padding:0 34px;font-size:1.02rem;letter-spacing:0;text-transform:none;font-weight:600}
+.btn.df-go:hover{background:#0E2422}
+.btn.df-go:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.df .thanks h3{color:var(--ink)}
+@media (max-width:1100px){.demo-head{grid-template-columns:minmax(0,1fr);gap:20px}.form-card.df{padding:36px 28px 28px}.df .fr2{gap:0 20px}}
+@media (max-width:600px){.df .fr2{grid-template-columns:minmax(0,1fr)}.df .fg{margin-bottom:18px}.df-foot{flex-direction:column;align-items:stretch}.btn.df-go{width:100%}}
+@media (max-width:480px){.form-card.df{padding:26px 18px 22px;border-radius:22px}.df .fg input,.df .fg select,.df .fg textarea{padding:14px 16px}.df .fg select{background-position:right 16px center;padding-right:40px}.df-fl{padding:0 10px 0 14px}.df .fg label{font-size:.68rem;letter-spacing:.12em}}
+
+@media (max-width:600px){.hero-in{padding-top:36px}}
+.df .fg{scroll-margin-top:24px}
 
 /* H shared */
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -1010,20 +1077,21 @@ button,input,select,textarea{font:inherit;color:inherit}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <!-- SHARED EDSTELLAR HEADER (placeholder: replace with the site header) -->
-<header class="site-h"><div class="container"><a href="https://www.edstellar.com/" class="site-logo">Edstellar</a><span class="ph-note">Shared Edstellar header</span></div></header>
-<nav class="subnav" aria-label="Meridian">
+<nav class="subnav hubnav" aria-label="Meridian page" id="hubNav">
   <div class="container subnav-in">
-    <a class="sn-wm" href="#top">Meridian <i>by Edstellar</i></a>
-    <ul>
-      <li><a href="https://www.edstellar.com/platforms/meridian" aria-current="page">Overview</a></li>
-      <li><a href="https://www.edstellar.com/platforms/meridian/how-it-works">How it works</a></li>
-      <li><a href="https://www.edstellar.com/platforms/meridian/tracks">Tracks</a></li>
-      <li><a href="https://www.edstellar.com/platforms/meridian/session-room">Session room</a></li>
-      <li><a href="https://www.edstellar.com/platforms/meridian/coaches">Coaches</a></li>
-      <li><a href="https://www.edstellar.com/platforms/meridian/confidentiality">Confidentiality</a></li>
-      <li><a href="https://www.edstellar.com/platforms/meridian/for-organizations">For organizations</a></li>
+    <a class="sn-logo" href="https://www.edstellar.com/" aria-label="Edstellar home"><svg class="sn-mark" aria-hidden="true" focusable="false" viewBox="0 0 139 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M43.7914 34.3505C40.3272 41.5767 32.9421 46.5794 24.4156 46.5794C12.5738 46.5794 2.93559 36.9412 2.93559 25.1093C2.93559 13.2774 12.5738 3.6193 24.4156 3.6193C32.9124 3.6193 40.2775 8.58235 43.7616 15.7688C44.6748 15.9872 45.5284 16.3445 46.3225 16.8111C42.9675 7.97685 34.4112 1.68372 24.4156 1.68372C11.5018 1.68372 1 12.1855 1 25.0994C1 38.0132 11.5018 48.515 24.4156 48.515C34.441 48.515 43.0171 42.1821 46.3424 33.2983C45.5582 33.7648 44.6946 34.1222 43.7914 34.3505Z" fill="#255FFF"/><path d="M39.0859 34.3306C36.0187 39.1943 30.5892 42.4402 24.4151 42.4402C14.8563 42.4402 7.08418 34.6581 7.08418 25.1092C7.08418 15.5603 14.8563 7.76836 24.4151 7.76836C30.5594 7.76836 35.9691 10.9844 39.0462 15.8184C39.7112 15.6397 40.4061 15.5405 41.1307 15.5107C37.7955 9.7238 31.552 5.83277 24.4151 5.83277C13.7843 5.82285 5.13867 14.4685 5.13867 25.0993C5.13867 35.7301 13.7843 44.3758 24.4151 44.3758C31.5818 44.3758 37.8451 40.445 41.1604 34.6283C40.4458 34.6085 39.741 34.4993 39.076 34.3306" fill="#779DD8"/><path d="M35.3729 32.4347C33.0005 35.9683 28.9705 38.291 24.4145 38.291C17.1386 38.291 11.2227 32.3751 11.2227 25.0993C11.2227 17.8235 17.1386 11.9075 24.4145 11.9075C28.9606 11.9075 32.9708 14.2203 35.353 17.7242C35.8493 17.3073 36.3853 16.95 36.961 16.6423C34.2413 12.6222 29.6356 9.97192 24.4244 9.97192C16.0766 9.97192 9.28711 16.7614 9.28711 25.1092C9.28711 33.457 16.0766 40.2465 24.4244 40.2465C29.6554 40.2465 34.281 37.5764 37.0007 33.5265C36.425 33.2188 35.889 32.8615 35.3927 32.4545" fill="#92B4EA"/><path d="M19.2651 23.8288C19.7714 21.2182 21.8459 19.5109 24.5954 19.5109C27.5038 19.5109 29.1416 21.5855 29.5684 23.8288H19.2651ZM24.5954 16.9103C19.8806 16.9103 16.4561 20.3546 16.4561 25.0993C16.4561 29.844 19.9302 33.2883 24.7046 33.2883C27.6924 33.2883 30.1938 31.988 31.5636 29.7149L31.8812 29.1988L29.5386 27.819L29.2409 28.365C28.4468 29.8241 26.7593 30.6976 24.7344 30.6976C21.9551 30.6976 19.8309 29.0201 19.2751 26.4691H32.3477V25.8636C32.3477 25.7643 32.3477 25.6552 32.3576 25.5559C32.3576 25.4269 32.3775 25.2978 32.3775 25.1688C32.3775 23.0148 31.633 20.98 30.293 19.4514C28.8537 17.8136 26.8288 16.9202 24.5954 16.9202" fill="currentColor"/><path d="M41.5979 30.6877C38.4811 30.6877 36.0393 28.236 36.0393 25.0993C36.0393 21.9627 38.4811 19.5109 41.5979 19.5109C44.7147 19.5109 47.1565 21.9627 47.1565 25.0993C47.1565 28.236 44.7147 30.6877 41.5979 30.6877ZM47.1565 19.3025C45.747 17.754 43.7618 16.9004 41.5085 16.9004C36.9425 16.9004 33.3691 20.5035 33.3691 25.0894C33.3691 29.6753 36.9425 33.2784 41.5085 33.2784C43.7717 33.2784 45.747 32.4248 47.1565 30.8763V32.9509H49.8167V11.4113H47.1565V19.3025Z" fill="currentColor"/><path d="M58.7206 23.8486C56.5865 23.3027 55.2862 22.9056 55.2862 21.6351C55.2862 20.166 56.7354 19.501 58.1747 19.501C59.6934 19.501 60.8746 20.1859 61.3411 21.3373L61.5992 21.9825L63.8921 20.6723L63.6737 20.176C62.7705 18.1312 60.7158 16.9103 58.1747 16.9103C54.9586 16.9103 52.626 18.9054 52.626 21.645C52.626 24.9107 55.574 25.675 57.9464 26.2904C60.1103 26.8562 61.4404 27.2632 61.4404 28.5635C61.4404 30.1318 59.8125 30.6976 58.2938 30.6976C56.4277 30.6976 55.038 29.8936 54.5914 28.5536L54.3531 27.8488L52.0205 29.2087L52.1992 29.6852C53.0528 31.9483 55.3259 33.3082 58.2839 33.3082C61.7084 33.3082 64.0906 31.3627 64.0906 28.5734C64.0906 25.2383 61.1128 24.474 58.7206 23.8585" fill="currentColor"/><path d="M70.7504 12.9497L68.0605 13.7438V17.2278H64.8643V19.8583H68.0605V28.7024C68.0605 30.2906 68.4873 31.4222 69.3509 32.1666C70.1052 32.8118 71.1475 33.1294 72.557 33.1294C73.1525 33.1294 73.8275 33.0699 74.562 32.9607L75.0782 32.8813V30.3998L74.4231 30.4593C72.8746 30.5983 71.6438 30.6678 71.1475 30.2112C70.8795 29.963 70.7405 29.4667 70.7405 28.7024V19.8583H75.0782V17.2278H70.7405V12.9497H70.7504Z" fill="currentColor"/><path d="M78.313 23.8288C78.8192 21.2182 80.8938 19.5109 83.6433 19.5109C86.5516 19.5109 88.1894 21.5855 88.6163 23.8288H78.313ZM83.6433 16.9103C78.9284 16.9103 75.5039 20.3546 75.5039 25.0993C75.5039 29.844 78.978 33.2883 83.7525 33.2883C86.7402 33.2883 89.2416 31.988 90.6114 29.7149L90.929 29.1988L88.5865 27.819L88.2887 28.365C87.4946 29.8241 85.8072 30.6976 83.7823 30.6976C81.003 30.6976 78.8788 29.0201 78.3229 26.4691H91.3956V25.8636C91.3956 25.7643 91.3956 25.6552 91.4055 25.5559C91.4055 25.4269 91.4253 25.2978 91.4253 25.1688C91.4253 23.0148 90.6809 20.98 89.3409 19.4514C87.9016 17.8136 85.8767 16.9202 83.6433 16.9202" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M96.2803 10.5377H93.6201V32.9707H96.2803V10.5377Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M102.216 10.5377H99.5557V32.9707H102.216V10.5377Z" fill="currentColor"/><path d="M112.748 30.6877C109.631 30.6877 107.189 28.2359 107.189 25.0993C107.189 21.9627 109.631 19.5109 112.748 19.5109C115.865 19.5109 118.277 21.9627 118.277 25.0993C118.277 28.2359 115.845 30.6877 112.748 30.6877ZM118.277 19.2727C116.847 17.754 114.872 16.9103 112.629 16.9103C108.063 16.9103 104.489 20.5134 104.489 25.0993C104.489 29.6851 108.063 33.2883 112.629 33.2883C114.872 33.2883 116.847 32.4446 118.277 30.9259V32.9707H120.967V17.2279H118.277V19.2727Z" fill="currentColor"/><path d="M131.15 17.0293C129.373 17.0293 127.934 17.5951 126.901 18.6671V17.2278H124.241V32.9706H126.901V24.2853C126.901 19.9575 130.157 19.6299 131.15 19.6299H131.755V17.0293H131.15Z" fill="currentColor"/><path d="M135.955 15.5306C134.823 15.5306 133.91 16.4438 133.91 17.5754C133.91 18.707 134.823 19.6202 135.955 19.6202C137.087 19.6202 138 18.707 138 17.5754C138 16.4438 137.087 15.5306 135.955 15.5306ZM135.955 19.372C134.972 19.372 134.168 18.568 134.168 17.5754C134.168 16.5828 134.972 15.7788 135.955 15.7788C136.938 15.7788 137.742 16.5828 137.742 17.5754C137.742 18.568 136.938 19.372 135.955 19.372Z" fill="currentColor"/><path d="M136.749 17.1883C136.749 16.8508 136.5 16.5332 135.964 16.5332H135.329V18.6475H135.607V17.8534H136.044L136.49 18.6475H136.788L136.302 17.7938C136.59 17.7045 136.729 17.4762 136.729 17.1883H136.749ZM135.984 17.5754H135.617V16.7814H135.984C136.312 16.7814 136.471 16.9402 136.471 17.1883C136.471 17.4365 136.312 17.5854 135.984 17.5854" fill="currentColor"/></svg></a>
+    <button type="button" class="sn-tog" aria-expanded="false" aria-controls="snMenu"><span class="sn-bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="sn-tl">Menu</span></button>
+    <ul id="snMenu">
+      <li><a href="#why">Why Meridian</a></li>
+      <li><a href="#program">How it works</a></li>
+      <li><a href="#session">The session</a></li>
+      <li><a href="#tracks">Tracks</a></li>
+      <li><a href="#matching">Matching</a></li>
+      <li><a href="#private">Confidentiality</a></li>
+      <li><a href="#logins">Who uses it</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="btn btn-gold sm" href="#demo">Get a free demo</a>
+    <a class="btn btn-gold sm sn-cta" href="#demo"><span class="l">Get a free demo</span><span class="s">Free demo</span></a>
   </div>
 </nav>
 <main id="main">
@@ -1051,7 +1119,7 @@ button,input,select,textarea{font:inherit;color:inherit}
       </div>
     </div>
   </div>
-  <nav class="container crumb" aria-label="Breadcrumb"><ol><li><a href="https://www.edstellar.com/">Home</a></li><li><a href="https://www.edstellar.com/platforms">Platforms</a></li><li aria-current="page">Meridian</li></ol></nav>
+  <nav class="container crumb" aria-label="Breadcrumb"><ol><li><a href="https://www.edstellar.com/">Home</a></li><li><span>Platforms</span></li><li aria-current="page">Meridian</li></ol></nav>
 </section>
 <section id="why" class="section paper h1s" aria-labelledby="h1s-h">
   <div class="container">
@@ -1200,35 +1268,28 @@ button,input,select,textarea{font:inherit;color:inherit}
   </div>
 </section>
 <section class="section pine demo" id="demo" aria-labelledby="demo-h">
-  <div class="container demo-in">
-    <div class="demo-copy rv">
-      <h2 class="h2" id="demo-h">See Meridian <em>with your own leaders in mind.</em></h2>
-      <p class="sub">A free demo walks through the leader, coach and organization views with your objectives on the table.</p>
-      <ol class="nx"><li><span>1</span>We confirm your goals, the leaders you have in mind and your timeline.</li><li><span>2</span>We walk you through matching, the session room and the reports in a live demo.</li><li><span>3</span>You receive a program outline for your leaders.</li></ol>
+  <div class="container">
+    <div class="demo-head rv">
+      <div><h2 class="h2" id="demo-h">See Meridian <em>with your own leaders in mind.</em></h2>
+        <p class="sub">A free demo walks through the leader, coach and organization views with your objectives on the table.</p></div>
+      <ol class="nx"><li><span>1</span>We confirm your goals, the leaders you have in mind and your timeline.</li><li><span>2</span>We walk you through matching, the session room and the reports in a live demo.</li><li><span>3</span>You receive a program outline shaped to your leaders.</li></ol>
     </div>
-    <div class="form-card rv">
+    <div class="form-card df rv">
       <form id="demoForm" novalidate>
-        <h3>Get a free demo</h3>
         <input type="hidden" name="intent" value="meridian">
         <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
-        <div class="fr2">
-          <div class="fg"><label for="f-name">Full name <b>*</b></label><input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name"><span class="err" id="e-name">Please enter your name.</span></div>
-          <div class="fg"><label for="f-email">Work email <b>*</b></label><input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><span class="err" id="e-email">Please enter a valid work email.</span></div>
-        </div>
-        <div class="fr2">
-          <div class="fg"><label for="f-co">Company <b>*</b></label><input id="f-co" name="company" autocomplete="organization" required aria-describedby="e-co"><span class="err" id="e-co">Please enter your company.</span></div>
-          <div class="fg"><label for="f-job">Job title <b>*</b></label><input id="f-job" name="job" autocomplete="organization-title" required aria-describedby="e-job"><span class="err" id="e-job">Please enter your job title.</span></div>
-        </div>
-        <div class="fr2">
-          <div class="fg"><label for="f-ctry">Country</label><select id="f-ctry" name="country" autocomplete="country-name"><option value="India" data-dial="+91">India</option><option value="United States" data-dial="+1">United States</option><option value="United Kingdom" data-dial="+44">United Kingdom</option><option value="Singapore" data-dial="+65">Singapore</option><option value="United Arab Emirates" data-dial="+971">United Arab Emirates</option><option value="Saudi Arabia" data-dial="+966">Saudi Arabia</option><option value="Australia" data-dial="+61">Australia</option><option value="Canada" data-dial="+1">Canada</option><option value="Germany" data-dial="+49">Germany</option><option value="Other" data-dial="">Other</option></select></div>
-          <div class="fg"><label for="f-ph">Phone</label><div class="ph"><span id="f-dial">+91</span><input id="f-ph" name="phone" type="tel" autocomplete="tel-national"></div></div>
-        </div>
-        <div class="fg"><label for="f-n">Number of leaders</label><select id="f-n" name="leaders"><option value="">Select</option><option>Fewer than 10</option><option>10 to 19</option><option>20 to 50</option><option>More than 50</option></select></div>
-        <div class="fg"><label for="f-req">What would you like coaching to achieve?</label><textarea id="f-req" name="requirements" rows="3"></textarea></div>
-        <div class="fg chk"><input type="checkbox" id="f-ok" name="consent" required aria-describedby="e-ok"><label for="f-ok">I agree to Edstellar contacting me about this request and to its <a href="https://www.edstellar.com/privacy-policy">privacy policy</a>.</label><span class="err" id="e-ok">Please confirm to continue.</span></div>
-        <button class="btn btn-gold full" type="submit">Get a free demo <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <div class="fr2"><div class="fg"><label for="f-name">Full name <b aria-hidden="true">*</b></label><input id="f-name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required aria-describedby="e-name"><span class="err" id="e-name">Please enter your name.</span></div><div class="fg"><label for="f-email">Work email <b aria-hidden="true">*</b></label><input id="f-email" name="email" type="email" placeholder="Enter your work email address" autocomplete="email" required aria-describedby="e-email"><span class="err" id="e-email">Please enter a valid work email.</span></div></div>
+        <div class="fr2"><div class="fg"><label for="f-co">Company name <b aria-hidden="true">*</b></label><input id="f-co" name="company" type="text" placeholder="Enter your company name" autocomplete="organization" required aria-describedby="e-co"><span class="err" id="e-co">Please enter your company name.</span></div><div class="fg"><label for="f-job">Job title <b aria-hidden="true">*</b></label><input id="f-job" name="job" type="text" placeholder="Enter your job title" autocomplete="organization-title" required aria-describedby="e-job"><span class="err" id="e-job">Please enter your job title.</span></div></div>
+        <div class="fr2"><div class="fg"><label for="f-ctry">Country <b aria-hidden="true">*</b></label><select id="f-ctry" name="country" autocomplete="country-name" required aria-describedby="e-ctry"><option value="">Select your country</option><option value="United States">United States</option><option value="India">India</option><option value="United Kingdom">United Kingdom</option><option value="Singapore">Singapore</option><option value="United Arab Emirates">United Arab Emirates</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Australia">Australia</option><option value="Canada">Canada</option><option value="Germany">Germany</option><option value="Other">Other</option></select><span class="err" id="e-ctry">Please select your country.</span></div><div class="fg"><label for="f-ph">Phone <b aria-hidden="true">*</b></label><div class="df-ph"><span class="df-fl" aria-hidden="true"><span id="f-flag"><svg viewBox="0 0 20 14" width="22" height="15" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><g fill="#B22234"><rect width="20" height="1.08"/><rect y="2.15" width="20" height="1.08"/><rect y="4.3" width="20" height="1.08"/><rect y="6.46" width="20" height="1.08"/><rect y="8.62" width="20" height="1.08"/><rect y="10.77" width="20" height="1.08"/><rect y="12.92" width="20" height="1.08"/></g><rect width="8.5" height="7.54" fill="#3C3B6E"/></svg></span><i></i></span><select id="f-cc" name="dial" aria-label="Country calling code"><option value="United States" selected>United States (+1)</option><option value="India">India (+91)</option><option value="United Kingdom">United Kingdom (+44)</option><option value="Singapore">Singapore (+65)</option><option value="United Arab Emirates">United Arab Emirates (+971)</option><option value="Saudi Arabia">Saudi Arabia (+966)</option><option value="Australia">Australia (+61)</option><option value="Canada">Canada (+1)</option><option value="Germany">Germany (+49)</option><option value="Other">Other (other)</option></select><span class="df-code" id="f-dial">+1</span><input id="f-ph" name="phone" type="tel" autocomplete="tel-national" required aria-describedby="e-ph"></div><span class="err" id="e-ph">Please enter your phone number.</span></div></div>
+        <div class="fr2"><div class="fg"><label for="f-size">Company size <b aria-hidden="true">*</b></label><select id="f-size" name="company_size" required aria-describedby="e-size"><option value="">Select company size</option><option>1 to 50 employees</option><option>51 to 200 employees</option><option>201 to 500 employees</option><option>501 to 1,000 employees</option><option>1,001 to 5,000 employees</option><option>More than 5,000 employees</option></select><span class="err" id="e-size">Please select your company size.</span></div><div class="fg"><label for="f-int">Primary consulting interest <b aria-hidden="true">*</b></label><select id="f-int" name="interest" required aria-describedby="e-int"><option value="">Select your primary interest</option><option>Leadership coaching (Meridian)</option><option>Executive coaching</option><option>Leadership development</option><option>Organization development</option><option>Talent assessments</option><option>Corporate training</option><option>Something else</option></select><span class="err" id="e-int">Please select your primary interest.</span></div></div>
+        <div class="fr2"><div class="fg"><label for="f-chal">Current challenge <b aria-hidden="true">*</b></label><select id="f-chal" name="challenge" required aria-describedby="e-chal"><option value="">Select your current challenge</option><option>Developing senior leaders</option><option>Preparing successors</option><option>Supporting first-time managers</option><option>Leaders moving into new roles</option><option>Turning around performance</option><option>Keeping high potentials</option><option>Something else</option></select><span class="err" id="e-chal">Please select your current challenge.</span></div><div class="fg"><label for="f-emp">Employees to be impacted</label><select id="f-emp" name="employees"><option value="">Select a range</option><option>Fewer than 10</option><option>10 to 25</option><option>26 to 50</option><option>51 to 100</option><option>More than 100</option></select></div></div>
+        <div class="fr2"><div class="fg"><label for="f-time">Timeline for implementation <b aria-hidden="true">*</b></label><select id="f-time" name="timeline" required aria-describedby="e-time"><option value="">Select a timeline</option><option>Within a month</option><option>In 1 to 3 months</option><option>In 3 to 6 months</option><option>In more than 6 months</option><option>Just exploring</option></select><span class="err" id="e-time">Please select a timeline.</span></div><div class="fg"><label for="f-bud">Budget range</label><select id="f-bud" name="budget"><option value="">Select a budget range</option><option>Under USD 10,000</option><option>USD 10,000 to 25,000</option><option>USD 25,000 to 50,000</option><option>USD 50,000 to 100,000</option><option>Over USD 100,000</option><option>Prefer to discuss</option></select></div></div>
+        <div class="fg"><label for="f-req">Your challenges and goals</label><textarea id="f-req" name="requirements" rows="5" placeholder="Share your challenges, desired outcomes, or specific areas where you need support&hellip;"></textarea></div>
+        <div class="df-foot"><div><p>We reply within one business day with a scoped response, no automated sales sequence.</p><p class="df-pp">By submitting, you agree to Edstellar&rsquo;s <a href="https://www.edstellar.com/privacy-policy">privacy policy</a>.</p></div>
+          <button class="btn df-go" type="submit">Book a consultation <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
       </form>
-      <div class="thanks" id="demoThanks" hidden tabindex="-1"><span class="th-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><h3>Thank you.</h3><p>Your request has reached the Meridian team. We will be in touch to arrange your demo.</p></div>
+      <script type="application/json" id="flagData">{"United States": ["+1", "<svg viewBox=\"0 0 20 14\" width=\"22\" height=\"15\" aria-hidden=\"true\"><rect width=\"20\" height=\"14\" fill=\"#fff\"/><g fill=\"#B22234\"><rect width=\"20\" height=\"1.08\"/><rect y=\"2.15\" width=\"20\" height=\"1.08\"/><rect y=\"4.3\" width=\"20\" height=\"1.08\"/><rect y=\"6.46\" width=\"20\" height=\"1.08\"/><rect y=\"8.62\" width=\"20\" height=\"1.08\"/><rect y=\"10.77\" width=\"20\" height=\"1.08\"/><rect y=\"12.92\" width=\"20\" height=\"1.08\"/></g><rect width=\"8.5\" height=\"7.54\" fill=\"#3C3B6E\"/></svg>"], "India": ["+91", "<svg viewBox=\"0 0 20 14\" width=\"22\" height=\"15\" aria-hidden=\"true\"><rect width=\"20\" height=\"4.67\" fill=\"#FF9933\"/><rect y=\"4.67\" width=\"20\" height=\"4.67\" fill=\"#fff\"/><rect y=\"9.33\" width=\"20\" height=\"4.67\" fill=\"#138808\"/><circle cx=\"10\" cy=\"7\" r=\"1.6\" fill=\"none\" stroke=\"#000080\" stroke-width=\".5\"/></svg>"], "United Kingdom": ["+44", "<svg viewBox=\"0 0 20 14\" width=\"22\" height=\"15\" aria-hidden=\"true\"><rect width=\"20\" height=\"14\" fill=\"#012169\"/><path d=\"M0 0l20 14M20 0L0 14\" stroke=\"#fff\" stroke-width=\"2.6\"/><path d=\"M0 0l20 14M20 0L0 14\" stroke=\"#C8102E\" stroke-width=\"1\"/><path d=\"M10 0v14M0 7h20\" stroke=\"#fff\" stroke-width=\"4\"/><path d=\"M10 0v14M0 7h20\" stroke=\"#C8102E\" stroke-width=\"2.2\"/></svg>"], "Singapore": ["+65", "<svg viewBox=\"0 0 20 14\" width=\"22\" height=\"15\" aria-hidden=\"true\"><rect width=\"20\" height=\"7\" fill=\"#EF3340\"/><rect y=\"7\" width=\"20\" height=\"7\" fill=\"#fff\"/><circle cx=\"5\" cy=\"3.5\" r=\"2.4\" fill=\"#fff\"/><circle cx=\"6\" cy=\"3.5\" r=\"2.2\" fill=\"#EF3340\"/></svg>"], "United Arab Emirates": ["+971", "<svg viewBox=\"0 0 20 14\" width=\"22\" height=\"15\" aria-hidden=\"true\"><rect width=\"20\" height=\"4.67\" fill=\"#00732F\"/><rect y=\"4.67\" width=\"20\" height=\"4.67\" fill=\"#fff\"/><rect y=\"9.33\" width=\"20\" height=\"4.67\" fill=\"#000\"/><rect width=\"5.5\" height=\"14\" fill=\"#FF0000\"/></svg>"], "Saudi Arabia": ["+966", "<svg viewBox=\"0 0 20 14\" width=\"22\" height=\"15\" aria-hidden=\"true\"><rect width=\"20\" height=\"14\" fill=\"#006C35\"/><path d=\"M5 9.4h10\" stroke=\"#fff\" stroke-width=\".9\"/><path d=\"M6 5.6h8\" stroke=\"#fff\" stroke-width=\".7\" stroke-dasharray=\"1 .6\"/></svg>"], "Australia": ["+61", "<svg viewBox=\"0 0 20 14\" width=\"22\" height=\"15\" aria-hidden=\"true\"><rect width=\"20\" height=\"14\" fill=\"#012169\"/><path d=\"M0 0l9 6.3M9 0L0 6.3\" stroke=\"#fff\" stroke-width=\"1.2\"/><path d=\"M4.5 0v6.3M0 3.15h9\" stroke=\"#fff\" stroke-width=\"1.8\"/><path d=\"M4.5 0v6.3M0 3.15h9\" stroke=\"#C8102E\" stroke-width=\"1\"/><circle cx=\"5\" cy=\"10.5\" r=\"1.1\" fill=\"#fff\"/><circle cx=\"15\" cy=\"3.5\" r=\".6\" fill=\"#fff\"/><circle cx=\"13\" cy=\"7\" r=\".6\" fill=\"#fff\"/><circle cx=\"16.5\" cy=\"7.5\" r=\".6\" fill=\"#fff\"/><circle cx=\"15\" cy=\"11.5\" r=\".6\" fill=\"#fff\"/></svg>"], "Canada": ["+1", "<svg viewBox=\"0 0 20 14\" width=\"22\" height=\"15\" aria-hidden=\"true\"><rect width=\"20\" height=\"14\" fill=\"#fff\"/><rect width=\"5\" height=\"14\" fill=\"#D80621\"/><rect x=\"15\" width=\"5\" height=\"14\" fill=\"#D80621\"/><path d=\"M10 3l1 2 1.5-.6-.5 2.6 1.2-.6-.3 1.6-2.4.6V11h-1V8.6l-2.4-.6-.3-1.6 1.2.6-.5-2.6L9 5z\" fill=\"#D80621\"/></svg>"], "Germany": ["+49", "<svg viewBox=\"0 0 20 14\" width=\"22\" height=\"15\" aria-hidden=\"true\"><rect width=\"20\" height=\"4.67\" fill=\"#000\"/><rect y=\"4.67\" width=\"20\" height=\"4.67\" fill=\"#DD0000\"/><rect y=\"9.33\" width=\"20\" height=\"4.67\" fill=\"#FFCE00\"/></svg>"], "Other": ["", "<svg viewBox=\"0 0 20 14\" width=\"22\" height=\"15\" aria-hidden=\"true\"><rect width=\"20\" height=\"14\" rx=\"2\" fill=\"#E9E4D8\"/><circle cx=\"10\" cy=\"7\" r=\"4.6\" fill=\"none\" stroke=\"#5E5542\" stroke-width=\".8\"/><path d=\"M5.4 7h9.2M10 2.4c-2.6 3-2.6 6.2 0 9.2M10 2.4c2.6 3 2.6 6.2 0 9.2\" fill=\"none\" stroke=\"#5E5542\" stroke-width=\".7\"/></svg>"]}</script>
+      <div class="thanks" id="demoThanks" hidden tabindex="-1"><span class="th-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><h3>Thank you.</h3><p>Your request has reached the Meridian team. We reply within one business day with a scoped response.</p></div>
     </div>
   </div>
 </section>
@@ -1537,20 +1598,42 @@ const FOCUS = ['Where am I today, honestly?','What I want from this program.','T
 /* ================= demo form ================= */
 (function(){
   const f = $('#demoForm'); if (!f) return;
-  const ctry = $('#f-ctry'), dial = $('#f-dial');
-  ctry.addEventListener('change', () => { dial.textContent = ctry.selectedOptions[0].dataset.dial || '+'; });
-  const req = [['f-name', v => v.trim().length > 1], ['f-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())], ['f-co', v => v.trim().length > 1], ['f-job', v => v.trim().length > 1]];
+  const fd = $('#flagData'), FL = fd ? JSON.parse(fd.textContent) : {};
+  const ctry = $('#f-ctry'), cc = $('#f-cc'), dial = $('#f-dial'), flag = $('#f-flag');
+  const setDial = c => { const x = FL[c]; if (!x) return; dial.textContent = x[0] || '+'; flag.innerHTML = x[1]; };
+  cc.addEventListener('change', () => setDial(cc.value));
+  ctry.addEventListener('change', () => { if (FL[ctry.value]){ cc.value = ctry.value; setDial(ctry.value); } });
+  const filled = v => v.trim().length > 0;
+  const req = [['f-name', v => v.trim().length > 1], ['f-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())], ['f-co', v => v.trim().length > 1], ['f-job', v => v.trim().length > 1],
+    ['f-ctry', filled], ['f-ph', v => v.replace(/\D/g, '').length >= 6], ['f-size', filled], ['f-int', filled], ['f-chal', filled], ['f-time', filled]];
   const FORM_ENDPOINT = ''; /* CRM endpoint to wire */
+  req.forEach(([id]) => { const el = $('#' + id); el.addEventListener('change', () => { const g = el.closest('.fg'); if (g.classList.contains('bad')){ const ok = req.find(r => r[0] === id)[1](el.value); g.classList.toggle('bad', !ok); el.setAttribute('aria-invalid', ok ? 'false' : 'true'); } }); });
   f.addEventListener('submit', e => {
     e.preventDefault(); let first = null;
     req.forEach(([id, ok]) => { const el = $('#' + id), g = el.closest('.fg'), good = ok(el.value); g.classList.toggle('bad', !good); el.setAttribute('aria-invalid', good ? 'false' : 'true'); if (!good && !first) first = el; });
-    const c = $('#f-ok'), cg = c.closest('.fg'); cg.classList.toggle('bad', !c.checked); c.setAttribute('aria-invalid', c.checked ? 'false' : 'true'); if (!c.checked && !first) first = c;
-    if (first){ first.focus(); return; }
+    if (first){ const g = first.closest('.fg'), nb = $('#hubNav'), top = g.getBoundingClientRect().top, lim = (nb ? nb.getBoundingClientRect().bottom : 0) + 12; if (top < lim || top > innerHeight - 120) g.scrollIntoView({ block: 'start' }); first.focus({ preventScroll: true }); return; }
     if ($('#f-web').value) return; /* honeypot */
-    const data = Object.fromEntries(new FormData(f).entries());
+    const data = Object.fromEntries(new FormData(f).entries()); data.dial_code = dial.textContent;
     if (FORM_ENDPOINT) fetch(FORM_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)}).catch(() => {});
     f.hidden = true; const t = $('#demoThanks'); t.hidden = false; t.focus();
   });
+})();
+
+/* ================= in-page menu (hub) ================= */
+(function(){
+  const N = $('#hubNav'); if (!N) return;
+  const tog = $('.sn-tog', N), links = $$('#snMenu a', N);
+  const close = () => { N.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); };
+  tog.addEventListener('click', () => { const o = !N.classList.contains('open'); N.classList.toggle('open', o); tog.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  links.forEach(a => a.addEventListener('click', close));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && N.classList.contains('open')){ close(); tog.focus(); } });
+  document.addEventListener('click', e => { if (N.classList.contains('open') && !N.contains(e.target)) close(); });
+  const secs = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+  let raf = 0;
+  const spy = () => { raf = 0; let cur = null; secs.forEach(s => { if (s.getBoundingClientRect().top <= 140) cur = s.id; });
+    if (cur === 'demo') cur = null;
+    links.forEach(a => { if (a.getAttribute('href') === '#' + cur) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); }); };
+  window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(spy); }, {passive: true}); spy();
 })();
 })();
 
