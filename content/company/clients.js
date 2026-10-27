@@ -144,10 +144,6 @@ export const CLIENTS = {
         "label": "Clients"
       },
       {
-        "id": "regions",
-        "label": "Regions"
-      },
-      {
         "id": "sectors",
         "label": "Sectors"
       },
@@ -170,8 +166,8 @@ export const CLIENTS = {
     }
   },
   "explorer": {
-    "heading": "Some of Edstellar's clients, <span>sorted by sector.</span>",
-    "lede": "A selection of the organizations Edstellar works with. Filter by sector or search by name, and select a client to see what the organization does.",
+    "heading": "Some of Edstellar's <span>clients.</span>",
+    "lede": "A selection of the organizations Edstellar works with. Select a client to see what the organization does.",
     "sectors": [
       {
         "key": "tech",

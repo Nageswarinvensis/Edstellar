@@ -72,18 +72,18 @@ export default function ConsultingHero({
   // Shown only when the page asks for it — a missing flag means hidden.
   const shouldShowMeta = left.showMeta === true;
 
-  // The consulting designs' meta row: regular weight, muted, wider tracking
-  // (HeroMeta's own default is the course hero's semibold ink).
-  const weightClass = customWeight || left.fontWeight || "font-normal";
-  const colorClass = customColor || left.textColor || "text-ink-muted";
+  // HeroMeta's own semibold ink, as on the course and domain heroes, unless a
+  // caller or the CMS (`fontWeight`, `textColor`) asks for something else.
+  const weightClass = customWeight || left.fontWeight;
+  const colorClass = customColor || left.textColor;
 
   return (
-    // 60px above and below on the consulting pages; the sector and partner
+    // 40px above and below on the consulting pages; the sector and partner
     // heroes, which reuse this one, pass their own `className` padding.
     <Section
       id="top"
       className={cn(
-        "bg-[#f8f7f4] py-[60px] lg:py-[60px]",
+        "bg-[#f8f7f4] py-10 lg:py-10",
         banner && "relative isolate overflow-hidden min-[1180px]:flex min-[1180px]:min-h-[640px] min-[1180px]:items-center",
         className,
       )}
@@ -149,7 +149,7 @@ export default function ConsultingHero({
                         ? [left.small_text, ...HERO_META.slice(1)]
                         : HERO_META
                   }
-                  className={cn("mt-6 tracking-[0.12em]", weightClass, colorClass)}
+                  className={cn("mt-6", weightClass, colorClass)}
                 />
               </Reveal>
             )}
