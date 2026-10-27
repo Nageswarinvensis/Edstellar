@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
+import JsonLd from "@/components/seo/json-ld";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -50,6 +51,53 @@ export default async function LDConsultingPage() {
 
   return (
     <BrochureGate {...consultingBrochure("learning-development-consulting-services")}>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://www.edstellar.com/learning-development-consulting-services#webpage",
+            "url": "https://www.edstellar.com/learning-development-consulting-services",
+            "name": "Learning and Development Consulting Services | Edstellar",
+            "description": "Align learning with business goals through Edstellar's L&D consulting services, covering strategy, content, technology, governance and training delivery.",
+            "inLanguage": "en-US",
+            "isPartOf": { "@id": "https://www.edstellar.com/#website" },
+            "mainEntity": { "@id": "https://www.edstellar.com/learning-development-consulting-services#service" },
+            "breadcrumb": { "@id": "https://www.edstellar.com/learning-development-consulting-services#breadcrumb" }
+          },
+          {
+            "@type": "Service",
+            "@id": "https://www.edstellar.com/learning-development-consulting-services#service",
+            "name": "Learning and Development Consulting Services",
+            "description": "Edstellar is a learning and development consulting firm helping enterprises connect learning strategy, content, technology, governance and delivery with business priorities. Our expert consultants work with organizational teams to build a coordinated learning function that addresses capability gaps and supports ongoing workforce development.",
+            "url": "https://www.edstellar.com/learning-development-consulting-services",
+            "serviceType": "Learning and development consulting",
+            "provider": { "@type": "Organization", "name": "Edstellar", "url": "https://www.edstellar.com" },
+            "image": "https://media.edstellar.com/consulting/learning-&-developement-services.webp",
+            "areaServed": ["North America", "Europe", "Asia-Pacific", "Middle East", "Africa", "Latin America and Caribbean"],
+            "audience": { "@type": "Audience", "audienceType": "Enterprise and Corporate Organizations" },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "@id": "https://www.edstellar.com/learning-development-consulting-services#offer-catalog",
+              "name": "Learning and Development Consulting Services Catalog",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": "https://www.edstellar.com/training-needs-analysis-solutions#service", "name": "Training Needs Analysis Services", "url": "https://www.edstellar.com/training-needs-analysis-solutions" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": "https://www.edstellar.com/learning-development-consulting-services/learning-strategy-design#service", "name": "Learning Strategy Consulting", "url": "https://www.edstellar.com/learning-development-consulting-services/learning-strategy-design" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": "https://www.edstellar.com/learning-development-consulting-services/learning-technology#service", "name": "Learning Technology Consulting", "url": "https://www.edstellar.com/learning-development-consulting-services/learning-technology" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": "https://www.edstellar.com/learning-development-consulting-services/learning-content-development#service", "name": "Learning Content Design & Development Services", "url": "https://www.edstellar.com/learning-development-consulting-services/learning-content-development" } }
+              ]
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.edstellar.com/learning-development-consulting-services#breadcrumb",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.edstellar.com" },
+              { "@type": "ListItem", "position": 2, "name": "Learning & Development Consulting Services", "item": "https://www.edstellar.com/learning-development-consulting-services" }
+            ]
+          }
+        ]
+      }} />
       <ConsultingHero
         data={cms.consulting_Hero}
         breadcrumbItems={cms.breadcrumbs?.items}
