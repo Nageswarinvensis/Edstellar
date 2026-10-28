@@ -35,18 +35,6 @@ const FEATURE_ICONS = [PencilLine, Settings, FlaskConical, User, Globe, ChartCol
  */
 const APPROACH_ICONS = [MessageCircle, Route, UserCheck, Wrench, Rocket, Award];
 
-const STATS = [
-  { value: "5000+", label: "EXPERT TRAINERS" },
-  { value: "5+", label: "YEARS DELIVERING" },
-  { value: "1,000+", label: "ORGANIZATIONS TRAINED" },
-  {
-    value: "ISO 9001",
-    connector: "&",
-    secondary_value: "27001",
-    label: "CERTIFIED",
-  },
-];
-
 /** A feature card's icon tile; past the sixth card the icons repeat. */
 function FeatureIcon({ index }) {
   const Icon = FEATURE_ICONS[index % FEATURE_ICONS.length];
@@ -88,9 +76,10 @@ function ApproachStep({ number, step, Icon }) {
 }
 
 /**
- * Course page "why Edstellar" map section. The stats and the map are fixed
- * for every course — the heading, description and the six-step "approach" rail
- * come from the course's `mapsectionData` (`data.approach`). Domain pages use
+ * Course page "why Edstellar" map section. The stats strip (`data.stats`) and
+ * the map are the same for every course — `content/courses/defaults.js`
+ * (`mapsectionData`); the heading, description and the six-step "approach"
+ * rail come from the course's CMS `mapsectionData` (`data.approach`). Domain pages use
  * their own CMS-driven copy,
  * `components/sections/domain/domain-map-section.jsx`.
  */
@@ -151,9 +140,10 @@ export default function CourseMapSection({ data, className }) {
         {/* =========================================================
             STATS
         ========================================================== */}
+        {data.stats?.length > 0 && (
         <Reveal delay={2}>
           <Box className="mt-11 grid grid-cols-1 overflow-hidden rounded-[14px] border border-[#D9DCE0] bg-white sm:grid-cols-2 lg:grid-cols-4">
-            {STATS.map((stat, index) => (
+            {data.stats.map((stat, index) => (
               <Box
                 key={index}
                 className="min-h-22.5 border-[#D9DCE0] p-5 sm:px-6 lg:border-r lg:last:border-r-0"
@@ -192,6 +182,7 @@ export default function CourseMapSection({ data, className }) {
             ))}
           </Box>
         </Reveal>
+        )}
 
         {/* =========================================================
             FEATURE CARDS

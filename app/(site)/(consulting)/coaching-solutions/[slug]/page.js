@@ -28,7 +28,7 @@ const PILLAR = "coaching-solutions";
 
 const PROOF_STATS = {
   stats: [
-    { value: "300+", label: "Clients" },
+    { value: "200+", label: "Clients" },
     { value: "20+", label: "Industries" },
     { value: "300+", label: "Consultants" },
     { value: "ISO 9001 & 27001", label: "Certified" },

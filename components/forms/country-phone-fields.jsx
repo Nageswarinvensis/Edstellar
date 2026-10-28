@@ -198,6 +198,13 @@ export default function CountryPhoneFields({
                   // Territories (Bermuda, Gibraltar…) are hidden by default;
                   // shown so the flag list matches the Country dropdown.
                   enableTerritories
+                  // A search box at the top of the flag menu, as on the
+                  // platform pages' phone field. 16px text so iOS does not
+                  // zoom in when it is tapped.
+                  enableSearch
+                  disableSearchIcon
+                  searchPlaceholder="Search country"
+                  searchNotFound="No country found"
                   // Our names over the library's dated ones (Macedonia,
                   // Swaziland, two "Congo"s) — see `lib/countries.js`.
                   localization={PHONE_LOCALIZATION}
@@ -233,6 +240,10 @@ export default function CountryPhoneFields({
                     "[&_.country]:!flex [&_.country]:!items-center [&_.country]:!gap-2.5 [&_.country]:!px-3.5 [&_.country]:!py-2.5",
                     "[&_.country_.flag]:!m-0 [&_.country_.flag]:!shrink-0 [&_.country-name]:!mr-0",
                     "[&_.country:hover]:!bg-paper [&_.country.highlight]:!bg-paper [&_.dial-code]:!text-ink-muted [&_.divider]:!mx-3 [&_.divider]:!border-ink/10",
+                    // The search box: pinned above the list while it scrolls.
+                    "[&_.search]:!sticky [&_.search]:!top-0 [&_.search]:!z-[1] [&_.search]:!-mt-1.5 [&_.search]:!bg-white [&_.search]:!px-2.5 [&_.search]:!pt-2.5 [&_.search]:!pb-2",
+                    "[&_.search-box]:!m-0 [&_.search-box]:!w-full [&_.search-box]:!rounded-lg [&_.search-box]:!border [&_.search-box]:!border-ink/15 [&_.search-box]:!bg-paper [&_.search-box]:!px-3 [&_.search-box]:!py-2 [&_.search-box]:!font-body [&_.search-box]:!text-base [&_.search-box]:!leading-normal [&_.search-box]:!text-ink [&_.search-box]:placeholder:!text-ink/45 [&_.search-box:focus]:!border-navy [&_.search-box:focus]:!bg-white [&_.search-box:focus]:!outline-none",
+                    "[&_.no-entries-message]:!px-3.5 [&_.no-entries-message]:!py-2.5 [&_.no-entries-message]:!text-ink-muted",
                   )}
                 />
               )}

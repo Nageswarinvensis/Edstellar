@@ -49,7 +49,7 @@ export const CATALOG_PAGE = {
       { value: "2,000+", label: "Programs" },
       { value: "77", label: "Domains" },
       { value: "5,000+", label: "Trainers" },
-      { value: "300+", label: "Clients" },
+      { value: "200+", label: "Clients" },
     ],
     credential: { value: "ISO 9001 & 27001", label: "Certified" },
     prompt: "Not sure where to start?",

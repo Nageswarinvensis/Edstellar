@@ -15,6 +15,19 @@ import CoursePage from "@/components/templates/training/course-page";
 
 export const revalidate = 300;
 
+/**
+ * Nothing is prerendered at build time (SSG is off until launch), but this
+ * export is what makes the route ISR: each course is cached on its first
+ * visit and re-rendered at most every 5 minutes. Without it the route
+ * renders on every request, and a course removed from the CMS stays live
+ * indefinitely — Next keeps serving the stale cached CMS response, because it
+ * only ever replaces a cached fetch with a 200, never with the CMS's 404.
+ * Same fix as `/blog/[slug]`.
+ */
+export async function generateStaticParams() {
+  return [];
+}
+
 export async function generateMetadata({ params }) {
   const { slug, courseSlug } = await params;
   const course = await getCourse(slug, courseSlug);

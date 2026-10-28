@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+import { COURSE_FALLBACKS } from "@/content/courses";
+
 /**
  * CMS Redirect Middleware
  *
@@ -126,6 +128,26 @@ function sitePathFromCmsUrl(finalUrl) {
   return null;
 }
 
+/**
+ * Pages that 404 here, before any page cache, when the CMS answers 404:
+ * course pages and blog posts. A page's own cache cannot be trusted to: an
+ * ISR page keeps serving its last good render until a re-render succeeds,
+ * and a `notFound()` render is cached for good — so a course deactivated in
+ * the CMS would stay live, and one re-published after that would stay a
+ * 404. Answering here makes both take effect on the next request.
+ *
+ * Courses written only in local content (`COURSE_FALLBACKS` with a `name`)
+ * are not in the CMS and are left to the page. Domain pages are not
+ * included: `/corporate-training/{slug}` also serves industry and vendor
+ * slugs, which the CMS's domain endpoint does not know.
+ */
+function cmsMissingIs404(pathname) {
+  const slug = pathname.replace(/^\/+|\/+$/g, "");
+  const course = slug.match(/^corporate-training\/([^/]+\/[^/]+)$/);
+  if (course) return !COURSE_FALLBACKS[course[1]]?.name;
+  return /^blog\/(?!author\/|category\/)[^/]+$/.test(slug);
+}
+
 /** Blog listings whose pagination swaps posts in place on the client
  * (components/sections/blog/common/blog-posts.jsx), so their URL never
  * carries a page number. */
@@ -186,6 +208,15 @@ export async function middleware(request) {
     // followed; compare the final URL against the requested one instead.
     const followed = new URL(res.url).href !== new URL(cmsUrl).href;
     if (!followed) {
+      // Gone from the CMS (and not redirected) — a real 404 now, whatever the
+      // page cache holds. The rewrite target matches no route, so Next
+      // renders the site's 404 page. Checked only here: a redirect's target
+      // can itself answer 404 and must still redirect.
+      if (res.status === 404 && cmsMissingIs404(pathname)) {
+        return withNoindexOnPreview(
+          NextResponse.rewrite(new URL("/__not-found", request.url), { status: 404 })
+        );
+      }
       return withNoindexOnPreview(NextResponse.next());
     }
 
