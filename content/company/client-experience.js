@@ -36,7 +36,7 @@ export const CLIENT_EXPERIENCE = {
 
   facts: [
     { value: "2,000+", label: "Instructor-led programs" },
-    { value: "100", label: "Countries with Edstellar delivery" },
+    { value: "100+", label: "Countries with Edstellar delivery" },
     { value: "10+", label: "Delivery languages" },
     { value: "ISO 9001 · 27001", label: "ISO 9001:2015 and ISO 27001:2022 certified" },
   ],
@@ -178,7 +178,7 @@ export const CLIENT_EXPERIENCE = {
       { question: "Can we approve the trainer before the program starts?", answer: "Yes. The matched trainer profile is shared with you before delivery begins." },
       { question: "How does Edstellar adapt a program to our teams?", answer: "Edstellar fits topics, level, examples and exercises to your working context, so practice mirrors the tasks your people handle every day." },
       { question: "Which parts of a training program does Edstellar handle?", answer: "Scheduling, participant registration, program materials, and venue or virtual setup, coordinated by your client success manager." },
-      { question: "Can Edstellar run programs for teams in several countries?", answer: "Yes. Edstellar delivers in 100 countries and 10+ languages, virtually, onsite or blended." },
+      { question: "Can Edstellar run programs for teams in several countries?", answer: "Yes. Edstellar delivers in 100+ countries and 10+ languages, virtually, onsite or blended." },
       { question: "What happens after a program ends?", answer: "Your client success manager reviews the results and participant feedback with you, helps you plan how the learning is applied at work, and plans the next program with you." },
       { question: "How do we start working with Edstellar?", answer: "Share your teams and goals through the form on this page. An Edstellar expert will get back to you to start the Define step. If skill gaps are not yet clear, a training needs analysis can identify them first." },
     ],
@@ -190,7 +190,7 @@ export const CLIENT_EXPERIENCE = {
     points: [
       { icon: "user", title: "A dedicated client success manager", text: "One point of contact for every program on your account." },
       { icon: "check", title: "Trainers matched to your program", text: "Profiles shared for your approval before delivery." },
-      { icon: "globe", title: "Delivery wherever your teams are", text: "100 countries, 10+ languages, virtual, onsite or blended." },
+      { icon: "globe", title: "Delivery wherever your teams are", text: "100+ countries, 10+ languages, virtual, onsite or blended." },
     ],
     message_label: "Your requirements",
     message_placeholder: "Teams, topics, locations and timing",

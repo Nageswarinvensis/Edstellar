@@ -249,7 +249,7 @@ export const CORPORATE_TRAINING_HUB = {
     id: "training-delivery",
     heading: "Training Delivery for Onsite and Distributed <span>Teams</span>",
     intro:
-      "Choose delivery around the learning activities and the people taking part. Edstellar runs onsite, live virtual, hybrid, and offsite training for teams in more than 100 countries and in 10+ languages, planned around your locations, time zones, and dates.",
+      "Choose delivery around the learning activities and the people taking part. Edstellar runs onsite, live virtual, hybrid, and offsite training for teams in 100+ countries and in 10+ languages, planned around your locations, time zones, and dates.",
     labels: { best_for: "Best for", planning: "Planning covers" },
     items: [
       {
@@ -309,7 +309,7 @@ export const CORPORATE_TRAINING_HUB = {
       {
         mark: "100+",
         title: "Global Delivery in 10+ Languages",
-        text: "Edstellar delivers onsite and virtual training in more than 100 countries, scheduled across your teams' time zones and languages.",
+        text: "Edstellar delivers onsite and virtual training in 100+ countries, scheduled across your teams' time zones and languages.",
       },
       {
         mark: "ISO",
@@ -346,7 +346,7 @@ export const CORPORATE_TRAINING_HUB = {
       {
         question: "Can you deliver training across our locations and time zones?",
         answer:
-          "Yes. Edstellar delivers corporate training in more than 100 countries and in 10+ languages, onsite, live virtual, or hybrid, with sessions scheduled across your teams' time zones. Edstellar reviews the topic, participant locations, language, and dates to build a delivery plan that keeps every cohort on the same program.",
+          "Yes. Edstellar delivers corporate training in 100+ countries and in 10+ languages, onsite, live virtual, or hybrid, with sessions scheduled across your teams' time zones. Edstellar reviews the topic, participant locations, language, and dates to build a delivery plan that keeps every cohort on the same program.",
       },
       {
         question: "How will we evaluate learning and workplace application?",
