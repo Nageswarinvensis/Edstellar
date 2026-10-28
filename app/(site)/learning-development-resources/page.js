@@ -4,6 +4,7 @@ import { getResourcesHub } from "@/lib/content/resources";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
 import ResourcesHubPage from "@/components/templates/resources-hub-page";
+import JsonLd from "@/components/seo/json-ld";
 
 export const revalidate = 300;
 
@@ -33,9 +34,33 @@ export async function generateMetadata() {
 export default async function LearningDevelopmentResourcesPage() {
   const page = await getResourcesHub();
   if (!page) notFound();
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/learning-development-resources`;
 
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": stripSiteSuffix(page.seo?.meta_title),
+        ...(page.seo?.Meta_description && { "description": page.seo?.Meta_description }),
+        "inLanguage": "en-US"
+      }} />
+      {page.breadcrumbs?.items?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": page.breadcrumbs?.items.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
       {/* <SchemaOrg
         webpage={{
           name: stripSiteSuffix(page.seo?.meta_title),

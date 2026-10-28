@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getCoachingSubPage } from "@/lib/content/coaching";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
+import { schemaNodes } from "@/lib/seo/prune";
 
 import ClientLogos from "@/components/common/client-logos";
 import Faq from "@/components/common/faq";
@@ -59,9 +61,28 @@ export default async function CoachingSubPage({ params }) {
   const page = await getCoachingSubPage(slug);
   if (!page) notFound();
 
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/coaching-solutions/${slug}`;
+  const nodes = schemaNodes(page.coachingSchema);
+
   return (
     <BrochureGate {...consultingBrochure(slug)}>
+      {/* WebPage */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": page.seo?.meta_title?.replace(/\s*\|\s*Edstellar\s*$/i, "").trim(),
+        ...(page.seo?.Meta_description && { "description": page.seo?.Meta_description }),
+        "inLanguage": "en-US"
+      }} />
+
       {/* <SchemaOrg breadcrumbs={page.breadcrumbs?.items} faqs={page.faqs?.items} /> */}
+      {/* CMS schema nodes (Service, HowTo, etc.) — each emitted separately */}
+      {nodes.map((node, i) => (
+        <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
+      ))}
       <CoachingHero cms={page.consulting_Hero} />
       <ProofStats data={PROOF_STATS} />
       <ClientLogos />

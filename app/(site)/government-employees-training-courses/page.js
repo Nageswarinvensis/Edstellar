@@ -2,6 +2,7 @@ import { getGovernmentPage } from "@/lib/content/sectors";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
 import SectorPage from "@/components/templates/sector-page";
+import JsonLd from "@/components/seo/json-ld";
 
 export const revalidate = 300;
 
@@ -22,9 +23,33 @@ export function generateMetadata() {
  */
 export default function GovernmentTrainingPage() {
   const page = getGovernmentPage();
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/government-employees-training-courses`;
 
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": stripSiteSuffix(page.seo.title),
+        ...(page.seo.description && { "description": page.seo.description }),
+        "inLanguage": "en-US"
+      }} />
+      {page.breadcrumbs?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": page.breadcrumbs.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
       {/* <SchemaOrg
         webpage={{
           name: stripSiteSuffix(page.seo.title),

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getBlogAuthor } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
+import JsonLd from "@/components/seo/json-ld";
 
 import AuthorPageContent from "@/components/sections/blog/author/author-page-content";
 
@@ -41,8 +42,23 @@ export default async function AuthorPage({ params }) {
   const { author, categories } = await getBlogAuthor(slug, 1);
 
   if (!author) notFound();
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/blog/author/${slug}`;
+  const authorTitle = stripSiteSuffix(author.meta?.meta_title) || `${author.name} | Author`;
+  const authorDescription = author.meta?.meta_description || author.short_description || `Articles and insights written by ${author.name}.`;
 
   return (
-    <AuthorPageContent author={author} slug={slug} categories={categories} />
+    <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": authorTitle,
+        ...(authorDescription && { "description": authorDescription }),
+        "inLanguage": "en-US"
+      }} />
+      <AuthorPageContent author={author} slug={slug} categories={categories} />
+    </>
   );
 }

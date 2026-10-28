@@ -4,6 +4,7 @@ import { getSitemapPage } from "@/lib/content/sitemap";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
 import SitemapPage from "@/components/templates/sitemap-page";
+import JsonLd from "@/components/seo/json-ld";
 
 // Rebuilt hourly from the CMS sitemap, like the XML one (`app/sitemap.js`).
 export const revalidate = 300;
@@ -28,9 +29,33 @@ export const metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, 
 export default async function SitemapRoute() {
   const page = await getSitemapPage();
   if (!page) notFound();
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/sitemap`;
 
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": TITLE,
+        ...(DESCRIPTION && { "description": DESCRIPTION }),
+        "inLanguage": "en-US"
+      }} />
+      {BREADCRUMBS?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": BREADCRUMBS.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
       {/* <SchemaOrg webpage={{ name: TITLE, description: DESCRIPTION, path: PATH }} breadcrumbs={BREADCRUMBS} /> */}
       <SitemapPage page={page} breadcrumbs={BREADCRUMBS} />
     </>

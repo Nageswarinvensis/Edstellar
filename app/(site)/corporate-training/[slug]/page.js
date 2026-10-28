@@ -74,16 +74,7 @@ export default async function TrainingPage({ params }) {
 
   return (
     <>
-      {/* 1 — WebSite */}
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": `${BASE}/#website`,
-        "url": BASE,
-        "name": "Edstellar"
-      }} />
-
-      {/* 2 — WebPage */}
+      {/* 1 — WebPage */}
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "WebPage",

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getTermsPage } from "@/lib/content/legal";
 import { buildMetadata } from "@/lib/seo/metadata";
 import LegalPage, { legalTitle } from "@/components/templates/legal-page";
+import JsonLd from "@/components/seo/json-ld";
 
 export const revalidate = 300;
 
@@ -26,6 +27,21 @@ export async function generateMetadata() {
 export default async function TermsAndConditionsPage() {
   const page = await getTermsPage();
   if (!page) notFound();
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/terms-conditions`;
 
-  return <LegalPage page={page} path={PATH} />;
+  return (
+    <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": legalTitle(page.seo),
+        ...(page.seo?.Meta_description && { "description": page.seo?.Meta_description }),
+        "inLanguage": "en-US"
+      }} />
+      <LegalPage page={page} path={PATH} />
+    </>
+  );
 }

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
 import JsonLd from "@/components/seo/json-ld";
+import { schemaNodes } from "@/lib/seo/prune";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -57,84 +58,40 @@ export default async function LDConsultingPage() {
   const breadcrumbItems = cms.breadcrumbs?.items ?? [];
   const faqItems = cms.faqs?.items ?? [];
 
+  const nodes = schemaNodes(cms.consultingSchema);
+
   return (
     <BrochureGate {...consultingBrochure("learning-development-consulting-services")}>
-      {/* 1 — WebSite + WebPage */}
+      {/* WebPage */}
       <JsonLd data={{
         "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "@id": `${BASE}/#website`,
-            "url": BASE,
-            "name": "Edstellar"
-          },
-          {
-            "@type": "WebPage",
-            "@id": `${pageUrl}#webpage`,
-            "url": pageUrl,
-            "name": pageTitle,
-            ...(pageDescription && { "description": pageDescription }),
-            "inLanguage": "en-US",
-            "isPartOf": { "@id": `${BASE}/#website` },
-            "mainEntity": { "@id": `${pageUrl}#service` },
-            "breadcrumb": { "@id": `${pageUrl}#breadcrumb` },
-            ...(faqItems.length && { "hasPart": { "@id": `${pageUrl}#faq` } })
-          }
-        ]
-      }} />
-      {/* 2 — BreadcrumbList + FAQPage */}
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@graph": [
-          ...(breadcrumbItems.length ? [{
-            "@type": "BreadcrumbList",
-            "@id": `${pageUrl}#breadcrumb`,
-            "itemListElement": breadcrumbItems.map((item, i) => ({
-              "@type": "ListItem",
-              "position": i + 1,
-              "name": item.label,
-              "item": item.href?.startsWith("http") ? item.href : `${BASE}${item.href}`
-            }))
-          }] : []),
-          ...(faqItems.length ? [{
-            "@type": "FAQPage",
-            "@id": `${pageUrl}#faq`,
-            "isPartOf": { "@id": `${pageUrl}#webpage` },
-            "inLanguage": "en-US",
-            "mainEntity": faqItems.map((faq) => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-            }))
-          }] : [])
-        ]
-      }} />
-      {/* 3 — Service (standalone block, detected independently) */}
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "@id": `${pageUrl}#service`,
-        "name": "Learning and Development Consulting Services",
-        "description": "Edstellar is a learning and development consulting firm helping enterprises connect learning strategy, content, technology, governance and delivery with business priorities. Our expert consultants work with organizational teams to build a coordinated learning function that addresses capability gaps and supports ongoing workforce development.",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
         "url": pageUrl,
-        "serviceType": "Learning and development consulting",
-        "provider": { "@type": "Organization", "name": "Edstellar", "url": BASE },
-        "image": "https://media.edstellar.com/consulting/learning-&-developement-services.webp",
-        "areaServed": ["North America", "Europe", "Asia-Pacific", "Middle East", "Africa", "Latin America and Caribbean"],
-        "audience": { "@type": "Audience", "audienceType": "Enterprise and Corporate Organizations" },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "@id": `${pageUrl}#offer-catalog`,
-          "name": "Learning and Development Consulting Services Catalog",
-          "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": `${BASE}/training-needs-analysis-solutions#service`, "name": "Training Needs Analysis Services", "url": `${BASE}/training-needs-analysis-solutions` } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": `${BASE}/learning-development-consulting-services/learning-strategy-design#service`, "name": "Learning Strategy Consulting", "url": `${BASE}/learning-development-consulting-services/learning-strategy-design` } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": `${BASE}/learning-development-consulting-services/learning-technology#service`, "name": "Learning Technology Consulting", "url": `${BASE}/learning-development-consulting-services/learning-technology` } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": `${BASE}/learning-development-consulting-services/learning-content-development#service`, "name": "Learning Content Design & Development Services", "url": `${BASE}/learning-development-consulting-services/learning-content-development` } }
-          ]
-        }
+        "name": pageTitle,
+        ...(pageDescription && { "description": pageDescription }),
+        "inLanguage": "en-US"
       }} />
+
+      {/* BreadcrumbList */}
+      {cms.breadcrumbs?.items?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": cms.breadcrumbs.items.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
+
+      {/* CMS schema nodes (Service, HowTo, etc.) — each emitted separately */}
+      {nodes.map((node, i) => (
+        <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
+      ))}
       <ConsultingHero
         data={cms.consulting_Hero}
         breadcrumbItems={cms.breadcrumbs?.items}

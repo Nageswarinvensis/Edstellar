@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -53,8 +54,22 @@ export default async function ManagedTrainingServicesPage() {
   const cms = await getSitePage(CMS_SLUG);
   if (!cms) notFound();
 
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/managed-learning-services`;
+
   return (
     <BrochureGate {...consultingBrochure("managed-learning-services")}>
+      {/* WebPage */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": cms.seo?.meta_title?.replace(/\s*\|\s*Edstellar\s*$/i, "").trim(),
+        ...(cms.seo?.Meta_description && { "description": cms.seo?.Meta_description }),
+        "inLanguage": "en-US"
+      }} />
+
       {/* <SchemaOrg
         breadcrumbs={cms.breadcrumbs?.items}
         faqs={cms.faqs?.items}

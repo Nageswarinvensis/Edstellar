@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import TnaInfo from "@/components/sections/training_needs_analysis/tnainfo";
 import ClientLogos from "@/components/common/client-logos";
@@ -47,8 +48,37 @@ export default async function TrainingNeedsAnalysisPage() {
   const tna = await getSitePage(CMS_SLUG);
   if (!tna) notFound();
 
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/training-needs-analysis-solutions`;
+
   return (
     <BrochureGate {...consultingBrochure("training-needs-analysis-solutions")}>
+      {/* WebPage */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": tna.seo?.meta_title?.replace(/\s*\|\s*Edstellar\s*$/i, "").trim(),
+        ...(tna.seo?.Meta_description && { "description": tna.seo?.Meta_description }),
+        "inLanguage": "en-US"
+      }} />
+
+      {/* BreadcrumbList */}
+      {tna.breadcrumbs?.items?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": tna.breadcrumbs.items.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
+
       {/* <SchemaOrg
         breadcrumbs={tna.breadcrumbs?.items}
         faqs={tna.faqs?.items}

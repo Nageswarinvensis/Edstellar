@@ -1,6 +1,7 @@
 import { getUniversityEnquiryPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
 import ProgramEnquiryPage from "@/components/templates/program-enquiry-page";
+import JsonLd from "@/components/seo/json-ld";
 
 export const revalidate = 300;
 
@@ -17,5 +18,22 @@ export function generateMetadata() {
  * to the sector's main page.
  */
 export default function UniversityEnquiryPage() {
-  return <ProgramEnquiryPage page={getUniversityEnquiryPage()} queryParam="university-program" thankYou="training-for-universities" />;
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/training-for-universities-enquiry`;
+  const { seo } = getUniversityEnquiryPage();
+
+  return (
+    <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": seo.title,
+        ...(seo.description && { "description": seo.description }),
+        "inLanguage": "en-US"
+      }} />
+      <ProgramEnquiryPage page={getUniversityEnquiryPage()} queryParam="university-program" thankYou="training-for-universities" />
+    </>
+  );
 }

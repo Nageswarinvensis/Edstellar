@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { getTalentAssessmentService } from "@/lib/content/talent-assessment";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
+import { schemaNodes } from "@/lib/seo/prune";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -117,12 +119,46 @@ export default async function TalentAssessmentServicePage({ params }) {
   const service = await getTalentAssessmentService(slug);
   if (!service) notFound();
 
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/talent-assessment-services/${slug}`;
+  const nodes = schemaNodes(service.assessmentSchema);
+
   return (
     <BrochureGate {...consultingBrochure(slug)}>
+      {/* WebPage */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": service.seo.title,
+        ...(service.seo.description && { "description": service.seo.description }),
+        "inLanguage": "en-US"
+      }} />
+
+      {/* BreadcrumbList */}
+      {service.breadcrumbs?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": service.breadcrumbs.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
+
       {/* <SchemaOrg
         breadcrumbs={service.breadcrumbs}
         faqs={service.faqs?.items}
       /> */}
+      {/* CMS schema nodes (Service, HowTo, etc.) — each emitted separately */}
+      {nodes.map((node, i) => (
+        <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
+      ))}
 
       <ConsultingHero data={service.hero} breadcrumbItems={service.breadcrumbs} />
       <ProofStats data={service.proof} />

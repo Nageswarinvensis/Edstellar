@@ -4,6 +4,7 @@ import { getTrainer, getTrainersBySlugs } from "@/lib/content/trainers";
 import { TRAINER_PAGE } from "@/content/trainers/trainer-page";
 import { getLatestCourses } from "@/lib/content/latest-courses";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
 import TrainerProfilePage from "@/components/templates/trainer-profile-page";
 import {
   countryFlag,
@@ -101,9 +102,35 @@ export default async function TrainerPage({ params }) {
   const { slugs, limit } = TRAINER_PAGE.other_trainers;
   const otherTrainers = await getTrainersBySlugs(slugs, trainer.slug, limit);
   const breadcrumbs = [...TRAINER_PAGE.breadcrumbs, { label: trainer.name, href: null }];
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/trainer/${slug}`;
+  const trainerTitle = (trainer.meta?.meta_title || trainer.name).replace(/\s*\|\s*Edstellar\s*$/i, "");
+  const trainerDescription = trainer.meta?.meta_description || trainer.profile_title;
 
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": trainerTitle,
+        ...(trainerDescription && { "description": trainerDescription }),
+        "inLanguage": "en-US"
+      }} />
+      {breadcrumbs?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": breadcrumbs.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
       {/* <SchemaOrg
         person={{
           name: trainer.name,

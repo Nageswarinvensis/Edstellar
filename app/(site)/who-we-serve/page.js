@@ -1,5 +1,6 @@
 import { pageData } from "@/lib/content/who-we-serve";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
 import WwsHero from "@/components/sections/who-we-serve/wws-hero";
 import ProofBar from "@/components/common/proof-bar";
@@ -37,8 +38,34 @@ const BREADCRUMBS = [
 ];
 
 export default function WhoWeServePage() {
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/who-we-serve`;
+
   return (
-    <main id="main" tabIndex={-1}>
+    <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": metadata.title,
+        ...(metadata.description && { "description": metadata.description }),
+        "inLanguage": "en-US"
+      }} />
+      {BREADCRUMBS?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": BREADCRUMBS.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
+      <main id="main" tabIndex={-1}>
       {/* <SchemaOrg breadcrumbs={BREADCRUMBS} /> */}
       <WwsHero data={pageData.hero} />
       <Section aria-label="Edstellar at a glance" className="bg-navy-deep">
@@ -56,5 +83,6 @@ export default function WhoWeServePage() {
       <WwsFaq data={pageData.faq} />
       <WwsContact data={pageData.contact} />
     </main>
+    </>
   );
 }

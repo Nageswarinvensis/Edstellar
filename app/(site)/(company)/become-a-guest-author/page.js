@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getGuestAuthorPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
 import { CtaButton } from "@/components/common/cta-button";
 
 import CompanyHero from "@/components/sections/company/company-hero";
@@ -53,9 +54,33 @@ export default async function BecomeAGuestAuthorPage() {
   if (!page) notFound();
 
   const hero = page["guest-author_hero"];
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/become-a-guest-author`;
 
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": titleOf(page.seo),
+        ...(page.seo?.Meta_description && { "description": page.seo?.Meta_description }),
+        "inLanguage": "en-US"
+      }} />
+      {BREADCRUMBS?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": BREADCRUMBS.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
       {/* <SchemaOrg
         webpage={{ name: titleOf(page.seo), description: page.seo?.Meta_description, path: PATH }}
         breadcrumbs={BREADCRUMBS}

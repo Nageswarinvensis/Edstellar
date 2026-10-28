@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getThankYouPage } from "@/lib/content/company";
 import { buildMetadata } from "@/lib/seo/metadata";
 import ThankYou from "@/components/sections/company/thank-you";
+import JsonLd from "@/components/seo/json-ld";
 
 export const revalidate = 300;
 
@@ -32,6 +33,21 @@ export default async function ThankYouPage({ params }) {
   const { slug } = await params;
   const page = await getThankYouPage(slug);
   if (!page) notFound();
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/thank-you/${slug}`;
 
-  return <ThankYou data={page} />;
+  return (
+    <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": "Thank You",
+        "description": "Thank you for submitting the form. Your response has been received successfully, and our team will get back to you shortly.",
+        "inLanguage": "en-US"
+      }} />
+      <ThankYou data={page} />
+    </>
+  );
 }

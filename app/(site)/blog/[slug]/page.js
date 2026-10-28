@@ -162,25 +162,7 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <>
-      {/* 1 — Organization */}
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": `${BASE}/#organization`,
-        "name": "Edstellar",
-        "url": BASE
-      }} />
-
-      {/* 2 — WebSite (kept separate so #organization @id resolves independently) */}
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": `${BASE}/#website`,
-        "url": BASE,
-        "name": "Edstellar"
-      }} />
-
-      {/* 2 — WebPage */}
+      {/* 1 — WebPage */}
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -213,8 +195,8 @@ export default async function BlogPostPage({ params }) {
         "headline": blog.title,
         ...(pageDescription && { "description": pageDescription }),
         ...(blog.meta?.og_image || blog.cover_image ? { "image": blog.meta?.og_image || blog.cover_image } : {}),
-        ...(blog.published_at && { "datePublished": blog.published_at }),
-        ...(blog.meta?.site_published_at && { "dateModified": blog.meta.site_published_at }),
+        ...(blog.meta?.site_published_at && { "datePublished": blog.meta.site_published_at }),
+        ...(blog.published_at && { "dateModified": blog.published_at }),
         ...(category?.name && { "articleSection": category.name }),
         "inLanguage": "en-US",
         ...(author?.name && {

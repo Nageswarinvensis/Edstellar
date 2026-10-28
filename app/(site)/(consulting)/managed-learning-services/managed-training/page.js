@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getManagedTrainingPage } from "@/lib/content/managed-training";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -52,10 +53,38 @@ export default async function ManagedTrainingServicesPage() {
   const page = await getManagedTrainingPage();
   if (!page) notFound();
 
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/managed-learning-services/managed-training`;
   const breadcrumbs = page.breadcrumbs?.items;
 
   return (
     <BrochureGate {...consultingBrochure("managed-training")}>
+      {/* WebPage */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": page.seo?.meta_title?.replace(/\s*\|\s*Edstellar\s*$/i, "").trim(),
+        ...(page.seo?.Meta_description && { "description": page.seo?.Meta_description }),
+        "inLanguage": "en-US"
+      }} />
+
+      {/* BreadcrumbList */}
+      {breadcrumbs?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": breadcrumbs.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
+
       {/* <SchemaOrg
         service={{
           name: page.consulting_Hero?.heroLeft?.title,

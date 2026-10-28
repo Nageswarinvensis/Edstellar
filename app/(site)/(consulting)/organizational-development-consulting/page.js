@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
+import { schemaNodes } from "@/lib/seo/prune";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -50,14 +52,47 @@ export default async function OrganizationalDevelopmentConsultingPage() {
   const cms = await getSitePage(CMS_SLUG);
   if (!cms) notFound();
 
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/organizational-development-consulting`;
   const name = cms.consulting_Hero?.heroLeft?.title;
+  const nodes = schemaNodes(cms.consultingSchema);
 
   return (
     <BrochureGate {...consultingBrochure("organizational-development-consulting")}>
+      {/* WebPage */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": cms.seo?.meta_title?.replace(/\s*\|\s*Edstellar\s*$/i, "").trim(),
+        ...(cms.seo?.Meta_description && { "description": cms.seo?.Meta_description }),
+        "inLanguage": "en-US"
+      }} />
+
+      {/* BreadcrumbList */}
+      {cms.breadcrumbs?.items?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": cms.breadcrumbs.items.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
+
       {/* <SchemaOrg
         breadcrumbs={cms.breadcrumbs?.items}
         faqs={cms.faqs?.items}
       /> */}
+      {/* CMS schema nodes (Service, HowTo, etc.) — each emitted separately */}
+      {nodes.map((node, i) => (
+        <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
+      ))}
 
       <ConsultingHero
         data={cms.consulting_Hero}

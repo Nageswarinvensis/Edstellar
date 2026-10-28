@@ -83,16 +83,7 @@ export default async function CourseRoute({ params }) {
 
   return (
     <>
-      {/* 1 — WebSite (always rendered for every course) */}
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": `${BASE}/#website`,
-        "url": BASE,
-        "name": "Edstellar"
-      }} />
-
-      {/* 2 — WebPage (always rendered for every course) */}
+      {/* 1 — WebPage (always rendered for every course) */}
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "WebPage",

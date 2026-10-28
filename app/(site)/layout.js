@@ -4,6 +4,9 @@ import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
 import ReadingProgress from "@/components/common/reading-progress";
 import NavigationProgress from "@/components/common/navigation-progress";
+import JsonLd from "@/components/seo/json-ld";
+
+const BASE = "https://www.edstellar.com";
 
 /**
  * The site shell — header, `<main>` landmark, footer.
@@ -20,6 +23,25 @@ import NavigationProgress from "@/components/common/navigation-progress";
 export default function SiteLayout({ children }) {
   return (
     <>
+      {/* Organization — defined once for the whole site so every page's
+          publisher / provider reference resolves to a real node. */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": `${BASE}/#organization`,
+        "name": "Edstellar",
+        "url": BASE
+      }} />
+
+      {/* WebSite — defined once; pages reference it via #website @id. */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${BASE}/#website`,
+        "url": BASE,
+        "name": "Edstellar"
+      }} />
+
       <NavigationProgress />
       <ReadingProgress />
       <SiteHeader />

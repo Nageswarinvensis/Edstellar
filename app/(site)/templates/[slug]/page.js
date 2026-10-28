@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getTemplate } from "@/lib/content/templates";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
+import { schemaNodes } from "@/lib/seo/prune";
 import TemplateDetailPage from "@/components/templates/template-detail-page";
 import TemplateToolPage from "@/components/templates/template-tool-page";
 
@@ -35,19 +37,53 @@ export default async function TemplateRoute({ params }) {
   const template = await getTemplate(slug);
   if (!template) notFound();
 
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/templates/${slug}`;
   const breadcrumbs = template.breadcrumbs ?? [
     { label: "Home", href: "/" },
     { label: "L&D Templates", href: "/learning-development-templates" },
     { label: template.title, href: null },
   ];
 
+  const nodes = schemaNodes(template.schema);
+
   return (
     <>
+      {/* WebPage */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": template.seo.title,
+        ...(template.seo.description && { "description": template.seo.description }),
+        "inLanguage": "en-US"
+      }} />
+
+      {/* BreadcrumbList */}
+      {breadcrumbs?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": breadcrumbs.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
+
       {/* <SchemaOrg
         webpage={{ name: template.title, description: template.seo.description, path: pathOf(slug) }}
         breadcrumbs={breadcrumbs}
         faqs={template.faqs?.items}
       /> */}
+      {/* CMS schema nodes (Service, HowTo, etc.) — each emitted separately */}
+      {nodes.map((node, i) => (
+        <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
+      ))}
       {template.directTool ? (
         <TemplateToolPage template={template} />
       ) : (

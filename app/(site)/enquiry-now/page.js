@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getEnquiryPage } from "@/lib/content/company";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
+import JsonLd from "@/components/seo/json-ld";
 
 import CompanyHero from "@/components/sections/company/company-hero";
 import EnquiryIntro from "@/components/sections/company/enquiry-intro";
@@ -39,9 +40,33 @@ export default async function EnquiryNowPage() {
   const page = await getEnquiryPage();
   const enquiry = page?.enquiry_page;
   if (!enquiry) notFound();
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/enquiry-now`;
 
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": stripSiteSuffix(page.seo?.meta_title),
+        ...(page.seo?.Meta_description && { "description": page.seo?.Meta_description }),
+        "inLanguage": "en-US"
+      }} />
+      {enquiry.breadcrumbs?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": enquiry.breadcrumbs.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
       {/* <SchemaOrg
         webpage={{
           name: stripSiteSuffix(page.seo?.meta_title),
