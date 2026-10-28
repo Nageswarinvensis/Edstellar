@@ -210,7 +210,7 @@ function CourseCard({ course, data }) {
 
         <Text
           as="p"
-          className="mt-1.25 mb-1.25 line-clamp-2 text-[11px] leading-[1.45] text-ink-muted"
+          className="mt-1.25 mb-4 line-clamp-2 text-[11px] leading-[1.45] text-ink-muted"
         >
           {course.description}
         </Text>

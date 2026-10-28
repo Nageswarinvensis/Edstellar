@@ -9,22 +9,23 @@ import { CtaButton } from "@/components/common/cta-button";
 const isExternal = (href) => /^https?:\/\//.test(href) && !/^https?:\/\/(www\.)?edstellar\.com/.test(href);
 
 /** `rel` for a card's link: `nofollow` when the CMS marks it
- * `is_follow: false`, `noopener` for a new tab. */
-function linkProps(cta) {
-  const external = isExternal(cta.href);
-  const rel = [cta.is_follow === false && "nofollow", external && "noopener"].filter(Boolean).join(" ");
-  return { href: cta.href, ...(external && { target: "_blank" }), ...(rel && { rel }) };
+ * `is_follow: false`, `noopener` for a new tab. `newTab` opens even an
+ * Edstellar page in a new tab. */
+function linkProps(cta, newTab = false) {
+  const blank = newTab || isExternal(cta.href);
+  const rel = [cta.is_follow === false && "nofollow", blank && "noopener"].filter(Boolean).join(" ");
+  return { href: cta.href, ...(blank && { target: "_blank" }), ...(rel && { rel }) };
 }
 
 /**
  * One resource card — thumbnail, type tag, title, short description, date
  * and the CMS call to action. `linkTitle` also links the title (the
- * templates page). Used by the resource hub's library and the templates
+ * templates page); `ctaNewTab` opens the call to action in a new tab. Used by the resource hub's library and the templates
  * page.
  *
  * Design: Learning_Development_Resources / _Templates `.card`.
  */
-export default function ResourceCard({ item, linkTitle = false }) {
+export default function ResourceCard({ item, linkTitle = false, ctaNewTab = false }) {
   return (
     <Box
       as="article"
@@ -51,7 +52,6 @@ export default function ResourceCard({ item, linkTitle = false }) {
           {linkTitle && item.cta?.href ? (
             <Link
               {...linkProps(item.cta)}
-             
               className="transition-colors duration-200 hover:text-olive"
             >
               {item.title}
@@ -70,7 +70,7 @@ export default function ResourceCard({ item, linkTitle = false }) {
           {item.cta?.href ? (
             <CtaButton arrow
               variant="ghost"
-              render={<a {...linkProps(item.cta)} />}
+              render={<a {...linkProps(item.cta, ctaNewTab)} />}
               title={`Click Here to ${item.cta.label}: ${item.title}`}
               className="px-4.5 py-2.5 text-[13px] leading-none"
             >

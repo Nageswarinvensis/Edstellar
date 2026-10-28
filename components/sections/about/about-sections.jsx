@@ -63,7 +63,7 @@ export function AboutHero({ data, breadcrumbs }) {
         <RichHeading
           as="h1"
           heading={data.heading}
-          className="mx-auto text-paper [&_em]:mt-2 [&_em]:block [&_em]:text-[clamp(44px,7vw,92px)] [&_em]:leading-[1.05]"
+          className="mx-auto text-paper"
           emphasisClassName="text-lime"
         />
         <Text as="p" className="mx-auto mt-8 max-w-[62ch] text-[clamp(16px,1.3vw,18px)] leading-[1.7] text-paper/75">

@@ -31,7 +31,7 @@ export default function TemplatesGrid({ data }) {
     <>
       <Box ref={topRef} className="grid scroll-mt-24 gap-5.5 min-[601px]:grid-cols-2 min-[961px]:grid-cols-3">
         {shown.map((item) => (
-          <ResourceCard key={item.title} item={item} linkTitle />
+          <ResourceCard key={item.title} item={item} linkTitle ctaNewTab />
         ))}
       </Box>
       <ResourcePager current={page} pages={pages} onChange={goTo} />

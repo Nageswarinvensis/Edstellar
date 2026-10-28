@@ -76,6 +76,10 @@ export function phoneForSubmit(phone) {
  * form, whose Zoho form has no country): the phone input alone, with the
  * dial code still taken from its flag.
  *
+ * `dropUp` opens the flag list above the field — for a container that
+ * clips below it (the header's brief panel scrolls, so a list opening
+ * downward is cut off at its bottom edge).
+ *
  * `renderField({ label, error, className, children })` replaces the field
  * wrapper (label + error) and `phoneInputClassName` the phone input's look,
  * for a form whose own fields look different (the header's brief composer).
@@ -93,6 +97,7 @@ export default function CountryPhoneFields({
   country: withCountry = true,
   renderField,
   phoneInputClassName,
+  dropUp = false,
 }) {
   // React's ids look like `«R1a»`; keep only [A-Za-z0-9_-] so a checker that
   // matches `label[for]` with a plain selector still pairs label and input.
@@ -220,7 +225,10 @@ export default function CountryPhoneFields({
                     "aria-invalid": Boolean(errors.phone),
                   }}
                   containerClass={cn(
-                    "!w-full !font-body",
+                    // A size container, so the flag list (positioned inside
+                    // the flag button, not the field) can be sized to the
+                    // whole field with `cqw`.
+                    "@container !w-full !font-body",
                     // Flag button: no box of its own — a divider inside the
                     // field's border, with a light hover/open tint.
                     "[&_.flag-dropdown]:!rounded-l-xl [&_.flag-dropdown]:!border-transparent [&_.flag-dropdown]:!border-r-ink/12 [&_.flag-dropdown]:!bg-transparent",
@@ -236,9 +244,12 @@ export default function CountryPhoneFields({
                       : "!h-auto !w-full !rounded-xl !border-ink/15 !bg-paper !py-3 !pl-[4.25rem] !pr-3.5 !text-[13.5px] !leading-normal !text-ink focus:!border-navy focus:!bg-white")
                   }
                   dropdownClass={cn(
-                    "!mt-2 !w-[min(22rem,calc(100vw-5rem))] !max-h-64 !rounded-xl !border !border-ink/12 !bg-white !py-1.5 !text-[13.5px] !text-ink !shadow-[0_18px_40px_-20px_rgba(10,22,40,0.45)]",
+                    // As wide as the input, no wider; the search box sits flush at the
+                    // top so rows don't show above it while scrolling.
+                    "!-ml-px !w-[100cqw] !max-h-64 !rounded-xl !border !border-ink/12 !bg-white !pt-0 !pb-1.5 !text-[13.5px] !text-ink !shadow-[0_18px_40px_-20px_rgba(10,22,40,0.45)]",
                     "[&_.country]:!flex [&_.country]:!items-center [&_.country]:!gap-2.5 [&_.country]:!px-3.5 [&_.country]:!py-2.5",
                     "[&_.country_.flag]:!m-0 [&_.country_.flag]:!shrink-0 [&_.country-name]:!mr-0",
+                    dropUp ? "!top-auto !bottom-full !mt-0 !mb-2 !max-h-52" : "!mt-2",
                     "[&_.country:hover]:!bg-paper [&_.country.highlight]:!bg-paper [&_.dial-code]:!text-ink-muted [&_.divider]:!mx-3 [&_.divider]:!border-ink/10",
                     // The search box: pinned above the list while it scrolls.
                     "[&_.search]:!sticky [&_.search]:!top-0 [&_.search]:!z-[1] [&_.search]:!-mt-1.5 [&_.search]:!bg-white [&_.search]:!px-2.5 [&_.search]:!pt-2.5 [&_.search]:!pb-2",
