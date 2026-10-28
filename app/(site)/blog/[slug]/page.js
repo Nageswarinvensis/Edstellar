@@ -22,6 +22,8 @@ import BlogDetailCategories from "@/components/sections/blog/detail/blog-detail-
 import BlogDetailMoreInsights from "@/components/sections/blog/detail/blog-detail-more-insights";
 import BlogRail from "@/components/sections/blog/detail/rail/blog-rail";
 
+import JsonLd from "@/components/seo/json-ld";
+
 import "@/components/sections/blog/detail/blog-content/Global.css";
 
 export const revalidate = 300;
@@ -152,8 +154,83 @@ export default async function BlogPostPage({ params }) {
     { label: blog.title },
   ];
 
+  const BASE = "https://www.edstellar.com";
+  const pageUrl = `${BASE}/blog/${blog.slug}`;
+  const pageTitle = blog.meta?.meta_title || blog.title;
+  const pageDescription = blog.meta?.meta_description || blog.excerpt;
+  const authorUrl = author?.slug ? `${BASE}/blog/author/${author.slug}` : null;
+
   return (
     <>
+      {/* 1 — Organization */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": `${BASE}/#organization`,
+        "name": "Edstellar",
+        "url": BASE
+      }} />
+
+      {/* 2 — WebSite (kept separate so #organization @id resolves independently) */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${BASE}/#website`,
+        "url": BASE,
+        "name": "Edstellar"
+      }} />
+
+      {/* 2 — WebPage */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": pageTitle,
+        ...(pageDescription && { "description": pageDescription }),
+        "inLanguage": "en-US"
+      }} />
+
+      {/* 3 — BreadcrumbList */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        "itemListElement": breadcrumb.map((item, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": item.label,
+          "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+        }))
+      }} />
+
+      {/* 4 — BlogPosting */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "@id": `${pageUrl}#article`,
+        "url": pageUrl,
+        "headline": blog.title,
+        ...(pageDescription && { "description": pageDescription }),
+        ...(blog.meta?.og_image || blog.cover_image ? { "image": blog.meta?.og_image || blog.cover_image } : {}),
+        ...(blog.published_at && { "datePublished": blog.published_at }),
+        ...(blog.meta?.site_published_at && { "dateModified": blog.meta.site_published_at }),
+        ...(category?.name && { "articleSection": category.name }),
+        "inLanguage": "en-US",
+        ...(author?.name && {
+          "author": {
+            "@type": "Person",
+            ...(authorUrl && { "@id": `${authorUrl}#person` }),
+            "name": author.name,
+            ...(author.designation && { "jobTitle": author.designation }),
+            ...(author.avatar && { "image": author.avatar }),
+            ...(authorUrl && { "url": authorUrl })
+          }
+        }),
+        "publisher": { "@id": `${BASE}/#organization` },
+        "mainEntityOfPage": { "@id": `${pageUrl}#webpage` }
+      }} />
+
       {/* <SchemaOrg
         blogPosting={{
           title: blog.title,

@@ -104,7 +104,7 @@ export default async function TrainingPage({ params }) {
             "@type": "ListItem",
             "position": i + 1,
             "name": item.label,
-            "item": item.href?.startsWith("http") ? item.href : `${BASE}${item.href}`
+            "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
           }))
         }} />
       )}
