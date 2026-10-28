@@ -1,6 +1,5 @@
 import { getAboutUsPage } from "@/lib/content/about-us";
 import { buildMetadata } from "@/lib/seo/metadata";
-// import SchemaOrg from "@/components/seo/schema-org";
 import AboutUsPage from "@/components/templates/about-us-page";
 import JsonLd from "@/components/seo/json-ld";
 
@@ -26,15 +25,71 @@ export default function AboutUsRoute() {
 
   return (
     <>
-      {/* AboutPage — typed specifically per CMS schema; back-references stripped */}
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        "@id": `${pageUrl}#webpage`,
-        "url": pageUrl,
+        "@id": "https://www.edstellar.com/about-us#webpage",
+        "url": "https://www.edstellar.com/about-us",
         "name": "Your Capability Transformation Partner",
         "description": "Learn about Edstellar, our purpose, values and approach to capability transformation, and how we help organizations develop their people and teams.",
-        "inLanguage": "en-US"
+        "inLanguage": "en-US",
+        "isPartOf": { "@id": "https://www.edstellar.com/#website" },
+        "mainEntity": { "@id": "https://www.edstellar.com/#organization" },
+        "breadcrumb": { "@id": "https://www.edstellar.com/about-us#breadcrumb" },
+        "hasPart": { "@id": "https://www.edstellar.com/about-us#faq" }
+      }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://www.edstellar.com/#organization",
+        "name": "Edstellar",
+        "url": "https://www.edstellar.com",
+        "description": "Edstellar helps enterprises build workforce capabilities and drive organizational transformation. Backed by 5+ years of experience in corporate learning and development, Edstellar brings together corporate training, L&D and organizational development consulting, talent assessments, leadership and team coaching, managed learning services, and learning, assessment and capability analytics platforms. These offerings help organizations identify capability gaps, develop employees and leaders, and align workforce development with business goals.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.edstellar.com/course/edstellar.svg"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/edstellarofficial/",
+          "https://www.youtube.com/@edstellarofficial",
+          "https://x.com/edstellarglobal",
+          "https://www.facebook.com/edstellarofficial/",
+          "https://www.instagram.com/edstellarofficial/"
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "training enquiries",
+            "email": "contact@edstellar.com",
+            "url": "https://www.edstellar.com/contact-us"
+          }
+        ],
+        "knowsAbout": [
+          "Corporate training",
+          "Learning and development consulting",
+          "Organizational development consulting",
+          "Talent assessments",
+          "Leadership coaching",
+          "Team coaching",
+          "Managed learning services",
+          "Learning management systems",
+          "Capability analytics"
+        ],
+        "areaServed": [
+          "North America",
+          "Europe",
+          "Asia-Pacific",
+          "Middle East",
+          "Africa",
+          "Latin America and the Caribbean"
+        ]
+      }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://www.edstellar.com/#website",
+        "name": "Edstellar",
+        "url": "https://www.edstellar.com"
       }} />
       {page.breadcrumbs?.length > 0 && (
         <JsonLd data={{
