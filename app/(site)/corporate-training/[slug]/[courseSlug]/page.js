@@ -58,33 +58,27 @@ export default async function CourseRoute({ params }) {
 
   return (
     <>
-      {/* 1 — WebSite + WebPage (always rendered for every course) */}
+      {/* 1 — WebSite (always rendered for every course) */}
       <JsonLd data={{
         "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "@id": `${BASE}/#website`,
-            "url": BASE,
-            "name": "Edstellar"
-          },
-          {
-            "@type": "WebPage",
-            "@id": `${courseUrl}#webpage`,
-            "url": courseUrl,
-            "name": pageTitle,
-            ...(pageDescription && { "description": pageDescription }),
-            "inLanguage": "en-US",
-            "isPartOf": { "@id": `${BASE}/#website` },
-            "mainEntity": { "@id": `${courseUrl}#course` },
-            "about": { "@id": `${courseUrl}#service` },
-            "breadcrumb": { "@id": `${courseUrl}#breadcrumb` },
-            ...(faqItems.length && { "hasPart": { "@id": `${courseUrl}#faq` } })
-          }
-        ]
+        "@type": "WebSite",
+        "@id": `${BASE}/#website`,
+        "url": BASE,
+        "name": "Edstellar"
       }} />
 
-      {/* 2 — BreadcrumbList (always rendered for every course) */}
+      {/* 2 — WebPage (always rendered for every course) */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${courseUrl}#webpage`,
+        "url": courseUrl,
+        "name": pageTitle,
+        ...(pageDescription && { "description": pageDescription }),
+        "inLanguage": "en-US"
+      }} />
+
+      {/* 3 — BreadcrumbList (always rendered for every course) */}
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -97,14 +91,12 @@ export default async function CourseRoute({ params }) {
         ]
       }} />
 
-      {/* 3 — FAQPage (uses schema.faq from API if present, falls back to course.faqs) */}
+      {/* 4 — FAQPage (uses schema.faq from API if present, falls back to course.faqs) */}
       {faqItems.length > 0 && (
         <JsonLd data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "@id": `${courseUrl}#faq`,
-          "isPartOf": { "@id": `${courseUrl}#webpage` },
-          "inLanguage": "en-US",
           "mainEntity": faqItems.map((item) => ({
             "@type": "Question",
             "name": item.question,
@@ -125,7 +117,6 @@ export default async function CourseRoute({ params }) {
           "provider": { "@type": "Organization", "name": "Edstellar", "url": BASE },
           "inLanguage": "en",
           "learningResourceType": "Instructor-led corporate training",
-          "mainEntityOfPage": { "@id": `${courseUrl}#webpage` },
           "image": schema.course.image || course.banner_image,
           ...(schema.course.timeRequired && { "timeRequired": schema.course.timeRequired }),
           ...(schema.course.teaches?.length && { "teaches": schema.course.teaches }),
@@ -153,7 +144,6 @@ export default async function CourseRoute({ params }) {
           "provider": { "@type": "Organization", "name": "Edstellar", "url": BASE },
           "image": schema.course?.image || course.banner_image,
           "areaServed": schema.service.areaServed || ["North America", "Europe", "Asia-Pacific", "Middle East", "Africa", "Latin America and the Caribbean"],
-          "subjectOf": { "@id": `${courseUrl}#webpage` },
           "audience": { "@type": "Audience", "audienceType": "Enterprise and Corporate Organizations" }
         }} />
       )}
