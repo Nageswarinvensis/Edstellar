@@ -6,6 +6,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import InlineHtml from "@/components/common/inline-html";
 import CoachingCtaBand from "@/components/sections/coaching/coaching-cta-band";
 import { coachingIcon } from "@/components/sections/coaching/icons";
 import { cn } from "@/lib/utils";
@@ -239,7 +240,10 @@ export default function CoachingWhy({ data }) {
                 {item.title}
               </Text>
               <Text as="p" className="text-[14.5px] leading-[1.6] text-ink-muted">
-                {item.description}
+                <InlineHtml
+                  text={item.description}
+                  linkClassName="font-medium text-ink underline decoration-lime underline-offset-[3px] hover:text-olive"
+                />
               </Text>
               <Box
                 aria-hidden="true"

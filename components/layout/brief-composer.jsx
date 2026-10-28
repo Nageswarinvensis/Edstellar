@@ -430,6 +430,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
                   country={false}
                   renderField={PhoneFieldShell}
                   phoneInputClassName={PHONE_INPUT}
+                  dropUp={!isSheet}
                 />
               </Box>
               <Box className="mt-3.5 flex flex-wrap items-center justify-between gap-3">

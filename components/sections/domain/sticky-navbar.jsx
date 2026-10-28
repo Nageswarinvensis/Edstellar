@@ -60,9 +60,17 @@ export default function StickyTabs({ data, hasTrainers }) {
       );
       // Null until a section's top crosses the line — so while the reader is
       // still above the first section, no tab is highlighted.
+      // The lowest section top past the line wins, whatever the tab order:
+      // the tabs need not follow the page (Paths sits above By role on the
+      // page but after it in the tabs).
       let current = null;
+      let currentTop = -Infinity;
       for (const section of sections) {
-        if (section.getBoundingClientRect().top <= line) current = section.id;
+        const top = section.getBoundingClientRect().top;
+        if (top <= line && top > currentTop) {
+          current = section.id;
+          currentTop = top;
+        }
       }
       const atBottom =
         window.innerHeight + window.scrollY >=

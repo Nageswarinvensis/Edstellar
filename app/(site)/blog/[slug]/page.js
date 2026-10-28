@@ -220,7 +220,7 @@ export default async function BlogPostPage({ params }) {
           path: `/blog/${blog.slug}`,
           image: blog.cover_image,
           datePublished: blog.published_at,
-          dateModified: blog.meta?.site_published_at,
+          dateModified: blog.published_at,
           authorName: author?.name,
         }}
         breadcrumbs={breadcrumb}
@@ -235,7 +235,7 @@ export default async function BlogPostPage({ params }) {
         authorAvatar={author?.avatar}
         authorDesignation={author?.designation}
         authorVerifiedExpert={author?.verified_expert}
-        publishedAt={blog.meta?.site_published_at}
+        publishedAt={blog.published_at}
         readMinutes={post.readMinutes}
         showsWhatsNew={blog.meta?.shows_whats_new}
         layoutVariant={blog.meta?.layout_variant}
@@ -323,9 +323,7 @@ export default async function BlogPostPage({ params }) {
       )}
 
       {blog.meta?.shows_whats_new && (
-        <BlogDetailWhatsNewInteractivity
-          lastRevisedDate={blog.meta?.site_published_at}
-        />
+        <BlogDetailWhatsNewInteractivity />
       )}
 
       {post.styleBlocks.includes("highlight") && <BlogDetailHighlightReveal />}

@@ -342,7 +342,10 @@ export default function Topics({ data: topicsData, courseCount, courses }) {
                   ...program,
                   href: program.href ?? courseUrl(course.href),
                   image: course.image,
-                  description: courseDescription({ ...course, description: program.description }),
+                  description: courseDescription({
+                    ...course,
+                    description: program.description || course.description,
+                  }),
                 }
               : program;
           }),

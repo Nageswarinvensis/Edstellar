@@ -7,6 +7,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import InlineHtml from "@/components/common/inline-html";
 import { coachingIcon } from "@/components/sections/coaching/icons";
 import { cn } from "@/lib/utils";
 
@@ -114,8 +115,11 @@ export default function CoachingWhoFor({ data }) {
                       <span className="text-ink-muted">{panel.tracks_label}{" "}</span>
                     ) : null}
                     {panel.tracks.map((track, i) => (
+                      // A track is plain text or the CMS's `<a href>` link to it.
                       <span key={track}>
-                        <span className="font-semibold underline decoration-lime underline-offset-[3px]">{track}</span>
+                        <span className="font-semibold underline decoration-lime underline-offset-[3px]">
+                          <InlineHtml text={track} linkClassName="hover:text-olive" />
+                        </span>
                         {i < panel.tracks.length - 1 ? <span className="text-ink-muted"> and </span> : null}
                       </span>
                     ))}

@@ -23,7 +23,7 @@ export const ABOUT_US = {
   ],
 
   hero: {
-    heading: "Your <span>Capability Transformation Partner</span>",
+    heading: "About <span>Edstellar</span>",
     description:
       "Edstellar helps organizations build the capability their strategy depends on. Through its 5A methodology, Edstellar assesses the capability your strategy needs, analyzes the gaps, architects the solution, activates training and coaching, and advances results cycle after cycle, all as one connected program.",
     primary_cta: CONSULTATION,
