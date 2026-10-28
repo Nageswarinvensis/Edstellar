@@ -1791,7 +1791,7 @@ export const CLIENTS = {
       {
         "value": "100",
         "label": "Countries",
-        "desc": "Programs delivered across regions and time zones, in more than 10 languages."
+        "desc": "Programs delivered across regions and time zones, in 10+ languages."
       },
       {
         "value": "1",
@@ -1901,11 +1901,11 @@ export const CLIENTS = {
       },
       {
         "q": "Where are Edstellar's clients headquartered?",
-        "a": "Edstellar's clients are headquartered across four regions: the Americas, Europe and Africa, the Middle East and North Africa, and Asia Pacific. Edstellar delivers training in 100 countries and more than 10 languages, so programs reach teams well beyond each client's headquarters."
+        "a": "Edstellar's clients are headquartered across four regions: the Americas, Europe and Africa, the Middle East and North Africa, and Asia Pacific. Edstellar delivers training in 100 countries and 10+ languages, so programs reach teams well beyond each client's headquarters."
       },
       {
         "q": "Can Edstellar train teams in several countries at once?",
-        "a": "Yes. Edstellar delivers in 100 countries and more than 10 languages, in virtual, onsite and blended formats, and coordinates schedules across cohorts, locations and time zones."
+        "a": "Yes. Edstellar delivers in 100 countries and 10+ languages, in virtual, onsite and blended formats, and coordinates schedules across cohorts, locations and time zones."
       },
       {
         "q": "Which Edstellar services do clients use?",

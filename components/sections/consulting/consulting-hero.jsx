@@ -78,13 +78,14 @@ export default function ConsultingHero({
   const colorClass = customColor || left.textColor;
 
   return (
-    // 40px above and below on the consulting pages; the sector and partner
+    // 40px above and below on the consulting pages, banner or not (no minimum
+    // height, so the copy sits exactly 40px from each edge); the sector and partner
     // heroes, which reuse this one, pass their own `className` padding.
     <Section
       id="top"
       className={cn(
         "bg-[#f8f7f4] py-10 lg:py-10",
-        banner && "relative isolate overflow-hidden min-[1180px]:flex min-[1180px]:min-h-[640px] min-[1180px]:items-center",
+        banner && "relative isolate overflow-hidden",
         className,
       )}
       innerClassName={banner ? "w-full" : undefined}

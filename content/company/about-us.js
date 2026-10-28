@@ -454,7 +454,7 @@ export const ABOUT_US = {
       {
         question: "Where does Edstellar deliver its services?",
         answer:
-          "From Bengaluru, India, Edstellar delivers to the Americas, EMEA, MENA and APAC, in 100 countries and more than 10 languages, through virtual, onsite and offsite formats.",
+          "From Bengaluru, India, Edstellar delivers to the Americas, EMEA, MENA and APAC, in 100 countries and 10+ languages, through virtual, onsite and offsite formats.",
       },
       {
         question: "Does Edstellar work with smaller companies and government organizations?",

@@ -216,7 +216,7 @@ export const RFP_PAGE = {
     description:
       "A capability transformation partner that answers your RFP across services and countries, and stays with you after the award.",
     items: [
-      { value: "100", title: "Countries for delivery", text: "Programs delivered in 100 countries and more than 10 languages." },
+      { value: "100", title: "Countries for delivery", text: "Programs delivered in 100 countries and 10+ languages." },
       { value: "77", title: "Training domains", text: "More than 2,000 instructor-led programs to build from." },
       { value: "1", title: "Client success manager", text: "One dedicated contact per account once your program starts." },
       { value: "2", title: "ISO certifications", text: "ISO 9001:2015 quality and ISO 27001:2022 information security." },
@@ -268,7 +268,7 @@ export const RFP_PAGE = {
       { question: "Can Edstellar answer in our own RFP template?", answer: "Yes. Edstellar answers in your template, questionnaire or portal format, so your evaluation panel can compare responses side by side." },
       { question: "Will Edstellar sign an NDA before we share the RFP?", answer: "Yes. Tick \"An NDA is required\" on the form, and Edstellar signs a mutual NDA before you share full details." },
       { question: "Which procurement documents can Edstellar provide?", answer: "The company profile and the ISO 9001:2015 and ISO 27001:2022 certificates, plus vendor registration forms, security questionnaire responses, a data processing agreement, company and tax documents, insurance certificates and trainer CVs, all on request." },
-      { question: "Can one proposal cover several services or countries?", answer: "Yes. Edstellar answers multi-service RFPs in one integrated proposal with one point of contact, and delivers in 100 countries and more than 10 languages." },
+      { question: "Can one proposal cover several services or countries?", answer: "Yes. Edstellar answers multi-service RFPs in one integrated proposal with one point of contact, and delivers in 100 countries and 10+ languages." },
       { question: "Who will be our point of contact during and after the RFP?", answer: "One bid lead manages your RFP from submission to award. Once Edstellar is selected, your account gets a dedicated client success manager who stays your single point of contact across every program." },
     ],
   },

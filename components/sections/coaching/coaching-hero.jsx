@@ -41,7 +41,7 @@ export default function CoachingHero({ cms, breadcrumbs }) {
     <Box
       as="header"
       id="top"
-      className="bg-paper px-5 py-[60px] lg:px-10"
+      className="bg-paper px-5 py-10 lg:px-10"
     >
       <Box className="mx-auto grid max-w-7xl grid-cols-[1.1fr_0.9fr] items-center gap-14 max-[1200px]:grid-cols-1 max-[1200px]:gap-10">
         <Box>

@@ -155,7 +155,7 @@ export const CLIENT_EXPERIENCE = {
       { value: "Fit first", title: "Vendor-neutral recommendations", text: "Programs and tools chosen for your goals, not tied to one publisher." },
       { value: "77", title: "Training domains", text: "More than 2,000 instructor-led programs across 77 domains." },
       { value: "8", title: "Edstellar tools", text: "Edstellar's own tools for assessment, learning, coaching and capability tracking." },
-      { value: "3", title: "Delivery modes", text: "Virtual, onsite or blended, in more than 10 languages." },
+      { value: "3", title: "Delivery modes", text: "Virtual, onsite or blended, in 10+ languages." },
     ],
   },
 
@@ -178,7 +178,7 @@ export const CLIENT_EXPERIENCE = {
       { question: "Can we approve the trainer before the program starts?", answer: "Yes. The matched trainer profile is shared with you before delivery begins." },
       { question: "How does Edstellar adapt a program to our teams?", answer: "Edstellar fits topics, level, examples and exercises to your working context, so practice mirrors the tasks your people handle every day." },
       { question: "Which parts of a training program does Edstellar handle?", answer: "Scheduling, participant registration, program materials, and venue or virtual setup, coordinated by your client success manager." },
-      { question: "Can Edstellar run programs for teams in several countries?", answer: "Yes. Edstellar delivers in 100 countries and more than 10 languages, virtually, onsite or blended." },
+      { question: "Can Edstellar run programs for teams in several countries?", answer: "Yes. Edstellar delivers in 100 countries and 10+ languages, virtually, onsite or blended." },
       { question: "What happens after a program ends?", answer: "Your client success manager reviews the results and participant feedback with you, helps you plan how the learning is applied at work, and plans the next program with you." },
       { question: "How do we start working with Edstellar?", answer: "Share your teams and goals through the form on this page. An Edstellar expert will get back to you to start the Define step. If skill gaps are not yet clear, a training needs analysis can identify them first." },
     ],

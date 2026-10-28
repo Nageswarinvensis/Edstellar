@@ -13,7 +13,7 @@ const COUNTRY_TOOLTIP = {
 const DELIVERY_META = [
   "Instructor-led workshops and programs",
   "In-house, virtual or blended",
-  { label: "10 languages", tooltip: LANGUAGE_TOOLTIP },
+  { label: "10+ languages", tooltip: LANGUAGE_TOOLTIP },
   { label: "100+ countries", tooltip: COUNTRY_TOOLTIP },
 ];
 /**
