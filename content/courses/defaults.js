@@ -6,7 +6,7 @@ const DELIVERY_META = [
   "Instructor-led group training",
   "Virtual / on-site / hybrid",
   {
-    label: "10 languages",
+    label: "10+ languages",
     tooltip: { heading: "Delivered in", body: DELIVERY_LANGUAGES.join(", ") },
   },
   {

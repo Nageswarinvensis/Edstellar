@@ -45,7 +45,7 @@ function InfoTooltip({ label, heading, children, className }) {
       {label}
       {/* The "i" is drawn with CSS `content`, not a text node, and the
           heading lives only in the popover: crawlers and screen readers
-          then get "10 languages — Delivered in English, …" once, instead of
+          then get "10+ languages — Delivered in English, …" once, instead of
           "i Delivered in Delivered in …". */}
       <button
         type="button"

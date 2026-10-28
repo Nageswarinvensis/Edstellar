@@ -124,14 +124,14 @@ export const ABOUT_US = {
       { value: "5,000+", label: "qualified trainers and coaches" },
       { value: "58", label: "assessments across 14 families" },
       { value: "50+", label: "coaching programs" },
-      { value: "100", label: "countries delivered in" },
+      { value: "100+", label: "countries delivered in" },
       { value: "10+", label: "delivery languages" },
       { value: "10", label: "industries served" },
     ],
   },
 
   reach: {
-    heading: "Capability programs delivered across <span>100 countries.</span>",
+    heading: "Capability programs delivered across <span>100+ countries.</span>",
     description:
       "From its base in Bengaluru, India, Edstellar delivers to organizations across the Americas, EMEA, MENA and APAC, in the language and format each workforce needs.",
     scale_title: "How Edstellar delivers globally, at any scale",
@@ -388,7 +388,7 @@ export const ABOUT_US = {
   clients: {
     heading: "Industries and organizations that build capability <span>with Edstellar.</span>",
     description:
-      "More than 120 organizations across 10 industries work with Edstellar. Choose an industry to see the organizations Edstellar works with.",
+      "200+ organizations across 10 industries work with Edstellar. Choose an industry to see the organizations Edstellar works with.",
     choose_label: "Choose an industry",
     all_label: "All industries",
     initial: 24,
@@ -454,7 +454,7 @@ export const ABOUT_US = {
       {
         question: "Where does Edstellar deliver its services?",
         answer:
-          "From Bengaluru, India, Edstellar delivers to the Americas, EMEA, MENA and APAC, in 100 countries and more than 10 languages, through virtual, onsite and offsite formats.",
+          "From Bengaluru, India, Edstellar delivers to the Americas, EMEA, MENA and APAC, in 100+ countries and 10+ languages, through virtual, onsite and offsite formats.",
       },
       {
         question: "Does Edstellar work with smaller companies and government organizations?",
