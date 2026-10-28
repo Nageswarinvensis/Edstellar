@@ -65,59 +65,73 @@ export default async function TrainingPage({ params }) {
   const breadcrumbs = entry.data.breadcrumbs ?? [];
   const faqItems = entry.data.faqs?.items ?? [];
 
+  // Strip subjectOf — it pulls WebPage into Service as a nested entity.
+  const rawService = entry.data.domainSchema?.Service ?? null;
+  const schemaService = rawService
+    ? (({ subjectOf, ...rest }) => rest)(rawService)
+    : null;
+  const schemaItemList = entry.data.domainSchema?.ItemList?.[0] ?? null;
+
   return (
     <>
-      {/* 1 — WebSite + WebPage */}
+      {/* 1 — WebSite */}
       <JsonLd data={{
         "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "@id": `${BASE}/#website`,
-            "url": BASE,
-            "name": "Edstellar"
-          },
-          {
-            "@type": "WebPage",
-            "@id": `${pageUrl}#webpage`,
-            "url": pageUrl,
-            "name": pageTitle,
-            ...(pageDescription && { "description": pageDescription }),
-            "inLanguage": "en-US",
-            "isPartOf": { "@id": `${BASE}/#website` },
-            "breadcrumb": { "@id": `${pageUrl}#breadcrumb` },
-            ...(faqItems.length && { "hasPart": { "@id": `${pageUrl}#faq` } })
-          }
-        ]
+        "@type": "WebSite",
+        "@id": `${BASE}/#website`,
+        "url": BASE,
+        "name": "Edstellar"
       }} />
 
-      {/* 2 — BreadcrumbList + FAQPage */}
+      {/* 2 — WebPage */}
       <JsonLd data={{
         "@context": "https://schema.org",
-        "@graph": [
-          ...(breadcrumbs.length ? [{
-            "@type": "BreadcrumbList",
-            "@id": `${pageUrl}#breadcrumb`,
-            "itemListElement": breadcrumbs.map((item, i) => ({
-              "@type": "ListItem",
-              "position": i + 1,
-              "name": item.label,
-              "item": item.href?.startsWith("http") ? item.href : `${BASE}${item.href}`
-            }))
-          }] : []),
-          ...(faqItems.length ? [{
-            "@type": "FAQPage",
-            "@id": `${pageUrl}#faq`,
-            "isPartOf": { "@id": `${pageUrl}#webpage` },
-            "inLanguage": "en-US",
-            "mainEntity": faqItems.map((faq) => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-            }))
-          }] : [])
-        ]
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        "url": pageUrl,
+        "name": pageTitle,
+        ...(pageDescription && { "description": pageDescription }),
+        "inLanguage": "en-US"
       }} />
+
+      {/* 3 — BreadcrumbList */}
+      {breadcrumbs.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          "itemListElement": breadcrumbs.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.label,
+            "item": item.href?.startsWith("http") ? item.href : `${BASE}${item.href}`
+          }))
+        }} />
+      )}
+
+      {/* 4 — FAQPage */}
+      {faqItems.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": `${pageUrl}#faq`,
+          "mainEntity": faqItems.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+          }))
+        }} />
+      )}
+
+      {/* 5 — Service (from API domainSchema.Service) */}
+      {schemaService && (
+        <JsonLd data={{ "@context": "https://schema.org", ...schemaService }} />
+      )}
+
+      {/* 6 — ItemList (from API domainSchema.ItemList) */}
+      {schemaItemList && (
+        <JsonLd data={{ "@context": "https://schema.org", ...schemaItemList }} />
+      )}
 
       <Template domain={entry.data} />
     </>
