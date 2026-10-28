@@ -106,9 +106,9 @@ export const COURSE_DEFAULTS = {
       alt: "Global delivery map",
     },
     stats: [
-      { value: "10,000+", label: "EXPERT TRAINERS" },
+      { value: "5000+", label: "EXPERT TRAINERS" },
       { value: "5+", label: "YEARS DELIVERING" },
-      { value: "1,000+", label: "ORGANIZATIONS TRAINED" },
+      { value: "200+", label: "ORGANIZATIONS TRAINED" },
       {
         value: "ISO 9001",
         connector: "&",

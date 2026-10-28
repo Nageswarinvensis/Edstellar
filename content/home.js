@@ -145,7 +145,7 @@ export const HOME = {
   },
   "stats": [
     {
-      "value": "1,200",
+      "value": "200",
       "suffix": "+",
       "label": "Enterprise Clients"
     },

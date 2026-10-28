@@ -100,3 +100,17 @@
 .edpf .iti__selected-dial-code{font-family:var(--pf-body);font-size:14.5px;color:var(--pf-ink)}
 .edpf .iti__dropdown-content{font-family:var(--pf-body);font-size:14px;color:var(--pf-ink);border-radius:var(--pf-r-field);border:1px solid var(--pf-line);box-shadow:var(--pf-shadow)}
 .edpf .iti__search-input{font-family:var(--pf-body);min-height:40px}
+
+/* On phones intl-tel-input opens the country list as a full-screen popup
+   on <body>, outside .edpf, where it would take the page's own text colour
+   and input styles (light text on dark-theme pages, a themed focus ring).
+   So the list carries its own colours on every page. */
+body .iti--container.iti--fullscreen-popup{background:rgba(10,22,40,.6);padding:max(28px,env(safe-area-inset-top)) 16px 28px;z-index:10000}
+.iti--container .iti__dropdown-content,.edpf .iti__dropdown-content{background:#FFFFFF;color:#0A1628;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif}
+.iti--container .iti__dropdown-content{border:0;border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(10,22,40,.35)}
+.iti--container .iti__country-name,.edpf .iti__country-name{color:#0A1628}
+.iti--container .iti__dial-code,.edpf .iti__dial-code{color:rgba(10,22,40,.62)}
+.iti--container .iti__country.iti__highlight,.edpf .iti__country.iti__highlight{background:#F2F0E8}
+.iti--container .iti__search-input,.edpf .iti__search-input{background:#FFFFFF;color:#0A1628;font-family:inherit;font-size:16px;min-height:48px;border:0;border-bottom:1px solid rgba(10,22,40,.14);border-radius:0;box-shadow:none;outline:none;margin:0;width:100%}
+.iti--container .iti__search-input::placeholder,.edpf .iti__search-input::placeholder{color:rgba(10,22,40,.5);opacity:1}
+.iti--container .iti__search-input:focus,.edpf .iti__search-input:focus{outline:none;box-shadow:none;border-bottom-color:#0A1628;background:#FFFFFF}
