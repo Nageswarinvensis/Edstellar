@@ -49,12 +49,24 @@ export default async function CourseRoute({ params }) {
   const pageTitle = rawTitle.replace(/\s*\|\s*Edstellar\s*$/i, "").trim();
   const pageDescription = course.seo?.Meta_description ?? "";
 
-  // API sends course.schema = { faq: [], course: {}, service: {} }
+  // API sends course.schema = { Course: {}, Service: {}, faq: [] }
   // WebSite / WebPage / BreadcrumbList are always auto-generated here.
   const schema = course.schema ?? null;
   const faqItems = schema?.faq?.length
     ? schema.faq
     : (course.faqs ?? course.Faqs)?.items ?? [];
+  // Strip mainEntityOfPage — it pulls WebPage into Course as a nested entity.
+  const rawCourse = schema?.Course ?? null;
+  const schemaCourse = rawCourse
+    ? (({ mainEntityOfPage, ...rest }) => rest)(rawCourse)
+    : null;
+  // Strip subjectOf (pulls WebPage into Service) and empty hasOfferCatalog placeholder.
+  const rawService = schema?.Service ?? null;
+  const schemaService = rawService
+    ? (({ subjectOf, hasOfferCatalog, ...rest }) =>
+        hasOfferCatalog?.["@type"] ? { ...rest, hasOfferCatalog } : rest
+      )(rawService)
+    : null;
 
   return (
     <>
@@ -105,47 +117,14 @@ export default async function CourseRoute({ params }) {
         }} />
       )}
 
-      {/* 4 — Course (only when API sends schema.course) */}
-      {schema?.course && (
-        <JsonLd data={{
-          "@context": "https://schema.org",
-          "@type": "Course",
-          "@id": `${courseUrl}#course`,
-          "name": pageTitle,
-          "description": pageDescription,
-          "url": courseUrl,
-          "provider": { "@type": "Organization", "name": "Edstellar", "url": BASE },
-          "inLanguage": "en",
-          "learningResourceType": "Instructor-led corporate training",
-          "image": schema.course.image || course.banner_image,
-          ...(schema.course.timeRequired && { "timeRequired": schema.course.timeRequired }),
-          ...(schema.course.teaches?.length && { "teaches": schema.course.teaches }),
-          ...(schema.course.coursePrerequisites && { "coursePrerequisites": schema.course.coursePrerequisites }),
-          ...(schema.course.audience && { "audience": { "@type": "Audience", "audienceType": schema.course.audience } }),
-          "educationalCredentialAwarded": "Edstellar course completion certificate",
-          "hasCourseInstance": [
-            { "@type": "CourseInstance", "@id": `${courseUrl}#onsite`, "courseMode": "Onsite" },
-            { "@type": "CourseInstance", "@id": `${courseUrl}#virtual`, "courseMode": "Live virtual" },
-            { "@type": "CourseInstance", "@id": `${courseUrl}#hybrid`, "courseMode": "Hybrid" }
-          ]
-        }} />
+      {/* 5 — Course (only when API sends schema.Course; spread API data directly) */}
+      {schemaCourse && (
+        <JsonLd data={{ "@context": "https://schema.org", ...schemaCourse }} />
       )}
 
-      {/* 5 — Service (only when API sends schema.service) */}
-      {schema?.service && (
-        <JsonLd data={{
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "@id": `${courseUrl}#service`,
-          "name": pageTitle,
-          "description": schema.service.description,
-          "url": courseUrl,
-          "serviceType": "Customized instructor-led corporate training",
-          "provider": { "@type": "Organization", "name": "Edstellar", "url": BASE },
-          "image": schema.course?.image || course.banner_image,
-          "areaServed": schema.service.areaServed || ["North America", "Europe", "Asia-Pacific", "Middle East", "Africa", "Latin America and the Caribbean"],
-          "audience": { "@type": "Audience", "audienceType": "Enterprise and Corporate Organizations" }
-        }} />
+      {/* 6 — Service (only when API sends schema.Service; spread API data directly) */}
+      {schemaService && (
+        <JsonLd data={{ "@context": "https://schema.org", ...schemaService }} />
       )}
 
       <CoursePage course={course} />
