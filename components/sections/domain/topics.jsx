@@ -24,6 +24,7 @@ import CtaButton from "@/components/common/cta-button";
 import CourseImage from "@/components/common/course-image";
 import { courseDescription, courseUrl } from "@/lib/course-url";
 import { approxDuration } from "@/lib/duration";
+import TopicCardLink from "./topic-card-link";
 
 /**
  * "Explore compliance training by topic" — the `#topics` section of the
@@ -92,9 +93,7 @@ function TopicCard({ topic }) {
   const Icon = topicIcons[topic.icon] ?? ShieldCheck;
 
   return (
-    <Box as="li">
-      {/* Not a link — but keeps the card's hover treatment. */}
-      <Box className="group grid h-full grid-cols-[auto_1fr_auto] grid-rows-[auto_auto] items-center gap-x-3.5 gap-y-0.5 rounded-[14px] border border-ink/12 bg-white px-[16px] py-4 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-[3px] hover:border-ink/22 hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.45)] max-sm:p-[22px]">
+    <Box className="group grid h-full grid-cols-[auto_1fr_auto] grid-rows-[auto_auto] items-center gap-x-3.5 gap-y-0.5 rounded-[14px] border border-ink/12 bg-white px-[16px] py-4 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-[3px] hover:border-ink/22 hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.45)] max-sm:p-[22px]">
         <Box
           as="span"
           className="row-span-2 grid size-[38px] place-items-center rounded-[10px] bg-lime/22 text-navy transition-colors duration-300 group-hover:bg-lime"
@@ -128,7 +127,6 @@ function TopicCard({ topic }) {
           />
         </Box>
       </Box>
-    </Box>
   );
 }
 
@@ -407,7 +405,9 @@ export default function Topics({ data: topicsData, courseCount, courses }) {
             className="grid list-none grid-cols-3 gap-3 max-[900px]:grid-cols-2 max-sm:grid-cols-1"
           >
             {topics.slice(0, 6).map((topic) => (
-              <TopicCard key={topic.name} topic={topic} />
+              <TopicCardLink key={topic.name} name={topic.name}>
+                <TopicCard topic={topic} />
+              </TopicCardLink>
             ))}
           </Box>
         </Reveal>

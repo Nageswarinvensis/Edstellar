@@ -11,10 +11,10 @@ import { cn } from "@/lib/utils";
  * Decorative: the text beside it carries the meaning.
  * `className` sets the height; the width follows the strip's 7:2 ratio.
  */
-export default function TrainersImage({ className, eager = false }) {
+export default function TrainersImage({ className, eager = false, src }) {
   return (
     <Image
-      src="/course/trainers.webp"
+      src={src || "/course/trainers.webp"}
       // `eager` for the home hero, where it is above the fold.
       priority={eager}
       alt=""

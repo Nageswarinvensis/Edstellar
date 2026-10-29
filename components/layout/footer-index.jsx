@@ -76,7 +76,7 @@ function Group({ group, stage, open, onToggle }) {
               </Text>
               <Box as="ul" className="m-0 list-none p-0 [&>li+li]:mt-1">
                 {link.links.map((item) => (
-                  <li key={item.href}>
+                  <li key={item.href ?? item.label}>
                     <FooterLink link={item} stage={stage} />
                   </li>
                 ))}

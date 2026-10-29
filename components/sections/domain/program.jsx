@@ -566,6 +566,18 @@ export default function Program({ data, courses: cmsCourses }) {
     setCurrentPage(1);
   };
 
+  // Listen for topic-card clicks from the Topics section above.
+  useEffect(() => {
+    function onFilterTopic(event) {
+      const name = event.detail;
+      if (name && disciplines.includes(name)) {
+        handleDisciplineChange(name);
+      }
+    }
+    window.addEventListener("domain:filter-topic", onFilterTopic);
+    return () => window.removeEventListener("domain:filter-topic", onFilterTopic);
+  }, [disciplines]);
+
   // Selecting a topic in the modal filters the catalog and closes the modal.
   const handleTopicSelect = (discipline) => {
     handleDisciplineChange(discipline);

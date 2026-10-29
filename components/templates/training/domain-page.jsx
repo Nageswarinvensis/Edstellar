@@ -59,7 +59,7 @@ export default function DomainPage({ domain }) {
       title={domain.name ? `${domain.name} training brochure` : "Training brochure"}
     >
       <Hero hero={hero} breadcrumbs={domain.breadcrumbs} />
-      <DomainProof proof={domain.proof} />
+      <DomainProof proof={domain.proof} trainersThumbnail={domain.meta?.trainers_thumbnail} />
       <ClientLogos heading="Trusted as a Leading Corporate Training Provider by" />
 
       <StickyNavbar data={domain.sticky_nav} />
