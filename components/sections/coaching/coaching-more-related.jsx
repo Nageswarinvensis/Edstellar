@@ -26,19 +26,19 @@ export default function CoachingMoreRelated({ data }) {
     <Section id={section_id} className="bg-white">
       <Box>
         {/* Header Section */}
-        <Box className="max-w-3xl">
+        <Box className="max-w-3xl mb-12">
           {heading && (
             <Reveal>
               <RichHeading
                 heading={heading}
                 emphasisClassName="font-serif italic font-normal text-slate-900"
-                className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+                className="mb-5 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
               />
             </Reveal>
           )}
           {description && (
             <Reveal delay={1}>
-              <Text as="p" className="mt-3 text-sm text-slate-500 sm:text-base">
+              <Text as="p" className="text-base text-slate-500">
                 {description}
               </Text>
             </Reveal>
@@ -46,7 +46,7 @@ export default function CoachingMoreRelated({ data }) {
         </Box>
 
         {/* Cards Grid */}
-        <Box className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Box className="mb-7 grid grid-cols-1 p-5 lg:gap-7 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => {
             const iconName = item.icon || item.card_icon;
             const Icon = iconName ? coachingIcon(iconName) : null;
@@ -62,7 +62,7 @@ export default function CoachingMoreRelated({ data }) {
                 <Box
                   as={Link}
                   href={href}
-                  className={`group flex h-full flex-col justify-between rounded-2xl border p-5 lg:p-7 no-underline transition-all duration-300 ease-in-out ${
+                  className={`group flex h-full flex-col justify-between rounded-[14px] border p-5 lg:p-7 no-underline transition-all duration-300 ease-in-out ${
                     isFirstCard
                       ? "border-[#0a16281f] bg-white shadow-xl shadow-slate-200/60 hover:-translate-y-1 hover:border-slate-300 hover:shadow-2xl"
                       : "border-[#0a16281f] bg-white hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/50"
@@ -73,8 +73,8 @@ export default function CoachingMoreRelated({ data }) {
                     {/* Header Row: Icon & Audience Badge */}
                     <Box className="flex items-center justify-between gap-3">
                       {Icon ? (
-                        <Box className="flex h-12 w-12 items-center justify-center rounded-lg bg-paper-warm text-slate-700 transition-colors group-hover:bg-slate-100">
-                          <Icon size={18} strokeWidth={1.75} />
+                        <Box className="flex h-12 w-12 items-center justify-center rounded-lg bg-paper-warm text-ink">
+                          <Icon size={24} strokeWidth={1.75} />
                         </Box>
                       ) : (
                         <Box />
@@ -82,7 +82,7 @@ export default function CoachingMoreRelated({ data }) {
                       {audience && (
                         <Text
                           as="span"
-                          className="font-mono text-[10px] font-medium tracking-wider uppercase text-slate-400"
+                          className="font-mono text-[12px] tracking-wider uppercase text-[#0a162899]"
                         >
                           {audience}
                         </Text>
@@ -93,7 +93,7 @@ export default function CoachingMoreRelated({ data }) {
                     {title && (
                       <Text
                         as="h3"
-                        className="mt-5 text-base font-bold text-slate-900 transition-colors group-hover:text-black"
+                        className="mt-5 text-[18px] font-bold text-ink"
                       >
                         {title}
                       </Text>
@@ -103,7 +103,7 @@ export default function CoachingMoreRelated({ data }) {
                     {itemDesc && (
                       <Text
                         as="p"
-                        className="mt-2 text-xs leading-relaxed text-slate-500"
+                        className="mt-2 text-base leading-relaxed text-[#0a162899]"
                       >
                         {itemDesc}
                       </Text>
@@ -114,11 +114,11 @@ export default function CoachingMoreRelated({ data }) {
                   {ctaLabel && (
                     <Box
                       as="span"
-                      className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-slate-900"
+                      className="mt-6 flex items-center gap-1.5 text-[14px] font-semibold text-ink"
                     >
                       {ctaLabel}
                       <ArrowRight
-                        size={14}
+                        size={18}
                         className="transition-transform duration-200 group-hover:translate-x-1"
                       />
                     </Box>
@@ -132,11 +132,11 @@ export default function CoachingMoreRelated({ data }) {
         {/* Footer Link */}
         {footer_cta && (
           <Reveal delay={5}>
-            <Box className="mt-12 flex justify-center">
+            <Box className="flex justify-center">
               <Box
                 as={Link}
                 href={footer_cta.href || "#"}
-                className="group flex items-center gap-2 text-xs font-bold text-slate-900 no-underline"
+                className="group flex items-center gap-2 text-base font-bold text-ink no-underline"
               >
                 <Box as="span" className="border-b-2 border-lime-400 pb-0.5">
                   {footer_cta.label}

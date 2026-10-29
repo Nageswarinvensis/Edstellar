@@ -66,19 +66,19 @@ export default async function CoachingSubPage({ params }) {
   const pageUrl = `${BASE}/coaching-solutions/${slug}`;
   const nodes = schemaNodes(page.coachingSchema);
 
-  // Extract raw components list from any DevCMS payload structure
+  // Extract raw components array if page returns a list or object containing blocks
   const rawComponents = Array.isArray(page)
     ? page
     : page?.components || page?.sections || page?.data || [];
 
-  // Find component block by slug
+  // Find component block by DevCMS slug ("related_sub_services")
   const matchedComponent = rawComponents.find(
     (c) =>
       c?.component_slug === "related_sub_services" ||
       c?.component_slug === "related-sub-services"
   );
 
-  // Resolve data payload (preferring .config if present)
+  // Resolve the payload (extracting .config automatically if present)
   const relatedSubServicesData =
     page?.related_sub_services ||
     page?.["related-sub-services"] ||
@@ -105,7 +105,6 @@ export default async function CoachingSubPage({ params }) {
         }}
       />
 
-      {/* <SchemaOrg breadcrumbs={page.breadcrumbs?.items} faqs={page.faqs?.items} /> */}
       {/* CMS schema nodes (Service, HowTo, etc.) — each emitted separately */}
       {nodes.map((node, i) => (
         <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
@@ -130,7 +129,10 @@ export default async function CoachingSubPage({ params }) {
       <CoachingConfidentialCompare data={page.confidential} />
       <CoachingWhy data={page.why} />
       <CoachingRelated data={page.related} />
-      <CoachingMoreRelated data={relatedSubServicesData} />
+
+      {/* Passing DevCMS payload */}
+      <CoachingMoreRelated data={page.related_sub_services} />
+
       <Faq
         id="faq"
         faqs={page.faqs}
