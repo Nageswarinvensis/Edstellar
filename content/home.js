@@ -162,7 +162,7 @@ export const HOME = {
     {
       "value": "100",
       "suffix": "+",
-      "label": "Countries · Languages"
+      "label": "Countries"
     }
   ],
   "clients": {

@@ -17,6 +17,7 @@ const nextConfig = {
       { source: "/platforms/orbit", destination: "/orbit.html" },
       { source: "/platforms/meridian", destination: "/meridian.html" },
       { source: "/platforms/spectra-lms", destination: "/spectra-lms.html" },
+      { source: "/platforms/tna-tni-engine", destination: "/tna-tni-engine.html" },
     ];
   },
   async redirects() {

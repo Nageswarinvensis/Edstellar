@@ -20,6 +20,7 @@ import AlsoFromEdstellar from "@/components/sections/course/also-from-edstellar"
 
 import GroupQuote from "@/components/forms/group-quote";
 import LeadForm from "@/components/forms/lead-form";
+import HtmlBlock from "@/components/common/html-block";
 
 /**
  * Course page design.
@@ -40,6 +41,8 @@ export default function CoursePage({ course }) {
   // const hasTrainers = Boolean(
   //   (course.trainers?.dynamic_data ?? course.trainers?.people)?.length,
   // );
+
+  const { customBlocks = [] } = course;
 
   // Every brochure button on the page (the domain's PDF) opens the
   // gated-download drawer.
@@ -66,6 +69,11 @@ export default function CoursePage({ course }) {
         {/* <Trainers trainers={course.trainers} /> */}
         <Faq faqs={course.faqs ?? course.Faqs} collapsible />
       </PageToc>
+
+      {/* Custom HTML blocks from the CMS render here — outside PageToc so
+          full-width sections are never constrained by the sticky TOC layout.
+          Ordered by sort_order; renders nothing when the CMS sends none. */}
+      {customBlocks.map((b) => <HtmlBlock key={b.slug} html={b.html} />)}
 
       <WhyEdstellar data={course.learning_path ?? course.WhyEds} relatedCourses={course.related_courses} />
       <CourseMapSection data={course.mapsectionData} />
