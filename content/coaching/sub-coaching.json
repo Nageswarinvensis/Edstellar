@@ -1,0 +1,51 @@
+{
+  "section_id": "coaching-more-related",
+  "heading": "More Edstellar coaching for every leadership stage.",
+  "description": "Team coaching is one of six Edstellar coaching paths. The five individual paths run on Meridian.",
+  "items": [
+    {
+      "title": "Executive coaching",
+      "description": "A confidential thinking partner for leaders who set direction, carry the strategy and lead other leaders.",
+      "audience": "C-SUITE AND SENIOR LEADERS",
+      "icon": "crown",
+      "href": "/coaching-solutions/executive-coaching",
+      "cta_label": "Explore executive coaching"
+    },
+    {
+      "title": "Leadership coaching",
+      "description": "For directors, senior managers and high-potential talent getting ready for bigger roles and wider scope.",
+      "audience": "MID-LEVEL LEADERS, HIGH-POTENTIALS",
+      "icon": "compass",
+      "href": "/coaching-solutions/leadership-coaching",
+      "cta_label": "Explore leadership coaching"
+    },
+    {
+      "title": "First-time manager coaching",
+      "description": "Support through the first step from strong individual contributor to manager of people.",
+      "audience": "NEW PEOPLE MANAGERS",
+      "icon": "sprout",
+      "href": "/coaching-solutions/first-time-manager-coaching",
+      "cta_label": "Explore first-time manager coaching"
+    },
+    {
+      "title": "Career and transition coaching",
+      "description": "Coaching through promotions, role changes, restructures and returns to work, so leaders find their direction and land well in what comes next.",
+      "audience": "LEADERS CHANGING ROLE OR DIRECTION",
+      "icon": "arrow-left-right",
+      "href": "/coaching-solutions/career-and-transition-coaching",
+      "cta_label": "Explore career and transition coaching"
+    },
+    {
+      "title": "Performance coaching",
+      "description": "Focused coaching on one personal capability to build, from confidence and focus to staying clear under pressure.",
+      "audience": "LEADERS BUILDING ONE CAPABILITY",
+      "icon": "target",
+      "href": "/coaching-solutions/performance-coaching",
+      "cta_label": "Explore performance coaching"
+    }
+  ],
+  "footer_cta": {
+    "label": "Explore all Edstellar corporate coaching services",
+    "href": "/coaching-solutions"
+  }
+}

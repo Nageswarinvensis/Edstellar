@@ -25,6 +25,7 @@ import CoachingHero from "@/components/sections/coaching/coaching-hero";
 import CoachingWhoFor from "@/components/sections/coaching/coaching-who-for";
 import CoachingTracks from "@/components/sections/coaching/coaching-tracks";
 import CoachingRelated from "@/components/sections/coaching/coaching-related";
+import CoachingMoreRelated from "@/components/sections/coaching/coaching-more-related";
 
 const PILLAR = "coaching-solutions";
 
@@ -65,18 +66,44 @@ export default async function CoachingSubPage({ params }) {
   const pageUrl = `${BASE}/coaching-solutions/${slug}`;
   const nodes = schemaNodes(page.coachingSchema);
 
+  // Extract raw components list from any DevCMS payload structure
+  const rawComponents = Array.isArray(page)
+    ? page
+    : page?.components || page?.sections || page?.data || [];
+
+  // Find component block by slug
+  const matchedComponent = rawComponents.find(
+    (c) =>
+      c?.component_slug === "related_sub_services" ||
+      c?.component_slug === "related-sub-services"
+  );
+
+  // Resolve data payload (preferring .config if present)
+  const relatedSubServicesData =
+    page?.related_sub_services ||
+    page?.["related-sub-services"] ||
+    page?.relatedSubServices ||
+    matchedComponent?.config ||
+    matchedComponent;
+
   return (
     <BrochureGate {...consultingBrochure(slug)}>
       {/* WebPage */}
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": `${pageUrl}#webpage`,
-        "url": pageUrl,
-        "name": page.seo?.meta_title?.replace(/\s*\|\s*Edstellar\s*$/i, "").trim(),
-        ...(page.seo?.Meta_description && { "description": page.seo?.Meta_description }),
-        "inLanguage": "en-US"
-      }} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: page.seo?.meta_title
+            ?.replace(/\s*\|\s*Edstellar\s*$/i, "")
+            .trim(),
+          ...(page.seo?.Meta_description && {
+            description: page.seo?.Meta_description,
+          }),
+          inLanguage: "en-US",
+        }}
+      />
 
       {/* <SchemaOrg breadcrumbs={page.breadcrumbs?.items} faqs={page.faqs?.items} /> */}
       {/* CMS schema nodes (Service, HowTo, etc.) — each emitted separately */}
@@ -92,15 +119,18 @@ export default async function CoachingSubPage({ params }) {
       <CoachingTracks data={page.tracks} />
       <CoachingBenefits data={page.benefits} />
 
-      {page.meridian_soon
-        ? <CoachingMeridianSoon data={page.meridian_soon} />
-        : <MeridianShowcase data={page.meridian} />}
+      {page.meridian_soon ? (
+        <CoachingMeridianSoon data={page.meridian_soon} />
+      ) : (
+        <MeridianShowcase data={page.meridian} />
+      )}
 
       <CoachingProcess data={page.process} />
       <CoachingCtaBand data={page.process_cta} />
       <CoachingConfidentialCompare data={page.confidential} />
       <CoachingWhy data={page.why} />
       <CoachingRelated data={page.related} />
+      <CoachingMoreRelated data={relatedSubServicesData} />
       <Faq
         id="faq"
         faqs={page.faqs}
@@ -109,7 +139,9 @@ export default async function CoachingSubPage({ params }) {
         showCta={false}
       />
       <ConsultingForm id="contact" background="navy" data={page.lead_form} />
-      <StickyFooter data={page.stickyFooter && { ...page.stickyFooter, email: true }} />
+      <StickyFooter
+        data={page.stickyFooter && { ...page.stickyFooter, email: true }}
+      />
     </BrochureGate>
   );
 }
