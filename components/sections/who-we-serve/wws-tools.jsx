@@ -7,7 +7,7 @@ import Reveal from "@/components/common/reveal";
 
 const TOOL_ICONS = {
   "Spectra LMS":                     <><path d="M3 5h18v11H3zM8 20h8M12 16v4M10 8.5v4l3.5-2z"/></>,
-  "Capability Intelligence Platform": <><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></>,
+  "Capability OS": <><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></>,
   "TNA/TNI Engine":                   <><path d="M3 4h18l-7 8v6l-4 2v-8L3 4Z"/></>,
   "Stellar AI":                       <><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></>,
   "Zenith":                           <><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9L12 3Z"/></>,
