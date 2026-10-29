@@ -27,25 +27,27 @@ function ArrowSmall() {
 }
 
 /** One footer link: brighter for a hub page, lime with a dot when the active
- * 5A stage includes it, and greyed out when a stage is active but does not. */
+ * 5A stage includes it, and greyed out when a stage is active but does not.
+ * Items without an href render as plain text (no interaction). */
 function FooterLink({ link, stage }) {
   const hit = Boolean(stage && link.stages?.includes(stage));
-  return (
-    <Link
-      href={link.href}
-     
-      className={cn(
-        "group/all text-[14px] leading-[1.5] transition-colors duration-200 hover:text-paper",
-        link.all ? "inline" : "inline-flex min-h-6 items-center py-0.5",
-        link.main ? "font-medium text-paper" : "text-paper/[0.78]",
-        stage && (hit ? "text-lime hover:text-lime" : "text-paper/55"),
-      )}
-    >
+  const className = cn(
+    "text-[14px] leading-[1.5]",
+    link.all ? "inline" : "inline-flex min-h-6 items-center py-0.5",
+    link.main ? "font-medium text-paper" : "text-paper/[0.78]",
+    stage && (hit ? "text-lime" : "text-paper/55"),
+    link.href && "group/all transition-colors duration-200 hover:text-paper",
+  );
+  const inner = (
+    <>
       {hit ? <span aria-hidden="true" className="mr-2 inline-block size-1.5 flex-none rounded-full bg-lime align-middle" /> : null}
       {link.label}
       {link.all ? <ArrowSmall /> : null}
-    </Link>
+    </>
   );
+  if (!link.href) return <span className={className}>{inner}</span>;
+  if (link.native) return <a href={link.href} className={className}>{inner}</a>;
+  return <Link href={link.href} className={className}>{inner}</Link>;
 }
 
 /** A link group: a native <details> so it collapses on phones without
@@ -69,7 +71,7 @@ function Group({ group, stage, open, onToggle }) {
         {group.links.map((link, index) =>
           link.sub ? (
             <Box as="li" key={link.sub} className="mt-4 first:mt-1.5">
-              <Text as="span" className="mb-1 block font-mono text-[11px] leading-[1.4] tracking-[0.16em] text-paper/60 uppercase">
+              <Text as="span" className={cn("mb-1 block leading-[1.4]", link.subWhite ? "font-body text-[14px] font-medium text-paper" : "font-mono text-[11px] tracking-[0.16em] text-paper/60 uppercase")}>
                 {link.sub}
               </Text>
               <Box as="ul" className="m-0 list-none p-0 [&>li+li]:mt-1">
@@ -106,15 +108,18 @@ export default function FooterIndex({ brand, contact }) {
   const [stage, setStage] = useState(null);
   const [closed, setClosed] = useState(() => new Set());
 
+  // Flatten array-columns (e.g. [Coaching, Managed learning]) into a single list of groups.
+  const allServiceGroups = FOOTER_SERVICES.flatMap((col) => Array.isArray(col) ? col : [col]);
+
   // Phones start with every group collapsed; larger screens show them all.
   useEffect(() => {
     if (window.matchMedia("(max-width: 639px)").matches) {
-      setClosed(new Set([...FOOTER_SERVICES, ...FOOTER_MORE].map((group) => group.heading)));
+      setClosed(new Set([...allServiceGroups, ...FOOTER_MORE].map((group) => group.heading)));
     }
   }, []);
 
   const hitCount = stage
-    ? [...FOOTER_SERVICES, ...FOOTER_MORE]
+    ? [...allServiceGroups, ...FOOTER_MORE]
         .flatMap((group) => group.links.flatMap((link) => (link.sub ? link.links : [link])))
         .filter((link) => link.stages?.includes(stage)).length
     : 0;
@@ -126,7 +131,7 @@ export default function FooterIndex({ brand, contact }) {
       // Open any collapsed group that holds a match.
       setClosed((prev) => {
         const kept = new Set(prev);
-        for (const group of [...FOOTER_SERVICES, ...FOOTER_MORE]) {
+        for (const group of [...allServiceGroups, ...FOOTER_MORE]) {
           const links = group.links.flatMap((link) => (link.sub ? link.links : [link]));
           if (links.some((link) => link.stages?.includes(next))) kept.delete(group.heading);
         }
@@ -195,9 +200,16 @@ export default function FooterIndex({ brand, contact }) {
 
       <Box as="nav" aria-label="Footer">
         <Box className="grid grid-cols-5 gap-x-6 gap-y-10 border-t border-paper/12 pt-10 pb-12 max-[1200px]:grid-cols-3 max-sm:grid-cols-1 max-sm:gap-0 max-sm:pt-2 max-sm:pb-6">
-          {FOOTER_SERVICES.map((group) => (
-            <Group key={group.heading} group={group} stage={stage} open={!closed.has(group.heading)} onToggle={onToggle} />
-          ))}
+          {FOOTER_SERVICES.map((column, colIdx) => {
+            const groups = Array.isArray(column) ? column : [column];
+            return (
+              <Box key={colIdx} className="flex flex-col gap-10">
+                {groups.map((group) => (
+                  <Group key={group.heading} group={group} stage={stage} open={!closed.has(group.heading)} onToggle={onToggle} />
+                ))}
+              </Box>
+            );
+          })}
         </Box>
 
         <Box className="grid grid-cols-[repeat(3,minmax(0,1fr))_minmax(0,1.6fr)] gap-x-8 gap-y-10 border-t border-paper/12 py-10 max-[1200px]:grid-cols-3 max-sm:grid-cols-1 max-sm:gap-0 max-sm:pt-2">

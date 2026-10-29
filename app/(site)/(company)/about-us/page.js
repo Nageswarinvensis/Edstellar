@@ -27,16 +27,12 @@ export default function AboutUsRoute() {
     <>
       <JsonLd data={{
         "@context": "https://schema.org",
-        "@type": "AboutPage",
+        "@type": "WebPage",
         "@id": "https://www.edstellar.com/about-us#webpage",
         "url": "https://www.edstellar.com/about-us",
         "name": "Your Capability Transformation Partner",
         "description": "Learn about Edstellar, our purpose, values and approach to capability transformation, and how we help organizations develop their people and teams.",
-        "inLanguage": "en-US",
-        "isPartOf": { "@id": "https://www.edstellar.com/#website" },
-        "mainEntity": { "@id": "https://www.edstellar.com/#organization" },
-        "breadcrumb": { "@id": "https://www.edstellar.com/about-us#breadcrumb" },
-        "hasPart": { "@id": "https://www.edstellar.com/about-us#faq" }
+        "inLanguage": "en-US"
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
