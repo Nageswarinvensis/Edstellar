@@ -73,6 +73,8 @@
 }
 </script>
 
+<link rel="stylesheet" href="/edpf.css">
+<link rel="stylesheet" href="/footer.css">
 <style>
 /* ===== Global theme (Brand Guidelines v1.1 §5.1). Replace with the shared theme link at integration. ===== */
 :root{
@@ -1885,20 +1887,23 @@ button{font:inherit;color:inherit}
 /* ===== Section links in the main header (Oct 28, owner) ===== */
 .site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--white) 95%,transparent);-webkit-backdrop-filter:saturate(1.3) blur(10px);backdrop-filter:saturate(1.3) blur(10px)}
 .site-header .bar{gap:28px}
-.pn-list{display:flex;flex:1;align-items:center;justify-content:space-evenly;gap:2px;margin:0 24px;list-style:none;padding:0}
-.pn-list a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:100px;font:500 14px/1 var(--body);color:var(--muted);text-decoration:none;transition:color .2s,background .2s;white-space:nowrap}
-.pn-list a:hover{color:var(--ink);background:var(--paper-warm)}
-.pn-list a[aria-current="true"]{color:var(--ink)}
-.pn-list a[aria-current="true"]::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:3px;border-radius:3px;background:var(--coral)}
-.pn-toggle{display:none;align-items:center;gap:6px;min-height:44px;padding:0 14px;margin-left:auto;border-radius:100px;border:1px solid var(--rule-strong,#d1d5db);background:var(--white);color:var(--ink);cursor:pointer}
-.pn-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hdr-nav{flex:1 1 auto;min-width:0;display:flex;justify-content:center}
+.hdr-nav ul{position:relative;display:flex;gap:2px;margin:0;padding:0;list-style:none;overflow-x:auto;scrollbar-width:none}
+.hdr-nav ul::-webkit-scrollbar{display:none}
+.hdr-nav li{flex:0 0 auto}
+.site-header .hdr-nav a{display:block;position:relative;padding:21px 11px;font-size:14.5px;font-weight:500;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .2s}
+.site-header .hdr-nav a:hover{color:var(--ink);text-decoration:none}
+.hdr-nav a::after{content:"";position:absolute;left:11px;right:11px;bottom:-1px;height:2px;border-radius:2px;background:var(--coral);transform:scaleX(0);transition:transform .25s var(--ease)}
+.site-header .hdr-nav a[aria-current="true"]{color:var(--ink);font-weight:600}
+.hdr-nav a[aria-current="true"]::after{transform:scaleX(1)}
+.hdr-nav a:focus-visible{outline:2px solid var(--royal);outline-offset:-6px}
 .site-header .hdr-cta{flex:0 0 auto;padding:10px 20px;font-size:14px;color:var(--coral);text-decoration:none}
 .site-header .hdr-cta:hover{text-decoration:none}
 main section[id]{scroll-margin-top:64px}
 #cycle .cb-panel{top:88px}
-@media (max-width:1100px){.pn-toggle{display:inline-flex}.pn-list{display:none;position:absolute;left:16px;right:16px;top:calc(100% + 6px);flex-direction:column;align-items:stretch;gap:2px;margin:0;padding:8px;background:var(--white);border:1px solid var(--rule);border-radius:16px;box-shadow:0 20px 40px rgba(10,22,40,.16)}.pn-list.open{display:flex}.pn-list a{border-radius:10px;padding:0 14px;min-height:48px}.pn-list a[aria-current="true"]{background:var(--paper-warm)}.pn-list a[aria-current="true"]::after{left:0;right:auto;top:12px;bottom:12px;width:3px;height:auto}.site-header .bar{position:relative}}
-@media (max-width:420px){.site-header .bar{gap:8px}.site-header .btn{padding:10px 14px;font-size:13px}.pn-toggle{padding:0 12px}}
-@media (max-width:380px){.site-header .btn{padding:8px 12px;font-size:12px}.pn-toggle{padding:0;width:44px;justify-content:center}}
+@media (max-width:1100px){.hdr-nav{justify-content:flex-start}.site-header .hdr-nav a{padding:21px 9px;font-size:14px}}
+@media (max-width:760px){.site-header .hdr-cta{display:none}.site-header .bar{gap:12px}.hdr-nav ul{-webkit-mask-image:linear-gradient(90deg,black 85%,transparent);mask-image:linear-gradient(90deg,black 85%,transparent)}}
+@media (prefers-reduced-motion:reduce){.hdr-nav a::after{transition:none}}
 
 /* ===== Shared Edstellar footer (option C v3, first launch), scoped ===== */
 .edft *,.edft *::before,.edft *::after{box-sizing:border-box}
@@ -3623,11 +3628,20 @@ html:not(.js) #cycle .cb-prev,html:not(.js) #cycle .cb-next{display:none}
 html:not(.js) #roles .crw-pns{display:block}
 html:not(.js) #roles .crw-pns > .crw-pn{visibility:visible}
 html:not(.js) #cycle .cb-phase+.cb-phase,html:not(.js) #roles [role=tabpanel]+[role=tabpanel]{margin-top:16px}
+
+.pn-list{display:flex;flex:1;align-items:center;justify-content:space-evenly;gap:2px;margin:0 24px;list-style:none;padding:0}
+.pn-list a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:100px;font:500 14px/1 var(--body);color:var(--muted);text-decoration:none;transition:color .2s,background .2s;white-space:nowrap}
+.pn-list a:hover{color:var(--ink);background:var(--paper-warm)}
+.pn-list a[aria-current="true"]{color:var(--ink)}
+.pn-list a[aria-current="true"]::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:3px;border-radius:3px;background:var(--coral)}
+.pn-toggle{display:none;align-items:center;gap:6px;min-height:44px;padding:0 14px;margin-left:auto;border-radius:100px;border:1px solid var(--rule-strong,#d1d5db);background:var(--white);color:var(--ink);cursor:pointer}
+.pn-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:1100px){.pn-toggle{display:inline-flex}.pn-list{display:none;position:absolute;left:16px;right:16px;top:calc(100% + 6px);flex-direction:column;align-items:stretch;gap:2px;margin:0;padding:8px;background:var(--white);border:1px solid var(--rule);border-radius:16px;box-shadow:0 20px 40px rgba(10,22,40,.16)}.pn-list.open{display:flex}.pn-list a{border-radius:10px;padding:0 14px;min-height:48px}.pn-list a[aria-current="true"]{background:var(--paper-warm)}.pn-list a[aria-current="true"]::after{left:0;right:auto;top:12px;bottom:12px;width:3px;height:auto}.site-header .bar{position:relative}}
+@media (max-width:420px){.site-header .bar{gap:8px}.site-header .btn{padding:10px 14px;font-size:13px}.pn-toggle{padding:0 12px}}
+@media (max-width:380px){.site-header .btn{padding:8px 12px;font-size:12px}.pn-toggle{padding:0;width:44px;justify-content:center}}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
-<link rel="stylesheet" href="/edpf.css">
-<link rel="stylesheet" href="/footer.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -3636,8 +3650,9 @@ html:not(.js) #cycle .cb-phase+.cb-phase,html:not(.js) #roles [role=tabpanel]+[r
 <header class="site-header" data-placeholder="header">
   <div class="bar">
     <a class="wordmark" href="https://www.edstellar.com/">Edstellar</a>
-    <button class="pn-toggle" type="button" aria-expanded="false" aria-controls="pn-list" aria-label="Toggle navigation"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
-    <ul class="pn-list" id="pn-list" aria-label="On this page"><li><a href="#evidence" data-sec="evidence">Evidence</a></li><li><a href="#cycle" data-sec="cycle">The cycle</a></li><li><a href="#explore" data-sec="explore">Explore</a></li><li><a href="#ai" data-sec="ai">AI</a></li><li><a href="#roles" data-sec="roles">Roles</a></li><li><a href="#integrations" data-sec="integrations">Integrations</a></li><li><a href="#deliverables" data-sec="deliverables">Deliverables</a></li><li><a href="#contact" data-sec="contact">Contact</a></li></ul>
+    <nav class="hdr-nav" id="secnav" aria-label="On this page">
+      <ul><li><a href="#evidence">Evidence</a></li><li><a href="#cycle">The cycle</a></li><li><a href="#explore">Explore</a></li><li><a href="#ai">AI</a></li><li><a href="#roles">Roles</a></li><li><a href="#integrations">Integrations</a></li><li><a href="#deliverables">Deliverables</a></li><li><a href="#contact">Contact</a></li></ul>
+    </nav>
     <a class="btn btn-primary hdr-cta" href="#contact">Request a demo</a>
   </div>
 </header>
@@ -4664,52 +4679,6 @@ s.querySelectorAll('[role=tab]').forEach(function(t){var p=document.getElementBy
 
 
 <!-- 9. Contact (dark) -->
-<section class="edpf" id="contact" data-platform="tna-tni-engine" data-theme="edstellar" aria-labelledby="edpf-h">
-  <div class="edpf-head">
-    <h2 id="edpf-h">See Edstellar platforms and tools in action.</h2>
-    <p class="edpf-intro">Tell us what you want to achieve, and an Edstellar specialist will show you how the platform or tool fits your teams.</p>
-  </div>
-  <div class="edpf-card">
-  <form novalidate aria-labelledby="edpf-h">
-    <div class="edpf-sum" role="alert" tabindex="-1" hidden></div>
-
-    <fieldset class="edpf-group" data-group="platform">
-      <legend><span class="n" aria-hidden="true">1</span>Choose a platform or tool</legend>
-      <div class="edpf-f full"><label for="edpf-platform">Platform or tool <span class="req" aria-hidden="true">*</span></label><select id="edpf-platform" name="platform" required aria-describedby="edpf-e-platform"><option value="">Select a platform or tool</option></select><span class="edpf-err" id="edpf-e-platform">Please select a platform or tool, or pick Not sure yet.</span></div>
-    </fieldset>
-
-    <fieldset class="edpf-group">
-      <legend><span class="n" aria-hidden="true">2</span>Your details</legend>
-      <div class="edpf-grid">
-        <div class="edpf-f"><label for="edpf-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="edpf-name" name="full_name" type="text" autocomplete="name" placeholder="Enter your full name" required aria-describedby="edpf-e-name"><span class="edpf-err" id="edpf-e-name">Please enter your full name.</span></div>
-        <div class="edpf-f"><label for="edpf-email">Work email <span class="req" aria-hidden="true">*</span></label><input id="edpf-email" name="work_email" type="email" autocomplete="email" placeholder="Enter your work email" required aria-describedby="edpf-e-email"><span class="edpf-err" id="edpf-e-email">Please enter a valid work email, for example name@company.com.</span></div>
-        <div class="edpf-f"><label for="edpf-company">Company name <span class="req" aria-hidden="true">*</span></label><input id="edpf-company" name="company" type="text" autocomplete="organization" placeholder="Enter your company name" required aria-describedby="edpf-e-company"><span class="edpf-err" id="edpf-e-company">Please enter your company name.</span></div>
-        <div class="edpf-f"><label for="edpf-title">Job title <span class="req" aria-hidden="true">*</span></label><input id="edpf-title" name="job_title" type="text" autocomplete="organization-title" placeholder="Enter your job title" required aria-describedby="edpf-e-title"><span class="edpf-err" id="edpf-e-title">Please enter your job title.</span></div>
-        <div class="edpf-f"><label for="edpf-country">Country <span class="req" aria-hidden="true">*</span></label><select id="edpf-country" name="country" autocomplete="country-name" required aria-describedby="edpf-e-country"><option value="">Select your country</option></select><span class="edpf-err" id="edpf-e-country">Please select your country.</span></div>
-        <div class="edpf-f"><label for="edpf-phone">Phone <span class="req" aria-hidden="true">*</span></label><input id="edpf-phone" name="phone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="Enter your phone number" required aria-describedby="edpf-e-phone"><span class="edpf-err" id="edpf-e-phone">Please enter a phone number of 6 to 15 digits.</span></div>
-      </div>
-    </fieldset>
-
-    <fieldset class="edpf-group">
-      <legend><span class="n" aria-hidden="true">3</span>Your organization and goals</legend>
-      <div class="edpf-grid">
-        <div class="edpf-f"><label for="edpf-size">Company size <span class="req" aria-hidden="true">*</span></label><select id="edpf-size" name="company_size" required aria-describedby="edpf-e-size"><option value="">Select company size</option><option>1–50</option><option>51–200</option><option>201–500</option><option>501–1,000</option><option>1,001–5,000</option><option>5,000+</option></select><span class="edpf-err" id="edpf-e-size">Please select your company size.</span></div>
-        <div class="edpf-f"><label for="edpf-challenge">Current challenge <span class="req" aria-hidden="true">*</span></label><select id="edpf-challenge" name="challenge" required aria-describedby="edpf-e-challenge"><option value="">Select your main challenge</option><option>Skills gap identification</option><option>Training needs analysis</option><option>Learning program design</option><option>Trainer sourcing and scheduling</option><option>Learning platform or LMS</option><option>Measuring training ROI</option><option>Other</option></select><span class="edpf-err" id="edpf-e-challenge">Please select your current challenge.</span></div>
-        <div class="edpf-f full"><label for="edpf-goals">Goals and context</label><textarea id="edpf-goals" name="goals" rows="3" placeholder="Briefly describe what you want to achieve"></textarea></div>
-      </div>
-    </fieldset>
-
-    <div class="edpf-consent">
-      <label class="edpf-check"><input type="checkbox" name="consent" required aria-describedby="edpf-e-consent"><span>I agree to Edstellar's <a href="/privacy-policy" target="_blank" rel="noopener">privacy policy</a> and consent to being contacted about this enquiry. <span class="req" aria-hidden="true">*</span></span></label>
-      <span class="edpf-err" id="edpf-e-consent">Please accept the privacy policy to continue.</span>
-    </div>
-
-    <div class="edpf-foot">
-      <button type="submit" class="edpf-btn">Request a demo</button>
-    </div>
-  </form>
-  </div>
-</section>
 <script>(function(){
   /* contact: map the live screen onto the laptop in the photo, then play the intro once */
   var ph = document.querySelector('#contact .oc-ph'); if(!ph) return;
@@ -4756,8 +4725,445 @@ s.querySelectorAll('[role=tab]').forEach(function(t){var p=document.getElementBy
 
 </main>
 
+<!-- FOOTER PLACEHOLDER: replace with the shared slim footer (footer-launch.html) at integration -->
+<div class="edft">
 <div id="site-footer"></div>
+<script type="application/json" id="ft-data">{"offices": [{"key": "us", "label": "United States", "tel": "+16822974830", "show": "+1 682 297 4830", "zones": ["America/", "Pacific/Honolulu"]}, {"key": "uk", "label": "United Kingdom", "tel": "+441514534009", "show": "+44 151 453 4009", "zones": ["Europe/", "Africa/", "Atlantic/"]}, {"key": "in", "label": "India", "tel": "+916364833830", "show": "+91 636 483 3830", "zones": ["Asia/", "Australia/", "Indian/", "Pacific/"]}], "bands": {"consulting": {"h": "Plan your next capability program with ", "em": "an Edstellar consultant.", "p": "Share the outcome you need. An Edstellar consultant comes back with a scoped approach and next steps.", "cta": ["Book a consultation", "/contact-us"], "alt": ["Send your RFP", "/request-for-proposal"]}, "course": {"h": "Bring this program to ", "em": "your team.", "p": "Edstellar adapts the program to your context and matches a trainer to your audience, virtual or onsite.", "cta": ["Enquire for your team", "/contact-us"], "alt": ["Browse the catalog", "/corporate-training-catalog"]}, "resources": {"h": "Put these ideas to work with ", "em": "free L&D templates.", "p": "Interactive templates and workbooks your team can use today, no sign-up needed to browse.", "cta": ["Explore L&D templates", "/learning-development-templates"], "alt": ["Talk to an Edstellar expert", "/contact-us"]}, "rfp": null}}</script>
+<script>(function(){
+  var root = document.documentElement;
+  root.classList.add('js');
+  var ft = document.querySelector('.edft .ft'); if(!ft) return; var FT = ft;
+  var DATA = JSON.parse(document.getElementById('ft-data').textContent);
+
+  /* ---------- nearest office first (browser time zone, no IP lookup) ---------- */
+  function orderOffices(tz){
+    var list = FT.querySelector('[data-offices]');
+    if(!list) return;
+    var items = Array.prototype.slice.call(list.children);
+    var best = null;
+    DATA.offices.forEach(function(o){
+      o.zones.forEach(function(z){
+        if(best) return;
+        if(tz.indexOf(z) === 0) best = o.key;
+      });
+    });
+    items.sort(function(a,b){
+      var ak = a.getAttribute('data-key') === best ? 0 : 1;
+      var bk = b.getAttribute('data-key') === best ? 0 : 1;
+      return ak - bk;
+    });
+    items.forEach(function(li){
+      list.appendChild(li);
+      var tag = li.querySelector('.near');
+      if(tag) tag.hidden = li.getAttribute('data-key') !== best;
+    });
+  }
+  var tz = 'UTC';
+  try{ tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; }catch(e){}
+  orderOffices(tz);
+
+  /* ---------- Build your brief one-liner ---------- */
+  var brief = FT.querySelector('[data-brief]');
+  if(brief){
+    brief.addEventListener('submit', function(e){
+      e.preventDefault();
+      var s = brief.querySelector('[name=service]'), w = brief.querySelector('[name=who]'), p = brief.querySelector('[name=where]');
+      var out = brief.querySelector('.brief-status');
+      out.textContent = 'Opens the Build your brief composer filled in: ' +
+        s.options[s.selectedIndex].text + ', ' + w.options[w.selectedIndex].text + ', ' + p.options[p.selectedIndex].text + '.';
+    });
+  }
+
+  /* ---------- cookie settings ---------- */
+  var ck = FT.querySelector('[data-cookie]');
+  if(ck){
+    ck.addEventListener('click', function(){
+      var out = FT.querySelector('.bar-status');
+      out.textContent = 'Reopens the consent banner, with Accept, Reject and Manage choices (§13).';
+    });
+  }
+
+  /* ---------- mobile accordions ---------- */
+  var mq = window.matchMedia('(max-width:600px)');
+  var toggles = FT.querySelectorAll('.fh-m');
+  function setMode(){
+    toggles.forEach(function(b){
+      var list = FT.querySelector('#' + b.getAttribute('aria-controls'));
+      if(!list) return;
+      if(mq.matches){ list.hidden = b.getAttribute('aria-expanded') !== 'true'; }
+      else { list.hidden = false; }
+    });
+  }
+  toggles.forEach(function(b){
+    b.addEventListener('click', function(){
+      var open = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', String(!open));
+      FT.querySelector('#' + b.getAttribute('aria-controls')).hidden = open;
+    });
+  });
+  if(mq.addEventListener) mq.addEventListener('change', setMode); else mq.addListener(setMode);
+  setMode();
+
+  /* ---------- 5A index (option C): highlight, never hide ---------- */
+  var stages = FT.querySelectorAll('.stage');
+  if(stages.length){
+    var status = FT.querySelector('.rail-status');
+    stages.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var on = btn.getAttribute('aria-pressed') === 'true';
+        stages.forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+        var links = FT.querySelectorAll('[data-stages]');
+        links.forEach(function(a){ a.classList.remove('hit'); });
+        if(on){ ft.classList.remove('filtering'); status.textContent = ''; return; }
+        btn.setAttribute('aria-pressed','true');
+        ft.classList.add('filtering');
+        var key = btn.getAttribute('data-stage'), n = 0;
+        links.forEach(function(a){
+          if((' ' + a.getAttribute('data-stages') + ' ').indexOf(' ' + key + ' ') > -1){ a.classList.add('hit'); n++; }
+        });
+        status.textContent = btn.textContent.trim().replace(/^\d+\s*/, '') + ': ' + n + ' services and tools highlighted below.';
+      });
+    });
+  }
+
+  /* ---------- sticky mobile CTA hides when the footer is visible ---------- */
+  var sticky = FT.querySelector('.sticky');
+  if(sticky && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){ sticky.classList.toggle('away', e.isIntersecting); });
+    });
+    io.observe(ft);
+  }
+
+  /* ---------- mockup controls (not shipped) ---------- */
+  var famSel = document.getElementById('mk-family');
+  if(famSel){
+    famSel.addEventListener('change', function(){
+      var band = FT.querySelector('.band');
+      var b = DATA.bands[famSel.value];
+      if(!b){ band.hidden = true; return; }
+      band.hidden = false;
+      band.querySelector('[data-h]').textContent = b.h;
+      band.querySelector('[data-em]').textContent = b.em;
+      band.querySelector('[data-p]').textContent = b.p;
+      var c = band.querySelector('[data-cta]'), a = band.querySelector('[data-alt]');
+      c.textContent = b.cta[0]; c.setAttribute('href', b.cta[1]);
+      a.textContent = b.alt[0]; a.setAttribute('href', b.alt[1]);
+    });
+  }
+  var tzSel = document.getElementById('mk-tz');
+  if(tzSel){
+    tzSel.addEventListener('change', function(){ orderOffices(tzSel.value === 'auto' ? tz : tzSel.value); });
+  }
+})();
+</script>
+</div>
+
+<script>
+(function(){
+  /* CRM endpoint: set when the sales CRM is wired (same open item as the other pages) */
+  var FORM_ENDPOINT = '';
+
+  /* ---- reveal on scroll ---- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el, i){ el.style.transitionDelay = ((i % 4) * 70) + 'ms'; io.observe(el); });
+  }
+
+  /* ---- accessible tabs (cycle phases, ways to run) ---- */
+  function initTabs(list){
+    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    function select(tab, focus){
+      tabs.forEach(function(t){
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      if(focus) tab.focus();
+    }
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ select(t, false); });
+      t.addEventListener('keydown', function(e){
+        var n = null;
+        if(e.key === 'ArrowRight' || e.key === 'ArrowDown') n = tabs[(i + 1) % tabs.length];
+        else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if(e.key === 'Home') n = tabs[0];
+        else if(e.key === 'End') n = tabs[tabs.length - 1];
+        if(n){ e.preventDefault(); select(n, true); }
+      });
+    });
+  }
+  document.querySelectorAll('[role="tablist"]').forEach(initTabs);
+
+  /* ---- PAGE-SPECIFIC JS: add below (keep it inside this IIFE) ---- */
+    /* ---- role cards highlight their scope ring ---- */
+  var rings = document.querySelectorAll('.rings g');
+  document.querySelectorAll('.role').forEach(function(card){
+    var key = card.getAttribute('data-role');
+    function on(){ rings.forEach(function(g){ g.classList.toggle('on', g.getAttribute('data-ring') === key); }); card.classList.add('on'); }
+    function off(){ rings.forEach(function(g){ g.classList.remove('on'); }); card.classList.remove('on'); }
+    card.addEventListener('mouseenter', on); card.addEventListener('mouseleave', off);
+    card.addEventListener('focus', on); card.addEventListener('blur', off);
+  });
+
+
+  /* ---- hero skill matrix: view switch, cell detail, legend filter ---- */
+  (function(){
+    var card = document.getElementById('hm-card'); if(!card) return;
+    var LEVEL = {1:'Awareness',2:'Working',3:'Practitioner',4:'Expert'}, W = {C1:4,C2:3,C3:2,C4:1};
+    var cells = [].slice.call(card.querySelectorAll('.hm-cell'));
+    var det = document.getElementById('hm-detail');
+    var q = function(s){ return det.querySelector(s); };
+    var pinned = card.querySelector('.hm-cell[aria-pressed="true"]') || cells[0];
+    function f(x){ return (Math.round(x*100)/100).toString(); }
+    function band(g){ return g<=0?['met','Met']:g>=2.4?['crit','Critical']:g>=1.8?['high','High']:g>=1.2?['mod','Moderate']:g>=0.7?['low','Low-moderate']:['ok','OK']; }
+    function show(b){
+      var req=+b.dataset.req, cur=+b.dataset.cur, crit=b.dataset.crit, g=Math.round((req-cur)*10)/10, bd=band(g), p=Math.max(g,0)*W[crit];
+      q('.hd-title').textContent = b.dataset.role+' · '+b.dataset.skill;
+      q('.hd-crit').textContent = crit;
+      var gp=q('.hd-gap'); gp.dataset.g=bd[0]; gp.style.left=((cur-1)/3*100)+'%'; gp.style.width=(Math.max(g,0)/3*100)+'%';
+      var hc=q('.hd-cur'), hr=q('.hd-req'); hc.style.left=((cur-1)/3*100)+'%'; hr.style.left=((req-1)/3*100)+'%'; hc.classList.toggle('at-start',cur<=1.25); hc.classList.toggle('at-end',cur>=3.75); hr.classList.toggle('at-end',req===4); hr.classList.toggle('at-start',req===1);
+      q('.hd-rq').innerHTML = req+' <small>'+LEVEL[req]+'</small>';
+      q('.hd-cu').textContent = f(cur);
+      q('.hd-gp').innerHTML = g<=0 ? 'Met' : f(g)+' <small>'+bd[1]+'</small>';
+      q('.hd-pr').innerHTML = g<=0 ? '<small>Not needed</small>' : f(p)+' <small>'+(p>=4.5?'High':p>=3?'Medium':'Low')+'</small>';
+      q('.hd-ps').textContent = g<=0 ? 'Requirement met' : f(g)+' gap × '+W[crit]+' for '+crit;
+      card.querySelectorAll('th.is-hl').forEach(function(t){ t.classList.remove('is-hl'); });
+      var th1=card.querySelector('thead th[data-c="'+b.dataset.col+'"]'), th2=card.querySelector('tbody th[data-r="'+b.dataset.row+'"]');
+      if(th1) th1.classList.add('is-hl'); if(th2) th2.classList.add('is-hl');
+    }
+    function pin(b, focus){
+      cells.forEach(function(c){ var on=c===b; c.setAttribute('aria-pressed', on?'true':'false'); c.tabIndex=on?0:-1; c.parentNode.classList.toggle('is-sel', on); });
+      pinned=b; show(b); if(focus) b.focus();
+    }
+    cells.forEach(function(b){
+      b.addEventListener('click', function(){ pin(b); });
+      b.addEventListener('mouseenter', function(){ show(b); });
+      b.addEventListener('mouseleave', function(){ show(pinned); });
+      b.addEventListener('keydown', function(e){
+        var r=+b.dataset.row, c=+b.dataset.col, k=e.key;
+        if(k==='ArrowRight')c++; else if(k==='ArrowLeft')c--; else if(k==='ArrowDown')r++; else if(k==='ArrowUp')r--; else return;
+        var n=card.querySelector('.hm-cell[data-row="'+r+'"][data-col="'+c+'"]'); e.preventDefault(); if(n) pin(n, true);
+      });
+    });
+    show(pinned);
+    function clearFilter(){ card.removeAttribute('data-filter'); card.querySelectorAll('.hm-chip').forEach(function(x){ x.setAttribute('aria-pressed','false'); }); card.querySelectorAll('td.is-match').forEach(function(t){ t.classList.remove('is-match'); }); }
+    card.querySelectorAll('.hm-chip').forEach(function(ch){
+      ch.addEventListener('click', function(){
+        var on = ch.getAttribute('aria-pressed')!=='true'; clearFilter(); if(!on) return;
+        var fv=ch.dataset.filter.split(':'); ch.setAttribute('aria-pressed','true'); card.setAttribute('data-filter', ch.dataset.filter);
+        card.querySelectorAll('.hm-table td').forEach(function(t){ t.classList.toggle('is-match', t.getAttribute(fv[0]==='g'?'data-g':'data-r')===fv[1]); });
+      });
+    });
+    var btns = card.querySelectorAll('.hm-btn');
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var v = b.getAttribute('data-view'); if(card.classList.contains('view-'+v)) return;
+        clearFilter();
+        card.classList.toggle('view-gap', v === 'gap'); card.classList.toggle('view-req', v === 'req');
+        btns.forEach(function(o){ o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+        card.classList.remove('anim'); void card.offsetWidth; card.classList.add('anim');
+        clearTimeout(card._t); card._t = setTimeout(function(){ card.classList.remove('anim'); }, 900);
+      });
+    });
+  })();
+  /* ---- hero skill matrix: light follows the pointer ---- */
+  (function(){
+    var card = document.getElementById('hm-card'); if(!card || !window.matchMedia('(hover:hover)').matches) return;
+    var raf = 0;
+    card.addEventListener('pointermove', function(e){
+      if(raf) return;
+      raf = requestAnimationFrame(function(){
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px'); card.style.setProperty('--my', (e.clientY - r.top) + 'px'); raf = 0;
+      });
+    });
+    card.addEventListener('pointerleave', function(){ card.style.removeProperty('--mx'); card.style.removeProperty('--my'); });
+  })();
+  /* ---- hero skill matrix: keep the hero height steady across views ---- */
+  (function(){
+    var card = document.getElementById('hm-card'); if(!card) return;
+    var box = card.parentNode;
+    function lock(){
+      var req = card.classList.contains('view-req');
+      box.style.minHeight = '';
+      if(req){ card.classList.add('view-gap'); card.classList.remove('view-req'); }
+      var h = box.offsetHeight;
+      if(req){ card.classList.add('view-req'); card.classList.remove('view-gap'); }
+      box.style.minHeight = h + 'px';
+    }
+    lock();
+    var t; window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(lock, 120); });
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(lock);
+  })();
+var MT_INSPECT = {"dcm": ["Data Context Meter \u00b7 92 Ready", [["Band", "Ready is 85 and above"], ["Completeness", "95"], ["Validity", "93"], ["Duplicates resolved", "18 of 18"], ["Consent coverage", "88%"], ["AI-assisted", "skill matching, High confidence, Accept suggested"]]], "cov": ["Survey coverage \u00b7 86%", [["Band", "good is 75 percent and above"], ["Self-ratings", "412 of 480"], ["Manager ratings", "396 of 480"], ["Reminders", "every 3 days, 7 sent"], ["Window", "3 weeks, closed"]]], "flags": ["Flagged ratings \u00b7 21 of 24 resolved", [["Sent back to managers", "14"], ["Calibrated, reason logged", "7"], ["Open", "3"], ["Perception gap", "kept on the original rating"]]], "src": ["Needs with 3+ sources \u00b7 78%", [["Corroborates", "8 themes"], ["Contradicts", "2, routed as non-training"], ["Extends", "1, framework amendment pending"], ["AI-assisted", "theme synthesis, Medium confidence, Always modify"]]], "rank": ["Needs ranked \u00b7 62", [["High", "14"], ["Medium", "29"], ["Low", "19"], ["Programs after deduplication", "12"], ["AI-assisted", "theme synthesis, Medium confidence, Always modify"]]], "road": ["Roadmap \u00b7 11 programs", [["Q1", "3 of 3"], ["Q2", "3 of 3"], ["Q3", "3 of 4"], ["Q4", "2 of 2"], ["Budget phasing", "front-loaded, within budget"], ["Approval", "locked by the HR Head"]]], "cal": ["Calendar \u00b7 34 of 40 sessions", [["Need a trainer", "6"], ["Blackout windows respected", "yes"], ["Exports ready", "PDF, iCal, Excel"], ["LMS sync", "after the HR Head locks the calendar"]]]};
+(function(){
+  var rm2 = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  [].slice.call(document.querySelectorAll('.gc')).forEach(function(C){
+    var log = C.querySelector('.mt-log'), ins = C.querySelector('.mt-ins'), btn = C.querySelector('.mt-con-b'), title = C.querySelector('.mt-con-t');
+    var items = [].slice.call(log.children), i = 0, timer = null, paused = rm2, mode = 'log';
+    function show(n){ log.innerHTML = ''; for (var j = 0; j < (C.classList.contains('ck') ? 1 : 2); j++){ var it = items[(n - j + items.length) % items.length].cloneNode(true); if (j) it.style.animation = 'none'; log.appendChild(it); } }
+    function tick(){ i = (i + 1) % items.length; show(i); }
+    function play(){ paused = false; clearInterval(timer); timer = setInterval(tick, 2600); btn.setAttribute('aria-pressed','false'); btn.querySelector('.lbl').textContent = 'Pause log'; }
+    function stop(){ paused = true; clearInterval(timer); btn.setAttribute('aria-pressed','true'); btn.querySelector('.lbl').textContent = 'Play log'; }
+    function toLog(){ mode = 'log'; ins.hidden = true; log.hidden = false; title.textContent = 'Activity log'; btn.classList.remove('back'); C.querySelectorAll('.mt-tile').forEach(function(t){ t.setAttribute('aria-pressed','false'); }); if (paused) { btn.setAttribute('aria-pressed','true'); btn.querySelector('.lbl').textContent = 'Play log'; } else play(); }
+    function inspect(t){
+      var d = MT_INSPECT[t.dataset.k]; if (!d) return;
+      if (t.getAttribute('aria-pressed') === 'true') { toLog(); return; }
+      C.querySelectorAll('.mt-tile').forEach(function(x){ x.setAttribute('aria-pressed', x === t ? 'true' : 'false'); });
+      mode = 'ins'; clearInterval(timer); log.hidden = true; ins.hidden = false; title.textContent = 'Details';
+      ins.querySelector('.mt-ins-t').textContent = d[0];
+      ins.querySelector('.mt-ins-d').innerHTML = d[1].map(function(r){ return '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>'; }).join('');
+      btn.classList.add('back'); btn.removeAttribute('aria-pressed'); btn.querySelector('.lbl').textContent = 'Back to log';
+    }
+    C.querySelectorAll('.mt-tile').forEach(function(t){
+      t.addEventListener('click', function(){ inspect(t); });
+      t.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); inspect(t); } else if (e.key === 'Escape' && mode === 'ins') toLog(); });
+    });
+    btn.addEventListener('click', function(){ if (mode === 'ins') { toLog(); return; } paused ? play() : stop(); });
+    var ago = C.querySelector('.mt-ago'), m = 2; if (ago) setInterval(function(){ if (!paused && mode === 'log') { m = m >= 5 ? 1 : m + 1; ago.textContent = m + ' min'; } }, 9000);
+    show(0); if (rm2) stop(); else play();
+  });
+})();
+(function(){
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  [].slice.call(document.querySelectorAll('.gc')).forEach(function(C){
+    function go(){ C.classList.add('on'); if(rm) return; [].slice.call(C.querySelectorAll('[data-to]')).forEach(function(b){ var to = +b.dataset.to, t0 = null; function f(t){ if(!t0) t0=t; var p = Math.min(1,(t-t0)/1400); b.textContent = Math.round(to*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(f); } requestAnimationFrame(f); }); }
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ go(); io.disconnect(); } }); }, {threshold:.35}); io.observe(C);
+  });
+})();
+
+  /* ---- in-page menu: mark the section in view ---- */
+  (function(){
+    var nav = document.getElementById('secnav'); if(!nav || !('IntersectionObserver' in window)) return;
+    var links = [].slice.call(nav.querySelectorAll('ul a')), map = {};
+    links.forEach(function(a){ var s = document.getElementById(a.getAttribute('href').slice(1)); if(s) map[s.id] = a; });
+    var current = null;
+    function mark(id){ if(id === current) return; current = id; links.forEach(function(a){ if(map[id] === a){ a.setAttribute('aria-current','true'); var ul = a.closest('ul'); if(ul.scrollWidth > ul.clientWidth) ul.scrollTo({left: a.offsetLeft - 16, behavior:'smooth'}); } else a.removeAttribute('aria-current'); }); }
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) mark(e.target.id); }); }, {rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
+  })();
+  /* ---- standard enquiry form ---- */
+  var COUNTRIES = [
+    ['Argentina','+54'],['Australia','+61'],['Bahrain','+973'],['Bangladesh','+880'],['Belgium','+32'],['Brazil','+55'],
+    ['Canada','+1'],['Chile','+56'],['China','+86'],['Denmark','+45'],['Egypt','+20'],['France','+33'],['Germany','+49'],
+    ['Hong Kong','+852'],['India','+91'],['Indonesia','+62'],['Ireland','+353'],['Israel','+972'],['Italy','+39'],['Japan','+81'],
+    ['Kenya','+254'],['Kuwait','+965'],['Malaysia','+60'],['Mexico','+52'],['Netherlands','+31'],['New Zealand','+64'],
+    ['Nigeria','+234'],['Norway','+47'],['Oman','+968'],['Philippines','+63'],['Poland','+48'],['Qatar','+974'],
+    ['Saudi Arabia','+966'],['Singapore','+65'],['South Africa','+27'],['South Korea','+82'],['Spain','+34'],['Sri Lanka','+94'],
+    ['Sweden','+46'],['Switzerland','+41'],['Thailand','+66'],['Turkey','+90'],['United Arab Emirates','+971'],
+    ['United Kingdom','+44'],['United States','+1'],['Vietnam','+84']
+  ];
+  var sel = document.getElementById('f-country');
+  COUNTRIES.forEach(function(c){ var o = document.createElement('option'); o.value = c[0]; o.textContent = c[0]; o.setAttribute('data-dial', c[1]); sel.appendChild(o); });
+  var dial = document.getElementById('dial'), dialField = document.getElementById('f-dial');
+  sel.addEventListener('change', function(){
+    var o = sel.options[sel.selectedIndex], d = o ? (o.getAttribute('data-dial') || '+') : '+';
+    dial.textContent = d; dialField.value = d === '+' ? '' : d;
+  });
+
+  var form = document.getElementById('enquiry');
+  var summary = document.getElementById('err-summary');
+  var fields = [
+    {el:'f-name', err:'e-name', label:'Full name', test:function(v){ return v.trim().length >= 2 ? '' : 'Enter your full name.'; }},
+    {el:'f-email', err:'e-email', label:'Work email', test:function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Enter a work email in the format name@company.com.'; }},
+    {el:'f-company', err:'e-company', label:'Company name', test:function(v){ return v.trim() ? '' : 'Enter your company name.'; }},
+    {el:'f-title', err:'e-title', label:'Job title', test:function(v){ return v.trim() ? '' : 'Enter your job title.'; }},
+    {el:'f-phone', err:'e-phone', label:'Phone', wrap:'phone-wrap', test:function(v){ return !v.trim() || /^[0-9\s\-()]{6,}$/.test(v.trim()) ? '' : 'Enter a phone number using digits only, or leave it blank.'; }},
+    {el:'f-consent', err:'e-consent', label:'Privacy consent', check:true, test:function(v, el){ return el.checked ? '' : 'Agree to the privacy policy so we can respond to your request.'; }}
+  ];
+  function validate(f){
+    var el = document.getElementById(f.el), er = document.getElementById(f.err);
+    var msg = f.test(el.value, el);
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    if(f.wrap) document.getElementById(f.wrap).classList.toggle('invalid', !!msg);
+    er.textContent = msg; er.hidden = !msg;
+    return msg;
+  }
+  fields.forEach(function(f){
+    var el = document.getElementById(f.el);
+    el.addEventListener(f.check ? 'change' : 'blur', function(){ if(f.check || el.value || el.getAttribute('aria-invalid') === 'true') validate(f); });
+  });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(document.getElementById('f-website').value) return; /* honeypot */
+    var bad = fields.filter(function(f){ return validate(f); });
+    if(bad.length){
+      summary.innerHTML = 'Please fix ' + bad.length + (bad.length === 1 ? ' field' : ' fields') + ': ' + bad.map(function(f){ return f.label; }).join(', ') + '.';
+      summary.hidden = false;
+      document.getElementById(bad[0].el).focus();
+      return;
+    }
+    summary.hidden = true;
+    document.getElementById('f-url').value = location.href;
+    document.getElementById('f-ts').value = new Date().toISOString();
+    var btn = document.getElementById('submit-btn');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    function done(){
+      document.getElementById('form-body').hidden = true;
+      var t = document.getElementById('thanks'); t.hidden = false; t.focus();
+    }
+    if(FORM_ENDPOINT){
+      fetch(FORM_ENDPOINT, {method:'POST', body:new FormData(form)}).then(done).catch(function(){
+        btn.disabled = false; btn.textContent = 'Request a demo';
+        summary.textContent = 'Your request could not be sent. Please try again, or email us directly.';
+        summary.hidden = false; summary.focus();
+      });
+    } else { done(); }
+  });
+})();
+</script>
+<script>
+/* explore: spec-sheet viewer at 901px and up (ARIA tabs); stacked cards below */
+(function(){
+  var sec=document.getElementById('explore'); if(!sec) return;
+  var list=sec.querySelector('[data-xb-tabs]'), grid=sec.querySelector('.xb-grid'); if(!list||!grid||!window.matchMedia) return;
+  var tabs=Array.prototype.slice.call(list.querySelectorAll('.xb-tab'));
+  var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('data-p'));});
+  var mq=window.matchMedia('(min-width:901px)'), cur=0;
+  function select(i,focus){
+    cur=i;
+    tabs.forEach(function(t,k){var on=k===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[k].hidden=!on;});
+    if(focus) tabs[i].focus();
+  }
+  function mode(){
+    if(mq.matches){
+      sec.classList.add('xb-tabs');
+      list.setAttribute('role','tablist'); list.setAttribute('aria-orientation','vertical'); list.setAttribute('aria-label','Engine pages');
+      grid.setAttribute('role','none');
+      tabs.forEach(function(t,k){t.setAttribute('role','tab'); t.setAttribute('aria-controls',panels[k].id); panels[k].setAttribute('role','tabpanel'); panels[k].setAttribute('aria-labelledby',t.id);});
+      select(cur,false);
+    } else {
+      sec.classList.remove('xb-tabs');
+      ['role','aria-orientation','aria-label'].forEach(function(a){list.removeAttribute(a);});
+      grid.setAttribute('role','list');
+      tabs.forEach(function(t,k){['role','aria-controls','aria-selected'].forEach(function(a){t.removeAttribute(a);}); t.tabIndex=-1;
+        panels[k].setAttribute('role','listitem'); panels[k].removeAttribute('aria-labelledby'); panels[k].hidden=false;});
+    }
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(i,false);});
+    t.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowDown'||e.key==='ArrowRight') n=(i+1)%tabs.length;
+      else if(e.key==='ArrowUp'||e.key==='ArrowLeft') n=(i-1+tabs.length)%tabs.length;
+      else if(e.key==='Home') n=0; else if(e.key==='End') n=tabs.length-1;
+      if(n!==null){e.preventDefault(); select(n,true);}
+    });
+  });
+  if(mq.addEventListener) mq.addEventListener('change',mode); else if(mq.addListener) mq.addListener(mode);
+  mode();
+})();
+</script>
 <script src="/edpf.js"></script>
 <script src="/footer.js"></script>
+
 </body>
 </html>
