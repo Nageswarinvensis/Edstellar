@@ -190,6 +190,24 @@ function Visual({ visual }) {
           dangerouslySetInnerHTML={{ __html: visual.svg }}
         />
       ) : null;
+    case "svg-img":
+      return visual.svg ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(visual.svg)}`}
+          alt=""
+          className="mx-auto block h-auto w-full rounded-lg"
+        />
+      ) : null;
+    case "png-img":
+      return visual.src ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={visual.src}
+          alt=""
+          className="mx-auto block h-auto w-full rounded-lg"
+        />
+      ) : null;
     default:
       return null;
   }

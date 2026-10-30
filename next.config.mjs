@@ -21,6 +21,8 @@ const nextConfig = {
       { source: "/platforms/tna", destination: "/tna-tni-engine.html" },
       { source: "/platforms/tni", destination: "/tna-tni-engine.html" },
       { source: "/platforms/zenith", destination: "/zenith.html" },
+      { source: "/capability-os", destination: "/capability-os.html" },
+      { source: "/platforms/capability-os", destination: "/capability-os.html" },
     ];
   },
   async redirects() {

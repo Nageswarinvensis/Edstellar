@@ -40,6 +40,9 @@
   var PREFERRED = ["us","gb","in","au","ca"];
 
   var PLATFORMS = [
+    {id:"capability-os", group:"Platforms", name:"Capability OS", desc:"One verified picture of workforce capability", cta:"Request a demo", reply:"one business day",
+     goals:"Roles and teams in scope, the frameworks you have today and what you want Capability OS to build first",
+     challenges:["No clear view of skills across the organization","Skills and competency frameworks are outdated or missing","Skill data sits in spreadsheets and separate systems","Learning spend is not tied to critical skills","Workforce planning for a new strategy","Linking capability data to development and hiring"]},
     {id:"spectra-lms", group:"Platforms", name:"Spectra LMS", desc:"AI-empowered, social and gamified LMS", cta:"Request a demo", reply:"one business day",
      goals:"Number of learners, the roles you want to see and the Spectra LMS features that matter most",
      challenges:["Low learner engagement or completion","Learners need to learn on mobile","Learning is scattered across tools and spreadsheets","Hard to see engagement and learning impact","Running blended programs at scale","Moving from another LMS"]},
