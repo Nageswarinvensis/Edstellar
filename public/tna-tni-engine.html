@@ -4723,6 +4723,59 @@ s.querySelectorAll('[role=tab]').forEach(function(t){var p=document.getElementBy
 
 
 
+
+<section class="edpf" id="edpf" data-platform="tna-tni-engine" data-theme="tna" aria-labelledby="edpf-h">
+  <div class="edpf-head">
+    <h2 id="edpf-h">See Edstellar platforms and tools in action.</h2>
+    <p class="edpf-intro">Tell us what you want to achieve, and an Edstellar specialist will show you how the platform or tool fits your teams.</p>
+  </div>
+  <div class="edpf-card">
+  <form novalidate aria-labelledby="edpf-h">
+    <div class="edpf-sum" role="alert" tabindex="-1" hidden></div>
+    <fieldset class="edpf-group" data-group="platform">
+      <legend><span class="n" aria-hidden="true">1</span>Choose a platform or tool</legend>
+      <div class="edpf-f full"><label for="edpf-platform">Platform or tool <span class="req" aria-hidden="true">*</span></label><select id="edpf-platform" name="platform" required aria-describedby="edpf-e-platform"><option value="">Select a platform or tool</option></select><span class="edpf-err" id="edpf-e-platform">Please select a platform or tool, or pick Not sure yet.</span></div>
+    </fieldset>
+    <fieldset class="edpf-group">
+      <legend><span class="n" aria-hidden="true">2</span>Your details</legend>
+      <div class="edpf-grid">
+        <div class="edpf-f"><label for="edpf-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="edpf-name" name="full_name" type="text" autocomplete="name" placeholder="Enter your full name" required aria-describedby="edpf-e-name"><span class="edpf-err" id="edpf-e-name">Please enter your full name.</span></div>
+        <div class="edpf-f"><label for="edpf-email">Work email <span class="req" aria-hidden="true">*</span></label><input id="edpf-email" name="work_email" type="email" autocomplete="email" placeholder="Enter your work email" required aria-describedby="edpf-e-email"><span class="edpf-err" id="edpf-e-email">Please enter a valid work email, for example name@company.com.</span></div>
+        <div class="edpf-f"><label for="edpf-company">Company name <span class="req" aria-hidden="true">*</span></label><input id="edpf-company" name="company" type="text" autocomplete="organization" placeholder="Enter your company name" required aria-describedby="edpf-e-company"><span class="edpf-err" id="edpf-e-company">Please enter your company name.</span></div>
+        <div class="edpf-f"><label for="edpf-title">Job title <span class="req" aria-hidden="true">*</span></label><input id="edpf-title" name="job_title" type="text" autocomplete="organization-title" placeholder="Enter your job title" required aria-describedby="edpf-e-title"><span class="edpf-err" id="edpf-e-title">Please enter your job title.</span></div>
+        <div class="edpf-f"><label for="edpf-country">Country <span class="req" aria-hidden="true">*</span></label><select id="edpf-country" name="country" autocomplete="country-name" required aria-describedby="edpf-e-country"><option value="">Select your country</option></select><span class="edpf-err" id="edpf-e-country">Please select your country.</span></div>
+        <div class="edpf-f"><label for="edpf-phone">Phone <span class="req" aria-hidden="true">*</span></label><input id="edpf-phone" name="phone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="Enter your phone number" required aria-describedby="edpf-e-phone"><span class="edpf-err" id="edpf-e-phone">Please enter a phone number of 6 to 15 digits.</span></div>
+      </div>
+    </fieldset>
+    <fieldset class="edpf-group">
+      <legend><span class="n" aria-hidden="true">3</span>Your organization and goals</legend>
+      <div class="edpf-grid">
+        <div class="edpf-f"><label for="edpf-size">Company size <span class="req" aria-hidden="true">*</span></label><select id="edpf-size" name="company_size" required aria-describedby="edpf-e-size"><option value="">Select company size</option><option>Startup (1–50 employees)</option><option>Small Business (51–200 employees)</option><option>Mid-Size Organization (201–1,000 employees)</option><option>Large Enterprise (1,001–5,000 employees)</option><option>Global Enterprise / Fortune 500 (5,000+ employees)</option><option>Government Agency</option><option>Non-Profit Organization</option></select><span class="edpf-err" id="edpf-e-size">Please select your company size.</span></div>
+        <div class="edpf-f"><label for="edpf-challenge">Current challenge <span class="req" aria-hidden="true">*</span></label><select id="edpf-challenge" name="current_challenge" required aria-describedby="edpf-e-challenge"><option value="">Select your current challenge</option></select><span class="edpf-err" id="edpf-e-challenge">Please select your current challenge.</span></div>
+        <div class="edpf-f"><label for="edpf-impact">Employees to be impacted <span class="opt">(optional)</span></label><select id="edpf-impact" name="employees_impacted"><option value="">Select a range</option><option>Less than 50</option><option>50-100</option><option>101-250</option><option>251-500</option><option>501-1,000</option><option>1,000-2,500</option><option>2,500-5,000</option><option>5,000+</option><option>Not sure yet</option></select></div>
+        <div class="edpf-f"><label for="edpf-timeline">Timeline for implementation <span class="req" aria-hidden="true">*</span></label><select id="edpf-timeline" name="timeline" required aria-describedby="edpf-e-timeline"><option value="">Select a timeline</option><option>Immediate (Within 1 month)</option><option>Short-term (1-3 months)</option><option>Medium-term (3-6 months)</option><option>Long-term (6-12 months)</option><option>Exploratory (12+ months)</option></select><span class="edpf-err" id="edpf-e-timeline">Please select a timeline.</span></div>
+        <div class="edpf-f"><label for="edpf-budget">Budget range <span class="opt">(optional)</span></label><select id="edpf-budget" name="budget_range"><option value="">Select a budget range</option><option>Less than $25,000</option><option>$25,000 - $50,000</option><option>$50,000 - $100,000</option><option>$100,000 - $250,000</option><option>$250,000 - $500,000</option><option>$500,000+</option><option>Budget not yet allocated</option></select></div>
+        <div class="edpf-f full" data-field="also"><span class="edpf-lbl" id="edpf-also-l">Also interested in <span class="opt">(optional)</span></span><div class="edpf-also" role="group" aria-labelledby="edpf-also-l"></div></div>
+        <div class="edpf-f full"><label for="edpf-goals">Your challenges and goals <span class="opt">(optional)</span></label><textarea id="edpf-goals" name="challenges_goals" rows="4"></textarea></div>
+      </div>
+    </fieldset>
+    <div class="edpf-hp" aria-hidden="true"><label for="edpf-web">Leave this field empty</label><input id="edpf-web" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="form_id" value="platforms-tools-common">
+    <input type="hidden" name="intent" value="">
+    <input type="hidden" name="platform_name" value="">
+    <input type="hidden" name="source_page" value="">
+    <input type="hidden" name="also_interested" value="">
+    <input type="hidden" name="page_url" value="">
+    <input type="hidden" name="phone_dial_code" value="">
+    <input type="hidden" name="submitted_at" value="">
+    <div class="edpf-foot">
+      <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="edpf-reply">We reply within one business day with a scoped response, no automated sales sequence.</span></p>
+      <button class="edpf-btn" type="submit"><span class="edpf-btn-l">Request a demo</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="spin" aria-hidden="true"></span></button>
+    </div>
+  </form>
+  </div>
+</section>
+
 </main>
 
 <!-- FOOTER PLACEHOLDER: replace with the shared slim footer (footer-launch.html) at integration -->
