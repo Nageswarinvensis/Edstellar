@@ -37,7 +37,7 @@ function StatLabel({ children, className }) {
   );
 }
 
-function DomainProof({ proof, trainersThumbnail }) {
+function DomainProof({ proof, trainersImage }) {
   const stats = proof?.stats ?? [];
   if (!stats.length) return null;
 
@@ -69,7 +69,11 @@ function DomainProof({ proof, trainersThumbnail }) {
                     key={index}
                     className={cn(cell, "flex-row items-center gap-3")}
                   >
-                    <TrainersImage className="h-8" src={trainersThumbnail} />
+                    <TrainersImage
+                      className="h-8"
+                      src={trainersImage?.src}
+                      alt={trainersImage?.alt}
+                    />
                     <Box className="flex shrink-0 flex-col gap-[5px]">
                       <StatValue>{stat.value}</StatValue>
                       {/* Kept on one line: beside the avatar stack it otherwise wraps to two. */}

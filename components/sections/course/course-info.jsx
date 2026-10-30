@@ -20,7 +20,7 @@ const TRAINERS_STATIC = {
   meet_label: "Meet them",
 };
 
-function CourseInfo({ proof, capabilityModel }) {
+function CourseInfo({ proof, capabilityModel, trainersImage }) {
   const topic_tags = proof?.topic_tags ?? [];
   const trainers = proof?.trainers && {
     ...proof.trainers,
@@ -37,6 +37,7 @@ function CourseInfo({ proof, capabilityModel }) {
             stats={proof?.stats}
             delivery={proof && DELIVERY}
             trainers={trainers}
+            trainersImage={trainersImage}
             actions={proof?.actions}
           />
         </Reveal>
