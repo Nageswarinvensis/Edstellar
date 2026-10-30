@@ -45,7 +45,17 @@ export default async function TemplateRoute({ params }) {
     { label: template.title, href: null },
   ];
 
-  const nodes = schemaNodes(template.schema);
+  // A direct-tool URL renders the tool alone, so the CMS schema (HowTo steps,
+  // FAQs) would describe a landing page the visitor never sees — it is only
+  // emitted on the landing page. There, `WebApplication.subjectOf` points at
+  // `#faq`; with no FAQs the reference is dropped rather than left dangling.
+  const faqItems = template.directTool ? [] : (template.faqs?.items ?? []);
+  const faqId = `${pageUrl}#faq`;
+  const nodes = (template.directTool ? [] : schemaNodes(template.schema)).map((node) =>
+    faqItems.length || !Array.isArray(node.subjectOf)
+      ? node
+      : { ...node, subjectOf: node.subjectOf.filter((ref) => ref?.["@id"] !== faqId) },
+  );
 
   return (
     <>
@@ -71,6 +81,20 @@ export default async function TemplateRoute({ params }) {
             "position": i + 1,
             "name": item.label,
             "item": item.href === "/" ? BASE : item.href?.startsWith("http") ? item.href : item.href ? `${BASE}${item.href}` : pageUrl
+          }))
+        }} />
+      )}
+
+      {/* FAQPage */}
+      {faqItems.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": `${pageUrl}#faq`,
+          "mainEntity": faqItems.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
           }))
         }} />
       )}

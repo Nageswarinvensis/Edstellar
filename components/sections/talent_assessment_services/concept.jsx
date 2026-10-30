@@ -137,7 +137,7 @@ function BehaviorMap({ map }) {
 export default function Concept({ data }) {
   if (!data?.principles?.length) return null;
 
-  const { section_id, heading, description, principles, art, grid, map, svg_image } = data;
+  const { section_id, heading, description, principles, art, grid, map, svg_image, svg_image_alt_text } = data;
 
   return (
     <Section id={section_id} className="bg-paper-warm">
@@ -165,6 +165,7 @@ export default function Concept({ data }) {
             {svg_image ? (
               <SvgOrImage
                 value={svg_image}
+                alt={svg_image_alt_text}
                 className="[&_svg]:block [&_svg]:h-auto [&_svg]:w-full [&_img]:block [&_img]:h-auto [&_img]:w-full [&_img]:rounded-[18px]"
               />
             ) : art === "competency-grid" ? (
