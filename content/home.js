@@ -290,6 +290,7 @@ export const HOME = {
     "items": [
       {
         "img": "/home/pillar-consulting.svg",
+        "img_alt": "Organization chart illustrating L&OD consulting and org redesign",
         "title": "L&OD <span>Consulting</span>",
         "desc": "Edstellar diagnoses the structure and redesigns the system. We benchmark, model, and rebuild your learning function: strategy, capability frameworks, governance.",
         "cta": "Engage advisory",
@@ -297,6 +298,7 @@ export const HOME = {
       },
       {
         "img": "/home/pillar-platform.svg",
+        "img_alt": "Capability intelligence dashboard showing skill gaps by role",
         "id": "platform",
         "badge": "Platform",
         "title": "Capability Intelligence <span>Platform</span>",
@@ -305,6 +307,7 @@ export const HOME = {
       },
       {
         "img": "/home/pillar-coaching.svg",
+        "img_alt": "Illustration of one-to-one leadership coaching sessions",
         "title": "Coaching <span>Solutions</span>",
         "desc": "1:1 and cohort coaching for senior leaders, calibrated to your succession plan. Certified coaches, signal-rich diagnostics, board-ready outcomes.",
         "cta": "Engage a coach",
@@ -312,6 +315,7 @@ export const HOME = {
       },
       {
         "img": "/home/pillar-training.svg",
+        "img_alt": "Corporate training delivered virtually, onsite or blended",
         "title": "Corporate <span>Training</span>",
         "desc": "Outcome-first training programs across 2,000+ skill areas: instructor-led, virtual, blended: delivered in your languages, your time zones, your standards.",
         "cta": "Explore programs",

@@ -34,6 +34,7 @@ export default function ToolSpotlight({ data }) {
     audience,
     link,
     svg_image,
+    svg_image_alt_text,
   } = data;
   const useCasesLabel = data.use_cases_label ?? "Use cases";
   const audienceLabel = data.audience_label ?? "Audience";
@@ -138,6 +139,7 @@ export default function ToolSpotlight({ data }) {
             >
               <SvgOrImage
                 value={svg_image}
+                alt={svg_image_alt_text}
                 className="mx-auto max-w-[440px] [&_svg]:block [&_svg]:h-auto [&_svg]:w-full [&_img]:block [&_img]:h-auto [&_img]:w-full"
               />
             </Box>
