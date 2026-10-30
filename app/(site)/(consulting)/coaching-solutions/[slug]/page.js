@@ -18,6 +18,7 @@ import MeridianShowcase from "@/components/sections/coaching/meridian-showcase";
 import CoachingMeridianSoon from "@/components/sections/coaching/coaching-meridian-soon";
 import CoachingCtaBand from "@/components/sections/coaching/coaching-cta-band";
 import CoachingBenefits from "@/components/sections/coaching/coaching-benefits";
+import CoachingCta from "@/components/sections/coaching/coaching-cta";
 import CoachingProcess from "@/components/sections/coaching/coaching-process";
 import CoachingConfidentialCompare from "@/components/sections/coaching/coaching-confidential-compare";
 import CoachingWhy from "@/components/sections/coaching/coaching-why";
@@ -65,6 +66,9 @@ export default async function CoachingSubPage({ params }) {
   const BASE = "https://www.edstellar.com";
   const pageUrl = `${BASE}/coaching-solutions/${slug}`;
   const nodes = schemaNodes(page.coachingSchema);
+
+  // Check if current page is team-coaching
+  const isTeamCoachingPage = slug === "team-coaching";
 
   // Extract raw components array if page returns a list or object containing blocks
   const rawComponents = Array.isArray(page)
@@ -123,6 +127,9 @@ export default async function CoachingSubPage({ params }) {
       ) : (
         <MeridianShowcase data={page.meridian} />
       )}
+
+      {/* Renders ONLY on team-coaching slug */}
+      {isTeamCoachingPage && <CoachingCta />}
 
       <CoachingProcess data={page.process} />
       <CoachingCtaBand data={page.process_cta} />
