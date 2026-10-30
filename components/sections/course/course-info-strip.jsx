@@ -132,7 +132,7 @@ function DeliveryStat({ delivery }) {
   );
 }
 
-function TrainersStat({ trainers }) {
+function TrainersStat({ trainers, image }) {
   return (
     <Box
       className={cn(
@@ -142,7 +142,7 @@ function TrainersStat({ trainers }) {
       )}
     >
       <Box className="flex items-center gap-2.5">
-        <TrainersImage className="h-7" />
+        <TrainersImage className="h-7" src={image?.src} alt={image?.alt} />
 
         <Text
           as="span"
@@ -237,7 +237,7 @@ function ActionLink({ action }) {
   );
 }
 
-function CourseInfoStrip({ stats = [], delivery, trainers, actions = [] }) {
+function CourseInfoStrip({ stats = [], delivery, trainers, trainersImage, actions = [] }) {
   const findStat = (label) =>
     stats.find((stat) => stat.label?.toLowerCase() === label);
   const hours = findStat("hours");
@@ -265,7 +265,7 @@ function CourseInfoStrip({ stats = [], delivery, trainers, actions = [] }) {
           {hours && <HoursStat value={hours.value} />}
           {modules && <ModulesStat value={modules.value} />}
           {delivery && <DeliveryStat delivery={delivery} />}
-          {trainers && <TrainersStat trainers={trainers} />}
+          {trainers && <TrainersStat trainers={trainers} image={trainersImage} />}
         </Box>
 
         {actions.filter((a) => a.type !== "preview").length > 0 && (

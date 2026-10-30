@@ -44,6 +44,13 @@ export default function CoursePage({ course }) {
 
   const { customBlocks = [] } = course;
 
+  // The domain's trainer-faces strip, shared by the proof bar and the
+  // curriculum's author credit.
+  const trainersImage = {
+    src: course.trainers_thumbnail,
+    alt: `${course.name} Expert Trainers`,
+  };
+
   // Every brochure button on the page (the domain's PDF) opens the
   // gated-download drawer.
   return (
@@ -52,7 +59,11 @@ export default function CoursePage({ course }) {
       title={course.domain_name ? `${course.domain_name} training brochure` : "Training brochure"}
     >
       <Hero hero={course.hero} breadcrumbs={course.breadcrumbs?.items} />
-      <CourseInfo proof={course.proof} capabilityModel={course.CapabilityModel} />
+      <CourseInfo
+        proof={course.proof}
+        capabilityModel={course.CapabilityModel}
+        trainersImage={trainersImage}
+      />
       <ClientLogos heading="Trusted as a Leading Corporate Training Provider by" />
       <About about={course.about} />
 
@@ -61,7 +72,7 @@ export default function CoursePage({ course }) {
         modules={course.curriculum?.modules}
         hasTrainers={false}
       >
-        <Curriculum curriculum={course.curriculum} />
+        <Curriculum curriculum={course.curriculum} trainersImage={trainersImage} />
         <Skills skills={course.skills} />
         <Audience audience={course.audience} />
         <Certificate />

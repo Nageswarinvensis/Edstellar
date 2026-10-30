@@ -39,6 +39,13 @@ export default function DomainPage({ domain }) {
   //   (domain.trainers?.dynamic_data ?? domain.trainers?.people)?.length,
   // );
 
+  // The domain's trainer-faces strip in the proof bar, same alt pattern as
+  // the course page.
+  const trainersImage = {
+    src: domain.meta?.trainers_thumbnail,
+    alt: `${domain.name} Expert Trainers`,
+  };
+
   // Use the CMS image if provided; fall back to the shared category banner.
   // Video is suppressed — banners are image-only on domain pages.
   const hero = {
@@ -59,7 +66,7 @@ export default function DomainPage({ domain }) {
       title={domain.name ? `${domain.name} training brochure` : "Training brochure"}
     >
       <Hero hero={hero} breadcrumbs={domain.breadcrumbs} />
-      <DomainProof proof={domain.proof} trainersThumbnail={domain.meta?.trainers_thumbnail} />
+      <DomainProof proof={domain.proof} trainersImage={trainersImage} />
       <ClientLogos heading="Trusted as a Leading Corporate Training Provider by" />
 
       <StickyNavbar data={domain.sticky_nav} />

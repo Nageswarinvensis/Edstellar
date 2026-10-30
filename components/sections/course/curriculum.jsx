@@ -159,7 +159,7 @@ function BoldLead({ text }) {
   });
 }
 
-export default function Curriculum({ curriculum }) {
+export default function Curriculum({ curriculum, trainersImage }) {
   if (!curriculum?.modules?.length) return null;
 
   const {
@@ -195,7 +195,11 @@ export default function Curriculum({ curriculum }) {
           <Reveal delay={2}>
             <Box className="w-full max-w-100 rounded-[14px] border border-ink/12 bg-white p-3.75 transition-[border-color,box-shadow] duration-300 hover:border-ink/20 hover:shadow-[0_16px_36px_-28px_rgba(10,22,40,0.45)]">
               <Box className="mb-2 flex items-center gap-2.5">
-                <TrainersImage className="h-6.5" />
+                <TrainersImage
+                  className="h-6.5"
+                  src={trainersImage?.src}
+                  alt={trainersImage?.alt}
+                />
                 <Text
                   as="h3"
                   className="min-w-0 font-display text-[12.5px] leading-[1.3] font-medium tracking-[-0.01em] text-ink"
