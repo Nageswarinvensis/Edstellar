@@ -18,6 +18,9 @@ const nextConfig = {
       { source: "/platforms/meridian", destination: "/meridian.html" },
       { source: "/platforms/spectra-lms", destination: "/spectra-lms.html" },
       { source: "/platforms/tna-tni-engine", destination: "/tna-tni-engine.html" },
+      { source: "/platforms/tna", destination: "/tna-tni-engine.html" },
+      { source: "/platforms/tni", destination: "/tna-tni-engine.html" },
+      { source: "/platforms/zenith", destination: "/zenith.html" },
     ];
   },
   async redirects() {

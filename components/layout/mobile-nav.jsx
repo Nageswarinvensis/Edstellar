@@ -109,6 +109,15 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
                               {link.label}
                               {link.sub && <span className="block text-[13px] text-ink-muted">{link.sub}</span>}
                             </Text>
+                          ) : link.anchor ? (
+                            <a
+                              href={link.href}
+                              title={link.title || `Click Here to View ${link.label}`}
+                              onClick={onClose}
+                              className="block min-h-11 py-2 text-[15px] leading-relaxed text-ink/75 transition-colors duration-200 hover:text-ink hover:underline hover:underline-offset-4"
+                            >
+                              {link.label}
+                            </a>
                           ) : (
                             <Link
                               href={link.href}
