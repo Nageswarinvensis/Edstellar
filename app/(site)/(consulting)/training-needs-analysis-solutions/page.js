@@ -4,6 +4,7 @@ import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
 import JsonLd from "@/components/seo/json-ld";
+import { schemaNodes } from "@/lib/seo/prune";
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import TnaInfo from "@/components/sections/training_needs_analysis/tnainfo";
 import ClientLogos from "@/components/common/client-logos";
@@ -49,6 +50,8 @@ export default async function TrainingNeedsAnalysisPage() {
   if (!tna) notFound();
 
   const BASE = "https://www.edstellar.com";
+  const nodes = schemaNodes(tna.consultingSchema);
+
   const pageUrl = `${BASE}/training-needs-analysis-solutions`;
 
   return (
@@ -79,6 +82,10 @@ export default async function TrainingNeedsAnalysisPage() {
         }} />
       )}
 
+      {/* CMS schema nodes (Service, HowTo, etc.) — each emitted separately */}
+      {nodes.map((node, i) => (
+        <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
+      ))}
       {/* <SchemaOrg
         breadcrumbs={tna.breadcrumbs?.items}
         faqs={tna.faqs?.items}

@@ -4,6 +4,7 @@ import { getManagedTrainingPage } from "@/lib/content/managed-training";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
 import JsonLd from "@/components/seo/json-ld";
+import { schemaNodes } from "@/lib/seo/prune";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -54,6 +55,8 @@ export default async function ManagedTrainingServicesPage() {
   if (!page) notFound();
 
   const BASE = "https://www.edstellar.com";
+  const nodes = schemaNodes(page.consultingSchema);
+
   const pageUrl = `${BASE}/managed-learning-services/managed-training`;
   const breadcrumbs = page.breadcrumbs?.items;
 
@@ -85,6 +88,10 @@ export default async function ManagedTrainingServicesPage() {
         }} />
       )}
 
+      {/* CMS schema nodes (Service, HowTo, etc.) — each emitted separately */}
+      {nodes.map((node, i) => (
+        <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
+      ))}
       {/* <SchemaOrg
         service={{
           name: page.consulting_Hero?.heroLeft?.title,

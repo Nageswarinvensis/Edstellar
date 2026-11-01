@@ -4,6 +4,7 @@ import { getSitePage } from "@/lib/content/site-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
 import JsonLd from "@/components/seo/json-ld";
+import { schemaNodes } from "@/lib/seo/prune";
 
 import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import ProofStats from "@/components/sections/consulting/proof-stats";
@@ -55,6 +56,8 @@ export default async function ManagedTrainingServicesPage() {
   if (!cms) notFound();
 
   const BASE = "https://www.edstellar.com";
+  const nodes = schemaNodes(cms.consultingSchema);
+
   const pageUrl = `${BASE}/managed-learning-services`;
 
   return (
@@ -70,6 +73,10 @@ export default async function ManagedTrainingServicesPage() {
         "inLanguage": "en-US"
       }} />
 
+      {/* CMS schema nodes (Service, HowTo, etc.) — each emitted separately */}
+      {nodes.map((node, i) => (
+        <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
+      ))}
       {/* <SchemaOrg
         breadcrumbs={cms.breadcrumbs?.items}
         faqs={cms.faqs?.items}
