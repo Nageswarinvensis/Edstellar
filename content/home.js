@@ -15,7 +15,7 @@ export const HOME = {
   },
   "hero": {
     "heading": "The science of <span>capability,</span> delivered with precision.",
-    "sub": "Edstellar is the capability transformation partner for organizations in 100+ countries. Consulting, talent assessments, coaching and training work as one system, measured on the Capability Intelligence Platform.",
+    "sub": "Edstellar is the capability transformation partner for organizations in 100+ countries. Consulting, talent assessments, coaching and training work as one system, measured on the Capability OS Platform.",
     "actions": [
       {
         "label": "Talk to us",
@@ -114,7 +114,7 @@ export const HOME = {
           "gaps": []
         }
       ],
-      "legend": "Capability Intelligence Platform"
+      "legend": "Capability OS Platform"
     },
     "methodology": {
       "label": "The Edstellar 5A Methodology",
@@ -298,10 +298,10 @@ export const HOME = {
       },
       {
         "img": "/home/pillar-platform.svg",
-        "img_alt": "Capability intelligence dashboard showing skill gaps by role",
+        "img_alt": "Capability OS dashboard showing skill gaps by role",
         "id": "platform",
         "badge": "Platform",
-        "title": "Capability Intelligence <span>Platform</span>",
+        "title": "Capability OS <span>Platform</span>",
         "desc": "One canonical view of capability across your workforce: gap analysis, role taxonomies, learning ROI: wired into your HRIS in days, not quarters.",
         "href": "/who-we-serve"
       },
@@ -466,7 +466,7 @@ export const HOME = {
       {
         "num": "ii.",
         "title": "One operating <span>system,</span> four practices.",
-        "desc": "Consulting, coaching, training and the Capability Intelligence Platform are not partners: they are the same firm. One contract, one taxonomy, one source of truth on your workforce capability."
+        "desc": "Consulting, coaching, training and the Capability OS Platform are not partners: they are the same firm. One contract, one taxonomy, one source of truth on your workforce capability."
       },
       {
         "num": "iii.",
