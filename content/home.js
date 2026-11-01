@@ -303,7 +303,8 @@ export const HOME = {
         "badge": "Platform",
         "title": "Capability OS <span>Platform</span>",
         "desc": "One canonical view of capability across your workforce: gap analysis, role taxonomies, learning ROI: wired into your HRIS in days, not quarters.",
-        "href": "/who-we-serve"
+        "cta": "Explore platform",
+        "href": "/platforms/capability-os"
       },
       {
         "img": "/home/pillar-coaching.svg",
