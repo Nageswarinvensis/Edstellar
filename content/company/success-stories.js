@@ -600,7 +600,7 @@ export const SUCCESS_STORIES_PAGE = {
       },
       {
         "title": "CRISC Training",
-        "href": "/corporate-training/cybersecurity/crisc-certification-training-course",
+        "href": "/corporate-training/cybersecurity/crisc-course",
         "image": "https://media.edstellar.com/website/CRISC.webp",
         "training_type": "Cybersecurity",
         "region": "Russia",
