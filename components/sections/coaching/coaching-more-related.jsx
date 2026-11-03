@@ -46,7 +46,7 @@ export default function CoachingMoreRelated({ data }) {
         </Box>
 
         {/* Cards Grid */}
-        <Box className="mb-7 grid grid-cols-1 p-5 lg:gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        <Box className="mb-7 grid grid-cols-1  lg:gap-6 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => {
             const iconName = item.icon || item.card_icon;
             const Icon = iconName ? coachingIcon(iconName) : null;
