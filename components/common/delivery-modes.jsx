@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 
 export default function DeliveryModes({
   deliveryModes,
+  topic,
   className,
   showSectionCta = true,
 }) {
@@ -38,7 +39,7 @@ export default function DeliveryModes({
       </Reveal>
 
       <Reveal delay={2}>
-        <DeliveryModeTabs tabs={deliveryModes.tabs} />
+        <DeliveryModeTabs tabs={deliveryModes.tabs} topic={topic} />
       </Reveal>
 
       {showSectionCta ? <SecCta {...deliveryModes.section_cta} /> : null}

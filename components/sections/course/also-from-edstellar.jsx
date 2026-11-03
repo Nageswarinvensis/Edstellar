@@ -8,36 +8,42 @@ const SERVICES = [
     description:
       "Psychometric, behavioral, leadership and 360-degree assessment.",
     href: "/talent-assessment-services",
+    linkTitle: "Click here to view talent assessment services",
   },
   {
     title: "Training needs analysis",
     description:
       "Needs analysis, gap identification, and a training roadmap.",
     href: "/training-needs-analysis-solutions",
+    linkTitle: "Click here to view training needs analysis services",
   },
   {
     title: "L&D consulting",
     description:
       "Learning strategy, content, technology and ROI measurement.",
     href: "/learning-development-consulting-services",
+    linkTitle: "Click here to view L&D consulting services",
   },
   {
     title: "OD consulting",
     description:
       "Org design, succession planning and cultural change.",
     href: "/organizational-development-consulting",
+    linkTitle: "Click here to view organizational development consulting services",
   },
   {
     title: "Managed training services",
     description:
       "Training outsourcing, vendor management, logistics and administration.",
     href: "/managed-learning-services/managed-training",
+    linkTitle: "Click here to view managed training services",
   },
   {
     title: "Coaching solutions",
     description:
       "Executive and manager coaching that keeps skills in use.",
     href: "/coaching-solutions",
+    linkTitle: "Click here to view coaching solutions",
   },
 ];
 
@@ -68,7 +74,7 @@ export default function AlsoFromEdstellar() {
                 as="a"
                 key={service.title}
                 href={service.href}
-               
+                title={service.linkTitle}
                 className={`group relative min-h-23 border-[#D9DDE1] px-5 py-4 transition-colors duration-200 ${BORDER_CLASSES[i]} hover:bg-[#F5F3EB]`}
               >
                 <Text

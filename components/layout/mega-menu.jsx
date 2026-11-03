@@ -215,6 +215,7 @@ function Rail({ lit, onOpenBrief }) {
           as="button"
           type="button"
           onClick={onOpenBrief}
+          title="Build a brief, get matched programs and services"
           className="ml-auto inline-flex cursor-pointer items-center gap-2 text-[14px] font-medium text-paper whitespace-nowrap transition-transform duration-200 hover:translate-x-[3px]"
         >
           Not sure where to start? <span className="font-semibold text-lime">Build your brief</span>

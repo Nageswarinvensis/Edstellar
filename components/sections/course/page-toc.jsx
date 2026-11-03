@@ -392,7 +392,7 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
 
           {/* CTA */}
           <Box className="mt-5.5 border-t border-ink/12 pt-5">
-            <CtaButton block arrow render={<a href={cta.href} />}>
+            <CtaButton block arrow render={<a href={cta.href} title={cta.title} />}>
               {cta.label}
             </CtaButton>
 

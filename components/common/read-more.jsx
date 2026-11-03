@@ -21,6 +21,8 @@ function ReadMore({
   children,
   labelClosed = "Read more",
   labelOpen = "Read less",
+  // Hover title while collapsed; none once open ("Read less").
+  titleClosed,
   showIcon = false,
   tone = "light",
   className,
@@ -45,7 +47,7 @@ function ReadMore({
 
       <button
         type="button"
-       
+        title={open ? undefined : titleClosed}
         aria-expanded={open}
         aria-controls={contentId}
         onClick={() => setOpen((value) => !value)}

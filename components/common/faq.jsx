@@ -62,7 +62,11 @@ const SECTION_CTA = {
   title: "Question Not Answered Here?",
   description:
     "Put it in the request. A training specialist answers it directly, within one business day.",
-  cta: { label: "Talk to a Training Advisor", href: "#apply" },
+  cta: {
+    label: "Talk to a Training Advisor",
+    href: "#apply",
+    title: "Click here to talk to a training advisor",
+  },
 };
 
 /**

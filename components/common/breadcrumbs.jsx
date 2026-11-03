@@ -70,7 +70,7 @@ function Breadcrumbs({ items: itemsProp, className, tone = "light" }) {
             ) : (
               <Link
                 href={item.href === "/" ? "/" : item.href.replace(/\/$/, "")}
-               
+                title={item.title}
                 className={cn(
                   "transition-colors focus-visible:outline-2 focus-visible:outline-offset-2",
                   isDark

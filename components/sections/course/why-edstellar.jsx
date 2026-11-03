@@ -20,6 +20,12 @@ function resolveHref(href) {
   return `/corporate-training/${href}`;
 }
 
+/** "Generative AI Corporate Training" → "Generative AI training program". */
+const programImageAlt = (name) =>
+  name
+    ? `${String(name).replace(/\s+(Corporate\s+)?Training$/i, "")} training program`
+    : "Edstellar training program";
+
 function ProgramCard({ program }) {
   return (
     <Box
@@ -40,8 +46,8 @@ function ProgramCard({ program }) {
         {program.image ? (
           <Image
             src={program.image}
-            alt={program.image_alt || program.title || "Edstellar training program"}
-            title={program.image_title}
+            alt={programImageAlt(program.title)}
+            title={programImageAlt(program.title)}
             fill
             sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
             className="object-cover"
@@ -69,7 +75,7 @@ function ProgramCard({ program }) {
         >
           <a
             href={resolveHref(program.href)}
-            title={`Click Here to View ${program.title}`}
+            title={programLinkTitle(program.title)}
             className="underline-offset-[3px] hover:underline"
           >
             {program.title}
@@ -131,25 +137,34 @@ function ProgramConnector() {
   );
 }
 
+/** "Retrieval Augmented Generation (RAG) Corporate Training" →
+ * "Click here to view the Retrieval Augmented Generation (RAG) training program". */
+const programLinkTitle = (name) =>
+  name
+    ? `Click here to view the ${String(name).replace(/\s+(Corporate\s+)?Training$/i, "")} training program`
+    : undefined;
+
 function RelatedCourseCard({ course }) {
   // The CMS does not send durations for related courses yet (`null`), so
   // they fall back to the typical range until it does.
   const duration = formatDuration(course.duration ?? "16 - 24");
+  // The CMS sends some slugs with a trailing slash ("ai/"), which would
+  // cost a 308 redirect on every click.
+  const href = `/corporate-training/${String(course.slug).replace(/\/+$/, "")}`;
+  const linkTitle = programLinkTitle(course.name);
 
+  // Not one big link: only the title and "View course" are clickable.
   return (
     <Box
-      as="a"
-      // The CMS sends some slugs with a trailing slash ("ai/"), which would
-      // cost a 308 redirect on every click.
-      href={`/corporate-training/${String(course.slug).replace(/\/+$/, "")}`}
-     
       className="group flex h-full flex-col rounded-[14px] border border-ink/12 bg-white p-6 no-underline transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-ink/22 hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.5)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 max-[600px]:p-5"
     >
       <Text
         as="h3"
         className="text-[16px] font-medium leading-[1.35] tracking-[-0.015em] text-ink"
       >
-        {course.name}
+        <a href={href} title={linkTitle} className="transition-colors duration-200 hover:text-olive">
+          {course.name}
+        </a>
       </Text>
 
       <Box className="mt-auto pt-4">
@@ -170,9 +185,10 @@ function RelatedCourseCard({ course }) {
         {/* Action: body type, ink, set off by a rule — reads as a link,
             not as more meta */}
         <Box className="mt-4 border-t border-ink/12 pt-3.5">
-          <Text
-            as="span"
-            className="inline-flex items-center gap-1.5 font-body text-[14px] font-semibold leading-[1.4] text-ink transition-colors duration-200 group-hover:text-olive"
+          <a
+            href={href}
+            title={linkTitle}
+            className="inline-flex items-center gap-1.5 font-body text-[14px] font-semibold leading-[1.4] text-ink no-underline transition-colors duration-200 group-hover:text-olive"
           >
             View course
             <ArrowRight
@@ -181,7 +197,7 @@ function RelatedCourseCard({ course }) {
               aria-hidden="true"
               className="transition-transform duration-200 group-hover:translate-x-1"
             />
-          </Text>
+          </a>
         </Box>
       </Box>
     </Box>

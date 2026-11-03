@@ -208,7 +208,7 @@ function ActionLink({ action }) {
       // The brochure is an absolute PDF URL — open it in a new tab so the
       // course page stays open. In-page anchors (`#preview`) are left alone.
       {...(/^https?:\/\//i.test(action.href ?? "") ? newTabProps(action.href) : {})}
-      title={`Click Here to ${action.label}`}
+      title={action.title ?? `Click Here to ${action.label}`}
       className={cn(
         "group flex h-11 flex-none items-center gap-2.5 rounded-full",
         "border border-paper/20 pr-4 pl-1.5",

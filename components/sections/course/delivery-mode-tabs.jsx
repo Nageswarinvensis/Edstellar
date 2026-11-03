@@ -32,21 +32,46 @@ import { cn } from "@/lib/utils";
  *
  * Design: `#modeTabs`, `.tab`, `#modePanels`, `.tab-panel`, `.mode-art`.
  */
+// `topicAlt` names the program (a course page passes `topic`, e.g.
+// "Generative AI (GenAI)"); without one the plain `alt` is used.
 const TAB_IMAGE_RULES = [
   // Hybrid first: a hybrid tab can also mention "virtual" / "online".
-  { image: { src: "/course/hybrid.webp", alt: "Hybrid training" }, match: /hybrid|blended/i },
-  { image: { src: "/course/virtual.webp", alt: "Virtual training" }, match: /virtual|online/i },
-  { image: { src: "/course/on-site.webp", alt: "On-site training" }, match: /on.?site|in.?house/i },
+  {
+    image: {
+      src: "/course/hybrid.webp",
+      alt: "Hybrid training",
+      topicAlt: (topic) => `Hybrid ${topic} training combining onsite and virtual delivery`,
+    },
+    match: /hybrid|blended/i,
+  },
+  {
+    image: {
+      src: "/course/virtual.webp",
+      alt: "Virtual training",
+      topicAlt: (topic) => `Live virtual instructor-led ${topic} training session`,
+    },
+    match: /virtual|online/i,
+  },
+  {
+    image: {
+      src: "/course/on-site.webp",
+      alt: "On-site training",
+      topicAlt: (topic) => `Instructor delivering onsite ${topic} training at a client office`,
+    },
+    match: /on.?site|in.?house/i,
+  },
   { image: { src: "/course/off-site.webp", alt: "Off-site training" }, match: /off.?site|away/i },
 ];
 
 /** By position when no keyword matches: virtual, on-site, off-site, hybrid. */
 const POSITION_FALLBACK = [1, 2, 3, 0].map((rule) => TAB_IMAGE_RULES[rule].image);
 
-function imageForTab(tab, index) {
+function imageForTab(tab, index, topic) {
   const haystack = `${tab.id ?? ""} ${tab.label ?? ""} ${tab.sublabel ?? ""}`;
   const byKeyword = TAB_IMAGE_RULES.find((rule) => rule.match.test(haystack));
-  return byKeyword?.image ?? POSITION_FALLBACK[index];
+  const image = byKeyword?.image ?? POSITION_FALLBACK[index];
+  if (!image) return image;
+  return { src: image.src, alt: topic && image.topicAlt ? image.topicAlt(topic) : image.alt };
 }
 
 /** Some CMS records (the domain page's `deliveryModes`, unlike a course's)
@@ -58,7 +83,7 @@ function tabKey(tab, index) {
   return tab.id ?? tab.label ?? String(index);
 }
 
-export default function DeliveryModeTabs({ tabs }) {
+export default function DeliveryModeTabs({ tabs, topic }) {
   const [activeKey, setActiveKey] = useState(tabs?.[0] && tabKey(tabs[0], 0));
 
   if (!tabs?.length) return null;
@@ -120,7 +145,7 @@ export default function DeliveryModeTabs({ tabs }) {
       {tabs.map((tab, index) => {
         const key = tabKey(tab, index);
         const isActive = key === activeTabKey;
-        const image = imageForTab(tab, index);
+        const image = imageForTab(tab, index, topic);
 
         return (
           <Box
@@ -129,70 +154,72 @@ export default function DeliveryModeTabs({ tabs }) {
             role="tabpanel"
             aria-labelledby={`mode-tab-${key}`}
             hidden={!isActive}
-            className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10"
           >
-            <Box>
-              <Text
-                as="h3"
-                className="mb-3 font-display text-2xl font-medium tracking-[-0.02em] text-ink"
-              >
-                {tab.title}
-              </Text>
+            {/* Full-width heading; the copy and the image start together below it. */}
+            <Text
+              as="h3"
+              className="mb-4 font-display text-2xl font-medium tracking-[-0.02em] text-ink"
+            >
+              {tab.title}
+            </Text>
 
-              <Text
-                as="p"
-                className="mb-4.5 text-[15px] leading-[1.6] text-ink-muted"
-              >
-                {tab.description}
-              </Text>
+            <Box className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
+              <Box>
+                <Text
+                  as="p"
+                  className="mb-4.5 text-[15px] leading-[1.6] text-ink-muted"
+                >
+                  {tab.description}
+                </Text>
 
-              <Box as="ul" className="flex flex-col divide-y divide-ink/12">
-                {tab.points?.map((point, pointIndex) => (
-                  <Reveal
-                    as="li"
-                    key={point}
-                    delay={Math.min(pointIndex + 1, 4)}
-                    className="flex gap-3 py-2.25 text-[14.5px] --tw-leading: 1.5 text-ink-muted"
-                  >
-                    <Text
-                      as="span"
-                      aria-hidden="true"
-                      className="font-bold text-ink-muted"
+                <Box as="ul" className="flex flex-col divide-y divide-ink/12">
+                  {tab.points?.map((point, pointIndex) => (
+                    <Reveal
+                      as="li"
+                      key={point}
+                      delay={Math.min(pointIndex + 1, 4)}
+                      className="flex gap-3 py-2.25 text-[14.5px] --tw-leading: 1.5 text-ink-muted"
                     >
-                      →
-                    </Text>
-                    {point}
-                  </Reveal>
-                ))}
+                      <Text
+                        as="span"
+                        aria-hidden="true"
+                        className="font-bold text-ink-muted"
+                      >
+                        →
+                      </Text>
+                      {point}
+                    </Reveal>
+                  ))}
+                </Box>
+
+                {tab.delivery_format_cta_description ? (
+                  <Text as="p" className="mt-5 text-[15px] leading-[1.6] text-ink-muted">
+                    {tab.delivery_format_cta_description}
+                  </Text>
+                ) : null}
+
+                {tab.btn_label && tab.btn_link ? (
+                  <CtaButton arrow render={<a href={tab.btn_link} />} className="mt-6">
+                    {tab.btn_label}
+                  </CtaButton>
+                ) : null}
               </Box>
 
-              {tab.delivery_format_cta_description ? (
-                <Text as="p" className="mt-5 text-[15px] leading-[1.6] text-ink-muted">
-                  {tab.delivery_format_cta_description}
-                </Text>
-              ) : null}
-
-              {tab.btn_label && tab.btn_link ? (
-                <CtaButton arrow render={<a href={tab.btn_link} />} className="mt-6">
-                  {tab.btn_label}
-                </CtaButton>
-              ) : null}
-            </Box>
-
-            <Box
-              aria-hidden="true"
-              className="relative flex aspect-video items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
-            >
-              {image ? (
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  title={tab.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-top"
-                />
-              ) : null}
+              <Box
+                aria-hidden="true"
+                className="relative flex aspect-video items-center justify-center overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)]"
+              >
+                {image ? (
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    title={image.alt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-top"
+                  />
+                ) : null}
+              </Box>
             </Box>
           </Box>
         );

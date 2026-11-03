@@ -81,7 +81,7 @@ const DELIVERY_ICON_MAP = {
 
 const METHOD_IMAGE = {
   src: "/course/course_curriculum.webp",
-  alt: "A team working through a course curriculum together on a laptop",
+  alt: "Team reviewing the program outline",
 };
 
 const SUMMARY_PILL_META = [
@@ -453,6 +453,7 @@ export default function Curriculum({ curriculum, trainersImage }) {
                 <Image
                   src={METHOD_IMAGE.src}
                   alt={METHOD_IMAGE.alt}
+                  title={METHOD_IMAGE.alt}
                   fill
                   sizes="280px"
                   className="object-cover"

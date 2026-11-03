@@ -198,6 +198,7 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
             as="button"
             type="button"
             onClick={onOpenBrief}
+            title={cta.title}
             className="mt-6 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-navy px-6 py-3.5 font-body text-[14px] font-semibold text-lime transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(10,22,40,0.14)]"
           >
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true" className="size-3.5 flex-none">

@@ -43,6 +43,7 @@ function HeroActions({ actions }) {
           render={
             <a
               href={action.href}
+              title={action.title}
               onClick={scrollToHash}
               {...(/^https?:\/\//i.test(action.href ?? "")
                 ? newTabProps(action.href)

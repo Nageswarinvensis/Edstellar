@@ -123,7 +123,8 @@ export default function CourseMapSection({ data, className }) {
             <Box className="relative aspect-[719/292] w-full max-w-[560px] overflow-hidden">
               <Image
                 src="/course/world-map.webp"
-                alt="Global delivery map"
+                alt="Map of 100+ countries where Edstellar delivers corporate training"
+                title="Map of 100+ countries where Edstellar delivers corporate training"
                 fill
                 sizes="(max-width: 1024px) 100vw, 560px"
                 className="

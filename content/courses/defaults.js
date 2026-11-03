@@ -24,7 +24,7 @@ export const COURSE_DEFAULTS = {
     // static asset — `#about`'s only media in that file, no CMS field for it.
     media: {
       src: "/course/about_course.webp",
-      alt: "An instructor leading a corporate training session with a team around a boardroom table",
+      alt: "Instructor leading a corporate training session",
     },
 
     inclusions: {
@@ -46,8 +46,14 @@ export const COURSE_DEFAULTS = {
         label: "View Training Outline",
         href: "#curriculum",
         variant: "primary",
+        title: "Click here to view the training outline",
       },
-      { label: "Enquire Now", href: APPLY_ANCHOR, variant: "ghost" },
+      {
+        label: "Enquire Now",
+        href: APPLY_ANCHOR,
+        variant: "ghost",
+        title: "Click here to enquire now",
+      },
     ],
     group_quote: {
       prompt: "Need more than one program?",
@@ -60,6 +66,7 @@ export const COURSE_DEFAULTS = {
     cta: {
       label: "Get a Custom Proposal",
       href: APPLY_ANCHOR,
+      title: "Click here to get a custom proposal for your team",
       note: "We'll review your needs and get back to you with a tailored approach.",
     },
   },
@@ -70,6 +77,12 @@ export const COURSE_DEFAULTS = {
   stickyFooter: {
     email: true,
     form_anchor_id: "apply",
+    // The CMS sends the button's `label`/`href`; the hover title is ours.
+    cta: {
+      label: "Request a Quote",
+      href: APPLY_ANCHOR,
+      title: "Click here to request a training program quote",
+    },
   },
 
   curriculum: {
@@ -77,7 +90,11 @@ export const COURSE_DEFAULTS = {
       title: "Customize This Program Tailored to Your Team?",
       description:
         "Tell us your training needs: what your team already works with, the level they’re at, and the topics you want them to focus on. We’ll adjust the modules, duration and hands-on labs, and send you a customized outline for your group.",
-      cta: { label: "Get a Tailored Outline", href: APPLY_ANCHOR },
+      cta: {
+        label: "Get a Tailored Outline",
+        href: APPLY_ANCHOR,
+        title: "Click here to get a customized training module outline",
+      },
     },
   },
 
@@ -87,7 +104,11 @@ export const COURSE_DEFAULTS = {
         "Different Teams, Locations, Time Zones, or Languages? We've Got You Covered.",
       description:
         "Whether your teams are spread across countries, time zones, languages, or experience levels, we deliver tailored training programs that ensure a consistent learning experience across your global workforce.",
-      cta: { label: "Customize Your Training", href: APPLY_ANCHOR },
+      cta: {
+        label: "Customize Your Training",
+        href: APPLY_ANCHOR,
+        title: "Click here to customize this program for your team",
+      },
     },
   },
 
@@ -96,14 +117,18 @@ export const COURSE_DEFAULTS = {
       title: "Need a Customized Training Format That Works for Your Team?",
       description:
         "Our training delivery is customized to your team's schedule, full days, half days, sessions spread across weeks, or modular formats. Share your preferred timeline, and we'll plan the training around it.",
-      cta: { label: "Plan Your Training", href: APPLY_ANCHOR },
+      cta: {
+        label: "Plan Your Training",
+        href: APPLY_ANCHOR,
+        title: "Click here to plan a training format that fits your schedule",
+      },
     },
   },
 
   mapsectionData: {
     image: {
       src: "/course/world-map.webp",
-      alt: "Global delivery map",
+      alt: "Map of 100+ countries where Edstellar delivers corporate training",
     },
     stats: [
       { value: "5000+", label: "EXPERT TRAINERS" },

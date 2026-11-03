@@ -48,7 +48,8 @@ export default function CoursePage({ course }) {
   // curriculum's author credit.
   const trainersImage = {
     src: course.trainers_thumbnail,
-    alt: `${course.name} Expert Trainers`,
+    // "Generative AI (GenAI) Corporate Training" → "Expert Generative AI (GenAI) trainers".
+    alt: `Expert ${String(course.name ?? "").replace(/\s+(Corporate\s+)?Training$/i, "")} trainers`,
   };
 
   // Every brochure button on the page (the domain's PDF) opens the
@@ -76,7 +77,11 @@ export default function CoursePage({ course }) {
         <Skills skills={course.skills} />
         <Audience audience={course.audience} />
         <Certificate />
-        <DeliveryModes deliveryModes={course.deliveryModes} />
+        <DeliveryModes
+          deliveryModes={course.deliveryModes}
+          // "Generative AI (GenAI) Corporate Training" → "Generative AI (GenAI)".
+          topic={String(course.name ?? "").replace(/\s+(Corporate\s+)?Training$/i, "") || undefined}
+        />
         {/* <Trainers trainers={course.trainers} /> */}
         <Faq faqs={course.faqs ?? course.Faqs} collapsible />
       </PageToc>

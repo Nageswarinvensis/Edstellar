@@ -445,6 +445,7 @@ export default function BriefComposer({ open, onClose, variant = "desktop", idPr
                   as="button"
                   type="submit"
                   disabled={submitting}
+                  title="Click here to send your brief"
                   className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full bg-navy px-5 py-3 font-body text-[14px] font-semibold text-lime whitespace-nowrap transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(10,22,40,0.07),0_4px_12px_rgba(10,22,40,0.07)] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {submitting ? "Sending" : "Send your brief"}
