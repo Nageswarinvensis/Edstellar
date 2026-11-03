@@ -25,7 +25,7 @@ const pad = (n) => String(n).padStart(2, "0");
  * Design: coaching-hub `#benefits`, `.bf`, `.bf-panel`, `.bf-btn`,
  * `.bf-body`, `.bf-art`, `.bf-ctrl`.
  */
-export default function CoachingBenefits({ data }) {
+export default function CoachingBenefits({ data, panelHeight = "h-110" }) {
   const [active, setActive] = useState(0);
   const headingRefs = useRef([]);
   const items = data?.items ?? [];
@@ -58,7 +58,7 @@ export default function CoachingBenefits({ data }) {
         ) : null}
       </Box>
 
-      <Box className="flex h-110 gap-3 max-[900px]:h-auto max-[900px]:flex-col">
+      <Box className={cn("flex gap-3 max-[900px]:h-auto max-[900px]:flex-col", panelHeight)}>
         {items.map((item, index) => {
           const open = index === active;
           const bodyId = `bf-body-${index}`;
@@ -106,7 +106,7 @@ export default function CoachingBenefits({ data }) {
                 </Text>
               </button>
 
-              {/* Open: the copy */}
+              {/* Open: the copy — scrollable so long content is never clipped */}
               <Box
                 id={bodyId}
                 role="region"
@@ -147,7 +147,7 @@ export default function CoachingBenefits({ data }) {
                 {(typeof item.link === "string" ? item.link : item.link?.href) ? (
                   <Link
                     href={typeof item.link === "string" ? item.link : item.link.href}
-                   
+
                     className="mt-4.5 inline-flex items-center gap-2 self-start text-[14px] font-semibold text-navy underline-offset-3 hover:underline"
                   >
                     {(typeof item.link === "string" ? null : item.link.label) || "Learn more"}

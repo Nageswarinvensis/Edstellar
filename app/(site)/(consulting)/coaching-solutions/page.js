@@ -114,7 +114,7 @@ export default async function CoachingSolutionsPage() {
 
       <CoachingPaths data={page.paths} />
       <CoachingCtaBand data={page.paths_cta} label="Find the right coaching path" />
-      <CoachingBenefits data={page.benefits} />
+      <CoachingBenefits data={page.benefits} panelHeight="h-130" />
       <MeridianShowcase data={page.meridian} />
       <CoachingProcess data={page.process} />
       <CoachingCtaBand data={page.meridian_cta} />
