@@ -23,11 +23,8 @@ export default function BlogPostCard({ post }) {
       as="article"
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/12 bg-white transition-[transform,box-shadow,border-color] duration-250 hover:-translate-y-1.5 hover:border-ink/22 hover:shadow-[0_18px_40px_-18px_rgba(10,22,40,0.25)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
     >
-      <Link
-        href={href}
-        title={linkTitle}
-        className="relative block aspect-[2/1] flex-none overflow-hidden bg-paper-cream after:absolute after:inset-x-0 after:bottom-0 after:h-0.75 after:origin-left after:scale-x-0 after:bg-lime after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100"
-      >
+      {/* Not a link: only the title and "Read More" are clickable. */}
+      <Box className="relative block aspect-[2/1] flex-none overflow-hidden bg-paper-cream after:absolute after:inset-x-0 after:bottom-0 after:h-0.75 after:origin-left after:scale-x-0 after:bg-lime after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100">
         {post.cover_image ? (
           <img decoding="async"
             src={post.cover_image}
@@ -36,7 +33,7 @@ export default function BlogPostCard({ post }) {
             className="size-full object-cover"
           />
         ) : null}
-      </Link>
+      </Box>
 
       <Box className="flex flex-1 flex-col gap-2.5 px-5.5 pt-5 pb-5.5">
         {post.category_name ? (
@@ -48,9 +45,11 @@ export default function BlogPostCard({ post }) {
           </Text>
         ) : null}
 
+        {/* A card title, not a section heading — a <p> styled as the h3 it
+            replaced (`font-display` is an h3 default in Text). */}
         <Text
-          as="h3"
-          className="text-[16.5px] leading-[1.35] font-medium tracking-[-0.02em] text-ink"
+          as="p"
+          className="font-display text-[16.5px] leading-[1.35] font-medium tracking-[-0.02em] text-ink"
         >
           <Link href={href} title={linkTitle} className="transition-colors hover:text-olive">
             {post.title}

@@ -492,7 +492,7 @@ export const HOME = {
           "role": "Motivational Skills",
           "location": "Bangalore, India",
           "since": "2017",
-          "photo": "https://media.edstellar.com/trainer_profile/nibedita-bangalore-india.webp",
+          "photo": "/images/trainers/nibedita-bangalore-india.webp",
         },
         {
           "name": "Simon",
@@ -500,7 +500,7 @@ export const HOME = {
           "role": "Self Awareness",
           "location": "Ubud, Indonesia",
           "since": "2017",
-          "photo": "https://media.edstellar.com/trainer_profile/simon-ubud-indonesia.webp",
+          "photo": "/images/trainers/simon-ubud-indonesia.webp",
         },
         {
           "name": "Roberta",
@@ -516,7 +516,7 @@ export const HOME = {
           "role": "First Aid and CPR",
           "location": "Ahmedabad, India",
           "since": "2016",
-          "photo": "https://media.edstellar.com/trainer_profile/harshil-ahmedabad-india.webp",
+          "photo": "/images/trainers/harshil-ahmedabad-india.webp",
         }
       ]
     }

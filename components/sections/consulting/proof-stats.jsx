@@ -55,7 +55,9 @@ export default function ProofStats({ data }) {
 
           {/* Bottom Section: CTA Banner */}
           <Box className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-            <Text as="h3" className="text-lg font-medium text-white">
+            {/* A CTA line, not a section heading — a <p> styled as the h3 it
+                replaced (display font and tracking are h3 defaults in Text). */}
+            <Text as="p" className="font-display text-lg font-medium tracking-[-0.02em] text-white">
               {cta.title || "Ready to build a self-sustaining L&D function?"}
             </Text>
 

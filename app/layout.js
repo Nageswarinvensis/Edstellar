@@ -6,6 +6,7 @@ import { SITE } from "@/lib/constants";
 // import ZohoSalesIq from "@/components/layout/zoho-salesiq";
 import GoogleAnalytics from "@/components/layout/google-analytics";
 import MicrosoftClarity from "@/components/layout/microsoft-clarity";
+import { DEFAULT_OG_IMAGE } from "@/lib/seo/metadata";
 import "./globals.css";
 
 /**
@@ -57,6 +58,12 @@ export const metadata = {
   description: SITE.description,
   openGraph: {
     locale: "en_US",
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@edstellarglobal",
+    images: [DEFAULT_OG_IMAGE],
   },
   // Domain ownership check for Twilio; every page inherits it.
   other: {

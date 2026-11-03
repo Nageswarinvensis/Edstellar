@@ -24,8 +24,11 @@ const Arrow = () => (
   />
 );
 
-/** The small diagram on each card, picked by `visual.type`. Decorative. */
-function Visual({ visual }) {
+const isImageVisual = (visual) => visual?.type === "png-img" || visual?.type === "svg-img";
+
+/** The small diagram on each card, picked by `visual.type`. The built-in
+ * diagrams are decorative; a CMS image takes the card's title as its alt. */
+function Visual({ visual, alt = "" }) {
   switch (visual?.type) {
     case "app":
       return (
@@ -195,7 +198,7 @@ function Visual({ visual }) {
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(visual.svg)}`}
-          alt=""
+          alt={alt}
           className="mx-auto block h-auto w-full rounded-lg"
         />
       ) : null;
@@ -204,7 +207,7 @@ function Visual({ visual }) {
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={visual.src}
-          alt=""
+          alt={alt}
           className="mx-auto block h-auto w-full rounded-lg"
         />
       ) : null;
@@ -264,10 +267,12 @@ export default function CoachingWhy({ data }) {
                 />
               </Text>
               <Box
-                aria-hidden="true"
+                // Hidden from screen readers only when the diagram is built-in
+                // markup; a CMS image carries the card title as its alt.
+                aria-hidden={isImageVisual(item.visual) ? undefined : "true"}
                 className="mt-1.5 mb-4.5 flex min-h-43 flex-wrap items-center justify-center gap-2 rounded-xl bg-paper-warm p-4.5 font-mono text-[11px] max-[420px]:px-2.5 max-[420px]:py-3.5"
               >
-                <Visual visual={item.visual} />
+                <Visual visual={item.visual} alt={item.title} />
               </Box>
               <Box className="border-t border-ink/12 pt-3.5">
                 <Text as="span" className="mb-1 block font-mono text-[9.5px] uppercase tracking-[0.12em] text-ink-muted">

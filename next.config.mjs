@@ -8,6 +8,21 @@ const nextConfig = {
       bodySizeLimit: "26mb",
     },
   },
+  // Clickjacking protection: no other site may show our pages in a frame.
+  // SAMEORIGIN, not DENY — the L&D consulting page frames our own
+  // /samples/learning-content/*.html. `frame-ancestors` is the modern
+  // equivalent; X-Frame-Options stays for older browsers and scanners.
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
+        ],
+      },
+    ];
+  },
   // Old URLs → their current ones (the CMS renamed these site pages,
   // Oct 2026). Permanent, so links and rankings carry over. Each goes straight
   // to its final URL — no redirect chains.

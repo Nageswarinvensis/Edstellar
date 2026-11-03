@@ -1,4 +1,5 @@
 import { pageData } from "@/lib/content/who-we-serve";
+import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
 import JsonLd from "@/components/seo/json-ld";
 import StickyTabs from "@/components/sections/domain/sticky-navbar";
@@ -18,19 +19,12 @@ import WwsContact from "@/components/sections/who-we-serve/wws-contact";
 
 export const revalidate = 300;
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: "Who We Serve: Industries & Organizations",
   description:
     "Explore the industries and organizations Edstellar serves, from growing businesses to global enterprises, universities and government teams building capability.",
-  alternates: {
-    canonical: "/who-we-serve",
-  },
-  openGraph: {
-    title: "Who We Serve: Industries & Organizations",
-    description:
-      "Explore the industries and organizations Edstellar serves, from growing businesses to global enterprises, universities and government teams building capability.",
-  },
-};
+  path: "/who-we-serve",
+});
 
 const BREADCRUMBS = [
   { href: "/", label: "Home" },

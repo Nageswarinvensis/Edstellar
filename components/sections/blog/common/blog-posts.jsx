@@ -156,9 +156,12 @@ export default function BlogPosts({
                     title={`Click Here to Read ${post.title}`}
                     className="group"
                   >
+                    {/* A card title, not a section heading — a <p> styled as the
+                        h3 it replaced (display font, weight and tracking are h3
+                        defaults in Text). */}
                     <Text
-                      as="h3"
-                      className="mb-3 text-[20px] leading-tight text-ink transition-colors group-hover:text-olive"
+                      as="p"
+                      className="mb-3 font-display text-[20px] leading-tight font-medium tracking-[-0.02em] text-ink transition-colors group-hover:text-olive"
                     >
                       {post.title}
                     </Text>

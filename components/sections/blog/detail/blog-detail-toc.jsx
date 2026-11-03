@@ -79,9 +79,10 @@ export default function BlogDetailToc() {
   return (
     <aside className="toc-wrapper sticky top-24 h-[80vh] w-50 min-w-50 self-start overflow-y-auto">
       <Reveal>
-        <h3 className="mb-5 text-[18px] font-medium leading-5 text-navy">
+        {/* A sidebar label, not part of the article outline — so a <p>. */}
+        <p className="mb-5 text-[18px] font-medium leading-5 text-navy">
           Content
-        </h3>
+        </p>
 
         <nav aria-label="Article contents">
           {headings.map((item) => (
