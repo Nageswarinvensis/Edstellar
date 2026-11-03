@@ -57,7 +57,16 @@ const COACHING_ICONS = {
   wifi: Wifi,
 };
 
-/** The icon for a JSON name, or `null` when unmapped (callers skip it). */
+/** The icon for a JSON name, or `null` when unmapped (callers skip it).
+ * Normalises the CMS value before lookup — the CMS sends inconsistent casing
+ * (e.g. "Compass", "ArrowRightLeft") across pages. */
 export function coachingIcon(name) {
-  return COACHING_ICONS[name] ?? null;
+  if (!name) return null;
+  if (COACHING_ICONS[name]) return COACHING_ICONS[name];
+  // "Compass" → "compass"
+  const lower = name.toLowerCase();
+  if (COACHING_ICONS[lower]) return COACHING_ICONS[lower];
+  // "ArrowRightLeft" → "arrow-right-left"
+  const kebab = name.replace(/([A-Z])/g, (m, _, i) => (i > 0 ? "-" : "") + m.toLowerCase());
+  return COACHING_ICONS[kebab] ?? null;
 }
