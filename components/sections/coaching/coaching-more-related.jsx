@@ -44,6 +44,7 @@ export default function CoachingMoreRelated({ data }) {
             </Reveal>
           )}
         </Box>
+        
 
         {/* Cards Grid */}
         <Box className="mb-7 grid grid-cols-1  lg:gap-6 gap-5 sm:grid-cols-2 lg:grid-cols-3">
