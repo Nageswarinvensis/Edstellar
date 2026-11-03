@@ -12,7 +12,12 @@ export default function ByRole({ data }) {
   const [activeRole, setActiveRole] = useState(0);
   const tabRefs = useRef({});
 
-  if (!data?.roles?.length) return null;
+  // `byRoleData` is a dynamic CMS component: the roles arrive as
+  // `dynamic_data` (kept as a list by `componentData` in
+  // lib/content/domains.js), the heading, description and `ctaBannerData`
+  // as its `config`.
+  const roles = data?.dynamic_data;
+  if (!roles?.length) return null;
 
   // Below the 787px breakpoint the role list scrolls horizontally instead of
   // stacking, so picking a tab that's partly off-screen should bring it to
@@ -56,7 +61,7 @@ export default function ByRole({ data }) {
                 aria-label="Roles"
                 className="flex overflow-x-auto border-b border-[#D9DDE1] min-[787px]:block min-[787px]:overflow-visible min-[787px]:border-b-0 min-[787px]:border-r"
               >
-                {data.roles.map((role, index) => {
+                {roles.map((role, index) => {
                   const isActive = activeRole === index;
 
                   return (
@@ -106,7 +111,7 @@ export default function ByRole({ data }) {
                 })}
               </Box>
 
-              {data.roles.map((role, index) => {
+              {roles.map((role, index) => {
                 const isActive = activeRole === index;
 
                 return (
