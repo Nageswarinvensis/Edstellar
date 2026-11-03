@@ -95,10 +95,10 @@ export default function SiteHeader() {
           <Link
             href="/"
             aria-label="Edstellar home"
-            title="Click here to view the Edstellar homepage"
+            title="Edstellar"
             className="mr-3 flex shrink-0 items-center duration-200 min-[1280px]:mr-6"
           >
-            <Image src="/course/edstellar.svg" alt="Edstellar" width={139} height={50} priority />
+            <Image src="/course/edstellar.svg" alt="Edstellar" title="Edstellar" width={139} height={50} priority />
           </Link>
 
           <MegaMenu onOpenBrief={brief.show} />
@@ -109,6 +109,7 @@ export default function SiteHeader() {
             as="button"
             type="button"
             onClick={openBrief}
+            title={MEGA_CTA.title}
             aria-haspopup="dialog"
             aria-expanded={brief.open}
             className="ml-auto inline-flex shrink-0 cursor-pointer items-center gap-2 whitespace-nowrap rounded-full bg-navy px-6 py-3 font-body text-[14px] font-semibold text-lime transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(10,22,40,0.14)] max-nav:hidden"

@@ -111,7 +111,7 @@ export default function StickyFooter({ data }) {
   // sends `brochure: { href, label }`.
   const cmsBrochure = data.Brochure?.[0];
   const brochure = cmsBrochure
-    ? { href: cmsBrochure.href, label: cmsBrochure.Label }
+    ? { href: cmsBrochure.href, label: cmsBrochure.Label, title: cmsBrochure.title }
     : data.brochure;
   const cta = data.cta ?? STICKY_CTA;
 
@@ -168,6 +168,7 @@ export default function StickyFooter({ data }) {
             <a
               href={`mailto:${EMAIL}`}
               aria-label={`Email Edstellar at ${EMAIL}`}
+              title="Email Edstellar"
               className={PILL_CLASS}
             >
               <Mail size={13} strokeWidth={1.8} aria-hidden="true" />
@@ -186,6 +187,7 @@ export default function StickyFooter({ data }) {
                 ? newTabProps(brochure.href)
                 : {})}
               aria-label={brochure.label}
+              title={brochure.title}
               className={PILL_CLASS}
             >
               <Download size={13} strokeWidth={1.8} aria-hidden="true" />
@@ -197,7 +199,7 @@ export default function StickyFooter({ data }) {
             color="lime"
             arrow
             className="max-lg:w-full"
-            render={<a href={cta.href} />}
+            render={<a href={cta.href} title={cta.title} />}
           >
             {cta.label}
           </CtaButton>

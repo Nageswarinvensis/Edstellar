@@ -63,8 +63,8 @@ export default function Certificate() {
               <Box className="relative aspect-[1080/764] overflow-hidden rounded-[11px] border border-lime/20">
                 <Image
                   src="/course/edstellar-sample-certificate.webp"
-                  alt={certificate.certificate_card?.title}
-                  title={certificate.certificate_card?.title}
+                  alt="Edstellar certificate of completion"
+                  title="Edstellar certificate of completion"
                   fill
                   className="object-cover"
                 />

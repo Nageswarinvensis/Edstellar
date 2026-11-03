@@ -206,6 +206,7 @@ function AboutBody({ body, expanded_body }) {
           showIcon
           labelClosed="Read more"
           labelOpen="Read less"
+          titleClosed="Read the full overview"
           buttonClassName="font-body normal-case tracking-normal text-base font-normal"
         >
           {hidden.map((paragraph, index) => (
@@ -253,6 +254,7 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
                   <Image
                     src={media.src}
                     alt={media.alt || "Edstellar corporate training"}
+                    title={media.alt || "Edstellar corporate training"}
                     fill
                     sizes="260px"
                     className="object-cover [mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)]"
@@ -285,6 +287,7 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
             <Image
               src={media.src}
               alt={media.alt || "Edstellar corporate training"}
+              title={media.alt || "Edstellar corporate training"}
               fill
               sizes="(max-width: 767px) 100vw, 620px"
               className="object-cover [mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_64%_60%_at_50%_50%,#000_38%,rgba(0,0,0,.55)_66%,transparent_88%)]"

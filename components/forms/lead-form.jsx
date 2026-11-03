@@ -51,6 +51,9 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
 
   if (!data) return null;
 
+  // `Button_Label` is the site-pages CMS field; `submit_label` the local-content one.
+  const submitLabel = data.Button_Label || data.submit_label || "Submit Request";
+
   const dark = background === "navy";
 
   async function onSubmit({ workEmail, ...values }) {
@@ -233,10 +236,12 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
                   type="submit"
                   arrow
                   disabled={isSubmitting}
+                  // Only the default label has this title; CMS labels like
+                  // "Book a consultation" say something else.
+                  title={/^submit request$/i.test(submitLabel) ? "Click here to submit your training request" : undefined}
                   className="w-full sm:w-auto"
                 >
-                  {/* `Button_Label` is the site-pages CMS field; `submit_label` the local-content one. */}
-                  {isSubmitting ? "Submitting…" : data.Button_Label || data.submit_label || "Submit Request"}
+                  {isSubmitting ? "Submitting…" : submitLabel}
                 </CtaButton>
               </Box>
             </Box>

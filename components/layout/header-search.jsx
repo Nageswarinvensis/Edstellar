@@ -44,6 +44,7 @@ export default function HeaderSearch({ className }) {
         as="button"
         type="button"
         aria-label={open ? "Close search" : "Search Edstellar"}
+        title={open ? undefined : "Click here to search programs, services and resources"}
         aria-expanded={open}
         aria-controls="header-search-panel"
         onClick={() => setOpen((value) => !value)}

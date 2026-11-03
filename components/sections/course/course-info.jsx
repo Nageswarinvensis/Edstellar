@@ -12,6 +12,7 @@ const DELIVERY = {
 const GROUP_QUOTE = {
   href: "#group-quote",
   label: "Get a group quote",
+  title: "Click here to get a group training quote",
   helperText: "Need more than one program?",
 };
 
@@ -56,7 +57,7 @@ function CourseInfo({ proof, capabilityModel, trainersImage }) {
 
             <a
               href={GROUP_QUOTE.href}
-              title={`Click Here to ${GROUP_QUOTE.label}`}
+              title={GROUP_QUOTE.title}
               className="group border-b border-lime/55 pb-0.5 font-mono text-[10px] font-medium tracking-[0.13em] text-ink-muted uppercase transition-colors hover:border-navy hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy max-sm:text-[9.5px]"
             >
               {GROUP_QUOTE.label}

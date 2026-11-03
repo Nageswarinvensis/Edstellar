@@ -14,6 +14,7 @@ const CONTENT = {
   cta: {
     label: "Request a Training Quote",
     href: "#apply",
+    title: "Click here to request a tailored training quote",
   },
   benefits: [
     "Customized Training Delivery",
@@ -46,8 +47,8 @@ export default function CustomizedTraining({ deliveryModeText }) {
         >
           <Image
             src="/course/custimized-training.webp"
-            alt="Customized training"
-            title="Customized Training"
+            alt="Customized corporate training solutions"
+            title="Customized corporate training solutions"
             fill
             className="object-cover rounded-[18px] "
           />
@@ -64,7 +65,7 @@ export default function CustomizedTraining({ deliveryModeText }) {
             </Text>
 
             {data.cta ? (
-              <CtaButton color="lime" arrow render={<a href={data.cta.href} />}>
+              <CtaButton color="lime" arrow render={<a href={data.cta.href} title={data.cta.title} />}>
                 {data.cta.label}
               </CtaButton>
             ) : null}

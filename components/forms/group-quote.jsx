@@ -41,7 +41,7 @@ const SECTION_CTA = {
   title: "Training Packages & Pricing",
   description:
     "Choose the training format that works for your team. Pricing is customized based on your requirements, cohort size, and delivery needs.",
-  cta: { label: "See the Full Package Table", href: "#apply" },
+  cta: { label: "See the Full Package Table", href: "/corporate-training-pricing#table" },
 };
 
 const SECTION_DATA = {
@@ -952,7 +952,12 @@ export default function GroupQuote({
               ) : null}
 
               <Box className="border-t border-ink/10 pt-4.5 sm:col-span-2">
-                <CtaButton type="submit" arrow disabled={contactSubmitting}>
+                <CtaButton
+                  type="submit"
+                  arrow
+                  disabled={contactSubmitting}
+                  title="Click here to request your training quote"
+                >
                   {contactSubmitting ? "Submitting…" : "Request my quote"}
                 </CtaButton>
               </Box>
@@ -1130,7 +1135,16 @@ export default function GroupQuote({
             ))}
           </Box>
 
-          <SecCta {...SECTION_CTA} />
+          <SecCta
+            {...SECTION_CTA}
+            cta={{
+              ...SECTION_CTA.cta,
+              // "Generative AI (GenAI) Corporate Training" → "Generative AI (GenAI)".
+              title: courseName
+                ? `Click here to see ${courseName.replace(/\s+(Corporate\s+)?Training$/i, "")} pricing and packages`
+                : "Click here to see pricing and packages",
+            }}
+          />
         </Box>
       </Reveal>
     </Section>
@@ -1145,6 +1159,7 @@ function WizardNav({ onBack, onNext, nextLabel, showBack = true }) {
           type="button"
           variant="ghost"
           onClick={onBack}
+          title="Click here to go to the previous step"
           className="sm:mr-auto"
         >
           <ArrowLeft size={15} strokeWidth={2.25} aria-hidden="true" />
@@ -1152,7 +1167,12 @@ function WizardNav({ onBack, onNext, nextLabel, showBack = true }) {
         </CtaButton>
       ) : null}
       {onNext ? (
-        <CtaButton type="button" arrow onClick={onNext}>
+        <CtaButton
+          type="button"
+          arrow
+          onClick={onNext}
+          title={nextLabel === "Next" ? "Click here to go to the next step" : undefined}
+        >
           {nextLabel}
         </CtaButton>
       ) : null}

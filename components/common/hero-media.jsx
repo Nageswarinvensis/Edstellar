@@ -55,6 +55,7 @@ function HeroMedia({ image, video, alt = "", poster, className }) {
         <Image
           src={image}
           alt={alt}
+          title={alt || undefined}
           fill
           priority
           quality={100}

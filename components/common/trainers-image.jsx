@@ -18,6 +18,7 @@ export default function TrainersImage({ className, eager = false, src, alt = "" 
       // `eager` for the home hero, where it is above the fold.
       priority={eager}
       alt={alt}
+      title={alt || undefined}
       aria-hidden={alt ? undefined : "true"}
       width={168}
       height={48}
