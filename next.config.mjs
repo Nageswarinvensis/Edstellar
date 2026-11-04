@@ -83,8 +83,8 @@ const nextConfig = {
 
       ...[
         ["assessment-development-centers-consulting", "assessment-development-centers"],
-        ["behavioral-assessment", "behavioral-psychological-profiling"],
-        ["behavioral-assessment-services", "behavioral-psychological-profiling"],
+        ["behavioral-psychological-profiling", "behavioral-assessment"],
+        ["behavioral-assessment-services", "behavioral-assessment"],
         ["team-effectiveness-assessment-services", "team-effectiveness-assessment"],
         ["organizational-alignment-consulting", "360-degree-feedback"],
       ].map(([from, to]) => [

@@ -22,15 +22,6 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "Organization", "name": "Edstellar", "url": "https://www.edstellar.com", "logo": "https://www.edstellar.com/logo.svg"}
 </script>
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Orbit by Edstellar", "applicationCategory": "BusinessApplication", "applicationSubCategory": "360-degree feedback", "operatingSystem": "Web browser", "url": "https://www.edstellar.com/platforms/orbit", "description": "AI-empowered 360-degree feedback tool that also runs 45, 90, 180 and 270-degree reviews: anonymous multi-rater surveys, AI-drafted reports reviewed by an Edstellar consultant, development plans and recurring 360 series with trend tracking.", "publisher": {"@type": "Organization", "name": "Edstellar", "url": "https://www.edstellar.com"}}
-</script>
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.edstellar.com/"}, {"@type": "ListItem", "position": 2, "name": "Platforms", "item": "https://www.edstellar.com/platforms"}, {"@type": "ListItem", "position": 3, "name": "Orbit", "item": "https://www.edstellar.com/platforms/orbit"}]}
-</script>
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Orbit?", "acceptedAnswer": {"@type": "Answer", "text": "Orbit is Edstellar's AI-empowered 360-degree feedback tool. It collects anonymous feedback from up to six rater groups, drafts each report with AI, and has an Edstellar consultant review every report before the person receiving feedback sees it."}}, {"@type": "Question", "name": "Who reviews the AI-drafted reports?", "acceptedAnswer": {"@type": "Answer", "text": "An Edstellar consultant. They check each draft against the raw scores, remove comments that could identify a rater, refine the summary and development plan, add their own notes, and then approve and release the report. A released report can also be revoked."}}, {"@type": "Question", "name": "How does Orbit protect rater anonymity?", "acceptedAnswer": {"@type": "Answer", "text": "Ratings appear only as group averages, never by name. Each rater group has a minimum number of raters (three is recommended), and groups below the minimum are combined with others or suppressed. Written comments reach the report as themes and quotes with no names or roles attached. Because a line manager is usually a group of one, the manager's rating appears as its own line in the report."}}, {"@type": "Question", "name": "Who can give feedback in an Orbit 360?", "acceptedAnswer": {"@type": "Answer", "text": "Up to six rater groups: self, line manager, peers, direct reports, skip-level manager and external stakeholders such as clients, vendors and partners. Each assessee can have up to 10 participants, self included."}}, {"@type": "Question", "name": "Can Orbit run 180-degree or 270-degree feedback?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Orbit runs 45, 90, 180, 270 and 360-degree feedback. Choose the rater groups for each engagement: a self-assessment for a 45, the line manager alone for a 90, self and line manager for a 180, self, line manager and peers for a 270, or all six groups for a 360."}}, {"@type": "Question", "name": "Can we use our own competencies and questions?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose from the competency pool, each with behavioral items, add your own competencies and items, include skills rated on a proficiency scale, pick a rating scale from 3 to 10 points or set custom labels, and add your own open-ended questions for all raters or for one group. Orbit offers 16 ready use cases, and you can add your own."}}, {"@type": "Question", "name": "What does the assessee receive?", "acceptedAnswer": {"@type": "Answer", "text": "Once the report is released, the assessee sees their strongest area, blind spot and hidden strength, their scores next to how others rated them, themes from written feedback, a development plan linked to Edstellar programs and a note from their Edstellar consultant, with a PDF to download."}}]}
-</script>
 <style>
 /* Orbit page family · Edstellar Brand Guidelines v1.1 tokens (replace with the shared theme link at integration) */
 :root{
@@ -71,6 +62,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .h2{font-size:clamp(30px,3.6vw,40px);font-weight:700;line-height:1.1;letter-spacing:-.03em;max-width:24ch}
 .h2 em,.h1 em{font-family:var(--serif);font-style:italic;font-weight:700;letter-spacing:-.01em}
 .dark .h2 em,.hero .h1 em{color:var(--lime)}
+.h1 .h1-l1{color:var(--lime)}
+.hero .h1 .h1-l2 em{color:var(--paper)}
 .lede{font-size:clamp(16px,1.2vw,18px);line-height:1.7;color:var(--muted);margin-top:16px;max-width:62ch}
 .dark .lede{color:var(--on-dark)}
 .head-c{text-align:center}.head-c .h2{max-width:32ch}.head-c .h2,.head-c .lede{margin-left:auto;margin-right:auto}
@@ -103,7 +96,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .h1{font-size:clamp(40px,4.6vw,56px);font-weight:700;line-height:1.04;letter-spacing:-.035em}
 .h1 .h1-l1{display:block}
 .h1 .h1-l2{display:block;margin-top:8px;font-size:clamp(26px,2.6vw,34px);line-height:1.15;letter-spacing:-.03em}
-.hero .h1 .h1-l2 em,.h1 .h1-l2 em{color:var(--lime)}
+.hero .h1 .h1-l2 em,.h1 .h1-l2 em{color:var(--paper)}
 .checks{margin-top:24px;display:grid;gap:12px}
 .checks li{position:relative;padding-left:30px;font-size:16px;line-height:1.5}
 .checks li::before{content:"";position:absolute;left:3px;top:6px;width:12px;height:7px;border-left:2px solid var(--navy);border-bottom:2px solid var(--navy);transform:rotate(-45deg)}
@@ -531,6 +524,47 @@ section[id]{scroll-margin-top:68px}
 </style>
 <link rel="stylesheet" href="/edpf.css">
 <link rel="stylesheet" href="/footer.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://www.edstellar.com/platforms/orbit#software",
+  "name": "Orbit",
+  "url": "https://www.edstellar.com/platforms/orbit",
+  "mainEntityOfPage": "https://www.edstellar.com/platforms/orbit",
+  "description": "Orbit is Edstellar's browser-based feedback platform. Every AI report draft is reviewed by an Edstellar consultant.",
+  "applicationCategory": "BusinessApplication",
+  "browserRequirements": "Web browser",
+  "operatingSystem": "Web browser",
+  "provider": {
+    "@type": "Organization",
+    "name": "Edstellar",
+    "url": "https://www.edstellar.com/"
+  },
+  "featureList": [
+    "Feedback from 45 to 360 degrees across rater groups with anonymity protection",
+    "AI-drafted individual reports and a team grid",
+    "Repeat feedback rounds run as a series"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.edstellar.com/platforms/orbit#service",
+  "name": "Orbit consultant-reviewed feedback reporting",
+  "url": "https://www.edstellar.com/platforms/orbit",
+  "mainEntityOfPage": "https://www.edstellar.com/platforms/orbit",
+  "description": "An Edstellar consultant reviews every AI report draft produced through Orbit as part of the feedback offering.",
+  "serviceType": "Consultant review of AI-drafted feedback reports",
+  "provider": {
+    "@type": "Organization",
+    "name": "Edstellar",
+    "url": "https://www.edstellar.com/"
+  }
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -567,7 +601,8 @@ section[id]{scroll-margin-top:68px}
   <div class="container">
     <div class="h1a-row">
       <div class="h1a-copy"><ul class="h1a-legend" aria-hidden="true"><li class="me">Assessee, rates self too</li><li>Line manager</li><li>Skip-level manager</li><li>Peers</li><li>Direct reports</li><li>External stakeholders</li></ul>
-        <h1 class="h1" id="s1-a-h"><span class="h1-l1">360 Degree Feedback</span> <span class="h1-l2">and <em>Leadership Assessment Platform</em></span></h1>
+        <h1 class="h1" id="s1-a-h"><span class="h1-l1">Orbit</span> <span class="h1-l2"> - <em>360 Degree Feedback
+and Leadership Assessment Platform</em></span></h1>
         <p class="lede">Build self-awareness and turn feedback into focused development with Orbit, Edstellar's AI-empowered 360-degree feedback tool.</p>
         <ul class="checks "><li>Collect anonymous feedback across rater groups</li><li>Get AI-drafted reports reviewed by Edstellar experts</li><li>Track development from one feedback round to the next</li></ul>
         <div class="ctas"><a class="btn btn-primary" href="#contact">Deploy Orbit</a><a class="btn btn-secondary" href="#angles">Explore every feedback angle</a></div>

@@ -29,64 +29,10 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.edstellar.com/#organization",
-      "name": "Edstellar",
-      "url": "https://www.edstellar.com/"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://www.edstellar.com/platforms/spectra-lms#software",
-      "name": "Spectra LMS",
-      "applicationCategory": "BusinessApplication",
-      "applicationSubCategory": "Learning management system",
-      "operatingSystem": "Web browser",
-      "description": "Mobile-first, AI-powered, social and gamified enterprise learning management system that tracks learning hours and engagement hours, with courses and SCORM, learning paths, live training, surveys, reports and AI insights.",
-      "url": "https://www.edstellar.com/platforms/spectra-lms",
-      "publisher": {
-        "@id": "https://www.edstellar.com/#organization"
-      },
-      "featureList": [
-        "Mobile-first learner experience on any screen",
-        "Learning hours and engagement hours for every learner",
-        "AI Insights: bright spots, patterns, forecasts, early warnings and recommended actions",
-        "Learning community: feed, discussions, Q&A, groups and kudos",
-        "Points for every learning activity, badges and leaderboards",
-        "Courses, SCORM 1.2 and 2004 and an assessment builder",
-        "Learning paths and Assign Learning with automatic reminders",
-        "Instructor-led and virtual live training with attendance",
-        "Surveys: engagement, climate, customer satisfaction and training feedback",
-        "Reports with CSV export",
-        "HRIS and HRMS employee sync",
-        "Request Edstellar training, consulting and assessment services from inside the LMS"
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.edstellar.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Platforms",
-          "item": "https://www.edstellar.com/platforms"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Spectra LMS",
-          "item": "https://www.edstellar.com/platforms/spectra-lms"
-        }
-      ]
-    }
-  ]
+  "@type": "Organization",
+  "@id": "https://www.edstellar.com/#organization",
+  "name": "Edstellar",
+  "url": "https://www.edstellar.com/"
 }
 </script>
 <script>document.documentElement.classList.add('js')</script>
@@ -143,6 +89,9 @@ main:focus{outline:none}
 .sec-h2{font:700 clamp(32px,4vw,40px)/1.08 var(--display);letter-spacing:-.03em}
 .hero-h1 em,.sec-h2 em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.1em;letter-spacing:-.01em;color:var(--ink)}
 .dark .hero-h1 em,.dark .sec-h2 em{color:var(--lime)}
+.h1-one .h1-brand{color:var(--lime)}
+.h1-one .h1-sub-line{display:block;margin-top:8px}
+.h1-one em{color:var(--paper)!important}
 .lede{font-size:clamp(16px,1.2vw,18px);line-height:1.7;color:var(--muted);max-width:60ch}
 .dark .lede{color:var(--on-dark-muted)}
 .sec-head{display:grid;gap:16px;max-width:760px;margin-bottom:48px}
@@ -1526,6 +1475,7 @@ section[id]{scroll-margin-top:72px}
 /* ===== Hero: desktop large, phone small (owner, Oct 21) ===== */
 /* ---------- one-line H1 ---------- */
 .hero-h1.h1-one{font-size:clamp(36px,4vw,52px);line-height:1.08;max-width:15ch}
+.hero-h1.h1-one em{font-size:clamp(1.6rem,2.5vw,2.25rem);line-height:1.18;letter-spacing:0}
 
 /* ---------- phone ---------- */
 .ph{position:absolute;z-index:3;width:196px;aspect-ratio:9/18.6;border-radius:34px;background:#0A1628;padding:7px;box-shadow:0 30px 60px -18px rgba(0,0,0,.55),0 0 0 1px rgba(250,250,247,.14)}
@@ -1868,6 +1818,33 @@ section[id]{scroll-margin-top:72px}
 </style>
 <link rel="stylesheet" href="/edpf.css">
 <link rel="stylesheet" href="/footer.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://www.edstellar.com/platforms/spectra-lms#software",
+  "name": "Spectra LMS",
+  "url": "https://www.edstellar.com/platforms/spectra-lms",
+  "mainEntityOfPage": "https://www.edstellar.com/platforms/spectra-lms",
+  "description": "Spectra LMS is Edstellar's browser-based, mobile-first learning management system. It works in a browser on any device and has no native app. Users can request Edstellar services from inside the platform.",
+  "applicationCategory": "EducationalApplication",
+  "browserRequirements": "Web browser",
+  "operatingSystem": "Web browser",
+  "provider": {
+    "@type": "Organization",
+    "name": "Edstellar",
+    "url": "https://www.edstellar.com/"
+  },
+  "featureList": [
+    "Blended learning with uploaded eLearning and SCORM content, ILT, VILT and webinars",
+    "AI Insights and analytics",
+    "Engagement hours tracked alongside learning hours",
+    "Community features and gamification",
+    "SSO, HRIS sync and an API",
+    "In-app requests for Edstellar services"
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1946,7 +1923,7 @@ section[id]{scroll-margin-top:72px}
 
       <div class="hero-grid">
         <div class="hero-copy">
-          <h1 class="hero-h1 h1-one">Learning Management System for Corporate Training and <em>Workforce Development</em></h1>
+          <h1 class="hero-h1 h1-one"><span class="h1-brand">Spectra</span><span class="h1-sub-line"> - <em>Learning Management System for Corporate Training and Workforce Development</em></span></h1>
           <p class="lede">Spectra LMS brings courses, live training, surveys and community into one mobile-first learning management system. People learn on any screen, AI Insights flag who is falling behind before deadlines slip, and engagement hours show the real impact of training, all within the Edstellar learning ecosystem. <strong class="lede-x">Built for teams of any size, up to the large enterprise.</strong></p>
           <div class="hero-ctas">
             <a class="btn btn-primary" href="#contact">Request a demo <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
