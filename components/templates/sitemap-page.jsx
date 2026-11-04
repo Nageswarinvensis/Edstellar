@@ -23,6 +23,7 @@ const INTROS = {
   categories: "Every training domain, each with its full course catalog.",
   courses: "Instructor-led courses, grouped by domain. Open a domain to see its courses.",
   services: "Consulting, coaching, assessment and managed learning services.",
+  templates: "Free L&D templates and tools for training and development teams.",
   blog: "Articles and guides on corporate training and workforce development, A to Z.",
   "case-studies": "How organizations have trained their teams with Edstellar.",
   "quick-links": "Company, platform and policy pages.",

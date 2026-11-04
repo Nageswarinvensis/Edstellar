@@ -211,15 +211,21 @@ function Rail({ lit, onOpenBrief }) {
             );
           })}
         </Box>
-        <Box
-          as="button"
-          type="button"
-          onClick={onOpenBrief}
-          title="Build a brief, get matched programs and services"
-          className="ml-auto inline-flex cursor-pointer items-center gap-2 text-[14px] font-medium text-paper whitespace-nowrap transition-transform duration-200 hover:translate-x-[3px]"
-        >
-          Not sure where to start? <span className="font-semibold text-lime">Build your brief</span>
-          <Spark />
+        {/* Only "Build your brief" is the button; the prompt is plain text. */}
+        <Box className="ml-auto inline-flex items-center gap-2 text-[14px] font-medium text-paper whitespace-nowrap">
+          Not sure where to start?
+          <Box
+            as="button"
+            type="button"
+            onClick={onOpenBrief}
+            title="Build a brief, get matched programs and services"
+            className="inline-flex cursor-pointer items-center gap-2 font-semibold text-lime transition-transform duration-200 hover:translate-x-[3px]"
+          >
+            Build your brief
+            <span className="text-paper">
+              <Spark />
+            </span>
+          </Box>
         </Box>
       </Box>
     </Box>

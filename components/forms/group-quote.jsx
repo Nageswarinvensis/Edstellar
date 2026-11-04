@@ -1139,10 +1139,10 @@ export default function GroupQuote({
             {...SECTION_CTA}
             cta={{
               ...SECTION_CTA.cta,
-              // "Generative AI (GenAI) Corporate Training" → "Generative AI (GenAI)".
+              // "Agentic AI Corporate Training" → "… see Agentic AI training pricing and packages".
               title: courseName
-                ? `Click here to see ${courseName.replace(/\s+(Corporate\s+)?Training$/i, "")} pricing and packages`
-                : "Click here to see pricing and packages",
+                ? `Click here to see ${courseName.replace(/\s+(Corporate\s+)?Training$/i, "")} training pricing and packages`
+                : "Click here to see training pricing and packages",
             }}
           />
         </Box>

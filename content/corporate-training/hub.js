@@ -13,7 +13,6 @@
  *
  * Design: `Edstellar-New-Lanch SETUP/Edstellar_Corporate_Training_Hub 6.html`.
  */
-const LIVE = "https://www.edstellar.com";
 const CONTACT = { label: "Discuss Your Training Needs", href: "/contact-us" };
 const CATALOG = { label: "Browse All Training Programs", href: "/corporate-training-catalog" };
 
@@ -198,7 +197,7 @@ export const CORPORATE_TRAINING_HUB = {
         current: true,
         links: [
           { label: "Corporate training programs", href: "/corporate-training-catalog" },
-          { label: "Instructor-Led Training", href: `${LIVE}/instructor-led-training-services` },
+          { label: "Instructor-Led Training", href: null },
           { label: "Coaching", href: "/coaching-solutions" },
           { label: "Managed Training Services", href: "/managed-learning-services/managed-training" },
         ],

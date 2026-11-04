@@ -275,14 +275,14 @@ export default function CourseAbout({ about, showCustomizedTraining = true }) {
         ) : null}
       </Box>
 
-      {media ? (
+      {/* The three-column layout already floats the photo beside the copy on
+          desktop and shows none below it, so this standalone photo is only for
+          the layout without inclusions — one <img> in the HTML, not two. */}
+      {media && !threeCol ? (
         <Reveal delay={2}>
           <Box
-            className={[
-              // Hidden below 768px (md) — the design drops this photo on phones.
-              "relative mt-8.5 aspect-video w-full max-w-155 overflow-hidden rounded-[20px] bg-paper-cream max-md:hidden",
-              threeCol ? "lg:hidden" : "",
-            ].join(" ")}
+            // Hidden below 768px (md) — the design drops this photo on phones.
+            className="relative mt-8.5 aspect-video w-full max-w-155 overflow-hidden rounded-[20px] bg-paper-cream max-md:hidden"
           >
             <Image
               src={media.src}

@@ -69,11 +69,14 @@ function Group({ group, stage, open, onToggle }) {
       </Box>
       <Box as="ul" className="m-0 list-none p-0 max-sm:pb-4">
         {group.links.map((link, index) =>
-          link.sub ? (
-            <Box as="li" key={link.sub} className="mt-4 first:mt-1.5">
-              <Text as="span" className={cn("mb-1 block leading-[1.4]", link.subWhite ? "font-body text-[14px] font-medium text-paper" : "font-mono text-[11px] tracking-[0.16em] text-paper/60 uppercase")}>
-                {link.sub}
-              </Text>
+          link.links ? (
+            <Box as="li" key={link.sub ?? `sub-${index}`} className="mt-4 first:mt-1.5">
+              {/* A sub-list may have no label of its own (Platforms). */}
+              {link.sub ? (
+                <Text as="span" className={cn("mb-1 block leading-[1.4]", link.subWhite ? "font-body text-[14px] font-medium text-paper" : "font-mono text-[11px] tracking-[0.16em] text-paper/60 uppercase")}>
+                  {link.sub}
+                </Text>
+              ) : null}
               <Box as="ul" className="m-0 list-none p-0 [&>li+li]:mt-1">
                 {link.links.map((item) => (
                   <li key={item.href ?? item.label}>
@@ -120,7 +123,7 @@ export default function FooterIndex({ brand, contact }) {
 
   const hitCount = stage
     ? [...allServiceGroups, ...FOOTER_MORE]
-        .flatMap((group) => group.links.flatMap((link) => (link.sub ? link.links : [link])))
+        .flatMap((group) => group.links.flatMap((link) => (link.links ? link.links : [link])))
         .filter((link) => link.stages?.includes(stage)).length
     : 0;
 
@@ -132,7 +135,7 @@ export default function FooterIndex({ brand, contact }) {
       setClosed((prev) => {
         const kept = new Set(prev);
         for (const group of [...allServiceGroups, ...FOOTER_MORE]) {
-          const links = group.links.flatMap((link) => (link.sub ? link.links : [link]));
+          const links = group.links.flatMap((link) => (link.links ? link.links : [link]));
           if (links.some((link) => link.stages?.includes(next))) kept.delete(group.heading);
         }
         return kept;
