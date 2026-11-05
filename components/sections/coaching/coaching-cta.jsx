@@ -8,7 +8,7 @@ import Reveal from "@/components/common/reveal";
 
 export default function CoachingCta() {
   return (
-    <Section className="bg-ink">
+    <Section id="meridian" className="bg-ink">
       <Box>
         <Box className="max-w-3xl">
           {/* Badge */}
