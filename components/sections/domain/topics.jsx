@@ -286,26 +286,28 @@ function findCourse(courses, title) {
   );
 }
 
+/** The API's popularity flag: `popular: true` (sent as a string by some records). */
+const isPopular = (course) => course.popular === true || course.popular === "true";
+
 /**
- * Popular cards when the CMS sends no `popular` list: the first course of
- * each of the four biggest topics, tagged with its topic. The `courses`
- * component carries no popularity signal, so no rank badge is invented.
+ * Popular cards from the courses the API flags `popular: true` — only those,
+ * in the API's order, each tagged with its topic. No flagged course → `null`
+ * (the popular block is not rendered; nothing is guessed).
  */
 function popularFromCourses(courses, topics) {
-  const picked = topics.slice(0, 4).flatMap((topic) => {
-    const course = courses.courses.find((item) => item.sub_category_id === topic.id);
-    return course
-      ? [{
-          title: course.title,
-          href: courseUrl(course.href),
-          image: course.image,
-          duration: course.duration,
-          description: courseDescription(course),
-          delivery: "Instructor-led",
-          tag: topic.name,
-          tag_variant: ["orange", "blue", "green"][topic.index % 3],
-        }]
-      : [];
+  const topicById = new Map(topics.map((topic) => [topic.id, topic]));
+  const picked = courses.courses.filter(isPopular).map((course) => {
+    const topic = topicById.get(course.sub_category_id);
+    return {
+      title: course.title,
+      href: courseUrl(course.href),
+      image: course.image,
+      duration: course.duration,
+      description: courseDescription(course),
+      delivery: "Instructor-led",
+      tag: topic?.name,
+      tag_variant: topic ? ["orange", "blue", "green"][topic.index % 3] : undefined,
+    };
   });
   return picked.length ? picked : null;
 }
@@ -345,7 +347,15 @@ export default function Topics({ data: topicsData, courseCount, courses, domainN
     : topicsData?.topics ?? [];
   if (!topics.length) return null;
 
-  const popular = topicsData?.popular?.programs?.length
+  const flagged = courses?.courses?.length ? popularFromCourses(courses, ranked) : null;
+  const popular = flagged
+    ? {
+        heading: courses.popular_programs_heading,
+        lede: courses.popular_programs_desc,
+        ...topicsData?.popular,
+        programs: flagged,
+      }
+    : topicsData?.popular?.programs?.length
     ? {
         ...topicsData.popular,
         programs: [...topicsData.popular.programs]
@@ -365,14 +375,7 @@ export default function Topics({ data: topicsData, courseCount, courses, domainN
               : program;
           }),
       }
-    : courses?.courses?.length && popularFromCourses(courses, ranked)
-      ? {
-          heading: courses.popular_programs_heading,
-          lede: courses.popular_programs_desc,
-          ...topicsData?.popular,
-          programs: popularFromCourses(courses, ranked),
-        }
-      : null;
+    : null;
 
   return (
     <Section id="topics" className="bg-paper-warm">
