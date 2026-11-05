@@ -20,6 +20,13 @@ import CtaButton from "@/components/common/cta-button";
 import { courseDescription, courseUrl } from "@/lib/course-url";
 import { approxDuration } from "@/lib/duration";
 
+/** "SAFe (Scaled Agile Framework) Training" →
+ * "Click here to view the SAFe (Scaled Agile Framework) training program". */
+const programLinkTitle = (name) =>
+  name
+    ? `Click here to view the ${String(name).replace(/\s+(Corporate\s+)?Training$/i, "")} training program`
+    : undefined;
+
 const COURSES_PER_PAGE = 15;
 
 // How many discipline chips show inline (after "All disciplines") before the
@@ -199,7 +206,7 @@ function CourseCard({ course, data }) {
           </div>
         )}
 
-        <a href={course.href} target="_blank" rel="noopener">
+        <a href={course.href} target="_blank" rel="noopener" title={programLinkTitle(course.title)}>
           <Text
             as="h3"
             className="text-[15px] font-medium leading-[1.2] tracking-[-0.25px] text-[#07182C] hover:underline"
@@ -222,6 +229,7 @@ function CourseCard({ course, data }) {
             href={course.href}
             target="_blank"
             rel="noopener"
+            title={programLinkTitle(course.title)}
             className="group flex shrink-0 items-center gap-1"
           >
             <Text

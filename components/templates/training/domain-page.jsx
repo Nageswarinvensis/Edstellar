@@ -43,7 +43,7 @@ export default function DomainPage({ domain }) {
   // the course page.
   const trainersImage = {
     src: domain.meta?.trainers_thumbnail,
-    alt: `${domain.name} Expert Trainers`,
+    alt: `Expert ${domain.name} trainers`,
   };
 
   // Use the CMS image if provided; fall back to the shared category banner.
@@ -74,6 +74,7 @@ export default function DomainPage({ domain }) {
       <Topics
         data={domain.topicsData}
         courses={domain.coursesData}
+        domainName={domain.name}
         courseCount={domain.coursesData?.courses?.length ?? domain.programData?.catalog?.courseCount}
       />
       {/* Catalog heading and intro: the CMS `programData`, else the `courses`
@@ -96,6 +97,7 @@ export default function DomainPage({ domain }) {
       <Outcome data={domain.outcomeData} />
       <DeliveryModes
         deliveryModes={domain.deliveryModes}
+        topic={domain.name}
         className="bg-paper-cream"
         showSectionCta={false}
       />

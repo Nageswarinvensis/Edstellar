@@ -261,10 +261,14 @@ html {
 .blog-ct-header-block {
   margin-bottom: 10px;
 }
-.blog-ct-heading {
+/* Scoped to `.blog-content` so it outranks the article's own `p` / `h3`
+   rules (`.blog-content p`, `.blog-content h3`), which used to win and
+   render the card title at 26px with a 40px top margin. */
+.blog-content .blog-ct-heading {
   font-family: "Sora", sans-serif;
   font-weight: 600;
   font-size: 20px;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin: 0;

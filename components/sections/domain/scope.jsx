@@ -11,6 +11,13 @@ import CtaButton from "@/components/common/cta-button";
 export default function Scope({ data }) {
   const [activeTab, setActiveTab] = useState(0);
 
+/** Hover titles for the CMS action labels in each scope tab, keyed by
+ * lowercased label; a `title` sent by the CMS wins. */
+const SCOPE_ACTION_TITLES = {
+  "request this quote": "Click here to request a training quote",
+  "adjust programs": "Click here to customize the programs",
+};
+
   if (!data?.tabs?.length) return null;
 
   return (
@@ -127,7 +134,7 @@ export default function Scope({ data }) {
                       {tab.actions?.map((action, actionIndex) => (
                         <CtaButton
                           key={action.label}
-                          render={<a href={action.href} />}
+                          render={<a href={action.href} title={action.title ?? SCOPE_ACTION_TITLES[action.label?.trim().toLowerCase()]} />}
                           variant={actionIndex === 0 ? "primary" : "ghost"}
                           color="navy"
                           arrow

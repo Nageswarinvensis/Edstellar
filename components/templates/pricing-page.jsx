@@ -5,7 +5,6 @@ import PricingTable from "@/components/sections/pricing/pricing-table";
 import IconCardSection from "@/components/sections/pricing/icon-card-section";
 import PricingOptions from "@/components/sections/pricing/pricing-options";
 import DeliveryCompare from "@/components/sections/pricing/delivery-compare";
-import RegionalPricing from "@/components/sections/pricing/regional-pricing";
 import PackageIncludes from "@/components/sections/pricing/package-includes";
 import PricingFaq from "@/components/sections/pricing/pricing-faq";
 
@@ -26,7 +25,6 @@ export default function PricingPage({ page }) {
       <IconCardSection id="price-factors" data={page.price_factors} columns={3} />
       <PricingOptions data={page.options} />
       <DeliveryCompare data={page.delivery} />
-      <RegionalPricing data={page.regions} />
       <PackageIncludes data={page.included} />
       <IconCardSection id="benefits" data={page.benefits} columns={4} underline />
       <PricingFaq faqs={page.faqs} quote={page.quote} />

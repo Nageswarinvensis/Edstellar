@@ -24,6 +24,12 @@ const VARIANTS = {
   },
 };
 
+/** Hover titles for the CMS button labels, keyed by lowercased `cta_text`;
+ * a `cta_title` sent by the CMS wins. */
+const CTA_TITLES = {
+  "request a tailored quote": "Click here to request a tailored training quote",
+};
+
 export default function CtaBanner({
   data,
   onCtaClick,
@@ -69,7 +75,13 @@ export default function CtaBanner({
 
       {/* CTA Button */}
       <CtaButton
-        render={<a href={cta_href} onClick={onCtaClick} />}
+        render={
+          <a
+            href={cta_href}
+            onClick={onCtaClick}
+            title={data?.cta_title ?? CTA_TITLES[String(cta_text ?? "").trim().toLowerCase()]}
+          />
+        }
         arrow
         className={cn(
           "flex-none self-start whitespace-nowrap text-[13.5px] font-medium sm:self-auto",

@@ -151,6 +151,7 @@ export default function StickyTabs({ data, hasTrainers }) {
             as="a"
             href="#about"
             onClick={scrollToHash}
+            title={data?.logo?.alt || "Edstellar"}
             className="flex shrink-0 items-center pr-1"
           >
             {/* Always our own logo file: the CMS sends a hand-typed path
@@ -159,6 +160,7 @@ export default function StickyTabs({ data, hasTrainers }) {
             <img decoding="async" loading="lazy"
               src="/course/edstellar.svg"
               alt={data?.logo?.alt || "Edstellar"}
+              title={data?.logo?.alt || "Edstellar"}
               className="h-6 sm:h-7 w-auto object-contain"
             />
           </Box>

@@ -60,7 +60,14 @@ const TAB_IMAGE_RULES = [
     },
     match: /on.?site|in.?house/i,
   },
-  { image: { src: "/course/off-site.webp", alt: "Off-site training" }, match: /off.?site|away/i },
+  {
+    image: {
+      src: "/course/off-site.webp",
+      alt: "Off-site training",
+      topicAlt: (topic) => `Offsite ${topic} training at a venue away from the workplace`,
+    },
+    match: /off.?site|away/i,
+  },
 ];
 
 /** By position when no keyword matches: virtual, on-site, off-site, hybrid. */
@@ -199,7 +206,16 @@ export default function DeliveryModeTabs({ tabs, topic }) {
                 ) : null}
 
                 {tab.btn_label && tab.btn_link ? (
-                  <CtaButton arrow render={<a href={tab.btn_link} />} className="mt-6">
+                  <CtaButton
+                    arrow
+                    render={
+                      <a
+                        href={tab.btn_link}
+                        title={/^get a quote$/i.test(tab.btn_label.trim()) ? "Click here to get a quote for this delivery format" : undefined}
+                      />
+                    }
+                    className="mt-6"
+                  >
                     {tab.btn_label}
                   </CtaButton>
                 ) : null}

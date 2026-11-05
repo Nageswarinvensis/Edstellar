@@ -8,6 +8,12 @@ import Section from "@/components/ui/Section";
 import CtaBanner from "@/components/sections/domain/cta-banner";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+/** "AI for CXOs Corporate Training" → "Click here to view the AI for CXOs training program". */
+const programLinkTitle = (name) =>
+  name
+    ? `Click here to view the ${String(name).replace(/\s+(Corporate\s+)?Training$/i, "")} training program`
+    : undefined;
+
 export default function ByRole({ data }) {
   const [activeRole, setActiveRole] = useState(0);
   const tabRefs = useRef({});
@@ -150,6 +156,7 @@ export default function ByRole({ data }) {
                           as="a"
                           key={program.label}
                           href={program.href}
+                          title={programLinkTitle(program.label)}
                           delay={Math.min(programIndex + 1, 4)}
                           className="group flex min-h-12 items-center justify-between border-t border-[#D9DDE1] px-2 text-ink transition-colors duration-200 last:border-b hover:bg-[#FAFAF8] hover:text-[#4D5D00]"
                         >

@@ -24,6 +24,13 @@ import RichHeading from "@/components/common/rich-heading";
 import { courseUrl } from "@/lib/course-url";
 import { approxDuration } from "@/lib/duration";
 
+/** "AI Governance Corporate Training" →
+ * "Click here to view the AI Governance training program". */
+const programLinkTitle = (name) =>
+  name
+    ? `Click here to view the ${String(name).replace(/\s+(Corporate\s+)?Training$/i, "")} training program`
+    : undefined;
+
 /**
  * "Compliance bundles for whole teams" — the `#bundles` section of the domain
  * design. A header, a row of category filter tabs, a grid of bundle cards, and
@@ -75,6 +82,7 @@ function BundleCard({ bundle, onOpen }) {
           <img
             src={imageSrc}
             alt={bundle.image_alt || bundle.name || "Edstellar training bundle"}
+            title={bundle.image_alt || bundle.name || "Edstellar training bundle"}
             width={800}
             height={450}
             loading="lazy"
@@ -120,6 +128,7 @@ function BundleCard({ bundle, onOpen }) {
         <button
           type="button"
           onClick={() => onOpen(bundle)}
+          title={bundle.name ? `Click here to view the topics in the ${bundle.name}` : undefined}
           className="mt-4 inline-flex cursor-pointer items-center gap-[7px] self-end text-[13.5px] font-semibold text-navy underline-offset-4 hover:underline"
         >
           View program topics
@@ -196,6 +205,7 @@ function BundleDrawer({ bundle, onClose }) {
           type="button"
           onClick={onClose}
           aria-label="Close"
+          title="Click here to close"
           className="absolute right-[18px] top-[18px] z-[4] grid size-10 cursor-pointer place-items-center rounded-[10px] border border-ink/12 bg-white text-ink transition-colors duration-200 hover:bg-paper-warm"
         >
           <X size={18} strokeWidth={1.7} aria-hidden="true" />
@@ -269,6 +279,7 @@ function BundleDrawer({ bundle, onClose }) {
               <Box
                 as="a"
                 href={courseUrl(program.href)}
+                title={programLinkTitle(program.title)}
                 key={program.number || program.title}
                 className="group flex cursor-pointer items-center gap-[14px] rounded-[12px] border border-ink/12 bg-white px-4 py-[14px] transition-[border-color,background-color] duration-200 hover:border-ink hover:bg-paper-warm"
               >
@@ -344,6 +355,7 @@ function BundleDrawer({ bundle, onClose }) {
           <button
             type="button"
             onClick={onClose}
+            title="Click here to close"
             className="cursor-pointer rounded-full border border-ink/22 bg-transparent px-5 py-[14px] font-body text-[13.5px] font-semibold text-ink transition-[border-color,background-color] duration-200 hover:border-navy hover:bg-ink/[0.07]"
           >
             Close
@@ -353,6 +365,7 @@ function BundleDrawer({ bundle, onClose }) {
             as="a"
             href="#apply"
             onClick={onClose}
+            title="Click here to request a training quote"
             className="inline-flex items-center gap-[9px] rounded-full bg-navy px-5 py-[14px] font-body text-[13.5px] font-semibold text-lime transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-12px_rgba(10,22,40,0.45)]"
           >
             Request a Quote
@@ -518,7 +531,9 @@ export default function Bundles({ data: bundlesData, courses }) {
                   <Box as="ul" hidden aria-label={`${bundle.name} programs`}>
                     {bundle.programs.map((program) => (
                       <li key={program.number || program.title}>
-                        <a href={courseUrl(program.href)}>{program.title}</a>
+                        <a href={courseUrl(program.href)} title={programLinkTitle(program.title)}>
+                          {program.title}
+                        </a>
                         {program.description ? <Text as="p">{program.description}</Text> : null}
                       </li>
                     ))}

@@ -20,11 +20,8 @@ function resolveHref(href) {
   return `/corporate-training/${href}`;
 }
 
-/** "Generative AI Corporate Training" → "Generative AI training program". */
-const programImageAlt = (name) =>
-  name
-    ? `${String(name).replace(/\s+(Corporate\s+)?Training$/i, "")} training program`
-    : "Edstellar training program";
+/** A learning-path card image's alt and title: the course title as shown. */
+const programImageAlt = (name) => name || "Edstellar training program";
 
 function ProgramCard({ program }) {
   return (

@@ -82,6 +82,12 @@ export const DOMAIN_DEFAULTS = {
     // The brochure pill comes from the CMS only — the domain record's
     // `meta.brochure` PDF (see `toDomain`), else `Brochure: [{ href, Label }]`.
     form_anchor_id: "apply",
+    // Same hover title as the course pages' sticky button.
+    cta: {
+      label: "Request a Training Quote",
+      href: "#apply",
+      title: "Click here to request a training program quote",
+    },
   },
   /**
    * The catalog section's UI chrome — filter labels, badges, pagination and

@@ -76,6 +76,7 @@ function AllLink({ link }) {
     <Box
       as="a"
       href={link.href || "#"}
+      title={link.title}
       className="group inline-flex flex-none items-center gap-2 self-end border-b-2 border-ink pb-1.5 font-body text-[14px] font-semibold text-ink max-sm:self-start"
     >
       {link.label}
@@ -130,6 +131,13 @@ function TopicCard({ topic }) {
   );
 }
 
+/** "SAFe (Scaled Agile Framework) Corporate Training" →
+ * "Click here to view the SAFe (Scaled Agile Framework) training program". */
+const programLinkTitle = (name) =>
+  name
+    ? `Click here to view the ${String(name).replace(/\s+(Corporate\s+)?Training$/i, "")} training program`
+    : undefined;
+
 function ProgramCard({ program }) {
   const rank = rankVariants[program.rank_variant] ?? rankVariants.gold;
   const RankIcon = rank.Icon;
@@ -144,7 +152,9 @@ function ProgramCard({ program }) {
         {/* The CMS image (`program.image`), or the default course image */}
         <CourseImage
           src={program.image}
-          alt={program.image_alt || program.title || ""}
+          // Alt and title are the course title as shown, like the course page's learning path.
+          alt={program.title || "Edstellar training program"}
+          title={program.title || "Edstellar training program"}
           width={960}
           height={340}
           loading="lazy"
@@ -187,7 +197,7 @@ function ProgramCard({ program }) {
               href={program.href}
               target="_blank"
               rel="noopener"
-             
+              title={programLinkTitle(program.title)}
               className="hover:underline hover:underline-offset-3"
             >
               {program.title}
@@ -242,7 +252,14 @@ function ProgramCard({ program }) {
 
         <Box className="mt-auto flex items-center gap-2.5">
           <CtaButton
-            render={<a href={program.href || "#"} target={program.href ? "_blank" : undefined} rel={program.href ? "noopener" : undefined} />}
+            render={
+              <a
+                href={program.href || "#"}
+                target={program.href ? "_blank" : undefined}
+                rel={program.href ? "noopener" : undefined}
+                title={programLinkTitle(program.title)}
+              />
+            }
             arrow
             className="px-[18px] py-[11px] text-[13px]"
           >
@@ -304,7 +321,7 @@ function popularFromCourses(courses, topics) {
  * for the real thumbnail and link). A heading or lede neither sends is not
  * rendered — no generated copy.
  */
-export default function Topics({ data: topicsData, courseCount, courses }) {
+export default function Topics({ data: topicsData, courseCount, courses, domainName }) {
   const data = {
     heading: courses?.by_topic_heading,
     lede: courses?.by_topic_desc,
@@ -393,7 +410,13 @@ export default function Topics({ data: topicsData, courseCount, courses }) {
             {/* Fixed navigational affordance: jump to the full catalog
                 (`#by-topic`). The label and anchor are intentional and do not
                 read from the CMS `all_link`, which carries no `href`. */}
-            <AllLink link={{ label: "All Topics", href: "#by-topic" }} />
+            <AllLink
+              link={{
+                label: "All Topics",
+                href: "#by-topic",
+                title: domainName ? `Click here to view all ${domainName} training topics` : undefined,
+              }}
+            />
           </Box>
         </Reveal>
 
@@ -435,7 +458,13 @@ export default function Topics({ data: topicsData, courseCount, courses }) {
                   ) : null}
                 </Box>
 
-                <AllLink link={{ label: courseCount ? `All ${courseCount} programs` : (popular.all_link?.label || "All programs"), href: popular.all_link?.href || "#by-topic" }} />
+                <AllLink
+                  link={{
+                    label: courseCount ? `All ${courseCount} programs` : (popular.all_link?.label || "All programs"),
+                    href: popular.all_link?.href || "#by-topic",
+                    title: domainName ? `Click here to view popular ${domainName} training programs` : undefined,
+                  }}
+                />
               </Box>
             </Reveal>
 

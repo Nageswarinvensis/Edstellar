@@ -21,6 +21,7 @@ export default function TopicCardLink({ name, children }) {
         onClick={handleClick}
         className="block h-full w-full cursor-pointer text-left"
         aria-label={`Filter by topic: ${name}`}
+        title={`Click here to view ${name} training programs`}
       >
         {children}
       </button>

@@ -39,7 +39,7 @@ function CategoryAbout({ about }) {
               ))}
 
               {hiddenBody.length ? (
-                <ReadMore showIcon>
+                <ReadMore showIcon titleClosed="Read the full overview">
                   {hiddenBody.map((paragraph, index) => (
                     <Text
                       as="p"

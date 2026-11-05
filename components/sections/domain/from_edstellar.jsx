@@ -4,6 +4,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
+import { SERVICE_LINK_TITLES } from "@/lib/constants";
 export default function FromEdstellar({ data }) {
   if (!data?.items?.length) return null;
 
@@ -25,6 +26,7 @@ export default function FromEdstellar({ data }) {
               <a
                 key={item.id || index}
                 href={item.href}
+                title={SERVICE_LINK_TITLES[item.href?.replace(/\/$/, "")]}
                 className="group relative block border-r border-b border-[#D2CEC3] p-5 lg:p-6 transition-colors duration-300 hover:bg-white"
               >
                 <Box className="flex items-start justify-between gap-5">
