@@ -1,4 +1,5 @@
 import Hero from "@/components/common/hero";
+import CourseBannerV2 from "@/components/sections/course/course-banner-v2";
 import CourseInfo from "@/components/sections/course/course-info";
 import ClientLogos from "@/components/common/client-logos";
 import About from "@/components/sections/course/about";
@@ -59,7 +60,9 @@ export default function CoursePage({ course }) {
       brochure={course.brochure}
       title={course.domain_name ? `${course.domain_name} training brochure` : "Training brochure"}
     >
-      <Hero hero={course.hero} breadcrumbs={course.breadcrumbs?.items} />
+      {/* v2 banner — static data for testing; swap Hero back to revert */}
+      <CourseBannerV2 breadcrumbs={course.breadcrumbs?.items} />
+      {/* <Hero hero={course.hero} breadcrumbs={course.breadcrumbs?.items} /> */}
       <CourseInfo
         proof={course.proof}
         capabilityModel={course.CapabilityModel}

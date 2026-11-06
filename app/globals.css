@@ -149,6 +149,9 @@
    ========================================================================== */
 
 @theme {
+  /* Near-white warm center used in the Course Banner V2 radial gradient. */
+  --color-paper-bright: #fffef8;
+
   /* Breakpoints. The designs are authored desktop-first against these exact
      widths, so the default Tailwind scale is replaced rather than approximated.
      Offsets are +1px because Tailwind breakpoints are min-width, which makes
@@ -520,4 +523,188 @@ h3 span {
 
 .animate-stack-marquee {
   animation: stack-marquee 30s linear infinite;
+}
+
+/* ==========================================================================
+   COURSE BANNER V2 — hero background + ETL illustration animations
+   ========================================================================== */
+
+/* Warm radial glow on the right half where the illustration sits. */
+.cbv2-bg {
+  background:
+    radial-gradient(
+      ellipse 55% 65% at 74% 48%,
+      var(--color-paper-bright) 0%,
+      color-mix(in srgb, var(--color-paper-bright) 0%, transparent) 72%
+    ),
+    var(--color-paper);
+}
+
+/* ── ETL hero SVG animation classes (.ehr-*) ── */
+.ehr { display: block; width: 100%; height: auto; overflow: visible; }
+
+@media (min-width: 1024px) {
+  .hero-illo:has(.ehr) { padding-top: 0; }
+}
+
+.ehr-src ellipse,
+.ehr-src path  { fill: white; stroke: var(--color-navy); stroke-width: 1.4; }
+
+.ehr-lab  { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; fill: color-mix(in srgb, var(--color-navy) 60%, transparent); }
+.ehr-top  { fill: var(--color-olive); }
+
+.ehr-lane0 { stroke: color-mix(in srgb, var(--color-navy) 22%, transparent); stroke-width: 2; stroke-linecap: round; }
+.ehr-lane1 { stroke: url(#ehrLane); stroke-width: 2.4; stroke-linecap: round; }
+
+.ehr-flow {
+  stroke: var(--color-paper);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1.5 22;
+  animation: ehr-flow 1.8s linear infinite;
+}
+@keyframes ehr-flow { to { stroke-dashoffset: -23.5; } }
+
+.ehr-gate { fill: color-mix(in srgb, var(--color-lime) 22%, transparent); stroke: var(--color-navy); stroke-width: 1.6; }
+
+.ehr-scan {
+  stroke: var(--color-olive);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  animation: ehr-scan 2.6s ease-in-out infinite alternate;
+}
+@keyframes ehr-scan { from { transform: translateY(0); } to { transform: translateY(188px); } }
+
+.ehr-drop { stroke: color-mix(in srgb, var(--color-error) 60%, transparent); stroke-width: 1.4; stroke-dasharray: 3 4; }
+
+.ehr-team circle,
+.ehr-team path { fill: none; stroke: var(--color-navy); stroke-width: 1.6; stroke-linecap: round; }
+
+.ehr-lens { animation: ehr-lens 2.6s ease-in-out infinite alternate; }
+.ehr-lens circle,
+.ehr-lens path  { stroke: var(--color-olive); stroke-width: 2; }
+@keyframes ehr-lens {
+  from { transform: translate(270px, 172px); }
+  to   { transform: translate(266px, 180px); }
+}
+
+.ehr-tray rect { fill: color-mix(in srgb, var(--color-error) 10%, transparent); stroke: var(--color-error); stroke-width: 1.5; }
+.ehr-tray text { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; fill: var(--color-error); }
+
+.ehr-dash-b { fill: white; stroke: var(--color-navy); stroke-width: 1.5; }
+
+.ehr-bar {
+  fill: var(--color-lime);
+  stroke: var(--color-navy);
+  stroke-width: 1.2;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: ehr-bar 4s ease-in-out calc(var(--i) * .3s) infinite alternate;
+}
+@keyframes ehr-bar { from { transform: scaleY(.82); } to { transform: scaleY(1); } }
+
+.ehr-spark { fill: none; stroke: var(--color-olive); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.ehr-trust rect { fill: var(--color-lime); stroke: var(--color-navy); stroke-width: 1.4; }
+.ehr-trust path { fill: none; stroke: var(--color-navy); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.ehr-trust text { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: .06em; fill: var(--color-navy); }
+
+.ehr-row          { offset-anchor: 0 0; offset-rotate: 0deg; transform-origin: 0 0; }
+.ehr-row rect     { stroke: var(--color-navy); stroke-width: 1.2; }
+.ehr-row path     { stroke: var(--color-navy); stroke-width: 1.3; stroke-linecap: round; }
+.ehr-bad path     { stroke: var(--color-paper); }
+
+/* Good rows: travel the full lane, turning lime after the gate */
+.ehr-good      { animation: ehr-move 9s linear var(--d) infinite; }
+.ehr-good rect { animation: ehr-good-color 9s linear var(--d) infinite; }
+
+@keyframes ehr-move {
+  0%   { offset-distance: 0%;   opacity: 0; }
+  6%   { opacity: 1; }
+  94%  { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+@keyframes ehr-good-color {
+  0%, 41.9%   { fill: white; }
+  43.9%, 100% { fill: var(--color-lime); }
+}
+
+/* Bad rows: divert at the gate and drop to the catch tray */
+.ehr-bad0      { animation: ehr-badm0 9s linear var(--d) infinite; }
+.ehr-bad0 rect { animation: ehr-badc0 9s linear var(--d) infinite; }
+
+@keyframes ehr-badm0 {
+  0%    { offset-distance: 0%;   opacity: 0; }
+  6%    { opacity: 1; }
+  40.0% { offset-distance: 40.0%; }
+  46.0% { offset-distance: 40.0%; }
+  86%   { offset-distance: 100%; opacity: 1; }
+  100%  { offset-distance: 100%; opacity: 0; }
+}
+@keyframes ehr-badc0 {
+  0%, 39.0%   { fill: white; }
+  41.0%, 100% { fill: var(--color-error); }
+}
+
+.ehr-bad2      { animation: ehr-badm2 9s linear var(--d) infinite; }
+.ehr-bad2 rect { animation: ehr-badc2 9s linear var(--d) infinite; }
+
+@keyframes ehr-badm2 {
+  0%    { offset-distance: 0%;   opacity: 0; }
+  6%    { opacity: 1; }
+  66.7% { offset-distance: 66.7%; }
+  72.7% { offset-distance: 66.7%; }
+  86%   { offset-distance: 100%; opacity: 1; }
+  100%  { offset-distance: 100%; opacity: 0; }
+}
+@keyframes ehr-badc2 {
+  0%, 65.7%   { fill: white; }
+  67.7%, 100% { fill: var(--color-error); }
+}
+
+/* Annotation strip */
+.ehr-ann-h { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; fill: var(--color-olive); }
+.ehr-a circle  { fill: white; stroke: var(--color-navy); stroke-width: 1.4; }
+.ehr-a text    { font-family: var(--font-mono); font-size: 10px; font-weight: 500; fill: var(--color-navy); }
+.ehr-a .ehr-a-t { font-family: var(--font-body); font-size: 13px; font-weight: 500; fill: var(--color-navy); }
+.ehr-a { opacity: .45; animation: ehr-ann 12s ease-in-out var(--d) infinite; }
+@keyframes ehr-ann { 0%, 30% { opacity: 1; } 36%, 100% { opacity: .45; } }
+.ehr-a .ehr-mk circle { fill: var(--color-lime); stroke: var(--color-navy); }
+
+/* Legend */
+.ehr-key text        { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .06em; fill: color-mix(in srgb, var(--color-navy) 60%, transparent); }
+.ehr-key rect        { stroke: var(--color-navy); stroke-width: 1; }
+.ehr-key .k0         { fill: white; }
+.ehr-key .k1         { fill: var(--color-lime); }
+.ehr-key .k2         { fill: var(--color-error); }
+.ehr-key .ehr-cap    { text-transform: uppercase; letter-spacing: .12em; fill: color-mix(in srgb, var(--color-navy) 45%, transparent); }
+
+/* Reduced motion: pause all animations, show representative static state */
+@media (prefers-reduced-motion: reduce) {
+  .ehr *                              { animation: none !important; }
+  .ehr-a                              { opacity: 1; }
+  .ehr-good                           { offset-distance: var(--p); }
+  .ehr-good rect                      { fill: white; }
+  .ehr-good[style*="--p:62%"] rect,
+  .ehr-good[style*="--p:92%"] rect    { fill: var(--color-lime); }
+  .ehr-bad                            { offset-distance: 100%; }
+  .ehr-bad rect                       { fill: var(--color-error); }
+}
+
+/* Phone: SVG shrinks to ~60%, so its internal font sizes need to scale up */
+@media (max-width: 640px) {
+  .ehr-lab            { font-size: 16px; }
+  .ehr-ann-h          { font-size: 15.5px; }
+  .ehr-a .ehr-a-t     { font-size: 20px; transform: translateX(8px); }
+  .ehr-a text         { font-size: 13px; }
+  .ehr-a circle       { r: 12px; }
+  .ehr-tray text      { font-size: 15px; }
+  .ehr-trust path     { display: none; }
+  .ehr-trust text     { font-size: 13px; transform: translateX(-9px); }
+  .ehr-key text       { font-size: 14px; }
+  .ehr-key rect.k1,
+  .ehr-key text:nth-of-type(2) { transform: translateX(40px); }
+  .ehr-key rect.k2,
+  .ehr-key text:nth-of-type(3) { transform: translateX(52px); }
+  .ehr-key .ehr-cap   { font-size: 12px; transform: translate(-328px, -24px); }
 }
