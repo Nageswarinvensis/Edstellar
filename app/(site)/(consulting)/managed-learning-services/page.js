@@ -107,7 +107,7 @@ export default async function ManagedTrainingServicesPage() {
         showCta={false}
       />
       <RelatedServices id="related" data={cms.relatedServices} />
-      <ConsultingForm
+      <ConsultingForm group="managed"
         id="apply"
         background="navy"
         data={cms.leadForm}

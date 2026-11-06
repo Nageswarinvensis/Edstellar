@@ -120,7 +120,7 @@ export default async function OrganizationalDevelopmentConsultingPage() {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <ConsultingForm id="apply" background="navy" data={cms.leadForm} />
+      <ConsultingForm group="od" id="apply" background="navy" data={cms.leadForm} />
       <StickyFooter data={{ ...cms.stickyFooter, email: true }} />
     </BrochureGate>
   );

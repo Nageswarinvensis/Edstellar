@@ -4,7 +4,6 @@ import { useState } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import Box from "@/components/ui/Box";
-import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
 import { RAIL_CATEGORY_ICONS } from "./rail-icons";
 import { RailCard, RailEyebrow, RailHeading } from "./rail-card";

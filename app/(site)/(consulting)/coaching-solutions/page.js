@@ -129,7 +129,7 @@ export default async function CoachingSolutionsPage() {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <ConsultingForm id="apply" background="navy" data={page.lead_form} />
+      <ConsultingForm group="coaching" id="apply" background="navy" data={page.lead_form} />
       <StickyFooter data={page.stickyFooter && { ...page.stickyFooter, email: true }} />
     </BrochureGate>
   );

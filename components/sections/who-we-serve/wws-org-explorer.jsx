@@ -5,7 +5,6 @@ import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
-import CtaButton from "@/components/common/cta-button";
 import RichHeading from "@/components/common/rich-heading";
 import { cn } from "@/lib/utils";
 

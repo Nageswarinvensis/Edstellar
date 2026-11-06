@@ -177,7 +177,7 @@ export default async function OrganizationalDevelopmentServicePage({ params }) {
         ) : null;
       })}
 
-      <ConsultingForm id="apply" background="navy" data={service.leadFormData} />
+      <ConsultingForm group="od" id="apply" background="navy" data={service.leadFormData} />
       <StickyFooter
         data={service.stickyFooter && { ...service.stickyFooter, email: true }}
       />

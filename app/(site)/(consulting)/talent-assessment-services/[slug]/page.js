@@ -170,7 +170,7 @@ export default async function TalentAssessmentServicePage({ params }) {
         return render ? <Fragment key={key}>{render(service[key])}</Fragment> : null;
       })}
 
-      <ConsultingForm id="apply" background="navy" data={service.lead_form} />
+      <ConsultingForm group="assess" id="apply" background="navy" data={service.lead_form} />
       <StickyFooter data={service.sticky_footer} />
     </BrochureGate>
   );

@@ -19,16 +19,22 @@ import {
   BUDGET_RANGES,
   CHALLENGES_BY_INTEREST,
   COMPANY_SIZES,
-  CONSULTING_INTERESTS,
+  CONSULTING_GROUPS,
   EMPLOYEES_IMPACTED,
   TIMELINES,
 } from "@/content/consulting-form";
 
-/** Every challenge once, "Other" last — offered before an interest is picked. */
-const ALL_CHALLENGES = [
-  ...new Set(Object.values(CHALLENGES_BY_INTEREST).flat().filter((item) => item !== "Other")),
-  "Other",
-];
+const groupByKey = Object.fromEntries(CONSULTING_GROUPS.map((group) => [group.key, group]));
+
+/** A form's "Primary consulting interest" options: its area's pages, then
+ * "Not Sure Yet" (the `other` group) on every form. Without a `group`,
+ * every area's pages. */
+function interestsFor(groupKey) {
+  const other = groupByKey.other;
+  const own = groupByKey[groupKey];
+  if (!own) return CONSULTING_GROUPS.flatMap((group) => group.pages);
+  return own === other ? other.pages : [...own.pages, ...other.pages];
+}
 
 const BACKGROUND_CLASSES = {
   "paper-warm": "bg-paper-warm",
@@ -38,18 +44,46 @@ const BACKGROUND_CLASSES = {
 };
 
 /** A labelled `<select>` with a blank first option as its prompt. */
-function SelectField({ label, required, error, placeholder, options, registration, className }) {
+/** Keys that open a closed native <select> (not the arrows: on Windows
+ * those change the value without opening the list). */
+const OPEN_KEYS = new Set([" ", "Enter", "F4"]);
+
+function SelectField({ label, required, error, placeholder, options, registration, className, mainOption, subOptions = [] }) {
+  // A native <select> shows the chosen option's text as-is, so sub-pages are
+  // indented (non-breaking spaces) only while the list is open; choosing or
+  // leaving the field puts the plain names back for the closed field.
+  const [listOpen, setListOpen] = useState(false);
+  const subs = new Set(subOptions);
+  const open = () => subs.size && setListOpen(true);
+  const close = () => setListOpen(false);
+
   return (
     <FormField label={label} required={required} error={error} className={className}>
       <select
         {...registration}
+        onChange={(event) => {
+          registration.onChange(event);
+          close();
+        }}
+        onBlur={(event) => {
+          registration.onBlur(event);
+          close();
+        }}
+        onMouseDown={open}
+        onTouchStart={open}
+        onKeyDown={(event) => {
+          if (OPEN_KEYS.has(event.key) || (event.altKey && event.key === "ArrowDown")) open();
+          if (event.key === "Escape" || event.key === "Tab") close();
+        }}
         aria-invalid={Boolean(error)}
         className={formInputClasses}
       >
         <option value="">{placeholder}</option>
+        {/* `mainOption` (an area's main page) is bold, setting it apart from
+            its sub-pages. */}
         {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
+          <option key={option} value={option} className={option === mainOption ? "font-semibold" : undefined}>
+            {listOpen && subs.has(option) ? `\u00A0\u00A0\u00A0\u00A0${option}` : option}
           </option>
         ))}
       </select>
@@ -66,9 +100,11 @@ function SelectField({ label, required, error, placeholder, options, registratio
  * primary consulting interest, current challenge, employees impacted,
  * timeline, budget and a free-text brief.
  *
- * Choosing a primary interest narrows "Current challenge" to that
- * interest's list (`CHALLENGES_BY_INTEREST`) and clears a challenge that no
- * longer fits. Country and phone are the shared international phone input
+ * `group` is the page's consulting area (`ld`, `tna`, `od`, `assess`,
+ * `coaching`, `managed` — `CONSULTING_GROUPS`): "Primary consulting
+ * interest" lists that area's pages plus "Not Sure Yet", and "Current
+ * challenge" that area's challenges ("Not Sure Yet" → the general ones).
+ * Changing the interest clears a challenge that no longer fits. Country and phone are the shared international phone input
  * (`CountryPhoneFields`), synced both ways.
  *
  * A valid submit goes to Zoho Forms' "EdstellarLDConsultingform1" — the same
@@ -82,7 +118,7 @@ function SelectField({ label, required, error, placeholder, options, registratio
  * `data`: `heading`, `description`, `Button_Label` / `submit_label`,
  * `sla_note` — the same CMS fields LeadForm reads.
  */
-export default function ConsultingForm({ data, background = "navy", id = "apply", thankYou = "consulting" }) {
+export default function ConsultingForm({ data, group, background = "navy", id = "apply", thankYou = "consulting" }) {
   const {
     register,
     control,
@@ -96,15 +132,18 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
   const router = useRouter();
   const [submitError, setSubmitError] = useState("");
 
+  const interests = interestsFor(group);
+  // Before an interest is picked, the area's own challenges.
+  const defaultChallenges = groupByKey[group]?.challenges ?? [...new Set(CONSULTING_GROUPS.flatMap((g) => g.challenges))];
   const interest = watch("interest");
-  const challenges = CHALLENGES_BY_INTEREST[interest] ?? ALL_CHALLENGES;
+  const challenges = CHALLENGES_BY_INTEREST[interest] ?? defaultChallenges;
 
   if (!data) return null;
 
   const dark = background === "navy";
 
   function onInterestChange(event) {
-    const next = CHALLENGES_BY_INTEREST[event.target.value] ?? ALL_CHALLENGES;
+    const next = CHALLENGES_BY_INTEREST[event.target.value] ?? defaultChallenges;
     if (!next.includes(getValues("challenge"))) setValue("challenge", "");
   }
 
@@ -236,7 +275,11 @@ export default function ConsultingForm({ data, background = "navy", id = "apply"
                 required
                 error={errors.interest?.message}
                 placeholder="Select your primary interest"
-                options={CONSULTING_INTERESTS}
+                options={interests}
+                // The area's main page (the first) in bold; its sub-pages
+                // indented while the list is open.
+                subOptions={groupByKey[group]?.key !== "other" ? groupByKey[group]?.pages.slice(1) ?? [] : []}
+                mainOption={groupByKey[group]?.key !== "other" ? groupByKey[group]?.pages[0] : undefined}
                 registration={register("interest", {
                   required: "Please select your primary interest.",
                   onChange: onInterestChange,

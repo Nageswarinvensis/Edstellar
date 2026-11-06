@@ -155,7 +155,7 @@ export default async function TalentAssessmentServicesPage() {
         showCta={false}
       />
 
-      <ConsultingForm id="apply" background="navy" data={cms?.leadForm} />
+      <ConsultingForm group="assess" id="apply" background="navy" data={cms?.leadForm} />
       <StickyFooter data={cms?.stickyFooter} />
     </BrochureGate>
   );

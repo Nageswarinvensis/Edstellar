@@ -116,7 +116,7 @@ export default async function TrainingNeedsAnalysisPage() {
       />
       {/* The consulting form, as on the live TNA page (Zoho
           "EdstellarLDConsultingform1"). */}
-      <ConsultingForm id="apply" background="navy" data={tna.leadForm} />
+      <ConsultingForm group="tna" id="apply" background="navy" data={tna.leadForm} />
       <StickyFooter data={{ ...tna.stickyFooter, email: true }} />
     </BrochureGate>
   );

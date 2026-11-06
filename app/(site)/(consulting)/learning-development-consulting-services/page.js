@@ -120,7 +120,7 @@ export default async function LDConsultingPage() {
         headingClassName="mx-auto text-center"
         showCta={false}
       />
-      <ConsultingForm
+      <ConsultingForm group="ld"
         id="apply"
         background="navy"
         data={cms.leadForm}

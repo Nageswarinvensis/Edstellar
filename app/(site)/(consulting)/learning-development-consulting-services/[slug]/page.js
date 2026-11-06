@@ -205,7 +205,7 @@ export default async function LearningDevelopmentServicePage({ params }) {
         ) : null;
       })}
 
-      <ConsultingForm id="apply" background="navy" data={service.leadFormData} />
+      <ConsultingForm group="ld" id="apply" background="navy" data={service.leadFormData} />
       <StickyFooter
         data={service.stickyFooter && { ...service.stickyFooter, email: true }}
       />

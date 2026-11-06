@@ -133,7 +133,7 @@ export default async function ManagedTrainingServicesPage() {
         showCta={false}
       />
       <RelatedServices id="related" data={page.relatedServices} columns={4} />
-      <ConsultingForm id="apply" background="navy" data={page.leadForm} />
+      <ConsultingForm group="managed" id="apply" background="navy" data={page.leadForm} />
       <StickyFooter data={page.stickyFooter && { ...page.stickyFooter, email: true }} />
     </BrochureGate>
   );
