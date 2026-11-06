@@ -1,4 +1,5 @@
 import Hero from "@/components/common/hero";
+import CourseBannerV2 from "@/components/sections/course/course-banner-v2";
 import CourseInfo from "@/components/sections/course/course-info";
 import ClientLogos from "@/components/common/client-logos";
 import About from "@/components/sections/course/about";
@@ -15,6 +16,7 @@ import Audience from "@/components/sections/course/audience";
 import Certificate from "@/components/sections/course/certificate";
 import DeliveryModes from "@/components/common/delivery-modes";
 
+import CourseWhyTrain from "@/components/sections/course/course-why-train";
 import WhyEdstellar from "@/components/sections/course/why-edstellar";
 import AlsoFromEdstellar from "@/components/sections/course/also-from-edstellar";
 
@@ -59,12 +61,16 @@ export default function CoursePage({ course }) {
       brochure={course.brochure}
       title={course.domain_name ? `${course.domain_name} training brochure` : "Training brochure"}
     >
-      <Hero hero={course.hero} breadcrumbs={course.breadcrumbs?.items} />
+      {course.hero_v2
+        ? <CourseBannerV2 banner={course.hero_v2} breadcrumbs={course.breadcrumbs?.items} />
+        : <Hero hero={course.hero} breadcrumbs={course.breadcrumbs?.items} />
+      }
       <CourseInfo
         proof={course.proof}
         capabilityModel={course.CapabilityModel}
         trainersImage={trainersImage}
       />
+      {course.why_teams_train_now && <CourseWhyTrain data={course.why_teams_train_now} />}
       <ClientLogos heading="Trusted as a Leading Corporate Training Provider by" />
       <About about={course.about} />
 
