@@ -13,12 +13,10 @@ import CourseBannerV2Actions from "./course-banner-v2-actions";
  */
 const STATIC_BANNER = {
   illustration_url: "/course-banners/etl-testing-banner.svg",
-  kicker: "Corporate training · Data Engineering",
-  h1: "ETL Testing Corporate Training",
-  theme_line:
-    "Learn to catch bad data before the business does, on every single load.",
-  sub: "A hands-on program for data and engineering leaders whose data engineering, quality assurance (QA) and BI teams cannot yet prove that reports match the source or that a migration is safe to go live.",
-  lead: "ETL Testing Corporate Training is an instructor-led program from Edstellar that teaches your team how to plan, reconcile and automate tests for the extract, transform, load (ETL) pipelines and data warehouses behind its reports, with every lab built on the team's own pipeline scenarios.",
+  heading: "ETL Testing Corporate Training",
+  subhead: "Learn to catch bad data before the business does, on every single load.",
+  description: "A hands-on program for data and engineering leaders whose data engineering, quality assurance (QA) and BI teams cannot yet prove that reports match the source or that a migration is safe to go live.",
+  intro_text: "ETL Testing Corporate Training is an instructor-led program from Edstellar that teaches your team how to plan, reconcile and automate tests for the extract, transform, load (ETL) pipelines and data warehouses behind its reports, with every lab built on the team's own pipeline scenarios.",
   formats: ["Onsite", "Virtual", "Hybrid"],
   actions: [
     { label: "Request a quote", href: "#quote" },
@@ -32,29 +30,11 @@ const STATIC_BANNER = {
 };
 
 /**
- * Course Banner V2 — the hero for course pages in the new v2 design.
- *
- * Layout: two-column grid on desktop (46 / 54 fr split).
- *   Left  — kicker, H1, serif theme line, sub-heading, lead, format chips,
- *            CTA row, stats DL, breadcrumbs.
- *   Right — animated ETL pipeline SVG illustration (or a custom SVG passed
- *            via the `illustration` prop for other courses).
- *
- * Usage — static (prototype):
- *   <CourseBannerV2 />
- *
- * Usage — with API data:
- *   <CourseBannerV2 banner={course.banner} />
- *
- * The right-side illustration defaults to the ETL Testing pipeline SVG.
- * Pass `illustration={<YourSvg />}` to swap it out for another course.
- */
-/**
  * Renders the right-side illustration.
  *
  * Priority:
  *   1. `illustration` prop — inline JSX (custom override)
- *   2. `banner.illustration_url` — uploaded SVG file via <object> (preserves
+ *   2. `banner.illustration_url` — uploaded SVG via <object> (preserves
  *      animations) or a raster image via <img>
  *   3. Fallback — the built-in <EtlHeroIllo /> inline SVG
  */
@@ -72,7 +52,6 @@ function BannerIllustration({ url, inline }) {
             className="absolute inset-0 w-full h-full"
             aria-hidden="true"
           >
-            {/* fallback for browsers that can't render the SVG */}
             <EtlHeroIllo />
           </object>
         </Box>
@@ -81,30 +60,36 @@ function BannerIllustration({ url, inline }) {
     // raster image (PNG / WebP / JPG)
     return (
       // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={url}
-        alt=""
-        aria-hidden="true"
-        className="w-full h-auto"
-      />
+      <img src={url} alt="" aria-hidden="true" className="w-full h-auto" />
     );
   }
 
   return <EtlHeroIllo />;
 }
 
-export default function CourseBannerV2({
-  banner = STATIC_BANNER,
-  breadcrumbs,
-  illustration,
-}) {
+/**
+ * Course Banner V2 — hero for course pages in the new v2 design.
+ *
+ * Layout: two-column grid on desktop (46 / 54 fr split).
+ *   Left  — kicker, heading, subhead (serif italic), description, intro_text,
+ *            format chips, CTA row, stats DL.
+ *   Right — illustration (SVG file or inline JSX fallback).
+ *
+ * Usage — static (prototype):
+ *   <CourseBannerV2 />
+ *
+ * Usage — with API data:
+ *   <CourseBannerV2 banner={course.banner_v2} />
+ *
+ * Pass `illustration={<YourSvg />}` to override the right-side SVG inline.
+ */
+export default function CourseBannerV2({ banner = STATIC_BANNER, illustration, breadcrumbs }) {
   const {
     illustration_url,
-    kicker,
-    h1,
-    theme_line,
-    sub,
-    lead,
+    heading,
+    subhead,
+    description,
+    intro_text,
     formats = [],
     actions = [],
     stats = [],
@@ -113,75 +98,70 @@ export default function CourseBannerV2({
   return (
     <Section
       id="top"
-      className="cbv2-bg relative overflow-hidden py-7 lg:min-h-[calc(100svh-110px)] lg:py-5"
-      innerClassName="grid grid-cols-1 items-center gap-6 lg:grid-cols-[46fr_54fr] lg:gap-10 lg:items-start"
+      className="cbv2-bg relative overflow-hidden pt-0 pb-10 lg:pt-0 lg:pb-10"
     >
+      {/* Breadcrumbs — full width, above the two-column grid */}
+      <Reveal>
+        <Breadcrumbs items={breadcrumbs} />
+      </Reveal>
+
+      {/* Two-column grid */}
+      <Box className="mt-6 grid grid-cols-1 items-center gap-6 lg:grid-cols-[50fr_50fr] lg:gap-10 lg:items-start">
+
       {/* ── Left column: copy ── */}
-      <Box className="relative z-[1] max-w-[640px]">
+      <Box className="relative z-[1]">
 
-        {/* Kicker */}
-        <Reveal delay={0}>
-          <Text
-            as="p"
-            className="mb-4.5 font-mono text-[11px] tracking-[0.2em] uppercase text-ink-muted"
-          >
-            {kicker}
-          </Text>
-        </Reveal>
-
-        {/* H1 */}
+        {/* Heading → <h1> — same size/weight as v1 hero */}
         <Reveal delay={1}>
           <Text
             as="h1"
-            className="mb-3.5 text-[clamp(40px,4.4vw,66px)] leading-[1.03] tracking-[-0.045em] font-semibold max-lg:text-[clamp(32px,5.5vw,52px)] max-lg:leading-[1.06]"
+            className="mb-3 max-lg:text-[clamp(32px,5vw,50px)] max-lg:leading-[1.05]"
           >
-            {h1}
+            {heading}
           </Text>
         </Reveal>
 
-        {/* Theme line — Cormorant Garamond italic */}
+        {/* Subhead — Cormorant Garamond italic */}
+        <Reveal delay={1}>
+          <Text
+            as="p"
+            className="mb-4 font-serif italic text-[clamp(19px,2vw,30px)] leading-[1.2] tracking-[-0.01em] text-ink"
+          >
+            {subhead}
+          </Text>
+        </Reveal>
+
+        {/* Description — bold audience qualifier */}
         <Reveal delay={2}>
           <Text
             as="p"
-            className="mb-5 font-serif italic text-[clamp(22px,2.5vw,38px)] leading-[1.15] tracking-[-0.01em] text-ink"
+            className="mb-3 text-[15px] font-semibold leading-[1.6] text-ink tracking-[-0.005em]"
           >
-            {theme_line}
+            {description}
           </Text>
         </Reveal>
 
-        {/* Sub-heading (symptom / audience qualifier) */}
-        <Reveal delay={3}>
+        {/* Intro text — lead paragraph */}
+        <Reveal delay={2}>
           <Text
             as="p"
-            className="mb-2 text-[17px] font-semibold leading-[1.5] text-ink tracking-[-0.005em]"
+            className="mb-5 text-[15px] leading-[1.7] text-ink-muted"
           >
-            {sub}
-          </Text>
-        </Reveal>
-
-        {/* Lead paragraph */}
-        <Reveal delay={3}>
-          <Text
-            as="p"
-            className="max-w-[560px] text-[17px] leading-[1.6] text-ink-muted"
-          >
-            {lead}
+            {intro_text}
           </Text>
         </Reveal>
 
         {/* Delivery format chips */}
         {formats.length > 0 && (
-          <Reveal delay={4}>
+          <Reveal delay={3}>
             <Box
               as="p"
-              className="mt-5 mb-6 flex flex-wrap items-center gap-y-1 font-body text-[15px] text-ink"
+              className="mb-6 flex flex-wrap items-center gap-y-1 font-body text-[14px] text-ink-muted"
             >
               {formats.map((fmt, i) => (
                 <span key={fmt} className="flex items-center">
                   {i > 0 && (
-                    <span aria-hidden="true" className="mx-2.5 text-ink-muted">
-                      ·
-                    </span>
+                    <span aria-hidden="true" className="mx-2.5">·</span>
                   )}
                   {fmt}
                 </span>
@@ -193,27 +173,25 @@ export default function CourseBannerV2({
         {/* CTA buttons (client leaf handles scroll-to-hash) */}
         {actions.length > 0 && (
           <Reveal delay={3}>
-            <CourseBannerV2Actions actions={actions} />
+            <Box className="mb-7">
+              <CourseBannerV2Actions actions={actions} />
+            </Box>
           </Reveal>
         )}
 
-        {/* Stats DL — 3-column grid with dividers */}
+        {/* Stats DL — 3-column grid with consistent dividers */}
         {stats.length > 0 && (
           <Reveal>
-            <dl className="mt-7 grid max-w-[620px] grid-cols-3 border-t border-ink/12 pt-5 max-sm:grid-cols-3">
+            <dl className="grid grid-cols-3 divide-x divide-ink/12 border-t border-ink/12 pt-5">
               {stats.map((stat, i) => (
                 <div
                   key={stat.value}
-                  className={
-                    i === 0
-                      ? "pr-[clamp(14px,2.4vw,40px)]"
-                      : "border-l border-ink/12 px-[clamp(10px,2.4vw,40px)] max-sm:px-2.5"
-                  }
+                  className={i === 0 ? "pr-5 lg:pr-8" : "px-5 lg:px-8"}
                 >
-                  <dt className="font-display font-medium text-[clamp(15px,1.5vw,21px)] tracking-[-0.025em] text-ink lg:whitespace-nowrap">
+                  <dt className="font-display font-medium text-[clamp(14px,1.3vw,19px)] leading-tight tracking-[-0.02em] text-ink break-words">
                     {stat.value}
                   </dt>
-                  <dd className="mt-0.5 text-[14px] text-ink-muted max-sm:text-[12.5px] lg:whitespace-nowrap">
+                  <dd className="mt-1 text-[13px] leading-snug text-ink-muted break-words">
                     {stat.label}
                   </dd>
                 </div>
@@ -221,11 +199,6 @@ export default function CourseBannerV2({
             </dl>
           </Reveal>
         )}
-
-        {/* Breadcrumbs */}
-        <Reveal>
-          <Breadcrumbs items={breadcrumbs} />
-        </Reveal>
       </Box>
 
       {/* ── Right column: illustration ── */}
@@ -237,6 +210,8 @@ export default function CourseBannerV2({
       >
         <BannerIllustration url={illustration_url} inline={illustration} />
       </Box>
+
+      </Box>{/* end two-column grid */}
     </Section>
   );
 }
