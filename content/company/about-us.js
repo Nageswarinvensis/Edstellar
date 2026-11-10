@@ -242,7 +242,7 @@ export const ABOUT_US = {
         name: "Analyze",
         description: "Analyze the skill gaps from your training needs analysis and assessments.",
         services: [
-          { label: "Training needs analysis", href: "/training-needs-analysis-solutions" },
+          { label: "Training needs analysis", href: "/training-needs-analysis-services" },
           { label: "Talent assessments", href: "/talent-assessment-services" },
         ],
         tools: ["TNA/TNI Engine", "Zenith", "Orbit", "Polaris"],
@@ -252,8 +252,8 @@ export const ABOUT_US = {
         name: "Architect",
         description: "Architect the strategy, content, technology and governance that close the priority gaps.",
         services: [
-          { label: "Learning strategy and design", href: "/learning-development-consulting-services/learning-strategy-design" },
-          { label: "Learning content design", href: "/learning-development-consulting-services/learning-content-development" },
+          { label: "Learning strategy", href: "/learning-development-consulting-services/learning-strategy" },
+          { label: "Learning content design and Development", href: "/learning-development-consulting-services/learning-content-design-development" },
           { label: "Learning technology", href: "/learning-development-consulting-services/learning-technology" },
         ],
         tools: ["Stellar AI"],
