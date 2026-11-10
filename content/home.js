@@ -8,14 +8,14 @@
 
 export const HOME = {
   "seo": {
-    "title": "Enterprise Capability Development and Transformation Partner",
-    "description": "Edstellar helps organizations develop capabilities through training, coaching, assessments and consulting, connecting people development with business goals.",
+    "title": "Edstellar - Enterprise Capability Development Solutions Company",
+    "description": "Edstellar is a global enterprise capability development company offering consulting, assessments, coaching, training, and managed learning solutions.",
     "path": "/",
     "image": "/og/edstellar-og-v2.png"
   },
   "hero": {
-    "heading": "The science of <span>capability,</span> delivered with precision.",
-    "sub": "Edstellar is the capability transformation partner for organizations in 100+ countries. Consulting, talent assessments, coaching and training work as one system, measured on the Capability OS Platform.",
+    "heading": "Capability Development Solutions for Global Enterprises",
+    "sub": "Edstellar helps global enterprises assess, develop, and scale workforce capabilities through consulting, talent assessments, leadership coaching, corporate training, and managed learning services. Operating across 100+ countries, our CapabilityOS™ platform enables organizations to measure, manage, and accelerate capability growth with precision and business impact.",
     "actions": [
       {
         "label": "Talk to us",
