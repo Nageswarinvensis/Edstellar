@@ -186,7 +186,7 @@ export const ABOUT_US = {
         size: "1,000 to 10,000 employees",
         problem: "Training budgets are spent, but the impact on performance is hard to show.",
         solution: "Edstellar designs role-based journeys for each function, runs them on Spectra LMS and measures proficiency before and after.",
-        tags: ["Learning strategy and design", "Spectra LMS", "Learning analytics and ROI"],
+        tags: ["Learning strategy", "Spectra LMS", "Learning analytics and ROI"],
       },
       {
         stage: "Stage 4",
@@ -253,7 +253,7 @@ export const ABOUT_US = {
         description: "Architect the strategy, content, technology and governance that close the priority gaps.",
         services: [
           { label: "Learning strategy", href: "/learning-development-consulting-services/learning-strategy" },
-          { label: "Learning content design and Development", href: "/learning-development-consulting-services/learning-content-design-development" },
+          { label: "Learning content design and development", href: "/learning-development-consulting-services/learning-content-design-development" },
           { label: "Learning technology", href: "/learning-development-consulting-services/learning-technology" },
         ],
         tools: ["Stellar AI"],

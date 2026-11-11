@@ -178,7 +178,7 @@ export const CORPORATE_TRAINING_HUB = {
         name: "Analyze",
         tagline: "Prioritize what matters",
         links: [
-          { label: "Skill Gap & Competency Benchmarking", href: "/talent-assessment-services/skills-proficiency-assessment" },
+          { label: "Skills & Proficiency Assessment", href: "/talent-assessment-services/skills-proficiency-assessment" },
           { label: "Learning & Development Consulting", href: "/learning-development-consulting-services" },
         ],
       },
@@ -186,7 +186,7 @@ export const CORPORATE_TRAINING_HUB = {
         name: "Architect",
         tagline: "Design the learning",
         links: [
-          { label: "Learning Strategy & Design", href: "/learning-development-consulting-services/learning-strategy" },
+          { label: "Learning Strategy", href: "/learning-development-consulting-services/learning-strategy" },
           { label: "Learning Content Design & Development", href: "/learning-development-consulting-services/learning-content-design-development" },
           { label: "Edstellar Academies", href: null },
         ],

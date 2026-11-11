@@ -28,8 +28,8 @@ export const CONSULTING_GROUPS = [
     label: "L&D Consulting",
     pages: [
       "L&D Consulting Services",
-      "Learning Strategy and Design",
-      "Learning Content Development",
+      "Learning Strategy",
+      "Learning Content Design and Development",
       "Learning Technology Consulting",
     ],
     challenges: [
@@ -100,8 +100,8 @@ export const CONSULTING_GROUPS = [
       "360-degree Feedback",
       "Leadership Assessment",
       "Employee Engagement Survey",
-      "Skill Proficiency Assessment",
-      "Cognitive Ability Assessment",
+      "Skills and Proficiency Assessment",
+      "Cognitive Ability and Aptitude Testing",
       "Behavioral Assessment",
       "Assessment and Development Centers",
       "Emotional Intelligence Assessment",
