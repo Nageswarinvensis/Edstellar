@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { getBlogCategory } from "@/lib/content/blog";
+import { getBlogCategory, getBlogCategoryWithAllPosts } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
 import JsonLd from "@/components/seo/json-ld";
@@ -30,7 +30,8 @@ export async function generateMetadata({ params }) {
 export default async function CategoryPage({ params }) {
   const { slug } = await params;
 
-  const { category, categories } = await getBlogCategory(slug, 1);
+  // Every post, not just page 1 — all of them go into the HTML.
+  const { category, categories } = await getBlogCategoryWithAllPosts(slug);
 
   if (!category) notFound();
 

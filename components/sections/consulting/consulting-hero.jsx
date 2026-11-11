@@ -3,6 +3,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import Breadcrumbs from "@/components/common/breadcrumbs";
+import RichHeading from "@/components/common/rich-heading";
 import HeroMeta from "@/components/common/hero-meta";
 import CtaButton from "@/components/common/cta-button";
 import SkillMatrix from "./skill-matrix";
@@ -41,6 +42,7 @@ export default function ConsultingHero({
   customWeight,
   customColor,
   rightSideComponent,
+  taglineInHeading = false,
   className,
 }) {
   if (!data) return null;
@@ -92,11 +94,16 @@ export default function ConsultingHero({
     >
       {/* From 1180px the banner photo fills the hero behind the copy, anchored
           right so the people stay in frame, with a paper fade on the left for
-          the copy's contrast. Narrower, the copy would run over the people. */}
+          the copy's contrast. Narrower, the copy would run over the people.
+          Up to 1300px (a 1920 screen at 150% zoom, ~1280px) the whole photo
+          shifts 5% right (its right edge runs off screen, the section clips
+          it), so the monitor starts where the copy ends and all three people
+          stay in frame; the fade holds solid paper a little longer there.
+          Wider screens keep the photo exactly as designed. */}
       {banner ? (
         <Box
           aria-hidden="true"
-          className="absolute inset-0 -z-10 hidden bg-linear-to-r from-[#f8f7f4] from-30% via-[#f8f7f4]/70 via-50% to-transparent to-70% min-[1180px]:block"
+          className="absolute inset-0 -z-10 hidden bg-linear-to-r from-[#f8f7f4] from-30% via-[#f8f7f4]/70 via-50% to-transparent to-70% min-[1180px]:block max-[1300px]:from-35% max-[1300px]:via-55% max-[1300px]:to-75%"
         />
       ) : null}
       <Box>
@@ -109,12 +116,27 @@ export default function ConsultingHero({
           {/* Left Side Content */}
           <Box className={cn("min-w-0", banner && "min-[1180px]:max-w-[48%]")}>
             <Reveal>
-              <Text as="h1">
-                {left.title}
-              </Text>
+              {/* `taglineInHeading` (the coaching pages): the tagline is the
+                  H1's italic accent — "Team coaching, <em>run on Meridian.</em>"
+                  — not a line of its own. Without a tagline, the title alone. */}
+              {taglineInHeading ? (
+                <RichHeading
+                  as="h1"
+                  heading={
+                    left.tagline
+                      ? `${left.title} <span>${left.tagline}</span>`
+                      : left.title
+                  }
+                  emphasisClassName="font-normal"
+                />
+              ) : (
+                <Text as="h1">
+                  {left.title}
+                </Text>
+              )}
             </Reveal>
 
-            {left.tagline && (
+            {left.tagline && !taglineInHeading && (
               <Reveal delay={1}>
               <Text
                 as="p"
@@ -244,7 +266,7 @@ export default function ConsultingHero({
             height={860}
             loading="eager"
             fetchPriority="high"
-            className="absolute inset-0 -z-20 hidden size-full object-cover object-right min-[1180px]:block"
+            className="absolute inset-0 -z-20 hidden size-full object-cover object-right min-[1180px]:block max-[1300px]:translate-x-[5%]"
           />
         </picture>
       ) : null}

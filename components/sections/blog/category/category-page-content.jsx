@@ -22,6 +22,7 @@ export default function CategoryPageContent({ category, slug, categories }) {
           identifier={slug}
           initialPosts={category.blogs?.data || []}
           initialPagination={category.blogs?.pagination}
+          allPostsInHtml
           fetchAction={fetchCategoryPosts}
           categories={categories}
           paginationLabel="Category articles pagination"

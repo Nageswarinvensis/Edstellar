@@ -17,11 +17,13 @@ import { cn } from "@/lib/utils";
  *
  * Every type pill is a tab with its own panel, and every panel is in the
  * server HTML (inactive ones `hidden`), so each tab's resources are in the
- * page source — not only the "All" tab's. Within a panel, pagination stays
- * client-side: a panel renders one page of cards (its first page in the
- * server HTML), because rendering all 500+ cards up front made the page
- * ~2.7 MB. The full list comes in as data, so filtering and paging need no
- * request.
+ * page source — not only the "All" tab's. Pagination is client-side: the
+ * active panel renders its whole list with cards off the current page
+ * `hidden` (Nov 2026, so every resource link is in the page source), and
+ * inactive panels render their first page. An earlier version rendered every
+ * card in EVERY panel and made the page ~2.7 MB; rendering the full list
+ * once, in "All", avoids that duplication. The full list comes in as data,
+ * so filtering and paging need no request.
  *
  * A link to `#type-{key}` (the hero's "In the library" rows) or
  * `?tab={key}` (the header menu's links, e.g. `?tab=webinars`) opens that
@@ -180,9 +182,14 @@ export default function HubLibrary({ data, sectionId }) {
       {types.map((t) => {
         const active = t.key === type;
         const list = lists[t.key] ?? [];
-        // The active tab shows its current page; the others their first.
-        const at = active ? current : 1;
-        const shown = list.slice((at - 1) * pageSize, at * pageSize);
+        // The active tab renders its WHOLE list, cards off the current page
+        // `hidden`, so the page source carries every resource link (the
+        // server renders "All" active — TASTE.md §2.5). Inactive tabs render
+        // only their first page: their items are already in "All", and
+        // rendering every tab in full would put each card in the HTML twice.
+        const shown = active ? list : list.slice(0, pageSize);
+        const isOnPage = (position) =>
+          !active || (position >= (current - 1) * pageSize && position < current * pageSize);
         return (
           <Box
             key={t.key}
@@ -192,8 +199,8 @@ export default function HubLibrary({ data, sectionId }) {
             hidden={!active}
           >
             <Box className="grid gap-5.5 min-[601px]:grid-cols-2 min-[961px]:grid-cols-3">
-              {shown.map(({ item, index }) => (
-                <ResourceCard key={`${index}-${item.title}`} item={item} />
+              {shown.map(({ item, index }, position) => (
+                <ResourceCard key={`${index}-${item.title}`} item={item} hidden={!isOnPage(position)} />
               ))}
             </Box>
             {!list.length ? (

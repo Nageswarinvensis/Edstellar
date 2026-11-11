@@ -1681,7 +1681,7 @@ button{font:inherit;color:inherit}
 .o3-next-b .nb-route{padding:30px 24px 26px;border-bottom:1px solid var(--rule-strong)}
 .o3-next-b .nb-wps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
 .o3-next-b .nb-wps li{position:relative;min-width:0}
-.o3-next-b .nb-wps a{position:relative;z-index:1;display:grid;grid-template-rows:18px 30px auto;justify-items:center;gap:8px;text-align:center;text-decoration:none;color:var(--muted);padding:6px 4px 8px;border-radius:8px;transition:background .2s,color .2s}
+.o3-next-b .nb-wps a,.o3-next-b .nb-wps .nb-wp{position:relative;z-index:1;display:grid;grid-template-rows:18px 30px auto;justify-items:center;gap:8px;text-align:center;text-decoration:none;color:var(--muted);padding:6px 4px 8px;border-radius:8px;transition:background .2s,color .2s}
 .o3-next-b .nb-wps a:hover{background:color-mix(in srgb,var(--periwinkle) 60%,transparent);color:var(--ink)}
 .o3-next-b .nb-id{font-family:var(--mono);font-size:11px;letter-spacing:.12em;align-self:end}
 .o3-next-b .nb-nm{font-size:13.5px;line-height:1.3;font-weight:500;color:var(--ink);max-width:16ch}
@@ -1695,7 +1695,7 @@ button{font:inherit;color:inherit}
 .o3-next-b .nb-wps .act::before{transition-delay:.35s}
 .o3-next-b.is-on .nb-wps .done::after,.o3-next-b.is-on .nb-wps .act::before{transform:scaleX(1)}
 .o3-next-b .nb-wps .done .nb-sym{background:var(--indigo-900)}
-.o3-next-b .nb-wps .act a{color:var(--coral-ink)}
+.o3-next-b .nb-wps .act a,.o3-next-b .nb-wps .act .nb-wp{color:var(--coral-ink)}
 .o3-next-b .nb-wps .act .nb-nm{font-weight:700}
 .o3-next-b .nb-wps .act .nb-sym{width:18px;height:18px;border-color:var(--coral);background:var(--coral);box-shadow:0 0 0 4px var(--white),0 0 0 5.5px var(--coral)}
 .o3-next-b .nb-here{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px;font-weight:400}
@@ -1727,7 +1727,7 @@ button{font:inherit;color:inherit}
   .o3-next-b .nb-tb{padding:11px 16px}
   .o3-next-b .nb-route{padding:14px 12px 14px}
   .o3-next-b .nb-wps{grid-template-columns:1fr}
-  .o3-next-b .nb-wps a{grid-template-rows:none;grid-template-columns:56px 32px minmax(0,1fr);justify-items:start;align-items:center;text-align:left;gap:0 8px;padding:8px 8px;min-height:48px}
+  .o3-next-b .nb-wps a,.o3-next-b .nb-wps .nb-wp{grid-template-rows:none;grid-template-columns:56px 32px minmax(0,1fr);justify-items:start;align-items:center;text-align:left;gap:0 8px;padding:8px 8px;min-height:48px}
   .o3-next-b .nb-id{align-self:center}
   .o3-next-b .nb-sym{justify-self:center}
   .o3-next-b .nb-nm{max-width:none}
@@ -4661,12 +4661,12 @@ s.querySelectorAll('[role=tab]').forEach(function(t){var p=document.getElementBy
       <nav class="nb-route" aria-label="TNA/TNI Engine pages, in reading order">
         <ol class="nb-wps">
           <li class="done"><a href="https://www.edstellar.com/platforms/tna-tni-engine" aria-current="page"><span class="nb-id">WPT 01</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">Overview<span class="nb-here">You are here</span></span></a></li>
-          <li class="act"><a href="https://www.edstellar.com/platforms/tna-tni-engine/how-it-works"><span class="nb-id">WPT 02</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">How it works<span class="nb-here">Next</span></span></a></li>
-          <li><a href="https://www.edstellar.com/platforms/tna-tni-engine/evidence-and-assessment"><span class="nb-id">WPT 03</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">Evidence and assessment</span></a></li>
-          <li><a href="https://www.edstellar.com/platforms/tna-tni-engine/gap-analysis-and-reports"><span class="nb-id">WPT 04</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">Gap analysis and reports</span></a></li>
-          <li><a href="https://www.edstellar.com/platforms/tna-tni-engine/training-plans-and-calendar"><span class="nb-id">WPT 05</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">Training plans and calendar</span></a></li>
-          <li><a href="https://www.edstellar.com/platforms/tna-tni-engine/ai"><span class="nb-id">WPT 06</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">AI in the Engine</span></a></li>
-          <li><a href="https://www.edstellar.com/platforms/tna-tni-engine/security-and-integrations"><span class="nb-id">WPT 07</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">Security and integrations</span></a></li>
+          <li class="act"><span class="nb-wp"><span class="nb-id">WPT 02</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">How it works<span class="nb-here">Next</span></span></span></li>
+          <li><span class="nb-wp"><span class="nb-id">WPT 03</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">Evidence and assessment</span></span></li>
+          <li><span class="nb-wp"><span class="nb-id">WPT 04</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">Gap analysis and reports</span></span></li>
+          <li><span class="nb-wp"><span class="nb-id">WPT 05</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">Training plans and calendar</span></span></li>
+          <li><span class="nb-wp"><span class="nb-id">WPT 06</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">AI in the Engine</span></span></li>
+          <li><span class="nb-wp"><span class="nb-id">WPT 07</span><span class="nb-sym" aria-hidden="true"></span><span class="nb-nm">Security and integrations</span></span></li>
         </ol>
       </nav>
       <div class="nb-low">
@@ -4674,7 +4674,6 @@ s.querySelectorAll('[role=tab]').forEach(function(t){var p=document.getElementBy
           <p class="nb-big" aria-hidden="true">WPT<b>02</b></p>
           <h3>How the TNA/TNI Engine works</h3>
           <p>All fifteen stages, the quality gates between them, setup, data cleanup and the competency framework.</p>
-          <a class="btn btn-primary" href="https://www.edstellar.com/platforms/tna-tni-engine/how-it-works">Read how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
         <dl class="nb-tblk">
           <div><dt>From</dt><dd><span class="m">01</span> Overview</dd></div>

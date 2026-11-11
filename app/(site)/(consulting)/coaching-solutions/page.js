@@ -15,7 +15,7 @@ import StickyFooter from "@/components/common/sticky-footer";
 import BrochureGate from "@/components/common/brochure-gate";
 import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 
-import CoachingHero from "@/components/sections/coaching/coaching-hero";
+import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import CoachingPaths from "@/components/sections/coaching/coaching-paths";
 import CoachingCtaBand from "@/components/sections/coaching/coaching-cta-band";
 import CoachingBenefits from "@/components/sections/coaching/coaching-benefits";
@@ -107,7 +107,7 @@ export default async function CoachingSolutionsPage() {
         <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
       ))}
 
-      <CoachingHero cms={page.consulting_Hero} breadcrumbs={breadcrumbs} />
+      <ConsultingHero data={page.consulting_Hero} breadcrumbItems={breadcrumbs} taglineInHeading />
       <ProofStats data={page.generalProof} />
       <ClientLogos />
       <StickyTabs data={page.stickyNavbar} />

@@ -47,6 +47,7 @@ These URLs are the public contract. They are load-bearing for SEO — **never ch
 /learning-development-templates · /templates/{slug}         Live URLs; /resources/templates/{slug} → 301
 /case-studies                · /case-study/{slug}          Live-site URLs, kept as-is
 /blog                        · /blog/{slug}
+/blog/page/{n}                                          Blog index pages 2+ (§2.5)
 /blog/category/{slug}        · /blog/author/{slug}
 /trainer/{slug}                                         Profiles only — no /trainer listing
 /about-us  /contact-us  /skill-based-organization
@@ -116,6 +117,7 @@ app/
 │   │
 │   ├── blog/
 │   │   ├── page.js
+│   │   ├── page/[n]/page.js               listing pages 2+
 │   │   ├── [slug]/page.js
 │   │   ├── category/[slug]/page.js
 │   │   └── author/[slug]/page.js
@@ -185,7 +187,7 @@ Every page is either fully static (SSG) or statically generated with periodic re
 | `/corporate-training/{domain}/{course}`       | CMS            | **SSG — top N** + ISR tail  | `3600`       |
 | Consulting pillar pages                       | Hardcoded      | Pure SSG                    | —            |
 | Consulting `/{slug}` sub-services             | Content layer  | **SSG + ISR**               | `3600`       |
-| `/blog`, `/blog/{slug}`, category, author     | CMS            | **ISR — none at build**: each page renders on its first request, then is cached | `/blog`, post `86400`; category, author `300` |
+| `/blog`, `/blog/{slug}`, category, author, `/blog/page/{n}` | CMS | **ISR — none at build**: each page renders on its first request, then is cached | `/blog`, post `86400`; category, author `300` |
 | `/trainer/{slug}` (no listing page)           | CMS            | **SSG + ISR**               | `3600`       |
 | `/case-studies`, `/case-study/{slug}`         | Content layer  | Pure SSG — all              | —            |
 | Company + legal pages                         | Hardcoded      | Pure SSG                    | —            |
@@ -224,6 +226,15 @@ Industry, vendor and domain pages all list courses with filters and pagination. 
 - **The page is a Server Component and passes the full course list down as props.** It never reads `searchParams`.
 - **The catalog is a client leaf reading `useSearchParams()`.** This is the entire reason the distinction exists: `useSearchParams` in a leaf keeps the route static, while `searchParams` on the page makes it dynamic.
 - **The canonical URL is always the unfiltered one.** A filtered or paginated view must never self-canonicalise.
+
+**Every listed item must be in the page source.** Two patterns, chosen by size:
+
+- **All pages in one URL, off-page cards `hidden`** — domain course catalogs (`components/sections/domain/program.jsx`), **blog category pages** (1–78 posts), **blog author pages**, the **L&D templates grid** and the **L&D resources library** (537 cards, rendered in full once, in the "All" tab only — not per tab) (`getBlogCategoryWithAllPosts` / `getBlogAuthorWithAllPosts` walk the CMS pages, `BlogPostsPanel allPostsInHtml`). Paging only toggles visibility; the URL never changes and there are no `/page/{n}` URLs (team decision, Nov 2026).
+- **Real page URLs** — the **blog index** only (437 posts, 37 pages in Nov 2026; too many to render hidden, and growing): pages 2+ at `/blog/page/{n}`. Rules for those:
+
+- **Each `/blog/page/{n}` (n ≥ 2) is its own ISR page with a self-referencing canonical and `robots: noindex, follow`** — never canonicalised to page 1. `noindex, follow` is the team's decision (Nov 2026): the archive pages stay out of search results while their links are still followed. Known trade-off: Google has said a long-standing `noindex` is eventually treated as `nofollow` too, so the sitemap remains the backstop for old posts. `/blog` stays indexable. Title and description carry the page number.
+- **Pagination controls are `<a href>`s in the HTML**, so crawlers walk 1 → 2 → … → last and reach every post — but a plain click is intercepted and swaps the posts in place (Server Action, no page navigation) while `history.pushState` keeps the address bar on `/…/page/{n}`; Back/Forward swap in place too. Search stays client-side with no URL; while a search is active its pagination is buttons, since search results are not pages. Implementation: `components/sections/blog/common/blog-posts-panel.jsx`.
+- **`/…/page/1` 301s to the listing; a non-number or a page past `last_page` 404s — in `middleware.js`**, not only in the page, because a `notFound()` render under ISR is cached for good and would keep a page 404 after the blog grows into it. A stray `?page=N` 301s to `/blog/page/N` on the index, and to the bare URL on category and author pages.
 
 ```
 components/sections/catalog/

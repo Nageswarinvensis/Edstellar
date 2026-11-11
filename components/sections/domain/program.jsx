@@ -172,7 +172,7 @@ function Duration({ duration, data }) {
   );
 }
 
-function CourseCard({ course, data }) {
+function CourseCard({ course, data, hidden }) {
   const cardData = data.catalog.card;
 
   const cardClasses = [
@@ -187,7 +187,7 @@ function CourseCard({ course, data }) {
   ].join(" ");
 
   return (
-    <Box className={cardClasses}>
+    <Box className={cardClasses} hidden={hidden}>
       <Box className="flex min-h-35 flex-1 flex-col px-4 py-4">
         {course.proposed ? null : (
           <DeliveryBadge delivery={course.delivery ?? data.defaultDelivery} data={data} />
@@ -563,11 +563,13 @@ export default function Program({ data, courses: cmsCourses }) {
 
   const safeCurrentPage = Math.min(currentPage, totalPages);
 
-  const paginatedCourses = useMemo(() => {
-    const start = (safeCurrentPage - 1) * COURSES_PER_PAGE;
-
-    return filteredCourses.slice(start, start + COURSES_PER_PAGE);
-  }, [filteredCourses, safeCurrentPage]);
+  // Every page's cards are rendered, not just the current page's: the cards
+  // off the current page get `hidden`. That puts pages 2, 3, 4… in the server
+  // HTML, so crawlers reading the page source see every course link, and
+  // paging only toggles visibility.
+  const pageStart = (safeCurrentPage - 1) * COURSES_PER_PAGE;
+  const isOnPage = (index) =>
+    index >= pageStart && index < pageStart + COURSES_PER_PAGE;
 
   const handleDisciplineChange = (discipline) => {
     setSelectedDiscipline(discipline);
@@ -794,10 +796,15 @@ export default function Program({ data, courses: cmsCourses }) {
         </Box>
 
         {/* ================= COURSES ================= */}
-        {paginatedCourses.length > 0 ? (
+        {filteredCourses.length > 0 ? (
           <Box className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {paginatedCourses.map((course) => (
-              <CourseCard key={course.id} course={course} data={data} />
+            {filteredCourses.map((course, index) => (
+              <CourseCard
+                key={course.id}
+                course={course}
+                data={data}
+                hidden={!isOnPage(index)}
+              />
             ))}
           </Box>
         ) : (

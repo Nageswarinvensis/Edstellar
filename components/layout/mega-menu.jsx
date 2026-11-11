@@ -88,6 +88,8 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
       ) : link.anchor ? (
         <a
           href={link.href}
+          target="_blank"
+          rel="noopener"
           title={linkTitle(link)}
           onClick={onNavigate}
           onMouseEnter={() => onPreview(link)}
@@ -102,6 +104,8 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
       ) : (
         <Link
           href={link.href}
+          target="_blank"
+          rel="noopener"
           title={linkTitle(link)}
           onClick={onNavigate}
           onMouseEnter={() => onPreview(link)}
@@ -145,6 +149,8 @@ function PanelGroup({ group, first, activeKey, onNavigate, onPreview }) {
       {group.more && (
         <Link
           href={group.more.href}
+          target="_blank"
+          rel="noopener"
           title={linkTitle(group.more)}
           onClick={onNavigate}
           className="mt-3.5 inline-flex w-fit max-w-full items-center gap-2 py-1 text-[14px] leading-[1.45] font-semibold text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4"
@@ -175,6 +181,8 @@ function Preview({ pv, ctaHref, ctaTitle }) {
         <Box className="mt-0.5 border-t border-ink/12 pt-3.5">
           <Link
             href={ctaHref}
+            target="_blank"
+            rel="noopener"
             title={ctaTitle || `Click Here to View ${pv.b || "View page"}`}
             className="inline-flex items-center gap-1.5 rounded-full border border-navy px-3.5 py-2 text-[13px] font-semibold leading-none text-navy whitespace-nowrap transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(10,22,40,0.07),0_4px_12px_rgba(10,22,40,0.07)]"
           >
@@ -346,6 +354,8 @@ export default function MegaMenu({ onOpenBrief }) {
           <li className="flex">
             <Link
               href="/contact-us"
+              target="_blank"
+              rel="noopener"
               title="Click here to view Edstellar's contact details"
               onMouseEnter={close}
               onFocus={close}
@@ -404,6 +414,8 @@ export default function MegaMenu({ onOpenBrief }) {
                   <Box className="mt-6 border-t border-ink/12 pt-4">
                     <Link
                       href={item.foot.href}
+                      target="_blank"
+                      rel="noopener"
                       title={linkTitle(item.foot)}
                       onClick={close}
                       className="inline-flex items-center gap-2 text-[14px] font-semibold text-navy transition-transform duration-200 hover:translate-x-[3px] hover:underline hover:underline-offset-4"

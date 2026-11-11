@@ -24,11 +24,15 @@ function linkProps(cta, newTab = false) {
  * page.
  *
  * Design: Learning_Development_Resources / _Templates `.card`.
+ *
+ * `hidden` marks a card rendered for crawlers but not on the current page
+ * (its image is lazy, so it is not downloaded until the card is shown).
  */
-export default function ResourceCard({ item, linkTitle = false, ctaNewTab = false }) {
+export default function ResourceCard({ item, linkTitle = false, ctaNewTab = false, hidden }) {
   return (
     <Box
       as="article"
+      hidden={hidden}
       className="group flex flex-col overflow-hidden rounded-[18px] border border-ink/12 bg-white transition-[transform,box-shadow,border-color] duration-250 hover:-translate-y-1.5 hover:border-ink/22 hover:shadow-[0_26px_54px_-30px_rgba(10,22,40,0.45)]"
     >
       <Box className="aspect-video overflow-hidden border-b border-ink/12 bg-paper-warm">

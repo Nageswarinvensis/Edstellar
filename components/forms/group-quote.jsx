@@ -1063,7 +1063,10 @@ export default function GroupQuote({
       </Reveal>
 
       <Reveal delay={2}>
-        <Box className="mt-12 border-t border-ink/10 pt-9 lg:mt-14">
+        <Box
+          id="pricing"
+          className="mt-12 scroll-mt-24 border-t border-ink/10 pt-9 lg:mt-14"
+        >
           <Text
             as="h3"
             className="mb-2.5 max-w-[26ch] font-display text-[clamp(19px,2vw,24px)] font-medium leading-[1.25] tracking-[-0.025em] text-ink"

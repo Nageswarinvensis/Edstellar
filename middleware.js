@@ -148,10 +148,58 @@ function cmsMissingIs404(pathname) {
   return /^blog\/(?!author\/|category\/)[^/]+$/.test(slug);
 }
 
-/** Blog listings whose pagination swaps posts in place on the client
- * (components/sections/blog/common/blog-posts.jsx), so their URL never
- * carries a page number. */
+/** Blog listings. Their page number is never a query string: the index puts
+ * pages 2+ at `/blog/page/{n}` (TASTE.md §2.5); category pages render every
+ * post into one URL, and so do author pages. */
 const BLOG_LISTING = /^\/blog(\/(author|category)\/[^/]+)?\/?$/;
+
+/** A blog index listing page, `/blog/page/{n}`. Captures the raw page
+ * segment. */
+const BLOG_LISTING_PAGE = /^\/blog\/page\/([^/]+)\/?$/;
+
+/** Rewrites to the site's 404 page with a real 404 status — the target
+ * matches no route. */
+function notFoundResponse(request) {
+  return withNoindexOnPreview(
+    NextResponse.rewrite(new URL("/__not-found", request.url), { status: 404 })
+  );
+}
+
+/**
+ * Guards a listing page URL before the page cache can answer: `/page/1` 301s
+ * to the listing, a non-number 404s, and so does a page past the CMS's
+ * `last_page`. Checked here, not only in the page, because a `notFound()`
+ * render under ISR is cached for good — `/blog/page/38` hit once today
+ * would stay a 404 after the blog grew into it.
+ */
+async function guardListingPage(request, rawPage) {
+  const listingPath = "/blog";
+
+  if (!/^[1-9]\d*$/.test(rawPage)) return notFoundResponse(request);
+  if (rawPage === "1") {
+    return withNoindexOnPreview(
+      NextResponse.redirect(new URL(listingPath, request.url), { status: 301 })
+    );
+  }
+
+  const cmsUrl = `${CMS_BASE}/api/v2/blog?page=${rawPage}`;
+
+  try {
+    const res = await fetch(cmsUrl, { headers: { Accept: "application/json" } });
+
+    if (res.status === 404) return notFoundResponse(request);
+    if (!res.ok) return withNoindexOnPreview(NextResponse.next());
+
+    const payload = await res.json();
+    const pagination = payload?.blogs?.pagination;
+    if (pagination && Number(rawPage) > pagination.last_page) {
+      return notFoundResponse(request);
+    }
+  } catch {
+    // CMS unreachable — fail open; the page has its own guard.
+  }
+  return withNoindexOnPreview(NextResponse.next());
+}
 
 /** Adds X-Robots-Tag: noindex to the response on non-production deployments so
  * Vercel preview URLs are never indexed even if robots.txt is bypassed. */
@@ -166,12 +214,26 @@ export async function middleware(request) {
   const { pathname, search } = request.nextUrl;
 
   // A stray `?page=` on a blog listing (an old link, a stale bookmark) goes
-  // back to the canonical URL. Done here, not in the page, because reading
-  // `searchParams` in a page makes it render on every request instead of ISR.
-  if (BLOG_LISTING.test(pathname) && request.nextUrl.searchParams.has("page")) {
+  // to the canonical URL: `/blog/page/{n}` on the index, which has page
+  // URLs, the bare listing otherwise (categories, authors). Done here, not in the page,
+  // because reading `searchParams` in a page makes it render on every
+  // request instead of ISR.
+  const pageParam = request.nextUrl.searchParams.get("page");
+  if (pageParam !== null && (BLOG_LISTING.test(pathname) || BLOG_LISTING_PAGE.test(pathname))) {
     const clean = request.nextUrl.clone();
     clean.searchParams.delete("page");
-    return withNoindexOnPreview(NextResponse.redirect(clean));
+    const listing = pathname.replace(/\/page\/[^/]+\/?$/, "").replace(/\/$/, "") || "/blog";
+    const hasPageUrls = listing === "/blog";
+    clean.pathname =
+      hasPageUrls && /^[1-9]\d*$/.test(pageParam) && pageParam !== "1"
+        ? `${listing}/page/${pageParam}`
+        : listing;
+    return withNoindexOnPreview(NextResponse.redirect(clean, { status: 301 }));
+  }
+
+  const listingPage = pathname.match(BLOG_LISTING_PAGE);
+  if (listingPage) {
+    return guardListingPage(request, listingPage[1]);
   }
 
   // Skip Next.js internals, static assets, and API routes.

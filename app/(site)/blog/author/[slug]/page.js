@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { getBlogAuthor } from "@/lib/content/blog";
+import { getBlogAuthor, getBlogAuthorWithAllPosts } from "@/lib/content/blog";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
 import JsonLd from "@/components/seo/json-ld";
@@ -39,7 +39,8 @@ export async function generateMetadata({ params }) {
 export default async function AuthorPage({ params }) {
   const { slug } = await params;
 
-  const { author, categories } = await getBlogAuthor(slug, 1);
+  // Every post, not just page 1 — all of them go into the HTML.
+  const { author, categories } = await getBlogAuthorWithAllPosts(slug);
 
   if (!author) notFound();
   const BASE = "https://www.edstellar.com";

@@ -4,7 +4,8 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/common/reveal";
-import { SERVICE_LINK_TITLES } from "@/lib/constants";
+import { RENAMED_SERVICE_PATHS, SERVICE_LINK_TITLES } from "@/lib/constants";
+
 export default function FromEdstellar({ data }) {
   if (!data?.items?.length) return null;
 
@@ -22,37 +23,43 @@ export default function FromEdstellar({ data }) {
 
         <Reveal delay={2}>
           <Box className="mt-6 grid grid-cols-1 border-l border-t border-[#D2CEC3] sm:grid-cols-2 lg:grid-cols-3">
-            {data.items.map((item, index) => (
-              <a
-                key={item.id || index}
-                href={item.href}
-                title={SERVICE_LINK_TITLES[item.href?.replace(/\/$/, "")]}
-                className="group relative block border-r border-b border-[#D2CEC3] p-5 lg:p-6 transition-colors duration-300 hover:bg-white"
-              >
-                <Box className="flex items-start justify-between gap-5">
-                  <Text
-                    as="h3"
-                    className="text-[16px] font-medium leading-[1.2] tracking-[-0.35px] text-ink"
-                  >
-                    {item.title}
-                  </Text>
-
-                  <Text
-                    as="span"
-                    className="shrink-0 pt-px text-[12px] font-normal text-ink-muted transition-transform duration-500 ease-out group-hover:translate-x-1.5"
-                  >
-                    →
-                  </Text>
-                </Box>
-
-                <Text
-                  as="p"
-                  className="mt-3 text-[14px] leading-[1.55] text-ink-muted"
+            {data.items.map((item, index) => {
+              const path = item.href?.replace(/\/$/, "");
+              const href = RENAMED_SERVICE_PATHS[path] ?? item.href;
+              return (
+                <a
+                  key={item.id || index}
+                  href={href}
+                  title={
+                    SERVICE_LINK_TITLES[RENAMED_SERVICE_PATHS[path] ?? path]
+                  }
+                  className="group relative block border-r border-b border-[#D2CEC3] p-5 lg:p-6 transition-colors duration-300 hover:bg-white"
                 >
-                  {item.description}
-                </Text>
-              </a>
-            ))}
+                  <Box className="flex items-start justify-between gap-5">
+                    <Text
+                      as="h3"
+                      className="text-[16px] font-medium leading-[1.2] tracking-[-0.35px] text-ink"
+                    >
+                      {item.title}
+                    </Text>
+
+                    <Text
+                      as="span"
+                      className="shrink-0 pt-px text-[12px] font-normal text-ink-muted transition-transform duration-500 ease-out group-hover:translate-x-1.5"
+                    >
+                      →
+                    </Text>
+                  </Box>
+
+                  <Text
+                    as="p"
+                    className="mt-3 text-[14px] leading-[1.55] text-ink-muted"
+                  >
+                    {item.description}
+                  </Text>
+                </a>
+              );
+            })}
           </Box>
         </Reveal>
       </Box>

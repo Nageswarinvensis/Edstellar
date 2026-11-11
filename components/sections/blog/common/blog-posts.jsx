@@ -35,31 +35,69 @@ function getPaginationRange(current, total) {
 
 /** Same pagination look as the domain page's course catalog
  * (components/sections/domain/program.jsx) — small square buttons, navy/lime
- * active state, always-visible prev/next arrows disabled at the edges. */
+ * active state, always-visible prev/next arrows disabled at the edges.
+ *
+ * With an `href` it is a real link in the HTML (blog listing pages are
+ * URLs — TASTE.md §2.5), so crawlers can follow it, but a plain click calls
+ * `onClick` like the button does; without one it is a button (search
+ * results, category and author pages). A disabled control is never a link. */
 function PaginationButton({
   disabled,
   active,
   onClick,
+  href,
   title,
   ariaLabel,
   children,
 }) {
+  const className = cn(
+    "flex h-8 w-8 items-center justify-center rounded-[7px] border transition-all duration-200",
+    active
+      ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
+      : "border-[#D7DADF] bg-white text-[#07182C]",
+    disabled
+      ? "cursor-not-allowed opacity-40"
+      : "cursor-pointer hover:border-[#07182C]",
+  );
+
+  // A real link for crawlers and for open-in-new-tab, but a plain click
+  // swaps the page in place through `onClick` — no navigation, no reload.
+  if (href && !disabled) {
+    return (
+      <a
+        href={href}
+        title={title}
+        aria-label={ariaLabel}
+        aria-current={active ? "page" : undefined}
+        className={className}
+        onClick={(event) => {
+          if (
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey
+          ) {
+            return;
+          }
+          event.preventDefault();
+          onClick();
+        }}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <button
       type="button"
       title={title}
       aria-label={ariaLabel}
+      aria-current={active ? "page" : undefined}
       disabled={disabled}
       onClick={onClick}
-      className={cn(
-        "flex h-8 w-8 items-center justify-center rounded-[7px] border transition-all duration-200",
-        active
-          ? "border-[#07182C] bg-[#07182C] text-[#B8F500]"
-          : "border-[#D7DADF] bg-white text-[#07182C]",
-        disabled
-          ? "cursor-not-allowed opacity-40"
-          : "cursor-pointer hover:border-[#07182C]",
-      )}
+      className={className}
     >
       {children}
     </button>
@@ -70,13 +108,17 @@ function PaginationButton({
  * Post grid + pagination — purely presentational. `BlogPostsPanel` (the
  * state owner, since the search box next to it needs the same
  * `posts`/`pagination` state) passes everything in and reacts to
- * `onPageChange`.
+ * `onPageChange` — or, when it passes `pageHref(n)`, the pagination is
+ * links to real page URLs instead. `isHidden(index)`, when passed, marks
+ * cards rendered for crawlers but not on the current page.
  */
 export default function BlogPosts({
   posts,
   pagination,
   isPending,
   onPageChange,
+  pageHref,
+  isHidden,
   paginationLabel = "Blog articles pagination",
   searchQuery = "",
   onClearSearch,
@@ -127,12 +169,18 @@ export default function BlogPosts({
               isAuthor ? (
                 // Staggered per card, by column, so a new page of results
                 // reveals in reading order.
-                <Reveal key={post.slug} delay={(index % 2) + 1} className="h-full">
+                <Reveal
+                  key={post.slug}
+                  delay={(index % 2) + 1}
+                  className="h-full"
+                  hidden={isHidden?.(index)}
+                >
                   <BlogPostCard post={post} />
                 </Reveal>
               ) : (
               <Box
                 key={post.slug}
+                hidden={isHidden?.(index)}
                 className="flex flex-col overflow-hidden rounded-lg bg-white shadow-[1px_4px_10px_rgba(0,0,0,0.06)]"
               >
                 {post.cover_image && (
@@ -213,7 +261,7 @@ export default function BlogPosts({
               <PaginationButton
                 disabled={isPending || pagination.current_page === 1}
                 onClick={() => onPageChange(pagination.current_page - 1)}
-               
+                href={pageHref?.(pagination.current_page - 1)}
                 ariaLabel="Go to previous page"
               >
                 <ChevronLeft size={14} strokeWidth={1.5} />
@@ -230,7 +278,8 @@ export default function BlogPosts({
                     active={n === pagination.current_page}
                     disabled={isPending}
                     onClick={() => onPageChange(n)}
-                   
+                    href={pageHref?.(n)}
+                    ariaLabel={`Go to page ${n}`}
                   >
                     {n}
                   </PaginationButton>
@@ -248,7 +297,7 @@ export default function BlogPosts({
                   isPending || pagination.current_page === pagination.last_page
                 }
                 onClick={() => onPageChange(pagination.current_page + 1)}
-               
+                href={pageHref?.(pagination.current_page + 1)}
                 ariaLabel="Go to next page"
               >
                 <ChevronRight size={14} strokeWidth={1.5} />

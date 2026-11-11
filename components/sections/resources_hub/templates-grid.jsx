@@ -8,8 +8,10 @@ import ResourcePager from "@/components/sections/resources_hub/resource-pager";
 
 /**
  * The templates grid: `data.page_size` cards a page with the shared
- * pagination. Only the current page is rendered (the first in the server
- * HTML); each card's title links to its template.
+ * pagination. Every card is rendered — those off the current page are
+ * `hidden` — so the page source carries every template link and paging only
+ * toggles visibility (TASTE.md §2.5). Each card's title links to its
+ * template.
  *
  * Design: Learning_Development_Templates `.cards`, `.pager`.
  */
@@ -20,7 +22,8 @@ export default function TemplatesGrid({ data }) {
   const topRef = useRef(null);
 
   const pages = Math.max(1, Math.ceil(items.length / pageSize));
-  const shown = items.slice((page - 1) * pageSize, page * pageSize);
+  const isOnPage = (index) =>
+    index >= (page - 1) * pageSize && index < page * pageSize;
 
   function goTo(next) {
     setPage(next);
@@ -30,8 +33,14 @@ export default function TemplatesGrid({ data }) {
   return (
     <>
       <Box ref={topRef} className="grid scroll-mt-24 gap-5.5 min-[601px]:grid-cols-2 min-[961px]:grid-cols-3">
-        {shown.map((item) => (
-          <ResourceCard key={item.title} item={item} linkTitle ctaNewTab />
+        {items.map((item, index) => (
+          <ResourceCard
+            key={item.title}
+            item={item}
+            linkTitle
+            ctaNewTab
+            hidden={!isOnPage(index)}
+          />
         ))}
       </Box>
       <ResourcePager current={page} pages={pages} onChange={goTo} />

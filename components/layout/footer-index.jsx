@@ -46,8 +46,8 @@ function FooterLink({ link, stage }) {
     </>
   );
   if (!link.href) return <span className={className}>{inner}</span>;
-  if (link.native) return <a href={link.href} title={link.title} className={className}>{inner}</a>;
-  return <Link href={link.href} title={link.title} className={className}>{inner}</Link>;
+  if (link.native) return <a href={link.href} title={link.title} target="_blank" rel="noopener" className={className}>{inner}</a>;
+  return <Link href={link.href} title={link.title} target="_blank" rel="noopener" className={className}>{inner}</Link>;
 }
 
 /** A link group: a native <details> so it collapses on phones without

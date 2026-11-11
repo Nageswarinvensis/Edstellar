@@ -167,7 +167,7 @@ export default function SiteFooter() {
           </Text>
           <Box as="nav" aria-label="Legal" className="flex flex-wrap items-center gap-x-5 gap-y-1">
             {FOOTER_LEGAL_LINKS.map((link) => (
-              <Link key={link.href} href={link.href} title={link.title} className="text-[14px] text-paper/[0.78] transition-colors duration-200 hover:text-paper">
+              <Link key={link.href} href={link.href} title={link.title} target="_blank" rel="noopener" className="text-[14px] text-paper/[0.78] transition-colors duration-200 hover:text-paper">
                 {link.label}
               </Link>
             ))}

@@ -17,9 +17,11 @@ export default function BlogMainPageContent({ posts, categories }) {
 
       <Section className="scroll-mt-24" id="blogs">
         <BlogPostsPanel
+          key={posts?.pagination?.current_page}
           identifier={null}
           initialPosts={posts?.data || []}
           initialPagination={posts?.pagination}
+          basePath="/blog"
           fetchAction={fetchMainPosts}
           categories={categories}
           paginationLabel="Blog articles pagination"

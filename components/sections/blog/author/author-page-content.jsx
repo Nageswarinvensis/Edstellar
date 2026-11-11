@@ -52,6 +52,7 @@ export default function AuthorPageContent({ author, slug, categories }) {
           initialPosts={author.blogs?.data || []}
           initialPagination={author.blogs?.pagination}
           fetchAction={fetchAuthorPosts}
+          allPostsInHtml
           categories={categories}
           paginationLabel="Author articles pagination"
           variant="author"

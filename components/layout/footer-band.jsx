@@ -67,7 +67,7 @@ export default function FooterBand() {
           {band.heading}
           <em className="font-serif font-normal text-ink">{band.emphasis}</em>
         </Text>
-        <CtaButton arrow render={<Link href={band.cta.href} title={band.cta.title} />} className="justify-self-start max-sm:w-full max-sm:justify-center">
+        <CtaButton arrow render={<Link href={band.cta.href} title={band.cta.title} target="_blank" rel="noopener" />} className="justify-self-start max-sm:w-full max-sm:justify-center">
           {band.cta.label}
         </CtaButton>
       </Box>

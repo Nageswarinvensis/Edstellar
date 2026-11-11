@@ -14,7 +14,7 @@ export const HOME = {
     "image": "/og/edstellar-og-v2.png"
   },
   "hero": {
-    "heading": "Capability Development Solutions for Global Enterprises",
+    "heading": "<span>Capability Development Solutions</span> for Companies Globally",
     "sub": "Edstellar helps global enterprises assess, develop, and scale workforce capabilities through consulting, talent assessments, leadership coaching, corporate training, and managed learning services. Operating across 100+ countries, our CapabilityOS™ platform enables organizations to measure, manage, and accelerate capability growth with precision and business impact.",
     "actions": [
       {

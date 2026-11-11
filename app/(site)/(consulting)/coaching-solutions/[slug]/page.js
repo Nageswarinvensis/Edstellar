@@ -22,7 +22,7 @@ import CoachingCta from "@/components/sections/coaching/coaching-cta";
 import CoachingProcess from "@/components/sections/coaching/coaching-process";
 import CoachingConfidentialCompare from "@/components/sections/coaching/coaching-confidential-compare";
 import CoachingWhy from "@/components/sections/coaching/coaching-why";
-import CoachingHero from "@/components/sections/coaching/coaching-hero";
+import ConsultingHero from "@/components/sections/consulting/consulting-hero";
 import CoachingWhoFor from "@/components/sections/coaching/coaching-who-for";
 import CoachingTracks from "@/components/sections/coaching/coaching-tracks";
 import CoachingRelated from "@/components/sections/coaching/coaching-related";
@@ -113,7 +113,7 @@ export default async function CoachingSubPage({ params }) {
       {nodes.map((node, i) => (
         <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
       ))}
-      <CoachingHero cms={page.consulting_Hero} />
+      <ConsultingHero data={page.consulting_Hero} breadcrumbItems={page.breadcrumbs?.items} taglineInHeading />
       <ProofStats data={PROOF_STATS} />
       <ClientLogos />
       <StickyTabs data={page.stickyNavbar} />
