@@ -58,7 +58,7 @@ const DEFAULT_SECTIONS = [
  * Pages with a local file carry their own `sections` instead.
  */
 const CMS_PAGE_SECTIONS = {
-  "learning-strategy-design": [
+  "learning-strategy": [
     "challengeData",
     "offeringData",
     "readinessData",

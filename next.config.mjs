@@ -42,7 +42,8 @@ const nextConfig = {
   },
   async redirects() {
     const moved = [
-      ["/training-needs-analysis", "/training-needs-analysis-solutions"],
+      ["/training-needs-analysis", "/training-needs-analysis-services"],
+      ["/training-needs-analysis-solutions", "/training-needs-analysis-services"],
       ["/coaching-services", "/coaching-solutions"],
       ["/terms-and-conditions", "/terms-conditions"],
       ["/managed-training-services", "/managed-learning-services/managed-training"],
@@ -58,8 +59,10 @@ const nextConfig = {
       ],
 
       ...[
-        ["learning-strategy-design-consulting", "learning-strategy-design"],
-        ["learning-content-development-services", "learning-content-development"],
+        ["learning-strategy-design-consulting", "learning-strategy"],
+        ["learning-strategy-design", "learning-strategy"],
+        ["learning-content-development-services", "learning-content-design-development"],
+        ["learning-content-development", "learning-content-design-development"],
         ["learning-technology-consulting", "learning-technology"],
       ].map(([from, to]) => [
         `/learning-development-consulting-services/${from}`,
@@ -70,7 +73,8 @@ const nextConfig = {
         ["dei-consulting", "diversity-equity-inclusion"],
         ["culture-transformation-consulting", "cultural-transformation"],
         ["employee-engagement-consulting", "employee-engagement"],
-        ["leadership-effectiveness-consulting", "leadership-effectiveness-planning"],
+        ["leadership-effectiveness-consulting", "leadership-effectiveness"],
+        ["leadership-effectiveness-planning", "leadership-effectiveness"],
         ["organization-design-consulting", "organization-design"],
         ["performance-management-consulting", "performance-management"],
         ["strategic-workforce-planning-consulting", "strategic-workforce-planning"],
@@ -87,6 +91,9 @@ const nextConfig = {
         ["behavioral-assessment-services", "behavioral-assessment"],
         ["team-effectiveness-assessment-services", "team-effectiveness-assessment"],
         ["organizational-alignment-consulting", "360-degree-feedback"],
+        ["cognitive-ability-assessment", "cognitive-ability-aptitude-testing"],
+        ["language-proficiency-assessment", "english-proficiency-assessment"],
+        ["skill-gap-competency-assessment", "skills-proficiency-assessment"],
       ].map(([from, to]) => [
         `/talent-assessment-services/${from}`,
         `/talent-assessment-services/${to}`,

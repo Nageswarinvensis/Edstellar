@@ -54,7 +54,7 @@ export const CATALOG_PAGE = {
     credential: { value: "ISO 9001 & 27001", label: "Certified" },
     prompt: "Not sure where to start?",
     actions: [
-      { icon: "target", label: "Start with a needs analysis", href: "/training-needs-analysis-solutions" },
+      { icon: "target", label: "Start with a needs analysis", href: "/training-needs-analysis-services" },
       { icon: "download", label: "Download the full catalog (PDF)", href: FULL_CATALOG_PDF },
     ],
   },

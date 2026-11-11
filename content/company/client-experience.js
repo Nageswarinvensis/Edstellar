@@ -63,7 +63,7 @@ export const CLIENT_EXPERIENCE = {
       {
         name: "Define",
         title: "Define the business and learning goals.",
-        text: "Share the target roles, current experience and the tasks people should perform after training. Edstellar turns these into clear learning priorities and success measures. When skill gaps are not yet clear, a [training needs analysis](/training-needs-analysis-solutions) identifies them first.",
+        text: "Share the target roles, current experience and the tasks people should perform after training. Edstellar turns these into clear learning priorities and success measures. When skill gaps are not yet clear, a [training needs analysis](/training-needs-analysis-services) identifies them first.",
         share: ["Target roles and teams", "Current experience levels", "Tasks people should perform after training"],
         csm: ["Runs the requirement conversation with your team", "Brings in a learning consultant", "Recommends a training needs analysis when gaps are unclear"],
         receive: ["Clear learning priorities", "Agreed success measures"],

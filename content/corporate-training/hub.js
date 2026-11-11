@@ -150,7 +150,7 @@ export const CORPORATE_TRAINING_HUB = {
         items: [
           { label: "Build AI capability across the workforce", tag: "AI Academy", href: null },
           { label: "Develop leaders at every level", tag: "Leadership Academy", href: null },
-          { label: "Find and prioritize skill gaps", tag: "TNA", href: "/training-needs-analysis-solutions" },
+          { label: "Find and prioritize skill gaps", tag: "TNA", href: "/training-needs-analysis-services" },
           { label: "Run training at scale", tag: "Managed Training", href: "/managed-learning-services/managed-training" },
           { label: "Support leaders one to one", tag: "Coaching", href: "/coaching-solutions" },
         ],
@@ -169,7 +169,7 @@ export const CORPORATE_TRAINING_HUB = {
         name: "Assess",
         tagline: "Find the capability gap",
         links: [
-          { label: "Training Needs Analysis", href: "/training-needs-analysis-solutions" },
+          { label: "Training Needs Analysis", href: "/training-needs-analysis-services" },
           { label: "Talent Assessments", href: "/talent-assessment-services" },
           { label: "Capability Intelligence Platform", href: null },
         ],
@@ -178,7 +178,7 @@ export const CORPORATE_TRAINING_HUB = {
         name: "Analyze",
         tagline: "Prioritize what matters",
         links: [
-          { label: "Skill Gap & Competency Benchmarking", href: "/talent-assessment-services/skill-gap-competency-assessment" },
+          { label: "Skill Gap & Competency Benchmarking", href: "/talent-assessment-services/skills-proficiency-assessment" },
           { label: "Learning & Development Consulting", href: "/learning-development-consulting-services" },
         ],
       },
@@ -186,8 +186,8 @@ export const CORPORATE_TRAINING_HUB = {
         name: "Architect",
         tagline: "Design the learning",
         links: [
-          { label: "Learning Strategy & Design", href: "/learning-development-consulting-services/learning-strategy-design" },
-          { label: "Learning Content Design & Development", href: "/learning-development-consulting-services/learning-content-development" },
+          { label: "Learning Strategy & Design", href: "/learning-development-consulting-services/learning-strategy" },
+          { label: "Learning Content Design & Development", href: "/learning-development-consulting-services/learning-content-design-development" },
           { label: "Edstellar Academies", href: null },
         ],
       },
@@ -223,7 +223,7 @@ export const CORPORATE_TRAINING_HUB = {
       {
         tab: "Define",
         title: "Define the Business and Learning Goals",
-        text: "Share the target roles, current experience, and the tasks people should perform after training. Edstellar turns these into clear learning priorities and success measures. When skill gaps are not yet clear, a [training needs analysis](/training-needs-analysis-solutions) identifies them first.",
+        text: "Share the target roles, current experience, and the tasks people should perform after training. Edstellar turns these into clear learning priorities and success measures. When skill gaps are not yet clear, a [training needs analysis](/training-needs-analysis-services) identifies them first.",
       },
       {
         tab: "Adapt",

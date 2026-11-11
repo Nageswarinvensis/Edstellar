@@ -26,7 +26,7 @@ import { consultingBrochure } from "@/lib/content/shape/consulting-brochure";
 
 export const revalidate = 300;
 
-const CMS_SLUG = "training-needs-analysis-solutions";
+const CMS_SLUG = "training-needs-analysis-services";
 
 export async function generateMetadata() {
   const tna = await getSitePage(CMS_SLUG);
@@ -40,7 +40,7 @@ export async function generateMetadata() {
   return buildMetadata({
     title,
     description: seo?.Meta_description,
-    path: "/training-needs-analysis-solutions",
+    path: "/training-needs-analysis-services",
     image: seo?.og_image_url,
   });
 }
@@ -52,10 +52,10 @@ export default async function TrainingNeedsAnalysisPage() {
   const BASE = "https://www.edstellar.com";
   const nodes = schemaNodes(tna.consultingSchema);
 
-  const pageUrl = `${BASE}/training-needs-analysis-solutions`;
+  const pageUrl = `${BASE}/training-needs-analysis-services`;
 
   return (
-    <BrochureGate {...consultingBrochure("training-needs-analysis-solutions")}>
+    <BrochureGate {...consultingBrochure("training-needs-analysis-services")}>
       {/* WebPage */}
       <JsonLd data={{
         "@context": "https://schema.org",

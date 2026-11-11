@@ -1826,7 +1826,7 @@ export const CLIENTS = {
         },
         {
           "label": "Training needs analysis",
-          "href": "/training-needs-analysis-solutions"
+          "href": "/training-needs-analysis-services"
         },
         {
           "label": "Talent assessments",

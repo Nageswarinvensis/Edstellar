@@ -76,7 +76,7 @@ export const RFP_PAGE = {
       { icon: "book", title: "Corporate training", text: "Instructor-led programs across 77 domains", href: "/corporate-training-catalog" },
       { icon: "compass", title: "L&D consulting", text: "Learning strategy, design and governance", href: "/learning-development-consulting-services" },
       { icon: "network", title: "OD consulting", text: "Structure, culture, leadership and change", href: "/organizational-development-consulting" },
-      { icon: "search", title: "Training needs analysis", text: "Skill gaps mapped and ranked by impact", href: "/training-needs-analysis-solutions" },
+      { icon: "search", title: "Training needs analysis", text: "Skill gaps mapped and ranked by impact", href: "/training-needs-analysis-services" },
       { icon: "target", title: "Talent assessments", text: "Psychometric, leadership, 360 and more", href: "/talent-assessment-services" },
       { icon: "chat", title: "Coaching", text: "Executive, leadership and team coaching", href: "/coaching-solutions" },
       { icon: "layers", title: "Managed training", text: "End-to-end training operations", href: "/managed-learning-services/managed-training" },

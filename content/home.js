@@ -410,7 +410,7 @@ export const HOME = {
           "Analyze the skill gaps through ",
           {
             "text": "training needs analysis",
-            "href": "/training-needs-analysis-solutions"
+            "href": "/training-needs-analysis-services"
           },
           " and ",
           {

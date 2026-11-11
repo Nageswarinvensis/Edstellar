@@ -15,7 +15,7 @@ const ENDS_WITH_FORM = [
   "/organizational-development-consulting",
   "/talent-assessment-services",
   "/coaching-solutions",
-  "/training-needs-analysis-solutions",
+  "/training-needs-analysis-services",
   "/managed-learning-services",
   "/about-us",
   "/exceptional-customer-experience",
