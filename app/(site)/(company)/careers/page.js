@@ -13,7 +13,7 @@ export function generateMetadata() {
   const { seo } = getCareersPage();
   // The design's title already carries its own brand suffix ("| Edstellar
   // Jobs"), so the root layout's `%s | Edstellar` template is bypassed.
-  return { ...buildMetadata(seo), title: { absolute: seo.title } };
+  return buildMetadata({ ...seo, absoluteTitle: true });
 }
 
 /**

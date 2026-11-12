@@ -129,6 +129,13 @@ export default function ConsultingHero({
                   }
                   emphasisClassName="font-normal"
                 />
+              ) : left.title?.includes("<span>") ? (
+                // Some CMS titles carry the `<span>` accent marker themselves
+                // ("Corporate coaching services, <span>run on Meridian.</span>");
+                // a raw render would show the tags as text. Only those go
+                // through `RichHeading` — it also rewrites " & " to " and ",
+                // which plain titles must not get.
+                <RichHeading as="h1" heading={left.title} emphasisClassName="font-normal" />
               ) : (
                 <Text as="h1">
                   {left.title}
@@ -140,7 +147,7 @@ export default function ConsultingHero({
               <Reveal delay={1}>
               <Text
                 as="p"
-                className="mt-4 max-w-[34ch] font-serif text-[clamp(18px,1.8vw,22px)] font-normal italic leading-[1.3] text-ink"
+                className="mt-4 font-serif text-[clamp(18px,1.8vw,22px)] font-normal italic leading-[1.3] text-ink"
               >
                 {left.tagline}
               </Text>

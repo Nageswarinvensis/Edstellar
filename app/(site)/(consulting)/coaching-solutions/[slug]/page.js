@@ -113,7 +113,7 @@ export default async function CoachingSubPage({ params }) {
       {nodes.map((node, i) => (
         <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
       ))}
-      <ConsultingHero data={page.consulting_Hero} breadcrumbItems={page.breadcrumbs?.items} taglineInHeading />
+      <ConsultingHero data={page.consulting_Hero} breadcrumbItems={page.breadcrumbs?.items} />
       <ProofStats data={PROOF_STATS} />
       <ClientLogos />
       <StickyTabs data={page.stickyNavbar} />

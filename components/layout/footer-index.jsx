@@ -38,12 +38,22 @@ function FooterLink({ link, stage }) {
     stage && (hit ? "text-lime" : "text-paper/55"),
     link.href && "group/all transition-colors duration-200 hover:text-paper",
   );
-  const inner = (
+  const label = (
     <>
       {hit ? <span aria-hidden="true" className="mr-2 inline-block size-1.5 flex-none rounded-full bg-lime align-middle" /> : null}
       {link.label}
       {link.all ? <ArrowSmall /> : null}
     </>
+  );
+  // `desc`: a short description after the name on the same line (the
+  // platforms and tools: "Orbit - 360-degree feedback"), in a lighter tone.
+  const inner = link.desc ? (
+    <span>
+      {label}
+      <span className="text-[12.5px] text-paper/[0.62]"> - {link.desc}</span>
+    </span>
+  ) : (
+    label
   );
   if (!link.href) return <span className={className}>{inner}</span>;
   if (link.native) return <a href={link.href} title={link.title} target="_blank" rel="noopener" className={className}>{inner}</a>;
@@ -73,7 +83,7 @@ function Group({ group, stage, open, onToggle }) {
             <Box as="li" key={link.sub ?? `sub-${index}`} className="mt-4 first:mt-1.5">
               {/* A sub-list may have no label of its own (Platforms). */}
               {link.sub ? (
-                <Text as="span" className={cn("mb-1 block leading-[1.4]", link.subWhite ? "font-body text-[14px] font-medium text-paper" : "font-mono text-[11px] tracking-[0.16em] text-paper/60 uppercase")}>
+                <Text as="span" className={cn("mb-1 block", link.subWhite ? "font-body text-[14px] leading-[1.4] font-medium text-paper" : "font-serif text-[20px] leading-[1.2] font-semibold text-paper/70")}>
                   {link.sub}
                 </Text>
               ) : null}

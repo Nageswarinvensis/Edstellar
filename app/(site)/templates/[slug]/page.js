@@ -19,10 +19,12 @@ export async function generateMetadata({ params }) {
 
   // The SEO title carries its own suffix ("| No Signup Required"), so the
   // root layout's "| Edstellar" template is bypassed.
-  return {
-    ...buildMetadata({ ...template.seo, path: pathOf(slug), image: template.hero?.image?.src }),
-    title: { absolute: template.seo.title },
-  };
+  return buildMetadata({
+    ...template.seo,
+    path: pathOf(slug),
+    image: template.hero?.image?.src,
+    absoluteTitle: true,
+  });
 }
 
 /**

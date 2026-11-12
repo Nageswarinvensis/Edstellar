@@ -119,6 +119,7 @@ export async function generateMetadata({ params }) {
     description: blog.meta?.meta_description || blog.excerpt,
     path: `/blog/${blog.slug}`,
     image: blog.meta?.og_image || blog.cover_image,
+    twitterImage: blog.meta?.twitter_image,
     type: "article",
   });
 }

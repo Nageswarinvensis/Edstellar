@@ -107,7 +107,7 @@ export default async function CoachingSolutionsPage() {
         <JsonLd key={i} data={{ "@context": "https://schema.org", ...node }} />
       ))}
 
-      <ConsultingHero data={page.consulting_Hero} breadcrumbItems={breadcrumbs} taglineInHeading />
+      <ConsultingHero data={page.consulting_Hero} breadcrumbItems={breadcrumbs} />
       <ProofStats data={page.generalProof} />
       <ClientLogos />
       <StickyTabs data={page.stickyNavbar} />
