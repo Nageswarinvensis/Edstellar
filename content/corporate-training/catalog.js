@@ -34,8 +34,8 @@ export const CATALOG_PAGE = {
     description:
       "Browse 77 training domains and 2,000+ instructor-led programs in one place, from artificial intelligence and cloud computing to leadership, sales and compliance. Open any domain to see all of its courses and request a program tailored to your team.",
     meta: ["Instructor-led", "Onsite / virtual / blended", "10+ languages", "100+ countries"],
-    primary_cta: { label: "Browse the domains", href: "#catalog" },
-    secondary_cta: { label: "Request a quote", href: "#contact" },
+    primary_cta: { label: "Browse the domains", href: "#catalog", title: "Click here to browse the training domains" },
+    secondary_cta: { label: "Request a quote", href: "#contact", title: "Click here to request a training quote" },
     image: {
       src: "https://media.edstellar.com/website/Catelog-1.webp",
       alt: "Edstellar corporate training catalog of instructor-led programs",
@@ -54,8 +54,8 @@ export const CATALOG_PAGE = {
     credential: { value: "ISO 9001 & 27001", label: "Certified" },
     prompt: "Not sure where to start?",
     actions: [
-      { icon: "target", label: "Start with a needs analysis", href: "/training-needs-analysis-services" },
-      { icon: "download", label: "Download the full catalog (PDF)", href: FULL_CATALOG_PDF },
+      { icon: "target", label: "Start with a needs analysis", href: "/training-needs-analysis-services", title: "Click here to start with a training needs analysis" },
+      { icon: "download", label: "Download the full catalog (PDF)", href: FULL_CATALOG_PDF, title: "Click here to download the full training catalog" },
     ],
   },
 
@@ -69,7 +69,7 @@ export const CATALOG_PAGE = {
       heading: "No domains match your search.",
       text: "Try a broader topic, or tell Edstellar what your team needs. Programs can be tailored or designed around your goals.",
       reset: "Clear search",
-      cta: { label: "Request a custom program", href: "#contact" },
+      cta: { label: "Request a custom program", href: "#contact", title: "Click here to request a custom training program" },
     },
     domain_link: "View all {name} training",
   },
@@ -162,7 +162,7 @@ export const CATALOG_PAGE = {
           "Use the form on this page to share the domain or course, team size and preferred format. Edstellar responds with a tailored proposal.",
       },
     ],
-    closing: { text: "Still have a question about the catalog?", cta: { label: "Ask us directly", href: "#contact" } },
+    closing: { text: "Still have a question about the catalog?", cta: { label: "Ask us directly", href: "#contact", title: "Click here to ask us your question" } },
   },
 
   form: {
@@ -174,5 +174,6 @@ export const CATALOG_PAGE = {
       "Tell us about your team: domains or courses of interest, team size, timing, and the outcomes you are trying to move.",
     sla_note: "We reply within one business day with a scoped response, no automated sales sequence.",
     submit_label: "Request a quote",
+    submit_title: "Click here to request a training quote",
   },
 };

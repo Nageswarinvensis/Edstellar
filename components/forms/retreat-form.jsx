@@ -266,6 +266,7 @@ export default function RetreatForm({
                 type="submit"
                 arrow
                 disabled={isSubmitting}
+                title={data.submit_title}
                 className={cn("w-full sm:w-auto", ACCENT[accent])}
               >
                 {data.submit_label}

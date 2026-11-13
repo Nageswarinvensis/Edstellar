@@ -18,37 +18,44 @@ import { cn } from "@/lib/utils";
 const TOC_ITEMS = [
   {
     id: "curriculum",
-    label: "Course syllabus",
+    label: "Program Outline",
+    title: "Click here to view the program outline",
     has_modules: true,
   },
   {
     id: "skills",
-    label: "What You'll Learn",
+    label: "Learning Outcomes",
+    title: "Click here to view the learning outcomes",
     has_modules: false,
   },
   {
     id: "audience",
     label: "Who is it for",
+    title: "Click here to view who this program is for",
     has_modules: false,
   },
   {
     id: "certificate",
     label: "Certificate",
+    title: "Click here to view the certificate",
     has_modules: false,
   },
   {
     id: "delivery",
     label: "Delivery format",
+    title: "Click here to view the delivery format",
     has_modules: false,
   },
   {
     id: "trainers",
     label: "Industry experts",
+    title: "Click here to view the industry experts",
     has_modules: false,
   },
   {
     id: "faqs",
     label: "FAQs",
+    title: "Click here to view the FAQs",
     has_modules: false,
   },
 ];
@@ -58,6 +65,7 @@ const TOC_ITEMS = [
 const TOC_CTA = {
   label: "Request a Proposal",
   href: "#apply",
+  title: "Click here to request a proposal for your team",
   note: "A specialist replies within one business day.",
 };
 
@@ -263,7 +271,7 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
               key={item.id}
               data-section={item.id}
               href={`#${item.id}`}
-             
+              title={item.title}
               onClick={scrollToId(item.id, "start")}
               className={cn(
                 "flex-none rounded-full border px-3.25 py-1.75 font-mono text-[10.5px] tracking-[0.08em] whitespace-nowrap uppercase transition-colors duration-200",
@@ -302,7 +310,7 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
                   <Box
                     as="a"
                     href={`#${item.id}`}
-                   
+                    title={item.title}
                     onClick={scrollToId(item.id, "start")}
                     className={cn(
                       "flex items-baseline gap-2.5 rounded-[9px] border-l-2 px-3 py-2 transition-colors duration-200",
@@ -346,6 +354,7 @@ export default function PageToc({ toc, modules, hasTrainers, children }) {
                             <Box
                               as="a"
                               href={`#mod-${module.number}`}
+                              title={`Click here to view module ${module.number}: ${module.title}`}
                               data-mod={module.number}
                               onClick={scrollToId(
                                 `mod-${module.number}`,

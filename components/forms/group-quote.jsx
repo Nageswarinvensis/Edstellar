@@ -31,10 +31,15 @@ import { EMAIL_PATTERN, FREE_MAIL_DOMAINS } from "@/lib/constants";
 import { LICENSE_PACKAGES } from "@/content/group-quote-catalog";
 
 const TABS = [
-  { id: "one-time", label: "One-time training" },
-  { id: "multiple", label: "Multiple training" },
+  { id: "one-time", label: "One-time training", title: "Request a proposal for a one-time training program" },
+  { id: "multiple", label: "Multiple training", title: "Request a proposal for multiple or recurring training programs" },
 ];
 const TEAM_SIZE_OPTIONS = ["1-10", "11-25", "26-50", "51-100", "custom"];
+/** "26-50" → "Select a team size of 26 to 50 people". */
+const teamSizeTitle = (option) =>
+  option === "custom"
+    ? "Enter a custom team size"
+    : `Select a team size of ${option.replace("-", " to ")} people`;
 const SESSION_OPTIONS = ["2", "4", "8", "custom"];
 
 const SECTION_CTA = {
@@ -65,6 +70,9 @@ const CONTACT_FIELDS = [
   "phone",
   "needs",
 ];
+
+/** Step names for the "Go back to step N: …" titles. */
+const STEP_NAMES = { size: "Team size", programs: "Programs", frequency: "Training frequency" };
 
 function pathFor(mode) {
   return mode === "multiple"
@@ -346,6 +354,7 @@ export default function GroupQuote({
             <Box
               as="label"
               key={option}
+              title={teamSizeTitle(option)}
               className={cn(
                 "flex cursor-pointer items-center justify-center rounded-xl border px-4 py-4 text-center text-[14px] text-ink transition-colors duration-200",
                 teamSize === option
@@ -410,7 +419,12 @@ export default function GroupQuote({
           </Text>
         ) : null}
 
-        <WizardNav showBack={false} nextLabel="Next" onNext={handleNext} />
+        <WizardNav
+          showBack={false}
+          nextLabel="Next"
+          nextTitle="Continue to step 2 of your training RFP"
+          onNext={handleNext}
+        />
       </Box>
     );
   } else if (currentStep === "programs") {
@@ -427,6 +441,7 @@ export default function GroupQuote({
           <button
             type="button"
             onClick={() => setProgramMode("catalog")}
+            title="Choose training programs from the Edstellar catalog"
             className={cn(
               "rounded-full px-4.5 py-2 font-body text-[12.5px] font-semibold transition-colors duration-200",
               programMode === "catalog"
@@ -439,6 +454,7 @@ export default function GroupQuote({
           <button
             type="button"
             onClick={() => setProgramMode("upload")}
+            title="Upload your own list of required training programs"
             className={cn(
               "rounded-full px-4.5 py-2 font-body text-[12.5px] font-semibold transition-colors duration-200",
               programMode === "upload" ? "bg-navy text-lime" : "text-ink-muted",
@@ -460,6 +476,7 @@ export default function GroupQuote({
                 value={query}
                 onChange={(e) => handleSearchChange(e.target.value)}
                 placeholder="Search 2,000+ programs by name"
+                title="Search Edstellar’s catalog of 2,000+ training programs by name"
                 aria-label="Search programs"
                 className="w-full rounded-full border border-ink/15 bg-white py-2.75 pr-4 pl-9.5 text-[13.5px] text-ink outline-none transition-colors focus:border-navy"
               />
@@ -552,6 +569,7 @@ export default function GroupQuote({
                 Download the{" "}
                 <a
                   href="https://media.edstellar.com/website_assets/edstellar-training-requirement-template.xlsx"
+                  title="Click here to download the training requirement template"
                   className="text-ink underline underline-offset-3"
                 >
                   training requirement template
@@ -576,6 +594,7 @@ export default function GroupQuote({
                 Upload it below, or email it to{" "}
                 <a
                   href="mailto:contact@edstellar.com"
+                  title="Click here to email your training list to Edstellar"
                   className="text-ink underline underline-offset-3"
                 >
                   contact@edstellar.com
@@ -585,6 +604,7 @@ export default function GroupQuote({
 
             <Box
               as="label"
+              title="Click here to choose your training requirement file to upload"
               className="flex cursor-pointer flex-col items-center gap-1 rounded-xl border border-dashed border-ink/25 bg-paper-warm px-5 py-6.5 text-center transition-colors duration-200 hover:border-navy hover:bg-white"
             >
               <input
@@ -638,7 +658,13 @@ export default function GroupQuote({
           </Text>
         ) : null}
 
-        <WizardNav onBack={handleBack} onNext={handleNext} nextLabel="Next" />
+        <WizardNav
+          onBack={handleBack}
+          backTitle="Go back to step 1"
+          onNext={handleNext}
+          nextLabel="Next"
+          nextTitle="Continue to step 3 of your training RFP"
+        />
       </Box>
     );
   } else if (currentStep === "frequency") {
@@ -656,6 +682,11 @@ export default function GroupQuote({
             <Box
               as="label"
               key={option}
+              title={
+                option === "Recurring"
+                  ? "Select a recurring training program"
+                  : "Select a one-time training program"
+              }
               className={cn(
                 "flex cursor-pointer items-center justify-center rounded-xl border px-4 py-4 text-center text-[14.5px] text-ink transition-colors duration-200",
                 frequency === option
@@ -758,7 +789,13 @@ export default function GroupQuote({
           </Text>
         ) : null}
 
-        <WizardNav onBack={handleBack} onNext={handleNext} nextLabel="Next" />
+        <WizardNav
+          onBack={handleBack}
+          backTitle={`Go back to step ${stepIndex}: ${STEP_NAMES[path[stepIndex - 1]]}`}
+          onNext={handleNext}
+          nextLabel="Next"
+          nextTitle={`Continue to step ${stepIndex + 2} of your training RFP`}
+        />
       </Box>
     );
   } else {
@@ -958,7 +995,7 @@ export default function GroupQuote({
                   disabled={contactSubmitting}
                   title="Click here to request your training quote"
                 >
-                  {contactSubmitting ? "Submitting…" : "Request my quote"}
+                  {contactSubmitting ? "Submitting…" : "Request quote"}
                 </CtaButton>
               </Box>
             </Box>
@@ -1008,6 +1045,7 @@ export default function GroupQuote({
                 id={tabId(tab.id)}
                 type="button"
                 role="tab"
+                title={tab.title}
                 aria-selected={mode === tab.id}
                 aria-controls={panelId}
                 tabIndex={mode === tab.id ? 0 : -1}
@@ -1154,7 +1192,7 @@ export default function GroupQuote({
   );
 }
 
-function WizardNav({ onBack, onNext, nextLabel, showBack = true }) {
+function WizardNav({ onBack, backTitle, onNext, nextLabel, nextTitle, showBack = true }) {
   return (
     <Box className="mt-7 flex flex-col-reverse items-stretch justify-end gap-3 border-t border-ink/10 pt-5.5 sm:flex-row sm:items-center">
       {showBack ? (
@@ -1162,7 +1200,7 @@ function WizardNav({ onBack, onNext, nextLabel, showBack = true }) {
           type="button"
           variant="ghost"
           onClick={onBack}
-          title="Click here to go to the previous step"
+          title={backTitle ?? "Click here to go to the previous step"}
           className="sm:mr-auto"
         >
           <ArrowLeft size={15} strokeWidth={2.25} aria-hidden="true" />
@@ -1174,7 +1212,7 @@ function WizardNav({ onBack, onNext, nextLabel, showBack = true }) {
           type="button"
           arrow
           onClick={onNext}
-          title={nextLabel === "Next" ? "Click here to go to the next step" : undefined}
+          title={nextTitle ?? (nextLabel === "Next" ? "Click here to go to the next step" : undefined)}
         >
           {nextLabel}
         </CtaButton>

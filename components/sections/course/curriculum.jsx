@@ -159,7 +159,7 @@ function BoldLead({ text }) {
   });
 }
 
-export default function Curriculum({ curriculum, trainersImage }) {
+export default function Curriculum({ curriculum, trainersImage, topic }) {
   if (!curriculum?.modules?.length) return null;
 
   const {
@@ -466,7 +466,7 @@ export default function Curriculum({ curriculum, trainersImage }) {
 
       <Reveal delay={3}>
         <Box>
-          <CurriculumModules modules={modules} />
+          <CurriculumModules modules={modules} topic={topic} />
         </Box>
       </Reveal>
 

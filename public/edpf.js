@@ -13,8 +13,6 @@
   var FORM_ENDPOINT = "/api/leads";
   var THANK_YOU_URL = "/thank-you/platform";
 
-  /* Zoho's "Also interested in" options: its own names, CIP abbreviated,
-     and no Meridian (that one rides in the message instead). */
   /* The phone input (intl-tel-input): flag menu and dial code, loaded from
      jsDelivr. Without it the field stays a plain input and the dial code
      follows the Country dropdown. */
@@ -32,7 +30,9 @@
     return itiReady;
   }
 
-  var ZOHO_ALSO = {"spectra-lms":"Spectra LMS","capability-intelligence-platform":"CIP","tna-tni-engine":"TNA/TNI Engine","zenith":"Zenith","orbit":"Orbit","polaris":"Polaris"};
+  /* Zoho's "Also interested in" (MultipleChoice) options, in Zoho's order:
+     platform id → Zoho's option value. Only these are offered as chips. */
+  var ZOHO_ALSO = {"capability-os":"Capability OS","spectra-lms":"Spectra LMS","tna-tni-engine":"TNA/TNI Engine","zenith":"Zenith","orbit":"Orbit","polaris":"Polaris","meridian":"Meridian"};
 
   /* The server's country list (lib/countries.js): name and ISO code, A–Z. */
   var COUNTRIES = [["Afghanistan","af"],["Albania","al"],["Algeria","dz"],["American Samoa","as"],["Andorra","ad"],["Angola","ao"],["Anguilla","ai"],["Antigua and Barbuda","ag"],["Argentina","ar"],["Armenia","am"],["Aruba","aw"],["Australia","au"],["Austria","at"],["Azerbaijan","az"],["Bahamas","bs"],["Bahrain","bh"],["Bangladesh","bd"],["Barbados","bb"],["Belarus","by"],["Belgium","be"],["Belize","bz"],["Benin","bj"],["Bermuda","bm"],["Bhutan","bt"],["Bolivia","bo"],["Bosnia and Herzegovina","ba"],["Botswana","bw"],["Brazil","br"],["British Indian Ocean Territory","io"],["British Virgin Islands","vg"],["Brunei","bn"],["Bulgaria","bg"],["Burkina Faso","bf"],["Burundi","bi"],["Cambodia","kh"],["Cameroon","cm"],["Canada","ca"],["Cape Verde","cv"],["Caribbean Netherlands","bq"],["Cayman Islands","ky"],["Central African Republic","cf"],["Chad","td"],["Chile","cl"],["China","cn"],["Colombia","co"],["Comoros","km"],["Congo","cg"],["Cook Islands","ck"],["Costa Rica","cr"],["Croatia","hr"],["Cuba","cu"],["Curaçao","cw"],["Cyprus","cy"],["Czech Republic","cz"],["Côte d’Ivoire","ci"],["Denmark","dk"],["Djibouti","dj"],["Dominica","dm"],["Dominican Republic","do"],["DR Congo","cd"],["Ecuador","ec"],["Egypt","eg"],["El Salvador","sv"],["Equatorial Guinea","gq"],["Eritrea","er"],["Estonia","ee"],["Eswatini","sz"],["Ethiopia","et"],["Falkland Islands","fk"],["Faroe Islands","fo"],["Fiji","fj"],["Finland","fi"],["France","fr"],["French Guiana","gf"],["French Polynesia","pf"],["Gabon","ga"],["Gambia","gm"],["Georgia","ge"],["Germany","de"],["Ghana","gh"],["Gibraltar","gi"],["Greece","gr"],["Greenland","gl"],["Grenada","gd"],["Guadeloupe","gp"],["Guam","gu"],["Guatemala","gt"],["Guinea","gn"],["Guinea-Bissau","gw"],["Guyana","gy"],["Haiti","ht"],["Honduras","hn"],["Hong Kong","hk"],["Hungary","hu"],["Iceland","is"],["India","in"],["Indonesia","id"],["Iran","ir"],["Iraq","iq"],["Ireland","ie"],["Israel","il"],["Italy","it"],["Jamaica","jm"],["Japan","jp"],["Jersey","je"],["Jordan","jo"],["Kazakhstan","kz"],["Kenya","ke"],["Kiribati","ki"],["Kosovo","xk"],["Kuwait","kw"],["Kyrgyzstan","kg"],["Laos","la"],["Latvia","lv"],["Lebanon","lb"],["Lesotho","ls"],["Liberia","lr"],["Libya","ly"],["Liechtenstein","li"],["Lithuania","lt"],["Luxembourg","lu"],["Macau","mo"],["Madagascar","mg"],["Malawi","mw"],["Malaysia","my"],["Maldives","mv"],["Mali","ml"],["Malta","mt"],["Marshall Islands","mh"],["Martinique","mq"],["Mauritania","mr"],["Mauritius","mu"],["Mexico","mx"],["Micronesia","fm"],["Moldova","md"],["Monaco","mc"],["Mongolia","mn"],["Montenegro","me"],["Montserrat","ms"],["Morocco","ma"],["Mozambique","mz"],["Myanmar","mm"],["Namibia","na"],["Nauru","nr"],["Nepal","np"],["Netherlands","nl"],["New Caledonia","nc"],["New Zealand","nz"],["Nicaragua","ni"],["Niger","ne"],["Nigeria","ng"],["Niue","nu"],["Norfolk Island","nf"],["North Korea","kp"],["North Macedonia","mk"],["Northern Mariana Islands","mp"],["Norway","no"],["Oman","om"],["Pakistan","pk"],["Palau","pw"],["Palestine","ps"],["Panama","pa"],["Papua New Guinea","pg"],["Paraguay","py"],["Peru","pe"],["Philippines","ph"],["Poland","pl"],["Portugal","pt"],["Puerto Rico","pr"],["Qatar","qa"],["Romania","ro"],["Russia","ru"],["Rwanda","rw"],["Réunion","re"],["Saint Barthélemy","bl"],["Saint Helena","sh"],["Saint Kitts and Nevis","kn"],["Saint Lucia","lc"],["Saint Martin","mf"],["Saint Pierre and Miquelon","pm"],["Saint Vincent and the Grenadines","vc"],["Samoa","ws"],["San Marino","sm"],["Saudi Arabia","sa"],["Senegal","sn"],["Serbia","rs"],["Seychelles","sc"],["Sierra Leone","sl"],["Singapore","sg"],["Sint Maarten","sx"],["Slovakia","sk"],["Slovenia","si"],["Solomon Islands","sb"],["Somalia","so"],["South Africa","za"],["South Korea","kr"],["South Sudan","ss"],["Spain","es"],["Sri Lanka","lk"],["Sudan","sd"],["Suriname","sr"],["Sweden","se"],["Switzerland","ch"],["Syria","sy"],["São Tomé and Príncipe","st"],["Taiwan","tw"],["Tajikistan","tj"],["Tanzania","tz"],["Thailand","th"],["Timor-Leste","tl"],["Togo","tg"],["Tokelau","tk"],["Tonga","to"],["Trinidad and Tobago","tt"],["Tunisia","tn"],["Turkey","tr"],["Turkmenistan","tm"],["Turks and Caicos Islands","tc"],["Tuvalu","tv"],["U.S. Virgin Islands","vi"],["Uganda","ug"],["Ukraine","ua"],["United Arab Emirates","ae"],["United Kingdom","gb"],["United States","us"],["Uruguay","uy"],["Uzbekistan","uz"],["Vanuatu","vu"],["Vatican City","va"],["Venezuela","ve"],["Vietnam","vn"],["Wallis and Futuna","wf"],["Yemen","ye"],["Zambia","zm"],["Zimbabwe","zw"]];
@@ -46,9 +46,6 @@
     {id:"spectra-lms", group:"Platforms", name:"Spectra LMS", desc:"AI-empowered, social and gamified LMS", cta:"Request a demo", reply:"one business day",
      goals:"Number of learners, the roles you want to see and the Spectra LMS features that matter most",
      challenges:["Low learner engagement or completion","Learners need to learn on mobile","Learning is scattered across tools and spreadsheets","Hard to see engagement and learning impact","Running blended programs at scale","Moving from another LMS"]},
-    {id:"capability-intelligence-platform", group:"Platforms", name:"Capability Intelligence Platform", short:"CIP", desc:"One view of workforce capability", cta:"Request a demo", reply:"one business day",
-     goals:"The assessments you run today, the teams in scope and the capability view your leaders need",
-     challenges:["No single view of workforce capability","Assessment results sit across tools and vendors","Hard to spot skill gaps across teams","Linking assessment results to development","Planning future skills and roles","Reporting capability to leadership"]},
     {id:"tna-tni-engine", group:"Platforms", name:"TNA/TNI Engine", desc:"Training needs backed by evidence", cta:"Request a demo", reply:"one business day",
      goals:"Roles and locations in scope, the data you hold today and when your next training cycle starts",
      challenges:["Training needs rest on opinion, not evidence","Skill gaps are not measured by role","The annual TNA takes too long to run","The training plan is not tied to business priorities","Hard to justify the training budget","Turning needs into a training calendar"]},
@@ -92,8 +89,8 @@
       html += '<option value="' + p.id + '">' + esc(p.name) + '</option>';
     });
     picks.insertAdjacentHTML("beforeend", html + '</optgroup>');
-    alsoBox.innerHTML = PLATFORMS.filter(function(p){return p.id!=="not-sure";}).map(function(p){
-      return '<label class="edpf-chip"><input type="checkbox" value="' + p.id + '"><span>' + esc(p.short || p.name) + '</span></label>';
+    alsoBox.innerHTML = Object.keys(ZOHO_ALSO).map(function(id){
+      return '<label class="edpf-chip"><input type="checkbox" value="' + id + '"><span>' + esc(ZOHO_ALSO[id]) + '</span></label>';
     }).join("");
 
     /* Country dropdown: the preferred countries, a divider, then A–Z — the
@@ -206,7 +203,6 @@
       }
       if (H("company_website").value) { done(); return; }
       var alsoIds = Array.prototype.filter.call(alsoBox.querySelectorAll("input"), function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
-      var alsoOther = alsoIds.filter(function(id){ return !ZOHO_ALSO[id]; }).map(function(id){ return byId[id].name; });
       var goalsText = H("challenges_goals").value.trim();
       var payload = {
         source: "platform-enquiry",
@@ -225,8 +221,8 @@
         employeesImpacted: H("employees_impacted").value,
         timeline: H("timeline").value,
         budget: H("budget_range").value,
-        alsoInterested: alsoIds.filter(function(id){ return ZOHO_ALSO[id]; }).map(function(id){ return ZOHO_ALSO[id]; }),
-        message: (alsoOther.length ? "Also interested in: " + alsoOther.join(", ") + (goalsText ? "\n\n" : "") : "") + goalsText
+        alsoInterested: alsoIds.map(function(id){ return ZOHO_ALSO[id]; }),
+        message: goalsText
       };
       /* The server's field names → this form's rules, to mark what it rejects. */
       var SERVER_FIELDS = {name:"full_name", email:"work_email", company:"company", jobTitle:"job_title", country:"country", phone:"phone", companySize:"company_size", challenge:"current_challenge", timeline:"timeline", platform:"platform"};

@@ -13,7 +13,7 @@
 /** Zoho `Dropdown` — the platform the enquiry is about. */
 export const PLATFORMS = [
   "Spectra LMS",
-  "Capability Intelligence Platform",
+  "Capability OS",
   "TNA/TNI Engine",
   "Zenith",
   "Orbit",
@@ -24,6 +24,7 @@ export const PLATFORMS = [
 
 /** Each platform page's form `intent` → its `PLATFORMS` value. */
 export const PLATFORM_BY_INTENT = {
+  "capability-os": "Capability OS",
   "spectra-lms": "Spectra LMS",
   "tna-tni-engine": "TNA/TNI Engine",
   orbit: "Orbit",
@@ -44,13 +45,13 @@ export const CHALLENGES_BY_PLATFORM = {
     "Running blended programs at scale",
     "Moving from another LMS",
   ],
-  "Capability Intelligence Platform": [
-    "No single view of workforce capability",
-    "Assessment results sit across tools and vendors",
-    "Hard to spot skill gaps across teams",
-    "Linking assessment results to development",
-    "Planning future skills and roles",
-    "Reporting capability to leadership",
+  "Capability OS": [
+    "No clear view of skills across the organization",
+    "Skills and competency frameworks are outdated or missing",
+    "Skill data sits in spreadsheets and separate systems",
+    "Learning spend is not tied to critical skills",
+    "Workforce planning for a new strategy",
+    "Linking capability data to development and hiring",
   ],
   "TNA/TNI Engine": [
     "Training needs rest on opinion, not evidence",
@@ -103,15 +104,16 @@ export const CHALLENGES_BY_PLATFORM = {
   ],
 };
 
-/** Zoho `MultipleChoice` — "Also interested in". `value` is Zoho's option
- * (it abbreviates the Capability Intelligence Platform); `label` is shown. */
+/** Zoho `MultipleChoice` — "Also interested in", Zoho's option values in
+ * Zoho's order. `label` is shown. */
 export const ALSO_INTERESTED = [
+  { value: "Capability OS", label: "Capability OS" },
   { value: "Spectra LMS", label: "Spectra LMS" },
-  { value: "CIP", label: "Capability Intelligence Platform" },
   { value: "TNA/TNI Engine", label: "TNA/TNI Engine" },
   { value: "Zenith", label: "Zenith" },
   { value: "Orbit", label: "Orbit" },
   { value: "Polaris", label: "Polaris" },
+  { value: "Meridian", label: "Meridian" },
 ];
 
 /** The challenges a platform's form offers: its own, then the catch-all. */

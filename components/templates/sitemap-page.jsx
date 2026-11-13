@@ -21,13 +21,26 @@ const LIST_LINKS =
 /** Short line under each section heading, keyed by section id. */
 const INTROS = {
   categories: "Every training domain, each with its full course catalog.",
-  courses: "Instructor-led courses, grouped by domain. Open a domain to see its courses.",
+  courses: "Instructor-led programs, grouped by domain. Open a domain to see its programs.",
   services: "Consulting, coaching, assessment and managed learning services.",
   templates: "Free L&D templates and tools for training and development teams.",
   blog: "Articles and guides on corporate training and workforce development, A to Z.",
   "case-studies": "How organizations have trained their teams with Edstellar.",
   "quick-links": "Company, platform and policy pages.",
 };
+
+/** "Generative AI (GenAI) Corporate Training" → "Generative AI (GenAI)". */
+const stripTraining = (label) => String(label).replace(/\s+(Corporate\s+)?Training$/i, "");
+
+/** Hover title per section's links, keyed by section id; `view` otherwise. */
+const view = (label) => `Click here to view ${label}`;
+const LINK_TITLES = {
+  categories: (label) => `Click here to view ${stripTraining(label)} training programs`,
+  courses: (label) => `Click here to view the ${stripTraining(label)} training program`,
+  blog: (label) => `Click here to read ${label}`,
+  "case-studies": (label) => `Click here to read the case study: ${label}`,
+};
+const titleFor = (sectionId) => LINK_TITLES[sectionId] ?? view;
 
 const count = (section) =>
   section.links?.length ?? section.groups.reduce((sum, group) => sum + group.links.length, 0);
@@ -57,7 +70,7 @@ function SectionHeader({ section, index }) {
 }
 
 /** Training categories as compact link cards. */
-function CardGrid({ links }) {
+function CardGrid({ links, linkTitle = view }) {
   return (
     <Box as="ul" className="m-0 grid list-none grid-cols-1 gap-2.5 p-0 sm:grid-cols-2 lg:grid-cols-4">
       {links.map((link) => (
@@ -65,6 +78,7 @@ function CardGrid({ links }) {
           <Link
             href={link.href}
             prefetch={false}
+            title={linkTitle(link.label)}
             className="group flex h-full items-center justify-between gap-3 rounded-xl border border-ink/12 bg-white px-4 py-3.5 text-[14.5px] leading-snug font-medium text-ink transition-[border-color,box-shadow] hover:border-navy hover:shadow-[0_8px_24px_-16px_rgba(10,22,40,0.45)]"
           >
             {link.label}
@@ -127,14 +141,14 @@ function ServiceGroups({ groups }) {
       {groups.map((group) => (
         <Box key={group.href} className="rounded-[14px] border border-ink/12 bg-white p-6">
           <Text as="h3" className="mb-4 border-b border-ink/10 pb-4 text-[19px] leading-snug">
-            <Link href={group.href} prefetch={false} className="hover:text-olive">
+            <Link href={group.href} prefetch={false} title={view(group.heading)} className="hover:text-olive">
               {group.heading}
             </Link>
           </Text>
           <Box as="ul" className={cn("m-0 list-none space-y-2.5 p-0 text-[14.5px] leading-normal", LIST_LINKS)}>
             {group.links.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} prefetch={false}>
+                <Link href={link.href} prefetch={false} title={view(link.label)}>
                   {link.label}
                 </Link>
               </li>
@@ -182,12 +196,12 @@ function AlphabeticalList({ links }) {
 }
 
 /** Plain three-column list — case studies and quick links. */
-function LinkGrid({ links }) {
+function LinkGrid({ links, linkTitle = view }) {
   return (
     <Box as="ul" className={cn("m-0 grid list-none grid-cols-1 gap-x-8 gap-y-3.5 p-0 text-[15px] leading-normal sm:grid-cols-2 lg:grid-cols-3", LIST_LINKS)}>
       {links.map((link) => (
         <li key={link.href}>
-          <Link href={link.href} prefetch={false}>
+          <Link href={link.href} prefetch={false} title={linkTitle(link.label)}>
             {link.label}
           </Link>
         </li>
@@ -199,15 +213,15 @@ function LinkGrid({ links }) {
 function SectionBody({ section }) {
   switch (section.id) {
     case "categories":
-      return <CardGrid links={section.links} />;
+      return <CardGrid links={section.links} linkTitle={titleFor(section.id)} />;
     case "courses":
-      return <LinkGrid links={section.groups.flatMap((g) => g.links)} />;
+      return <LinkGrid links={section.groups.flatMap((g) => g.links)} linkTitle={titleFor(section.id)} />;
     case "services":
       return <ServiceGroups groups={section.groups} />;
     case "blog":
-      return <LinkGrid links={[...section.links].sort((a, b) => a.label.localeCompare(b.label, "en", { sensitivity: "base" }))} />;
+      return <LinkGrid links={[...section.links].sort((a, b) => a.label.localeCompare(b.label, "en", { sensitivity: "base" }))} linkTitle={titleFor(section.id)} />;
     default:
-      return <LinkGrid links={section.links} />;
+      return <LinkGrid links={section.links} linkTitle={titleFor(section.id)} />;
   }
 }
 
@@ -254,7 +268,15 @@ export default function SitemapPage({ page, breadcrumbs }) {
         </Box>
       </Section>
 
-      <SectionNav data={{ items: page.sections.map(({ id, heading }) => ({ id, label: heading })) }} />
+      <SectionNav
+        data={{
+          items: page.sections.map(({ id, heading }) => ({
+            id,
+            label: heading,
+            title: `Click here to jump to ${heading}`,
+          })),
+        }}
+      />
 
       {page.sections.map((section, index) => (
         <Section

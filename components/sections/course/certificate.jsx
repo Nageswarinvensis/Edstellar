@@ -23,7 +23,7 @@ const CONTENT = {
   },
 };
 
-export default function Certificate() {
+export default function Certificate({ topic }) {
   const certificate = CONTENT;
 
   return (
@@ -64,7 +64,11 @@ export default function Certificate() {
                 <Image
                   src="/course/edstellar-sample-certificate.webp"
                   alt="Edstellar certificate of completion"
-                  title="Edstellar certificate of completion"
+                  title={
+                    topic
+                      ? `Certificate of ${topic} Training Completion`
+                      : "Certificate of Training Completion"
+                  }
                   fill
                   className="object-cover"
                 />

@@ -55,7 +55,7 @@ function RolesCard({ columns }) {
  *
  * Design: `#audience`, `.eds-aud-card`, `.eds-aud-note`, `.eds-path`.
  */
-export default function Audience({ audience }) {
+export default function Audience({ audience, topic }) {
   if (!audience?.departments?.length && !audience?.roles?.length) return null;
 
   const {
@@ -89,7 +89,7 @@ export default function Audience({ audience }) {
 
       <Reveal delay={2}>
         {departments?.length ? (
-          <DepartmentTabs departments={departments} />
+          <DepartmentTabs departments={departments} topic={topic} />
         ) : (
           <RolesCard columns={roles} />
         )}

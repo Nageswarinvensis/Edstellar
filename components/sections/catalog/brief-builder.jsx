@@ -193,6 +193,7 @@ export default function BriefBuilder({ data, thankYou = "catalog-build-your-brie
                 aria-haspopup="listbox"
                 aria-expanded={isOpen}
                 aria-controls={`brief-${key}-list`}
+                title={`Click here to choose ${slot.ph ?? "an option"}`}
                 onClick={() => toggle(key)}
                 className={cn(
                   "my-px inline-flex min-h-9 max-w-full cursor-pointer items-baseline gap-1.5 rounded-full bg-navy-soft px-2.5 py-0.5 text-left leading-[1.35] font-bold tracking-[-0.02em] transition-shadow hover:shadow-[inset_0_0_0_1px_rgba(200,241,53,0.6)]",
@@ -304,17 +305,18 @@ export default function BriefBuilder({ data, thankYou = "catalog-build-your-brie
 
           <Text as="p" className="mt-1.5 text-[13px] leading-[1.5] text-paper/55">
             Edstellar uses these details to reply to your brief. See the{" "}
-            <a href="/privacy-policy" className="text-paper underline underline-offset-3">privacy policy</a>.
+            <a href="/privacy-policy" title="Click here to read the privacy policy" className="text-paper underline underline-offset-3">privacy policy</a>.
           </Text>
           <Box className="mt-1.5 flex flex-wrap items-center gap-3.5">
             <button
               type="submit"
               disabled={isSubmitting}
+              title="Click here to send your brief"
               className="min-h-11 cursor-pointer rounded-full bg-paper px-5.5 py-2.5 font-body text-[14px] leading-none font-bold text-navy transition-shadow hover:shadow-[0_10px_24px_-12px_rgba(250,250,247,0.5)] disabled:cursor-progress disabled:opacity-70"
             >
               {isSubmitting ? "Sending…" : "Send your brief"}
             </button>
-            <button type="button" onClick={startOver} className="min-h-10 cursor-pointer px-1 font-body text-[14px] leading-none font-semibold text-lime">
+            <button type="button" onClick={startOver} title="Click here to start your brief over" className="min-h-10 cursor-pointer px-1 font-body text-[14px] leading-none font-semibold text-lime">
               Start over
             </button>
           </Box>

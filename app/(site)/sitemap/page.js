@@ -15,7 +15,7 @@ const DESCRIPTION =
   "Navigate Edstellar's website with the sitemap. Find corporate training courses, consulting services, resources, case studies, blogs and company information.";
 
 const BREADCRUMBS = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "/", title: "Click here to go to the Edstellar homepage" },
   { label: "Sitemap", href: null },
 ];
 

@@ -150,7 +150,7 @@ function RelatedCourseCard({ course }) {
   const href = `/corporate-training/${String(course.slug).replace(/\/+$/, "")}`;
   const linkTitle = programLinkTitle(course.name);
 
-  // Not one big link: only the title and "View course" are clickable.
+  // Not one big link: only the title and "View Program" are clickable.
   return (
     <Box
       className="group flex h-full flex-col rounded-[14px] border border-ink/12 bg-white p-6 no-underline transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-ink/22 hover:shadow-[0_20px_42px_-26px_rgba(10,22,40,0.5)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 max-[600px]:p-5"
@@ -187,7 +187,7 @@ function RelatedCourseCard({ course }) {
             title={linkTitle}
             className="inline-flex items-center gap-1.5 font-body text-[14px] font-semibold leading-[1.4] text-ink no-underline transition-colors duration-200 group-hover:text-olive"
           >
-            View course
+            View Program
             <ArrowRight
               size={15}
               strokeWidth={2.25}

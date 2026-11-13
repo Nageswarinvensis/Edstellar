@@ -42,6 +42,7 @@ const TAB_IMAGE_RULES = [
       alt: "Hybrid training",
       topicAlt: (topic) => `Hybrid ${topic} training combining onsite and virtual delivery`,
     },
+    tabTitle: (topic) => `View ${topic} hybrid training combining onsite and virtual sessions`,
     match: /hybrid|blended/i,
   },
   {
@@ -50,6 +51,7 @@ const TAB_IMAGE_RULES = [
       alt: "Virtual training",
       topicAlt: (topic) => `Live virtual instructor-led ${topic} training session`,
     },
+    tabTitle: (topic) => `View ${topic} live virtual training led by an instructor online`,
     match: /virtual|online/i,
   },
   {
@@ -58,6 +60,7 @@ const TAB_IMAGE_RULES = [
       alt: "On-site training",
       topicAlt: (topic) => `Instructor delivering onsite ${topic} training at a client office`,
     },
+    tabTitle: (topic) => `View ${topic} onsite training delivered at your office`,
     match: /on.?site|in.?house/i,
   },
   {
@@ -66,17 +69,27 @@ const TAB_IMAGE_RULES = [
       alt: "Off-site training",
       topicAlt: (topic) => `Offsite ${topic} training at a venue away from the workplace`,
     },
+    tabTitle: (topic) => `View ${topic} offsite training delivered at an external venue`,
     match: /off.?site|away/i,
   },
 ];
 
 /** By position when no keyword matches: virtual, on-site, off-site, hybrid. */
-const POSITION_FALLBACK = [1, 2, 3, 0].map((rule) => TAB_IMAGE_RULES[rule].image);
+const POSITION_FALLBACK = [1, 2, 3, 0].map((rule) => TAB_IMAGE_RULES[rule]);
+
+function ruleForTab(tab, index) {
+  const haystack = `${tab.id ?? ""} ${tab.label ?? ""} ${tab.sublabel ?? ""}`;
+  return TAB_IMAGE_RULES.find((rule) => rule.match.test(haystack)) ?? POSITION_FALLBACK[index];
+}
+
+/** The tab button's `title` — only when the page names its program. */
+function titleForTab(tab, index, topic) {
+  const rule = ruleForTab(tab, index);
+  return topic && rule?.tabTitle ? rule.tabTitle(topic) : undefined;
+}
 
 function imageForTab(tab, index, topic) {
-  const haystack = `${tab.id ?? ""} ${tab.label ?? ""} ${tab.sublabel ?? ""}`;
-  const byKeyword = TAB_IMAGE_RULES.find((rule) => rule.match.test(haystack));
-  const image = byKeyword?.image ?? POSITION_FALLBACK[index];
+  const image = ruleForTab(tab, index)?.image;
   if (!image) return image;
   return { src: image.src, alt: topic && image.topicAlt ? image.topicAlt(topic) : image.alt };
 }
@@ -114,7 +127,7 @@ export default function DeliveryModeTabs({ tabs, topic }) {
               id={`mode-tab-${key}`}
               type="button"
               role="tab"
-             
+              title={titleForTab(tab, index, topic)}
               aria-selected={isActive}
               aria-controls={`mode-panel-${key}`}
               onClick={() => setActiveKey(key)}

@@ -50,6 +50,7 @@ export default function SectionNav({ data, ctaClassName }) {
               <Box as="li" key={item.id} className="flex-none">
                 <a
                   href={`#${item.id}`}
+                  title={item.title}
                   aria-current={activeId === item.id ? "true" : undefined}
                   className={cn(
                     "block rounded-full px-3.5 py-2.5 text-sm font-medium whitespace-nowrap transition-colors",

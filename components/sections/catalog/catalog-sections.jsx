@@ -43,10 +43,10 @@ export function CatalogHero({ data, breadcrumbs }) {
             ))}
           </Box>
           <Box className="mt-8 flex flex-wrap gap-3">
-            <CtaButton arrow render={<a href={data.primary_cta.href} />}>
+            <CtaButton arrow render={<a href={data.primary_cta.href} title={data.primary_cta.title} />}>
               {data.primary_cta.label}
             </CtaButton>
-            <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} />}>
+            <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} title={data.secondary_cta.title} />}>
               {data.secondary_cta.label}
             </CtaButton>
           </Box>
@@ -98,11 +98,11 @@ export function CatalogProof({ data }) {
               );
               const className = "flex items-center gap-3 rounded-full border border-paper/20 py-1.5 pr-5 pl-1.5 font-display text-[14.5px] font-semibold text-paper hover:border-lime";
               return action.href.startsWith("/") ? (
-                <Link key={action.label} href={action.href} className={className}>
+                <Link key={action.label} href={action.href} title={action.title} className={className}>
                   {content}
                 </Link>
               ) : (
-                <a key={action.label} href={action.href} target="_blank" rel="noopener" className={className}>
+                <a key={action.label} href={action.href} title={action.title} target="_blank" rel="noopener" className={className}>
                   {content}
                 </a>
               );
@@ -141,7 +141,7 @@ export function CatalogFaqs({ data }) {
         <Text as="p" className="font-display text-[16px] font-semibold text-ink">
           {data.closing.text}
         </Text>
-        <CtaButton arrow variant="ghost" render={<a href={data.closing.cta.href} />}>
+        <CtaButton arrow variant="ghost" render={<a href={data.closing.cta.href} title={data.closing.cta.title} />}>
           {data.closing.cta.label}
         </CtaButton>
       </Reveal>

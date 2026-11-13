@@ -46,12 +46,15 @@ export default function CoursePage({ course }) {
 
   const { customBlocks = [] } = course;
 
+  // "Generative AI (GenAI) Corporate Training" → "Generative AI (GenAI)".
+  const topic = String(course.name ?? "").replace(/\s+(Corporate\s+)?Training$/i, "");
+
   // The domain's trainer-faces strip, shared by the proof bar and the
   // curriculum's author credit.
   const trainersImage = {
     src: course.trainers_thumbnail,
     // "Generative AI (GenAI) Corporate Training" → "Expert Generative AI (GenAI) trainers".
-    alt: `Expert ${String(course.name ?? "").replace(/\s+(Corporate\s+)?Training$/i, "")} trainers`,
+    alt: `Expert ${topic} trainers`,
   };
 
   // Every brochure button on the page (the domain's PDF) opens the
@@ -79,14 +82,13 @@ export default function CoursePage({ course }) {
         modules={course.curriculum?.modules}
         hasTrainers={false}
       >
-        <Curriculum curriculum={course.curriculum} trainersImage={trainersImage} />
+        <Curriculum curriculum={course.curriculum} trainersImage={trainersImage} topic={topic} />
         <Skills skills={course.skills} />
-        <Audience audience={course.audience} />
-        <Certificate />
+        <Audience audience={course.audience} topic={topic} />
+        <Certificate topic={topic} />
         <DeliveryModes
           deliveryModes={course.deliveryModes}
-          // "Generative AI (GenAI) Corporate Training" → "Generative AI (GenAI)".
-          topic={String(course.name ?? "").replace(/\s+(Corporate\s+)?Training$/i, "") || undefined}
+          topic={topic || undefined}
         />
         {/* <Trainers trainers={course.trainers} /> */}
         <Faq faqs={course.faqs ?? course.Faqs} collapsible />

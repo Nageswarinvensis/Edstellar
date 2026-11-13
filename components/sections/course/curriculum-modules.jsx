@@ -117,7 +117,9 @@ function ModuleTrigger({ module }) {
           as="h3"
           className="min-w-0 flex-1 font-display text-[15px] leading-[1.5] font-bold tracking-[-0.015em] text-ink"
         >
-          <AccordionPrimitive.Trigger className="block w-full cursor-pointer text-left outline-none after:absolute after:inset-0 after:content-[''] sm:truncate">
+          <AccordionPrimitive.Trigger
+            title={`Expand ${module.title} module to view topics`}
+            className="block w-full cursor-pointer text-left outline-none after:absolute after:inset-0 after:content-[''] sm:truncate">
             {module.title}
           </AccordionPrimitive.Trigger>
         </Text>
@@ -162,7 +164,7 @@ function buildPhaseFilters(modules = []) {
  *
  * Design: `.focus-bar`, `#modList`, `.mod`, `.mod-head`, `.mod-body`.
  */
-export default function CurriculumModules({ modules }) {
+export default function CurriculumModules({ modules, topic }) {
   const [activeFilter, setActiveFilter] = useState("all");
   const filters = useMemo(() => buildPhaseFilters(modules), [modules]);
   const filtersRef = useRef(null);
@@ -223,7 +225,11 @@ export default function CurriculumModules({ modules }) {
             <button
               key={filter.id}
               type="button"
-             
+              title={
+                filter.id === "all"
+                  ? `Click here to view all ${topic ? `${topic} ` : ""}training modules`
+                  : `Click here to view ${topic ? `${topic} ` : ""}training modules in the ${filter.label.toLowerCase()} stage`
+              }
               data-filter={filter.id}
               onClick={() => selectFilter(filter.id)}
               className={cn(

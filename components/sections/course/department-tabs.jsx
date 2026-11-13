@@ -63,7 +63,7 @@ function ColumnLabel({ className, children }) {
  * Design: `Teams that Benefit Redesign.html` — `.experience`, `.detail`,
  * `.detail-grid`, `.practice`. Its `<select>` is a tab strip here.
  */
-export default function DepartmentTabs({ departments }) {
+export default function DepartmentTabs({ departments, topic }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   if (!departments?.length) return null;
@@ -92,7 +92,7 @@ export default function DepartmentTabs({ departments }) {
                 id={`dept-tab-${index}`}
                 type="button"
                 role="tab"
-               
+                title={`Click here to view how ${topic || "this training"} benefits ${department.name}`}
                 aria-selected={isActive}
                 aria-controls={`dept-panel-${index}`}
                 onClick={() => setActiveIndex(index)}

@@ -65,7 +65,7 @@ export default function CatalogBrowser({ data, domains }) {
     <Box>
       <Box className="mb-5 flex flex-wrap items-center justify-between gap-4">
         <Text as="p" role="status" className="text-[15px] text-ink/70">
-          Showing <b className="font-semibold text-ink">{shownCount}</b> of {domains.length} domains · {totalCourses.toLocaleString("en-US")} courses
+          Showing <b className="font-semibold text-ink">{shownCount}</b> of {domains.length} programs · {totalCourses.toLocaleString("en-US")} programs
         </Text>
         <Box role="search" className="relative w-full sm:w-105">
           <label htmlFor="catalog-q" className="sr-only">
@@ -86,6 +86,7 @@ export default function CatalogBrowser({ data, domains }) {
               type="button"
               onClick={() => setQuery("")}
               aria-label="Clear search"
+              title="Click here to clear the search"
               className="absolute top-1/2 right-3 grid size-7 -translate-y-1/2 cursor-pointer place-items-center rounded-full text-ink-muted hover:bg-ink/6"
             >
               <X size={16} aria-hidden="true" />
@@ -103,7 +104,8 @@ export default function CatalogBrowser({ data, domains }) {
                 {target ? (
                   <a
                     href={`#${target}`}
-                    aria-label={`Domains starting with ${letter}`}
+                    aria-label={`Programs starting with ${letter}`}
+                    title={`Click here to view programs starting with ${letter}`}
                     onClick={() => setOpen((current) => new Set(current).add(target))}
                     className="grid h-9 w-9 place-items-center border border-ink/20 bg-white font-mono text-[13px] text-ink hover:border-navy hover:bg-navy hover:text-paper"
                   >
@@ -137,6 +139,7 @@ export default function CatalogBrowser({ data, domains }) {
                   type="button"
                   aria-expanded={isOpen}
                   aria-controls={panelId}
+                  title={`Click here to ${isOpen ? "hide" : "view"} ${domain.name} training programs`}
                   onClick={() => toggle(setOpen, domain.slug)}
                   className="flex w-full cursor-pointer items-center gap-2.5 py-5 pr-2 text-left sm:gap-4"
                 >
@@ -150,7 +153,7 @@ export default function CatalogBrowser({ data, domains }) {
                   </Text>
                   <Box as="span" aria-hidden="true" className="h-px flex-1 border-t border-dotted border-ink/25 max-sm:hidden" />
                   <Text as="span" className="font-mono text-[12.5px] whitespace-nowrap text-ink-muted">
-                    {domain.courses.length} {domain.courses.length === 1 ? "course" : "courses"}
+                    {domain.courses.length} {domain.courses.length === 1 ? "program" : "programs"}
                   </Text>
                   <ChevronDown size={18} aria-hidden="true" className={cn("flex-none text-ink transition-transform", isOpen && "rotate-180")} />
                 </button>
@@ -166,7 +169,7 @@ export default function CatalogBrowser({ data, domains }) {
                     const shown = match && (showAll || position < data.preview);
                     return (
                       <li key={course.href} hidden={!shown}>
-                        <Link href={course.href} prefetch={false}>
+                        <Link href={course.href} prefetch={false} title={`Click here to view the ${course.label.replace(/\s+(Corporate\s+)?Training$/i, "")} training program`}>
                           <Text as="span" className="pt-0.5 font-mono text-[11px] text-ink-muted">
                             {pad(position + 1, 3)}
                           </Text>
@@ -182,15 +185,17 @@ export default function CatalogBrowser({ data, domains }) {
                       type="button"
                       aria-expanded={showAll}
                       aria-controls={panelId}
+                      title={showAll ? `Click here to show fewer ${domain.name} programs` : `Click here to show all ${domain.courses.length} ${domain.name} programs`}
                       onClick={() => toggle(setExpanded, domain.slug)}
                       className="cursor-pointer rounded-full border border-ink/25 px-5 py-2.5 font-display text-[14px] font-semibold text-ink hover:border-navy"
                     >
-                      {showAll ? "Show fewer courses" : `Show all ${domain.courses.length} courses`}
+                      {showAll ? "Show fewer programs" : `Show all ${domain.courses.length} programs`}
                     </button>
                   ) : null}
                   <Link
                     href={domain.href}
                     prefetch={false}
+                    title={`Click here to view all ${domain.name} training programs`}
                     className="rounded-full border border-ink/25 px-5 py-2.5 font-display text-[14px] font-semibold text-ink hover:border-navy"
                   >
                     {data.domain_link.replace("{name}", domain.name)}
@@ -214,11 +219,12 @@ export default function CatalogBrowser({ data, domains }) {
             <button
               type="button"
               onClick={() => setQuery("")}
+              title="Click here to clear the search"
               className="cursor-pointer rounded-full border border-ink/25 px-5 py-2.5 font-display text-[14px] font-semibold text-ink hover:border-navy"
             >
               {data.empty.reset}
             </button>
-            <a href={data.empty.cta.href} className="rounded-full bg-navy px-5 py-2.5 font-display text-[14px] font-semibold text-lime">
+            <a href={data.empty.cta.href} title={data.empty.cta.title} className="rounded-full bg-navy px-5 py-2.5 font-display text-[14px] font-semibold text-lime">
               {data.empty.cta.label}
             </a>
           </Box>
