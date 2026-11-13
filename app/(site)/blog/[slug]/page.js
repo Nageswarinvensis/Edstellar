@@ -13,6 +13,7 @@ import BlogDetailAccordionInteractivity from "@/components/sections/blog/detail/
 import BlogDetailWhatsNewInteractivity from "@/components/sections/blog/detail/blog-detail-whats-new-interactivity";
 import BlogDetailHighlightReveal from "@/components/sections/blog/detail/blog-detail-highlight-reveal";
 import BlogDetailGamesModal from "@/components/sections/blog/detail/blog-detail-games-modal";
+import BlogDetailEnquiryPopup from "@/components/sections/blog/detail/blog-detail-enquiry-popup";
 import BlogDetailHero from "@/components/sections/blog/detail/blog-detail-hero";
 import BlogDetailAuthorCard from "@/components/sections/blog/detail/blog-detail-author-card";
 import BlogDetailContinueReading from "@/components/sections/blog/detail/blog-detail-continue-reading";
@@ -330,6 +331,9 @@ export default async function BlogPostPage({ params }) {
       {post.styleBlocks.includes("highlight") && <BlogDetailHighlightReveal />}
 
       {blog.meta?.layout_variant === "Games" && <BlogDetailGamesModal />}
+
+      {/* Only posts whose body has the popup CTA ship the form's JS. */}
+      {/id=["'](form-btn|get-quote)["']/.test(blog.body ?? "") && <BlogDetailEnquiryPopup />}
     </>
   );
 }

@@ -33,9 +33,14 @@ import { submitEnquiry } from "@/lib/actions/submit-enquiry";
  * which program link the visitor came from. Read on the client, so the page
  * itself stays static.
  *
+ * `variant="drawer"` drops the card, its heading and the two-column grid, for
+ * a narrow side drawer that supplies its own title (the blog enquiry popup).
+ * `branch` (optional) is Zoho's Branch; without it Zoho gets the page name
+ * in both Branch and PAGE NAME, as on static pages.
+ *
  * Design: contact-us / enquiry-form `.form-card`, `.field`, `.phone-group`.
  */
-export default function EnquiryForm({ data, thankYou = "contact-us", queryParam, className }) {
+export default function EnquiryForm({ data, thankYou = "contact-us", queryParam, branch, variant = "card", className }) {
   const {
     register,
     control,
@@ -63,6 +68,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
         phone: phoneForSubmit(values.phone),
         page: window.location.pathname,
         thankYou,
+        branch,
       });
     } catch {
       result = null;
@@ -84,22 +90,16 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
     );
   }
 
-  return (
-    <Reveal
-      className={cn(
-        "rounded-[14px] border border-ink/12 bg-white px-4 py-7.5 text-ink shadow-[0_18px_50px_-24px_rgba(10,22,40,0.35)] sm:p-12",
-        className,
-      )}
-    >
-      <Text as="h2" className="mb-1.5">
-        {data.heading}
-      </Text>
-      <Text as="p" className="mb-8 text-[15px] leading-[1.6] text-ink-muted">
-        Fields marked <Text as="span" className="text-red-600">*</Text> are required.
-      </Text>
+  const drawer = variant === "drawer";
 
-
-      <Box as="form" aria-label="Training enquiry" noValidate onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+  const form = (
+      <Box
+        as="form"
+        aria-label="Training enquiry"
+        noValidate
+        onSubmit={handleSubmit(onSubmit)}
+        className={cn("grid grid-cols-1", drawer ? "gap-5" : "gap-6 sm:grid-cols-2", drawer && className)}
+      >
         {queryParam ? <input type="hidden" {...register("program")} /> : null}
 
         <HoneypotField register={register} />
@@ -161,7 +161,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
 
         <CountryPhoneFields form={{ register, control, watch, setValue, errors }} />
 
-        <FormField label="Training requirements" className="sm:col-span-2">
+        <FormField label="Training requirements" className={drawer ? undefined : "sm:col-span-2"}>
           <textarea
             {...register("requirements")}
             rows={4}
@@ -170,7 +170,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
           />
         </FormField>
 
-        <Box className="sm:col-span-2">
+        <Box className={drawer ? undefined : "sm:col-span-2"}>
           {submitError ? (
             <Text as="p" role="alert" className="mb-4 text-[13.5px] leading-[1.5] text-destructive">
               {submitError}
@@ -188,6 +188,25 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
           </Text>
         </Box>
       </Box>
+  );
+
+  if (drawer) return form;
+
+  return (
+    <Reveal
+      className={cn(
+        "rounded-[14px] border border-ink/12 bg-white px-4 py-7.5 text-ink shadow-[0_18px_50px_-24px_rgba(10,22,40,0.35)] sm:p-12",
+        className,
+      )}
+    >
+      <Text as="h2" className="mb-1.5">
+        {data.heading}
+      </Text>
+      <Text as="p" className="mb-8 text-[15px] leading-[1.6] text-ink-muted">
+        Fields marked <Text as="span" className="text-red-600">*</Text> are required.
+      </Text>
+
+      {form}
     </Reveal>
   );
 }
