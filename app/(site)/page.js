@@ -28,7 +28,7 @@ export default function HomeRoute() {
         "@id": "https://www.edstellar.com/#organization",
         "name": "Edstellar",
         "url": "https://www.edstellar.com",
-        "description": "Edstellar helps enterprises build workforce capabilities and drive organizational transformation. Backed by 5+ years of experience in corporate learning and development, Edstellar brings together corporate training, L&D and organizational development consulting, talent assessments, leadership and team coaching, managed learning services, and learning, assessment and capability analytics platforms. These offerings help organizations identify capability gaps, develop employees and leaders, and align workforce development with business goals.",
+        "description": "Edstellar helps enterprises build workforce capabilities and drive organizational transformation. Backed by 5+ years of experience in corporate learning and development, Edstellar brings together corporate training, L&D and organizational development consulting, talent assessments, leadership and team coaching, managed L&D services, and learning, assessment and capability analytics platforms. These offerings help organizations identify capability gaps, develop employees and leaders, and align workforce development with business goals.",
         "logo": {
           "@type": "ImageObject",
           "url": "https://www.edstellar.com/course/edstellar.svg"
@@ -55,7 +55,7 @@ export default function HomeRoute() {
           "Talent assessments",
           "Leadership coaching",
           "Team coaching",
-          "Managed learning services",
+          "Managed L&D services",
           "Learning management systems",
           "Capability analytics"
         ],
