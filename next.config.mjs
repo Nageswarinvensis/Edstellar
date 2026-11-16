@@ -45,6 +45,10 @@ const nextConfig = {
       ["/training-needs-analysis", "/training-needs-analysis-services"],
       ["/training-needs-analysis-solutions", "/training-needs-analysis-services"],
       ["/coaching-services", "/coaching-solutions"],
+      // The program enquiry form now opens in the program's pop-up on the
+      // sector page; the old standalone form pages go back to it.
+      ["/training-for-universities-enquiry", "/training-for-universities#explore-programs"],
+      ["/training-for-government-enquiry", "/government-employees-training-courses#explore-program"],
       ["/terms-and-conditions", "/terms-conditions"],
       ["/managed-training-services", "/managed-learning-services/managed-training"],
       // Case studies live at the live site's URLs, not under /resources.

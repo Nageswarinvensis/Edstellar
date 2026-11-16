@@ -183,6 +183,8 @@ This file is a complete, machine-readable map of Edstellar's public pages: servi
 ## Who We Serve
 
 - [Who We Serve](https://www.edstellar.com/who-we-serve): Industries and organization types Edstellar serves, including enterprises, manufacturing, automotive and banking.
+- [Training for Universities](https://www.edstellar.com/training-for-universities): Training programs for universities and higher education institutions, covering administrators, faculty and students.
+- [Government Employees Training Courses](https://www.edstellar.com/government-employees-training-courses): Training programs for government departments and public-sector employees.
 
 ## Resources
 

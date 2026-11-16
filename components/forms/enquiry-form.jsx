@@ -15,8 +15,8 @@ import { EMAIL_PATTERN } from "@/lib/constants";
 import { submitEnquiry } from "@/lib/actions/submit-enquiry";
 
 /**
- * Training enquiry card — the form on `/contact-us`, `/enquiry-now` and
- * the contact sections of other pages.
+ * Training enquiry card — the form on `/contact-us`, `/enquiry-now`, the
+ * contact sections of other pages and the sector program pop-ups.
  * Name, work email, company, job title, country, phone and requirements.
  *
  * A valid submit goes to Zoho Forms' "TrainingEnquiry" form — the same one
@@ -27,20 +27,24 @@ import { submitEnquiry } from "@/lib/actions/submit-enquiry";
  * message above the button instead of a false thank-you.
  *
  * `data`: `heading`, `requirements_placeholder` (optional), `submit_label`.
- * Name and email sit side by side, as company and job title do. `queryParam` (optional) copies that URL
- * parameter into a hidden `program` field as `{queryParam}-{value}` — e.g.
- * `?some-program=x` → `some-program-x` — so the enquiry records
- * which program link the visitor came from. Read on the client, so the page
+ * Name and email sit side by side, as company and job title do. `program`
+ * (optional) goes in a hidden `program` field — e.g.
+ * `university-program-leadership-development-program` from a sector page's
+ * program pop-up — so the enquiry records which program it is about.
+ * `queryParam` (optional) fills the same field from that URL parameter
+ * instead, as `{queryParam}-{value}`; it is read on the client, so the page
  * itself stays static.
  *
  * `variant="drawer"` drops the card, its heading and the two-column grid, for
  * a narrow side drawer that supplies its own title (the blog enquiry popup).
+ * `variant="plain"` drops only the card and its heading, keeping the
+ * two-column grid, for a wide pop-up that supplies its own title.
  * `branch` (optional) is Zoho's Branch; without it Zoho gets the page name
  * in both Branch and PAGE NAME, as on static pages.
  *
  * Design: contact-us / enquiry-form `.form-card`, `.field`, `.phone-group`.
  */
-export default function EnquiryForm({ data, thankYou = "contact-us", queryParam, branch, variant = "card", className }) {
+export default function EnquiryForm({ data, thankYou = "contact-us", program, queryParam, branch, variant = "card", className }) {
   const {
     register,
     control,
@@ -49,7 +53,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
     setValue,
     setError,
     formState: { errors, isSubmitting },
-  } = useForm({ defaultValues: { country: "", phone: "", dialCode: "1" } });
+  } = useForm({ defaultValues: { country: "", phone: "", dialCode: "1", program: program ?? "" } });
   const router = useRouter();
   const [submitError, setSubmitError] = useState("");
 
@@ -91,6 +95,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
   }
 
   const drawer = variant === "drawer";
+  const bare = drawer || variant === "plain";
 
   const form = (
       <Box
@@ -98,9 +103,9 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
         aria-label="Training enquiry"
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        className={cn("grid grid-cols-1", drawer ? "gap-5" : "gap-6 sm:grid-cols-2", drawer && className)}
+        className={cn("grid grid-cols-1", drawer ? "gap-5" : "gap-6 sm:grid-cols-2", bare && className)}
       >
-        {queryParam ? <input type="hidden" {...register("program")} /> : null}
+        {program || queryParam ? <input type="hidden" {...register("program")} /> : null}
 
         <HoneypotField register={register} />
 
@@ -190,7 +195,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", queryParam,
       </Box>
   );
 
-  if (drawer) return form;
+  if (bare) return form;
 
   return (
     <Reveal
