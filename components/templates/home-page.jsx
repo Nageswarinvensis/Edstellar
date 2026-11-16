@@ -13,7 +13,7 @@ import HomeCta from "@/components/sections/home/home-cta";
  *
  * Design: `Edstellar-New-Lanch SETUP/edstellar-homepage 51.html`.
  */
-export default function HomePage({ page }) {
+export default function HomePage({ page }) { 
   return (
     <>
       <HomeHero data={page.hero} />
