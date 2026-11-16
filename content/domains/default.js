@@ -123,7 +123,6 @@ export const DOMAIN_DEFAULTS = {
         virtual: "VIRTUAL",
       },
       card: {
-        viewProgram: "VIEW PROGRAM",
         requestProgram: "REQUEST PROGRAM",
         durationOnRequest: "DURATION ON REQUEST",
         hoursSuffix: "HRS",

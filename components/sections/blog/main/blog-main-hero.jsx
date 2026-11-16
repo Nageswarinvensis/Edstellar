@@ -69,8 +69,8 @@ export default function BlogMainHero({ articleCount, categoryCount }) {
             as="h1"
             className="mt-4.5 max-w-[26ch] text-paper"
           >
-            Discover the Latest Topics on Training, L&amp;D, Talent &amp;{" "}
-            <em className="font-serif font-normal text-lime">Skill Development</em>
+            Discover the Latest Insights on Developing People,{" "}
+            <em className="font-serif font-normal text-lime">Skills and Organizations</em>
           </Text>
         </Reveal>
 

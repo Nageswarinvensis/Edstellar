@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 }
 
 const DESCRIPTION =
-  "Read Edstellar's learning and development blog for ideas on corporate training, talent development and workforce skills for HR, L&D and business leaders.";
+  "Read the Edstellar blog for practical insights on developing people, skills and teams. Explore guides, frameworks and workplace trends for HR, L&D and business leaders.";
 
 export async function generateMetadata({ params }) {
   const page = parseListingPage((await params).n);

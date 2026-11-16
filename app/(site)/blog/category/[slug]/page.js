@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { getBlogCategory, getBlogCategoryWithAllPosts } from "@/lib/content/blog";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
 import JsonLd from "@/components/seo/json-ld";
 
@@ -18,7 +18,8 @@ export async function generateMetadata({ params }) {
   const meta = category.meta || {};
 
   return buildMetadata({
-    title: meta.meta_title || `${category.name} | Category`,
+    // The layout template adds " | Edstellar"; some CMS titles already end in it.
+    title: stripSiteSuffix(meta.meta_title) || `${category.name} | Category`,
     description:
       meta.meta_description ||
       category.description ||

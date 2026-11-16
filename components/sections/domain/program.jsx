@@ -93,7 +93,7 @@ function FilterButton({ active, children, onClick }) {
   );
 }
 
-function DeliveryBadge({ delivery, data }) {
+function DeliveryBadge({ delivery, data, className = "mb-2" }) {
   const { instructorLed, separator, onSite, virtual } =
     data.catalog.deliveryBadge;
 
@@ -116,7 +116,7 @@ function DeliveryBadge({ delivery, data }) {
   }
 
   return (
-    <div className="mb-2 flex">
+    <div className={`flex ${className}`}>
       <div className="flex items-center gap-1.25">
         <span className="h-1.25 w-1.25 shrink-0 rounded-full bg-olive" />
 
@@ -174,6 +174,10 @@ function Duration({ duration, data }) {
 
 function CourseCard({ course, data, hidden }) {
   const cardData = data.catalog.card;
+  const title = course.title?.trim() ?? "";
+  const lastSpace = title.lastIndexOf(" ");
+  const titleHead = title.slice(0, lastSpace + 1);
+  const titleTail = title.slice(lastSpace + 1);
 
   const cardClasses = [
     "group flex h-full flex-col overflow-hidden rounded-[12px]",
@@ -189,10 +193,6 @@ function CourseCard({ course, data, hidden }) {
   return (
     <Box className={cardClasses} hidden={hidden}>
       <Box className="flex min-h-35 flex-1 flex-col px-4 py-4">
-        {course.proposed ? null : (
-          <DeliveryBadge delivery={course.delivery ?? data.defaultDelivery} data={data} />
-        )}
-
         {/* The topic is not shown on the card (it is the catalog's filter);
             only a proposed program carries a tag here. */}
         {course.proposed && (
@@ -209,9 +209,23 @@ function CourseCard({ course, data, hidden }) {
         <a href={course.href} target="_blank" rel="noopener" title={programLinkTitle(course.title)}>
           <Text
             as="h3"
-            className="text-[15px] font-medium leading-[1.2] tracking-[-0.25px] text-[#07182C] hover:underline"
+            // [&_span]…!: undo the global `h3 span` serif-italic accent for the
+            // last-word + arrow wrapper below. That rule is unlayered CSS, so it
+            // beats any layered utility — only `!important` overrides it.
+            className="text-[15px] font-medium leading-[1.2] tracking-[-0.25px] text-[#07182C] hover:underline [&_span]:font-display! [&_span]:font-medium! [&_span]:not-italic!"
           >
-            {course.title}
+            {titleHead}
+            {/* The arrow is glued to the last word so it never wraps onto a
+                line by itself. */}
+            <Box as="span" className="whitespace-nowrap">
+              {titleTail}
+              <ArrowRight
+                size={14}
+                strokeWidth={1.8}
+                aria-hidden="true"
+                className="ml-1 inline-block align-[-0.1em] text-[#07182C] transition-transform duration-200 group-hover:translate-x-0.75"
+              />
+            </Box>
           </Text>
         </a>
 
@@ -222,29 +236,45 @@ function CourseCard({ course, data, hidden }) {
           {course.description}
         </Text>
 
-        <div className="mt-auto flex items-end justify-between gap-3 border-t border-[#E0E2E5] pt-3">
-          <Duration duration={course.duration} data={data} />
+        <div className="mt-auto flex items-center justify-between gap-3 border-t border-[#E0E2E5] pt-3">
+          {/* Delivery modes bottom-left, duration bottom-right. A proposed
+              program has no delivery modes yet, so it keeps its "Request
+              program" link instead. */}
+          {course.proposed ? (
+            <>
+              <Duration duration={course.duration} data={data} />
 
-          <a
-            href={course.href}
-            target="_blank"
-            rel="noopener"
-            title={programLinkTitle(course.title)}
-            className="group flex shrink-0 items-center gap-1"
-          >
-            <Text
-              as="span"
-              className="font-mono text-[9px] font-semibold uppercase tracking-[0.5px] text-[#07182C]"
-            >
-              {course.proposed ? cardData.requestProgram : cardData.viewProgram}
-            </Text>
+              <a
+                href={course.href}
+                target="_blank"
+                rel="noopener"
+                title={programLinkTitle(course.title)}
+                className="group flex shrink-0 items-center gap-1"
+              >
+                <Text
+                  as="span"
+                  className="font-mono text-[9px] font-semibold uppercase tracking-[0.5px] text-[#07182C]"
+                >
+                  {cardData.requestProgram}
+                </Text>
 
-            <ArrowRight
-              size={13}
-              strokeWidth={1.8}
-              className="text-[#07182C] transition-transform duration-200 group-hover:translate-x-0.75"
-            />
-          </a>
+                <ArrowRight
+                  size={13}
+                  strokeWidth={1.8}
+                  className="text-[#07182C] transition-transform duration-200 group-hover:translate-x-0.75"
+                />
+              </a>
+            </>
+          ) : (
+            <>
+              <DeliveryBadge
+                delivery={course.delivery ?? data.defaultDelivery}
+                data={data}
+                className=""
+              />
+              <Duration duration={course.duration} data={data} />
+            </>
+          )}
         </div>
       </Box>
     </Box>
