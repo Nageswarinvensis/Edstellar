@@ -14,7 +14,7 @@
 /coverage
 
 # next.js
-/.next/
+/.next
 /out/
 
 # production
@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Deploy builds here, then swaps it into .next (see deploy-edstellar_website.sh)
+/.next-build/
+/.next-build-cache/
+/.releases/
