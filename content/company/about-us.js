@@ -203,10 +203,6 @@ export const ABOUT_US = {
         problem: "Public institutions need capability programs that meet procurement governance.",
         solution: "Edstellar delivers programs with the governance, documentation and reporting that public procurement requires.",
         tags: ["Government programs", "University programs"],
-        links: [
-          { label: "Training for government", href: "/government-employees-training-courses" },
-          { label: "Training for universities", href: "/training-for-universities" },
-        ],
       },
     ],
     challenges_title: "Everyday training challenges, solved along the way",

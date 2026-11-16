@@ -21,7 +21,7 @@ export default function BlogDetailCopyLinkButton({ url, label = "Copy author lin
       type="button"
       onClick={handleCopy}
       aria-label={label}
-      title={copied ? "Copied!" : label}
+      title={copied ? "Copied!" : `Click here to ${label.charAt(0).toLowerCase()}${label.slice(1)}`}
       className="flex size-9 flex-none cursor-pointer items-center justify-center rounded-full border border-ink/10 text-ink-muted transition-colors hover:border-ink/20 hover:bg-ink/5 hover:text-ink"
     >
       {copied ? (

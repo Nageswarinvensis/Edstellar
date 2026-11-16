@@ -22,6 +22,9 @@ import { submitCatalogDownload } from "@/lib/actions/submit-catalog-download";
  * blocked it, so the caller must offer the PDF link itself — see
  * `DownloadReady`), with the `{ name, email }` the visitor entered.
  */
+/** "Download the catalog" → "download the catalog", for "Click here to …" titles. */
+const lowerFirst = (text) => (text ? `${text.charAt(0).toLowerCase()}${text.slice(1)}` : "");
+
 export default function DownloadForm({ pdf, idPrefix, submitLabel, onSuccess, formLabel = "Brochure download" }) {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
@@ -151,7 +154,7 @@ export default function DownloadForm({ pdf, idPrefix, submitLabel, onSuccess, fo
         </Text>
       ) : null}
 
-      <CtaButton type="submit" arrow block disabled={submitting} className="mt-3.5 py-3.5 text-[13px]">
+      <CtaButton type="submit" arrow block disabled={submitting} title={`Click here to ${lowerFirst(submitLabel)}`} className="mt-3.5 py-3.5 text-[13px]">
         {submitting ? "Sending…" : submitLabel}
       </CtaButton>
     </form>
@@ -179,6 +182,7 @@ export function DownloadReady({ pdf, message, linkLabel }) {
         arrow
         block
         render={<a href={pdf} target="_blank" rel="noopener noreferrer" />}
+        title={`Click here to ${lowerFirst(linkLabel)}`}
         className="py-3.5 text-[13px]"
       >
         {linkLabel}

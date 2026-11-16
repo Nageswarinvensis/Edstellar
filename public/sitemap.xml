@@ -13765,6 +13765,12 @@
       <priority>0.6</priority>
 </url>
 <url>
+      <loc>https://www.edstellar.com/blog/frontend-developer-skills</loc>
+      <lastmod>2026-09-15</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.6</priority>
+</url>
+<url>
       <loc>https://www.edstellar.com/blog/full-stack-developers-skills</loc>
       <lastmod>2026-05-22</lastmod>
       <changefreq>weekly</changefreq>
@@ -15673,6 +15679,114 @@
       <priority>0.6</priority>
 </url>
 <url>
+      <loc>https://www.edstellar.com/blog/category/building-a-team-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/business-development-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/digital-transformation</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/diversity-inclusion-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/employee-activities-games-exercises-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/employee-training-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/frameworks-models-templates</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/human-resource-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/in-demand-skills-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/job-roles-responsibilities-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/leadership-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/learning-and-development-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/popular-training-providers-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/popular-training-topics-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/soft-skills-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/trending-technologies</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/workforce-optimization-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/blog/category/workplace-statistics-trends-articles</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+</url>
+<url>
       <loc>https://www.edstellar.com/sitemap</loc>
       <lastmod>2026-10-20</lastmod>
       <changefreq>weekly</changefreq>
@@ -15727,22 +15841,58 @@
       <priority>0.5</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/training-for-universities</loc>
-      <lastmod>2026-10-20</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/government-employees-training-courses</loc>
-      <lastmod>2026-10-20</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/partner-program</loc>
       <lastmod>2026-10-20</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/who-we-serve</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/platforms/capability-os</loc>
+      <lastmod>2026-11-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/platforms/spectra-lms</loc>
+      <lastmod>2026-11-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/platforms/tna-tni-engine</loc>
+      <lastmod>2026-11-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/platforms/zenith</loc>
+      <lastmod>2026-11-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/platforms/orbit</loc>
+      <lastmod>2026-11-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/platforms/polaris</loc>
+      <lastmod>2026-11-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+</url>
+<url>
+      <loc>https://www.edstellar.com/platforms/meridian</loc>
+      <lastmod>2026-11-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
 </url>
 
 </urlset>

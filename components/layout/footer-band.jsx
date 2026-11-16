@@ -28,8 +28,6 @@ const ENDS_WITH_FORM = [
   "/leadership-retreats",
   "/partner-program",
   "/request-for-proposal",
-  "/training-for-government-enquiry",
-  "/training-for-universities-enquiry",
   "/become-a-guest-author",
   "/thank-you",
 ];

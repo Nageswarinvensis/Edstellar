@@ -16,7 +16,7 @@ import { submitEnquiry } from "@/lib/actions/submit-enquiry";
 
 /**
  * Training enquiry card — the form on `/contact-us`, `/enquiry-now` and
- * `/training-for-universities-enquiry`.
+ * the contact sections of other pages.
  * Name, work email, company, job title, country, phone and requirements.
  *
  * A valid submit goes to Zoho Forms' "TrainingEnquiry" form — the same one
@@ -29,7 +29,7 @@ import { submitEnquiry } from "@/lib/actions/submit-enquiry";
  * `data`: `heading`, `requirements_placeholder` (optional), `submit_label`.
  * Name and email sit side by side, as company and job title do. `queryParam` (optional) copies that URL
  * parameter into a hidden `program` field as `{queryParam}-{value}` — e.g.
- * `?university-program=x` → `university-program-x` — so the enquiry records
+ * `?some-program=x` → `some-program-x` — so the enquiry records
  * which program link the visitor came from. Read on the client, so the page
  * itself stays static.
  *

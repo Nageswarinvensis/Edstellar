@@ -71,6 +71,7 @@ export default function CoachingRail() {
 
       <Link
         href="/coaching-solutions"
+        title="Click here to explore coaching programs"
         className="mt-3.5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-navy underline decoration-1 underline-offset-3 hover:decoration-2"
       >
         Explore coaching programs

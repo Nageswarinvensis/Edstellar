@@ -23,10 +23,12 @@ const INTROS = {
   categories: "Every training domain, each with its full course catalog.",
   courses: "Instructor-led programs, grouped by domain. Open a domain to see its programs.",
   services: "Consulting, coaching, assessment and managed L&D services.",
+  platforms: "Edstellar's platforms for workforce capability, learning, assessment and coaching.",
   templates: "Free L&D templates and tools for training and development teams.",
+  "blog-categories": "Blog articles grouped by topic.",
   blog: "Articles and guides on corporate training and workforce development, A to Z.",
   "case-studies": "How organizations have trained their teams with Edstellar.",
-  "quick-links": "Company, platform and policy pages.",
+  "quick-links": "Company and policy pages.",
 };
 
 /** "Generative AI (GenAI) Corporate Training" → "Generative AI (GenAI)". */
@@ -37,6 +39,7 @@ const view = (label) => `Click here to view ${label}`;
 const LINK_TITLES = {
   categories: (label) => `Click here to view ${stripTraining(label)} training programs`,
   courses: (label) => `Click here to view the ${stripTraining(label)} training program`,
+  "blog-categories": (label) => `Click here to view ${label} articles`,
   blog: (label) => `Click here to read ${label}`,
   "case-studies": (label) => `Click here to read the case study: ${label}`,
 };

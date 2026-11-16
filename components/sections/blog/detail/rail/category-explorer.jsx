@@ -55,6 +55,7 @@ export default function CategoryExplorer({ categories = [], featuredDomain }) {
       {featured ? (
         <a
           href={featured.href}
+          title={`Click here to view ${featured.name} training programs`}
           className="mt-3.5 flex items-center gap-3 rounded-xl bg-navy p-3 text-paper no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lift"
         >
           <GroupIcon group={featured.group} dark />
@@ -92,6 +93,7 @@ export default function CategoryExplorer({ categories = [], featuredDomain }) {
                 type="button"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
+                title={`Click here to ${isOpen ? "hide" : "show"} ${group.label} training domains`}
                 onClick={() => setOpen(isOpen ? null : group.key)}
                 className="flex w-full cursor-pointer items-center gap-3 rounded-xl py-2 pr-2.5 pl-2 text-left transition-transform duration-200 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
               >
@@ -126,6 +128,7 @@ export default function CategoryExplorer({ categories = [], featuredDomain }) {
                     <Box as="li" key={domain.name} className="border-b border-dashed border-ink/12 last:border-b-0">
                       <a
                         href={domain.href}
+                        title={`Click here to view ${domain.name} training programs`}
                         className="group flex justify-between gap-2.5 px-1 py-1.75 text-[13px] leading-[1.35] text-ink no-underline"
                       >
                         <span className="group-hover:underline group-hover:underline-offset-3">
@@ -146,6 +149,7 @@ export default function CategoryExplorer({ categories = [], featuredDomain }) {
 
       <a
         href="/corporate-training-catalog"
+        title={`Click here to browse all ${allDomains.length} training domains`}
         className="mt-3 flex items-center gap-2 border-t border-ink/12 pt-3 text-[13px] font-semibold text-navy no-underline"
       >
         <span className="flex-1 underline decoration-1 underline-offset-3">

@@ -40,7 +40,7 @@ export default function BlogDetailCategories({ categories, currentSlug }) {
                 href={`/blog/category/${category.slug}`}
                 title={
                   category.tag_title ||
-                  `Click Here to View ${category.name} Related Articles`
+                  `Click here to view ${category.name} related articles`
                 }
                 aria-current={isCurrent ? "page" : undefined}
                 className={cn(

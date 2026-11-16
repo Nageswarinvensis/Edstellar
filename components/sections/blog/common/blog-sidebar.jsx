@@ -114,7 +114,9 @@ export default function BlogSidebar({
 
         {categoryList.length > 0 && (
           <Box>
-            <Text as="h3" className="mb-4">
+            {/* h2, not h3: it sits directly under the page h1 (an h1 → h3
+                jump breaks the outline). Sized as the old h3. */}
+            <Text as="h2" className="mb-4 text-[clamp(20px,2vw,26px)] leading-[1.15] tracking-[-0.02em]">
               Blog Categories
             </Text>
 

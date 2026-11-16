@@ -53,7 +53,7 @@ export default function BlogDetailSubscribeCta() {
               />
             }
             color="lime"
-            title="Click Here to Access L&D Hub Resources"
+            title="Click here to access L&D hub resources"
             arrow
             className="flex-none px-7 py-4 leading-[1.4] max-[600px]:w-full"
           >

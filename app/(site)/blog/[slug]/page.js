@@ -143,13 +143,14 @@ export default async function BlogPostPage({ params }) {
     .slice(0, 6);
 
   const breadcrumb = [
-    { label: "Home", href: "/" },
-    { label: "Blog", href: "/blog" },
+    { label: "Home", href: "/", title: "Click here to go to the Edstellar homepage" },
+    { label: "Blog", href: "/blog", title: "Click here to view the Edstellar blog" },
     ...(category
       ? [
           {
             label: category.name,
             href: category.slug ? `/blog/category/${category.slug}` : undefined,
+            title: `Click here to view ${category.name} articles`,
           },
         ]
       : []),

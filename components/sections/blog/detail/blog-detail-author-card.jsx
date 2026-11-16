@@ -60,7 +60,7 @@ export default function BlogDetailAuthorCard({
                 href={href}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                title={label}
+                title={`Click here to view ${label}`}
                 aria-label={label}
                 className="inline-flex size-9 flex-none cursor-pointer items-center justify-center rounded-full bg-ink/5 text-ink transition-colors hover:bg-ink/10"
               >
@@ -74,7 +74,7 @@ export default function BlogDetailAuthorCard({
           {slug && (
             <Link
               href={`/blog/author/${slug}`}
-              title={`View ${name}'s full bio and articles`}
+              title={`Click here to view ${name}'s full bio and articles`}
               className="mt-1 inline-flex cursor-pointer items-center gap-1 text-[13px] font-medium text-olive underline-offset-2 transition-colors hover:underline"
             >
               View Full Bio &amp; Articles

@@ -60,7 +60,7 @@ export default function BlogDetailHero({
               {categorySlug ? (
                 <Link
                   href={`/blog/category/${categorySlug}`}
-                 
+                  title={`Click here to view ${category} articles`}
                   className="inline-flex rounded-full border border-paper/28 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-lime transition-colors hover:border-lime"
                 >
                   {category}
@@ -111,7 +111,7 @@ export default function BlogDetailHero({
                     {authorSlug ? (
                       <Link
                         href={`/blog/author/${authorSlug}`}
-                        title={authorName}
+                        title={`Click here to view ${authorName}'s profile`}
                         className="font-display text-[15px] font-semibold tracking-[-0.01em] text-paper hover:underline hover:underline-offset-3"
                       >
                         {authorName}
@@ -167,7 +167,7 @@ export default function BlogDetailHero({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={link.label}
-                    title={link.label}
+                    title={`Click here to ${link.label.charAt(0).toLowerCase()}${link.label.slice(1)}`}
                     className="grid size-9 place-items-center rounded-full border border-paper/28 text-paper transition-[border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-lime"
                   >
                     <SocialIcon platform={link.key} className="size-4" />
@@ -176,7 +176,7 @@ export default function BlogDetailHero({
                 {showsWhatsNew ? (
                   <a
                     href="#whats-new"
-                    title="Click Here to Check Whats New"
+                    title="Click here to check what's new"
                     className="inline-flex min-h-8 items-center rounded-full border border-paper/28 px-3.5 py-1.75 font-mono text-[10px] font-medium uppercase tracking-[0.11em] text-lime transition-colors hover:border-lime"
                   >
                     What&apos;s new

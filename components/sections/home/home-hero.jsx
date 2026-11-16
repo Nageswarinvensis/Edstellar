@@ -107,8 +107,8 @@ export default function HomeHero({ data }) {
             </Box>
           </Box>
 
-          <Box as="aside" aria-label="The Edstellar 5A methodology" className="border border-ink/12 bg-paper px-6 pb-5 pt-4">
-            <Box className="flex items-center justify-between">
+          <Box as="aside" aria-label="The Edstellar 5A methodology" className="border border-ink/12 bg-paper px-6 pb-5 pt-4 max-sm:px-4">
+            <Box className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
               <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
                 {methodology.label}
               </Text>
@@ -116,13 +116,13 @@ export default function HomeHero({ data }) {
                 {methodology.live}
               </Text>
             </Box>
-            <Box as="ol" className="relative mt-4 grid list-none grid-cols-5">
+            <Box as="ol" className="relative mt-4 grid list-none grid-cols-5 gap-x-1">
               {methodology.steps.map((s) => (
-                <Box as="li" key={s.n} className="flex flex-col items-center gap-2 text-center">
+                <Box as="li" key={s.n} className="flex min-w-0 flex-col items-center gap-2 text-center">
                   <Text as="span" className="flex size-8 items-center justify-center rounded-full border border-ink/22 font-mono text-[11px] text-ink">
                     {s.n}
                   </Text>
-                  <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-ink/65">{s.name}</Text>
+                  <Text as="span" className="max-w-full break-words font-mono text-[9.5px] uppercase tracking-[0.1em] text-ink/65 max-sm:text-[8px] max-sm:tracking-normal">{s.name}</Text>
                 </Box>
               ))}
             </Box>

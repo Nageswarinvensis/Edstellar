@@ -2316,7 +2316,7 @@ sel.addEventListener('change',function(){var d=FIND[+sel.value],k=DK.indexOf(d.b
  document.getElementById('pk-name').textContent='The '+d.best+' deck';document.getElementById('pk-q').textContent=QS[d.best];
  document.getElementById('pk-cn').textContent=d.best;cv.style.setProperty('--ph',PH[k]);cv.classList.remove('pop');void cv.offsetWidth;cv.classList.add('pop');
  var dm=document.getElementById('pk-demo');dm.setAttribute('data-deck',d.best);dm.firstChild.nodeValue='Get a free demo with the '+d.best+' deck ';
- document.getElementById('pk-link').href='/platforms/polaris/team-effectiveness#deck-'+SLUG[d.best];
+ var lk=document.getElementById('pk-link');if(lk)lk.href='/platforms/polaris/team-effectiveness#deck-'+SLUG[d.best]; /* button may be absent */
  [].forEach.call(document.querySelectorAll('#pk-fit .pf'),function(li,j){var x=DK[j],lv=x===d.best?'best':d.also.indexOf(x)>-1?'also':'low';li.className='pf pf--'+lv;li.querySelector('.pf-l').textContent=LAB[lv];});
 });})();
 
