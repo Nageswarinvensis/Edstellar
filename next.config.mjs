@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Where `next build` writes. The deploy sets NEXT_DIST_DIR so a build
+  // never overwrites the directory the running workers are serving from and
+  // writing ISR pages into — doing that livelocked the build and took the
+  // site down on 13 and 16 Nov 2026. Unset, which is how pm2 and `next dev`
+  // run, this is exactly ".next" as before.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   experimental: {
     serverActions: {
       // Files go to Zoho through Server Actions, whose default body limit is
