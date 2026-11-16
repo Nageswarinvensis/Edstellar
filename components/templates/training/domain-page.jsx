@@ -62,7 +62,8 @@ export default function DomainPage({ domain }) {
   // Every brochure button on the page opens the gated-download drawer.
   return (
     <BrochureGate
-      brochure={domain.brochure}
+      // Only a key reaches the client — the PDF URL is resolved on the server.
+      brochureKey={domain.brochure && domain.slug ? `domain:${domain.slug}` : null}
       title={domain.name ? `${domain.name} training brochure` : "Training brochure"}
     >
       <Hero hero={hero} breadcrumbs={domain.breadcrumbs} />

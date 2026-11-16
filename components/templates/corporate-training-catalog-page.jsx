@@ -4,11 +4,11 @@ import { CatalogBody, CatalogFaqs, CatalogHero, CatalogProof } from "@/component
 
 /** `/corporate-training-catalog` — hero, proof card, the A–Z catalog beside
  * the brief builder, FAQs, and the shared navy quote form. `domains` comes
- * from the CMS sitemap API. The full-catalog PDF opens the gated-download
+ * from the CMS sitemap API. The full-catalog link opens the gated-download
  * drawer, the same form as the blog rail's catalog card. */
 export default function CorporateTrainingCatalogPage({ page, domains }) {
   return (
-    <BrochureGate brochure={page.brochure} title="Edstellar training catalog">
+    <BrochureGate brochureKey={page.brochure_key} title="Edstellar training catalog">
       <CatalogHero data={page.hero} breadcrumbs={page.breadcrumbs} />
       <CatalogProof data={page.proof} />
       <CatalogBody catalog={page.catalog} brief={page.brief} domains={domains} />

@@ -61,7 +61,8 @@ export default function CoursePage({ course }) {
   // gated-download drawer.
   return (
     <BrochureGate
-      brochure={course.brochure}
+      // Only a key reaches the client — the PDF URL is resolved on the server.
+      brochureKey={course.brochure ? `course:${course.slug}` : null}
       title={course.domain_name ? `${course.domain_name} training brochure` : "Training brochure"}
     >
       {course.hero_v2

@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import CtaButton from "@/components/common/cta-button";
 import { submitCatalogDownload } from "@/lib/actions/submit-catalog-download";
+import { BROCHURE_THANK_YOU } from "@/lib/constants";
 
 /**
  * The gated-download form — name / work email / company / phone in front of
@@ -15,17 +16,23 @@ import { submitCatalogDownload } from "@/lib/actions/submit-catalog-download";
  * "DownloadCatalog" through the `submitCatalogDownload` Server Action, which
  * sets Branch and PAGE NAME from the page it was sent from.
  *
- * The tab is opened on the click itself and pointed at `pdf` after the submit
- * succeeds — a tab opened only after the server round-trip is no longer tied
- * to the click, and browsers block it as a pop-up. `onSuccess(opened, lead)`
- * then tells the caller whether that tab survived (`false`: the browser
- * blocked it, so the caller must offer the PDF link itself — see
- * `DownloadReady`), with the `{ name, email }` the visitor entered.
+ * The form carries only `brochureKey` (e.g. `catalog`, `domain:ai`) — never
+ * the brochure URL, so no PDF link appears in the page source. The Server
+ * Action resolves the key and gives the URL to Zoho, whose thank-you email is
+ * the only place the visitor gets the link. On success the visitor lands on
+ * `/thank-you/{thankYou}`.
  */
 /** "Download the catalog" → "download the catalog", for "Click here to …" titles. */
 const lowerFirst = (text) => (text ? `${text.charAt(0).toLowerCase()}${text.slice(1)}` : "");
 
-export default function DownloadForm({ pdf, idPrefix, submitLabel, onSuccess, formLabel = "Brochure download" }) {
+export default function DownloadForm({
+  brochureKey,
+  idPrefix,
+  submitLabel,
+  thankYou = BROCHURE_THANK_YOU,
+  formLabel = "Brochure download",
+}) {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
@@ -52,10 +59,6 @@ export default function DownloadForm({ pdf, idPrefix, submitLabel, onSuccess, fo
     if (Object.keys(errors).length) return;
     setSubmitting(true);
 
-    // Opened now, while the click still counts, then sent to the PDF below.
-    const tab = window.open("", "_blank");
-    if (tab) tab.opener = null;
-
     let result;
     try {
       result = await submitCatalogDownload({
@@ -63,22 +66,21 @@ export default function DownloadForm({ pdf, idPrefix, submitLabel, onSuccess, fo
         company,
         email,
         phone,
-        // The PDF this form unlocks — Zoho's thank-you email links to it.
-        brochure: pdf,
+        // Which brochure this form unlocks; the server resolves it to the
+        // link Zoho's thank-you email carries.
+        brochureKey,
         company_website: event.currentTarget.elements.company_website?.value ?? "",
         page: window.location.pathname,
       });
     } catch {
       result = null;
     }
-    setSubmitting(false);
-
     if (result?.ok) {
-      if (tab) tab.location.href = pdf;
-      onSuccess(Boolean(tab), { name: name.trim(), email: email.trim() });
+      // Stays "Sending…" until the thank-you page replaces this one.
+      router.push(`/thank-you/${thankYou}`);
       return;
     }
-    tab?.close();
+    setSubmitting(false);
     // A `brochure` error has no input to sit under, so it falls through to
     // the general message below.
     const { name: nameError, email: emailError, company: companyError, phone: phoneError } =
@@ -158,36 +160,6 @@ export default function DownloadForm({ pdf, idPrefix, submitLabel, onSuccess, fo
         {submitting ? "Sending…" : submitLabel}
       </CtaButton>
     </form>
-  );
-}
-
-/** The success state: a check, a line of copy, and the PDF link — the only
- * way to the PDF when the browser blocked the new tab. */
-export function DownloadReady({ pdf, message, linkLabel }) {
-  return (
-    <Box role="status">
-      <span
-        aria-hidden="true"
-        className="mb-3 grid size-10 place-items-center rounded-full bg-lime text-navy"
-      >
-        <Check size={18} strokeWidth={2.5} />
-      </span>
-      <b className="mb-1 block font-display text-[16px] text-ink">
-        You&rsquo;re all set.
-      </b>
-      <Text as="p" className="mb-4 text-[13.5px] leading-[1.6] text-ink-muted">
-        {message}
-      </Text>
-      <CtaButton
-        arrow
-        block
-        render={<a href={pdf} target="_blank" rel="noopener noreferrer" />}
-        title={`Click here to ${lowerFirst(linkLabel)}`}
-        className="py-3.5 text-[13px]"
-      >
-        {linkLabel}
-      </CtaButton>
-    </Box>
   );
 }
 

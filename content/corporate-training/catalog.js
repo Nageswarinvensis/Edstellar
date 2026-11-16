@@ -8,7 +8,9 @@
  *
  * Design: `Edstellar-New-Lanch SETUP/corporate-training-catalog 27.html`.
  */
-const FULL_CATALOG_PDF =
+// Server-side only: read by `lib/content/brochures.js` for the download's
+// Zoho email. The page itself never links to it (no PDF URL in page source).
+export const FULL_CATALOG_PDF =
   "https://media.edstellar.com/brochures/all-courses-catalog.pdf";
 
 export const CATALOG_PAGE = {
@@ -19,9 +21,9 @@ export const CATALOG_PAGE = {
       "Browse Edstellar's corporate training catalog of 2,000+ instructor-led programs, organized by domain. Find the right courses for your team and request a tailored quote.",
     path: "/corporate-training-catalog",
   },
-  // The proof card's "Download the full catalog" PDF, gated by the page's
-  // `BrochureGate` drawer.
-  brochure: FULL_CATALOG_PDF,
+  // The proof card's "Download the full catalog" link opens the page's
+  // `BrochureGate` drawer; the key is resolved to the PDF on the server.
+  brochure_key: "catalog",
 
   breadcrumbs: [
     { label: "Home", href: "/" },
@@ -56,7 +58,7 @@ export const CATALOG_PAGE = {
     prompt: "Not sure where to start?",
     actions: [
       { icon: "target", label: "Start with a needs analysis", href: "/training-needs-analysis-services", title: "Click here to start with a training needs analysis" },
-      { icon: "download", label: "Download the full catalog (PDF)", href: FULL_CATALOG_PDF, title: "Click here to download the full training catalog" },
+      { icon: "download", label: "Download the full catalog (PDF)", href: "#brochure", title: "Click here to download the full training catalog" },
     ],
   },
 

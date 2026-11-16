@@ -202,6 +202,83 @@ function Benefits({ data }) {
   );
 }
 
+/**
+ * The CMS `lede` as written: one string whose paragraphs are separated by
+ * `<br>` and/or line breaks, sometimes with a numbered list in it
+ * ("1. Employee Information Capture: Track …"). Rendered as one `<p>` per
+ * line and consecutive numbered lines as an `<ol>` that shows the CMS's own
+ * numbers, the "Label:" before the first colon bold — rather than one run-on paragraph, which is what a
+ * single `<p>` made of it (line breaks collapse, `<br>` showed as text).
+ * The copy itself is untouched.
+ */
+function Lede({ text }) {
+  const lines = text
+    .split(/\s*<br\s*\/?>\s*|\n+/i)
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  // Consecutive "N. …" lines become one list; everything else a paragraph.
+  const blocks = [];
+  for (const line of lines) {
+    const item = line.match(/^(\d+)\.\s+(.*)$/);
+    const last = blocks[blocks.length - 1];
+    const entry = item && { number: item[1], text: item[2] };
+    if (entry && last?.type === "list") last.items.push(entry);
+    else if (entry) blocks.push({ type: "list", items: [entry] });
+    else blocks.push({ type: "p", text: line });
+  }
+
+  return (
+    <Box className="flex flex-col gap-4">
+      {blocks.map((block, index) =>
+        block.type === "list" ? (
+          <Box
+            as="ol"
+            key={index}
+            className="flex list-none flex-col gap-3"
+          >
+            {block.items.map((item, itemIndex) => {
+              // "Employee Information Capture : Track …" → bold label + text.
+              const [, label, rest] = item.text.match(/^([^:]{2,80}?)\s*:\s*(.+)$/) ?? [];
+              return (
+                <Box
+                  as="li"
+                  key={itemIndex}
+                  className="flex gap-2 font-body text-[16.5px] leading-[1.75] break-words text-ink-muted"
+                >
+                  {/* The CMS's own number, shown as written. */}
+                  <b className="flex-none font-semibold text-ink">{item.number}.</b>
+                  <span>
+                  {label ? (
+                    <>
+                      <b className="font-semibold text-ink">{label}:</b> {rest}
+                    </>
+                  ) : (
+                    item.text
+                  )}
+                  </span>
+                </Box>
+              );
+            })}
+          </Box>
+        ) : (
+          <Text
+            as="p"
+            key={index}
+            className={
+              index === 0
+                ? "text-[17.5px] leading-[1.8] first-line:text-ink"
+                : "text-[17.5px] leading-[1.8]"
+            }
+          >
+            {block.text}
+          </Text>
+        ),
+      )}
+    </Box>
+  );
+}
+
 /** The article beside its sticky promo. Design: `.page`, `.content`, `.side`. */
 export function TemplateArticle({ template }) {
   return (
@@ -210,9 +287,7 @@ export function TemplateArticle({ template }) {
         <Box as="article" className="flex flex-col gap-19">
           {template.lede ? (
             <Reveal>
-              <Text as="p" className="text-[17.5px] leading-[1.8] first-line:text-ink">
-                {template.lede}
-              </Text>
+              <Lede text={template.lede} />
             </Reveal>
           ) : null}
           <Features data={template.features} />

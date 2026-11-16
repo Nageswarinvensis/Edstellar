@@ -1,33 +1,17 @@
-"use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
-import DownloadForm, { DownloadReady } from "@/components/forms/download-form";
+import DownloadForm from "@/components/forms/download-form";
 import { RailEyebrow } from "./rail-card";
-
-const CATALOG_PDF = "https://media.edstellar.com/brochures/all-courses-catalog.pdf";
 
 /**
  * "Free download" rail card: navy panel with the white gated-download form
- * (`DownloadForm`). Once Zoho has the lead, the catalog opens in a new tab
- * and this tab goes to `/thank-you/{thankYou}`. If the browser blocked the
- * new tab, the form gives way to the PDF link instead — the thank-you page
- * has no link to the catalog.
+ * (`DownloadForm`). Once Zoho has the lead the visitor lands on
+ * `/thank-you/{thankYou}`; the catalog link arrives only in Zoho's thank-you
+ * email, so the PDF URL is not in the page source.
  *
  * Design: Blog page v2 `.cat-dl.rail`, `.cat-dl-panel`, `.cat-dl-done`.
  */
-export default function CatalogRail({ thankYou = "download-catalog" }) {
-  const router = useRouter();
-  const [sent, setSent] = useState(false);
-
-  function onSuccess(opened) {
-    if (opened) router.push(`/thank-you/${thankYou}`);
-    else setSent(true);
-  }
-
+export default function CatalogRail({ thankYou }) {
   return (
     <Box
       as="section"
@@ -48,21 +32,13 @@ export default function CatalogRail({ thankYou = "download-catalog" }) {
       </Text>
 
       <Box className="mt-3 rounded-[14px] bg-white p-3.5 text-ink">
-        {sent ? (
-          <DownloadReady
-            pdf={CATALOG_PDF}
-            message="Your catalog is ready to download."
-            linkLabel="Open the catalog (PDF)"
-          />
-        ) : (
-          <DownloadForm
-            pdf={CATALOG_PDF}
-            idPrefix="rail-catalog"
-            formLabel="Catalog download"
-            submitLabel="Download the catalog (PDF)"
-            onSuccess={onSuccess}
-          />
-        )}
+        <DownloadForm
+          brochureKey="catalog"
+          idPrefix="rail-catalog"
+          formLabel="Catalog download"
+          submitLabel="Get the catalog"
+          thankYou={thankYou}
+        />
       </Box>
     </Box>
   );
