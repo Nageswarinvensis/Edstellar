@@ -18,9 +18,10 @@ const CATALOG = { label: "Browse All Training Programs", href: "/corporate-train
 
 export const CORPORATE_TRAINING_HUB = {
   seo: {
-    title: "Corporate Training for Workforce Development",
+    // The root layout's title template adds " | Edstellar".
+    title: "Corporate Training Services Company",
     description:
-      "Build workforce skills with Edstellar's corporate training, tailored to your business goals with expert trainers, customized programs and flexible delivery.",
+      "Edstellar is a global corporate training services company offering 2,000+ instructor-led programs, delivered onsite or virtually in 100+ countries.",
     path: "/corporate-training",
   },
   breadcrumbs: [
@@ -29,7 +30,7 @@ export const CORPORATE_TRAINING_HUB = {
   ],
 
   hero: {
-    heading: "Instructor-led Corporate Training Solutions for Your Enterprise <span>Workforce</span>",
+    heading: "Corporate Training Services Company for <span>Global Enterprises</span>",
     lede: "Build the skills your people need for the work ahead. Edstellar delivers more than 2,000 instructor-led corporate training programs across 77 domains, tailored to your roles and run onsite or virtually for a single team or a workforce-wide initiative.",
     definition:
       "Corporate training develops employees' job-related knowledge and skills around a business requirement. Start with a training domain, your type of organization, or the capability you want to build, and Edstellar shapes the engagement around your roles, learning goals, and delivery needs.",

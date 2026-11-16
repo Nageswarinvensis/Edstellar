@@ -207,34 +207,30 @@ export default function BlogPosts({
                     {/* A card title, not a section heading — a <p> styled as the
                         h3 it replaced (display font, weight and tracking are h3
                         defaults in Text). */}
-                    <Text
-                      as="p"
-                      className="mb-3 font-display text-[20px] leading-tight font-medium tracking-[-0.02em] text-ink transition-colors group-hover:text-olive"
-                    >
-                      {post.title}
-                    </Text>
+                    <Box className="mb-5 flex items-start justify-between gap-3">
+                      <Text
+                        as="p"
+                        className="font-display text-[20px] leading-tight font-medium tracking-[-0.02em] text-ink transition-colors group-hover:text-olive"
+                      >
+                        {post.title}
+                      </Text>
+                      <ArrowRight
+                        size={18}
+                        aria-hidden="true"
+                        className="mt-1 flex-none text-olive"
+                      />
+                    </Box>
                   </Link>
 
-                  {post.published_at && (
-                    <Box className="mb-5 flex items-center gap-1">
+                  <Box className="mt-auto flex items-end justify-between">
+                    {post.published_at ? (
                       <Text as="span" className="text-[12px] text-ink-muted">
-                        Updated On:
-                      </Text>
-                      <Text as="span" className="text-[12px] text-ink-muted">
+                        Updated On:{" "}
                         {format(new Date(post.published_at), "MMMM d, yyyy")}
                       </Text>
-                    </Box>
-                  )}
-
-                  <Box className="mt-auto flex items-end justify-between">
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      title={`Click Here to Read ${post.title}`}
-                      className="inline-flex items-center gap-3 text-[14px] font-medium text-olive"
-                    >
-                      Read More
-                      <ArrowRight size={12} aria-hidden="true" />
-                    </Link>
+                    ) : (
+                      <Box as="span" />
+                    )}
 
                     {typeof post.views === "number" && (
                       <Text

@@ -10,8 +10,11 @@ export const revalidate = 300;
 
 export function generateMetadata() {
   return buildMetadata({
-    title: "Blog",
-    description: "Read Edstellar's learning and development blog for ideas on corporate training, talent development and workforce skills for HR, L&D and business leaders.",
+    // Already starts with the brand, so it bypasses the layout's
+    // "%s | Edstellar" template instead of naming Edstellar twice.
+    title: "Edstellar Blog: Insights for HR, L&D and Business Leaders",
+    absoluteTitle: true,
+    description: "Read the Edstellar blog for practical insights on developing people, skills and teams. Explore guides, frameworks and workplace trends for HR, L&D and business leaders.",
     path: "/blog",
   });
 }
@@ -32,8 +35,8 @@ export default async function BlogIndexPage() {
         "@type": "WebPage",
         "@id": `${pageUrl}#webpage`,
         "url": pageUrl,
-        "name": "Blog",
-        "description": "Read Edstellar's learning and development blog for ideas on corporate training, talent development and workforce skills for HR, L&D and business leaders.",
+        "name": "Edstellar Blog: Insights for HR, L&D and Business Leaders",
+        "description": "Read the Edstellar blog for practical insights on developing people, skills and teams. Explore guides, frameworks and workplace trends for HR, L&D and business leaders.",
         "inLanguage": "en-US"
       }} />
       <BlogMainPageContent

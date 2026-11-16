@@ -13,9 +13,10 @@ const FULL_CATALOG_PDF =
 
 export const CATALOG_PAGE = {
   seo: {
-    title: "Corporate Training Courses & Course Catalog",
+    // The root layout's title template adds " | Edstellar".
+    title: "Corporate Training Catalog",
     description:
-      "Browse Edstellar's corporate training courses by domain. Explore program details and find courses that match your team's skills and development priorities.",
+      "Browse Edstellar's corporate training catalog of 2,000+ instructor-led programs, organized by domain. Find the right courses for your team and request a tailored quote.",
     path: "/corporate-training-catalog",
   },
   // The proof card's "Download the full catalog" PDF, gated by the page's
@@ -29,7 +30,7 @@ export const CATALOG_PAGE = {
   ],
 
   hero: {
-    heading: "Corporate Training Catalog Designed & Curated for <span>Next-Gen Companies</span>",
+    heading: "Corporate Training <span>Catalog</span>",
     subheading: "Every Edstellar program, organized by domain.",
     description:
       "Browse 77 training domains and 2,000+ instructor-led programs in one place, from artificial intelligence and cloud computing to leadership, sales and compliance. Open any domain to see all of its courses and request a program tailored to your team.",

@@ -3,7 +3,7 @@ import path from "node:path";
 import { notFound } from "next/navigation";
 import { getBlogMain, getBlogPost } from "@/lib/content/blog";
 import { getBlogRailCategories } from "@/lib/content/blog-rail";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
 // import SchemaOrg from "@/components/seo/schema-org";
 import Section from "@/components/ui/Section";
@@ -116,7 +116,8 @@ export async function generateMetadata({ params }) {
   const { blog } = post;
 
   return buildMetadata({
-    title: blog.meta?.meta_title || blog.title,
+    // The layout template adds " | Edstellar"; some CMS titles already end in it.
+    title: stripSiteSuffix(blog.meta?.meta_title || blog.title),
     description: blog.meta?.meta_description || blog.excerpt,
     path: `/blog/${blog.slug}`,
     image: blog.meta?.og_image || blog.cover_image,
