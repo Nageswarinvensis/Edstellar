@@ -61,7 +61,7 @@ export default async function ManagedTrainingServicesPage() {
   const breadcrumbs = page.breadcrumbs?.items;
 
   return (
-    <BrochureGate {...consultingBrochure("managed-training")}>
+    <BrochureGate {...consultingBrochure("managed-learning-services/managed-training")}>
       {/* WebPage */}
       <JsonLd data={{
         "@context": "https://schema.org",

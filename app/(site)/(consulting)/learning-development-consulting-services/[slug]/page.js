@@ -155,7 +155,7 @@ export default async function LearningDevelopmentServicePage({ params }) {
   const nodes = schemaNodes(service.consultingSchema);
 
   return (
-    <BrochureGate {...consultingBrochure(slug)}>
+    <BrochureGate {...consultingBrochure(`${PILLAR}/${slug}`)}>
       {/* WebPage */}
       <JsonLd data={{
         "@context": "https://schema.org",

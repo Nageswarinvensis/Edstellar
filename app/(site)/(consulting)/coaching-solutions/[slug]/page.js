@@ -87,7 +87,7 @@ export default async function CoachingSubPage({ params }) {
     matchedComponent;
 
   return (
-    <BrochureGate {...consultingBrochure(slug)}>
+    <BrochureGate {...consultingBrochure(`${PILLAR}/${slug}`)}>
       {/* WebPage */}
       <JsonLd
         data={{

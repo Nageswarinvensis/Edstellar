@@ -124,7 +124,7 @@ export default async function TalentAssessmentServicePage({ params }) {
   const nodes = schemaNodes(service.assessmentSchema);
 
   return (
-    <BrochureGate {...consultingBrochure(slug)}>
+    <BrochureGate {...consultingBrochure(`${PILLAR}/${slug}`)}>
       {/* WebPage */}
       <JsonLd data={{
         "@context": "https://schema.org",
