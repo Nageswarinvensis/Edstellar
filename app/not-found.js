@@ -5,7 +5,7 @@ import Text from "@/components/ui/Text";
 import CtaButton from "@/components/common/cta-button";
 
 export const metadata = {
-  title: "Page not found · Edstellar",
+  title: "Page not found",
 };
 
 export default function NotFound() {

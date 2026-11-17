@@ -5,7 +5,7 @@ import Text from "@/components/ui/Text";
 import CtaButton from "@/components/common/cta-button";
 
 export const metadata = {
-  title: "Page permanently removed · Edstellar",
+  title: "Page permanently removed",
   robots: { index: false, follow: false },
 };
 
