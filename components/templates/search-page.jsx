@@ -139,7 +139,7 @@ export default function SearchPage({ results }) {
               <Text as="p" role={query ? "status" : undefined} className="text-[15px] leading-[1.6] text-ink/70">
                 {query
                   ? "No results found. Try a shorter or different word, or start from one of these:"
-                  : "Search 2,000+ courses, 77 training domains, services and articles. Or start from one of these:"}
+                  : "Search 2,000+ courses, 76 training domains, services and articles. Or start from one of these:"}
               </Text>
               <Suggestions />
             </>

@@ -1,6 +1,6 @@
 # Edstellar
 
-> Edstellar is a global capability transformation partner for mid-size and enterprise organizations. It connects L&D and organizational development consulting, talent assessments, executive and leadership coaching, and instructor-led corporate training (2,000+ programs across 77 domains) into one program, run through its 5A methodology (Assess, Analyze, Architect, Activate, Advance) and measured on its Capability Intelligence Platform. Training is delivered onsite, virtually or hybrid, in 10+ languages, by 5,000+ vetted trainers and coaches in 100+ countries.
+> Edstellar is a global capability transformation partner for mid-size and enterprise organizations. It connects L&D and organizational development consulting, talent assessments, executive and leadership coaching, and instructor-led corporate training (2,000+ programs across 76 domains) into one program, run through its 5A methodology (Assess, Analyze, Architect, Activate, Advance) and measured on its Capability Intelligence Platform. Training is delivered onsite, virtually or hybrid, in 10+ languages, by 5,000+ vetted trainers and coaches in 100+ countries.
 
 Last updated: 2026-11-16
 Training usage: Allowed
@@ -96,11 +96,11 @@ This file is a complete, machine-readable map of Edstellar's public pages: servi
 
 ## Corporate Training
 
-- [Corporate Training](https://www.edstellar.com/corporate-training): Corporate training hub: 2,000+ instructor-led programs across 77 domains, delivered onsite, virtually or hybrid.
+- [Corporate Training](https://www.edstellar.com/corporate-training): Corporate training hub: 2,000+ instructor-led programs across 76 domains, delivered onsite, virtually or hybrid.
 - [Corporate Training Catalog](https://www.edstellar.com/corporate-training-catalog): Searchable catalog of every Edstellar instructor-led corporate training program.
 - [Corporate Training Pricing](https://www.edstellar.com/corporate-training-pricing): Pricing model: trainee licenses (one license = one trainee for one 8-hour day), Starter, Growth and Enterprise packages; onsite delivery adds 30%.
 
-## Training Domains (77)
+## Training Domains (76)
 
 - [Aerospace & Defence Training](https://www.edstellar.com/corporate-training/aerospace-defence): Defence acquisition and capability management (1 program).
 - [Agile Training](https://www.edstellar.com/corporate-training/agile): Agile project management, Scrum Master and Product Owner, SAFe, agile leadership and engineering practices (7 programs).
@@ -125,7 +125,6 @@ This file is a complete, machine-readable map of Edstellar's public pages: servi
 - [Design & Multimedia Training](https://www.edstellar.com/corporate-training/design-multimedia): UI/UX and Figma, Adobe Creative Cloud, design thinking, accessibility, 3D modeling, motion graphics and video editing (35 programs).
 - [DevOps & Cloud Native Training](https://www.edstellar.com/corporate-training/devops): CI/CD, Kubernetes, Docker, Terraform, GitOps, DevSecOps, SRE, observability and platform engineering (36 programs).
 - [E-commerce Training](https://www.edstellar.com/corporate-training/e-commerce): E-commerce and marketplace operations, Shopify and Adobe Commerce (3 programs).
-- [Education Training](https://www.edstellar.com/corporate-training/education): Education-sector leadership and digital learning transformation (1 program).
 - [Emerging Technologies Training](https://www.edstellar.com/corporate-training/emerging-technologies): Quantum computing, blockchain and Web3, robotics, extended reality, spatial computing, drones and smart cities (33 programs).
 - [Employee Wellbeing Training](https://www.edstellar.com/corporate-training/employee-wellbeing): Mindfulness, burnout prevention, resilience, financial wellness and digital detox (5 programs).
 - [Energy & Utilities Training](https://www.edstellar.com/corporate-training/energy-utilities): Energy transition, renewables, grid modernisation, green hydrogen, oil and gas operations, energy trading and nuclear energy (26 programs).
@@ -141,7 +140,7 @@ This file is a complete, machine-readable map of Edstellar's public pages: servi
 - [Governance, Risk & Compliance Training](https://www.edstellar.com/corporate-training/grc): Data privacy (GDPR, DPDP and regional laws), AML/KYC and sanctions, anti-bribery, financial regulation by country, ISO 42001 and ISO 37301, SOC 2, PCI DSS and business continuity (168 programs).
 - [Health, Safety & Environment (HSE) Training](https://www.edstellar.com/corporate-training/hse): Occupational health and safety, ISO 45001, process safety, fire safety, working at height, LOTO and country-specific safety regulations (57 programs).
 - [Hospitality & Tourism Training](https://www.edstellar.com/corporate-training/hospitality-tourism): Sustainable tourism and hospitality, and venue operations (2 programs).
-- [Human Resources Training](https://www.edstellar.com/corporate-training/hr): HR operations, HRBP, talent and performance management, people analytics, skills-based organization, workplace harassment prevention, labour law by country, and HCM platforms such as Workday and Oracle (90 programs).
+- [Human Resources Training](https://www.edstellar.com/corporate-training/hr): HR operations, HRBP, talent and performance management, people analytics, skills-based organization, workplace harassment prevention, labour law by country, and HCM platforms such as Workday and Oracle (89 programs).
 - [Insurance Training](https://www.edstellar.com/corporate-training/insurance): Underwriting, claims and fraud analytics, actuarial pricing, reinsurance, Solvency II, InsurTech and Takaful (12 programs).
 - [Intelligent Automation & RPA Training](https://www.edstellar.com/corporate-training/intelligent-automation-rpa): RPA and intelligent automation with UiPath, Automation Anywhere, Blue Prism and related tools (10 programs).
 - [Internet of Things (IoT) Training](https://www.edstellar.com/corporate-training/iot): IoT architecture, connected products, embedded and IoT security, and Linux device drivers (7 programs).
@@ -217,7 +216,7 @@ This file is a complete, machine-readable map of Edstellar's public pages: servi
 - [Become a Guest Author](https://www.edstellar.com/become-a-guest-author): Guidelines for contributing guest articles to the Edstellar blog.
 - [Enquiry Form](https://www.edstellar.com/enquiry-now): General enquiry form.
 
-## Corporate Training Programs (2,034)
+## Corporate Training Programs (2,032)
 
 Every program is instructor-led and customizable, delivered onsite, virtually or hybrid. Programs are grouped by training domain.
 
@@ -940,10 +939,6 @@ Every program is instructor-led and customizable, delivered onsite, virtually or
 - [E-commerce Operations & Marketplace Management Training](https://www.edstellar.com/corporate-training/e-commerce/e-commerce-operations-marketplace-management-course)
 - [Shopify Training](https://www.edstellar.com/corporate-training/e-commerce/shopify-course)
 
-### Education Training (1)
-
-- [Education Sector Leadership & Digital Learning Transformation Training](https://www.edstellar.com/corporate-training/education/education-sector-leadership-digital-learning-transformation-course)
-
 ### Emerging Technologies Training (33)
 
 - [Autonomous Mobile Robots & Warehouse Automation Training](https://www.edstellar.com/corporate-training/emerging-technologies/autonomous-mobile-robots-warehouse-automation-course)
@@ -1472,7 +1467,7 @@ Every program is instructor-led and customizable, delivered onsite, virtually or
 - [Sports & Venue Operations Management Training](https://www.edstellar.com/corporate-training/hospitality-tourism/sports-venue-operations-management-course)
 - [Sustainable Tourism & Hospitality Training](https://www.edstellar.com/corporate-training/hospitality-tourism/sustainable-tourism-hospitality-course)
 
-### Human Resources Training (90)
+### Human Resources Training (89)
 
 - [360-Degree Feedback Design & Facilitation Training](https://www.edstellar.com/corporate-training/hr/360-degree-feedback-design-facilitation-course)
 - [Anti-Racism Training](https://www.edstellar.com/corporate-training/hr/anti-racism-course)
@@ -1518,7 +1513,6 @@ Every program is instructor-led and customizable, delivered onsite, virtually or
 - [Internal Mobility, Career Pathing & Retention Training](https://www.edstellar.com/corporate-training/hr/internal-mobility-career-pathing-retention-course)
 - [Irish Employment Equality & Work Life Balance Act Compliance Corporate Training](https://www.edstellar.com/corporate-training/hr/irish-employment-equality-work-life-balance-act-compliance-course)
 - [Japan Power Harassment Prevention Compliance Training](https://www.edstellar.com/corporate-training/hr/japan-power-harassment-prevention-compliance-course)
-- [Just Transition & Workforce Reskilling Training](https://www.edstellar.com/corporate-training/hr/just-transition-workforce-reskilling-course)
 - [Knowledge Management in the AI Enterprise Training](https://www.edstellar.com/corporate-training/hr/knowledge-management-in-the-ai-enterprise-course)
 - [Korea Workplace Harassment Prevention Compliance Training](https://www.edstellar.com/corporate-training/hr/korea-workplace-harassment-prevention-compliance-course)
 - [Kuwaitisation & Kuwait Labour Law Compliance Training](https://www.edstellar.com/corporate-training/hr/kuwaitisation-kuwait-labour-law-compliance-course)
@@ -2486,7 +2480,7 @@ Every program is instructor-led and customizable, delivered onsite, virtually or
 - [Telecom OSS/BSS & Revenue Assurance Training](https://www.edstellar.com/corporate-training/telecommunications/telecom-oss-bss-revenue-assurance-course)
 - [Telecom Project & Rollout Management Training](https://www.edstellar.com/corporate-training/telecommunications/telecom-project-rollout-management-course)
 
-## Blog (436)
+## Blog (435)
 
 - [10 Best Corporate Training Companies in Austria for 2026](https://www.edstellar.com/blog/corporate-training-companies-austria)
 - [10 Best Corporate Training Companies in Belgium for 2026](https://www.edstellar.com/blog/corporate-training-companies-belgium)
@@ -2619,7 +2613,6 @@ Every program is instructor-led and customizable, delivered onsite, virtually or
 - [13 Best Corporate Training Companies in the USA for 2026](https://www.edstellar.com/blog/corporate-training-companies-usa)
 - [13 Essential Skills Every Architect Must Learn in 2026](https://www.edstellar.com/blog/must-have-skills-for-architects)
 - [13 Goal Setting Activities, Games & Exercises for Employees](https://www.edstellar.com/blog/goal-setting-activities-games-exercises)
-- [13 Major Roles AI Plays in Corporate Training for 2026](https://www.edstellar.com/blog/ai-in-corporate-training)
 - [13 Performance Management Activities, Games & Exercises for Employees](https://www.edstellar.com/blog/performance-management-activities-games-exercises-for-employees)
 - [14 Best Finance Training Companies for 2026](https://www.edstellar.com/blog/finance-training-companies)
 - [14 Best Sales Training Companies in 2026](https://www.edstellar.com/blog/sales-training-companies)

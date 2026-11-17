@@ -28,7 +28,7 @@ export default function CatalogRail({ thankYou }) {
         <em className="font-serif text-[1.12em] font-bold">training catalog</em>.
       </Text>
       <Text as="p" className="mt-1.5 text-[12px] leading-[1.5] text-paper/72">
-        2,000+ instructor-led programs across 77 domains, in one PDF.
+        2,000+ instructor-led programs across 76 domains, in one PDF.
       </Text>
 
       <Box className="mt-3 rounded-[14px] bg-white p-3.5 text-ink">

@@ -1,6 +1,6 @@
 /**
  * Corporate Training hub (`/corporate-training`) — local copy; the CMS has
- * no page for it. The 77-domain list is NOT here: it comes from the CMS
+ * no page for it. The domain list is NOT here: it comes from the CMS
  * sitemap API (`lib/content/training-catalog.js`), so every domain link is
  * a page that exists.
  *
@@ -31,7 +31,7 @@ export const CORPORATE_TRAINING_HUB = {
 
   hero: {
     heading: "Corporate Training Services Company for <span>Global Enterprises</span>",
-    lede: "Build the skills your people need for the work ahead. Edstellar delivers more than 2,000 instructor-led corporate training programs across 77 domains, tailored to your roles and run onsite or virtually for a single team or a workforce-wide initiative.",
+    lede: "Build the skills your people need for the work ahead. Edstellar delivers more than 2,000 instructor-led corporate training programs across 76 domains, tailored to your roles and run onsite or virtually for a single team or a workforce-wide initiative.",
     definition:
       "Corporate training develops employees' job-related knowledge and skills around a business requirement. Start with a training domain, your type of organization, or the capability you want to build, and Edstellar shapes the engagement around your roles, learning goals, and delivery needs.",
     primary_cta: CONTACT,
@@ -44,7 +44,7 @@ export const CORPORATE_TRAINING_HUB = {
       height: 941,
     },
     confidence: [
-      { icon: "users", label: "2,000+ programs across 77 domains" },
+      { icon: "users", label: "2,000+ programs across 76 domains" },
       { icon: "presentation", label: "Trainers matched to your teams" },
       { icon: "sliders", label: "Onsite, virtual and hybrid delivery" },
     ],
@@ -52,7 +52,7 @@ export const CORPORATE_TRAINING_HUB = {
 
   proof: [
     { value: "2,000+", label: "instructor-led programs" },
-    { value: "77", label: "training domains" },
+    { value: "76", label: "training domains" },
     { value: "5,000+", label: "qualified trainers" },
     { value: "100+", label: "countries" },
     { value: "10+", label: "languages" },
@@ -100,9 +100,9 @@ export const CORPORATE_TRAINING_HUB = {
 
   programs: {
     id: "training-programs",
-    heading: "Corporate Training Programs Across <span>77 Domains</span>",
+    heading: "Corporate Training Programs Across <span>76 Domains</span>",
     intro:
-      "Edstellar offers more than 2,000 instructor-led corporate training programs across 77 domains, from artificial intelligence and cloud computing to leadership, sales, compliance and sustainability. Find your domain and go straight to its programs.",
+      "Edstellar offers more than 2,000 instructor-led corporate training programs across 76 domains, from artificial intelligence and cloud computing to leadership, sales, compliance and sustainability. Find your domain and go straight to its programs.",
     list_title: "All training domains",
     search_label: "Find a domain",
     search_placeholder: "Try cloud, sales or safety",
@@ -326,7 +326,7 @@ export const CORPORATE_TRAINING_HUB = {
       {
         question: "How many corporate training programs does Edstellar offer?",
         answer:
-          "Edstellar offers more than 2,000 instructor-led corporate training programs across 77 domains, from artificial intelligence, cloud computing and cybersecurity to leadership, sales, compliance and sustainability. Browse the domains on this page or the full corporate training catalog.",
+          "Edstellar offers more than 2,000 instructor-led corporate training programs across 76 domains, from artificial intelligence, cloud computing and cybersecurity to leadership, sales, compliance and sustainability. Browse the domains on this page or the full corporate training catalog.",
       },
       {
         question: "Can you tailor corporate training to our roles and business context?",

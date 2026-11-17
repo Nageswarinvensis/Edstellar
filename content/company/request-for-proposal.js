@@ -24,7 +24,7 @@ export const RFP_PAGE = {
   hero: {
     heading: "Send Edstellar your training RFP, <span>one proposal for every service you need.</span>",
     description:
-      "Training across 77 domains, L&D and OD consulting, assessments and coaching, answered in one complete proposal within 15 working days of clarifications. Edstellar responds to RFPs, RFQs, government tenders and procurement portals.",
+      "Training across 76 domains, L&D and OD consulting, assessments and coaching, answered in one complete proposal within 15 working days of clarifications. Edstellar responds to RFPs, RFQs, government tenders and procurement portals.",
     primary_cta: SUBMIT,
     secondary_cta: { label: "Download the procurement pack", href: "#procurement" },
     documents: [
@@ -73,7 +73,7 @@ export const RFP_PAGE = {
     ],
     formats_note: "RFIs and expressions of interest are welcome through the same form.",
     services: [
-      { icon: "book", title: "Corporate training", text: "Instructor-led programs across 77 domains", href: "/corporate-training-catalog" },
+      { icon: "book", title: "Corporate training", text: "Instructor-led programs across 76 domains", href: "/corporate-training-catalog" },
       { icon: "compass", title: "L&D consulting", text: "Learning strategy, design and governance", href: "/learning-development-consulting-services" },
       { icon: "network", title: "OD consulting", text: "Structure, culture, leadership and change", href: "/organizational-development-consulting" },
       { icon: "search", title: "Training needs analysis", text: "Skill gaps mapped and ranked by impact", href: "/training-needs-analysis-services" },
@@ -217,7 +217,7 @@ export const RFP_PAGE = {
       "A capability transformation partner that answers your RFP across services and countries, and stays with you after the award.",
     items: [
       { value: "100+", title: "Countries for delivery", text: "Programs delivered in 100+ countries and 10+ languages." },
-      { value: "77", title: "Training domains", text: "More than 2,000 instructor-led programs to build from." },
+      { value: "76", title: "Training domains", text: "More than 2,000 instructor-led programs to build from." },
       { value: "1", title: "Client success manager", text: "One dedicated contact per account once your program starts." },
       { value: "2", title: "ISO certifications", text: "ISO 9001:2015 quality and ISO 27001:2022 information security." },
     ],

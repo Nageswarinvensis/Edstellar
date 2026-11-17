@@ -11,7 +11,7 @@
 // Server-side only: read by `lib/content/brochures.js` for the download's
 // Zoho email. The page itself never links to it (no PDF URL in page source).
 export const FULL_CATALOG_PDF =
-  "https://media.edstellar.com/brochures/all-courses-catalog.pdf";
+  "https://media.edstellar.com/brochure/all-courses-catalog.pdf";
 
 export const CATALOG_PAGE = {
   seo: {
@@ -35,7 +35,7 @@ export const CATALOG_PAGE = {
     heading: "Corporate Training <span>Catalog</span>",
     subheading: "Every Edstellar program, organized by domain.",
     description:
-      "Browse 77 training domains and 2,000+ instructor-led programs in one place, from artificial intelligence and cloud computing to leadership, sales and compliance. Open any domain to see all of its courses and request a program tailored to your team.",
+      "Browse 76 training domains and 2,000+ instructor-led programs in one place, from artificial intelligence and cloud computing to leadership, sales and compliance. Open any domain to see all of its courses and request a program tailored to your team.",
     meta: ["Instructor-led", "Onsite / virtual / blended", "10+ languages", "100+ countries"],
     primary_cta: { label: "Browse the domains", href: "#catalog", title: "Click here to browse the training domains" },
     secondary_cta: { label: "Request a quote", href: "#contact", title: "Click here to request a training quote" },
@@ -50,7 +50,7 @@ export const CATALOG_PAGE = {
   proof: {
     stats: [
       { value: "2,000+", label: "Programs" },
-      { value: "77", label: "Domains" },
+      { value: "76", label: "Domains" },
       { value: "5,000+", label: "Trainers" },
       { value: "200+", label: "Clients" },
     ],
@@ -138,7 +138,7 @@ export const CATALOG_PAGE = {
       {
         question: "How many training domains are in the Edstellar catalog?",
         answer:
-          "The catalog groups 2,000+ instructor-led programs into 77 domains, from artificial intelligence and cloud computing to leadership, sales, compliance and sustainability. Open any domain on this page to see every course in it.",
+          "The catalog groups 2,000+ instructor-led programs into 76 domains, from artificial intelligence and cloud computing to leadership, sales, compliance and sustainability. Open any domain on this page to see every course in it.",
       },
       {
         question: "Can Edstellar customize a course from the catalog?",

@@ -120,7 +120,7 @@ export const ABOUT_US = {
     description: "The depth behind every Edstellar capability program, from assessment to delivery.",
     stats: [
       { value: "2,000+", label: "instructor-led training programs" },
-      { value: "77", label: "training domains in the catalog" },
+      { value: "76", label: "training domains in the catalog" },
       { value: "5,000+", label: "qualified trainers and coaches" },
       { value: "58", label: "assessments across 14 families" },
       { value: "50+", label: "coaching programs" },
@@ -439,7 +439,7 @@ export const ABOUT_US = {
       {
         question: "Does Edstellar still deliver corporate training programs?",
         answer:
-          "Yes. Edstellar offers more than 2,000 instructor-led programs across 77 domains, delivered by a network of more than 5,000 qualified trainers.",
+          "Yes. Edstellar offers more than 2,000 instructor-led programs across 76 domains, delivered by a network of more than 5,000 qualified trainers.",
       },
       {
         question: "Which platforms and tools has Edstellar built?",

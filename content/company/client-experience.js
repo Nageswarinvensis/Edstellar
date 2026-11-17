@@ -153,7 +153,7 @@ export const CLIENT_EXPERIENCE = {
     description: "A capability transformation partner with the reach, range and tools to support every program you run.",
     items: [
       { value: "Fit first", title: "Vendor-neutral recommendations", text: "Programs and tools chosen for your goals, not tied to one publisher." },
-      { value: "77", title: "Training domains", text: "More than 2,000 instructor-led programs across 77 domains." },
+      { value: "76", title: "Training domains", text: "More than 2,000 instructor-led programs across 76 domains." },
       { value: "8", title: "Edstellar tools", text: "Edstellar's own tools for assessment, learning, coaching and capability tracking." },
       { value: "3", title: "Delivery modes", text: "Virtual, onsite or blended, in 10+ languages." },
     ],
@@ -163,7 +163,7 @@ export const CLIENT_EXPERIENCE = {
     heading: "More from Edstellar.",
     items: [
       { icon: "layers", tag: "Service", title: "Managed training services", text: "Hand Edstellar the full running of your training calendar.", link: "Explore managed training", href: "/managed-learning-services/managed-training", featured: true },
-      { icon: "book", tag: "Programs", title: "Corporate training programs", text: "Instructor-led programs across 77 domains.", link: "Browse programs", href: "/corporate-training-catalog" },
+      { icon: "book", tag: "Programs", title: "Corporate training programs", text: "Instructor-led programs across 76 domains.", link: "Browse programs", href: "/corporate-training-catalog" },
       { icon: "target", tag: "Service", title: "L&D consulting", text: "Strategy, design and governance for your learning function.", link: "Explore consulting", href: "/learning-development-consulting-services" },
       { icon: "chat", tag: "Service", title: "Coaching", text: "One-on-one coaching with certified coaches on Meridian.", link: "Explore coaching", href: "/coaching-solutions" },
       { icon: "building", tag: "Company", title: "About Edstellar", text: "Edstellar as your capability transformation partner.", link: "About Edstellar", href: "/about-us" },
