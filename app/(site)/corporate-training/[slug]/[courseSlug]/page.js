@@ -37,12 +37,15 @@ export async function generateMetadata({ params }) {
   const rawTitle = course.seo?.meta_title ?? course.name;
   const title = rawTitle.replace(/\s*\|\s*Edstellar\s*$/i, "").trim();
 
-  return buildMetadata({
+  const metadata = buildMetadata({
     title,
     description: course.seo?.Meta_description,
     path: `/corporate-training/${slug}/${courseSlug}`,
     image: course.seo?.og_image_url || course.banner_image,
   });
+  // CMS `meta.noindex: "yes"` — out of search results, links still followed
+  // (`buildMetadata`'s `noIndex` would also set nofollow).
+  return course.noindex ? { ...metadata, robots: { index: false, follow: true } } : metadata;
 }
 
 export default async function CourseRoute({ params }) {
