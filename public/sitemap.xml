@@ -511,12 +511,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/agile/scrum-master-agile-team-facilitation-course</loc>
-      <lastmod>2026-07-01</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/agile/scrum-product-owner-course</loc>
       <lastmod>2026-07-01</lastmod>
       <changefreq>weekly</changefreq>
@@ -536,12 +530,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/ai/agentic-ai-course</loc>
-      <lastmod>2026-07-01</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/ai/ai-agent-evaluation-guardrails-reliability-engineering-course</loc>
       <lastmod>2026-07-01</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -716,12 +704,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/ai/ai-for-executive-virtual-assistants-course</loc>
-      <lastmod>2026-07-01</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/ai/ai-for-facilities-workplace-operations-course</loc>
       <lastmod>2026-07-01</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -1519,12 +1501,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/automotive/automotive-retail-dealer-network-management-course</loc>
-      <lastmod>2026-07-10</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/automotive/automotive-standards-iso-26262-functional-safety-iso-21434-cybersecurity-course</loc>
       <lastmod>2026-07-10</lastmod>
       <changefreq>weekly</changefreq>
@@ -1861,12 +1837,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/business-management/oracle-bpm-11g-course</loc>
-      <lastmod>2026-07-13</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/business-management/organizational-design-operating-models-course</loc>
       <lastmod>2026-07-13</lastmod>
       <changefreq>weekly</changefreq>
@@ -1903,12 +1873,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/business-management/strategic-planning-annual-operating-plan-course</loc>
-      <lastmod>2026-07-13</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/business-management/strategy-execution-with-okrs-balanced-scorecard-course</loc>
       <lastmod>2026-07-13</lastmod>
       <changefreq>weekly</changefreq>
@@ -1922,12 +1886,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/business-management/systems-thinking-for-complex-organizations-course</loc>
-      <lastmod>2026-07-13</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/chemicals/chemical-industry-operations-responsible-care-course</loc>
       <lastmod>2026-07-13</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -2035,12 +1993,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/cloud-computing/cloud-networking-on-aws-course</loc>
-      <lastmod>2026-07-15</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/cloud-computing/cloud-networking-on-google-cloud-course</loc>
       <lastmod>2026-07-15</lastmod>
       <changefreq>weekly</changefreq>
@@ -2096,12 +2048,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/cloud-computing/google-cybersecurity-course</loc>
-      <lastmod>2026-07-15</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/cloud-computing/government-cloud-adoption-data-sovereignty-course</loc>
       <lastmod>2026-07-15</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -2191,12 +2137,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/cloud-computing/oracle-11g-application-tuning-course</loc>
-      <lastmod>2026-07-15</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/cloud-computing/oracle-audit-vault-and-database-firewall-oracle-avdf-course</loc>
       <lastmod>2026-07-15</lastmod>
       <changefreq>weekly</changefreq>
@@ -2246,12 +2186,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/cloud-computing/oracle-paas-course</loc>
-      <lastmod>2026-07-16</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/cloud-computing/oracle-service-bus-11g-system-administration-course</loc>
       <lastmod>2026-07-16</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -2546,12 +2480,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/cybersecurity/cloud-security-essentials-course</loc>
-      <lastmod>2026-07-21</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/cybersecurity/comptia-cysa-course</loc>
       <lastmod>2026-07-21</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -3493,12 +3421,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/data-engineering/data-contracts-data-quality-engineering-course</loc>
-      <lastmod>2026-07-27</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/data-engineering/data-engineering-analytics-on-google-cloud-bigquery-course</loc>
       <lastmod>2026-07-27</lastmod>
       <changefreq>weekly</changefreq>
@@ -3518,12 +3440,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/data-engineering/data-mesh-streaming-architecture-course</loc>
-      <lastmod>2026-07-27</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/data-engineering/data-modelling-for-analytics-ai-course</loc>
       <lastmod>2026-07-27</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -3955,12 +3871,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/design-multimedia/adobe-flash-course</loc>
-      <lastmod>2026-07-31</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/design-multimedia/adobe-illustrator-course</loc>
       <lastmod>2026-07-31</lastmod>
       <changefreq>weekly</changefreq>
@@ -3968,12 +3878,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/design-multimedia/adobe-indesign-course</loc>
-      <lastmod>2026-07-31</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/design-multimedia/adobe-muse-course</loc>
       <lastmod>2026-07-31</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -4040,12 +3944,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/design-multimedia/character-design-course</loc>
-      <lastmod>2026-08-03</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/design-multimedia/citizen-centered-service-design-course</loc>
       <lastmod>2026-08-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -4993,12 +4891,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/erp/microsoft-dynamics-365-role-based-course</loc>
-      <lastmod>2026-08-10</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/erp/netsuite-role-based-course</loc>
       <lastmod>2026-08-10</lastmod>
       <changefreq>weekly</changefreq>
@@ -5719,12 +5611,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/financial-services/derivatives-products-pricing-risk-course</loc>
-      <lastmod>2026-08-12</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/financial-services/digital-asset-custody-wallets-key-management-course</loc>
       <lastmod>2026-08-12</lastmod>
       <changefreq>weekly</changefreq>
@@ -5977,12 +5863,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/grc/bacen-cvm-regulatory-compliance-brazil-course</loc>
-      <lastmod>2026-08-17</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/grc/bafin-marisk-regulatory-compliance-course</loc>
       <lastmod>2026-08-17</lastmod>
       <changefreq>weekly</changefreq>
@@ -6085,12 +5965,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/grc/central-bank-of-kenya-regulatory-aml-compliance-course</loc>
-      <lastmod>2026-08-17</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/grc/central-bank-of-kuwait-regulatory-aml-compliance-course</loc>
       <lastmod>2026-08-17</lastmod>
       <changefreq>weekly</changefreq>
@@ -6104,12 +5978,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/grc/cert-in-directions-cybersecurity-compliance-india-course</loc>
-      <lastmod>2026-08-17</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/grc/chile-data-protection-law-21-719-compliance-course</loc>
       <lastmod>2026-08-17</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -6157,12 +6025,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/grc/colombia-habeas-data-data-protection-compliance-course</loc>
-      <lastmod>2026-08-17</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/grc/companies-act-2013-corporate-governance-india-course</loc>
       <lastmod>2026-08-18</lastmod>
       <changefreq>weekly</changefreq>
@@ -6175,19 +6037,7 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/grc/compliance-programme-management-iso-37301-course</loc>
-      <lastmod>2026-08-18</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/grc/conduct-risk-consumer-protection-course</loc>
-      <lastmod>2026-08-18</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/grc/conflicts-of-interest-gifts-hospitality-course</loc>
       <lastmod>2026-08-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -6356,12 +6206,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/grc/gdpr-course</loc>
-      <lastmod>2026-08-20</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/grc/global-ai-regulation-landscape-eu-ai-act-us-eo-india-uae-course</loc>
       <lastmod>2026-08-20</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -6583,12 +6427,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/grc/morocco-law-09-08-data-protection-compliance-course</loc>
-      <lastmod>2026-08-21</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/grc/namibia-data-protection-cybercrime-readiness-course</loc>
       <lastmod>2026-08-21</lastmod>
       <changefreq>weekly</changefreq>
@@ -6626,12 +6464,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/grc/oman-personal-data-protection-law-compliance-course</loc>
-      <lastmod>2026-08-21</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/grc/pci-dss-v4-0-1-compliance-for-payment-environments-course</loc>
       <lastmod>2026-08-21</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -6752,12 +6584,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/grc/saudi-anti-money-laundering-sanctions-compliance-course</loc>
-      <lastmod>2026-08-25</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/grc/saudi-pdpl-compliance-course</loc>
       <lastmod>2026-08-25</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -6955,19 +6781,7 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/hr/b-bbee-compliance-scorecard-management-course</loc>
-      <lastmod>2026-08-26</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/hr/bahrainisation-bahrain-labour-law-compliance-course</loc>
-      <lastmod>2026-08-26</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/hr/brazil-esocial-labour-compliance-course</loc>
       <lastmod>2026-08-26</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -7099,12 +6913,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/hr/german-works-councils-co-determination-for-managers-course</loc>
-      <lastmod>2026-08-26</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/hr/global-employment-eor-cross-border-hiring-compliance-course</loc>
       <lastmod>2026-08-26</lastmod>
       <changefreq>weekly</changefreq>
@@ -7171,19 +6979,7 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/hr/internal-mobility-career-pathing-retention-course</loc>
-      <lastmod>2026-08-31</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/hr/internal-mobility-talent-marketplaces-course</loc>
-      <lastmod>2026-08-31</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/hr/irish-employment-equality-work-life-balance-act-compliance-course</loc>
       <lastmod>2026-08-31</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -7238,12 +7034,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/hr/microaggressions-course</loc>
-      <lastmod>2026-08-31</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/hr/morocco-labour-code-workplace-safety-compliance-course</loc>
       <lastmod>2026-08-31</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -7561,12 +7351,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/hse/france-workplace-safety-psychosocial-risk-compliance-course</loc>
-      <lastmod>2026-09-01</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/hse/functional-safety-iso-26262-iec-61508-course</loc>
       <lastmod>2026-09-01</lastmod>
       <changefreq>weekly</changefreq>
@@ -7646,12 +7430,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/hse/japan-industrial-safety-health-act-compliance-course</loc>
-      <lastmod>2026-09-01</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/hse/kenya-occupational-safety-health-act-compliance-course</loc>
       <lastmod>2026-09-01</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -7844,12 +7622,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/insurance/insurance-operations-underwriting-claims-actuarial-foundations-course</loc>
-      <lastmod>2026-09-02</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/insurance/life-health-insurance-product-actuarial-fundamentals-course</loc>
       <lastmod>2026-09-02</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -8695,12 +8467,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/life-sciences-healthcare/clinical-trial-operations-decentralised-trials-course</loc>
-      <lastmod>2026-09-15</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/life-sciences-healthcare/computer-system-validation-csv-gamp-5-course</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>weekly</changefreq>
@@ -8708,12 +8474,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/life-sciences-healthcare/digital-health-product-management-clinical-safety-dcb0129-course</loc>
-      <lastmod>2026-09-15</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/life-sciences-healthcare/digital-health-strategy-transformation-course</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -8894,12 +8654,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/life-sciences-healthcare/software-as-a-medical-device-samd-iec-62304-course</loc>
-      <lastmod>2026-09-16</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/life-sciences-healthcare/synthetic-biology-bio-manufacturing-for-industry-course</loc>
       <lastmod>2026-09-16</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -9253,12 +9007,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/marketing/product-marketing-management-course</loc>
-      <lastmod>2026-09-18</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/marketing/responsible-green-marketing-rgmc-course</loc>
       <lastmod>2026-09-18</lastmod>
       <changefreq>weekly</changefreq>
@@ -9362,12 +9110,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/networking/cacti-course</loc>
-      <lastmod>2026-09-18</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/networking/cisco-ccna-course</loc>
       <lastmod>2026-09-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -9501,18 +9243,6 @@
 <url>
       <loc>https://www.edstellar.com/corporate-training/networking/windows-networking-course</loc>
       <lastmod>2026-09-18</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/non-profit-development/monitoring-evaluation-accountability-learning-meal-course</loc>
-      <lastmod>2026-09-21</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/portfolio-management/enterprise-project-management-course</loc>
-      <lastmod>2026-09-21</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
 </url>
@@ -9697,12 +9427,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/productivity-tools/microsoft-infopath-course</loc>
-      <lastmod>2026-09-21</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/productivity-tools/microsoft-office-course</loc>
       <lastmod>2026-09-21</lastmod>
       <changefreq>weekly</changefreq>
@@ -9859,12 +9583,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/project-management/capm-course</loc>
-      <lastmod>2026-09-23</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/project-management/construction-infrastructure-project-management-course</loc>
       <lastmod>2026-09-23</lastmod>
       <changefreq>weekly</changefreq>
@@ -9877,19 +9595,7 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/project-management/hybrid-project-management-course</loc>
-      <lastmod>2026-09-23</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/project-management/jira-confluence-course</loc>
-      <lastmod>2026-09-23</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/project-management/microsoft-project-course</loc>
       <lastmod>2026-09-23</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -9920,12 +9626,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/project-management/primavera-risk-analysis-course</loc>
-      <lastmod>2026-09-23</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/project-management/prince2-foundation-practitioner-course</loc>
       <lastmod>2026-09-23</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -10033,12 +9733,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/public-sector/evidence-based-policy-analysis-evaluation-course</loc>
-      <lastmod>2026-09-24</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/public-sector/government-audit-public-accountability-intosai-course</loc>
       <lastmod>2026-09-24</lastmod>
       <changefreq>weekly</changefreq>
@@ -10069,12 +9763,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/public-sector/municipal-service-delivery-local-government-management-course</loc>
-      <lastmod>2026-09-24</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/public-sector/national-statistics-census-official-data-quality-course</loc>
       <lastmod>2026-09-24</lastmod>
       <changefreq>weekly</changefreq>
@@ -10093,19 +9781,7 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/public-sector/public-policy-design-implementation-course</loc>
-      <lastmod>2026-09-24</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/public-sector/public-transport-operations-mobility-planning-course</loc>
-      <lastmod>2026-09-24</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/public-sector/stakeholder-citizen-engagement-course</loc>
       <lastmod>2026-09-24</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -10202,12 +9878,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/quality-management/kano-customer-satisfaction-model-course</loc>
-      <lastmod>2026-09-24</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/quality-management/lean-digital-transformation-course</loc>
       <lastmod>2026-09-24</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -10436,12 +10106,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/risk-management/quantitative-risk-management-course</loc>
-      <lastmod>2026-09-25</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/risk-management/third-party-cloud-risk-in-financial-services-course</loc>
       <lastmod>2026-09-25</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -10681,12 +10345,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/salesforce/salesforce-role-based-course</loc>
-      <lastmod>2026-09-28</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/salesforce/salesforce-service-cloud-course</loc>
       <lastmod>2026-09-28</lastmod>
       <changefreq>weekly</changefreq>
@@ -10808,12 +10466,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/sap/sap-signavio-business-process-transformation-course</loc>
-      <lastmod>2026-09-29</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/sap/sap-transportation-management-tm-course</loc>
       <lastmod>2026-09-29</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -11185,12 +10837,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/soft-skills/technical-writing-documentation-course</loc>
-      <lastmod>2026-10-01</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/soft-skills/unconscious-bias-course</loc>
       <lastmod>2026-10-01</lastmod>
       <changefreq>weekly</changefreq>
@@ -11258,12 +10904,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/software-development/ai-assisted-front-end-engineering-with-angular-course</loc>
-      <lastmod>2026-10-05</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/software-development/ai-assisted-front-end-engineering-with-react-course</loc>
       <lastmod>2026-10-05</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -11521,12 +11161,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/software-development/c-plus-plus-programming-course</loc>
-      <lastmod>2026-10-06</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/software-development/c-programming-course</loc>
       <lastmod>2026-10-06</lastmod>
       <changefreq>weekly</changefreq>
@@ -11576,12 +11210,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/software-development/cypress-automation-testing-tool-course</loc>
-      <lastmod>2026-10-06</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/software-development/data-structures-algorithms-course</loc>
       <lastmod>2026-10-06</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -11983,12 +11611,6 @@
       <priority>0.8</priority>
 </url>
 <url>
-      <loc>https://www.edstellar.com/corporate-training/software-development/net-modernisation-net-8-migration-course</loc>
-      <lastmod>2026-10-12</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
       <loc>https://www.edstellar.com/corporate-training/software-development/no-code-website-builders-wix-squarespace-webflow-course</loc>
       <lastmod>2026-10-12</lastmod>
       <changefreq>weekly</changefreq>
@@ -12182,12 +11804,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/software-development/sitecore-course</loc>
-      <lastmod>2026-10-13</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/software-development/software-architecture-system-design-course</loc>
       <lastmod>2026-10-13</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -12584,12 +12200,6 @@
 </url>
 <url>
       <loc>https://www.edstellar.com/corporate-training/telecommunications/integrated-sensing-communications-for-6g-course</loc>
-      <lastmod>2026-10-16</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-</url>
-<url>
-      <loc>https://www.edstellar.com/corporate-training/telecommunications/multi-access-edge-computing-course</loc>
       <lastmod>2026-10-16</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
