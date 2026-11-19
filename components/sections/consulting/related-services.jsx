@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   Target,
   ZoomIn,
+  Layers,
   Monitor,
   Network,
   Heart,
@@ -37,6 +38,7 @@ import RichHeading from "@/components/common/rich-heading";
 const serviceIcons = {
   target: Target,
   zoomin: ZoomIn,
+  layers: Layers,
   monitor: Monitor,
   network: Network,
   heart: Heart,
@@ -94,7 +96,7 @@ export default function RelatedServices({ id, bgColor, data, columns = 3 }) {
       <Reveal delay={0.1}>
         <Box
           className={`grid gap-5 max-[901px]:grid-cols-2 max-[601px]:grid-cols-1 ${
-            columns === 4 ? "grid-cols-4" : "grid-cols-3"
+            columns === 4 ? "grid-cols-4" : "grid-cols-4"
           }`}
         >
           {data.items.map((item) => {
