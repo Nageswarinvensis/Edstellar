@@ -6,6 +6,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import RichHeading from "@/components/common/rich-heading";
+import InlineHtml from "@/components/common/inline-html";
 import { cn } from "@/lib/utils";
 
 /**
@@ -217,13 +218,23 @@ export default function CoverageModels({ data }) {
         ))}
       </Box>
 
+      {/* Bridging line under the cards (design `.bridge`). The CMS sends
+          `note.text` with the link inline as `<a href>`; older entries split
+          it into `text` + `href` + `link_label`. */}
       {note?.href ? (
-        <Text as="p" className="mt-6 text-center text-[14px] leading-[1.6] text-ink-muted">
+        <Text as="p" className="mt-7 text-center text-[14px] leading-[1.6] text-ink-muted">
           {note.text}{" "}
-          <Link href={note.href} className="font-semibold text-ink underline underline-offset-2 hover:text-olive">
+          <Link href={note.href} className="border-b border-lime font-semibold text-ink transition-colors duration-200 hover:text-olive">
             {note.link_label}
           </Link>
           .
+        </Text>
+      ) : note?.text ? (
+        <Text as="p" className="mt-7 text-center text-[14px] leading-[1.6] text-ink-muted">
+          <InlineHtml
+            text={note.text}
+            linkClassName="border-b border-lime font-semibold text-ink transition-colors duration-200 hover:text-olive"
+          />
         </Text>
       ) : null}
     </Section>
