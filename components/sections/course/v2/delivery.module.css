@@ -1,0 +1,60 @@
+/*
+ * v2 · 9 Delivery — the isometric stage scenes (the design's `.dl-iso`).
+ * The scene SVGs are static markup, so their classes are global inside
+ * `.scene`; `data-scale` / `data-fmt` on `.journey` show the matching groups.
+ */
+
+.scene svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.scene :global(polygon),
+.scene :global(path),
+.scene :global(rect),
+.scene :global(circle) {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.scene :global(polygon) { fill: var(--color-navy); stroke: color-mix(in srgb, var(--color-lime) 22%, transparent); stroke-width: 1; }
+.scene :global(.tp) { fill: var(--color-navy-soft); }
+.scene :global(.dfl .fr),
+.scene :global(.dfl .sd) { fill: var(--color-navy-deep); }
+.scene :global(.head) { fill: var(--color-navy-soft); stroke: color-mix(in srgb, var(--color-lime) 65%, transparent); stroke-width: 1; }
+.scene :global(.pp polygon) { stroke: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+.scene :global(.lt polygon) { stroke: var(--color-lime); }
+.scene :global(.lt .tp) { fill: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+.scene :global(.tbl) { fill: var(--color-navy-soft); stroke: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+.scene :global(.tbl-e) { fill: var(--color-navy-deep); stroke: color-mix(in srgb, var(--color-lime) 22%, transparent); }
+.scene :global(.twr polygon) { stroke: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+.scene :global(.lk) { stroke: color-mix(in srgb, var(--color-lime) 65%, transparent); stroke-width: 1.4; stroke-dasharray: 2 4; fill: none; }
+.scene :global(.sheet) { fill: var(--color-navy-soft); stroke: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+.scene :global(.tk) { fill: var(--color-lime); }
+.scene :global(.ln) { fill: color-mix(in srgb, var(--color-lime) 22%, transparent); }
+.scene :global(.lead polygon),
+.scene :global(.lead .head) { stroke: var(--color-lime); }
+.scene :global(.lead .head) { fill: var(--color-lime); }
+.scene :global(.scr) { fill: var(--color-navy-deep); stroke: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+.scene :global(.scr.lt) { fill: color-mix(in srgb, var(--color-lime) 22%, transparent); stroke: var(--color-lime); }
+.scene :global(.tl) { fill: var(--color-navy-soft); stroke: color-mix(in srgb, var(--color-lime) 22%, transparent); }
+.scene :global(.tl.me) { stroke: var(--color-lime); fill: color-mix(in srgb, var(--color-lime) 22%, transparent); }
+.scene :global(.roof .tp) { fill: color-mix(in srgb, var(--color-lime) 22%, transparent); }
+.scene :global(.roof polygon) { stroke: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+.scene :global(.gate .bx polygon) { stroke: var(--color-lime); }
+.scene :global(.gate .field) { fill: color-mix(in srgb, var(--color-lime) 22%, transparent); }
+
+/* Team scale and format groups */
+.scene :global([data-min]),
+.scene :global(g[data-fmt]) { transition: opacity 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.journey[data-scale="one"] .scene :global([data-min]) { opacity: 0; }
+.journey[data-scale="multi"] .scene :global([data-min="ent"]) { opacity: 0; }
+.scene :global(g[data-fmt]) { opacity: 0; }
+.journey[data-fmt="onsite"] .scene :global(g[data-fmt="onsite"]),
+.journey[data-fmt="virtual"] .scene :global(g[data-fmt="virtual"]),
+.journey[data-fmt="hybrid"] .scene :global(g[data-fmt="hybrid"]) { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .scene :global([data-min]),
+  .scene :global(g[data-fmt]) { transition: none; }
+}

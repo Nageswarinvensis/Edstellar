@@ -91,7 +91,7 @@ export default async function ManagedTrainingServicesPage() {
       <Managed data={{ ...cms.managed_Data, section_id: "in-house-managed" }} />
       <StageSteps
         id="what-we-manage"
-        data={cms.managed_screens_data}
+        data={cms.managed_learning_screeens}
         screens={SCOPE_SCREENS}
         variant="scope"
       />

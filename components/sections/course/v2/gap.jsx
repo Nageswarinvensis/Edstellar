@@ -1,0 +1,94 @@
+import Text from "@/components/ui/Text";
+import Reveal from "@/components/common/reveal";
+import V2Section from "@/components/sections/course/v2/section";
+import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
+import V2Heading from "@/components/sections/course/v2/heading";
+import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
+
+import styles from "./gap.module.css";
+
+/** "31 of 31" → "31", a small "of", "31" (the design's `.num small`). */
+function StatValue({ value }) {
+  const at = value.indexOf(" of ");
+  if (at === -1) return value;
+  return (
+    <>
+      {value.slice(0, at)}
+      <small className="text-[0.55em] font-medium tracking-normal"> of </small>
+      {value.slice(at + 4)}
+    </>
+  );
+}
+
+function Burst() {
+  return (
+    <svg viewBox="0 0 28 28" width="28" height="28" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+      <path d="M14 2v6M14 20v6M2 14h6M20 14h6M5.5 5.5l4 4M18.5 18.5l4 4M22.5 5.5l-4 4M9.5 18.5l-4 4" />
+    </svg>
+  );
+}
+
+/**
+ * v2 · 2 Why teams train now (the design's `#gap`) — centered definition
+ * lead, 3 to 5 sourced stat cards on a baseline (vertical on small
+ * screens), the full sources line, and the "map our gaps" CTA.
+ */
+export default function V2Gap({ data }) {
+  if (!data) return null;
+  const { eyebrow, heading, lead, stats = [], sources_note, cta } = data;
+
+  return (
+    <V2Section id="gap">
+      <Reveal className="mx-auto mb-10 max-w-[900px] text-center">
+        <V2Eyebrow className="justify-center text-ink">{eyebrow}</V2Eyebrow>
+        <V2Heading parts={heading} className="mb-3.5" />
+        {lead && <Text className="mx-auto mt-3.5 max-w-[860px] text-[16.5px] leading-[1.7] text-ink">{lead}</Text>}
+      </Reveal>
+
+      {stats.length > 0 && (
+        <Reveal>
+          <ul className={styles.rail}>
+            {stats.map((stat) => (
+              <li key={stat.value + stat.source} className={styles.card}>
+                {stat.icon && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={stat.icon} alt="" aria-hidden="true" width={72} height={72} className="mb-3 size-[72px]" />
+                )}
+                <b className="mb-2 block font-display text-[clamp(32px,2.9vw,42px)] font-bold leading-[1.05] tracking-[-0.03em] whitespace-nowrap text-ink tabular-nums">
+                  <StatValue value={stat.value} />
+                </b>
+                <Text className="text-[15px] leading-[1.4] text-ink">{stat.description}</Text>
+                {stat.source && <span className={styles.src}>Source: {stat.source}</span>}
+                <span className={styles.ptr} aria-hidden="true" />
+                <span className={styles.burst} aria-hidden="true">
+                  <span className={`${styles.burstIcon} text-navy`}>
+                    <Burst />
+                  </span>
+                </span>
+              </li>
+            ))}
+            <li aria-hidden="true" className={styles.line} />
+          </ul>
+        </Reveal>
+      )}
+
+      {sources_note && (
+        <Text className="mx-auto mt-[18px] max-w-[900px] text-center text-[12.5px]">{sources_note}</Text>
+      )}
+
+      {cta?.label && (
+        <Reveal className="mt-[34px] rounded-r-[10px] border-l-[6px] border-olive bg-paper-warm px-6 pt-[26px] pb-7 text-center">
+          <Text as="h3" className="mx-auto mb-1.5 max-w-[760px] text-[18.5px] leading-[1.3]">{cta.heading}</Text>
+          {cta.text && <Text className="mx-auto mb-4 max-w-[680px] text-[15px]">{cta.text}</Text>}
+          <V2ScrollLink
+            href={cta.href || "#quote"}
+            topic={cta.heading}
+            className="inline-flex items-center gap-2 rounded-lg border-[1.5px] border-navy bg-white px-[22px] py-3 font-body text-[14px] font-semibold text-ink shadow-[0_4px_0_rgba(10,22,40,0.12)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_0_rgba(10,22,40,0.12)]"
+          >
+            {cta.label}
+          </V2ScrollLink>
+        </Reveal>
+      )}
+    </V2Section>
+  );
+}

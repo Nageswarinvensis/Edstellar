@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -147,6 +149,17 @@ export default function StageSteps({ id, data, screens, variant }) {
                     </Text>
                     {step.how.text}
                   </Text>
+                ) : null}
+
+                {step.link && step.link_text ? (
+                  <Link
+                    href={step.link}
+                    title={`Click Here to ${step.link_text}`}
+                    className="mt-4.5 inline-flex w-fit self-start items-center gap-1.5 border-b border-ink pb-px text-[14px] leading-[1.5] font-semibold text-ink transition-colors duration-200 hover:border-olive hover:text-olive"
+                  >
+                    {step.link_text}
+                    <ArrowRight size={14} strokeWidth={2} aria-hidden="true" className="flex-none" />
+                  </Link>
                 ) : null}
               </Box>
 

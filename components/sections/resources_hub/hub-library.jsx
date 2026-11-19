@@ -200,7 +200,7 @@ export default function HubLibrary({ data, sectionId }) {
           >
             <Box className="grid gap-5.5 min-[601px]:grid-cols-2 min-[961px]:grid-cols-3">
               {shown.map(({ item, index }, position) => (
-                <ResourceCard key={`${index}-${item.title}`} item={item} hidden={!isOnPage(position)} />
+                <ResourceCard key={`${index}-${item.title}`} item={item} ctaNewTab hidden={!isOnPage(position)} />
               ))}
             </Box>
             {!list.length ? (

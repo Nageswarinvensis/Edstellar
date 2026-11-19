@@ -571,7 +571,7 @@ Every program is instructor-led and customizable, delivered onsite, virtually or
 - [Customer Centricity Training](https://www.edstellar.com/corporate-training/customer-experience-service/customer-centricity-course)
 - [Customer Experience (CX) Strategy & Journey Design Training](https://www.edstellar.com/corporate-training/customer-experience-service/customer-experience-cx-strategy-journey-design-course)
 - [Customer Retention & Churn Reduction Training](https://www.edstellar.com/corporate-training/customer-experience-service/customer-retention-churn-reduction-course)
-- [Customer Service Excellence & Difficult Customers Training](https://www.edstellar.com/corporate-training/customer-experience-service/customer-service-excellence-difficult-customers-course)
+- [Customer Service Excellence & Difficult Customers Training](https://www.edstellar.com/corporate-training/customer-experience-service/customer-service-excellence-dealing-difficult-customers-course)
 - [Customer Service Team Leadership Training](https://www.edstellar.com/corporate-training/customer-experience-service/customer-service-team-leadership-course)
 - [Customer Success & Retention Management Training](https://www.edstellar.com/corporate-training/customer-experience-service/customer-success-retention-management-course)
 - [Field Service Management (Dynamics 365 & Salesforce) Training](https://www.edstellar.com/corporate-training/customer-experience-service/field-service-management-dynamics-365-salesforce-course)
