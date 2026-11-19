@@ -5,6 +5,7 @@ import { Calendar, Layers, MessageCircle, Presentation, RefreshCw, Sparkles } fr
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
+import InlineHtml from "@/components/common/inline-html";
 import { cn } from "@/lib/utils";
 
 const ICONS = {
@@ -157,6 +158,19 @@ export default function WorkstreamTabs({ items, tabsLabel, getLabel }) {
                 </Box>
               ))}
             </Box>
+
+            {/* Scope note under the activities (design `.xtra`); may carry a link. */}
+            {item.note ? (
+              <Text
+                as="p"
+                className="border-b border-ink/12 bg-paper px-8 py-3.5 text-[13.5px] leading-[1.55] text-ink max-[600px]:px-5"
+              >
+                <InlineHtml
+                  text={item.note}
+                  linkClassName="border-b border-lime font-semibold text-ink transition-colors duration-200 hover:text-olive"
+                />
+              </Text>
+            ) : null}
 
             {item.deliverables?.length ? (
               <Box className="flex flex-wrap items-center gap-2 bg-paper px-8 pt-4.5 pb-5.5 max-[600px]:px-5 max-[600px]:pt-4 max-[600px]:pb-5">

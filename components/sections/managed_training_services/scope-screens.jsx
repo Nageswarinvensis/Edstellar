@@ -1,5 +1,3 @@
-import { ArrowRight, Check, Lock } from "lucide-react";
-
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { Screen } from "@/components/sections/consulting/stage-screens";
@@ -10,55 +8,131 @@ import { cn } from "@/lib/utils";
  * the figure wrapping them is aria-hidden — and registered with `StageSteps`
  * by `screen.type`, alongside the TNA engine screens.
  *
- * Every element sits above the scan sweep (`relative z-1`), as in the design.
+ * Every screen is the same vocabulary: a window holding a panel with a navy
+ * header (`label`/`doc_title` + `doc_tag`) and ruled rows of mono labels,
+ * pills, bars and plain lines. An optional `note` closes the panel with a
+ * muted footnote row.
+ *
  * Tailwind only generates classes it can see written out in full and inline
  * styles are off the table, so data-driven widths and heights go through the
  * literal maps below; a value missing from a map renders without that class.
  *
- * Design: `managed-learning-services (40).html` → `#scope`, `.o3-*`, `.cx-*`,
- * `.tn-*`, `.cov-*`, `.wk-*`, `.mo-*`, `.adb-*`, `.tt-*`.
+ * Design: `edstellar-managed-learning-services-final.html` → `#what-we-manage`
+ * `.win`, `.panel`, `.pr`, `.pills`, `.barrow`, `.bars`, `.chip`.
  */
 
 const FILL_WIDTH = {
+  40: "w-[40%]",
+  52: "w-[52%]",
   58: "w-[58%]",
+  64: "w-[64%]",
   72: "w-[72%]",
+  78: "w-[78%]",
+  80: "w-[80%]",
   90: "w-[90%]",
+  92: "w-[92%]",
 };
 
 const BAR_HEIGHT = {
+  40: "h-[40%]",
   52: "h-[52%]",
   64: "h-[64%]",
   78: "h-[78%]",
+  80: "h-[80%]",
   92: "h-[92%]",
 };
 
 const LAYER = "relative z-1";
-const MONO = "font-mono uppercase";
-const TILE = "rounded-[9px] border border-ink/12 bg-paper-warm";
-
-/** Section label inside a screen; `divided` adds the rule above a second block. */
-function Label({ divided, className, children }) {
-  return (
-    <Text
-      as="p"
-      className={cn(
-        LAYER,
-        MONO,
-        "mb-3.5 text-[10px] font-medium tracking-[0.08em] text-ink",
-        divided && "mt-5 border-t border-ink/12 pt-[18px]",
-        className,
-      )}
-    >
-      {children}
-    </Text>
-  );
-}
+const MONO_LABEL = "block font-mono text-[9px] leading-[1.4] tracking-[0.06em] text-ink-muted uppercase";
 
 function ScopeScreen({ screen, children }) {
   return (
-    <Screen title={screen.title} variant="scope" bodyClassName="leading-[1.7]">
+    <Screen title={screen.title} variant="scope" bodyClassName="p-3.5">
       {children}
     </Screen>
+  );
+}
+
+/** `.panel` — a ruled card; `title` + `tag` give it the navy header. */
+function Panel({ title, tag, className, children }) {
+  return (
+    <Box className={cn(LAYER, "overflow-hidden rounded-[8px] border border-ink/12 bg-white", className)}>
+      {title ? (
+        <Box className="flex items-center justify-between gap-3 bg-navy px-3 py-2.5">
+          <Text as="span" className="font-display text-[13px] leading-[1.4] font-semibold text-paper">
+            {title}
+          </Text>
+          {tag ? (
+            <Text as="span" className="flex-none font-mono text-[9.5px] leading-[1.4] font-medium tracking-[0.08em] text-lime uppercase">
+              {tag}
+            </Text>
+          ) : null}
+        </Box>
+      ) : null}
+      {children}
+    </Box>
+  );
+}
+
+/** `.pr` — one ruled row of a panel, with an optional mono label. */
+function Row({ label, className, children }) {
+  return (
+    <Box className={cn("border-t border-ink/8 px-3 py-2.5 text-[12.5px] leading-[1.5] text-ink", className)}>
+      {label ? <Text as="span" className={cn(MONO_LABEL, "mb-1.25")}>{label}</Text> : null}
+      {children}
+    </Box>
+  );
+}
+
+/** `.pills` — `hot` pills are lime. */
+function Pills({ items, className }) {
+  if (!items?.length) return null;
+  return (
+    <Box className={cn("flex flex-wrap gap-1.5", className)}>
+      {items.map((item) => (
+        <Text
+          key={item.label}
+          as="span"
+          className={cn(
+            "rounded-full px-2.5 py-1 text-[11.5px] leading-[1.4]",
+            item.hot ? "bg-lime text-navy" : "bg-paper-warm text-ink",
+          )}
+        >
+          {item.label}
+        </Text>
+      ))}
+    </Box>
+  );
+}
+
+/** Muted closing row — `screen.note`. */
+/**
+ * The CMS stores a strategy row's `chips` and `bars` as plain strings in its
+ * usual "Label:value" form ("Leadership:hot", "Leadership:72"); older
+ * entries are `{ label, hot }` / `{ label, value }` objects. Read either.
+ */
+function splitPair(entry) {
+  if (typeof entry !== "string") return [entry?.label, undefined];
+  const at = entry.lastIndexOf(":");
+  return at === -1 ? [entry.trim(), undefined] : [entry.slice(0, at).trim(), entry.slice(at + 1).trim()];
+}
+
+function toChip(entry) {
+  if (typeof entry !== "string") return { label: entry?.label, hot: Boolean(entry?.hot) };
+  const [label, flag] = splitPair(entry);
+  return { label, hot: flag?.toLowerCase() === "hot" };
+}
+
+function toBar(entry) {
+  if (typeof entry !== "string") return { label: entry?.label, value: Number(entry?.value) };
+  const [label, value] = splitPair(entry);
+  return { label, value: Number(value) };
+}
+
+function Note({ children, className }) {
+  if (!children) return null;
+  return (
+    <Row className={cn("bg-paper text-[11.5px] leading-[1.5] text-ink-muted", className)}>{children}</Row>
   );
 }
 
@@ -66,343 +140,172 @@ function ScopeScreen({ screen, children }) {
 function StrategyScreen({ screen }) {
   return (
     <ScopeScreen screen={screen}>
-      <Box className={cn(LAYER, "overflow-hidden rounded-[10px] border border-ink/12 bg-white")}>
-        <Box className="flex items-baseline justify-between bg-navy px-4 py-3 text-paper">
-          <Text as="span" className="font-display text-[14px] font-bold tracking-[-0.01em] text-paper">
-            {screen.doc_title}
-          </Text>
-          <Text as="span" className="font-mono text-[10px] tracking-[0.08em] text-lime">
-            {screen.doc_tag}
-          </Text>
-        </Box>
-
+      <Panel title={screen.doc_title} tag={screen.doc_tag}>
         {screen.rows?.map((row) => (
-          <Box key={row.label} className="border-b border-ink/12 px-4 py-3 last:border-b-0">
-            <Text as="p" className={cn(MONO, "mb-1.5 text-[10px] font-medium tracking-[0.08em] text-ink")}>
-              {row.label}
-            </Text>
-
-            {row.text ? (
-              <Text as="p" className="text-[13px] leading-[1.4] text-ink">
-                {row.text}
-              </Text>
-            ) : null}
-
-            {row.chips?.length ? (
-              <Box className="flex flex-wrap gap-1.5">
-                {row.chips.map((chip) => (
-                  <Text
-                    key={chip.label}
-                    as="span"
-                    className={cn(
-                      "rounded-full px-3 py-[5px] text-[12px] font-semibold",
-                      chip.hot ? "bg-lime text-navy" : "bg-paper-warm text-ink",
-                    )}
-                  >
-                    {chip.label}
-                  </Text>
-                ))}
+          <Row key={row.label} label={row.label}>
+            {row.text}
+            <Pills items={row.chips?.map(toChip)} />
+            {row.bars?.map(toBar).map((bar) => (
+              <Box key={bar.label} className="my-1.5 grid grid-cols-[90px_1fr] items-center gap-2.5 text-[11.5px] leading-[1.4]">
+                {bar.label}
+                <Box as="i" className="relative h-1.5 overflow-hidden rounded-full bg-paper-warm">
+                  <Box as="b" className={cn("absolute inset-y-0 left-0 rounded-full bg-lime", FILL_WIDTH[bar.value])} />
+                </Box>
               </Box>
-            ) : null}
-
-            {row.bars?.length ? (
-              <Box className="flex flex-col gap-2">
-                {row.bars.map((bar) => (
-                  <Box key={bar.label} className="flex items-center gap-2.5">
-                    <Text as="span" className="w-[82px] flex-none text-[11.5px] text-ink">
-                      {bar.label}
-                    </Text>
-                    <Box className="h-2 flex-1 overflow-hidden rounded-[4px] bg-paper-warm">
-                      <Box className={cn("h-full rounded-[4px] bg-lime", FILL_WIDTH[bar.value])} />
-                    </Box>
-                  </Box>
-                ))}
-              </Box>
-            ) : null}
-          </Box>
+            ))}
+          </Row>
         ))}
-      </Box>
+        <Note>{screen.note}</Note>
+      </Panel>
     </ScopeScreen>
   );
 }
 
-const CONTENT_STATUS = {
+const CONTENT_CHIP = {
   published: "bg-lime text-navy",
-  review: "border border-ink/12 bg-white text-ink-muted",
-  building: "bg-navy text-paper",
+  review: "bg-paper-warm text-ink",
+  building: "border border-ink/12 bg-transparent text-ink",
 };
 
 /* 2 · Content — brief-to-published pipeline and the library it fills. */
 function ContentScreen({ screen }) {
   return (
     <ScopeScreen screen={screen}>
-      <Label>{screen.pipeline_label}</Label>
-      <Box
-        className={cn(
-          LAYER,
-          "flex items-start justify-between",
-          "before:absolute before:inset-x-5 before:top-2.5 before:-z-1 before:h-0.5 before:bg-ink/22 before:content-['']",
-        )}
-      >
-        {screen.stages?.map((stage) => (
-          <Box key={stage.label} className="flex flex-1 flex-col items-center gap-[7px] text-center">
-            <Box
-              as="span"
-              className={cn(
-                "flex size-[22px] items-center justify-center rounded-full border-2",
-                stage.state === "done" && "border-navy bg-navy",
-                stage.state === "on" && "border-lime bg-lime",
-                !stage.state && "border-ink/22 bg-white",
-              )}
-            >
-              {stage.state === "done" ? (
-                <Box
+      <Panel title={screen.pipeline_label} tag={screen.doc_tag}>
+        <Row>
+          <Pills items={screen.stages?.map((stage) => ({ label: stage.label, hot: Boolean(stage.state) }))} />
+        </Row>
+        <Row label={screen.library_label}>
+          <Box className="grid gap-[7px]">
+            {screen.library?.map((item) => (
+              <Box key={item.name} className="flex items-center justify-between gap-3">
+                {item.name}
+                <Text
                   as="span"
-                  className="-mt-px h-[3px] w-1.5 -rotate-45 border-b-2 border-l-2 border-lime"
-                />
-              ) : null}
-            </Box>
-            <Text
-              as="span"
-              className={cn(
-                "font-display text-[12px] font-bold",
-                stage.state ? "text-ink" : "text-ink-muted",
-              )}
-            >
-              {stage.label}
-            </Text>
+                  className={cn(
+                    "flex-none rounded-[6px] px-[9px] py-1.5 font-mono text-[10px] leading-none font-medium tracking-[0.07em] uppercase",
+                    CONTENT_CHIP[item.status] ?? CONTENT_CHIP.review,
+                  )}
+                >
+                  {[item.type, item.status_label].filter(Boolean).join(" · ")}
+                </Text>
+              </Box>
+            ))}
           </Box>
-        ))}
-      </Box>
-
-      <Label divided>{screen.library_label}</Label>
-      <Box className={cn(LAYER, "flex flex-col gap-[7px]")}>
-        {screen.library?.map((item) => (
-          <Box key={item.name} className={cn(TILE, "flex items-center gap-2.5 px-[13px] py-2.5")}>
-            <Text as="span" className="min-w-0 flex-1 text-[12.5px] font-semibold text-ink">
-              {item.name}
-            </Text>
-            <Text
-              as="span"
-              className={cn(
-                MONO,
-                "flex-none rounded-full border border-ink/12 bg-white px-[9px] py-[3px] text-[9px] tracking-[0.04em] text-ink-muted",
-              )}
-            >
-              {item.type}
-            </Text>
-            <Text
-              as="span"
-              className={cn(
-                MONO,
-                "flex-none rounded-full px-[9px] py-[3px] text-[9px] tracking-[0.04em]",
-                CONTENT_STATUS[item.status],
-              )}
-            >
-              {item.status_label}
-            </Text>
-          </Box>
-        ))}
-      </Box>
+        </Row>
+        <Note>{screen.note}</Note>
+      </Panel>
     </ScopeScreen>
   );
 }
 
-/* 3 · Managed training — trainer funnel, vetted trainers, coverage. */
+/* 3 · Managed training — trainer funnel, what else MTS runs, coverage. */
 function DeliveryScreen({ screen }) {
+  const coverage = [
+    ...(screen.regions ?? []).map((region) => ({ label: `✓ ${region}`, hot: true })),
+    ...(screen.tags ?? []).map((tag) => ({ label: [tag.strong, tag.text].filter(Boolean).join(" ") })),
+  ];
+
   return (
     <ScopeScreen screen={screen}>
-      <Label>{screen.network_label}</Label>
-      <Box className={cn(LAYER, "mb-3 flex gap-2")}>
-        {screen.funnel?.flatMap((step, index) => [
-          index > 0 ? (
-            <Text key={`arrow-${step.label}`} as="span" className="self-center text-[13px] text-ink/22">
-              →
-            </Text>
-          ) : null,
-          <Box
-            key={step.label}
-            className={cn(
-              "flex-1 rounded-[9px] border px-1.5 py-[11px] text-center",
-              step.hot ? "border-navy bg-navy" : "border-ink/12 bg-paper-warm",
-            )}
-          >
-            <Text
-              as="p"
-              className={cn(
-                "font-display text-[15px] leading-none font-bold",
-                step.hot ? "text-lime" : "text-navy",
-              )}
-            >
-              {step.value}
-            </Text>
-            <Text
-              as="p"
-              className={cn(
-                MONO,
-                "mt-1.5 text-[8.5px] tracking-[0.05em]",
-                step.hot ? "text-paper/65" : "text-ink-muted",
-              )}
-            >
-              {step.label}
-            </Text>
-          </Box>,
-        ])}
-      </Box>
-
-      {screen.trainers?.map((trainer) => (
-        <Box
-          key={trainer.area}
-          className={cn(LAYER, TILE, "mb-[7px] flex items-center gap-[11px] px-[13px] py-2")}
-        >
-          <Text
-            as="span"
-            className="flex size-7 flex-none items-center justify-center rounded-full bg-lime font-display text-[10.5px] font-bold text-navy"
-          >
-            {trainer.initials}
-          </Text>
-          <Text as="span" className="flex-1 text-[12.5px] font-semibold text-ink">
-            {trainer.area}
-          </Text>
-          <Text
-            as="span"
-            className={cn(MONO, "rounded-full bg-lime px-[9px] py-[3px] text-[9px] tracking-[0.04em] text-navy")}
-          >
-            {trainer.badge}
-          </Text>
-        </Box>
-      ))}
-
-      <Label divided>{screen.coverage_label}</Label>
-      <Box className={cn(LAYER, "mb-3 flex gap-2")}>
-        {screen.regions?.map((region) => (
-          <Box
-            key={region}
-            className={cn(TILE, "flex flex-1 items-center justify-center gap-[7px] px-2 py-[9px]")}
-          >
+      {screen.network_label ? (
+        <Text as="span" className={cn(LAYER, MONO_LABEL)}>{screen.network_label}</Text>
+      ) : null}
+      {screen.funnel?.length ? (
+        <Box className={cn(LAYER, "mt-2 mb-2.5 grid grid-cols-3 gap-2 text-center")}>
+          {screen.funnel.map((step) => (
             <Box
-              as="span"
-              className="flex size-[15px] flex-none items-center justify-center rounded-full bg-lime"
+              key={step.label}
+              className={cn(
+                "rounded-[8px] border border-ink/12 p-2.5",
+                step.hot ? "bg-navy" : "bg-white",
+              )}
             >
-              <Box
+              <Text
                 as="span"
-                className="-mt-px h-[3px] w-[5px] -rotate-45 border-b-2 border-l-2 border-navy"
-              />
+                className={cn("block font-display text-[14px] leading-[1.4] font-semibold", step.hot ? "text-lime" : "text-ink")}
+              >
+                {step.value}
+              </Text>
+              <Text
+                as="span"
+                className={cn(
+                  "block font-mono text-[8px] leading-[1.4] tracking-[0.06em] uppercase",
+                  step.hot ? "text-paper" : "text-ink-muted",
+                )}
+              >
+                {step.label}
+              </Text>
             </Box>
-            <Text as="span" className="text-[12.5px] font-semibold text-ink">
-              {region}
-            </Text>
-          </Box>
-        ))}
-      </Box>
-      <Box className={cn(LAYER, "flex flex-wrap gap-2")}>
-        {screen.tags?.map((tag) => (
-          <Text
-            key={`${tag.strong ?? ""}${tag.text}`}
-            as="span"
-            className={cn(MONO, "rounded-full bg-paper-warm px-3 py-1.5 text-[10px] tracking-[0.05em] text-ink-muted")}
-          >
-            {tag.strong ? (
-              <Box as="b" className="font-bold text-navy">
-                {tag.strong}
-              </Box>
-            ) : null}
-            {tag.strong ? " " : ""}
-            {tag.text}
-          </Text>
-        ))}
-      </Box>
+          ))}
+        </Box>
+      ) : null}
+
+      {screen.run?.items?.length ? (
+        <Panel>
+          <Row label={screen.run.heading} className="border-t-0">
+            <Pills items={screen.run.items.map((item) => ({ label: item, hot: true }))} />
+          </Row>
+        </Panel>
+      ) : null}
+
+      {screen.coverage_label ? (
+        <Text as="span" className={cn(LAYER, MONO_LABEL, "mt-3")}>{screen.coverage_label}</Text>
+      ) : null}
+      <Pills items={coverage} className={cn(LAYER, "mt-2")} />
     </ScopeScreen>
   );
 }
 
 /* 4 · Learning technology — what we run beside what you keep. */
 function PlatformScreen({ screen }) {
-  const columns = [
-    { ...screen.run, keep: false, Icon: Check },
-    { ...screen.keep, keep: true, Icon: Lock },
-  ];
-
   return (
     <ScopeScreen screen={screen}>
-      <Label>{screen.label}</Label>
-      <Box className={cn(LAYER, "grid grid-cols-1 gap-2.5 min-[561px]:grid-cols-2")}>
-        {columns.map(({ heading, items, keep, Icon }) => (
-          <Box
-            key={heading}
-            className={cn(
-              "rounded-[10px] border p-3.5",
-              keep ? "border-navy bg-navy" : "border-ink/12",
-            )}
-          >
-            <Text
-              as="p"
-              className={cn(
-                MONO,
-                "mb-3 text-[10px] tracking-[0.06em]",
-                keep ? "text-lime" : "text-ink-muted",
-              )}
-            >
-              {heading}
-            </Text>
-            {items?.map((item) => (
-              <Box
-                key={item}
-                className={cn(
-                  "mb-[9px] flex items-start gap-[9px] text-[12.5px] leading-[1.35] last:mb-0",
-                  keep ? "text-paper" : "text-ink",
-                )}
-              >
-                <Icon
-                  size={16}
-                  strokeWidth={keep ? 2 : 2.2}
-                  className={cn("mt-px flex-none", keep ? "text-lime" : "text-navy")}
-                />
-                {item}
-              </Box>
-            ))}
-          </Box>
-        ))}
-      </Box>
+      <Panel title={screen.label} tag={screen.doc_tag}>
+        <Box className="grid grid-cols-2">
+          {[screen.run, screen.keep].map((column, index) =>
+            column?.items?.length ? (
+              <Row key={column.heading} label={column.heading} className={cn(index === 0 && "border-r")}>
+                <Box className="grid gap-1.5">
+                  {column.items.map((item) => (
+                    <Text key={item} as="span" className="text-[12.5px] leading-[1.5] text-ink">
+                      {item}
+                    </Text>
+                  ))}
+                </Box>
+              </Row>
+            ) : null,
+          )}
+        </Box>
+        <Note>{screen.note}</Note>
+      </Panel>
     </ScopeScreen>
   );
 }
 
-/* 5 · Vendor management — many suppliers consolidated into one partner. */
+/* 5 · Vendor management — every other supplier consolidated into one partner. */
 function VendorsScreen({ screen }) {
   return (
     <ScopeScreen screen={screen}>
-      <Label className="mb-[11px] tracking-[0.07em]">{screen.label}</Label>
-      <Box className={cn(LAYER, "flex items-center gap-3.5 max-[560px]:flex-col")}>
-        <Box className="grid flex-1 grid-cols-2 gap-1.5 max-[560px]:w-full">
-          {screen.vendors?.map((vendor) => (
-            <Text
-              key={vendor}
-              as="span"
-              className="rounded-[7px] border border-ink/12 bg-paper-warm px-[9px] py-2 text-center text-[11px] text-ink-muted"
-            >
-              {vendor}
+      <Panel title={screen.label} tag={screen.doc_tag}>
+        {screen.vendors?.length ? (
+          <Row label={screen.vendors_label}>
+            <Pills items={screen.vendors.map((vendor) => ({ label: vendor }))} />
+          </Row>
+        ) : null}
+        {screen.partner?.name ? (
+          <Row className="text-center">
+            <Text as="span" className="block font-display text-[15px] leading-[1.4] font-semibold text-ink">
+              {screen.partner.name}
             </Text>
-          ))}
-        </Box>
-        <Box className="flex flex-none flex-col items-center gap-1 text-ink-muted max-[560px]:rotate-90">
-          <ArrowRight size={26} strokeWidth={1.8} />
-          <Text as="span" className={cn(MONO, "text-[8px] tracking-[0.05em]")}>
-            {screen.arrow_label}
-          </Text>
-        </Box>
-        <Box className="flex-[0_0_42%] rounded-[12px] bg-navy px-4 py-[22px] text-center text-paper max-[560px]:w-full max-[560px]:flex-auto">
-          <Text as="span" className="block font-display text-[18px] font-bold text-paper">
-            {screen.partner?.name}
-          </Text>
-          <Text as="span" className={cn(MONO, "mt-1.5 block text-[9px] tracking-[0.06em] text-lime")}>
-            {screen.partner?.note}
-          </Text>
-        </Box>
-      </Box>
-      <Text as="p" className={cn(LAYER, MONO, "mt-3.5 text-center text-[10px] tracking-[0.06em] text-ink-muted")}>
-        {screen.footer}
-      </Text>
+            {screen.partner.note ? (
+              <Text as="span" className={MONO_LABEL}>{screen.partner.note}</Text>
+            ) : null}
+          </Row>
+        ) : null}
+        {screen.footer ? <Row className="text-center text-[12px] leading-[1.5]">{screen.footer}</Row> : null}
+        <Note>{screen.note}</Note>
+      </Panel>
     </ScopeScreen>
   );
 }
@@ -410,107 +313,68 @@ function VendorsScreen({ screen }) {
 /* 6 · Analytics — KPI tiles and an indexed reach chart. */
 function AnalyticsScreen({ screen }) {
   const bars = screen.chart?.bars ?? [];
+  const chartLabel = [screen.chart?.title, screen.chart?.unit && `(${screen.chart.unit})`].filter(Boolean).join(" ");
 
   return (
     <ScopeScreen screen={screen}>
-      <Label className="mb-[11px] tracking-[0.07em]">{screen.label}</Label>
-      <Box className={cn(LAYER, "mb-[18px] flex gap-2")}>
-        {screen.kpis?.map((kpi) => (
-          <Box key={kpi.label} className={cn(TILE, "flex-1 p-3")}>
-            <Text as="span" className={cn(MONO, "mb-1.5 block text-[9px] tracking-[0.05em] text-ink-muted")}>
-              {kpi.label}
-            </Text>
-            <Text
-              as="span"
-              className="font-display text-[22px] leading-none font-bold tracking-[-0.01em] text-navy"
-            >
-              {kpi.value}
-            </Text>
-            <Text as="span" className="mt-[5px] block font-mono text-[9px] text-ink-muted">
-              {kpi.note}
-            </Text>
+      <Panel title={screen.label} tag={screen.doc_tag}>
+        {screen.kpis?.length ? (
+          <Box className="grid grid-cols-3">
+            {screen.kpis.map((kpi, index) => (
+              <Row key={kpi.label} label={kpi.label} className={cn(index < screen.kpis.length - 1 && "border-r")}>
+                <Text as="span" className="block font-display text-[20px] leading-[1.3] font-semibold text-ink">
+                  {kpi.value}
+                </Text>
+                <Text as="span" className="block text-[10px] leading-[1.4] text-ink-muted">
+                  {kpi.note}
+                </Text>
+              </Row>
+            ))}
           </Box>
-        ))}
-      </Box>
-
-      <Box className={cn(LAYER, "mb-3 flex items-baseline justify-between")}>
-        <Text as="span" className={cn(MONO, "text-[9.5px] tracking-[0.05em] text-ink-muted")}>
-          {screen.chart?.title}
-        </Text>
-        <Text as="span" className="font-mono text-[9px] text-ink-muted">
-          {screen.chart?.unit}
-        </Text>
-      </Box>
-      <Box className={cn(LAYER, "flex h-[120px] items-end gap-3")}>
-        {bars.map((bar, index) => (
-          <Box key={bar.label} className="flex h-full flex-1 flex-col items-center justify-end gap-1.5">
-            <Text as="span" className="font-display text-[13px] font-bold text-navy">
-              {bar.value}
-            </Text>
-            <Box
-              as="i"
-              className={cn(
-                "block w-full rounded-t-[6px]",
-                index === bars.length - 1 ? "bg-navy" : "bg-lime",
-                BAR_HEIGHT[bar.height],
-              )}
-            />
-          </Box>
-        ))}
-      </Box>
-      <Box className={cn(LAYER, "mt-2 flex gap-3")}>
-        {bars.map((bar) => (
-          <Text key={bar.label} as="span" className={cn(MONO, "flex-1 text-center text-[9px] text-ink-muted")}>
-            {bar.label}
-          </Text>
-        ))}
-      </Box>
+        ) : null}
+        {bars.length ? (
+          <Row label={chartLabel}>
+            <Box className="flex h-15 items-end gap-2">
+              {bars.map((bar) => (
+                <Box
+                  key={bar.label}
+                  as="i"
+                  className={cn("block w-[34px] rounded-[2px] bg-navy last:bg-lime", BAR_HEIGHT[bar.height])}
+                />
+              ))}
+            </Box>
+          </Row>
+        ) : null}
+        <Note className="bg-white">{screen.note}</Note>
+      </Panel>
     </ScopeScreen>
   );
 }
 
 /* 7 · Staff augmentation — Edstellar specialists slotted into your team. */
 function TeamScreen({ screen }) {
+  const pill = (member) => ({ label: [member.initials, member.role].filter(Boolean).join(" · "), hot: !member.own });
+  const own = screen.members?.filter((member) => member.own) ?? [];
+  const ours = screen.members?.filter((member) => !member.own) ?? [];
+
   return (
     <ScopeScreen screen={screen}>
-      <Label className="mb-[11px] tracking-[0.07em]">{screen.label}</Label>
-      <Box className={cn(LAYER, "rounded-[12px] border border-ink/12 bg-paper-warm p-4")}>
-        <Text as="p" className="mb-3.5 text-center font-display text-[14px] font-bold text-ink">
-          {screen.team_heading}
-        </Text>
-        <Box className="flex flex-wrap justify-center gap-2.5">
-          {screen.members?.map((member) => (
-            <Box key={member.role} className="flex w-[74px] flex-col items-center gap-1.5">
-              <Text
-                as="span"
-                className={cn(
-                  "flex size-[42px] items-center justify-center rounded-full font-display text-[13px] font-bold",
-                  member.own ? "border border-ink/22 bg-white text-ink-muted" : "bg-lime text-navy",
-                )}
-              >
-                {member.initials}
-              </Text>
-              <Text as="span" className="text-center text-[9.5px] leading-[1.2] text-ink-muted">
-                {member.role}
-              </Text>
-            </Box>
-          ))}
-        </Box>
-        <Box className="mt-4 flex justify-center gap-[18px]">
-          {[
-            { label: screen.legend?.own, className: "border border-ink/22 bg-white" },
-            { label: screen.legend?.ours, className: "bg-lime" },
-          ].map((entry) => (
-            <Text key={entry.label} as="span" className="flex items-center gap-[7px] text-[11px] text-ink-muted">
-              <Box as="i" className={cn("size-[13px] rounded-full", entry.className)} />
-              {entry.label}
-            </Text>
-          ))}
-        </Box>
-      </Box>
-      <Text as="p" className={cn(LAYER, MONO, "mt-3.5 text-center text-[10px] tracking-[0.06em] text-ink-muted")}>
-        {screen.footer}
-      </Text>
+      <Panel title={screen.label} tag={screen.doc_tag}>
+        {own.length ? (
+          <Row label={screen.legend?.own ?? screen.team_heading}>
+            <Pills items={own.map(pill)} />
+          </Row>
+        ) : null}
+        {ours.length ? (
+          <Row label={screen.legend?.ours}>
+            <Pills items={ours.map(pill)} />
+          </Row>
+        ) : null}
+        {screen.footer ? (
+          <Row className="text-[12px] leading-[1.5] text-ink-muted">{screen.footer}</Row>
+        ) : null}
+        <Note>{screen.note}</Note>
+      </Panel>
     </ScopeScreen>
   );
 }

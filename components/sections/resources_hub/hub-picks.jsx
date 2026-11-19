@@ -32,7 +32,8 @@ export default function HubPicks({ data }) {
               <a
                 href={item.href}
                 title={`Click Here to Download ${item.title}`}
-                {...(item.external ? { target: "_blank", rel: "noopener" } : {})}
+                target="_blank"
+                rel="noopener"
                 className="group flex w-full items-start gap-4.5 rounded-[18px] border border-ink/12 bg-white p-6 transition-[transform,box-shadow,border-color] duration-250 hover:-translate-y-1.25 hover:border-ink/22 hover:shadow-[0_22px_46px_-28px_rgba(10,22,40,0.5)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
               >
                 <Box className="grid size-11 flex-none place-items-center rounded-[11px] bg-lime/18 text-olive transition-colors duration-250 group-hover:bg-navy group-hover:text-lime">

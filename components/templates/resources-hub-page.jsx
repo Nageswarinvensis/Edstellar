@@ -5,7 +5,6 @@ import HubLibrarySection from "@/components/sections/resources_hub/hub-library-s
 import HubTestimonial from "@/components/sections/resources_hub/hub-testimonial";
 import HubFaq from "@/components/sections/resources_hub/hub-faq";
 import HubCta from "@/components/sections/resources_hub/hub-cta";
-import HubDisclaimer from "@/components/sections/resources_hub/hub-disclaimer";
 
 /**
  * Learning and Development Resources hub (`/learning-development-resources`).
@@ -48,7 +47,6 @@ export default function ResourcesHubPage({ page }) {
       <HubTestimonial data={page["resources-testimonial"]} />
       <HubFaq data={page.faqs} />
       <HubCta data={page.resources_cta} />
-      <HubDisclaimer data={page.resources_disclaimer} />
     </>
   );
 }

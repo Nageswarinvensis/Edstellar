@@ -94,6 +94,9 @@ export default function EngModules({ data }) {
   if (!content) return null;
 
   const section_id = content.section_id || content.id || "eng-modules";
+  // The CMS is renaming `Foot_Note` to `foot_note`; a cached response may
+  // still carry the old key, so read either.
+  const footNote = content.foot_note || content.Foot_Note;
 
   return (
     <Section id={section_id} className="bg-paper-warm border border-y-[#0a16281f]">
@@ -124,12 +127,19 @@ export default function EngModules({ data }) {
           </Box>
         </Reveal>
 
-        {/* Bottom Helper Caption */}
-        {content.footerNote && (
+        {/* Scope footnote, then the helper caption (design `.foot-note`) */}
+        {(footNote || content.footerNote) && (
           <Reveal delay={0.2}>
-            <Text as="p" className="mt-6 text-center font-mono text-[12px] text-ink-muted tracking-tight">
-              {content.footerNote}
-            </Text>
+            {footNote && (
+              <Text as="p" className="mt-6.5 text-center font-body text-[13px] leading-[1.6] text-ink-muted">
+                {footNote}
+              </Text>
+            )}
+            {content.footerNote && (
+              <Text as="p" className="mt-6 text-center font-mono text-[12px] text-ink-muted tracking-tight">
+                {content.footerNote}
+              </Text>
+            )}
           </Reveal>
         )}
       </Box>
