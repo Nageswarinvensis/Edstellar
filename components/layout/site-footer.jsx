@@ -129,8 +129,8 @@ function Contact() {
       <Box as="ul" aria-labelledby="footer-contact-h" className="m-0 list-none p-0">
         {FOOTER_CONTACT.map((item) => (
           <li key={item.label} className="flex items-center justify-between gap-4 border-t border-paper/12 py-2 first:border-t-0">
-            <Text as="b" className="text-[14px] font-semibold text-paper">{item.label}</Text>
-            <a href={item.href} title={item.title} className="whitespace-nowrap text-[14px] font-medium text-paper transition-colors hover:text-lime-soft">
+            <Text as="b" className="text-[14px] font-semibold text-paper/60">{item.label}</Text>
+            <a href={item.href} title={item.title} className="whitespace-nowrap text-[14px] font-medium text-paper/60 transition-colors hover:text-paper">
               {item.value}
             </a>
           </li>
@@ -167,7 +167,7 @@ export default function SiteFooter() {
           </Text>
           <Box as="nav" aria-label="Legal" className="flex flex-wrap items-center gap-x-5 gap-y-1">
             {FOOTER_LEGAL_LINKS.map((link) => (
-              <Link key={link.href} href={link.href} title={link.title} target="_blank" rel="noopener" className="text-[14px] text-paper/[0.78] transition-colors duration-200 hover:text-paper">
+              <Link key={link.href} href={link.href} title={link.title} target="_blank" rel="noopener" className="text-[14px] text-paper/60 transition-colors duration-200 hover:text-paper">
                 {link.label}
               </Link>
             ))}

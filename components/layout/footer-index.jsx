@@ -34,7 +34,7 @@ function FooterLink({ link, stage }) {
   const className = cn(
     "text-[14px] leading-[1.5]",
     link.all ? "inline" : "inline-flex min-h-6 items-center py-0.5",
-    link.main ? "font-medium text-paper" : "text-paper/[0.78]",
+    link.main ? "font-semibold text-paper/60" : "text-paper/60",
     stage && (hit ? "text-lime" : "text-paper/55"),
     link.href && "group/all transition-colors duration-200 hover:text-paper",
   );
@@ -72,7 +72,7 @@ function Group({ group, stage, open, onToggle }) {
     >
       <Box
         as="summary"
-        className="mb-2.5 flex list-none items-center justify-between font-serif text-[20px] leading-[1.2] font-semibold text-paper/70 marker:hidden max-sm:mb-0 max-sm:cursor-pointer max-sm:py-3.5 max-sm:text-[22px] max-sm:text-paper sm:pointer-events-none [&::-webkit-details-marker]:hidden"
+        className="mb-2.5 flex list-none items-center justify-between font-serif text-[20px] leading-[1.2] font-semibold text-paper marker:hidden max-sm:mb-0 max-sm:cursor-pointer max-sm:py-3.5 max-sm:text-[22px] max-sm:text-paper sm:pointer-events-none [&::-webkit-details-marker]:hidden"
       >
         {group.heading}
         <Chevron />
@@ -83,7 +83,7 @@ function Group({ group, stage, open, onToggle }) {
             <Box as="li" key={link.sub ?? `sub-${index}`} className="mt-4 first:mt-1.5">
               {/* A sub-list may have no label of its own (Platforms). */}
               {link.sub ? (
-                <Text as="span" className={cn("mb-1 block", link.subWhite ? "font-body text-[14px] leading-[1.4] font-medium text-paper" : "font-serif text-[20px] leading-[1.2] font-semibold text-paper/70")}>
+                <Text as="span" className={cn("mb-1 block", link.subWhite ? "font-body text-[14px] leading-[1.4] font-medium text-paper" : "font-serif text-[20px] leading-[1.2] font-semibold text-paper")}>
                   {link.sub}
                 </Text>
               ) : null}
@@ -188,7 +188,7 @@ export default function FooterIndex({ brand, contact }) {
                   onClick={() => pick(item.key)}
                   className={cn(
                     "group/st relative flex min-h-14 cursor-pointer flex-col items-center gap-2 rounded-[10px] px-1 font-body text-[14px] leading-[1.3] font-medium max-sm:text-[12px]",
-                    on ? "text-lime" : "text-paper/[0.78]",
+                    on ? "text-lime" : "text-paper/60",
                   )}
                 >
                   <span
