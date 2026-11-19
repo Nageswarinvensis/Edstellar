@@ -54,7 +54,7 @@ html{-webkit-text-size-adjust:100%}
 /* dark footer surface */
 .ft .on-dark{background:var(--navy);color:var(--paper)}
 .ft .on-dark :focus-visible{outline-color:var(--lime)}
-.ft .on-dark .ft-link{color:rgba(250,250,247,.78)}
+.ft .on-dark .ft-link{color:rgba(250,250,247,.60)}
 .ft .on-dark .ft-link:hover,.ft .on-dark .ft-link:focus-visible{color:var(--paper)}
 .ft .on-dark .fh{color:var(--paper)}
 .ft .on-dark .muted{color:rgba(250,250,247,.6)}
@@ -88,9 +88,10 @@ html{-webkit-text-size-adjust:100%}
 .ft .contact li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0;border-top:1px solid rgba(250,250,247,.12)}
 .ft .contact li:first-child{border-top:0}
 .ft .contact .who{display:flex;flex-direction:column}
+.ft .contact .who b{color:rgba(250,250,247,.60)}
 .ft .contact .who span{font-size:12px;color:rgba(250,250,247,.6)}
-.ft .contact .tel{display:inline;background:none;border:none;border-radius:0;font:500 14px var(--body);text-decoration:none;color:var(--paper);white-space:nowrap}
-.ft .contact .tel:hover,.ft .contact .tel:focus-visible{text-decoration:underline}
+.ft .contact .tel{display:inline;background:none;border:none;border-radius:0;font:500 14px var(--body);text-decoration:none;color:rgba(250,250,247,.60);white-space:nowrap}
+.ft .contact .tel:hover,.ft .contact .tel:focus-visible{text-decoration:underline;color:var(--paper)}
 .ft .contact .who .near,.ft .near{font-size:10px;display:inline-block;margin-left:8px;font:500 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--navy);background:var(--lime);border-radius:100px;padding:4px 8px;vertical-align:2px}
 
 /* ISO badges */
@@ -440,7 +441,7 @@ html{-webkit-text-size-adjust:100%}
 @media (min-width:601px){ .ft-c3 .cert-box{margin-left:45px;max-width:min(600px, calc(100% - 45px))} }
 
 /* option C v3: Corporate training column, pages vs domains (Oct 20) */
-.ft-c3 .on-dark .ft-link.ft-main{color:var(--paper);font-weight:500}
+.ft-c3 .on-dark .ft-link.ft-main{color:rgba(250,250,247,.60);font-weight:600}
 .ft-c3 .fl-sub{margin-top:12px;padding-top:12px;border-top:1px dashed rgba(250,250,247,.2)}
 /* Sub-list labels ("Popular domains") in the column-heading font: serif 600, 20px (Nov 2026) */
 .ft-c3 .fl-label{display:block;margin-bottom:4px;font:600 20px/1.2 var(--serif);letter-spacing:0;text-transform:none;color:rgba(250,250,247,.7)}
@@ -457,7 +458,7 @@ html{-webkit-text-size-adjust:100%}
 .ft-c3 .fl-all{max-width:26ch}
 .ft-c3.filtering .ft-link.hit.ft-all .m{display:inline-block;margin:0 8px 2px 0;vertical-align:middle}
 /* option C v3: link-group headings slightly grey (Oct 20) */
-.ft-c3 .on-dark .fgroup .fh{color:rgba(250,250,247,.7)}
+.ft-c3 .on-dark .fgroup .fh{color:var(--paper)}
 
 /* option C v3: Corporate training starts with the domains label; two view-all links (Oct 20) */
 .ft-c3 .fl > .fl-sub:first-child{margin-top:0;padding-top:0;border-top:0}
