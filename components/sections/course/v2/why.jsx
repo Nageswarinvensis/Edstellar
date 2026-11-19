@@ -1,0 +1,168 @@
+import Image from "next/image";
+
+import Box from "@/components/ui/Box";
+import Text from "@/components/ui/Text";
+import Reveal from "@/components/common/reveal";
+import V2Section from "@/components/sections/course/v2/section";
+import V2SectionHead from "@/components/sections/course/v2/section-head";
+import V2Products from "@/components/sections/course/v2/products";
+
+/** Trusted static SVG markup from the design file. */
+function Markup({ html, viewBox, className }) {
+  return (
+    <svg viewBox={viewBox || "0 0 24 24"} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" className={className} dangerouslySetInnerHTML={{ __html: html }} />
+  );
+}
+
+/** "ISO 9001&27001" → "ISO 9001" + a small "&" + "27001" (the design's `.wy-n i`). */
+function StatValue({ value }) {
+  const at = value.indexOf("&");
+  if (at === -1) return <b className="font-body text-[24px] leading-none font-bold tracking-[-0.035em] text-ink">{value}</b>;
+  return (
+    <>
+      <b className="font-body text-[24px] leading-none font-bold tracking-[-0.035em] text-ink">{value.slice(0, at).trim()}</b>
+      <i className="font-body text-[12px] not-italic text-ink-muted">&amp;</i>
+      <b className="font-body text-[24px] leading-none font-bold tracking-[-0.035em] text-ink">{value.slice(at + 1).trim()}</b>
+    </>
+  );
+}
+
+/** Wireframe globe (the design draws it on a canvas): meridians, parallels and three hub markers. */
+function Globe() {
+  const C = 160;
+  const R = 140;
+  const meridians = [15, 30, 45, 60, 75].map((d) => R * Math.cos((d * Math.PI) / 180));
+  const parallels = [-60, -40, -20, 0, 20, 40, 60].map((d) => {
+    const a = (d * Math.PI) / 180;
+    return { y: C + R * Math.sin(a), rx: R * Math.cos(a) };
+  });
+  const hubs = [
+    { x: 207, y: 74, label: "Europe", dx: 0, dy: -14 },
+    { x: 262, y: 156, label: "Middle East", dx: 4, dy: -12 },
+    { x: 196, y: 186, label: "Africa", dx: 0, dy: -14 },
+  ];
+  return (
+    <svg viewBox="0 0 320 320" aria-hidden="true" focusable="false" className="block w-full max-w-[420px] overflow-visible">
+      <defs>
+        <radialGradient id="why-globe-fill" cx="42%" cy="38%" r="70%">
+          <stop offset="0" className="[stop-color:color-mix(in_srgb,var(--color-lime)_16%,white)]" />
+          <stop offset="1" className="[stop-color:white]" />
+        </radialGradient>
+      </defs>
+      <circle cx={C} cy={C} r={R} fill="url(#why-globe-fill)" className="stroke-ink/35" strokeWidth="1" />
+      <g transform={`rotate(-12 ${C} ${C})`} className="fill-none stroke-ink/30" strokeWidth="0.8">
+        <line x1={C} x2={C} y1={C - R} y2={C + R} />
+        {meridians.map((rx) => (
+          <ellipse key={rx} cx={C} cy={C} rx={rx} ry={R} />
+        ))}
+        {parallels.map((p) => (
+          <ellipse key={p.y} cx={C} cy={p.y} rx={p.rx} ry={p.rx * 0.18} />
+        ))}
+      </g>
+      <path d="M207 74Q240 105 262 156M207 74Q190 130 196 186M262 156Q240 180 196 186M262 156L310 162" className="fill-none stroke-navy" strokeWidth="1" />
+      {hubs.map((h) => (
+        <g key={h.label}>
+          <circle cx={h.x} cy={h.y} r="4" className="fill-lime stroke-navy" strokeWidth="1.2" />
+          <g transform={`translate(${h.x + h.dx} ${h.y + h.dy})`}>
+            <rect x={-h.label.length * 3.4 - 6} y="-8" width={h.label.length * 6.8 + 12} height="16" rx="8" className="fill-navy" />
+            <text textAnchor="middle" y="3.5" className="fill-white font-mono text-[8px] tracking-[0.08em] uppercase">{h.label}</text>
+          </g>
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+/**
+ * v2 · 10 Why Edstellar (the design's `#why`) — the lead and four
+ * commitments, the proof numbers and accreditations beside the globe of
+ * delivery regions; the client logo band; then the Edstellar products.
+ */
+export default function V2Why({ data }) {
+  if (!data) return null;
+  const { eyebrow, heading, lead, points = [], stats = [], accreditations = [], globe, logos_label, logos = [], products } = data;
+
+  return (
+    <V2Section id="why">
+      <Box className="grid items-center gap-7 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-12">
+        <Box className="min-w-0">
+          <V2SectionHead eyebrow={eyebrow} heading={heading} lead={lead} className="mb-[22px]" />
+
+          <Reveal as="ul" className="mt-[18px] grid gap-2.5">
+            {points.map((p) => (
+              <li key={p.label} className="grid grid-cols-[28px_minmax(0,1fr)] items-start gap-3 text-[14.5px] leading-[1.55] text-ink-muted">
+                <span className="-mt-0.5 flex size-7 items-center justify-center rounded-lg bg-lime-soft/70 text-olive">
+                  {p.icon && <Markup html={p.icon} viewBox={p.icon_viewbox} className="size-4" />}
+                </span>
+                <span>
+                  <b className="font-display font-medium text-ink">{p.label}</b> {p.text}
+                </span>
+              </li>
+            ))}
+          </Reveal>
+
+          {stats.length > 0 && (
+            <Reveal className="mt-6 grid grid-cols-1 overflow-hidden rounded-[14px] border border-ink/15 bg-white min-[560px]:grid-cols-2 lg:grid-cols-4">
+              {stats.map((s) => (
+                <div key={s.label} className="min-h-[90px] border-ink/15 px-[22px] py-5 lg:border-r lg:last:border-r-0">
+                  <span className="flex flex-wrap items-baseline gap-1.5">
+                    <StatValue value={s.value} />
+                  </span>
+                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.15em] text-ink-muted">{s.label}</p>
+                </div>
+              ))}
+            </Reveal>
+          )}
+
+          {accreditations.length > 0 && (
+            <ul className="mt-3.5 mb-1 flex flex-wrap gap-2">
+              {accreditations.map((a) => (
+                <li key={a} className="rounded-full bg-lime-soft px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-navy">{a}</li>
+              ))}
+            </ul>
+          )}
+        </Box>
+
+        {globe && (
+          <Reveal as="figure" className="flex min-w-0 flex-col items-center gap-3">
+            <Globe />
+            <figcaption>
+              <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted before:size-[7px] before:rounded-full before:bg-lime before:shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-lime)_28%,transparent),inset_0_0_0_1px_var(--color-navy)]">
+                {globe.caption}
+              </span>
+              <ul className="sr-only">
+                {globe.regions?.map((r) => <li key={r}>{r}</li>)}
+              </ul>
+            </figcaption>
+          </Reveal>
+        )}
+      </Box>
+
+      {logos.length > 0 && (
+        <Reveal className="mt-[22px] overflow-hidden rounded-2xl bg-sand pt-[18px] pb-5">
+          {logos_label && (
+            <p className="mb-3.5 flex items-center gap-4 px-5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted before:h-px before:flex-1 before:bg-[linear-gradient(to_left,rgba(10,22,40,0.12),transparent)] after:h-px after:flex-1 after:bg-[linear-gradient(to_right,rgba(10,22,40,0.12),transparent)]">
+              {logos_label}
+            </p>
+          )}
+          <ul className="flex flex-wrap items-center justify-center gap-x-[30px] gap-y-3.5 px-5">
+            {logos.map((logo) => (
+              <li key={logo.name}>
+                <Image
+                  src={logo.image}
+                  alt={logo.name}
+                  title={logo.name}
+                  width={logo.image_width || 120}
+                  height={logo.image_height || 48}
+                  className="h-7 w-auto max-w-[110px] object-contain opacity-75 grayscale transition-transform duration-200 hover:-translate-y-0.5"
+                />
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      )}
+
+      <V2Products data={products} />
+    </V2Section>
+  );
+}

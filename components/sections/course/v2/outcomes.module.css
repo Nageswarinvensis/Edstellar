@@ -1,0 +1,121 @@
+/*
+ * v2 · 4 Outcomes — the capability tower and the heading swash, ported from
+ * the v2 design file. SVG fills and strokes per floor state don't fit utility
+ * classes (dozens of polygons), so they live here, on the theme's tokens.
+ */
+
+.tower {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(560px, calc(100vh - 230px));
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.tower polygon,
+.tower path,
+.tower rect,
+.tower circle {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+
+.tower text {
+  font-family: var(--font-dm-mono), monospace;
+  letter-spacing: 0.12em;
+}
+
+/* The base plate and its grid */
+.oct-plate polygon {
+  fill: var(--color-navy);
+  stroke: color-mix(in srgb, var(--color-lime) 22%, transparent);
+  stroke-width: 1;
+}
+.oct-plate .tp { fill: var(--color-navy-soft); }
+.oct-plate .fr,
+.oct-plate .sd { fill: var(--color-navy-deep); }
+.grid { stroke: color-mix(in srgb, var(--color-lime) 10%, transparent); }
+
+/* Floors */
+.fl { transition: opacity 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.fl polygon {
+  fill: var(--color-navy);
+  stroke: color-mix(in srgb, var(--color-lime) 22%, transparent);
+  stroke-width: 1;
+  transition: fill 0.4s, stroke 0.4s;
+}
+.fl .tp { fill: var(--color-navy-soft); }
+.fl .sd { fill: var(--color-navy-deep); }
+.fl .win {
+  fill: var(--color-navy-deep);
+  stroke: color-mix(in srgb, var(--color-lime) 22%, transparent);
+  stroke-width: 0.8;
+  transition: fill 0.4s, stroke 0.4s;
+}
+.fl .fx {
+  fill: none;
+  stroke: color-mix(in srgb, var(--color-lime) 22%, transparent);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.4s;
+}
+.fl-n { font-size: 7.5px; letter-spacing: 0.1em; fill: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+.fl-l { font-size: 6.4px; letter-spacing: 0.12em; fill: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+
+/* Below the selected floor: built */
+.built polygon { stroke: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+.built .win { fill: color-mix(in srgb, var(--color-lime) 22%, transparent); }
+.built .fx { stroke: color-mix(in srgb, var(--color-lime) 65%, transparent); }
+
+/* Above the selected floor: waiting */
+.above polygon,
+.above .win,
+.above .fx { opacity: 0.42; }
+
+/* The selected floor: glows and steps forward */
+.on {
+  transform: translate(6px, 3px);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-lime) 65%, transparent));
+}
+.on polygon { stroke: var(--color-lime); }
+.on .tp { fill: color-mix(in srgb, var(--color-lime) 22%, transparent); }
+.on .win { fill: color-mix(in srgb, var(--color-lime) 65%, transparent); stroke: var(--color-lime); }
+.on .fx { stroke: var(--color-lime); }
+.on .fl-n,
+.on .fl-l { fill: var(--color-lime); }
+
+/* Roof and beacon — the beacon lights on the last outcome */
+.roof polygon { fill: var(--color-navy); stroke: color-mix(in srgb, var(--color-lime) 22%, transparent); }
+.roof .tp { fill: var(--color-navy-soft); }
+.beacon { fill: color-mix(in srgb, var(--color-lime) 65%, transparent); transition: fill 0.4s; }
+.beacon-bloom { fill: var(--color-lime); opacity: 0; transition: opacity 0.4s; }
+.top .beacon { fill: var(--color-lime); }
+.top .beacon-bloom { opacity: 0.65; }
+.top .roof polygon { stroke: var(--color-lime); }
+
+@media (max-width: 1023px) {
+  .tower { max-height: calc(34vh - 18px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fl { transition: none; }
+}
+
+/* The lime hand-drawn underline under the heading's italic phrase */
+.swash em {
+  position: relative;
+  display: inline-block;
+}
+.swash em::after {
+  content: "";
+  position: absolute;
+  left: 2%;
+  right: -2%;
+  bottom: -0.18em;
+  height: 0.32em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 10 C 60 3, 140 2, 197 7' fill='none' stroke='%23c8f135' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E")
+    no-repeat center / 100% 100%;
+}

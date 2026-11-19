@@ -4,6 +4,8 @@ import { getCourse } from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/metadata";
 import JsonLd from "@/components/seo/json-ld";
 import CoursePage from "@/components/templates/training/course-page";
+import { getCourseV2 } from "@/lib/content/course-v2";
+import CoursePageV2 from "@/components/templates/training/v2/course-page-v2";
 
 /**
  * `/corporate-training/{domain}/{course-slug}` — a course page.
@@ -30,6 +32,17 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug, courseSlug } = await params;
+
+  // New v2 design (testing): local JSON, switched in content/courses/v2/index.js.
+  const v2 = getCourseV2(slug, courseSlug);
+  if (v2) {
+    return buildMetadata({
+      title: v2.seo.title.replace(/\s*\|\s*Edstellar\s*$/i, "").trim(),
+      description: v2.seo.description,
+      path: `/corporate-training/${slug}/${courseSlug}`,
+    });
+  }
+
   const course = await getCourse(slug, courseSlug);
 
   if (!course) return {};
@@ -50,6 +63,11 @@ export async function generateMetadata({ params }) {
 
 export default async function CourseRoute({ params }) {
   const { slug, courseSlug } = await params;
+
+  // New v2 design (testing): local JSON, switched in content/courses/v2/index.js.
+  // The old layout below is untouched and still serves every other course.
+  const v2 = getCourseV2(slug, courseSlug);
+  if (v2) return <CourseV2Route course={v2} url={`https://www.edstellar.com/corporate-training/${slug}/${courseSlug}`} />;
 
   // Both segments. A one-argument read would render this course under any
   // parent slug, including an industry or a vendor (TASTE.md §1.2).
@@ -135,6 +153,50 @@ export default async function CourseRoute({ params }) {
       )}
 
       <CoursePage course={course} />
+    </>
+  );
+}
+
+/** The v2 page and its structured data: WebPage, BreadcrumbList and FAQPage. */
+function CourseV2Route({ course, url }) {
+  const title = course.seo.title.replace(/\s*\|\s*Edstellar\s*$/i, "").trim();
+  const crumbs = course.breadcrumbs ?? [];
+  const faqs = (course.faq?.groups ?? []).flatMap((g) => g.items);
+  return (
+    <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        "url": url,
+        "name": title,
+        "description": course.seo.description,
+        "inLanguage": "en-US",
+      }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        "itemListElement": crumbs.map((c, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": c.label,
+          "item": c.href ? `https://www.edstellar.com${c.href === "/" ? "" : c.href}` : url,
+        })),
+      }} />
+      {faqs.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": `${url}#faq`,
+          "mainEntity": faqs.map((f) => ({
+            "@type": "Question",
+            "name": f.question,
+            "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+          })),
+        }} />
+      )}
+      <CoursePageV2 course={course} />
     </>
   );
 }
