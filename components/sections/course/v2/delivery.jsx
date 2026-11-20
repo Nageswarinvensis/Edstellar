@@ -120,6 +120,41 @@ export default function V2Delivery({ data }) {
   const sceneRefs = useRef([]);
   const captionRefs = useRef([]);
   const journeyPath = useJourneyPath(journeyRef, sceneRefs, captionRefs);
+
+  // The lit line draws itself once, the first time the journey scrolls into
+  // view (top at 75% of the viewport, as the design's onScreenOnce), with a
+  // signal dot travelling its front (the design's `.dl-pl` + `.dl-sig`).
+  const [drawn, setDrawn] = useState(false);
+  const [signal, setSignal] = useState(false);
+  const motionRef = useRef(null);
+  useEffect(() => {
+    const journey = journeyRef.current;
+    if (!journey) return;
+    if (typeof IntersectionObserver === "undefined" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDrawn(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        setDrawn(true);
+        setSignal(true);
+      },
+      { threshold: 0, rootMargin: "0px 0px -25% 0px" },
+    );
+    io.observe(journey);
+    return () => io.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!signal) return;
+    const start = setTimeout(() => motionRef.current?.beginElement?.(), 200);
+    const end = setTimeout(() => setSignal(false), 200 + 3800);
+    return () => {
+      clearTimeout(start);
+      clearTimeout(end);
+    };
+  }, [signal]);
   if (!data?.stages?.length) return null;
   const { eyebrow, heading, lead, panel_kicker, panel_heading, format_titles = {}, scale_titles = {}, stages, modes = [], mode_keys = [], custom, cta, format_words } = data;
   // The panel heading follows the chips: `{format}` / `{scale}` in the JSON's
@@ -193,7 +228,34 @@ export default function V2Delivery({ data }) {
         <Box ref={journeyRef} data-scale={scale} data-fmt={fmt} className={cn(styles.journey, "relative min-w-0 min-[1200px]:flex min-[1200px]:flex-col")}>
           {journeyPath && (
             <svg viewBox={journeyPath.box} aria-hidden="true" focusable="false" className="pointer-events-none absolute inset-0 z-0 hidden size-full overflow-visible min-[720px]:block">
-              <path d={journeyPath.d} className="fill-none stroke-lime/65 [stroke-linecap:round] [stroke-linejoin:round]" strokeWidth="2.5" />
+              {/* Base route: faint dotted line (the design's `.dl-pb`). */}
+              <path d={journeyPath.d} className="fill-none stroke-lime/22 [stroke-dasharray:1_7] [stroke-linecap:round]" strokeWidth="2.5" />
+              {/* Lit line: draws from Consult to Evaluate over 3.8s once in view (`.dl-pl`). */}
+              <path
+                d={journeyPath.d}
+                pathLength="1"
+                strokeWidth="2.6"
+                className={cn(
+                  "fill-none stroke-lime [stroke-dasharray:1_2] [stroke-linecap:round] [stroke-linejoin:round] [filter:drop-shadow(0_0_4px_color-mix(in_srgb,var(--color-lime)_65%,transparent))] transition-[stroke-dashoffset] delay-200 duration-[3800ms] ease-in-out motion-reduce:transition-none",
+                  drawn ? "[stroke-dashoffset:0]" : "[stroke-dashoffset:1]",
+                )}
+              />
+              {/* Signal dot riding the front of the line while it draws (`.dl-sig`). */}
+              <g className={cn("transition-opacity duration-300", signal ? "opacity-100" : "opacity-0")}>
+                <circle r="9" className="fill-lime opacity-[0.22]" />
+                <circle r="4.5" className="fill-lime" />
+                <animateMotion
+                  ref={motionRef}
+                  begin="indefinite"
+                  dur="3.8s"
+                  fill="freeze"
+                  calcMode="spline"
+                  keyTimes="0;1"
+                  keyPoints="0;1"
+                  keySplines="0.45 0 0.55 1"
+                  path={journeyPath.d}
+                />
+              </g>
             </svg>
           )}
           <Box role="group" aria-label="Edstellar delivery journey: select a stage" className="relative z-[1] grid grid-cols-1 gap-[18px] before:absolute before:top-4 before:bottom-4 before:left-[16px] before:w-0.5 before:bg-lime/65 min-[720px]:grid-cols-3 min-[720px]:gap-x-[22px] min-[720px]:gap-y-[34px] min-[720px]:before:hidden min-[1200px]:flex-1 min-[1200px]:content-around">

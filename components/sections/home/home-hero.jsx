@@ -82,7 +82,7 @@ export default function HomeHero({ data }) {
                 variant={action.variant === "primary" ? "primary" : "ghost"}
                 color="navy"
                 arrow={Boolean(action.arrow)}
-                render={<a href={action.href} />}
+                render={<a href={action.href} title={action.title} />}
               >
                 {action.label}
               </CtaButton>

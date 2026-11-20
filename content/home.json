@@ -17,13 +17,15 @@
         "label": "Plan a capability program",
         "href": "#contact",
         "variant": "primary",
-        "arrow": true
+        "arrow": true,
+        "title": "Click here to plan a capability program"
       },
       {
         "label": "Explore our solutions",
         "href": "#solutions",
         "variant": "ghost",
-        "arrow": true
+        "arrow": true,
+        "title": "Click here to explore our solutions"
       }
     ],
     "trust_line": [
@@ -563,8 +565,7 @@
         "name": "Spica",
         "category": "English assessment",
         "text": "English language assessment and coaching for global teams.",
-        "cta": "Explore Spica",
-        "href": "/talent-assessment-services/english-proficiency-assessment"
+        "status": "Coming soon"
       },
       {
         "name": "Spectra LMS",
@@ -795,24 +796,19 @@
     "lede": "From start-ups to governments, our workforce capability development method scales to your size, sector and region.",
     "items": [
       {
-        "label": "Global enterprises",
-        "href": "/who-we-serve"
+        "label": "Global enterprises"
       },
       {
-        "label": "Growing businesses",
-        "href": "/who-we-serve"
+        "label": "Growing businesses"
       },
       {
-        "label": "Governments",
-        "href": "/who-we-serve"
+        "label": "Governments"
       },
       {
-        "label": "Universities",
-        "href": "/who-we-serve"
+        "label": "Universities"
       },
       {
-        "label": "Non-profits",
-        "href": "/who-we-serve"
+        "label": "Non-profits"
       }
     ]
   },
@@ -858,18 +854,8 @@
       "A scoped proposal within one business day"
     ],
     "form": {
-      "start_label": "Where do you want to start?",
-      "start_options": [
-        "Assess capability",
-        "Close skill gaps",
-        "Develop leaders",
-        "Run L&D",
-        "Not sure yet"
-      ],
-      "goals_label": "Your capability goals",
-      "goals_placeholder": "Tell us what your strategy needs your people to do",
       "submit_label": "Schedule a briefing",
-      "note": "We reply within one business day."
+      "submit_title": "Click here to schedule a briefing"
     }
   }
 }

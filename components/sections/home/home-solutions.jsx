@@ -157,6 +157,7 @@ export default function HomeSolutions({ data }) {
                   {card.href && card.cta && (
                     <Link
                       href={card.href}
+                      title={`Click here to view the ${card.cta.replace(/^Explore\s+/i, "")}`}
                       className="mt-auto inline-flex items-center gap-2 pt-[18px] font-mono text-[10.5px] font-medium uppercase tracking-[0.07em] text-ink no-underline transition-colors hover:text-olive"
                     >
                       {card.cta}
