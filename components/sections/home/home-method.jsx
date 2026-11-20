@@ -12,7 +12,7 @@ import HomeSectionHead from "@/components/sections/home/home-section-head";
  * and `{text, href}` objects). */
 function Desc({ parts }) {
   return (
-    <Text as="p" className="m-0 text-sm leading-[1.6] text-ink/65">
+    <Text as="p" className="mt-0 mb-3.5 text-[13.5px] leading-[1.55] text-ink-muted">
       {parts.map((part, i) =>
         typeof part === "string" ? (
           <Fragment key={i}>{part}</Fragment>
@@ -31,36 +31,61 @@ export default function HomeMethod({ data }) {
   if (!data?.steps?.length) return null;
 
   return (
-    <HomeWrap id="method" aria-labelledby="method-heading" className="scroll-mt-16 bg-paper py-20 max-lg:py-16">
+    <HomeWrap id="method" aria-labelledby="method-heading" className="scroll-mt-16 border-y border-ink/12 bg-white py-20 max-lg:py-16">
       <HomeSectionHead id="method-heading" heading={data.heading} lede={data.lede} />
 
-      <Box role="list" aria-label="The Edstellar 5A methodology" className="grid grid-cols-5 border-y-[1.5px] border-ink/12 max-lg:grid-cols-2 max-sm:grid-cols-1">
+      {/* The design's `.steps5`: five columns between top and bottom rules,
+          divided by thin lines; each step reads label → title → description →
+          output → duration → tools, top to bottom. */}
+      <Box
+        role="list"
+        aria-label="The Edstellar 5A methodology"
+        className="mt-11 grid grid-cols-5 border-y border-ink/12 max-lg:grid-cols-2 max-sm:grid-cols-1"
+      >
         {data.steps.map((step, i) => (
-          <Reveal key={step.n} delay={i % 4} role="listitem" className="flex flex-col border-r border-ink/22 px-8 pb-11 pt-9 last:border-r-0 max-lg:border-b max-lg:[&:nth-child(2n)]:border-r-0 max-sm:border-r-0">
-            <Box className="flex items-center gap-2.5">
-              <Text as="span" className="font-mono text-[11px] text-ink-muted">{step.n}</Text>
-              <Text as="b" className="font-mono text-[10.5px] font-medium uppercase tracking-[0.16em] text-ink">{step.name}</Text>
-            </Box>
-            <RichHeading as="h3" heading={step.title} className="mb-3 mt-4 font-serif text-[22px] font-normal leading-[1.15] text-ink" />
-            <Desc parts={step.desc} />
-            <Text as="p" className="mt-5 flex items-baseline gap-2 text-sm text-ink">
-              <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-ink-muted">Output</Text>
-              <Text as="span" className="font-medium text-ink">{step.output}</Text>
+          <Reveal
+            key={step.n}
+            delay={i % 4}
+            role="listitem"
+            className="flex flex-col border-l border-ink/12 px-[22px] py-[26px] first:border-l-0 max-lg:border-b max-lg:[&:nth-child(2n+1)]:border-l-0 max-sm:border-l-0 max-sm:px-0 max-sm:last:border-b-0"
+          >
+            <Text as="span" className="font-mono text-[10px] leading-[1.4] uppercase tracking-[0.07em] text-ink-muted">
+              {step.n} · {step.name}
             </Text>
-            <Box className="mt-auto flex items-center justify-between gap-2 pt-6">
-              <Text as="span" className="rounded-full bg-ink/[0.06] px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.12em] text-ink/65">
-                {step.tag}
-              </Text>
-              {step.mark && (
-                <Text as="span" className="inline-flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.12em] text-ink/65">
-                  <span className="size-1.5 rounded-full bg-lime" aria-hidden="true" />
-                  {step.mark}
+            <RichHeading
+              as="h3"
+              heading={step.title}
+              className="mt-3.5 mb-2.5 font-display text-[21px] font-normal leading-[1.25] tracking-[-0.02em] text-ink [&_em]:text-[1.08em] [&_span]:text-[1.08em]"
+            />
+            <Desc parts={step.desc} />
+            <Text as="p" className="m-0 text-[13px] leading-[1.5] text-ink">
+              <Text as="span" className="mr-2 font-mono text-[9px] uppercase tracking-[0.07em] text-ink-muted">Output</Text>
+              {step.output}
+            </Text>
+            {step.tag && (
+              <Box className="mt-3 flex flex-wrap items-center gap-2">
+                <Text
+                  as="span"
+                  className="rounded-md bg-paper-warm px-[9px] py-1.5 font-mono text-[10px] leading-none font-medium uppercase tracking-[0.07em] whitespace-nowrap text-ink"
+                >
+                  {step.tag}
                 </Text>
-              )}
-            </Box>
+              </Box>
+            )}
+            {step.uses && (
+              <Text as="p" className="mt-3 mb-0 border-t border-dashed border-ink/22 pt-2.5 text-[12px] leading-[1.5] text-ink-muted">
+                <Text as="span" className="text-[12px] font-medium text-ink">Uses:</Text> {step.uses}
+              </Text>
+            )}
           </Reveal>
         ))}
       </Box>
+
+      {data.note && (
+        <Text as="p" className="mx-auto mt-3.5 mb-0 max-w-[760px] text-center font-mono text-[11px] leading-[1.6] tracking-[0.02em] text-ink-muted">
+          {data.note}
+        </Text>
+      )}
     </HomeWrap>
   );
 }

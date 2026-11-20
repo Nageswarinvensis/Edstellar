@@ -31,12 +31,13 @@ export default function HomeWhy({ data }) {
   const { experts } = data;
 
   return (
-    <HomeWrap id="why" aria-labelledby="why-heading" className="scroll-mt-16 bg-paper py-20 max-lg:py-16">
+    <HomeWrap id="why" aria-labelledby="why-heading" className="scroll-mt-16 border-t border-ink/12 bg-paper py-20 max-lg:py-16">
       <HomeSectionHead id="why-heading" heading={data.heading} lede={data.lede} />
 
-      <Box role="list" className="grid grid-cols-3 border-y-[1.5px] border-ink/12 max-md:grid-cols-1">
+      {/* Four commitments: four across on desktop, 2 x 2 on tablets, stacked on phones. */}
+      <Box role="list" className="grid grid-cols-4 border-y-[1.5px] border-ink/12 max-lg:grid-cols-2 max-md:grid-cols-1">
         {data.items.map((item, i) => (
-          <Reveal key={item.num} delay={i} role="listitem" className="flex flex-col gap-4 border-r border-ink/22 px-9 pb-14 pt-12 last:border-r-0 max-md:border-b max-md:border-r-0 max-md:last:border-b-0">
+          <Reveal key={item.num} delay={i} role="listitem" className="flex flex-col gap-4 border-r border-ink/22 px-9 pb-14 pt-12 last:border-r-0 max-lg:px-7 max-lg:even:border-r-0 max-lg:[&:nth-child(-n+2)]:border-b max-md:border-b max-md:border-r-0 max-md:px-0 max-md:pt-8 max-md:pb-9 max-md:last:border-b-0">
             <span className="h-1 w-8 bg-lime" aria-hidden="true" />
             <Text as="div" aria-hidden="true" className="font-serif text-2xl italic text-ink-muted">{item.num}</Text>
             <RichHeading as="h3" heading={item.title} className="font-serif text-[26px] font-normal leading-[1.12] text-ink" />
@@ -70,6 +71,30 @@ export default function HomeWhy({ data }) {
           </Box>
         </Reveal>
       ) : null}
+
+      {/* Delivery languages (the design's `.langs`): a mono label and one chip per language. */}
+      {data.languages?.items?.length > 0 && (
+        <Reveal>
+          <Box className="mt-[18px] flex flex-wrap items-center gap-2">
+            {data.languages.label && (
+              <Text as="span" id="why-languages" className="mr-1.5 font-mono text-[10.5px] leading-[1.4] uppercase tracking-[0.07em] text-ink-muted">
+                {data.languages.label}
+              </Text>
+            )}
+            <Box as="ul" aria-labelledby="why-languages" className="m-0 flex list-none flex-wrap items-center gap-2 p-0">
+            {data.languages.items.map((language) => (
+              <Box
+                as="li"
+                key={language}
+                className="inline-flex items-center rounded-md bg-paper-warm px-[9px] py-1.5 font-mono text-[10px] leading-none font-medium uppercase tracking-[0.07em] text-ink"
+              >
+                {language}
+              </Box>
+            ))}
+            </Box>
+          </Box>
+        </Reveal>
+      )}
     </HomeWrap>
   );
 }

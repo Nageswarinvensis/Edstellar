@@ -1,0 +1,875 @@
+{
+  "seo": {
+    "title": "Enterprise Capability Development Services",
+    "description": "Enterprise capability development services from Edstellar: measure, build and prove workforce capability with assessments, consulting, coaching and training.",
+    "path": "/",
+    "image": "https://media.edstellar.com/consulting/managed-learning-services.webp"
+  },
+  "hero": {
+    "eyebrow": "Enterprise capability development company",
+    "heading": "<span>Enterprise capability</span> development services",
+    "sub": [
+      "Edstellar helps global enterprises <strong>measure, build and prove workforce capability</strong>. One partner runs the whole cycle: assessments, consulting, coaching, training and our own capability platforms, in 100+ countries and 10+ languages.",
+      "Know what your people can do today. Close the gaps your strategy depends on. Show the change in numbers your CFO trusts."
+    ],
+    "actions": [
+      {
+        "label": "Plan a capability program",
+        "href": "#contact",
+        "variant": "primary",
+        "arrow": true
+      },
+      {
+        "label": "Explore our solutions",
+        "href": "#solutions",
+        "variant": "ghost",
+        "arrow": true
+      }
+    ],
+    "trust_line": [
+      "100+ countries",
+      "10+ languages",
+      "5,000+ experts",
+      "ISO 9001 & 27001"
+    ],
+    "panel": {
+      "label": "Capability Map · By Function",
+      "live": "Illustrative",
+      "title": "Every role, modeled across <span>capability</span> x function.",
+      "cols": [
+        "Eng",
+        "Ops",
+        "Cml",
+        "Fin",
+        "Risk",
+        "Data",
+        "Lead",
+        "PM"
+      ],
+      "rows": [
+        {
+          "label": "AI Fluency",
+          "cells": [
+            3,
+            1,
+            1,
+            2,
+            1,
+            4,
+            2,
+            2
+          ],
+          "gaps": [
+            1
+          ]
+        },
+        {
+          "label": "Exec Comms",
+          "cells": [
+            2,
+            2,
+            3,
+            3,
+            2,
+            1,
+            4,
+            3
+          ],
+          "gaps": [
+            5
+          ]
+        },
+        {
+          "label": "Cross-Func Delivery",
+          "cells": [
+            3,
+            3,
+            2,
+            2,
+            2,
+            2,
+            3,
+            4
+          ],
+          "gaps": []
+        },
+        {
+          "label": "Risk & Regulatory",
+          "cells": [
+            1,
+            2,
+            1,
+            3,
+            4,
+            1,
+            2,
+            2
+          ],
+          "gaps": []
+        },
+        {
+          "label": "Commercial Acumen",
+          "cells": [
+            1,
+            2,
+            4,
+            2,
+            2,
+            1,
+            3,
+            2
+          ],
+          "gaps": []
+        }
+      ],
+      "legend": "Capability OS Platform"
+    },
+    "methodology": {
+      "label": "The Edstellar 5A Methodology",
+      "live": "Assess to Advance",
+      "steps": [
+        {
+          "n": "01",
+          "name": "Assess"
+        },
+        {
+          "n": "02",
+          "name": "Analyze"
+        },
+        {
+          "n": "03",
+          "name": "Architect"
+        },
+        {
+          "n": "04",
+          "name": "Activate"
+        },
+        {
+          "n": "05",
+          "name": "Advance"
+        }
+      ]
+    }
+  },
+  "stats": [
+    {
+      "value": "200",
+      "suffix": "+",
+      "label": "Enterprise Clients"
+    },
+    {
+      "value": "20",
+      "suffix": "+",
+      "label": "Industries Served"
+    },
+    {
+      "value": "5,000",
+      "suffix": "+",
+      "label": "Consultants, Coaches and Experts"
+    },
+    {
+      "value": "100",
+      "suffix": "+",
+      "label": "Countries"
+    }
+  ],
+  "clients": {
+    "heading": "Trusted by teams at organizations worldwide",
+    "see": {
+      "label": "See all clients",
+      "href": "/clients"
+    },
+    "logos": [
+      {
+        "name": "Microsoft",
+        "src": "https://media.edstellar.com/client_logo/Microsoft.webp"
+      },
+      {
+        "name": "Amazon",
+        "src": "https://media.edstellar.com/client_logo/Amazon.webp"
+      },
+      {
+        "name": "Intel",
+        "src": "https://media.edstellar.com/client_logo/Intel2.webp"
+      },
+      {
+        "name": "Adobe",
+        "src": "https://media.edstellar.com/client_logo/Adobe.webp"
+      },
+      {
+        "name": "MediaTek",
+        "src": "https://media.edstellar.com/client_logo/MediaTek.webp"
+      },
+      {
+        "name": "Visa",
+        "src": "https://media.edstellar.com/client_logo/visa.webp"
+      },
+      {
+        "name": "KPMG",
+        "src": "https://media.edstellar.com/client_logo/KPMG.webp"
+      },
+      {
+        "name": "Boston Consulting Group",
+        "src": "https://media.edstellar.com/client_logo/Boston_consulting_group.webp"
+      },
+      {
+        "name": "Johnson & Johnson",
+        "src": "https://media.edstellar.com/client_logo/JohnsonJohnson_1.webp"
+      },
+      {
+        "name": "Godrej",
+        "src": "https://media.edstellar.com/client_logo/godrej.webp"
+      },
+      {
+        "name": "Tata Chemicals",
+        "src": "https://media.edstellar.com/client_logo/Tata_Chemicals.webp"
+      },
+      {
+        "name": "ABB",
+        "src": "https://media.edstellar.com/client_logo/Abb.webp"
+      },
+      {
+        "name": "Emerson",
+        "src": "https://media.edstellar.com/client_logo/Emerson.webp"
+      },
+      {
+        "name": "Aditya Birla Group",
+        "src": "https://media.edstellar.com/client_logo/Aditya_Birla_Group.webp"
+      },
+      {
+        "name": "Bechtel",
+        "src": "https://media.edstellar.com/client_logo/Bechtel.webp"
+      },
+      {
+        "name": "Regeneron",
+        "src": "https://media.edstellar.com/client_logo/Regeneron_Science_to_Medicine.webp"
+      },
+      {
+        "name": "Uber",
+        "src": "https://media.edstellar.com/client_logo/Uber.svg"
+      },
+      {
+        "name": "Autodesk",
+        "src": "https://media.edstellar.com/client_logo/AutoDesk.webp"
+      },
+      {
+        "name": "Cummins",
+        "src": "https://media.edstellar.com/client_logo/Cummins_logo.svg_1.png"
+      },
+      {
+        "name": "Kellogg's",
+        "src": "https://media.edstellar.com/client_logo/Kelloggs.webp"
+      },
+      {
+        "name": "Sandvik",
+        "src": "https://media.edstellar.com/client_logo/Sandvik_Coromant.webp"
+      },
+      {
+        "name": "Dayforce",
+        "src": "https://media.edstellar.com/client_logo/Dayforce.webp"
+      },
+      {
+        "name": "Circle K",
+        "src": "https://media.edstellar.com/client_logo/Circle_K.webp"
+      },
+      {
+        "name": "Littelfuse",
+        "src": "https://media.edstellar.com/client_logo/littlefuse.webp"
+      }
+    ],
+    "sr_text": "Clients include Microsoft, Amazon, Intel, Adobe, MediaTek, Visa, KPMG, Boston Consulting Group, Johnson & Johnson, Godrej, Tata Chemicals, ABB, Emerson, Aditya Birla Group, Bechtel, Regeneron, Uber, Autodesk, Cummins, Kellogg's, Sandvik, Dayforce, Circle K and Littelfuse.",
+    "certs": [
+      {
+        "code": "9001",
+        "title": "ISO 9001:2015",
+        "label": "Quality management"
+      },
+      {
+        "code": "27001",
+        "title": "ISO 27001:2022",
+        "label": "Information security"
+      }
+    ],
+    "cert_line": "Certified for quality management and information security"
+  },
+  "definition": {
+    "heading": "What is workforce <span>capability development?</span>",
+    "lede": "The short answer, and how it differs from training.",
+    "answer": "<strong>Workforce capability development</strong> is the work of building what your people can do, and proving it changed. Some call it capability building. It starts with the capability your strategy needs. It measures where each role stands, closes the priority gaps with the right mix of training, coaching and organizational change, and then measures again.",
+    "more": "Capability development services bring that whole cycle under one partner. Training is one part of it. Capability development is the system around it.",
+    "comparison": {
+      "columns": [
+        "Training on its own",
+        "Capability development"
+      ],
+      "rows": [
+        {
+          "label": "Starts with",
+          "values": [
+            "A course request",
+            "The capability your strategy needs"
+          ]
+        },
+        {
+          "label": "Measures",
+          "values": [
+            "Attendance and satisfaction",
+            "Behavior change and business metrics"
+          ]
+        },
+        {
+          "label": "Scope",
+          "values": [
+            "One program at a time",
+            "Every role, skill and level"
+          ]
+        },
+        {
+          "label": "Ends",
+          "values": [
+            "When the session ends",
+            "When the gap closes, then the next cycle starts"
+          ]
+        },
+        {
+          "label": "Owned by",
+          "values": [
+            "L&D",
+            "Business leaders, HR and L&D together"
+          ]
+        }
+      ]
+    }
+  },
+  "solutions": {
+    "heading": "Capability development solutions, from first measure to <span>lasting change.</span>",
+    "lede": "Edstellar's capability development services, in the order a program uses them. Each one feeds the same capability picture, so you can start with one or run them together.",
+    "stages": [
+      {
+        "label": "01 · Measure",
+        "title": "Know where <span>capability</span> stands",
+        "text": "Set a baseline by role, team and region before you spend on programs.",
+        "cards": [
+          {
+            "icon": "target",
+            "title": "Talent assessments",
+            "text": "58 validated assessments across 14 families, from psychometrics to 360-degree feedback and assessment centers.",
+            "cta": "Explore talent assessments",
+            "href": "/talent-assessment-services"
+          },
+          {
+            "icon": "list",
+            "title": "Training needs analysis",
+            "text": "Find and rank the skill gaps that hold teams back, each one confirmed by five sources of evidence.",
+            "cta": "Explore training needs analysis",
+            "href": "/training-needs-analysis-services"
+          },
+          {
+            "icon": "chip",
+            "title": "Capability OS",
+            "text": "One verified picture of what your organization can do, across 41 indices and nine capability domains.",
+            "cta": "Explore Capability OS",
+            "href": "/platforms/capability-os"
+          }
+        ]
+      },
+      {
+        "label": "02 · Build",
+        "title": "Close the gaps that <span>matter</span>",
+        "text": "Pick the right mix of programs, coaching and leadership work for each gap.",
+        "cards": [
+          {
+            "icon": "file",
+            "title": "Corporate training",
+            "text": "2,000+ instructor-led programs across 76 domains, run onsite or virtually for one team or the whole workforce.",
+            "cta": "Explore corporate training",
+            "href": "/corporate-training"
+          },
+          {
+            "icon": "chat",
+            "title": "Coaching",
+            "text": "Executive, leadership, first-time manager and team coaching with ICF, ICC or EMCC certified coaches, run on Meridian.",
+            "cta": "Explore coaching",
+            "href": "/coaching-solutions"
+          },
+          {
+            "icon": "people",
+            "title": "Leadership development",
+            "text": "Find and grow future leaders with Zenith assessment and development centers, plus invite-only leadership retreats.",
+            "cta": "Explore Zenith",
+            "href": "/platforms/zenith"
+          },
+          {
+            "icon": "layers",
+            "title": "Team effectiveness",
+            "text": "Polaris sessions surface what a team has been avoiding and turn it into commitments the team owns.",
+            "cta": "Explore Polaris",
+            "href": "/platforms/polaris"
+          }
+        ]
+      },
+      {
+        "label": "03 · Embed",
+        "title": "Make it how you <span>work</span>",
+        "text": "Build it into your teams, your L&D function and your systems.",
+        "cards": [
+          {
+            "icon": "sliders",
+            "title": "L&D consulting",
+            "text": "Strategy, content, learning technology and governance, built into one business-aligned learning function.",
+            "cta": "Explore L&D consulting",
+            "href": "/learning-development-consulting-services"
+          },
+          {
+            "icon": "globe",
+            "title": "OD consulting",
+            "text": "Organization design, change management, succession planning, culture and strategic workforce planning.",
+            "cta": "Explore OD consulting",
+            "href": "/organizational-development-consulting"
+          },
+          {
+            "icon": "cycle",
+            "title": "Managed learning services",
+            "text": "Edstellar runs your L&D function, or the parts you choose, to agreed service levels.",
+            "cta": "Explore managed learning services",
+            "href": "/managed-learning-services"
+          },
+          {
+            "icon": "monitor",
+            "title": "Spectra LMS",
+            "text": "A mobile-first LMS whose AI insights flag who is falling behind before deadlines slip.",
+            "cta": "Explore Spectra LMS",
+            "href": "/platforms/spectra-lms"
+          }
+        ]
+      }
+    ]
+  },
+  "taxonomy": {
+    "heading": "How we model workforce capability, <span>end to end.</span>",
+    "start": 2,
+    "lede": "Every engagement breaks capability down the same way: from business function and role to capability area, skill and proficiency. Your CHRO, CFO and line managers share one language.",
+    "steps": [
+      {
+        "layer": "Layer 01",
+        "kind": "Function",
+        "title": "Business <span>function</span>",
+        "items": [
+          "Engineering",
+          "Operations",
+          "Commercial",
+          "Risk & compliance"
+        ]
+      },
+      {
+        "layer": "Layer 02",
+        "kind": "Role",
+        "title": "Role <span>family</span>",
+        "items": [
+          "Reliability engineer",
+          "Operations director",
+          "Sales manager",
+          "Compliance lead"
+        ]
+      },
+      {
+        "layer": "Layer 03",
+        "kind": "Capability",
+        "title": "Capability <span>area</span>",
+        "items": [
+          "Operational AI",
+          "Cross-functional delivery",
+          "Customer value",
+          "Regulatory judgment"
+        ]
+      },
+      {
+        "layer": "Layer 04",
+        "kind": "Skill",
+        "title": "Discrete <span>skill</span>",
+        "items": [
+          "Forecast modeling",
+          "Conflict resolution",
+          "Value-based negotiation",
+          "Scenario planning"
+        ]
+      },
+      {
+        "layer": "Layer 05",
+        "kind": "Proficiency",
+        "title": "<span>Proficiency</span>",
+        "items": [
+          "L1: Aware",
+          "L2: Applied",
+          "L3: Proficient",
+          "L4: Expert"
+        ],
+        "paths": [
+          3,
+          0,
+          2,
+          1
+        ]
+      }
+    ]
+  },
+  "platforms": {
+    "heading": "Capability development platforms, built by <span>Edstellar.</span>",
+    "lede": "Most partners borrow their tools. Edstellar builds its own, so assessment results, training needs, coaching progress and learning records all feed the same capability picture.",
+    "items": [
+      {
+        "name": "Capability OS",
+        "category": "Capability management",
+        "text": "One verified picture of what your organization can do. AI drafts your frameworks; your people approve them.",
+        "cta": "Explore Capability OS",
+        "href": "/platforms/capability-os"
+      },
+      {
+        "name": "TNA/TNI Engine",
+        "category": "Needs analysis",
+        "text": "A full training needs analysis cycle, from raw employee data to a validated roadmap and calendar.",
+        "cta": "Explore TNA/TNI Engine",
+        "href": "/platforms/tna-tni-engine"
+      },
+      {
+        "name": "Zenith",
+        "category": "Leadership",
+        "text": "Assessment and development centers for high-potential identification, succession and leadership growth.",
+        "cta": "Explore Zenith",
+        "href": "/platforms/zenith"
+      },
+      {
+        "name": "Orbit",
+        "category": "360 feedback",
+        "text": "45 to 360-degree feedback with anonymity built in, and repeat cycles that show the change.",
+        "cta": "Explore Orbit",
+        "href": "/platforms/orbit"
+      },
+      {
+        "name": "Polaris",
+        "category": "Team effectiveness",
+        "text": "A facilitator-led team conversation that turns what a team avoids into commitments it owns.",
+        "cta": "Explore Polaris",
+        "href": "/platforms/polaris"
+      },
+      {
+        "name": "Meridian",
+        "category": "Virtual coaching",
+        "text": "AI-assisted one-on-one coaching with a certified coach and a structured track of ten to twelve sessions.",
+        "cta": "Explore Meridian",
+        "href": "/platforms/meridian"
+      },
+      {
+        "name": "Spica",
+        "category": "English assessment",
+        "text": "English language assessment and coaching for global teams.",
+        "cta": "Explore Spica",
+        "href": "/talent-assessment-services/english-proficiency-assessment"
+      },
+      {
+        "name": "Spectra LMS",
+        "category": "Learning management",
+        "text": "Courses, live sessions, assessments and community in one mobile-first LMS with AI insights.",
+        "cta": "Explore Spectra LMS",
+        "href": "/platforms/spectra-lms"
+      }
+    ]
+  },
+  "method": {
+    "heading": "The Edstellar 5A method for capability <span>development.</span>",
+    "lede": "Every engagement runs the same five steps: Assess, Analyze, Architect, Activate and Advance. Start at any step. Each cycle builds on the last.",
+    "steps": [
+      {
+        "n": "01",
+        "name": "Assess",
+        "title": "Define the <span>capability need.</span>",
+        "desc": [
+          "Set the capability your strategy and roles need, and map where it stands today."
+        ],
+        "output": "Capability brief",
+        "tag": "Typical: 1 to 2 weeks",
+        "uses": "Capability OS, talent assessments"
+      },
+      {
+        "n": "02",
+        "name": "Analyze",
+        "title": "Find the <span>priority gaps.</span>",
+        "desc": [
+          "Rank skill gaps by business impact, using ",
+          {
+            "text": "training needs analysis",
+            "href": "/training-needs-analysis-services"
+          },
+          " and ",
+          {
+            "text": "talent assessments",
+            "href": "/talent-assessment-services"
+          },
+          "."
+        ],
+        "output": "Skills-gap report",
+        "tag": "Typical: 2 to 3 weeks",
+        "uses": "TNA/TNI Engine, Orbit"
+      },
+      {
+        "n": "03",
+        "name": "Architect",
+        "title": "Design the <span>solution.</span>",
+        "desc": [
+          "Design the programs, coaching, content and governance that close the priority gaps."
+        ],
+        "output": "Strategy and roadmap",
+        "tag": "Typical: 3 to 5 weeks",
+        "uses": "L&D consulting, Zenith"
+      },
+      {
+        "n": "04",
+        "name": "Activate",
+        "title": "Deliver at <span>scale.</span>",
+        "desc": [
+          "Run training and coaching across teams, locations and languages, virtual, onsite or blended."
+        ],
+        "output": "Live programs",
+        "tag": "Typical: 6 to 12 weeks",
+        "uses": "Meridian, Polaris, Spectra LMS"
+      },
+      {
+        "n": "05",
+        "name": "Advance",
+        "title": "Measure and <span>advance.</span>",
+        "desc": [
+          "Measure the change, re-map capability and plan the next cycle, so each one builds on the last."
+        ],
+        "output": "Impact dashboard",
+        "tag": "Typical: Ongoing",
+        "uses": "Capability OS"
+      }
+    ],
+    "note": "Timings are for a capability program. The managed services pages show service-transition timing, which is a different scope."
+  },
+  "priorities": {
+    "heading": "Enterprise capability programs for your biggest <span>priorities.</span>",
+    "lede": "Six common places to start. Each one combines several capability development solutions around one goal.",
+    "mix_label": "What we combine",
+    "items": [
+      {
+        "title": "AI fluency across the workforce",
+        "text": "Baseline AI skills by role, run role-based AI programs, and measure adoption again after six months.",
+        "mix": [
+          "Capability OS",
+          "AI programs",
+          "Orbit"
+        ]
+      },
+      {
+        "title": "Leadership pipeline and succession",
+        "text": "Spot high-potentials early, develop them through real assessment centers, and fill succession plans with ready leaders.",
+        "mix": [
+          "Zenith",
+          "Executive coaching",
+          "Succession planning"
+        ]
+      },
+      {
+        "title": "First-time manager readiness",
+        "text": "Give new managers the skills and support to lead well in their first year.",
+        "mix": [
+          "Assessments",
+          "Manager programs",
+          "First-time manager coaching"
+        ]
+      },
+      {
+        "title": "Team effectiveness",
+        "text": "Fix the issues that return every quarter in leadership and project teams.",
+        "mix": [
+          "Polaris",
+          "Team coaching",
+          "Team effectiveness assessment"
+        ]
+      },
+      {
+        "title": "Change and transformation",
+        "text": "Prepare people for restructuring, mergers or a new operating model, and keep performance steady through it.",
+        "mix": [
+          "OD consulting",
+          "Change management",
+          "Culture assessment"
+        ]
+      },
+      {
+        "title": "Running L&D at scale",
+        "text": "Hand over the running of learning, keep the strategy, and see capability data across every program.",
+        "mix": [
+          "Managed learning services",
+          "Spectra LMS",
+          "TNA/TNI Engine"
+        ]
+      }
+    ]
+  },
+  "why": {
+    "heading": "Why enterprises choose Edstellar for capability <span>development.</span>",
+    "lede": "Four commitments separate Edstellar from a training vendor or a strategy deck.",
+    "items": [
+      {
+        "num": "i.",
+        "title": "Outcomes, not <span>enrollments.</span>",
+        "desc": "Every engagement is scoped against a measurable behavior change and a business metric, and we report against both. Your CFO sees the line from spend to result."
+      },
+      {
+        "num": "ii.",
+        "title": "Services and platforms, <span>one firm.</span>",
+        "desc": "Consulting, assessments, coaching, training and eight Edstellar platforms come from one team, with one contract, one capability model and one source of truth."
+      },
+      {
+        "num": "iii.",
+        "title": "Evidence you can <span>trust.</span>",
+        "desc": "Validated assessments, coaches certified by ICF, ICC or EMCC, and ISO 9001 and ISO 27001 certification for quality and information security."
+      },
+      {
+        "num": "iv.",
+        "title": "Global delivery, local <span>fluency.</span>",
+        "desc": "5,000+ vetted experts in 100+ countries. Programs run in your languages, against your compliance rules, on your calendar."
+      }
+    ],
+    "experts": {
+      "note": "Some of the experts behind Edstellar programs",
+      "trainers": [
+        {
+          "name": "Tamer",
+          "slug": "tamer-cairo-egypt",
+          "role": "Cost Reduction in Procurement",
+          "location": "Cairo, Egypt",
+          "since": "2007",
+          "photo": "https://media.edstellar.com/trainer_profile/tamer-cairo-egypt.webp"
+        },
+        {
+          "name": "Nibedita",
+          "slug": "nibedita-bangalore-india",
+          "role": "Motivational Skills",
+          "location": "Bangalore, India",
+          "since": "2017",
+          "photo": "/images/trainers/nibedita-bangalore-india.webp"
+        },
+        {
+          "name": "Simon",
+          "slug": "simon-ubud-indonesia",
+          "role": "Self Awareness",
+          "location": "Ubud, Indonesia",
+          "since": "2017",
+          "photo": "/images/trainers/simon-ubud-indonesia.webp"
+        },
+        {
+          "name": "Roberta",
+          "slug": "roberta-al-wajba-qatar",
+          "role": "Self Awareness and Leadership",
+          "location": "Al Wajba, Qatar",
+          "since": "2015",
+          "photo": "https://media.edstellar.com/trainer_profile/roberta-al-wajba-qatar.webp"
+        },
+        {
+          "name": "Harshil",
+          "slug": "harshil-ahmedabad-india",
+          "role": "First Aid and CPR",
+          "location": "Ahmedabad, India",
+          "since": "2016",
+          "photo": "/images/trainers/harshil-ahmedabad-india.webp"
+        }
+      ]
+    },
+    "languages": {
+      "label": "Delivery in 10+ languages, including",
+      "items": [
+        "English",
+        "Spanish",
+        "Mandarin",
+        "Portuguese",
+        "Arabic",
+        "German"
+      ]
+    }
+  },
+  "who": {
+    "heading": "Capability development for every kind of <span>organization.</span>",
+    "lede": "From start-ups to governments, our workforce capability development method scales to your size, sector and region.",
+    "items": [
+      {
+        "label": "Global enterprises",
+        "href": "/who-we-serve"
+      },
+      {
+        "label": "Growing businesses",
+        "href": "/who-we-serve"
+      },
+      {
+        "label": "Governments",
+        "href": "/who-we-serve"
+      },
+      {
+        "label": "Universities",
+        "href": "/who-we-serve"
+      },
+      {
+        "label": "Non-profits",
+        "href": "/who-we-serve"
+      }
+    ]
+  },
+  "faq": {
+    "heading": "Capability development <span>FAQs.</span>",
+    "items": [
+      {
+        "question": "What are capability development services?",
+        "answer": "Capability development services help an organization build the skills, behaviors and leadership its strategy depends on, and prove the change. Edstellar's services cover the full cycle: assessment, gap analysis, solution design, delivery through training and coaching, and measurement again."
+      },
+      {
+        "question": "What is enterprise capability development?",
+        "answer": "Enterprise capability development applies that cycle across a whole organization, with every function, role and region on one shared capability model. It links people data to business goals, so leaders can see where capability is strong, where it is missing and what is being done about it."
+      },
+      {
+        "question": "How is capability development different from training?",
+        "answer": "Training is one tool inside capability development. Capability development starts from the capability the business needs, measures it before and after, and combines training with coaching, assessments, organizational change and on-the-job support. For training programs on their own, see <a href=\"/corporate-training\">Edstellar corporate training</a>."
+      },
+      {
+        "question": "How do you measure workforce capability?",
+        "answer": "Edstellar measures capability by role, using validated assessments, 360-degree feedback, manager ratings and work evidence, brought together in Capability OS. Each skill is rated on clear proficiency levels, so progress shows up as movement between levels, not course completions."
+      },
+      {
+        "question": "How long does a capability development program take?",
+        "answer": "A first 5A cycle usually takes three to five months: about 6 to 10 weeks to assess, analyze and design, then 6 to 12 weeks of delivery. Measurement then continues, and each new cycle builds on the last."
+      },
+      {
+        "question": "Can we start with just one service?",
+        "answer": "Yes. Many clients start with an assessment, a training needs analysis or a coaching program, then add more as the capability picture grows. Every service uses the same capability model, so nothing has to be redone."
+      },
+      {
+        "question": "Where does Edstellar deliver capability programs?",
+        "answer": "Edstellar delivers in 100+ countries and 10+ languages, onsite, virtually or blended, across the Americas, EMEA and APAC."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Plan your next capability development <span>program.</span>",
+    "sub": "A 30-minute briefing with an Edstellar consultant. Bring your CHRO, CLO or Head of L&D, and Edstellar will shape the conversation around your goals.",
+    "points": [
+      "A first view of your priority capability gaps",
+      "Which solutions fit, and in what order",
+      "A scoped proposal within one business day"
+    ],
+    "form": {
+      "start_label": "Where do you want to start?",
+      "start_options": [
+        "Assess capability",
+        "Close skill gaps",
+        "Develop leaders",
+        "Run L&D",
+        "Not sure yet"
+      ],
+      "goals_label": "Your capability goals",
+      "goals_placeholder": "Tell us what your strategy needs your people to do",
+      "submit_label": "Schedule a briefing",
+      "note": "We reply within one business day."
+    }
+  }
+}

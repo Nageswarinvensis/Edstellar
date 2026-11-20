@@ -31,17 +31,19 @@ export default function HomeClients({ data }) {
 
   return (
     <Box as="section" aria-labelledby="home-clients-h" className="border-b-[1.5px] border-ink/12 bg-paper">
-      <Box className="mx-auto flex max-w-[1320px] items-center justify-between gap-6 px-14 pb-7 pt-16 max-lg:px-8 max-sm:px-5">
+      <Box className="px-5 pt-16 pb-7 lg:px-10">
+      <Box className="rail-container mx-auto flex max-w-7xl items-center justify-between gap-6">
         <Text as="h2" id="home-clients-h" className="m-0 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
           {data.heading}
         </Text>
         <a
           href={data.see.href}
-          className="inline-flex shrink-0 items-center font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:text-olive"
+          className="inline-flex shrink-0 items-center font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:text-olive max-sm:hidden"
         >
           {data.see.label}
           <Arrow />
         </a>
+      </Box>
       </Box>
 
       {/* Marquee */}
@@ -65,10 +67,23 @@ export default function HomeClients({ data }) {
         </Box>
       </Box>
 
+      {/* Phones: "See all clients" sits under the logos, so the heading
+          above keeps the full width instead of wrapping beside it. */}
+      <Box className="px-5 pt-6 sm:hidden">
+        <a
+          href={data.see.href}
+          className="inline-flex items-center font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:text-olive"
+        >
+          {data.see.label}
+          <Arrow />
+        </a>
+      </Box>
+
       <Text as="p" className="sr-only">{data.sr_text}</Text>
 
       {/* ISO certificates */}
-      <Reveal className="mx-auto flex max-w-[1320px] flex-col items-center gap-3 px-14 py-10 max-lg:px-8 max-sm:px-5">
+      <Reveal className="px-5 py-10 lg:px-10">
+      <Box className="rail-container mx-auto flex max-w-7xl flex-col items-center gap-3">
         <Box className="flex flex-wrap items-center justify-center gap-10">
           {data.certs.map((cert) => (
             <Box key={cert.title} className="flex items-center gap-3">
@@ -81,6 +96,7 @@ export default function HomeClients({ data }) {
           ))}
         </Box>
         <Text as="p" className="m-0 text-center text-[13px] text-ink-muted">{data.cert_line}</Text>
+      </Box>
       </Reveal>
     </Box>
   );

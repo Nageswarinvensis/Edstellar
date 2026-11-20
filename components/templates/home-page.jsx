@@ -1,10 +1,15 @@
 import HomeHero from "@/components/sections/home/home-hero";
 import HomeStats from "@/components/sections/home/home-stats";
 import HomeClients from "@/components/sections/home/home-clients";
-import HomePillars from "@/components/sections/home/home-pillars";
+import HomeDefinition from "@/components/sections/home/home-definition";
+import HomeSolutions from "@/components/sections/home/home-solutions";
 import HomeTaxonomy from "@/components/sections/home/home-taxonomy";
+import HomePlatforms from "@/components/sections/home/home-platforms";
 import HomeMethod from "@/components/sections/home/home-method";
+import HomePriorities from "@/components/sections/home/home-priorities";
 import HomeWhy from "@/components/sections/home/home-why";
+import HomeWho from "@/components/sections/home/home-who";
+import HomeFaq from "@/components/sections/home/home-faq";
 import HomeCta from "@/components/sections/home/home-cta";
 
 /**
@@ -19,10 +24,15 @@ export default function HomePage({ page }) {
       <HomeHero data={page.hero} />
       <HomeStats data={page.stats} />
       <HomeClients data={page.clients} />
-      <HomePillars data={page.pillars} />
+      <HomeDefinition data={page.definition} />
+      <HomeSolutions data={page.solutions} />
       <HomeTaxonomy data={page.taxonomy} />
+      <HomePlatforms data={page.platforms} />
       <HomeMethod data={page.method} />
+      <HomePriorities data={page.priorities} />
       <HomeWhy data={page.why} />
+      <HomeWho data={page.who} />
+      <HomeFaq data={page.faq} />
       <HomeCta data={page.cta} />
     </>
   );
