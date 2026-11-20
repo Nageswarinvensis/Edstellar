@@ -44,6 +44,9 @@ const startsWithAny = (path, prefixes) =>
 
 /** Which band a page gets: `null` when it ends with its own form. */
 export function footerBandFor(path) {
+  // The home page ends with its own briefing form (`#contact`). Matched
+  // exactly: as a prefix in ENDS_WITH_FORM, "/" would match every page.
+  if (path === "/") return null;
   if (startsWithAny(path, ENDS_WITH_FORM)) return null;
   if (startsWithAny(path, RESOURCES)) return FOOTER_BANDS.resources;
   return FOOTER_BANDS.consulting;

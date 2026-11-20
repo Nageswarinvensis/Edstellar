@@ -1,18 +1,17 @@
-import Box from "@/components/ui/Box";
-import { cn } from "@/lib/utils";
+import Section from "@/components/ui/Section";
 
 /**
- * The home page's section container — the design's `.wrap`: max-width 1320px
- * with 56px (px-14) side gutters. Vertical padding and any background/border go
- * on the outer `className`; horizontal gutters and max-width are fixed on the
- * inner rail. Used only by the home sections.
+ * The home page's section container — built the same way as every course
+ * page section: the global `Section` (a `<section>` with `px-5 lg:px-10`
+ * gutters) around the shared `rail-container max-w-7xl mx-auto` rail. Each
+ * home section passes its own vertical padding, background and borders on
+ * `className` (they override `Section`'s defaults), and `innerClassName`
+ * reaches the rail. Used only by the home sections.
  */
-export default function HomeWrap({ as = "section", className, innerClassName, children, ...props }) {
+export default function HomeWrap({ className, innerClassName, children, ...props }) {
   return (
-    <Box as={as} className={className} {...props}>
-      <Box className={cn("mx-auto max-w-[1320px] px-14 max-lg:px-8 max-sm:px-5", innerClassName)}>
-        {children}
-      </Box>
-    </Box>
+    <Section className={className} innerClassName={innerClassName} {...props}>
+      {children}
+    </Section>
   );
 }

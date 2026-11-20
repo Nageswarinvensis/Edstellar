@@ -84,6 +84,19 @@ export default function HomeRoute() {
         ...(page.seo.description && { "description": page.seo.description }),
         "inLanguage": "en-US"
       }} />
+      {page.faq?.items?.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": `${BASE}/#faq`,
+          "mainEntity": page.faq.items.map((item) => ({
+            "@type": "Question",
+            "name": item.question,
+            // Plain text: the visible answer, with its inline link markup removed.
+            "acceptedAnswer": { "@type": "Answer", "text": item.answer.replace(/<[^>]+>/g, "") }
+          }))
+        }} />
+      )}
       {/* <SchemaOrg
         webpage={{ name: page.seo.title, description: page.seo.description, path: page.seo.path }}
       /> */}

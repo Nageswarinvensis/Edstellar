@@ -4,6 +4,8 @@ import HomeWrap from "@/components/sections/home/home-wrap";
 import RichHeading from "@/components/common/rich-heading";
 import CtaButton from "@/components/common/cta-button";
 import Reveal from "@/components/common/reveal";
+import InlineHtml from "@/components/common/inline-html";
+import { cn } from "@/lib/utils";
 
 // Heatmap value → navy opacity (navy === ink), matching the design's exact
 // rgba(10,22,40, …) steps: .05 / .12 / .28 / .52 / solid navy.
@@ -42,19 +44,36 @@ export default function HomeHero({ data }) {
   const { panel, methodology } = data;
 
   return (
-    <HomeWrap aria-labelledby="hero-headline" className="bg-paper pt-20 max-lg:pt-16">
-      <Box className="grid items-center gap-16 max-lg:gap-10 lg:grid-cols-[1fr_460px]">
+    <HomeWrap aria-labelledby="hero-headline" className="bg-paper pt-20 pb-0 max-lg:pt-16 lg:pb-0">
+      <Box className="grid items-center gap-10 lg:grid-cols-[1fr_460px]">
         <Box>
+          {/* Eyebrow: small mono kicker above the H1. */}
+          {data.eyebrow && (
+            <Text
+              as="p"
+              className="m-0 font-mono text-[11px] leading-none font-medium uppercase tracking-[0.1em] text-ink-muted"
+            >
+              {data.eyebrow}
+            </Text>
+          )}
           <RichHeading
             as="h1"
             id="hero-headline"
             heading={data.heading}
             emphasisClassName="text-[1.18em] text-ink"
-            className="m-0 text-[clamp(48px,5.6vw,76px)] font-medium leading-[1.04] tracking-[-0.025em] text-ink text-balance"
+            className="mx-0 mb-0 mt-3 text-[clamp(48px,5.6vw,76px)] font-medium leading-[1.04] tracking-[-0.025em] text-ink text-balance"
           />
-          <Text as="p" className="mt-9 max-w-[580px] text-[15.5px] leading-[1.65] text-ink/65">
-            {data.sub}
-          </Text>
+          {/* One or more intro paragraphs; `<strong>` marks the key phrase
+              (ink, semibold — the design's `.lead2 b`). */}
+          {(Array.isArray(data.sub) ? data.sub : [data.sub]).filter(Boolean).map((paragraph, i) => (
+            <Text
+              key={i}
+              as="p"
+              className={cn("max-w-[560px] text-[17px] leading-[1.6] text-ink-muted [&_strong]:font-bold [&_strong]:text-ink", i === 0 ? "mt-[26px]" : "mt-3")}
+            >
+              <InlineHtml text={paragraph} />
+            </Text>
+          ))}
 
           <Box className="mt-8 flex flex-wrap gap-3">
             {data.actions?.map((action) => (
@@ -69,10 +88,26 @@ export default function HomeHero({ data }) {
               </CtaButton>
             ))}
           </Box>
+
+          {/* Trust line (the design's `.trustline`): small mono facts, each
+              behind a lime dot, wrapping under the buttons. */}
+          {data.trust_line?.length > 0 && (
+            <Box as="ul" aria-label="Edstellar at a glance" className="mt-[26px] flex list-none flex-wrap gap-x-[18px] gap-y-2 p-0">
+              {data.trust_line.map((item) => (
+                <Box
+                  key={item}
+                  as="li"
+                  className="flex items-center gap-[7px] font-mono text-[10.5px] leading-none font-medium tracking-[0.07em] text-ink uppercase before:size-[5px] before:flex-none before:rounded-full before:bg-lime before:content-['']"
+                >
+                  {item}
+                </Box>
+              ))}
+            </Box>
+          )}
         </Box>
 
         {/* Right rail — two panels */}
-        <Reveal className="flex flex-col gap-6">
+        <Reveal className="flex flex-col gap-6 max-lg:mx-auto max-lg:w-full max-lg:max-w-[520px]">
           <Box as="aside" aria-label="Illustrative capability heatmap" className="border border-ink/12 bg-paper px-6 py-5">
             <Box className="flex items-center justify-between">
               <Text as="span" className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
