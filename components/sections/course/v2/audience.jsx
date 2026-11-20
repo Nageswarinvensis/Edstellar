@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -66,7 +66,7 @@ function Panel({ chip, lensKey }) {
 }
 
 /** One skill row's track: four stops on a dashed line, a fill from typical start to level reached. */
-function Track({ levels, start, end, compact = false }) {
+function Track({ levels, start, end, compact = false, seen = true }) {
   // Unique per track: the phone list and the table both render (one hidden),
   // and a shared id would point at a gradient inside a display:none block.
   const fillId = `pg-fill-${useId().replace(/:/g, "")}`;
@@ -83,7 +83,19 @@ function Track({ levels, start, end, compact = false }) {
           <stop offset="1" className="[stop-color:var(--color-navy)]" />
         </linearGradient>
       </defs>
-      <rect x={cx(a)} y="5.5" width={cx(b) - cx(a)} height="3" fill={`url(#${fillId})`} />
+      {/* The fill grows from the typical start to the level reached the first
+          time the table scrolls into view (the design's `.pg.seen`, 0.8s). */}
+      <rect
+        x={cx(a)}
+        y="5.5"
+        width={cx(b) - cx(a)}
+        height="3"
+        fill={`url(#${fillId})`}
+        className={cn(
+          "[transform-box:fill-box] origin-left transition-transform duration-800 ease-[cubic-bezier(0.2,0.7,0.2,1)] motion-reduce:transform-none motion-reduce:transition-none",
+          seen ? "scale-x-100" : "scale-x-0",
+        )}
+      />
       {levels.map((_, i) => (
         <ellipse
           key={i}
@@ -110,6 +122,29 @@ function Track({ levels, start, end, compact = false }) {
 export default function V2Audience({ data }) {
   const [lens, setLens] = useState(0);
   const [chip, setChip] = useState(0);
+  // The progression fills grow once, when the table first scrolls into view
+  // (the design's onScreenOnce: in the top three quarters of the screen).
+  const progressionRef = useRef(null);
+  const [seen, setSeen] = useState(false);
+  useEffect(() => {
+    const node = progressionRef.current;
+    if (!node) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setSeen(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setSeen(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: "0px 0px -25% 0px" },
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
   if (!data?.lenses?.length) return null;
   const { eyebrow, heading, lead, lenses, progression, cta } = data;
   const current = lenses[lens];
@@ -197,7 +232,7 @@ export default function V2Audience({ data }) {
       {progression?.rows?.length > 0 && (
         <Reveal className="mt-[34px]">
           <V2Heading parts={progression.heading} as="h3" className="mb-1.5 text-[clamp(20px,2vw,24px)] leading-[1.25]" emClassName="font-display tracking-[-0.02em]" />
-          <Text className="mb-4 text-[14px]">{progression.text}</Text>
+          <Text ref={progressionRef} className="mb-4 text-[14px]">{progression.text}</Text>
           {/* Phones: one card per skill — a four-stop track and its labels
               cannot fit a table cell at this width without overlapping. */}
           <Box as="ul" className="grid gap-2.5 min-[640px]:hidden">
@@ -207,7 +242,7 @@ export default function V2Audience({ data }) {
                 <Box className="grid grid-cols-4 font-mono text-[8.5px] leading-[1.3] font-medium tracking-[0.04em] text-ink-muted uppercase">
                   {progression.levels.map((lv) => <span key={lv}>{lv}</span>)}
                 </Box>
-                <Box className="mt-1.5"><Track levels={progression.levels} start={row.start} end={row.end} compact /></Box>
+                <Box className="mt-1.5"><Track levels={progression.levels} start={row.start} end={row.end} compact seen={seen} /></Box>
                 <Box className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[12.5px] leading-[1.5] text-ink-muted">
                   <span>{progression.columns?.[1]}: <b className="font-semibold text-ink">{row.start}</b></span>
                   <span>{progression.columns?.[2]}: <b className="font-semibold text-ink">{row.end}</b></span>
@@ -234,7 +269,7 @@ export default function V2Audience({ data }) {
                 {progression.rows.map((row) => (
                   <tr key={row.skill}>
                     <th scope="row" className="border-b border-ink/8 px-4 py-3 font-semibold text-ink">{row.skill}</th>
-                    <td className="border-b border-ink/8 px-4 py-3"><Track levels={progression.levels} start={row.start} end={row.end} /></td>
+                    <td className="border-b border-ink/8 px-4 py-3"><Track levels={progression.levels} start={row.start} end={row.end} seen={seen} /></td>
                     <td className="border-b border-ink/8 px-4 py-3 text-ink-muted">{row.start}</td>
                     <td className="border-b border-ink/8 px-4 py-3 text-ink-muted">{row.end}</td>
                   </tr>

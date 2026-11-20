@@ -115,7 +115,7 @@ export default function V2Path({ data }) {
                   i === also.length - 1 && "border-b-0",
                 )}
               >
-                <Link href={a.href} className="group relative block px-5 py-4 transition-colors hover:bg-sand focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-olive">
+                <Link href={a.href} className="group relative block h-full px-5 py-4 transition-colors hover:bg-sand focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-olive">
                   <span aria-hidden="true" className="absolute top-4 right-5 font-body text-[12px] text-ink-muted transition-transform group-hover:translate-x-1">→</span>
                   <b className="block pr-7 font-display text-[14px] leading-[1.25] font-medium tracking-[-0.01em] text-ink">{a.title}</b>
                   <span className="mt-2 block max-w-[330px] text-[11px] leading-[1.25] text-ink-muted">{a.text}</span>
