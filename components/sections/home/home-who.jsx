@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-
 import Box from "@/components/ui/Box";
 import Reveal from "@/components/common/reveal";
 import HomeWrap from "@/components/sections/home/home-wrap";
@@ -9,7 +6,7 @@ import RichHeading from "@/components/common/rich-heading";
 
 /**
  * "Capability development for every kind of organization." — a short intro
- * and one link card per kind of organization Edstellar serves. Five across on
+ * and one plain-text card per kind of organization Edstellar serves. Five across on
  * desktop, two on tablets, one on phones.
  *
  * Design: `edstellar-homepage-capability-development.html` → `#who`
@@ -39,14 +36,13 @@ export default function HomeWho({ data }) {
 
       <Box as="ul" className="m-0 mt-[30px] grid list-none grid-cols-1 gap-3 p-0 min-[600px]:grid-cols-2 lg:grid-cols-5">
         {items.map((item, i) => (
-          <Reveal key={item.label} as="li" delay={i % 5}>
-            <Link
-              href={item.href}
-              className="group flex h-full items-center justify-between gap-3 rounded-xl border border-ink/12 bg-white p-4 font-display text-[15px] font-medium text-ink no-underline transition-colors hover:border-navy"
-            >
-              {item.label}
-              <ArrowRight size={14} strokeWidth={2} aria-hidden="true" className="flex-none transition-transform group-hover:translate-x-1" />
-            </Link>
+          <Reveal
+            key={item.label}
+            as="li"
+            delay={i % 5}
+            className="flex h-full items-center rounded-xl border border-ink/12 bg-white p-4 font-display text-[15px] font-medium text-ink"
+          >
+            {item.label}
           </Reveal>
         ))}
       </Box>

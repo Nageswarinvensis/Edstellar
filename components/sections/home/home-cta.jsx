@@ -3,14 +3,15 @@ import Text from "@/components/ui/Text";
 import HomeWrap from "@/components/sections/home/home-wrap";
 import RichHeading from "@/components/common/rich-heading";
 import Reveal from "@/components/common/reveal";
-import CapabilityBriefingForm from "@/components/forms/capability-briefing-form";
+import EnquiryForm from "@/components/forms/enquiry-form";
 
 /**
  * "Plan your next capability development program." — the closing briefing
  * section on navy: heading, intro and what the visitor gets on the left; the
- * design's briefing form on the right, in the enquiry form's card and field
- * styles (`CapabilityBriefingForm`, posting to the same Zoho TrainingEnquiry
- * form). Replaces the old `mailto:` button.
+ * enquiry form from `/enquiry-now` on the right — the same fields and styles
+ * (`EnquiryForm`, `variant="plain"`: no heading or "required" line) in the same
+ * white card, posting to the same Zoho TrainingEnquiry form and landing on
+ * `/thank-you/home`. Replaces the old `mailto:` button.
  *
  * Design: `edstellar-homepage-capability-development.html` → `#contact`
  * (`.contact2`).
@@ -50,7 +51,9 @@ export default function HomeCta({ data }) {
         </Reveal>
 
         {form && (
-          <CapabilityBriefingForm data={form} className="scroll-mt-20 shadow-[0_18px_50px_rgba(5,13,26,0.28)]" />
+          <Reveal className="scroll-mt-20 rounded-[14px] border border-ink/12 bg-white px-4 py-7.5 text-ink shadow-[0_18px_50px_rgba(5,13,26,0.28)] sm:p-12">
+            <EnquiryForm variant="plain" data={{ submit_label: form.submit_label, submit_title: form.submit_title }} thankYou="home" />
+          </Reveal>
         )}
       </Box>
     </HomeWrap>

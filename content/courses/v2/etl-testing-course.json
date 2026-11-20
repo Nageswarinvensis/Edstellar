@@ -651,7 +651,7 @@
   },
   "course_overview": {
     "eyebrow": "Program overview",
-    "heading": "ETL Testing Corporate Training: <span>Program Overview</span>",
+    "heading": "ETL Testing Training for Employees: <span>Program Overview</span>",
     "definition": "<strong>ETL Testing Corporate Training</strong> is instructor-led training on testing ETL pipelines behind business reports, in which data engineering, QA and BI teams learn to plan tests from the source-to-target mapping, reconcile source and target data, test transformations, incremental loads and history, and automate data quality and regression checks in CI, practiced in hands-on labs on the team's own pipeline scenarios.",
     "paragraphs": [
       "This instructor-led ETL Testing Corporate Training turns test planning, source-to-target reconciliation, transformation and history testing, and automated checks in CI into practice on the work your team already has.",

@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
  * first item is overridden per page by `heroLeft.small_text`. */
 const HERO_META = [
   "Consulting & delivery",
-  "Onsite / virtual / hybrid",
+  "Onsite / virtual / hybrid / blended",
   {
     label: "20+ industries",
     tooltip: {

@@ -48,9 +48,16 @@ export default function HomePlatforms({ data }) {
             <Text as="p" className="mt-3 mb-0 flex-1 text-[13.5px] leading-[1.55] text-ink-muted">
               {item.text}
             </Text>
+            {/* A platform not yet live shows its status instead of a link. */}
+            {!item.href && item.status && (
+              <Text as="span" className="mt-4 self-start font-mono text-[10px] leading-[1.4] font-medium uppercase tracking-[0.07em] text-ink-muted">
+                {item.status}
+              </Text>
+            )}
             {item.href && item.cta && (
               <Link
                 href={item.href}
+                title={`Click here to view the ${item.name} platform`}
                 className="mt-4 inline-flex items-center gap-2 self-start font-mono text-[10px] font-medium uppercase tracking-[0.07em] text-ink no-underline transition-colors hover:text-olive"
               >
                 {item.cta}

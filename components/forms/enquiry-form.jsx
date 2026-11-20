@@ -26,7 +26,7 @@ import { submitEnquiry } from "@/lib/actions/submit-enquiry";
  * the server rejects shows under that field, and a failed delivery shows a
  * message above the button instead of a false thank-you.
  *
- * `data`: `heading`, `requirements_placeholder` (optional), `submit_label`.
+ * `data`: `heading`, `requirements_placeholder` (optional), `submit_label`, `submit_title` (optional).
  * Name and email sit side by side, as company and job title do. `program`
  * (optional) goes in a hidden `program` field — e.g.
  * `university-program-leadership-development-program` from a sector page's
@@ -181,7 +181,7 @@ export default function EnquiryForm({ data, thankYou = "contact-us", program, qu
               {submitError}
             </Text>
           ) : null}
-          <CtaButton type="submit" color="lime" block arrow disabled={isSubmitting}>
+          <CtaButton type="submit" color="lime" block arrow disabled={isSubmitting} title={data.submit_title}>
             {isSubmitting ? "Submitting…" : data.submit_label}
           </CtaButton>
           <Text as="p" className="mt-4 text-[13px] leading-[1.6] text-ink-muted">

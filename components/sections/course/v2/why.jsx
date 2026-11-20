@@ -7,6 +7,7 @@ import V2Section from "@/components/sections/course/v2/section";
 import V2SectionHead from "@/components/sections/course/v2/section-head";
 import V2Products from "@/components/sections/course/v2/products";
 import { cn } from "@/lib/utils";
+import WhyGlobe from "@/components/sections/course/v2/why-globe";
 
 /** Trusted static SVG markup from the design file. */
 function Markup({ html, viewBox, className }) {
@@ -28,51 +29,6 @@ function StatValue({ value }) {
   );
 }
 
-/** Wireframe globe (the design draws it on a canvas): meridians, parallels and three hub markers. */
-function Globe() {
-  const C = 160;
-  const R = 140;
-  const meridians = [15, 30, 45, 60, 75].map((d) => R * Math.cos((d * Math.PI) / 180));
-  const parallels = [-60, -40, -20, 0, 20, 40, 60].map((d) => {
-    const a = (d * Math.PI) / 180;
-    return { y: C + R * Math.sin(a), rx: R * Math.cos(a) };
-  });
-  const hubs = [
-    { x: 207, y: 74, label: "Europe", dx: 0, dy: -14 },
-    { x: 262, y: 156, label: "Middle East", dx: 4, dy: -12 },
-    { x: 196, y: 186, label: "Africa", dx: 0, dy: -14 },
-  ];
-  return (
-    <svg viewBox="0 0 320 320" aria-hidden="true" focusable="false" className="block w-full max-w-[420px] overflow-visible">
-      <defs>
-        <radialGradient id="why-globe-fill" cx="42%" cy="38%" r="70%">
-          <stop offset="0" className="[stop-color:color-mix(in_srgb,var(--color-lime)_16%,white)]" />
-          <stop offset="1" className="[stop-color:white]" />
-        </radialGradient>
-      </defs>
-      <circle cx={C} cy={C} r={R} fill="url(#why-globe-fill)" className="stroke-ink/35" strokeWidth="1" />
-      <g transform={`rotate(-12 ${C} ${C})`} className="fill-none stroke-ink/30" strokeWidth="0.8">
-        <line x1={C} x2={C} y1={C - R} y2={C + R} />
-        {meridians.map((rx) => (
-          <ellipse key={rx} cx={C} cy={C} rx={rx} ry={R} />
-        ))}
-        {parallels.map((p) => (
-          <ellipse key={p.y} cx={C} cy={p.y} rx={p.rx} ry={p.rx * 0.18} />
-        ))}
-      </g>
-      <path d="M207 74Q240 105 262 156M207 74Q190 130 196 186M262 156Q240 180 196 186M262 156L310 162" className="fill-none stroke-navy" strokeWidth="1" />
-      {hubs.map((h) => (
-        <g key={h.label}>
-          <circle cx={h.x} cy={h.y} r="4" className="fill-lime stroke-navy" strokeWidth="1.2" />
-          <g transform={`translate(${h.x + h.dx} ${h.y + h.dy})`}>
-            <rect x={-h.label.length * 3.4 - 6} y="-8" width={h.label.length * 6.8 + 12} height="16" rx="8" className="fill-navy" />
-            <text textAnchor="middle" y="3.5" className="fill-white font-mono text-[8px] tracking-[0.08em] uppercase">{h.label}</text>
-          </g>
-        </g>
-      ))}
-    </svg>
-  );
-}
 
 /**
  * v2 · 10 Why Edstellar (the design's `#why`) — the lead and four
@@ -126,7 +82,7 @@ export default function V2Why({ data }) {
 
         {globe && (
           <Reveal as="figure" className="flex min-w-0 flex-col items-center gap-3">
-            <Globe />
+            <WhyGlobe />
             <figcaption>
               <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted before:size-[7px] before:rounded-full before:bg-lime before:shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-lime)_28%,transparent),inset_0_0_0_1px_var(--color-navy)]">
                 {globe.caption}
