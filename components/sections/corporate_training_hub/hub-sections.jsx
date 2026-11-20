@@ -30,7 +30,7 @@ function LinkButton({ cta, variant, className }) {
     <CtaButton
       arrow={variant !== "ghost"}
       variant={variant}
-      render={internal ? <Link href={cta.href} /> : <a href={cta.href} />}
+      render={internal ? <Link href={cta.href} title={cta.title} /> : <a href={cta.href} title={cta.title} />}
       className={className}
     >
       {cta.label}
@@ -63,7 +63,7 @@ export function HubHero({ data, proof, breadcrumbs }) {
             </Text>
             <Box className="mt-8 flex flex-wrap gap-3">
               <LinkButton cta={data.primary_cta} />
-              <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} />}>
+              <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} title={data.secondary_cta.title} />}>
                 {data.secondary_cta.label}
               </CtaButton>
             </Box>
@@ -252,7 +252,7 @@ export function HubServices({ data }) {
               <Text as="p" className="mb-6 text-[15px] text-ink/70">
                 {item.starts.join(" · ")}
               </Text>
-              <a href={item.link.href} className="mt-auto inline-flex items-center gap-2 font-display text-[15px] font-semibold text-ink hover:text-olive">
+              <a href={item.link.href} title={item.link.title} className="mt-auto inline-flex items-center gap-2 font-display text-[15px] font-semibold text-ink hover:text-olive">
                 {item.link.label}
                 <ArrowRight size={16} aria-hidden="true" />
               </a>
@@ -353,7 +353,7 @@ export function HubSystem({ data }) {
               {stage.links.map((link) => (
                 <li key={link.label} className={cn("border-t py-2.5 text-[14.5px] leading-snug", stage.current ? "border-navy/20" : "border-paper/12")}>
                   {link.href ? (
-                    <Link href={link.href} className={cn("hover:underline", stage.current ? "text-navy" : "text-paper")}>
+                    <Link href={link.href} title={link.title} className={cn("hover:underline", stage.current ? "text-navy" : "text-paper")}>
                       {link.label}
                     </Link>
                   ) : (

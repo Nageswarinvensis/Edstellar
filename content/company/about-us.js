@@ -8,7 +8,7 @@
  */
 import { CLIENT_LOGOS } from "@/content/company/client-logos";
 
-const CONSULTATION = { label: "Book a consultation", href: "#contact" };
+const CONSULTATION = { label: "Book a consultation", href: "#contact", title: "Click here to book a consultation" };
 
 export const ABOUT_US = {
   seo: {
@@ -28,7 +28,7 @@ export const ABOUT_US = {
     description:
       "We help organizations measure, build and prove the capability their strategy depends on. Assessments, consulting, coaching, training and our own platforms come together in one connected program, delivered in 100+ countries.",
     primary_cta: CONSULTATION,
-    secondary_cta: { label: "See how Edstellar works", href: "#method" },
+    secondary_cta: { label: "See how Edstellar works", href: "#method", title: "Click here to see how Edstellar works" },
   },
 
   section_nav: {
@@ -150,7 +150,7 @@ export const ABOUT_US = {
     heading: "What Edstellar <span>does.</span>",
     kicker: "Eleven solutions in three groups. Start with one, or run the whole cycle with us.",
     footer_note: "See the full picture on our [capability development services](/) page.",
-    footer_link: { match: "capability development services", href: "/platforms/capability-os", title: "Click here to view Edstellar capability development services" },
+    footer_link: { match: "capability development services", href: "/", title: "Click here to view capability development services" },
     groups: [
       {
         num: "01",
@@ -509,11 +509,13 @@ export const ABOUT_US = {
         title: "Procurement pack",
         text: "RFP, RFQ and tender responses within 15 working days of clarifications.",
         href: "/request-for-proposal",
+        title_attr: "Click here to view Edstellar procurement and RFP information",
       },
       {
         title: "Policies",
         text: "Modern slavery statement, privacy policy, terms and conditions.",
         href: "/privacy-policy",
+        title_attr: "Click here to view Edstellar policies",
       },
     ],
   },
@@ -596,7 +598,7 @@ export const ABOUT_US = {
     description:
       "Tell Edstellar the capability your organization needs. A consultant will recommend where to start in the 5A methodology and what the first step would deliver.",
     primary_cta: CONSULTATION,
-    secondary_cta: { label: "Explore consulting", href: "/learning-development-consulting-services" },
+    secondary_cta: { label: "Explore consulting", href: "/learning-development-consulting-services", title: "Click here to explore consulting services" },
   },
 
   form: {

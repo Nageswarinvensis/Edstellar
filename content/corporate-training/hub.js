@@ -13,8 +13,8 @@
  *
  * Design: `Edstellar-New-Lanch SETUP/Edstellar_Corporate_Training_Hub 6.html`.
  */
-const CONTACT = { label: "Request a training proposal", href: "#contact" };
-const CATALOG = { label: "Browse the training catalog", href: "/corporate-training-catalog" };
+const CONTACT = { label: "Request a training proposal", href: "#contact", title: "Click here to request a corporate training proposal from Edstellar" };
+const CATALOG = { label: "Browse the training catalog", href: "/corporate-training-catalog", title: "Click here to browse the full Edstellar corporate training catalog" };
 
 export const CORPORATE_TRAINING_HUB = {
   seo: {
@@ -100,7 +100,7 @@ export const CORPORATE_TRAINING_HUB = {
       "Teams in several locations need one consistent program",
       "You want live practice with an expert, not self-paced content",
     ],
-    fit_link: { match: "capability development services", href: "/platforms/capability-os", title: "Learn about Edstellar capability development services" },
+    fit_link: { match: "capability development services", href: "/", title: "Click here to view capability development services" },
   },
 
   services: {
@@ -121,7 +121,7 @@ export const CORPORATE_TRAINING_HUB = {
           "Onsite or live virtual, one cohort",
         ],
         starts: ["New tool rollout", "Team ways of working"],
-        link: { label: "Plan a team program", href: "#contact" },
+        link: { label: "Plan a team program", href: "#contact", title: "Click here to plan a targeted team training program" },
       },
       {
         kicker: "02 · Many teams, one plan",
@@ -134,7 +134,7 @@ export const CORPORATE_TRAINING_HUB = {
           "Onsite, virtual and blended cohorts",
         ],
         starts: ["Regional rollout", "Role-based curriculum"],
-        link: { label: "Plan a multi-cohort program", href: "#contact" },
+        link: { label: "Plan a multi-cohort program", href: "#contact", title: "Click here to plan a multi-cohort corporate training program" },
       },
       {
         kicker: "03 · The whole workforce",
@@ -147,13 +147,13 @@ export const CORPORATE_TRAINING_HUB = {
           "Runs across the year, in many languages",
         ],
         starts: ["AI academy", "Leadership academy"],
-        link: { label: "Plan an academy", href: "#contact" },
+        link: { label: "Plan an academy", href: "#contact", title: "Click here to plan a workforce-wide training academy" },
       },
     ],
     managed: {
       lead: "Need training run for you all year?",
       text: "Our managed training services handle scheduling, suppliers and admin across your whole training calendar.",
-      cta: { label: "Explore managed training services", href: "/managed-learning-services/managed-training" },
+      cta: { label: "Explore managed training services", href: "/managed-learning-services/managed-training", title: "Click here to explore Edstellar managed training services" },
     },
   },
 
@@ -166,7 +166,7 @@ export const CORPORATE_TRAINING_HUB = {
     search_label: "Find a domain",
     search_placeholder: "Filter 76 domains, e.g. data, safety, SAP",
     empty: "No domain matches that search. [Tell Edstellar what your team needs](/contact-us) and a specialist will suggest the right program.",
-    cta: { label: "Browse the full corporate training catalog", href: "/corporate-training-catalog" },
+    cta: { label: "Browse the full corporate training catalog", href: "/corporate-training-catalog", title: "Click here to browse the full Edstellar corporate training catalog" },
     microcopy: "See every program, outline and duration in one place.",
   },
 
@@ -204,13 +204,13 @@ export const CORPORATE_TRAINING_HUB = {
     intro:
       "Training is the Activate step of Edstellar's 5A method. The steps around it make sure the right people learn the right skills, and that the change lasts.",
     current_tag: "Corporate training",
-    footer_note: "Need more than training? See our [capability development services](/platforms/capability-os).",
+    footer_note: "Need more than training? See our [capability development services](/).",
     stages: [
       {
         name: "Assess",
         tagline: "Find the gap",
         links: [
-          { label: "Training needs analysis", href: "/training-needs-analysis-services" },
+          { label: "Training needs analysis", href: "/training-needs-analysis-services", title: "Click here to learn about training needs analysis" },
           { label: "Capability OS", href: null },
         ],
       },
@@ -218,15 +218,15 @@ export const CORPORATE_TRAINING_HUB = {
         name: "Analyze",
         tagline: "Prioritize",
         links: [
-          { label: "Skills & proficiency assessment", href: "/talent-assessment-services/skills-proficiency-assessment" },
-          { label: "L&D consulting", href: "/learning-development-consulting-services" },
+          { label: "Skills & proficiency assessment", href: "/talent-assessment-services/skills-proficiency-assessment", title: "Click here to learn about skills and proficiency assessment" },
+          { label: "L&D consulting", href: "/learning-development-consulting-services", title: "Click here to learn about L&D consulting services" },
         ],
       },
       {
         name: "Architect",
         tagline: "Design the learning",
         links: [
-          { label: "Learning content design", href: "/learning-development-consulting-services/learning-content-design-development" },
+          { label: "Learning content design", href: "/learning-development-consulting-services/learning-content-design-development", title: "Click here to learn about learning content design and development" },
         ],
       },
       {
@@ -234,9 +234,9 @@ export const CORPORATE_TRAINING_HUB = {
         tagline: "Deliver the training",
         current: true,
         links: [
-          { label: "Corporate training programs", href: "/corporate-training-catalog" },
-          { label: "Managed training services", href: "/managed-learning-services/managed-training" },
-          { label: "Coaching", href: "/coaching-solutions" },
+          { label: "Corporate training programs", href: "/corporate-training-catalog", title: "Click here to browse corporate training programs" },
+          { label: "Managed training services", href: "/managed-learning-services/managed-training", title: "Click here to learn about managed training services" },
+          { label: "Coaching", href: "/coaching-solutions", title: "Click here to learn about coaching solutions" },
         ],
       },
       {

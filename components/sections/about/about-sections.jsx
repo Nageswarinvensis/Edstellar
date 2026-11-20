@@ -32,7 +32,7 @@ function LinkButton({ cta, variant, className }) {
     <CtaButton
       arrow={variant !== "ghost"}
       variant={variant}
-      render={internal ? <Link href={cta.href} /> : <a href={cta.href} />}
+      render={internal ? <Link href={cta.href} title={cta.title} /> : <a href={cta.href} title={cta.title} />}
       className={className}
     >
       {cta.label}
@@ -75,10 +75,10 @@ export function AboutHero({ data, breadcrumbs }) {
           {data.description}
         </Text>
         <Box className="mt-9 flex flex-wrap justify-center gap-3">
-          <CtaButton color="lime" arrow render={<a href={data.primary_cta.href} />}>
+          <CtaButton color="lime" arrow render={<a href={data.primary_cta.href} title={data.primary_cta.title} />}>
             {data.primary_cta.label}
           </CtaButton>
-          <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} />} className="border-paper/40 text-paper hover:border-paper hover:bg-paper/5">
+          <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} title={data.secondary_cta.title} />} className="border-paper/40 text-paper hover:border-paper hover:bg-paper/5">
             {data.secondary_cta.label}
           </CtaButton>
         </Box>
@@ -630,7 +630,7 @@ export function AboutTrust({ data }) {
           return (
             <Reveal key={item.title} delay={i * 0.08}>
               {item.href ? (
-                <Link href={item.href} className="block h-full transition-opacity hover:opacity-80">
+                <Link href={item.href} title={item.title_attr} className="block h-full transition-opacity hover:opacity-80">
                   {inner}
                 </Link>
               ) : (
@@ -736,7 +736,7 @@ export function AboutFaqs({ faqs, cta }) {
           </Text>
         </Box>
         <Box className="flex flex-wrap gap-3">
-          <CtaButton color="lime" arrow render={<a href={cta.primary_cta.href} />}>
+          <CtaButton color="lime" arrow render={<a href={cta.primary_cta.href} title={cta.primary_cta.title} />}>
             {cta.primary_cta.label}
           </CtaButton>
           <LinkButton cta={cta.secondary_cta} variant="ghost" className="border-paper/40 text-paper hover:border-paper hover:bg-paper/5" />
