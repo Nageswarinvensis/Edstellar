@@ -3,7 +3,7 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import Breadcrumbs from "@/components/common/breadcrumbs";
 import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
-import { V2_BUTTON } from "@/components/sections/course/v2/buttons";
+import { V2_BUTTON, V2ButtonArrow } from "@/components/sections/course/v2/buttons";
 import { cn } from "@/lib/utils";
 
 /**
@@ -61,11 +61,7 @@ export default function V2Hero({ hero, breadcrumbs }) {
                   className={cn(i === 0 ? V2_BUTTON.lime : V2_BUTTON.ghost, V2_BUTTON.lg)}
                 >
                   {action.label}
-                  {i === 0 && (
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M7 17 17 7M8 7h9v9" />
-                    </svg>
-                  )}
+                  <V2ButtonArrow />
                 </V2ScrollLink>
               ))}
             </Box>

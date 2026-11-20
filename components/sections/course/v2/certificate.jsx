@@ -29,7 +29,7 @@ export default function V2Certificate({ data }) {
         {image && (
           <Reveal delay={2} className="relative mx-auto w-full max-w-[460px] rounded-[15px] bg-navy p-3 shadow-[0_1px_2px_rgba(10,22,40,0.08)]">
             <Box className="relative overflow-hidden rounded-[11px] border border-lime/20">
-              <Image src={image} alt={image_alt || ""} width={image_width || 1080} height={image_height || 764} className="block h-auto w-full" />
+              <Image src={image} alt={image_alt || ""} loading="lazy" width={image_width || 1080} height={image_height || 764} className="block h-auto w-full" />
             </Box>
           </Reveal>
         )}

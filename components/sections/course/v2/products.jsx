@@ -4,6 +4,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
+import { V2_BUTTON, V2ButtonArrow } from "@/components/sections/course/v2/buttons";
 import { cn } from "@/lib/utils";
 
 /** Trusted static SVG markup from the design file; `.pd-lime` parts draw in lime. */
@@ -78,14 +79,13 @@ function Product({ p, single }) {
         <Link
           href={p.href}
           className={cn(
-            "mt-auto inline-flex items-center gap-2 self-start rounded-full bg-lime px-4 py-[9px] text-[14px] font-semibold text-ink transition-[transform,box-shadow] duration-200 hover:-translate-y-px hover:shadow-[0_6px_16px_rgba(5,13,26,0.4)]",
+            V2_BUTTON.lime,
+            "mt-auto self-start",
             single && "min-[761px]:col-span-full min-[761px]:justify-self-start",
           )}
         >
           {p.link_label}
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M7 17 17 7M8 7h9v9" />
-          </svg>
+          <V2ButtonArrow />
         </Link>
       )}
     </article>
@@ -97,6 +97,14 @@ function Product({ p, single }) {
  * (the design's `#edProducts`): four stage cards in navy shades —
  * Diagnose, Run, Assess, Coach — each with its products.
  */
+/**
+ * Stacking cards (desktop): each stage card sticks below the site header,
+ * 16px lower than the one before, so the next card slides up over it while
+ * scrolling and the stack's tops stay visible. Not on phones — a card taller
+ * than the screen would hide its own content while stuck.
+ */
+const STICK_TOP = ["lg:top-[88px]", "lg:top-[104px]", "lg:top-[120px]", "lg:top-[136px]", "lg:top-[152px]"];
+
 export default function V2Products({ data }) {
   if (!data?.stages?.length) return null;
   const { eyebrow, heading, text, stages } = data;
@@ -114,14 +122,22 @@ export default function V2Products({ data }) {
             as="section"
             key={s.heading}
             aria-labelledby={`pds-${i}`}
-            className={cn("flex min-w-0 flex-col gap-3.5 rounded-[18px] p-[22px] text-paper shadow-[0_-18px_40px_rgba(5,13,26,0.18)]", SHADE[i % SHADE.length])}
+            className={cn(
+              "flex min-w-0 flex-col gap-3.5 rounded-[18px] p-[22px] text-paper shadow-[0_-18px_40px_rgba(5,13,26,0.18)] lg:sticky",
+              STICK_TOP[Math.min(i, STICK_TOP.length - 1)],
+              SHADE[i % SHADE.length],
+            )}
           >
-            <h4 id={`pds-${i}`} className="flex items-baseline gap-3 font-display text-[20px] font-medium tracking-[-0.01em] text-white">
-              <span className="font-mono text-[11px] tracking-[0.12em] text-lime">
+            {/* The step counter sits beside the heading, not inside it, so the
+                heading's text is just the stage name ("Diagnose Needs"). */}
+            <Box className="flex items-baseline gap-3">
+              <span aria-hidden="true" className="flex-none font-mono text-[11px] tracking-[0.12em] whitespace-nowrap text-lime">
                 {String(i + 1).padStart(2, "0")} / {String(stages.length).padStart(2, "0")}
               </span>
-              {s.heading}
-            </h4>
+              <h4 id={`pds-${i}`} className="font-display text-[20px] font-medium tracking-[-0.01em] text-white">
+                {s.heading}
+              </h4>
+            </Box>
             <Box className={cn("grid gap-3.5", s.products.length > 1 && "min-[761px]:grid-cols-2")}>
               {s.products.map((p) => (
                 <Product key={p.name} p={p} single={s.products.length === 1} />

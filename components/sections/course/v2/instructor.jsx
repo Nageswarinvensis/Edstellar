@@ -7,6 +7,8 @@ import V2Section from "@/components/sections/course/v2/section";
 import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import V2Heading from "@/components/sections/course/v2/heading";
 import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
+import { V2_BUTTON, V2ButtonArrow } from "@/components/sections/course/v2/buttons";
+import { cn } from "@/lib/utils";
 
 /**
  * v2 · 9b Instructor (the design's `#instructor`) — warm paper with a dot
@@ -42,7 +44,7 @@ export default function V2Instructor({ data }) {
           >
             {card.image && (
               <Box className="mb-2.5 flex h-[220px] items-center justify-center">
-                <Image src={card.image} alt={card.image_alt || ""} width={card.image_width || 588} height={card.image_height || 400} className="block h-full w-auto max-w-full object-contain" />
+                <Image src={card.image} alt={card.image_alt || ""} loading="lazy" width={card.image_width || 588} height={card.image_height || 400} className="block h-full w-auto max-w-full object-contain" />
               </Box>
             )}
             <Text as="h3" className="mt-1 mb-2.5 text-[21px] leading-[1.25]">{card.heading}</Text>
@@ -57,12 +59,12 @@ export default function V2Instructor({ data }) {
           <V2ScrollLink
             href={cta.href || "#quote"}
             topic={cta.heading}
-            className="relative inline-flex items-center gap-2 rounded-full bg-olive px-6 py-3 font-body text-[14px] font-semibold text-white shadow-[0_6px_16px_rgba(10,22,40,0.22)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_22px_rgba(10,22,40,0.22)]"
+            // Global pill (shape, padding, type, arrow, hover lift); the
+            // design's olive fill and white text for this one button.
+            className={cn(V2_BUTTON.primary, "relative bg-olive text-white")}
           >
             {cta.label}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M7 17 17 7M8 7h9v9" />
-            </svg>
+            <V2ButtonArrow />
           </V2ScrollLink>
           {cta.text && <Text className="mx-auto mt-3 max-w-[460px] text-[13.5px]">{cta.text}</Text>}
         </Reveal>

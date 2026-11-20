@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -9,13 +9,12 @@ import V2Section from "@/components/sections/course/v2/section";
 import V2SectionHead from "@/components/sections/course/v2/section-head";
 import V2CtaBand from "@/components/sections/course/v2/cta-band";
 import { DELIVERY_SCENES } from "@/components/sections/course/v2/delivery-scenes";
+import V2Heading from "@/components/sections/course/v2/heading";
 import { cn } from "@/lib/utils";
 
 import styles from "./delivery.module.css";
 
 /** Heading words per selection, as the design writes them. */
-const FMT_H = { onsite: "Onsite", virtual: "Live Virtual", offsite: "Offsite", hybrid: "Hybrid" };
-const SCALE_H = { one: "One Team", multi: "Multiple Cohorts", ent: "Enterprise-wide Teams" };
 const SCALE_S = { one: "One team", multi: "Multiple cohorts", ent: "Enterprise-wide" };
 /** Grid cells for the 3 + 3 snake: row 1 left → right, row 2 right → left. */
 const CELL = ["", "", "", "min-[720px]:row-start-2 min-[720px]:col-start-3", "min-[720px]:row-start-2 min-[720px]:col-start-2", "min-[720px]:row-start-2 min-[720px]:col-start-1"];
@@ -30,7 +29,7 @@ function withFormat(text, words, fmt) {
 
 /** A row holds one variant per format, per scale, or a single fixed one. */
 function pickVariant(row, fmt, scale) {
-  return row.find((v) => v.fmt === fmt) ?? row.find((v) => v.scale === scale) ?? row.find((v) => !v.fmt && !v.scale) ?? row[0];
+  return row.find((v) => v.format === fmt) ?? row.find((v) => v.scale === scale) ?? row.find((v) => !v.format && !v.scale) ?? row[0];
 }
 
 /** Trusted static SVG markup from the design file. */
@@ -47,21 +46,95 @@ function Markup({ html, viewBox, className }) {
  * scenes change with the chosen format and scale. Then the three modes, the
  * customization note and the CTA.
  */
+/**
+ * The journey path, measured like the design's `layout()`: through each
+ * scene's centre (55% down the scene), a 3 + 3 snake whose turn goes out to
+ * the right, clear of every stage caption it passes, with rounded corners.
+ * Re-measured on resize. `null` below 720px, where the CSS rail takes over.
+ */
+function useJourneyPath(journeyRef, sceneRefs, captionRefs) {
+  const [path, setPath] = useState(null);
+
+  const draw = useCallback(() => {
+    const journey = journeyRef.current;
+    if (!journey) return;
+    const jr = journey.getBoundingClientRect();
+    if (!jr.width) return;
+    // Each scene's resting position: its offset inside its (untransformed)
+    // stage button, so the selected/hover lift does not kink the line.
+    const P = sceneRefs.current.filter(Boolean).map((el) => {
+      const b = el.offsetParent.getBoundingClientRect();
+      return [b.left - jr.left + el.offsetLeft + el.offsetWidth / 2, b.top - jr.top + el.offsetTop + el.offsetHeight * 0.55];
+    });
+    if (P.length < 2 || P.every((p) => Math.abs(p[0] - P[0][0]) < 4)) {
+      setPath(null); // one column: the CSS rail is used instead
+      return;
+    }
+    let d = `M${P[0][0]} ${P[0][1]}`;
+    for (let i = 1; i < P.length; i++) {
+      const a = P[i - 1];
+      const q = P[i];
+      if (Math.abs(q[1] - a[1]) > 8 && Math.abs(q[0] - a[0]) < 8) {
+        // The turn: out to the right, down clear of the captions (16px gap),
+        // and back in — never past the journey's own edge.
+        const y0 = Math.min(a[1], q[1]);
+        const y1 = Math.max(a[1], q[1]);
+        let X = a[0] + Math.min(70, jr.width * 0.06) * 2.2 * 0.75;
+        captionRefs.current.filter(Boolean).forEach((cap) => {
+          const r = cap.getBoundingClientRect();
+          const top = r.top - jr.top;
+          const bot = r.bottom - jr.top;
+          if (bot > y0 && top < y1 && r.right - jr.left > a[0] - 40) X = Math.max(X, r.right - jr.left + 16);
+        });
+        X = Math.min(X, jr.width - 3);
+        const rr = Math.max(8, Math.min(90, (y1 - y0) / 2, X - Math.max(a[0], q[0])));
+        d +=
+          q[1] > a[1]
+            ? ` L${X - rr} ${a[1]} A${rr} ${rr} 0 0 1 ${X} ${a[1] + rr} L${X} ${q[1] - rr} A${rr} ${rr} 0 0 1 ${X - rr} ${q[1]} L${q[0]} ${q[1]}`
+            : ` L${X - rr} ${a[1]} A${rr} ${rr} 0 0 0 ${X} ${a[1] - rr} L${X} ${q[1] + rr} A${rr} ${rr} 0 0 0 ${X - rr} ${q[1]} L${q[0]} ${q[1]}`;
+      } else {
+        d += ` L${q[0]} ${q[1]}`;
+      }
+    }
+    setPath({ box: `0 0 ${Math.round(jr.width)} ${Math.round(jr.height)}`, d });
+  }, [journeyRef, sceneRefs, captionRefs]);
+
+  useEffect(() => {
+    draw();
+    const journey = journeyRef.current;
+    if (!journey || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(journey);
+    return () => ro.disconnect();
+  }, [draw, journeyRef]);
+
+  return path;
+}
+
 export default function V2Delivery({ data }) {
   const controls = data?.controls ?? {};
   const [scale, setScale] = useState(controls.scale?.default ?? "one");
-  const [fmt, setFmt] = useState(controls.fmt?.default ?? "onsite");
+  const [fmt, setFmt] = useState(controls.format?.default ?? "onsite");
   const [stage, setStage] = useState(4);
+  const journeyRef = useRef(null);
+  const sceneRefs = useRef([]);
+  const captionRefs = useRef([]);
+  const journeyPath = useJourneyPath(journeyRef, sceneRefs, captionRefs);
   if (!data?.stages?.length) return null;
-  const { eyebrow, heading, lead, panel_kicker, heading_prefix, stages, modes = [], mode_keys = [], custom, cta, format_words } = data;
+  const { eyebrow, heading, lead, panel_kicker, panel_heading, format_titles = {}, scale_titles = {}, stages, modes = [], mode_keys = [], custom, cta, format_words } = data;
+  // The panel heading follows the chips: `{format}` / `{scale}` in the JSON's
+  // span-format heading are filled from `format_titles` / `scale_titles`.
+  const panelHeading = String(panel_heading ?? "")
+    .replace("{format}", format_titles[fmt] ?? fmt)
+    .replace("{scale}", scale_titles[scale] ?? scale);
 
   const groups = [
     { key: "scale", value: scale, set: setScale, on: "border-white bg-white text-navy" },
-    { key: "fmt", value: fmt, set: setFmt, on: "border-lime bg-lime text-navy" },
+    { key: "format", value: fmt, set: setFmt, on: "border-lime bg-lime text-navy" },
   ];
 
   function choose(key, value) {
-    if (key === "fmt") {
+    if (key === "format") {
       setFmt(value);
       setStage(4);
     } else {
@@ -117,10 +190,12 @@ export default function V2Delivery({ data }) {
 
       <Box className="mb-[30px] grid gap-6 min-[1200px]:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] min-[1200px]:items-stretch">
         {/* The journey: six scenes on a 3 + 3 path */}
-        <Box data-scale={scale} data-fmt={fmt} className={cn(styles.journey, "relative min-w-0 min-[1200px]:flex min-[1200px]:flex-col")}>
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 hidden size-full overflow-visible min-[720px]:block">
-            <path d="M8 21H90Q97 21 97 28V68Q97 75 90 75H8" className="fill-none stroke-lime/65" strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
-          </svg>
+        <Box ref={journeyRef} data-scale={scale} data-fmt={fmt} className={cn(styles.journey, "relative min-w-0 min-[1200px]:flex min-[1200px]:flex-col")}>
+          {journeyPath && (
+            <svg viewBox={journeyPath.box} aria-hidden="true" focusable="false" className="pointer-events-none absolute inset-0 z-0 hidden size-full overflow-visible min-[720px]:block">
+              <path d={journeyPath.d} className="fill-none stroke-lime/65 [stroke-linecap:round] [stroke-linejoin:round]" strokeWidth="2.5" />
+            </svg>
+          )}
           <Box role="group" aria-label="Edstellar delivery journey: select a stage" className="relative z-[1] grid grid-cols-1 gap-[18px] before:absolute before:top-4 before:bottom-4 before:left-[16px] before:w-0.5 before:bg-lime/65 min-[720px]:grid-cols-3 min-[720px]:gap-x-[22px] min-[720px]:gap-y-[34px] min-[720px]:before:hidden min-[1200px]:flex-1 min-[1200px]:content-around">
             {stages.map((s, i) => {
               const on = stage === i;
@@ -147,6 +222,9 @@ export default function V2Delivery({ data }) {
                   </span>
                   {scene && (
                     <span
+                      ref={(el) => {
+                        sceneRefs.current[i] = el;
+                      }}
                       className={cn(
                         styles.scene,
                         "relative ml-11 block aspect-[315/257] w-[118px] transition-transform min-[720px]:ml-0 min-[720px]:w-full duration-[400ms] group-hover:-translate-y-[3px] after:absolute after:inset-x-[10%] after:bottom-[4%] after:-z-[1] after:h-[30%] after:rounded-full after:bg-[radial-gradient(closest-side,color-mix(in_srgb,var(--color-lime)_22%,transparent),transparent)] after:transition-opacity after:duration-[400ms]",
@@ -157,6 +235,9 @@ export default function V2Delivery({ data }) {
                     </span>
                   )}
                   <span
+                    ref={(el) => {
+                      captionRefs.current[i] = el;
+                    }}
                     className={cn(
                       "inline-flex max-w-full items-center gap-[7px] justify-self-start rounded-full border px-[11px] py-[5px] text-[12px] leading-[1.3] font-medium",
                       on ? "border-lime bg-lime text-navy" : cn("text-white", LINE),
@@ -173,10 +254,12 @@ export default function V2Delivery({ data }) {
 
         {/* The selected stage */}
         <aside aria-label="Selected stage of the Edstellar delivery" className={cn("flex min-w-0 flex-col gap-1.5 rounded-[22px] border bg-navy-soft px-6 pt-6 pb-[18px]", LINE)}>
-          <h3 className="font-display text-[21px] leading-[1.25] font-medium tracking-[-0.02em] [text-wrap:balance] text-white">
-            {heading_prefix} <span className="font-display font-medium not-italic text-lime">{FMT_H[fmt]}</span> Delivery for{" "}
-            <span className="font-display font-medium not-italic text-lime">{SCALE_H[scale]}</span>
-          </h3>
+          <V2Heading
+            parts={panelHeading}
+            as="h3"
+            className="text-[21px] leading-[1.25] font-medium tracking-[-0.02em] [text-wrap:balance] text-white"
+            emClassName="font-display font-medium tracking-[-0.02em] not-italic text-lime"
+          />
           {panel_kicker && (
             <p className={cn("mt-0.5 mb-2.5 border-b pb-3 text-[10.5px] font-medium tracking-[0.16em] text-lime/65", MONO, LINE)}>{panel_kicker}</p>
           )}
@@ -192,9 +275,9 @@ export default function V2Delivery({ data }) {
               </Box>
               <h4 className="font-display text-[19px] leading-[1.25] font-medium tracking-[-0.02em] text-white">{s.heading}</h4>
               <p className="text-[14.5px] text-white/72">{s.text}</p>
-              {s.mini?.length > 0 && (
+              {s.steps?.length > 0 && (
                 <ol className="relative my-1 grid grid-cols-2 gap-x-1.5 gap-y-3 min-[720px]:grid-cols-4 min-[720px]:gap-y-1.5 min-[720px]:before:absolute min-[720px]:before:top-[5px] min-[720px]:before:right-[12%] min-[720px]:before:left-1 min-[720px]:before:border-t min-[720px]:before:border-dashed min-[720px]:before:border-lime/65">
-                  {s.mini.map((m) => (
+                  {s.steps.map((m) => (
                     <li key={m.label} className="relative pt-4 text-[11.5px] leading-[1.35] text-white/72 before:absolute before:top-0 before:left-0 before:size-[11px] before:rounded-full before:bg-lime">
                       <b className="block text-[12.5px] font-semibold text-white">{m.label}</b>
                       {m.text}
@@ -208,10 +291,15 @@ export default function V2Delivery({ data }) {
                   return (
                     <li key={r} className="flex items-start gap-3">
                       {s.row_icons?.[r] && <Markup html={s.row_icons[r]} viewBox="0 0 24 24" className="mt-0.5 size-5 flex-none text-lime" />}
-                      <span className="text-[14px] leading-[1.5] text-white/72">
-                        <b className="mb-px block text-[14px] font-semibold text-white">{v?.label}</b>
-                        {withFormat(v?.text, format_words, fmt)}
-                      </span>
+                      {/* Every variant (per format / per scale) is in the HTML so
+                          crawlers see all of it; only the one matching the
+                          selected chips shows. */}
+                      {row.map((variant, vi) => (
+                        <span key={vi} hidden={variant !== v} className="text-[14px] leading-[1.5] text-white/72">
+                          <b className="mb-px block text-[14px] font-semibold text-white">{variant.label}</b>
+                          {withFormat(variant.text, format_words, variant.format ?? fmt)}
+                        </span>
+                      ))}
                     </li>
                   );
                 })}

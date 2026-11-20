@@ -11,6 +11,7 @@ import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import V2Heading from "@/components/sections/course/v2/heading";
 import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
 import OutcomesTower from "@/components/sections/course/v2/outcomes-tower";
+import { V2_BUTTON, V2ButtonArrow } from "@/components/sections/course/v2/buttons";
 import { cn } from "@/lib/utils";
 
 import styles from "./outcomes.module.css";
@@ -49,9 +50,8 @@ export default function V2Outcomes({ data }) {
   }, []);
 
   if (!data?.items?.length) return null;
-  const { eyebrow, heading, tower_labels = [], items, band } = data;
+  const { eyebrow, heading, tower_labels = [], items, banner } = data;
   const total = items.length;
-  const current = items[active - 1];
 
   function select(n) {
     clickedAt.current = Date.now();
@@ -95,7 +95,10 @@ export default function V2Outcomes({ data }) {
             </svg>
           </Box>
           <figcaption aria-live="polite" className="mt-2.5 text-[13.5px] leading-[1.5] text-ink">
-            {current?.result}
+            {/* Every outcome's result is in the HTML; only the active one shows. */}
+            {items.map((item, i) => (
+              <span key={i} hidden={active !== i + 1}>{item.result}</span>
+            ))}
           </figcaption>
         </figure>
 
@@ -107,7 +110,7 @@ export default function V2Outcomes({ data }) {
             const done = n < active;
             const next = n > active;
             return (
-              <li key={item.n} data-o={n}>
+              <li key={item.number} data-o={n}>
                 <button
                   type="button"
                   aria-pressed={on}
@@ -130,7 +133,7 @@ export default function V2Outcomes({ data }) {
                     )}
                   >
                     <b className="font-medium">
-                      {item.n}
+                      {item.number}
                       <span aria-hidden="true" className={done ? "" : "invisible"}> ✓</span>
                     </b>
                     {item.label}
@@ -145,29 +148,27 @@ export default function V2Outcomes({ data }) {
         </ol>
       </Box>
 
-      {band && (
+      {banner && (
         <Reveal className="relative mt-8 grid items-center gap-5 overflow-hidden rounded-r-[20px] border-l-[6px] border-lime bg-[linear-gradient(100deg,color-mix(in_srgb,var(--color-lime)_10%,transparent),color-mix(in_srgb,var(--color-lime)_24%,transparent))] px-[18px] py-6 min-[481px]:px-7 min-[481px]:py-[30px] min-[900px]:grid-cols-[minmax(0,1fr)_minmax(360px,520px)] min-[900px]:py-[34px] min-[900px]:pr-10 min-[900px]:pl-[34px]">
           <Box className="self-center">
-            <Text as="h3" className="mb-2 text-[clamp(20px,2vw,24px)] leading-[1.2]">{band.heading}</Text>
-            <Text className="mb-5 max-w-[560px] text-[15px] text-ink">{band.text}</Text>
+            <Text as="h3" className="mb-2 text-[clamp(20px,2vw,24px)] leading-[1.2]">{banner.heading}</Text>
+            <Text className="mb-5 max-w-[560px] text-[15px] text-ink">{banner.text}</Text>
             <V2ScrollLink
-              href={band.href || "#quote"}
-              topic={band.heading}
-              className="inline-flex items-center gap-2 rounded-xl bg-navy px-[22px] py-3.5 font-body text-[14.5px] font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+              href={banner.href || "#quote"}
+              topic={banner.heading}
+              className={V2_BUTTON.primary}
             >
-              {band.label}
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
+              {banner.label}
+              <V2ButtonArrow />
             </V2ScrollLink>
           </Box>
-          {band.image && (
+          {banner.image && (
             <Image
-              src={band.image}
-              alt={band.image_alt || ""}
-              width={band.image_width || 650}
-              height={band.image_height || 258}
+              src={banner.image}
+              alt={banner.image_alt || ""}
+              width={banner.image_width || 650}
+              height={banner.image_height || 258}
+              loading="lazy"
               className="h-auto w-full max-w-[520px] justify-self-end self-center"
             />
           )}

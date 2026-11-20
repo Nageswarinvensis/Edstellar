@@ -23,7 +23,7 @@ function Clock({ size = 11 }) {
  */
 export default function V2Path({ data }) {
   if (!data?.steps?.length) return null;
-  const { heading, text, steps, related_heading, related = [], also_label, also = [] } = data;
+  const { heading, text, steps, related_heading, related = [], related_link_label, also_label, also = [] } = data;
 
   return (
     <V2Section id="path" tone="warm" className="border-b border-ink/12">
@@ -88,7 +88,7 @@ export default function V2Path({ data }) {
                     </span>
                     <span className="mt-4 block border-t border-ink/12 pt-3.5">
                       <span className="inline-flex items-center gap-1.5 font-body text-[14px] leading-[1.4] font-semibold text-ink transition-colors group-hover:text-olive">
-                        View course
+                        {related_link_label}
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                           <path d="M5 12h14" />
                           <path d="m12 5 7 7-7 7" />
@@ -115,7 +115,7 @@ export default function V2Path({ data }) {
                   i === also.length - 1 && "border-b-0",
                 )}
               >
-                <Link href={a.href} className="group relative block px-5 py-4 transition-colors hover:bg-sand focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-olive">
+                <Link href={a.href} className="group relative block h-full px-5 py-4 transition-colors hover:bg-sand focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-olive">
                   <span aria-hidden="true" className="absolute top-4 right-5 font-body text-[12px] text-ink-muted transition-transform group-hover:translate-x-1">→</span>
                   <b className="block pr-7 font-display text-[14px] leading-[1.25] font-medium tracking-[-0.01em] text-ink">{a.title}</b>
                   <span className="mt-2 block max-w-[330px] text-[11px] leading-[1.25] text-ink-muted">{a.text}</span>

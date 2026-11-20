@@ -3,21 +3,44 @@ import { Fragment } from "react";
 import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
 
+const SPAN = /(<span>[\s\S]*?<\/span>)/;
+
 /**
- * A v2 heading from the page JSON: `[{ text, is_italic }]`, rendered in
- * order with the italic parts in the serif italic accent, in the heading's
- * own colour (as the design's `h2 em`). A plain string is accepted too.
+ * Splits a heading into `{ text, is_italic }` parts. The page JSON writes a
+ * heading the CMS way — one string, the accent phrase in `<span>`:
+ * `"ETL Testing Corporate Training <span>FAQs</span>"`. An older parts array
+ * (`[{ text, is_italic }]`) is still read, joined with spaces as before.
+ */
+function toParts(heading) {
+  if (Array.isArray(heading)) {
+    return heading.map((part, i) => ({
+      ...part,
+      // A part that starts with punctuation ("." after an italic phrase)
+      // joins without a space.
+      text: i > 0 && !/^[.,:;!?)]/.test(part.text) ? ` ${part.text}` : part.text,
+    }));
+  }
+  return String(heading)
+    .split(SPAN)
+    .filter(Boolean)
+    .map((piece) => {
+      const em = piece.match(/^<span>([\s\S]*)<\/span>$/);
+      return em ? { text: em[1], is_italic: true } : { text: piece };
+    });
+}
+
+/**
+ * A v2 heading from the page JSON, the accent phrase in the serif italic
+ * accent, in the heading's own colour (as the design's `h2 em`).
  */
 export default function V2Heading({ parts, as = "h2", className, emClassName }) {
   if (!parts) return null;
-  const list = typeof parts === "string" ? [{ text: parts }] : parts;
   return (
     <Text as={as} className={cn(as === "h2" && "text-[clamp(28px,3.2vw,38px)] leading-[1.12] tracking-[-0.03em]", className)}>
-      {list.map((part, i) => (
-        // No <span> wrapper: globals.css styles every `h1–h3 span` as the
-        // serif italic accent, which would italicize the whole heading.
+      {toParts(parts).map((part, i) => (
+        // No <span> in the output: globals.css styles every `h1–h3 span` as
+        // the serif italic accent, which would italicize the whole heading.
         <Fragment key={i}>
-          {i > 0 && " "}
           {part.is_italic ? (
             <em className={cn("font-serif font-medium tracking-[-0.01em] italic", emClassName)}>{part.text}</em>
           ) : (
