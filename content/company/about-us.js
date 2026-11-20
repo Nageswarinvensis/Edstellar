@@ -35,6 +35,7 @@ export const ABOUT_US = {
     items: [
       { id: "journey", label: "Story" },
       { id: "purpose", label: "Purpose" },
+      { id: "what-we-do", label: "What we do" },
       { id: "reach", label: "Global delivery" },
       { id: "solve", label: "Who we serve" },
       { id: "method", label: "5A method" },
@@ -142,6 +143,48 @@ export const ABOUT_US = {
         { title: "Empower", tag: "The ownership we build", text: "We give clients the insight and tools to keep building capability on their own." },
       ],
     },
+  },
+
+  what_we_do: {
+    id: "what-we-do",
+    heading: "What Edstellar <span>does.</span>",
+    kicker: "Eleven solutions in three groups. Start with one, or run the whole cycle with us.",
+    footer_note: "See the full picture on our [capability development services](/) page.",
+    footer_link: { match: "capability development services", href: "/platforms/capability-os", title: "Click here to view Edstellar capability development services" },
+    groups: [
+      {
+        num: "01",
+        tag: "Measure",
+        title: "Know where capability <span>stands</span>",
+        items: [
+          { label: "Talent assessments", href: "/talent-assessment-services", title: "Click here to learn about talent assessments" },
+          { label: "Training needs analysis", href: "/training-needs-analysis-services", title: "Click here to learn about training needs analysis" },
+          { label: "Capability OS", href: "/platforms/capability-os", title: "Click here to explore Capability OS" },
+        ],
+      },
+      {
+        num: "02",
+        tag: "Build",
+        title: "Close the gaps that <span>matter</span>",
+        items: [
+          { label: "Corporate training", href: "/corporate-training", title: "Click here to learn about corporate training" },
+          { label: "Coaching", href: "/coaching-solutions", title: "Click here to learn about coaching solutions" },
+          { label: "Leadership development (Zenith)", href: "/leadership-retreats", title: "Click here to learn about leadership development" },
+          { label: "Team effectiveness (Polaris)", href: "/", title: "Click here to learn about team effectiveness" },
+        ],
+      },
+      {
+        num: "03",
+        tag: "Embed",
+        title: "Make it how you <span>work</span>",
+        items: [
+          { label: "L&D consulting", href: "/learning-development-consulting-services", title: "Click here to learn about L&D consulting" },
+          { label: "OD consulting", href: "/organizational-development-consulting", title: "Click here to learn about OD consulting" },
+          { label: "Managed learning services", href: "/managed-learning-services", title: "Click here to learn about managed learning services" },
+          { label: "Spectra LMS", href: "/", title: "Click here to learn about Spectra LMS" },
+        ],
+      },
+    ],
   },
 
   glance: {
@@ -448,6 +491,33 @@ export const ABOUT_US = {
     logos: CLIENT_LOGOS,
   },
 
+  trust: {
+    heading: "Certified, secure and procurement<span>-ready.</span>",
+    kicker: "What security, legal and procurement teams usually ask for, in one place.",
+    items: [
+      {
+        title: "ISO 9001:2015",
+        text: "Certified quality management",
+        href: null,
+      },
+      {
+        title: "ISO 27001:2022",
+        text: "Certified information security management",
+        href: null,
+      },
+      {
+        title: "Procurement pack",
+        text: "RFP, RFQ and tender responses within 15 working days of clarifications.",
+        href: "/request-for-proposal",
+      },
+      {
+        title: "Policies",
+        text: "Modern slavery statement, privacy policy, terms and conditions.",
+        href: "/privacy-policy",
+      },
+    ],
+  },
+
   shift: {
     heading: "Edstellar has grown from training partner to <span>capability partner.</span>",
     description:
@@ -460,6 +530,17 @@ export const ABOUT_US = {
       { from: "Runs one-off sessions", to: "Builds connected journeys", detail: "Training, coaching and on-the-job support work together toward one outcome." },
       { from: "Reports attendance and feedback", to: "Measures change in capability", detail: "Proficiency and behavior are tracked before and after, and reported to leaders." },
       { from: "Training as an event", to: "Capability as a continuous function", detail: "Each cycle's results set the baseline for the next, so capability keeps growing." },
+    ],
+  },
+
+  work_with_us: {
+    id: "work-with-us",
+    heading: "Work with <span>Edstellar.</span>",
+    items: [
+      { title: "Careers", text: "Join the team building capability for global enterprises.", href: "/careers", title_attr: "Click here to view career opportunities at Edstellar" },
+      { title: "Become a trainer", text: "Join our network of 5,000+ trainers and coaches.", href: "/trainer-platform", title_attr: "Click here to become an Edstellar trainer" },
+      { title: "Partner with us", text: "Referral and reseller programs for consultants and firms.", href: "/partner-program", title_attr: "Click here to learn about Edstellar partner programs" },
+      { title: "Write for us", text: "Share your expertise with L&D and HR leaders.", href: "/become-a-guest-author", title_attr: "Click here to write for Edstellar" },
     ],
   },
 

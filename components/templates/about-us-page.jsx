@@ -15,6 +15,9 @@ import {
   AboutStory,
   AboutTools,
   AboutValues,
+  AboutTrust,
+  AboutWhatWeDo,
+  AboutWork,
 } from "@/components/sections/about/about-sections";
 
 /** `/about-us` — top to bottom as in the design, ending with the shared
@@ -27,6 +30,7 @@ export default function AboutUsPage({ page }) {
       <AboutStory data={page.story} />
       <AboutValues data={page.values} />
       <AboutPurpose data={page.purpose} />
+      <AboutWhatWeDo data={page.what_we_do} />
       <AboutGlance data={page.glance} />
       <AboutJourney data={page.journey} />
       <AboutReach data={page.reach} />
@@ -35,7 +39,9 @@ export default function AboutUsPage({ page }) {
       <AboutTools data={page.tools} />
       <AboutExperts data={page.experts} />
       <AboutClients data={page.clients} />
+      <AboutTrust data={page.trust} />
       <AboutShift data={page.shift} />
+      <AboutWork data={page.work_with_us} />
       <AboutFaqs faqs={page.faqs} cta={page.cta} />
       <RetreatForm data={page.form} accent="lime" split thankYou="about-us" />
     </>

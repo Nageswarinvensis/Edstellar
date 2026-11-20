@@ -306,6 +306,54 @@ export function AboutPurpose({ data }) {
   );
 }
 
+/** What Edstellar does — 3-column measure/build/embed grid. */
+export function AboutWhatWeDo({ data }) {
+  return (
+    <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper">
+      <Box className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
+          <RichHeading as="h2" id={`${data.id}-h`} heading={data.heading} className="text-[clamp(32px,3.2vw,42px)] leading-[1.1] tracking-[-0.03em]" />
+        </Reveal>
+        <Reveal delay={0.1}>
+          <Text as="p" className="border-l-2 border-ink/15 pl-5 text-[15px] leading-[1.7] text-ink-muted lg:pt-2">{data.kicker}</Text>
+        </Reveal>
+      </Box>
+      <Box className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        {data.groups.map((group, i) => (
+          <Reveal key={group.num} delay={i * 0.08} className="rounded-[16px] border border-ink/12 bg-white p-7">
+            <Text as="span" className="font-mono text-[11px] tracking-[0.12em] uppercase text-ink-muted">
+              {group.num} · {group.tag}
+            </Text>
+            <RichHeading as="h3" heading={group.title} className="mt-3 mb-5 text-[22px] leading-snug tracking-[-0.02em]" />
+            <Box as="ul" className="m-0 list-none p-0">
+              {group.items.map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} title={item.title} className="flex items-center justify-between border-t border-ink/10 py-3.5 text-[14.5px] text-ink hover:text-olive">
+                    {item.label}
+                    <ArrowRight size={15} className="flex-none text-ink/40" aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+            </Box>
+          </Reveal>
+        ))}
+      </Box>
+      {data.footer_note ? (
+        <Text as="p" className="mt-7 text-[14.5px] text-ink-muted">
+          {data.footer_note.split(/(\[.*?\]\(.*?\))/g).map((part, i) => {
+            const m = part.match(/\[(.*?)\]\((.*?)\)/);
+            return m ? (
+              <Link key={i} href={data.footer_link?.href ?? m[2]} title={data.footer_link?.title} className="font-semibold text-ink underline underline-offset-2 hover:text-olive">
+                {m[1]}
+              </Link>
+            ) : part;
+          })}
+        </Text>
+      ) : null}
+    </Section>
+  );
+}
+
 /** The eight headline numbers. Design: `#glance`. */
 export function AboutGlance({ data }) {
   return (
@@ -544,10 +592,62 @@ export function AboutClients({ data }) {
   );
 }
 
+/** Certified, secure and procurement-ready — 4 cards. */
+export function AboutTrust({ data }) {
+  return (
+    <Section id="trust" aria-labelledby="trust-h" className="bg-paper-warm">
+      <Box className="mb-11 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
+          <RichHeading
+            as="h2"
+            id="trust-h"
+            heading={data.heading}
+            className="text-[clamp(28px,2.8vw,38px)] leading-[1.15] tracking-[-0.025em]"
+            emphasisClassName="font-serif font-normal not-italic text-olive"
+          />
+        </Reveal>
+        <Reveal delay={0.5}>
+          <Text as="p" className="text-[16px] leading-[1.7] text-ink-muted lg:max-w-[48ch]">
+            {data.kicker}
+          </Text>
+        </Reveal>
+      </Box>
+      <Box className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {data.items.map((item, i) => {
+          const inner = (
+            <Box className="flex h-full flex-col rounded-[14px] border border-ink/10 bg-white p-6">
+              <Text as="h3" className="font-display text-[17px] font-semibold text-ink">
+                {item.title}
+                {item.href && (
+                  <ArrowRight size={14} aria-hidden="true" className="ml-1.5 inline-block translate-y-[-1px] text-ink/40" />
+                )}
+              </Text>
+              <Text as="p" className="mt-3 text-[14px] leading-[1.65] text-ink-muted">
+                {item.text}
+              </Text>
+            </Box>
+          );
+          return (
+            <Reveal key={item.title} delay={i * 0.08}>
+              {item.href ? (
+                <Link href={item.href} className="block h-full transition-opacity hover:opacity-80">
+                  {inner}
+                </Link>
+              ) : (
+                inner
+              )}
+            </Reveal>
+          );
+        })}
+      </Box>
+    </Section>
+  );
+}
+
 /** "Training partner → capability partner" comparison. Design: `#shift`. */
 export function AboutShift({ data }) {
   return (
-    <Section id="shift" aria-labelledby="shift-h" className="bg-paper-warm">
+    <Section id="shift" aria-labelledby="shift-h" className="bg-white">
       <Head id="shift" data={data} />
       <Reveal className="overflow-hidden rounded-[18px] border border-ink/12">
         <Box className="grid grid-cols-1 md:grid-cols-2">
@@ -579,6 +679,40 @@ export function AboutShift({ data }) {
           ))}
         </Box>
       </Reveal>
+    </Section>
+  );
+}
+
+/** Work with Edstellar — navy section with 4 cards. */
+export function AboutWork({ data }) {
+  return (
+    <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-navy">
+      <Reveal>
+        <RichHeading
+          as="h2"
+          id={`${data.id}-h`}
+          heading={data.heading}
+          className="mb-10 text-[clamp(32px,3.2vw,42px)] leading-[1.1] tracking-[-0.03em] text-paper"
+          emphasisClassName="font-serif font-normal not-italic text-lime"
+        />
+      </Reveal>
+      <Box className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {data.items.map((item, i) => (
+          <Reveal key={item.title} delay={i * 0.08}>
+            <Link
+              href={item.href}
+              title={item.title_attr}
+              className="flex h-full flex-col justify-between rounded-[14px] border border-paper/15 p-6 transition-colors hover:border-paper/30"
+            >
+              <Box className="flex items-start justify-between gap-3">
+                <Text as="h3" className="text-[17px] font-semibold leading-snug text-paper">{item.title}</Text>
+                <ArrowRight size={16} className="mt-1 flex-none text-paper/50" aria-hidden="true" />
+              </Box>
+              <Text as="p" className="mt-4 text-[14px] leading-[1.6] text-paper/60">{item.text}</Text>
+            </Link>
+          </Reveal>
+        ))}
+      </Box>
     </Section>
   );
 }
