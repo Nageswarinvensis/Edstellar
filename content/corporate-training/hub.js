@@ -13,8 +13,8 @@
  *
  * Design: `Edstellar-New-Lanch SETUP/Edstellar_Corporate_Training_Hub 6.html`.
  */
-const CONTACT = { label: "Discuss Your Training Needs", href: "/contact-us" };
-const CATALOG = { label: "Browse All Training Programs", href: "/corporate-training-catalog" };
+const CONTACT = { label: "Request a training proposal", href: "#contact" };
+const CATALOG = { label: "Browse the training catalog", href: "/corporate-training-catalog" };
 
 export const CORPORATE_TRAINING_HUB = {
   seo: {
@@ -31,12 +31,12 @@ export const CORPORATE_TRAINING_HUB = {
 
   hero: {
     heading: "Corporate Training Services Company for <span>Global Enterprises</span>",
-    lede: "Build the skills your people need for the work ahead. Edstellar delivers more than 2,000 instructor-led corporate training programs across 76 domains, tailored to your roles and run onsite or virtually for a single team or a workforce-wide initiative.",
+    lede: "Edstellar is a corporate training company for global enterprises. We deliver 2,000+ instructor-led corporate training programs across 76 domains, tailored to your roles and run onsite or virtually.",
     definition:
-      "Corporate training develops employees' job-related knowledge and skills around a business requirement. Start with a training domain, your type of organization, or the capability you want to build, and Edstellar shapes the engagement around your roles, learning goals, and delivery needs.",
+      "Train one team or the whole workforce. Start with a domain, a role or a business goal, and we shape the program, the trainer and the delivery plan around it.",
     primary_cta: CONTACT,
-    secondary_cta: { label: "Explore Training Programs", href: "#training-programs" },
-    microcopy: "Share your business requirement, even if you haven't chosen a course.",
+    secondary_cta: CATALOG,
+    microcopy: "Share your requirement, even if you haven't chosen a course.",
     image: {
       src: "https://media.edstellar.com/website_assets/onsite-instructor-led.webp",
       alt: "Illustration of an instructor guiding colleagues through a collaborative tabletop exercise in a bright office.",
@@ -44,9 +44,12 @@ export const CORPORATE_TRAINING_HUB = {
       height: 941,
     },
     confidence: [
-      { icon: "users", label: "2,000+ programs across 76 domains" },
-      { icon: "presentation", label: "Trainers matched to your teams" },
-      { icon: "sliders", label: "Onsite, virtual and hybrid delivery" },
+      { icon: "monitor", label: "2,000+ programs" },
+      { icon: "layers", label: "76 domains" },
+      { icon: "users", label: "5,000+ vetted trainers" },
+      { icon: "pin", label: "100+ countries" },
+      { icon: "languages", label: "10+ languages" },
+      { icon: "shield", label: "ISO 9001 & 27001" },
     ],
   },
 
@@ -61,53 +64,68 @@ export const CORPORATE_TRAINING_HUB = {
 
   services: {
     id: "training-services",
-    heading: "Corporate Training Services Built Around <span>Your Business</span>",
+    heading: "Corporate training services built around your <span>business.</span>",
     intro:
-      "Your training requirement may be a focused skill gap, a new technology rollout, or a development priority across several functions. Edstellar brings program selection, customization, and delivery into one conversation, scoped to the work your teams need to do.",
-    rows_labels: { best_for: "Best for", shapes: "Edstellar shapes", format: "Typical format" },
+      "Your need may be one skill gap, a technology rollout or a priority across several functions. We bring program choice, tailoring and delivery into one conversation.",
     starts_label: "Common starting points",
     items: [
       {
-        kicker: "One team, one capability",
-        title: "Targeted Team Training",
+        kicker: "01 · One team, one skill",
+        title: "Targeted team training",
         description:
-          "A focused program for a defined group, such as a technical team adopting a new tool, managers building essential people skills, or a project team aligning on a shared way of working.",
-        best_for: "A single team or role group with one clear skill need",
-        shapes: "Level, content, practice activities, and duration around the group's current experience",
-        format: "Onsite or live virtual workshops for one cohort",
-        starts: ["New tool rollout", "Manager essentials", "Team ways of working"],
-        link: { label: "Plan a team program", href: "/contact-us" },
+          "A focused program for one group, such as a technical team adopting a new tool or managers building core people skills.",
+        bullets: [
+          "One team or role group",
+          "Level and exercises set to the group's experience",
+          "Onsite or live virtual, one cohort",
+        ],
+        starts: ["New tool rollout", "Team ways of working"],
+        link: { label: "Plan a team program", href: "#contact" },
       },
       {
-        kicker: "Many teams, one coordinated plan",
-        title: "Multi-Cohort Capability Programs",
+        kicker: "02 · Many teams, one plan",
+        title: "Multi-cohort training programs",
         description:
-          "A broader program that runs across teams, locations, or career stages, combining shared foundations with training suited to each role so every cohort works toward relevant goals.",
-        best_for: "Capability building across several functions, sites, or levels",
-        shapes: "Cohort structure, program sequence, and delivery arrangements in one plan",
-        format: "Blended onsite, virtual, and hybrid cohorts on a shared schedule",
-        starts: ["Workforce-wide AI skills", "Leadership pipeline", "Multi-site rollouts"],
-        link: { label: "Plan a capability program", href: "/contact-us" },
-        dark: true,
+          "One coordinated program across teams, sites or career stages, with shared foundations and role-specific modules.",
+        bullets: [
+          "Several functions, sites or levels",
+          "Cohort plan, sequence and logistics in one schedule",
+          "Onsite, virtual and blended cohorts",
+        ],
+        starts: ["Regional rollout", "Role-based curriculum"],
+        link: { label: "Plan a multi-cohort program", href: "#contact" },
+      },
+      {
+        kicker: "03 · The whole workforce",
+        title: "Workforce-wide academies",
+        description:
+          "A long-running academy for one priority skill set, such as AI fluency or leadership, with tracks for every level.",
+        bullets: [
+          "Tracks from all-staff to specialist",
+          "Assessments before and after each track",
+          "Runs across the year, in many languages",
+        ],
+        starts: ["AI academy", "Leadership academy"],
+        link: { label: "Plan an academy", href: "#contact" },
       },
     ],
     managed: {
-      lead: "Need training run for you on an ongoing basis?",
-      text: "Edstellar's managed training services take care of scheduling, vendors, and administration across your whole training calendar.",
-      cta: { label: "Explore Managed Training Services", href: "/managed-learning-services/managed-training" },
+      lead: "Need training run for you all year?",
+      text: "Our managed training services handle scheduling, suppliers and admin across your whole training calendar.",
+      cta: { label: "Explore managed training services", href: "/managed-learning-services/managed-training" },
     },
   },
 
   programs: {
     id: "training-programs",
-    heading: "Corporate Training Programs Across <span>76 Domains</span>",
+    heading: "Corporate training programs across <span>76 domains.</span>",
     intro:
-      "Edstellar offers more than 2,000 instructor-led corporate training programs across 76 domains, from artificial intelligence and cloud computing to leadership, sales, compliance and sustainability. Find your domain and go straight to its programs.",
+      "More than 2,000 instructor-led programs, from artificial intelligence and cloud to leadership, sales, compliance and sustainability. Find your domain and go straight to its programs.",
     list_title: "All training domains",
     search_label: "Find a domain",
-    search_placeholder: "Try cloud, sales or safety",
+    search_placeholder: "Filter 76 domains, e.g. data, safety, SAP",
     empty: "No domain matches that search. [Tell Edstellar what your team needs](/contact-us) and a specialist will suggest the right program.",
-    cta: { label: "Browse the Corporate Training Catalog", href: "/corporate-training-catalog" },
+    cta: { label: "Browse the full corporate training catalog", href: "/corporate-training-catalog" },
     microcopy: "See every program, outline and duration in one place.",
   },
 
@@ -161,35 +179,33 @@ export const CORPORATE_TRAINING_HUB = {
 
   system: {
     id: "capability-system",
-    heading: "Corporate Training Inside a Complete <span>Capability System</span>",
+    heading: "Corporate training inside a complete capability <span>system.</span>",
     intro:
-      "Training is the Activate stage of Edstellar's 5A method. The stages around it make sure the right people learn the right skills and that the change lasts, so a training engagement can start from a diagnosis and continue into coaching, measurement and sustainment.",
+      "Training is the Activate step of Edstellar's 5A method. The steps around it make sure the right people learn the right skills, and that the change lasts.",
     current_tag: "Corporate training",
+    footer_note: "Need more than training? See our [capability development services](/platforms/capability-os).",
     stages: [
       {
         name: "Assess",
-        tagline: "Find the capability gap",
+        tagline: "Find the gap",
         links: [
-          { label: "Training Needs Analysis", href: "/training-needs-analysis-services" },
-          { label: "Talent Assessments", href: "/talent-assessment-services" },
-          { label: "Capability Intelligence Platform", href: null },
+          { label: "Training needs analysis", href: "/training-needs-analysis-services" },
+          { label: "Capability OS", href: null },
         ],
       },
       {
         name: "Analyze",
-        tagline: "Prioritize what matters",
+        tagline: "Prioritize",
         links: [
-          { label: "Skills & Proficiency Assessment", href: "/talent-assessment-services/skills-proficiency-assessment" },
-          { label: "Learning & Development Consulting", href: "/learning-development-consulting-services" },
+          { label: "Skills & proficiency assessment", href: "/talent-assessment-services/skills-proficiency-assessment" },
+          { label: "L&D consulting", href: "/learning-development-consulting-services" },
         ],
       },
       {
         name: "Architect",
         tagline: "Design the learning",
         links: [
-          { label: "Learning Strategy", href: "/learning-development-consulting-services/learning-strategy" },
-          { label: "Learning Content Design & Development", href: "/learning-development-consulting-services/learning-content-design-development" },
-          { label: "Edstellar Academies", href: null },
+          { label: "Learning content design", href: "/learning-development-consulting-services/learning-content-design-development" },
         ],
       },
       {
@@ -198,17 +214,15 @@ export const CORPORATE_TRAINING_HUB = {
         current: true,
         links: [
           { label: "Corporate training programs", href: "/corporate-training-catalog" },
-          { label: "Instructor-Led Training", href: null },
+          { label: "Managed training services", href: "/managed-learning-services/managed-training" },
           { label: "Coaching", href: "/coaching-solutions" },
-          { label: "Managed Training Services", href: "/managed-learning-services/managed-training" },
         ],
       },
       {
         name: "Advance",
         tagline: "Sustain and measure",
         links: [
-          { label: "Learning Governance, Analytics & ROI", href: null },
-          { label: "Learning Engagement & Sustainment", href: null },
+          { label: "Orbit 360 feedback", href: null },
           { label: "Spectra LMS", href: null },
         ],
       },
@@ -217,29 +231,29 @@ export const CORPORATE_TRAINING_HUB = {
 
   approach: {
     id: "our-approach",
-    heading: "How Edstellar Designs and Delivers <span>Your Training</span>",
+    heading: "How our corporate training services <span>work.</span>",
     intro:
-      "Relevant learning starts with a clear requirement. We work with your team to connect the business need, the learning content, and the delivery plan.",
+      "Good training starts with a clear requirement. We connect the business need, the content and the delivery plan.",
     steps: [
       {
-        tab: "Define",
-        title: "Define the Business and Learning Goals",
-        text: "Share the target roles, current experience, and the tasks people should perform after training. Edstellar turns these into clear learning priorities and success measures. When skill gaps are not yet clear, a [training needs analysis](/training-needs-analysis-services) identifies them first.",
+        tab: "Goals",
+        title: "Set the business and learning goals.",
+        text: "Share the target roles, current experience, and the outcomes people should reach. Edstellar turns these into clear learning priorities and success measures. When gaps are not yet clear, a training needs analysis identifies them first.",
       },
       {
-        tab: "Adapt",
-        title: "Adapt the Program to Your Teams",
-        text: "Edstellar adapts topics, level, examples, and exercises to your working context, so practice mirrors the conversations and tasks your people handle every day.",
+        tab: "Tailor",
+        title: "Fit the program to your teams.",
+        text: "Topics, level, examples, and exercises are adapted to your working context, so practice mirrors the conversations and tasks your people handle every day.",
       },
       {
         tab: "Deliver",
-        title: "Match Trainers and Coordinate Delivery",
-        text: "Edstellar matches trainers to your subject, audience, and goals, then coordinates schedules, materials, and logistics across every cohort and location.",
+        title: "Match trainers and run delivery.",
+        text: "Trainers are matched to your subject, audience, and goals. Schedules, materials, and logistics are coordinated across every cohort and location.",
       },
       {
-        tab: "Assess",
-        title: "Assess Progress and Plan Application",
-        text: "Knowledge checks, practical exercises, and scenario-based tasks show what participants can do. Edstellar then helps you plan how the learning is applied at work.",
+        tab: "Apply",
+        title: "Check progress and plan application.",
+        text: "Knowledge checks, practical exercises, and scenario tasks show what participants can do. Edstellar then helps you plan how the learning is applied at work.",
       },
     ],
     cta: CONTACT,
@@ -247,74 +261,83 @@ export const CORPORATE_TRAINING_HUB = {
 
   delivery: {
     id: "training-delivery",
-    heading: "Training Delivery for Onsite and Distributed <span>Teams</span>",
+    heading: "Onsite and virtual corporate training, wherever your teams <span>work.</span>",
     intro:
-      "Choose delivery around the learning activities and the people taking part. Edstellar runs onsite, live virtual, hybrid, and offsite training for teams in 100+ countries and in 10+ languages, planned around your locations, time zones, and dates.",
-    labels: { best_for: "Best for", planning: "Planning covers" },
+      "We run onsite, live virtual, blended and offsite training in 100+ countries and 10+ languages, planned around your locations, time zones and dates.",
+    labels: { best_for: "Best for", planning: "We plan" },
+    languages: ["English", "Spanish", "Mandarin", "German", "Arabic", "Portuguese", "French", "Japanese", "Italian", "Hindi"],
     items: [
       {
         tab: "Onsite",
-        title: "Onsite Instructor-Led Training",
+        title: "Onsite instructor-led training",
         image: {
           src: "https://media.edstellar.com/website_assets/onsite-instructor-led.webp",
           alt: "Illustration of an instructor guiding colleagues through a collaborative tabletop exercise in a bright office.",
         },
-        text: "Face-to-face training at your workplace, built around the tools, spaces, and shared tasks your team uses every day.",
+        text: "Face-to-face training at your workplace, built around the tools, spaces and tasks your team uses every day.",
         best_for: "Hands-on practice and team alignment",
-        planning: "Venue, equipment, labs, schedules, trainer travel",
+        planning: "Venue, equipment, labs, trainer travel",
       },
       {
         tab: "Virtual",
-        title: "Live Virtual Training",
+        title: "Live virtual training",
         image: {
           src: "https://media.edstellar.com/website_assets/live-virtual.webp",
           alt: "Illustration of a learner joining a live instructor-led video session with a notebook beside her laptop.",
         },
-        text: "Live online sessions with an instructor, so distributed teams can ask questions and work through guided activities without travel.",
-        best_for: "Teams spread across sites and time zones",
-        planning: "Time zones, session length, platform access, practice environments",
+        text: "Live online sessions with an instructor, so teams across sites can ask questions and practice without travel.",
+        best_for: "Teams across sites and time zones",
+        planning: "Time zones, session length, platform access",
       },
       {
-        tab: "Hybrid & offsite",
-        title: "Hybrid and Offsite Options",
+        tab: "Blended & offsite",
+        title: "Blended and offsite programs",
         image: {
           src: "https://media.edstellar.com/website_assets/offsite.webp",
           alt: "Illustration of colleagues discussing leadership ideas at an offsite meeting room overlooking trees and water.",
         },
-        text: "Combine in-person and virtual sessions, or take the group off site for leadership and team programs that need space to reflect.",
-        best_for: "Mixed locations and leadership programs",
-        planning: "Session structure, venue, travel arrangements",
+        text: "Mix in-person and virtual sessions, or take leaders off site for programs that need space to reflect.",
+        best_for: "Multi-site rollouts and leadership programs",
+        planning: "Session plan, venue, travel",
       },
     ],
   },
 
   reasons: {
     id: "why-edstellar",
-    heading: "Why Organizations Choose <span>Edstellar</span>",
+    heading: "Why enterprises choose Edstellar as their corporate training <span>provider.</span>",
     intro:
-      "Edstellar is a capability transformation partner. Corporate training is where most organizations start, backed by the diagnosis, design, and measurement that turn training into lasting capability.",
-    feature: {
-      mark: "5A",
-      title: "One Partner From Diagnosis to Delivery",
-      text: "Training needs analysis, program design, delivery, coaching, and measurement sit with one team, so your L&D and business leaders work from one plan and one point of contact.",
-      stages: ["Assess", "Analyze", "Architect", "Activate", "Advance"],
-      current: "Activate",
-    },
+      "Corporate training is where most clients start with Edstellar. It is backed by the diagnosis, design and measurement that turn training into lasting capability.",
     items: [
       {
-        mark: "5,000+",
-        title: "Trainers Matched to Your Requirement",
-        text: "Edstellar matches each engagement to trainers with the subject expertise and practical experience your audience needs, based on the roles, tools, and goals in your brief.",
+        icon: "Users",
+        title: "Trainers matched to your requirement",
+        text: "Every engagement gets trainers with the subject depth, industry context and language your audience needs.",
       },
       {
-        mark: "100+",
-        title: "Global Delivery in 10+ Languages",
-        text: "Edstellar delivers onsite and virtual training in 100+ countries, scheduled across your teams' time zones and languages.",
+        icon: "FileText",
+        title: "Tailored, not off the shelf",
+        text: "Topics, level, examples and exercises fit your roles and tools, from light adaptation to new content.",
       },
       {
-        mark: "ISO",
-        title: "Certified Quality and Information Security",
-        text: "Edstellar is certified to ISO 9001:2015 for quality management and ISO 27001:2022 for information security, so your training data and delivery follow audited processes.",
+        icon: "Globe",
+        title: "Global delivery in 10+ languages",
+        text: "Onsite and virtual training in 100+ countries, scheduled across your teams' time zones.",
+      },
+      {
+        icon: "Link",
+        title: "One partner from diagnosis to delivery",
+        text: "Training needs analysis, design, delivery, coaching and measurement sit with one team and one point of contact.",
+      },
+      {
+        icon: "List",
+        title: "Procurement-ready",
+        text: "We answer RFPs, RFQs and tenders in one integrated proposal within 15 working days of clarifications.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Certified quality and security",
+        text: "ISO 9001:2015 for quality management and ISO 27001:2022 for information security.",
       },
     ],
   },
@@ -324,39 +347,61 @@ export const CORPORATE_TRAINING_HUB = {
     heading: "Corporate Training <span>FAQs</span>",
     items: [
       {
+        question: "What is corporate training?",
+        answer:
+          "Corporate training is instructor-led learning that builds the job skills a business needs, for a defined group of employees. It starts from a business goal, is tailored to the roles taking part, and is measured by what people do differently at work.",
+      },
+      {
         question: "How many corporate training programs does Edstellar offer?",
         answer:
-          "Edstellar offers more than 2,000 instructor-led corporate training programs across 76 domains, from artificial intelligence, cloud computing and cybersecurity to leadership, sales, compliance and sustainability. Browse the domains on this page or the full corporate training catalog.",
+          "Edstellar offers 2,000+ instructor-led corporate training programs across 76 domains, from AI, cloud and cybersecurity to leadership, sales, compliance and sustainability. See the full corporate training catalog",
+        answer_links: [
+          { text: "corporate training catalog", href: "/corporate-training-catalog", title: "Browse the full corporate training catalog" },
+        ],
       },
       {
-        question: "Can you tailor corporate training to our roles and business context?",
+        question: "Can you tailor corporate training to our roles?",
         answer:
-          "Yes. Tailoring can include selecting topics, adjusting the level, and adapting examples or exercises to the work participants do. Share your team's roles, current experience, tools, and learning goals. The amount of adaptation is agreed during scoping, from changes to an existing program to more extensive content development. Any required materials, licenses, or practice environments are also identified at that stage.",
+          "Yes. We can select topics, adjust the level, and adapt examples and exercises to your work. Share the roles, experience, tools and goals. The amount of tailoring is agreed during scoping, from small changes to new content.",
       },
       {
-        question: "Can we combine training across several skill areas or teams?",
+        question: "How do you choose a trainer for our team?",
         answer:
-          "Yes. A broader requirement can be planned across skill areas and cohorts, with content suited to each audience. Start with the business priorities and the groups involved, then establish the program sequence, delivery arrangements, and evaluation needs. If you also need ongoing administration or coordination across training vendors, our managed training services address that wider operational scope.",
-      },
-      {
-        question: "How do you select a trainer for our team?",
-        answer:
-          "Trainer matching starts with the subject, learning objectives, and participant profile. Relevant practical experience and the context in which your team will use the skills inform the match. Include any specialist knowledge, tool experience, language needs, or qualification requirements in your brief. Discuss any additional trainer-review requirements during scoping so they can be considered for the engagement.",
+          "We match trainers on subject depth, industry context, language and delivery experience. Add any tools, certifications or language needs to your brief, and tell us if you want to review profiles first.",
       },
       {
         question: "Can you deliver training across our locations and time zones?",
         answer:
-          "Yes. Edstellar delivers corporate training in 100+ countries and in 10+ languages, onsite, live virtual, or hybrid, with sessions scheduled across your teams' time zones. Edstellar reviews the topic, participant locations, language, and dates to build a delivery plan that keeps every cohort on the same program.",
+          "Yes. Edstellar delivers training in 100+ countries and 10+ languages, onsite, live virtual or blended, with sessions scheduled across your teams' time zones so every cohort follows the same program.",
       },
       {
-        question: "How will we evaluate learning and workplace application?",
+        question: "How do you measure the impact of corporate training?",
         answer:
-          "Agree the evaluation approach when defining the program. Assessments can examine knowledge or demonstrated skills; workplace application requires evidence from the job, such as work samples or manager observations. Follow-up measurement depends on agreed responsibilities, access to data, and time to apply the learning. Edstellar agrees the assessments and reporting with you when the program is designed, and its learning governance and analytics consulting covers longer-term measurement.",
+          "We agree the measures when the program is designed. That can include participant feedback, pre and post assessments, evidence of new skills at work, and the business metric the program should move.",
       },
       {
-        question: "What affects the cost and timeline of a corporate training program?",
+        question: "How much does corporate training cost?",
         answer:
-          "Key factors include the topic, learning level, number and structure of cohorts, training duration, delivery format, locations, and customization required. Trainer availability and preparation needs also influence scheduling. Labs, software, travel, and follow-up support may affect the scope and cost. Share your target dates and budget parameters so these can inform the discussion and the proposal's assumptions.",
+          "Edstellar prices corporate training by trainee license: one license covers one trainee for one 8-hour training day. The total depends on the topic, number of cohorts, duration, format, locations and tailoring. See corporate training pricing",
+        answer_links: [
+          { text: "corporate training pricing", href: "/corporate-training-pricing", title: "View corporate training pricing" },
+        ],
+      },
+      {
+        question: "Do you respond to RFPs and tenders?",
+        answer:
+          "Yes. Edstellar answers RFPs, RFQs, government tenders and procurement portals with one integrated proposal, within 15 working days of clarifications. Send your RFP.",
+        answer_links: [
+          { text: "Send your RFP", href: "#contact", title: "Send your RFP to Edstellar" },
+        ],
+      },
+      {
+        question: "What is the difference between corporate training and managed training services?",
+        answer:
+          "Corporate training delivers specific programs for your teams. Managed training services run your whole training operation, including scheduling, suppliers and learner support, to agreed service levels.",
+        answer_links: [
+          { text: "Managed training services", href: "/managed-learning-services/managed-training", title: "Learn about managed training services" },
+        ],
       },
     ],
     closing: {
@@ -364,5 +409,21 @@ export const CORPORATE_TRAINING_HUB = {
       primary_cta: CONTACT,
       secondary_cta: CATALOG,
     },
+  },
+
+  form: {
+    id: "contact",
+    heading: "Request a corporate training <span>proposal.</span>",
+    description: "Share the roles, team size, locations and timing. Edstellar will shape a program around it.",
+    bullets: [
+      "Program options and an outline for your teams",
+      "Trainer profiles matched to your brief",
+      "Format, schedule and license count",
+    ],
+    rfp_note: "Running a formal tender?",
+    rfp_cta: { label: "Send us your RFP", href: "/request-for-proposal", title: "Send your RFP to Edstellar" },
+    message_label: "Training topic or domain",
+    message_placeholder: "e.g. Generative AI for managers, or \"not sure yet\"",
+    submit_label: "Request a proposal",
   },
 };

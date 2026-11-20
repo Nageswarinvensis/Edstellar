@@ -6,6 +6,7 @@ import {
   AboutFaqs,
   AboutGlance,
   AboutHero,
+  AboutJourney,
   AboutMethod,
   AboutPurpose,
   AboutReach,
@@ -27,6 +28,7 @@ export default function AboutUsPage({ page }) {
       <AboutValues data={page.values} />
       <AboutPurpose data={page.purpose} />
       <AboutGlance data={page.glance} />
+      <AboutJourney data={page.journey} />
       <AboutReach data={page.reach} />
       <AboutSolve data={page.solve} />
       <AboutMethod data={page.method} />

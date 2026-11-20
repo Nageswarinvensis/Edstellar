@@ -1,3 +1,4 @@
+import RetreatForm from "@/components/forms/retreat-form";
 import {
   HubApproach,
   HubDelivery,
@@ -24,6 +25,7 @@ export default function CorporateTrainingHubPage({ page, domains }) {
       <HubDelivery data={page.delivery} />
       <HubReasons data={page.reasons} />
       <HubFaqs data={page.faqs} />
+      <RetreatForm data={page.form} accent="lime" split thankYou="corporate-training" />
     </>
   );
 }

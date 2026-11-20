@@ -33,7 +33,7 @@ export const ABOUT_US = {
 
   section_nav: {
     items: [
-      { id: "story", label: "Logo" },
+      { id: "journey", label: "Story" },
       { id: "purpose", label: "Purpose" },
       { id: "reach", label: "Global delivery" },
       { id: "solve", label: "Who we serve" },
@@ -44,6 +44,34 @@ export const ABOUT_US = {
       { id: "faq", label: "FAQs" },
     ],
     cta: CONSULTATION,
+  },
+
+  journey: {
+    heading: "From training partner to capability development <span>partner.</span>",
+    description: "How Edstellar grew, and why it now starts with the capability your business needs, not with a course request.",
+    paragraphs: [
+      "Edstellar started with a simple job: give global enterprises great instructor-led training, in any topic, anywhere their people work.",
+      "Clients kept asking a harder question. Which skills matter most, and did the training change anything? To answer it, we added assessments, consulting and coaching, then built our own platforms to measure capability before and after.",
+      "Training is still a core strength. What changed is where we start and where we finish: with the capability your strategy needs, measured on both sides.",
+    ],
+    timeline: [
+      { year: "2021", text: "Edstellar launches as a corporate training company for global enterprises." },
+      { year: "2022", text: "The catalog grows to 2,000+ instructor-led programs across 76 domains, with 5,000+ trainers." },
+      { year: "2023", text: "L&D and OD consulting, talent assessments and coaching join the offer." },
+      { year: "2024", text: "Edstellar builds its own platforms, from Spectra LMS to Capability OS, Zenith and Meridian." },
+      { year: "2026", text: "Edstellar becomes an enterprise capability development company, running the full 5A cycle." },
+    ],
+    compare: {
+      from_label: "A training partner",
+      to_label: "Edstellar as capability partner",
+      rows: [
+        { label: "Starts with", from: "A course request", to: "A capability goal", detail: "Linked to the strategy and the roles that deliver it." },
+        { label: "First step", from: "Picks programs from a catalog", to: "Assesses and analyzes first", detail: "Skills data shows where capability stands before anything is designed." },
+        { label: "Delivery", from: "Runs one-off sessions", to: "Builds connected journeys", detail: "Training, coaching and on-the-job support work toward one outcome." },
+        { label: "Reports", from: "Attendance and feedback", to: "Change in capability", detail: "Proficiency and behavior tracked before and after." },
+        { label: "Over time", from: "Training as an event", to: "Capability as a continuous function", detail: "Each cycle's results set the baseline for the next." },
+      ],
+    },
   },
 
   story: {

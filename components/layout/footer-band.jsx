@@ -18,6 +18,7 @@ const ENDS_WITH_FORM = [
   "/training-needs-analysis-services",
   "/managed-learning-services",
   "/about-us",
+  "/corporate-training",
   "/exceptional-customer-experience",
   "/corporate-training-catalog",
   "/corporate-training-pricing",

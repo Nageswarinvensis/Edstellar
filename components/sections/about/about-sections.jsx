@@ -87,6 +87,87 @@ export function AboutHero({ data, breadcrumbs }) {
   );
 }
 
+/** Company journey — narrative + timeline + comparison table.
+ * Design: `#story` (new section). */
+export function AboutJourney({ data }) {
+  return (
+    <Section id="journey" aria-labelledby="journey-h" className="scroll-mt-32 bg-paper">
+      <Head id="journey" data={data} />
+      <Box className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr]">
+        {/* Left — narrative paragraphs */}
+        <Reveal className="flex flex-col gap-5">
+          {data.paragraphs.map((p, i) => (
+            <Text key={i} as="p" className="text-[16.5px] leading-[1.75] text-ink/80">
+              {p}
+            </Text>
+          ))}
+        </Reveal>
+        {/* Right — timeline */}
+        <Reveal delay={1}>
+          <Box as="ol" className="m-0 list-none p-0">
+            {data.timeline.map((item, i) => (
+              <Box as="li" key={i} className="flex gap-4">
+                {/* Circle + connecting line */}
+                <Box className="flex flex-col items-center">
+                  <Box className={cn("mt-[5px] size-3.5 flex-none rounded-full border-2 border-navy", i === data.timeline.length - 1 ? "bg-lime" : "bg-white")} />
+                  {i < data.timeline.length - 1 && (
+                    <Box className="mt-1 w-0.5 flex-1 bg-ink/20" />
+                  )}
+                </Box>
+                {/* Content */}
+                <Box className="pb-7">
+                  <Text as="span" className="font-mono text-[11px] font-semibold tracking-[0.14em] text-olive uppercase">
+                    {item.year}
+                  </Text>
+                  <Text as="p" className="mt-1 text-[15.5px] leading-[1.6] text-ink">
+                    {item.text}
+                  </Text>
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        </Reveal>
+      </Box>
+      {/* Comparison table */}
+      <Reveal className="mt-12 overflow-x-auto rounded-[16px] border border-ink/12 bg-white">
+        <Box as="table" className="w-full min-w-[560px] border-collapse text-[14.5px]">
+          <Box as="thead">
+            <Box as="tr" className="border-b border-ink/12">
+              <Box as="th" className="w-[110px] p-4" />
+              <Box as="th" className="p-4 text-left font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">
+                {data.compare.from_label}
+              </Box>
+              <Box as="th" className="p-4 text-left font-mono text-[11px] tracking-[0.12em] text-navy uppercase">
+                {data.compare.to_label}
+              </Box>
+            </Box>
+          </Box>
+          <Box as="tbody">
+            {data.compare.rows.map((row, i) => (
+              <Box as="tr" key={i} className="border-b border-ink/10 last:border-b-0 odd:bg-paper-warm/40">
+                <Box as="td" className="p-4 font-mono text-[10px] tracking-[0.1em] text-ink-muted uppercase">
+                  {row.label}
+                </Box>
+                <Box as="td" className="p-4 text-ink/70">
+                  {row.from}
+                </Box>
+                <Box as="td" className="p-4">
+                  <Text as="span" className="block font-medium text-ink">
+                    {row.to}
+                  </Text>
+                  <Text as="span" className="mt-0.5 block text-[13px] text-ink-muted">
+                    {row.detail}
+                  </Text>
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+      </Reveal>
+    </Section>
+  );
+}
+
 /** The logo story — logo and name meanings beside four numbered cards.
  * Design: `#story`. */
 export function AboutStory({ data }) {

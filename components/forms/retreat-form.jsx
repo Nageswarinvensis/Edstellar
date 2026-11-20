@@ -93,7 +93,7 @@ export default function RetreatForm({
       <Box
         className={
           split
-            ? "grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-14"
+            ? "grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-14"
             : undefined
         }
       >
@@ -115,6 +115,24 @@ export default function RetreatForm({
           >
             {data.description}
           </Text>
+          {data.bullets?.length ? (
+            <Box as="ul" className="m-0 mt-6 flex list-none flex-col gap-3 p-0">
+              {data.bullets.map((bullet) => (
+                <Box as="li" key={bullet} className="flex items-start gap-3">
+                  <Box className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-lime" />
+                  <Text as="span" className="text-[15px] leading-[1.6] text-paper/75">{bullet}</Text>
+                </Box>
+              ))}
+            </Box>
+          ) : null}
+          {data.rfp_note && data.rfp_cta ? (
+            <Text as="p" className="mt-6 text-[14px] text-paper/55">
+              {data.rfp_note}{" "}
+              <a href={data.rfp_cta.href} title={data.rfp_cta.title} className="text-paper/80 underline underline-offset-2 hover:text-paper">
+                {data.rfp_cta.label}
+              </a>
+            </Text>
+          ) : null}
           {data.points?.length ? (
             <Box as="ul" className="m-0 mt-8 flex list-none flex-col gap-5 p-0">
               {data.points.map((point) => {

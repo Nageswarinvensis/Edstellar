@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Users, FileText, Globe, Link as LinkIcon, List, ShieldCheck } from "lucide-react";
 
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
@@ -67,6 +67,14 @@ export function HubHero({ data, proof, breadcrumbs }) {
               </CtaButton>
             </Box>
             <Microcopy>{data.microcopy}</Microcopy>
+            <Box as="ul" className="m-0 mt-6 flex list-none flex-wrap gap-x-6 gap-y-2.5 p-0">
+              {data.confidence.map((item) => (
+                <Box as="li" key={item.label} className="flex items-center gap-2 text-[13.5px] text-ink-muted">
+                  <Box as="span" className="size-2 flex-none rounded-full bg-lime" />
+                  {item.label}
+                </Box>
+              ))}
+            </Box>
           </Reveal>
 
           <Reveal delay={1}>
@@ -80,14 +88,6 @@ export function HubHero({ data, proof, breadcrumbs }) {
                 decoding="async"
                 className="block aspect-[4/3] w-full object-cover"
               />
-              <Box as="ul" className="m-0 list-none px-8 py-4">
-                {data.confidence.map((item) => (
-                  <Box as="li" key={item.label} className="flex items-center gap-4 border-b border-paper/12 py-4.5 text-[15.5px] text-paper last:border-b-0">
-                    <HubIcon name={item.icon} size={26} className="flex-none text-lime" />
-                    {item.label}
-                  </Box>
-                ))}
-              </Box>
             </Box>
           </Reveal>
         </Box>
@@ -113,53 +113,42 @@ export function HubServices({ data }) {
   return (
     <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper-warm">
       <SectionHead data={data} />
-      <Box className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <Box className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {data.items.map((item, index) => (
           <Reveal key={item.title} delay={index + 1}>
-            <Box as="article" className={cn("flex h-full flex-col rounded-[20px] p-8 lg:p-9", item.dark ? "bg-navy" : "border border-ink/12 bg-white")}>
-              <Text as="p" className={cn("mb-4 flex items-center gap-3 font-mono text-[11px] tracking-[0.16em] uppercase", item.dark ? "text-lime" : "text-ink/70")}>
-                <Text as="span" className={cn("grid size-7.5 place-items-center rounded-full border text-[11px]", item.dark ? "border-lime/60 text-lime" : "border-ink/40 text-ink/70")}>
-                  {pad(index + 1)}
-                </Text>
+            <Box as="article" className="flex h-full flex-col rounded-[20px] border border-ink/12 bg-white p-8">
+              <Text as="p" className="mb-4 font-mono text-[11px] tracking-[0.16em] text-ink/60 uppercase">
                 {item.kicker}
               </Text>
-              <Text as="h3" className={cn("mb-4", item.dark && "text-paper")}>
+              <Text as="h3" className="mb-4">
                 {item.title}
               </Text>
-              <Text as="p" className={cn("mb-6 text-[15.5px] leading-[1.75]", item.dark && "text-paper/70")}>
+              <Text as="p" className="mb-6 text-[15.5px] leading-[1.75] text-ink/75">
                 {item.description}
               </Text>
-              <Box as="dl" className={cn("m-0 border-t", item.dark ? "border-paper/15" : "border-ink/12")}>
-                {[
-                  [data.rows_labels.best_for, item.best_for],
-                  [data.rows_labels.shapes, item.shapes],
-                  [data.rows_labels.format, item.format],
-                ].map(([label, value]) => (
-                  <Box key={label} className={cn("grid grid-cols-1 gap-1 border-b py-3.5 sm:grid-cols-[150px_1fr] sm:gap-4", item.dark ? "border-paper/15" : "border-ink/12")}>
-                    <dt className={cn("pt-0.5 font-mono text-[11px] tracking-[0.12em] uppercase", item.dark ? "text-lime" : "text-ink/70")}>{label}</dt>
-                    <dd className={cn("m-0 text-[15.5px] leading-[1.55]", item.dark ? "text-paper" : "text-ink")}>{value}</dd>
+              <Box as="ul" className="m-0 mb-6 list-none border-t border-ink/12 p-0 pt-5">
+                {item.bullets.map((bullet) => (
+                  <Box as="li" key={bullet} className="mb-3 flex items-start gap-3 text-[15px] leading-[1.6] text-ink last:mb-0">
+                    <Box as="span" className="mt-[3px] flex-none text-olive">✓</Box>
+                    {bullet}
                   </Box>
                 ))}
               </Box>
-              <Text as="p" className={cn("mt-6 mb-3 text-[14px] font-semibold", item.dark ? "text-paper" : "text-ink")}>
+              <Text as="p" className="mb-2 font-mono text-[11px] tracking-[0.14em] text-ink/50 uppercase">
                 {data.starts_label}
               </Text>
-              <Box as="ul" className="m-0 mb-8 flex list-none flex-wrap gap-2 p-0">
-                {item.starts.map((start) => (
-                  <li key={start} className={cn("rounded-full border px-3.5 py-1.5 text-[14px]", item.dark ? "border-paper/20 bg-navy-soft text-paper" : "border-ink/12 bg-paper-warm text-ink")}>
-                    {start}
-                  </li>
-                ))}
-              </Box>
-              <Link href={item.link.href} className={cn("mt-auto inline-flex items-center gap-2 font-display text-[15px] font-semibold", item.dark ? "text-lime" : "text-ink hover:text-olive")}>
+              <Text as="p" className="mb-6 text-[15px] text-ink/70">
+                {item.starts.join(" · ")}
+              </Text>
+              <a href={item.link.href} className="mt-auto inline-flex items-center gap-2 font-display text-[15px] font-semibold text-ink hover:text-olive">
                 {item.link.label}
                 <ArrowRight size={16} aria-hidden="true" />
-              </Link>
+              </a>
             </Box>
           </Reveal>
         ))}
       </Box>
-      <Reveal className="mt-6 flex flex-wrap items-center justify-between gap-5 rounded-[16px] border border-dashed border-ink/20 bg-white px-7 py-6">
+      <Reveal className="mt-6 flex flex-wrap items-center justify-between gap-5 rounded-[16px] border-l-4 border-lime bg-white px-7 py-6">
         <Text as="p" className="max-w-[70ch] text-[15.5px] leading-[1.7]">
           <b className="font-semibold text-ink">{data.managed.lead}</b> {data.managed.text}
         </Text>
@@ -312,6 +301,20 @@ export function HubSystem({ data }) {
           </Box>
         ))}
       </Reveal>
+      {data.footer_note ? (
+        <Box className="mt-6 text-[15px] text-paper/70">
+          {data.footer_note.split(/(\[.*?\]\(.*?\))/g).map((part, i) => {
+            const match = part.match(/\[(.*?)\]\((.*?)\)/);
+            return match ? (
+              <Link key={i} href={match[2]} title={`Click here to learn about ${match[1]}`} className="text-lime underline hover:text-lime/80">
+                {match[1]}
+              </Link>
+            ) : (
+              <Text key={i} as="span" className="text-[15px] text-paper/70">{part}</Text>
+            );
+          })}
+        </Box>
+      ) : null}
     </Section>
   );
 }
@@ -373,6 +376,18 @@ export function HubDelivery({ data }) {
       <Reveal>
         <DeliveryTabs data={data} />
       </Reveal>
+      {data.languages?.length ? (
+        <Box className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-ink/10 pt-6">
+          <Text as="span" className="font-mono text-[11px] tracking-[0.12em] uppercase text-ink-muted">
+            Delivered in 10+ languages, including
+          </Text>
+          {data.languages.map((lang) => (
+            <Text key={lang} as="span" className="font-mono text-[11px] font-semibold tracking-[0.12em] uppercase text-ink">
+              {lang}
+            </Text>
+          ))}
+        </Box>
+      ) : null}
       {/* The live site's delivery pages these linked to don't exist on the
           new site yet, so the CTAs are off; the row returns with them. */}
       {data.primary_cta || data.secondary_cta ? (
@@ -385,55 +400,33 @@ export function HubDelivery({ data }) {
   );
 }
 
-/** 07 — why Edstellar: a navy 5A feature card beside three reason rows.
+const REASON_ICONS = { Users, FileText, Globe, Link: LinkIcon, List, ShieldCheck };
+
+/** 07 — why Edstellar: 6-card grid with icon, title, text.
  * Design: `#why-edstellar`. */
 export function HubReasons({ data }) {
-  const { feature } = data;
   return (
     <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper">
       <SectionHead data={data} />
-      <Box className="grid grid-cols-1 gap-5 lg:grid-cols-[0.95fr_1.05fr]">
-        <Reveal className="flex flex-col rounded-[18px] bg-navy p-9">
-          <Text as="p" className="font-serif text-[64px] leading-none text-lime italic">
-            {feature.mark}
-          </Text>
-          <Text as="h3" className="mt-5 mb-4 max-w-[18ch] text-paper">
-            {feature.title}
-          </Text>
-          <Text as="p" className="mb-10 text-[15.5px] leading-[1.7] text-paper/70">
-            {feature.text}
-          </Text>
-          <Box as="ul" className="m-0 mt-auto flex list-none flex-wrap gap-2 p-0">
-            {feature.stages.map((stage) => (
-              <li
-                key={stage}
-                className={cn(
-                  "rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-[0.12em] uppercase",
-                  stage === feature.current ? "border-lime bg-lime text-navy" : "border-paper/25 text-paper",
-                )}
-              >
-                {stage}
-              </li>
-            ))}
-          </Box>
-        </Reveal>
-        <Box className="flex flex-col gap-4">
-          {data.items.map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.5} className={cn(CARD, "grid grid-cols-1 gap-3 p-7 sm:grid-cols-[130px_1fr] sm:gap-5")}>
-              <Text as="p" className="font-serif text-[38px] leading-none text-ink italic">
-                {item.mark}
+      <Box className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {data.items.map((item, index) => {
+          const Icon = REASON_ICONS[item.icon];
+          return (
+            <Reveal key={item.title} delay={index * 0.08} className={cn(CARD, "flex flex-col gap-4 p-7")}>
+              {Icon ? (
+                <Box className="flex h-10 w-10 items-center justify-center rounded-lg bg-lime/20">
+                  <Icon size={20} className="text-olive" />
+                </Box>
+              ) : null}
+              <Text as="h3" className="text-[18px] leading-snug">
+                {item.title}
               </Text>
-              <Box>
-                <Text as="h3" className="mb-2 text-[19px] leading-snug">
-                  {item.title}
-                </Text>
-                <Text as="p" className="text-[15px] leading-[1.7]">
-                  {item.text}
-                </Text>
-              </Box>
+              <Text as="p" className="text-[15px] leading-[1.7] text-ink-muted">
+                {item.text}
+              </Text>
             </Reveal>
-          ))}
-        </Box>
+          );
+        })}
       </Box>
     </Section>
   );
@@ -445,15 +438,6 @@ export function HubFaqs({ data }) {
     <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper-warm" innerClassName="max-w-260">
       <SectionHead data={data} center />
       <FaqDetails items={data.items} />
-      <Reveal className="mt-12 text-center">
-        <Text as="p" className="mx-auto mb-6 max-w-[60ch] text-[17px] leading-[1.7]">
-          {data.closing.text}
-        </Text>
-        <Box className="flex flex-wrap justify-center gap-3">
-          <LinkButton cta={data.closing.primary_cta} />
-          <LinkButton cta={data.closing.secondary_cta} variant="ghost" />
-        </Box>
-      </Reveal>
     </Section>
   );
 }
