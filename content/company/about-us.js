@@ -24,8 +24,9 @@ export const ABOUT_US = {
 
   hero: {
     heading: "About <span>Edstellar</span>",
+    entity_line: "An enterprise capability development company.",
     description:
-      "Edstellar helps organizations build the capability their strategy depends on. Through its 5A methodology, Edstellar assesses the capability your strategy needs, analyzes the gaps, architects the solution, activates training and coaching, and advances results cycle after cycle, all as one connected program.",
+      "We help organizations measure, build and prove the capability their strategy depends on. Assessments, consulting, coaching, training and our own platforms come together in one connected program, delivered in 100+ countries.",
     primary_cta: CONSULTATION,
     secondary_cta: { label: "See how Edstellar works", href: "#method" },
   },
@@ -47,7 +48,7 @@ export const ABOUT_US = {
 
   story: {
     heading: "The story behind the <span>Edstellar logo.</span>",
-    description: "The Edstellar logo was designed around one idea: capable people are the key to organizational success.",
+    description: "Ed stands for employee development. Stellar stands for people who shine at work. The logo is built on one idea: capable people unlock organizational success.",
     logo: {
       src: "https://media.edstellar.com/website_assets/edstellar-logo-story.webp",
       alt: "The Edstellar logo: the letter e inside three concentric rings, followed by the word edstellar",
@@ -93,47 +94,61 @@ export const ABOUT_US = {
 
   purpose: {
     heading: "The purpose that guides <span>Edstellar.</span>",
-    description: "Where Edstellar is going, how it gets there, and the values it holds along the way.",
+    description: "Where we are going, how we get there, and the values we hold along the way.",
     vision: {
       label: "Vision",
-      question: "Where Edstellar is going",
-      text: "To be the most trusted <span>capability transformation partner</span> for organizations around the world.",
+      question: "Where we are going",
+      text: "To be the most trusted capability development partner for organizations <span>around the world.</span>",
     },
     mission: {
       label: "Mission",
-      question: "How Edstellar gets there",
-      text: "To help organizations build the capability their strategy needs by connecting assessment, analysis, design, delivery and measurement into one accountable program, delivered by the best experts, tools and practices.",
+      question: "How we get there",
+      text: "To help organizations build the capability their strategy needs, with assessment, design, delivery and measurement in one <span>accountable program.</span>",
     },
     values: {
       label: "Values",
-      question: "How Edstellar works",
+      question: "How we work",
       items: [
-        { title: "Excel", text: "Hold every program, assessment and engagement to a high, measurable standard." },
-        { title: "Elevate", text: "Raise the capability of people, teams and organizations, with evidence leaders can use." },
-        { title: "Empower", text: "Give clients the insight and tools to keep building capability on their own." },
+        { title: "Excel", tag: "The standard we hold", text: "We hold every program, assessment and engagement to a high, measurable standard, so clients can rely on the result." },
+        { title: "Elevate", tag: "The change we create", text: "We raise the capability of people, teams and organizations, and show the change in evidence leaders can use." },
+        { title: "Empower", tag: "The ownership we build", text: "We give clients the insight and tools to keep building capability on their own." },
       ],
     },
   },
 
   glance: {
     heading: "Edstellar <span>at a glance.</span>",
-    description: "The depth behind every Edstellar capability program, from assessment to delivery.",
+    description: "The facts people (and search engines) look for first: who we are, where we are, and the depth behind every program.",
+    facts: [
+      { label: "What we do", value: "Enterprise capability development" },
+      { label: "Founded", value: "2021" },
+      { label: "Headquarters", value: "Bengaluru, India" },
+      { label: "Offices", value: "US, UK, India" },
+      { label: "Delivery", value: "100+ countries, 10+ languages" },
+      { label: "Certifications", value: "ISO 9001:2015, ISO 27001:2022" },
+    ],
     stats: [
       { value: "2,000+", label: "instructor-led training programs" },
-      { value: "76", label: "training domains in the catalog" },
+      { value: "76", label: "training domains" },
       { value: "5,000+", label: "qualified trainers and coaches" },
       { value: "58", label: "assessments across 14 families" },
       { value: "50+", label: "coaching programs" },
       { value: "100+", label: "countries delivered in" },
       { value: "10+", label: "delivery languages" },
-      { value: "10", label: "industries served" },
+      { value: "200+", label: "organizations served" },
     ],
   },
 
   reach: {
-    heading: "Capability programs delivered across <span>100+ countries.</span>",
+    heading: "A global company, <span>close to your teams.</span>",
     description:
-      "From its base in Bengaluru, India, Edstellar delivers to organizations across the Americas, EMEA, MENA and APAC, in the language and format each workforce needs.",
+      "Teams in the United States, the United Kingdom and India, delivering across the Americas, EMEA, MENA and APAC in the language and format each workforce needs.",
+    offices: [
+      { region: "Americas", country: "United States", city: "Lewisville, Texas", phone: "+1 682 297 4830" },
+      { region: "EMEA", country: "United Kingdom", phone: "+44 151 453 4009" },
+      { region: "APAC & HQ", country: "India", city: "Bengaluru", phone: "+91 636 483 3830" },
+    ],
+    languages: ["English", "Spanish", "Mandarin", "German", "Arabic", "Portuguese", "French", "Japanese", "Italian", "Hindi"],
     scale_title: "How Edstellar delivers globally, at any scale",
     scales: [
       { icon: "users", label: "Team size", from: "Small teams", to: "Enterprise-wide" },
@@ -158,9 +173,9 @@ export const ABOUT_US = {
   },
 
   solve: {
-    heading: "Who Edstellar works with, and the problems <span>it solves.</span>",
+    heading: "Who we work with, and the problems <span>we solve.</span>",
     description:
-      "From growth-stage companies to global organizations and government, Edstellar starts with the capability problem in front of each organization, then brings in the right service and tool to solve it.",
+      "We start with the capability problem in front of each organization, then bring in the right service and tool.",
     problem_label: "The typical problem",
     solution_label: "How Edstellar solves it",
     segments: [
@@ -168,40 +183,40 @@ export const ABOUT_US = {
         stage: "Stage 1",
         title: "Growth-stage companies",
         size: "Up to 200 employees",
-        problem: "Managers are promoted fast, without the skills to lead growing teams.",
-        solution: "Edstellar starts with a training needs analysis, then runs first-time manager programs and one-on-one coaching on Meridian.",
+        problem: "Managers are promoted fast, without the skills to lead.",
+        solution: "Training needs analysis, first-time manager programs and coaching on Meridian.",
         tags: ["Training needs analysis", "First-time manager programs", "Meridian"],
       },
       {
         stage: "Stage 2",
         title: "Mid-size companies",
-        size: "200 to 1,000 employees",
-        problem: "Teams struggle to align, collaborate and deliver together as functions multiply.",
-        solution: "Edstellar diagnoses how teams work with Polaris and Orbit, then runs targeted team interventions and role-based learning journeys.",
+        size: "200 to 1,000",
+        problem: "Teams struggle to align as functions multiply.",
+        solution: "Team diagnostics with Polaris and Orbit, then targeted team programs.",
         tags: ["Talent assessments", "Polaris", "Orbit"],
       },
       {
         stage: "Stage 3",
         title: "Large enterprises",
-        size: "1,000 to 10,000 employees",
-        problem: "Training budgets are spent, but the impact on performance is hard to show.",
-        solution: "Edstellar designs role-based journeys for each function, runs them on Spectra LMS and measures proficiency before and after.",
+        size: "1,000 to 10,000",
+        problem: "Training spend is high, but impact is hard to show.",
+        solution: "Role-based journeys on Spectra LMS, with proficiency measured before and after.",
         tags: ["Learning strategy", "Spectra LMS", "Learning analytics and ROI"],
       },
       {
         stage: "Stage 4",
         title: "Global organizations",
-        size: "10,000+ employees",
-        problem: "The strategy is moving faster than the workforce's skills, across every country.",
-        solution: "Edstellar maps the capability the strategy needs, measures where the workforce stands and builds one enterprise roadmap across regions.",
-        tags: ["L&D consulting", "Capability Intelligence Platform", "TNA/TNI Engine"],
+        size: "10,000+",
+        problem: "Strategy moves faster than skills, in every country.",
+        solution: "One capability map and one enterprise roadmap across regions.",
+        tags: ["L&D consulting", "Capability OS", "TNA/TNI Engine"],
       },
       {
         stage: "Public sector",
         title: "Government and education",
         size: "Any size",
-        problem: "Public institutions need capability programs that meet procurement governance.",
-        solution: "Edstellar delivers programs with the governance, documentation and reporting that public procurement requires.",
+        problem: "Programs must meet procurement governance.",
+        solution: "Delivery with the documentation and reporting public buyers require.",
         tags: ["Government programs", "University programs"],
         links: [
           { label: "Training for government", href: "/government-employees-training-courses" },
@@ -221,36 +236,36 @@ export const ABOUT_US = {
   },
 
   method: {
-    heading: "The Edstellar 5A methodology, <span>one connected method.</span>",
+    heading: "The Edstellar 5A method, <span>one connected cycle.</span>",
     description:
-      "Every Edstellar engagement runs on the same five steps: Assess, Analyze, Architect, Activate and Advance. Organizations can begin at any step, and each cycle builds on the one before it rather than starting over.",
+      "Every engagement runs the same five steps. Start at any step. Each cycle builds on the last instead of starting over.",
     services_label: "Edstellar services",
     tools_label: "Edstellar platforms and tools",
     output_label: "Output:",
     steps: [
       {
         name: "Assess",
-        description: "Read the business strategy, roles and workforce plan to define what capability the plan needs.",
+        description: "Define the capability need. Read the strategy, roles and workforce plan, and map where capability stands today.",
         services: [
           { label: "L&D consulting", href: "/learning-development-consulting-services" },
           { label: "Organizational development consulting", href: "/organizational-development-consulting" },
         ],
-        tools: ["Capability Intelligence Platform"],
+        tools: ["Capability OS", "Talent assessments", "OD consulting"],
         output: "Capability brief",
       },
       {
         name: "Analyze",
-        description: "Analyze the skill gaps from your training needs analysis and assessments.",
+        description: "Find the priority gaps. Rank skill gaps by business impact, using training needs analysis and assessments.",
         services: [
           { label: "Training needs analysis", href: "/training-needs-analysis-services" },
           { label: "Talent assessments", href: "/talent-assessment-services" },
         ],
-        tools: ["TNA/TNI Engine", "Zenith", "Orbit", "Polaris"],
+        tools: ["TNA/TNI Engine", "Zenith", "Orbit"],
         output: "Skills-gap report",
       },
       {
         name: "Architect",
-        description: "Architect the strategy, content, technology and governance that close the priority gaps.",
+        description: "Design the solution. Design the strategy, content, technology and governance that close the priority gaps.",
         services: [
           { label: "Learning strategy", href: "/learning-development-consulting-services/learning-strategy" },
           { label: "Learning content design and development", href: "/learning-development-consulting-services/learning-content-design-development" },
@@ -261,7 +276,7 @@ export const ABOUT_US = {
       },
       {
         name: "Activate",
-        description: "Roll out blended delivery across teams, through training programs, coaching and managed services.",
+        description: "Deliver at scale. Roll out training, coaching and managed services across teams and locations.",
         services: [
           { label: "Corporate training programs", href: "/corporate-training" },
           { label: "Coaching solutions", href: "/coaching-solutions" },
@@ -272,90 +287,87 @@ export const ABOUT_US = {
       },
       {
         name: "Advance",
-        description: "Measure, govern and improve each cycle, so the function compounds rather than resets.",
+        description: "Measure and advance. Measure the change, govern and improve, so each cycle builds on the last.",
         services: [
-          // No pages for these yet: shown as text, not links.
           { label: "Learning governance, analytics and ROI", href: null },
           { label: "Learning engagement and sustainment", href: null },
         ],
-        tools: ["Capability Intelligence Platform", "Spectra LMS"],
-        output: "Measured results and the next cycle's priorities",
+        tools: ["Capability OS", "Spectra LMS"],
+        output: "Impact report and next priorities",
       },
     ],
   },
 
   tools: {
-    heading: "Edstellar's own platforms and tools power <span>every stage.</span>",
+    heading: "Our own platforms power <span>every stage.</span>",
     description:
-      "Edstellar builds its own learning, assessment and coaching technology, so clients get one connected data trail from the first assessment to the final measure of change.",
+      "We build our own learning, assessment and coaching technology, so clients get one data trail from the first assessment to the final measure of change.",
     explore_label: "Explore",
     groups: [
       {
         kicker: "Enterprise platforms",
         title: "For the whole organization",
-        description: "Run across every function and location.",
         items: [
           {
             icon: "monitor",
             name: "Spectra LMS",
             stages: "Activate · Advance",
-            description: "Edstellar's enterprise learning management system, hosting and tracking learning from enrollment to completion.",
+            description: "Hosts and tracks learning from enrollment to completion.",
           },
           {
             icon: "layers",
-            name: "Capability Intelligence Platform",
+            name: "Capability OS",
             stages: "Assess · Analyze · Advance",
-            description: "Brings assessment and psychometric results together into one live view of workforce capability.",
-            href: null, // page not ready yet
+            description: "One live view of workforce capability from every assessment.",
+            href: null,
           },
           {
             icon: "filter",
             name: "TNA/TNI Engine",
-            stages: "Analyze",
-            description: "Turns employee, job-description and skills data into skill-gap matrices and training roadmaps.",
-            href: null, // page not ready yet
+            stages: "Assess · Analyze",
+            description: "Turns employee and skills data into gap matrices and training roadmaps.",
+            href: null,
           },
           {
             icon: "sparkles",
             name: "Stellar AI",
             stages: "Architect",
-            description: "Recommends training programs by job role, skills and experience level.",
-            href: null, // page not ready yet
+            description: "Recommends training by role, skills and experience level.",
+            href: null,
           },
         ],
       },
       {
         kicker: "Focused tools",
         title: "For selected leaders, teams and employees",
-        description: "Used with the leaders, teams and employees an engagement targets.",
         items: [
           {
             icon: "star",
             name: "Zenith",
-            stages: "Analyze",
-            description: "Edstellar's own leadership assessment for selection, succession and development decisions.",
-            href: null, // page not ready yet
+            stages: "Assess · Activate",
+            description: "Leadership assessment for selection, succession and development.",
+            href: null,
           },
           {
             icon: "orbit",
             name: "Orbit",
-            stages: "Analyze",
-            description: "Edstellar's 360-degree feedback tool, gathering structured input from managers, peers and reports.",
-            href: null, // page not ready yet
+            stages: "Assess · Advance",
+            description: "360-degree feedback from managers, peers and reports.",
+            href: null,
           },
           {
             icon: "users",
             name: "Polaris",
-            stages: "Analyze · Activate",
-            description: "Edstellar's team intervention tool for understanding and strengthening how teams work together.",
-            href: null, // page not ready yet
+            stages: "Activate",
+            description: "Facilitated team sessions that strengthen how teams work together.",
+            href: null,
           },
           {
             icon: "chat",
             name: "Meridian",
-            stages: "Activate",
-            description: "AI-assisted virtual one-on-one coaching that connects leaders with certified coaches.",
-            href: null, // page not ready yet
+            stages: "Activate · Advance",
+            description: "AI-assisted one-on-one coaching with certified coaches.",
+            href: null,
           },
         ],
       },
@@ -363,8 +375,9 @@ export const ABOUT_US = {
   },
 
   experts: {
-    heading: "A global network of trainers and coaches, <span>matched to every need.</span>",
-    stat: { value: "5,000+", label: "qualified trainers and coaches, screened for subject expertise, industry experience and facilitation quality" },
+    heading: "5,000+ trainers and coaches, <span>matched to every need.</span>",
+    description: "Corporate trainers, executive coaches, certified assessors, instructional designers and industry practitioners, screened for expertise, industry experience and facilitation quality.",
+    stat: { value: "5,000+", label: "qualified trainers and coaches" },
     roles_label: "Experts in the network",
     roles: [
       "Corporate trainers",
@@ -423,48 +436,39 @@ export const ABOUT_US = {
   },
 
   faqs: {
-    heading: "Frequently asked questions about <span>Edstellar.</span>",
+    heading: "Questions about <span>Edstellar.</span>",
     description: "Answers to the questions organizations ask most before partnering with Edstellar.",
     items: [
       {
-        question: "What does a capability transformation partner do?",
+        question: "What does Edstellar do?",
         answer:
-          "A capability transformation partner helps an organization build the skills, leadership and team strength its strategy needs, end to end. Edstellar does this through its 5A methodology: it assesses the capability the strategy needs, analyzes the skill gaps, architects the strategy and solution, activates training, coaching and managed services, and advances results by measuring and improving each cycle.",
+          "Edstellar is an enterprise capability development company. It helps organizations measure, build and prove the capability their strategy needs, through assessments, consulting, coaching, corporate training, managed learning services and its own platforms.",
       },
       {
-        question: "How is Edstellar different from a corporate training vendor?",
+        question: "When was Edstellar founded?",
         answer:
-          "A training vendor delivers the courses it is asked for. Edstellar starts with the capability goal, analyzes the gap with assessments and skills data, and connects consulting, training, coaching and managed services so the outcome can be measured. Training is one step of the 5A methodology rather than the whole engagement.",
+          "Edstellar was founded in 2021 as a corporate training company and has since grown into a capability development partner for global enterprises.",
       },
       {
-        question: "Does Edstellar still deliver corporate training programs?",
+        question: "Where is Edstellar based?",
         answer:
-          "Yes. Edstellar offers more than 2,000 instructor-led programs across 76 domains, delivered by a network of more than 5,000 qualified trainers.",
+          "Edstellar is headquartered in Bengaluru, India, with teams in the United States and the United Kingdom. It delivers in 100+ countries and 10+ languages across the Americas, EMEA, MENA and APAC.",
       },
       {
-        question: "Which platforms and tools has Edstellar built?",
+        question: "How is Edstellar different from a corporate training company?",
         answer:
-          "Edstellar has built its own Capability Intelligence Platform, the TNA/TNI Engine, the Zenith leadership assessment, the Orbit 360-degree feedback tool, Polaris for team intervention, Meridian for AI-assisted one-on-one coaching and Stellar AI. Its enterprise learning management system, Spectra LMS, hosts and tracks learning at scale.",
+          "A training company delivers the courses it is asked for. Edstellar starts with the capability goal, measures the gap, and connects consulting, training, coaching and managed services so the result can be measured. Edstellar still offers 2,000+ corporate training programs as one part of that.",
+        answer_links: [{ text: "2,000+ corporate training programs", href: "/corporate-training" }],
       },
       {
-        question: "Can Edstellar support just one step of the 5A methodology?",
+        question: "Which platforms has Edstellar built?",
         answer:
-          "Yes. Many organizations begin with a single step, such as a training needs analysis, a leadership assessment or a coaching program, and extend the partnership as their goals grow. Each step produces an output that the next step builds on.",
+          "Edstellar has built Capability OS, the TNA/TNI Engine, Stellar AI, the Spectra LMS, Zenith for leadership assessment, Orbit for 360-degree feedback, Polaris for team effectiveness and Meridian for AI-assisted coaching.",
       },
       {
-        question: "Where does Edstellar deliver its services?",
+        question: "How does Edstellar choose trainers and coaches?",
         answer:
-          "From Bengaluru, India, Edstellar delivers to the Americas, EMEA, MENA and APAC, in 100+ countries and 10+ languages, through virtual, onsite and offsite formats.",
-      },
-      {
-        question: "Does Edstellar work with smaller companies and government organizations?",
-        answer:
-          "Yes. Edstellar works with organizations of every size, from growth-stage companies to global enterprises, as well as government departments, public institutions and universities. Smaller organizations often begin with a single step of the 5A methodology, while larger ones run enterprise-wide programs.",
-      },
-      {
-        question: "How does Edstellar choose trainers and coaches for a program?",
-        answer:
-          "Edstellar matches each program to experts from its network of more than 5,000 trainers and coaches by subject, industry experience, language and region. Clients review the shortlisted experts before the program is confirmed, and participant ratings shape future matching.",
+          "Edstellar matches experts from its network of 5,000+ trainers and coaches by subject, industry experience, language and region. Clients review the shortlist and can meet experts before confirming, and participant ratings shape future matches.",
       },
       {
         question: "Which certifications does Edstellar hold?",
@@ -473,7 +477,7 @@ export const ABOUT_US = {
       {
         question: "How do we start working with Edstellar?",
         answer:
-          "Share your capability goal through the consultation form. An Edstellar consultant will discuss your teams and priorities and recommend where to start in the 5A methodology.",
+          "Share your capability goal through the consultation form. A consultant will discuss your teams and priorities and recommend where to start in the 5A method. Many clients begin with one step, such as a training needs analysis or a coaching program.",
       },
     ],
   },
@@ -488,7 +492,7 @@ export const ABOUT_US = {
 
   form: {
     heading: "Talk to Edstellar about your <span>capability goals.</span>",
-    description: "Share what your organization is working toward. Edstellar will respond with a suggested starting point in the 5A methodology.",
+    description: "Tell us the capability your organization needs. A consultant will recommend where to start and what the first step would deliver.",
     message_label: "Your requirements",
     message_placeholder: "Tell us the capability you want to build, the teams involved, locations and timelines.",
     sla_note: "We reply within one business day with a scoped response, no automated sales sequence.",

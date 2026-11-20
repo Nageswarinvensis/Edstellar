@@ -66,7 +66,12 @@ export function AboutHero({ data, breadcrumbs }) {
           className="mx-auto text-paper"
           emphasisClassName="text-lime"
         />
-        <Text as="p" className="mx-auto mt-8 max-w-[62ch] text-[clamp(16px,1.3vw,18px)] leading-[1.7] text-paper/75">
+        {data.entity_line && (
+          <Text as="p" className="mx-auto mt-5 max-w-[52ch] font-serif text-[clamp(20px,1.8vw,26px)] italic leading-[1.5] text-paper/90">
+            {data.entity_line}
+          </Text>
+        )}
+        <Text as="p" className="mx-auto mt-5 max-w-[62ch] text-[clamp(16px,1.3vw,18px)] leading-[1.7] text-paper/75">
           {data.description}
         </Text>
         <Box className="mt-9 flex flex-wrap justify-center gap-3">
@@ -180,27 +185,34 @@ export function AboutPurpose({ data }) {
   return (
     <Section id="purpose" aria-labelledby="purpose-h" className="scroll-mt-32 bg-paper-warm">
       <Head id="purpose" data={data} />
-      <Reveal className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-        <Box className="flex flex-col gap-5">
+      <Reveal className="flex flex-col gap-5">
+        {/* Vision + Mission side by side */}
+        <Box className="grid grid-cols-1 gap-5 lg:grid-cols-2">
           <Card item={data.vision} dark className="bg-navy" />
-          <Card item={data.mission} className="flex-1 border border-ink/12 bg-white" />
+          <Card item={data.mission} className="border border-ink/12 bg-white" />
         </Box>
+        {/* Values — 3 columns below */}
         <Box as="article" className="rounded-[16px] bg-paper-cream p-8">
           <Text as="h3" className="mb-2 font-mono text-[11px] tracking-[0.18em] text-ink/70 uppercase">
             {data.values.label}
           </Text>
-          <Text as="p" className="mb-5 text-[14px] font-semibold text-ink">
+          <Text as="p" className="mb-6 text-[14px] font-semibold text-ink">
             {data.values.question}
           </Text>
-          <Box as="ul" className="m-0 list-none border-t border-ink/15 p-0">
+          <Box as="ul" className="m-0 grid list-none grid-cols-1 gap-5 p-0 md:grid-cols-3">
             {data.values.items.map((item, index) => (
-              <Box as="li" key={item.title} className="flex gap-4 border-b border-ink/15 py-5 last:border-b-0">
-                <Box as="span" aria-hidden="true" className={cn("mt-0.5 size-6 flex-none rounded-full border-[3px]", RING_BORDER[index])} />
+              <Box as="li" key={item.title} className="flex gap-4 rounded-[12px] border border-ink/12 bg-white p-6">
+                <Box as="span" aria-hidden="true" className={cn("mt-1 size-6 flex-none rounded-full border-[3px]", RING_BORDER[index])} />
                 <Box>
                   <Text as="span" className="block font-display text-[19px] font-semibold text-ink">
                     {item.title}
                   </Text>
-                  <Text as="span" className="mt-1.5 block text-[15.5px] leading-[1.6] text-ink/80">
+                  {item.tag && (
+                    <Text as="span" className="mt-1 block font-mono text-[11px] tracking-[0.16em] uppercase text-ink-muted">
+                      {item.tag}
+                    </Text>
+                  )}
+                  <Text as="span" className="mt-2 block text-[15px] leading-[1.6] text-ink/80">
                     {item.text}
                   </Text>
                 </Box>
@@ -388,6 +400,11 @@ export function AboutExperts({ data }) {
       <Box className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <Reveal>
           <RichHeading as="h2" id="experts-h" heading={data.heading} className="text-paper" emphasisClassName="text-lime" />
+          {data.description && (
+            <Text as="p" className="mt-4 max-w-[52ch] text-[16px] leading-[1.7] text-paper/75">
+              {data.description}
+            </Text>
+          )}
           <Text as="p" className="mt-5 font-display text-[clamp(64px,8vw,104px)] leading-none font-bold text-lime">
             {data.stat.value}
           </Text>

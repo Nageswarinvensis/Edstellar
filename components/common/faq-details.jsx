@@ -6,23 +6,34 @@ import { cn } from "@/lib/utils";
 const EMAIL = /([\w.+-]+@[\w-]+\.[\w.]*\w)/;
 const pad = (n) => String(n).padStart(2, "0");
 
-/** An answer with its email addresses as `mailto:` links. The content stays
- * plain text, so the FAQPage JSON-LD gets clean answers. */
-function Answer({ text }) {
-  return text.split(EMAIL).map((part, index) =>
-    index % 2 ? (
-      <a
-        key={index}
-        href={`mailto:${part}`}
-        title="Click Here to Email Edstellar"
-        className="border-b border-current text-olive"
-      >
-        {part}
-      </a>
-    ) : (
-      part
-    ),
-  );
+/** An answer with email addresses as `mailto:` links and optional inline
+ * links via `links: [{ text, href }]`. Content stays plain text for JSON-LD. */
+function Answer({ text, links = [] }) {
+  // Build a regex that matches emails OR any of the link texts
+  const linkTexts = links.map((l) => l.text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const pattern = linkTexts.length
+    ? new RegExp(`(${EMAIL.source}|${linkTexts.join("|")})`)
+    : EMAIL;
+
+  return text.split(pattern).map((part, index) => {
+    if (!part) return null;
+    const inlineLink = links.find((l) => l.text === part);
+    if (inlineLink) {
+      return (
+        <a key={index} href={inlineLink.href} className="font-semibold underline underline-offset-2">
+          {part}
+        </a>
+      );
+    }
+    if (EMAIL.test(part)) {
+      return (
+        <a key={index} href={`mailto:${part}`} title="Click Here to Email Edstellar" className="border-b border-current text-olive">
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
 }
 
 /**
@@ -71,7 +82,7 @@ export default function FaqDetails({ items, className, startAt = 1, openFirst = 
             />
           </Box>
           <Text as="p" className="pr-0 pb-5.5 pl-10.5 text-[15.5px] leading-[1.8] sm:pr-12 sm:pb-6">
-            <Answer text={item.answer} />
+            <Answer text={item.answer} links={item.answer_links} />
           </Text>
         </Box>
       ))}
