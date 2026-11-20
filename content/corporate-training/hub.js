@@ -56,11 +56,52 @@ export const CORPORATE_TRAINING_HUB = {
   proof: [
     { value: "2,000+", label: "instructor-led programs" },
     { value: "76", label: "training domains" },
-    { value: "5,000+", label: "qualified trainers" },
-    { value: "100+", label: "countries" },
-    { value: "10+", label: "languages" },
-    { value: "ISO", label: "9001:2015 and 27001:2022 certified" },
+    { value: "5,000+", label: "vetted trainers and coaches" },
+    { value: "100+", label: "countries delivered in" },
   ],
+
+  clients: {
+    intro: "Corporate training clients include",
+    names: "Microsoft, Amazon, Intel, Adobe, Visa, KPMG, Boston Consulting Group, Johnson & Johnson, ABB, Emerson, Bechtel, Regeneron, Uber, Autodesk, Cummins, Sandvik and Dayforce.",
+    see: { label: "See all clients", href: "/clients", title: "Click here to see all Edstellar clients" },
+  },
+
+  top_programs: {
+    id: "most-requested-programs",
+    heading: "Most requested corporate training <span>programs.</span>",
+    kicker: "The programs enterprise teams ask for most right now. Every one can be tailored to your roles, tools and level.",
+    items: [
+      { tag: "AI", label: "Generative AI", href: "/corporate-training/ai/generative-ai-training", title: "Click here to view the Generative AI training program" },
+      { tag: "AI", label: "Agentic AI", href: "/corporate-training/ai/agentic-ai-training", title: "Click here to view the Agentic AI training program" },
+      { tag: "AI", label: "Prompt & context engineering for enterprise teams", href: "/corporate-training/ai/prompt-engineering-training", title: "Click here to view the Prompt Engineering training program" },
+      { tag: "AI", label: "AI governance", href: "/corporate-training/ai/ai-governance-training", title: "Click here to view the AI Governance training program" },
+      { tag: "Leadership", label: "Leadership in the age of AI", href: "/corporate-training/leadership/leadership-in-the-age-of-ai-training", title: "Click here to view the Leadership in the Age of AI training program" },
+      { tag: "Soft Skills", label: "Emotional intelligence at work", href: "/corporate-training/soft-skills/emotional-intelligence-training", title: "Click here to view the Emotional Intelligence training program" },
+      { tag: "Leadership", label: "Transformational leadership", href: "/corporate-training/leadership/transformational-leadership-training", title: "Click here to view the Transformational Leadership training program" },
+      { tag: "AI", label: "AI change management & workforce transformation", href: "/corporate-training/ai/ai-change-management-training", title: "Click here to view the AI Change Management training program" },
+      { tag: "Leadership", label: "Executive communication & influence", href: "/corporate-training/leadership/executive-communication-training", title: "Click here to view the Executive Communication training program" },
+      { tag: "Soft Skills", label: "Collaboration in hybrid & AI-augmented teams", href: "/corporate-training/soft-skills/collaboration-skills-training", title: "Click here to view the Collaboration Skills training program" },
+    ],
+    cta_label: "View program",
+  },
+
+  definition: {
+    id: "what-is-corporate-training",
+    heading: "What is corporate <span>training?</span>",
+    kicker: "A short answer, and when it is the right tool.",
+    body: [
+      "<strong>Corporate training</strong> is instructor-led learning that builds the job skills a business needs, for a defined group of employees. Good corporate training starts from a business goal, fits the roles in the room, and ends with people doing something new at work.",
+      "Edstellar's corporate training services cover the full path: program choice, tailoring, trainer matching, delivery and evaluation. When the need is bigger than training, it plugs into our [capability development services](/).",
+    ],
+    fit_heading: "Corporate training is the right fit when",
+    fit_items: [
+      "You know the skill gap, or a training needs analysis has found it",
+      "A group needs the same skills by a set date, such as a tool rollout",
+      "Teams in several locations need one consistent program",
+      "You want live practice with an expert, not self-paced content",
+    ],
+    fit_link: { match: "capability development services", href: "/platforms/capability-os", title: "Learn about Edstellar capability development services" },
+  },
 
   services: {
     id: "training-services",
@@ -131,47 +172,27 @@ export const CORPORATE_TRAINING_HUB = {
 
   organization: {
     id: "by-organization",
-    heading: "Corporate Training Shaped to <span>Your Organization</span>",
-    intro:
-      "Start from the kind of organization you are, the industry you work in, or the outcome you need. Each route leads to a page built for that starting point.",
-    coming_soon: "Coming soon",
+    heading: "Employee training programs for every <span>level.</span>",
+    intro: "Start from the people you need to train, or from the outcome you need. Every route goes to a live page.",
     lanes: [
       {
-        icon: "building",
-        title: "Who you are",
-        kicker: "Organization type",
+        title: "By role",
         items: [
-          { label: "Enterprise corporate training", href: null },
-          { label: "Mid-market corporate training", href: null },
-          { label: "Small and medium business training", href: null },
-          { label: "Government and public sector", href: "/government-employees-training-courses" },
-          { label: "Educational institutions", href: "/training-for-universities" },
+          { label: "Executives and senior leaders", sub: "Strategy, executive communication, leading through AI", href: "/corporate-training/leadership", title: "Click here to view leadership training for executives" },
+          { label: "People managers", sub: "Coaching, feedback, performance and change", href: "/corporate-training/leadership", title: "Click here to view training for people managers" },
+          { label: "Technical and IT teams", sub: "AI, cloud, cybersecurity, data and DevOps", href: "/corporate-training/ai", title: "Click here to view training for technical and IT teams" },
+          { label: "Sales and customer teams", sub: "Sales, negotiation and customer experience", href: "/corporate-training/sales", title: "Click here to view training for sales and customer teams" },
+          { label: "All employees", sub: "Compliance, wellbeing, AI fluency and soft skills", href: "/corporate-training/soft-skills", title: "Click here to view training for all employees" },
         ],
-        more: { label: "All organizations Edstellar serves", href: "/who-we-serve" },
       },
       {
-        icon: "factory",
-        title: "Where you work",
-        kicker: "Industry",
+        title: "By goal",
         items: [
-          { label: "Manufacturing", href: null },
-          { label: "Automotive", href: null },
-          { label: "Banking and financial services", href: null },
-          { label: "More industries", href: null },
-        ],
-        more: { label: "Industries Edstellar serves", href: "/who-we-serve" },
-      },
-      {
-        icon: "target",
-        title: "What you need",
-        kicker: "Goal",
-        highlight: true,
-        items: [
-          { label: "Build AI capability across the workforce", tag: "AI Academy", href: null },
-          { label: "Develop leaders at every level", tag: "Leadership Academy", href: null },
-          { label: "Find and prioritize skill gaps", tag: "TNA", href: "/training-needs-analysis-services" },
-          { label: "Run training at scale", tag: "Managed Training", href: "/managed-learning-services/managed-training" },
-          { label: "Support leaders one to one", tag: "Coaching", href: "/coaching-solutions" },
+          { label: "Find and rank skill gaps first", sub: "Training needs analysis", href: "/training-needs-analysis-services", title: "Click here to learn about training needs analysis" },
+          { label: "Support leaders one to one", sub: "Coaching solutions", href: "/coaching-solutions", title: "Click here to learn about coaching solutions" },
+          { label: "Run training at scale, all year", sub: "Managed training services", href: "/managed-learning-services/managed-training", title: "Click here to learn about managed training services" },
+          { label: "Send one RFP for several services", sub: "RFP and tender responses", href: "/request-for-proposal", title: "Click here to send an RFP to Edstellar" },
+          { label: "Serve a public sector workforce", sub: "Government training", href: "/government-employees-training-courses", title: "Click here to view government employee training" },
         ],
       },
     ],
@@ -299,6 +320,77 @@ export const CORPORATE_TRAINING_HUB = {
         text: "Mix in-person and virtual sessions, or take leaders off site for programs that need space to reflect.",
         best_for: "Multi-site rollouts and leadership programs",
         planning: "Session plan, venue, travel",
+      },
+    ],
+  },
+
+  trainers: {
+    id: "corporate-trainers",
+    heading: "5,000+ vetted corporate trainers, matched to your <span>brief.</span>",
+    kicker: "Our trainers are working practitioners, not full-time lecturers. Each one is vetted before joining, and matched to your program on four points.",
+    criteria: [
+      { num: "01", title: "Subject depth", text: "Proven expertise in the exact topic and tools your team uses." },
+      { num: "02", title: "Industry context", text: "Experience in your sector, so examples and cases fit your work." },
+      { num: "03", title: "Language and region", text: "A trainer who speaks your teams' language and knows their market." },
+      { num: "04", title: "Delivery fit", text: "Onsite or virtual experience at the level of your audience." },
+    ],
+    cta: { label: "Explore the trainer network", href: "/trainer-platform", title: "Click here to explore Edstellar's trainer network" },
+  },
+
+  pricing: {
+    id: "corporate-training-pricing",
+    heading: "How corporate training pricing <span>works.</span>",
+    kicker: "Simple, license-based pricing. You pay for the training your teams actually attend, on any program, virtual or onsite.",
+    license: {
+      tag: "Trainee licenses",
+      title: "One license = one trainee for one 8-hour training day.",
+      text: "A half-day session uses half a license. Use licenses across any program in the catalog, for any team.",
+      formula: [
+        { value: "20 trainees", op: "×" },
+        { value: "2 days", op: "=" },
+        { value: "40 licenses", op: null },
+      ],
+      cta: { label: "See prices and packages", href: "/corporate-training-pricing", title: "Click here to view corporate training pricing and packages" },
+    },
+    factors: [
+      { title: "Topic and level", text: "Specialist and advanced topics can need more preparation." },
+      { title: "Cohorts and duration", text: "The number of groups and days in the program." },
+      { title: "Delivery format", text: "Onsite delivery can add venue and trainer travel." },
+      { title: "Tailoring", text: "From light adaptation to new content and exercises." },
+      { title: "Labs and tools", text: "Software, licenses or practice environments, if needed." },
+      { title: "Locations and languages", text: "Several countries or languages in one program." },
+    ],
+  },
+
+  effectiveness: {
+    id: "training-effectiveness",
+    heading: "How we measure training <span>effectiveness.</span>",
+    kicker: "You agree the measures when the program is designed, not after it ends. Most programs report on all four levels.",
+    footer: "Confirm which levels are standard in every engagement versus available on request.",
+    levels: [
+      {
+        level: "Level 1",
+        title: "Reaction",
+        text: "How participants rated the session, the trainer and the relevance to their job.",
+        evidence: "Post-session survey",
+      },
+      {
+        level: "Level 2",
+        title: "Learning",
+        text: "What people can now do, shown in knowledge checks, exercises and scenario tasks.",
+        evidence: "Pre and post assessment",
+      },
+      {
+        level: "Level 3",
+        title: "Behavior",
+        text: "Whether the new skills show up at work in the weeks after training.",
+        evidence: "Manager observation, work samples, Orbit 360",
+      },
+      {
+        level: "Level 4",
+        title: "Results",
+        text: "The business metric the program was meant to move, agreed before it starts.",
+        evidence: "Your KPI, tracked with you",
       },
     ],
   },

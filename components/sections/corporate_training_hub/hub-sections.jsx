@@ -12,6 +12,7 @@ import { CtaButton } from "@/components/common/cta-button";
 import { HubIcon, InlineText, SectionHead } from "@/components/sections/corporate_training_hub/parts";
 import DomainFinder from "@/components/sections/corporate_training_hub/domain-finder";
 import DeliveryTabs from "@/components/sections/corporate_training_hub/delivery-tabs";
+import HomeClients from "@/components/sections/home/home-clients";
 import { cn } from "@/lib/utils";
 
 /*
@@ -94,7 +95,7 @@ export function HubHero({ data, proof, breadcrumbs }) {
       </Section>
 
       <Box as="section" aria-label="Edstellar at a glance" className="bg-navy px-5 py-8 lg:px-10">
-        <Box as="dl" className="mx-auto my-0 grid max-w-7xl grid-cols-2 gap-y-6 sm:grid-cols-3 lg:grid-cols-6">
+        <Box as="dl" className="mx-auto my-0 grid max-w-7xl grid-cols-2 gap-y-6 sm:grid-cols-4 lg:grid-cols-4">
           {proof.map((item) => (
             <Box key={item.label} className="flex flex-col-reverse border-paper/12 pr-4 lg:border-l lg:pl-6 lg:first:border-l-0 lg:first:pl-0">
               <dt className="mt-1.5 text-[14px] leading-snug text-paper/70">{item.label}</dt>
@@ -104,6 +105,117 @@ export function HubHero({ data, proof, breadcrumbs }) {
         </Box>
       </Box>
     </>
+  );
+}
+
+/** 00b — client logo marquee, reuses the home page component. */
+export function HubClients({ homeClients }) {
+  if (!homeClients) return null;
+  return <HomeClients data={homeClients} />;
+}
+
+const TAG_STYLE = {
+  AI: "bg-lime text-navy",
+  Leadership: "bg-ink/8 text-ink",
+  "Soft Skills": "bg-ink/8 text-ink",
+};
+
+/** 00c — most requested programs: 5×2 card grid. */
+export function HubTopPrograms({ data }) {
+  return (
+    <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper">
+      <Box className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
+          <RichHeading
+            as="h2"
+            id={`${data.id}-h`}
+            heading={data.heading}
+            className="text-[clamp(28px,2.8vw,38px)] leading-[1.1] tracking-[-0.03em]"
+          />
+        </Reveal>
+        <Reveal delay={0.1}>
+          <Text as="p" className="text-[15px] leading-[1.7] text-ink-muted lg:pt-2">
+            {data.kicker}
+          </Text>
+        </Reveal>
+      </Box>
+      <Box className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        {data.items.map((item, i) => (
+          <Reveal key={item.label} delay={i * 0.04} className={cn(CARD, "flex flex-col gap-3 p-5")}>
+            <Text as="span" className={cn("inline-block self-start rounded px-2 py-0.5 font-mono text-[10px] font-semibold tracking-[0.1em] uppercase", TAG_STYLE[item.tag] ?? "bg-ink/8 text-ink")}>
+              {item.tag}
+            </Text>
+            <Text as="h3" className="flex-1 text-[15px] font-semibold leading-snug">
+              {item.label}
+            </Text>
+            <Link
+              href={item.href}
+              title={item.title}
+              className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.1em] uppercase text-olive hover:underline"
+            >
+              {data.cta_label} <ArrowRight size={12} />
+            </Link>
+          </Reveal>
+        ))}
+      </Box>
+    </Section>
+  );
+}
+
+/** 00d — "What is corporate training?" definition block. */
+export function HubDefinition({ data }) {
+  return (
+    <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper">
+      <Box className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+        {/* Left */}
+        <Reveal>
+          <RichHeading
+            as="h2"
+            id={`${data.id}-h`}
+            heading={data.heading}
+            className="mb-8 text-[clamp(32px,3.2vw,42px)] leading-[1.1] tracking-[-0.03em]"
+          />
+          {data.body.map((para, i) => {
+            const parts = para.split(/(\[.*?\]\(.*?\))|(<strong>.*?<\/strong>)/g).filter(Boolean);
+            return (
+              <Text key={i} as="p" className={`text-[16px] leading-[1.75] text-ink ${i > 0 ? "mt-5 text-ink-muted" : ""}`}>
+                {parts.map((part, j) => {
+                  const link = part.match(/\[(.*?)\]\((.*?)\)/);
+                  if (link) return (
+                    <Link key={j} href={data.fit_link?.href ?? link[2]} title={data.fit_link?.title} className="font-semibold text-olive underline underline-offset-2 hover:text-olive/80">
+                      {link[1]}
+                    </Link>
+                  );
+                  const bold = part.match(/^<strong>(.*?)<\/strong>$/);
+                  if (bold) return <strong key={j}>{bold[1]}</strong>;
+                  return part;
+                })}
+              </Text>
+            );
+          })}
+        </Reveal>
+
+        {/* Right */}
+        <Reveal delay={0.15} className="flex flex-col gap-4">
+          <Text as="p" className="border-l-2 border-ink/15 pl-5 text-[15px] text-ink-muted">
+            {data.kicker}
+          </Text>
+          <Box className={cn(CARD, "mt-2 p-7")}>
+            <Text as="h3" className="mb-4 text-[16px] font-semibold leading-snug">
+              {data.fit_heading}
+            </Text>
+            <Box as="ul" className="m-0 list-none p-0">
+              {data.fit_items.map((item) => (
+                <Box as="li" key={item} className="flex items-start gap-3 border-t border-ink/10 py-3 text-[14.5px] leading-[1.6] text-ink-muted first:border-t-0">
+                  <Box className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-ink/30" />
+                  {item}
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        </Reveal>
+      </Box>
+    </Section>
   );
 }
 
@@ -175,77 +287,31 @@ export function HubPrograms({ data, domains }) {
   );
 }
 
-/** One row of an organization lane — a link, or "Coming soon" when the
- * page doesn't exist yet. */
-function LaneItem({ item, comingSoon }) {
-  const tag = item.tag ? (
-    <Text as="span" className="flex-none rounded-full border border-ink/25 px-2.5 py-0.5 font-mono text-[10.5px] text-ink">
-      {item.tag}
-      {item.href ? null : ` · ${comingSoon}`}
-    </Text>
-  ) : item.href ? null : (
-    <Text as="span" className="flex-none rounded-full bg-ink/6 px-2.5 py-0.5 font-mono text-[10.5px] text-ink-muted">
-      {comingSoon}
-    </Text>
-  );
-
-  return item.href ? (
-    <Link href={item.href} className="flex items-center justify-between gap-3 border-b border-ink/12 py-3.5 font-display text-[15.5px] font-semibold text-ink hover:text-olive">
-      <Text as="span" className="text-inherit">{item.label}</Text>
-      <Text as="span" className="flex items-center gap-3">
-        {tag}
-        <ArrowRight size={17} aria-hidden="true" />
-      </Text>
-    </Link>
-  ) : (
-    <Box className="flex items-center justify-between gap-3 border-b border-ink/12 py-3.5 text-[15.5px] text-ink-muted">
-      <Text as="span" className="text-inherit">{item.label}</Text>
-      {tag}
-    </Box>
-  );
-}
-
-/** 03 — organization type, industry and goal lanes. Design: `#by-organization`. */
+/** 03 — by role / by goal two-column lanes. Design: `#by-organization`. */
 export function HubOrganization({ data }) {
   return (
-    <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper-warm">
+    <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper">
       <SectionHead data={data} />
-      <Reveal className="grid grid-cols-1 gap-y-8 lg:grid-cols-3">
-        {data.lanes.map((lane, index) => (
-          <Box key={lane.title} className={cn(index > 0 && "lg:border-l lg:border-ink/12")}>
-            <Box
-              className={cn(
-                "flex items-center gap-4 px-7 py-5 lg:[clip-path:polygon(0_0,calc(100%-24px)_0,100%_50%,calc(100%-24px)_100%,0_100%)]",
-                index === 0 && "rounded-l-[16px]",
-                index === data.lanes.length - 1 && "lg:rounded-r-[16px] lg:[clip-path:none]",
-                lane.highlight ? "bg-lime text-navy" : "bg-navy text-paper",
-                "max-lg:rounded-[16px]",
-              )}
-            >
-              <HubIcon name={lane.icon} size={26} className={lane.highlight ? "text-navy" : "text-lime"} />
-              <Box>
-                <Text as="h3" className={cn("text-[20px] leading-tight", lane.highlight ? "text-navy" : "text-paper")}>
-                  {lane.title}
-                </Text>
-                <Text as="span" className={cn("mt-1 block font-mono text-[11px] tracking-[0.14em] uppercase", lane.highlight ? "text-navy/70" : "text-paper/70")}>
-                  {lane.kicker}
-                </Text>
-              </Box>
-            </Box>
-            <Box className="px-0 lg:px-6">
-              <Box as="ul" className="m-0 list-none p-0">
-                {lane.items.map((item) => (
-                  <li key={item.label}>
-                    <LaneItem item={item} comingSoon={data.coming_soon} />
-                  </li>
-                ))}
-              </Box>
-              {lane.more ? (
-                <Link href={lane.more.href} className="mt-5 inline-flex items-center gap-2 font-display text-[14.5px] font-semibold text-ink hover:text-olive">
-                  {lane.more.label}
-                  <ArrowRight size={15} aria-hidden="true" />
-                </Link>
-              ) : null}
+      <Reveal className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        {data.lanes.map((lane) => (
+          <Box key={lane.title} className={cn(CARD, "p-7")}>
+            <Text as="h3" className="mb-4 text-[18px] font-semibold">{lane.title}</Text>
+            <Box as="ul" className="m-0 list-none p-0">
+              {lane.items.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    title={item.title}
+                    className="flex items-start justify-between gap-4 border-t border-ink/10 py-4"
+                  >
+                    <Box>
+                      <Text as="span" className="block text-[15.5px] font-semibold leading-snug text-ink">{item.label}</Text>
+                      <Text as="span" className="mt-0.5 block text-[13px] text-ink-muted">{item.sub}</Text>
+                    </Box>
+                    <ArrowRight size={16} className="mt-1 flex-none text-ink/40" aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
             </Box>
           </Box>
         ))}
@@ -401,6 +467,142 @@ export function HubDelivery({ data }) {
 }
 
 const REASON_ICONS = { Users, FileText, Globe, Link: LinkIcon, List, ShieldCheck };
+
+/** 05b — 5,000+ vetted trainers: criteria list + trainer photo grid. */
+export function HubTrainers({ data, experts }) {
+  return (
+    <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper">
+      <Box className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
+          <RichHeading as="h2" id={`${data.id}-h`} heading={data.heading} className="text-[clamp(28px,2.8vw,38px)] leading-[1.1] tracking-[-0.03em]" />
+        </Reveal>
+        <Reveal delay={0.1}>
+          <Text as="p" className="border-l-2 border-ink/15 pl-5 text-[15px] leading-[1.7] text-ink-muted lg:pt-2">{data.kicker}</Text>
+        </Reveal>
+      </Box>
+      <Box className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+        {/* Criteria list */}
+        <Reveal>
+          <Box as="ol" className="m-0 list-none p-0">
+            {data.criteria.map((item) => (
+              <Box as="li" key={item.title} className="flex gap-5 border-t border-ink/10 py-5">
+                <Text as="span" className="font-mono text-[11px] tracking-[0.1em] text-ink-muted pt-0.5">{item.num}</Text>
+                <Box>
+                  <Text as="h3" className="mb-1 text-[16px] font-semibold leading-snug">{item.title}</Text>
+                  <Text as="p" className="text-[14.5px] leading-[1.6] text-ink-muted">{item.text}</Text>
+                </Box>
+              </Box>
+            ))}
+          </Box>
+          {data.cta ? (
+            <Link href={data.cta.href} title={data.cta.title} className="mt-4 inline-flex items-center gap-2 font-mono text-[12px] tracking-[0.1em] uppercase text-olive hover:underline">
+              {data.cta.label} <ArrowRight size={13} />
+            </Link>
+          ) : null}
+        </Reveal>
+        {/* Trainer photos */}
+        {experts?.trainers?.length ? (
+          <Reveal delay={0.15}>
+            <Text as="p" className="mb-5 font-mono text-[11px] tracking-[0.14em] uppercase text-ink-muted">{experts.note}</Text>
+            <Box className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3">
+              {experts.trainers.slice(0, 6).map((trainer) => (
+                <Box key={trainer.slug} className="flex flex-col gap-2">
+                  <Box className="overflow-hidden rounded-[12px] bg-ink/5">
+                    <img
+                      src={trainer.photo}
+                      alt={trainer.name}
+                      className="h-40 w-full object-cover object-top"
+                      loading="lazy"
+                    />
+                  </Box>
+                  <Text as="span" className="text-[14px] font-semibold">{trainer.name}</Text>
+                  <Text as="span" className="text-[12px] text-ink-muted">{trainer.role}</Text>
+                </Box>
+              ))}
+            </Box>
+          </Reveal>
+        ) : null}
+      </Box>
+    </Section>
+  );
+}
+
+/** 06a — pricing: navy license card + 6 factor cards. */
+export function HubPricing({ data }) {
+  const { license } = data;
+  return (
+    <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper-warm">
+      <Box className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
+          <RichHeading as="h2" id={`${data.id}-h`} heading={data.heading} className="text-[clamp(28px,2.8vw,38px)] leading-[1.1] tracking-[-0.03em]" />
+        </Reveal>
+        <Reveal delay={0.1}>
+          <Text as="p" className="border-l-2 border-ink/15 pl-5 text-[15px] leading-[1.7] text-ink-muted lg:pt-2">{data.kicker}</Text>
+        </Reveal>
+      </Box>
+      <Box className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1.4fr]">
+        {/* Navy license card */}
+        <Reveal className="flex flex-col rounded-[18px] bg-navy p-8">
+          <Text as="span" className="mb-4 font-mono text-[11px] tracking-[0.14em] uppercase text-lime">{license.tag}</Text>
+          <Text as="h3" className="mb-4 text-[clamp(20px,1.8vw,24px)] leading-snug font-semibold text-paper">{license.title}</Text>
+          <Text as="p" className="mb-6 text-[14.5px] leading-[1.7] text-paper/65">{license.text}</Text>
+          <Box className="mb-8 flex flex-wrap items-center gap-2">
+            {license.formula.map((part) => (
+              <Box key={part.value} className="flex items-center gap-2">
+                <Text as="span" className="rounded-md bg-paper/10 px-3 py-1.5 font-mono text-[12px] text-paper">{part.value}</Text>
+                {part.op && <Text as="span" className="font-mono text-[13px] text-paper/50">{part.op}</Text>}
+              </Box>
+            ))}
+          </Box>
+          <Link href={license.cta.href} title={license.cta.title} className="mt-auto inline-flex items-center gap-2 rounded-full bg-lime px-5 py-3 font-display text-[14px] font-semibold text-navy transition-opacity hover:opacity-90 self-start">
+            {license.cta.label} <ArrowRight size={14} />
+          </Link>
+        </Reveal>
+        {/* Factor grid */}
+        <Box className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {data.factors.map((factor, i) => (
+            <Reveal key={factor.title} delay={i * 0.06} className={cn(CARD, "p-5")}>
+              <Text as="h4" className="mb-1.5 text-[15px] font-semibold leading-snug">{factor.title}</Text>
+              <Text as="p" className="text-[13.5px] leading-[1.6] text-ink-muted">{factor.text}</Text>
+            </Reveal>
+          ))}
+        </Box>
+      </Box>
+    </Section>
+  );
+}
+
+/** 06b — training effectiveness: 4-level Kirkpatrick grid. */
+export function HubEffectiveness({ data }) {
+  return (
+    <Section id={data.id} aria-labelledby={`${data.id}-h`} className="scroll-mt-24 bg-paper">
+      <Box className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
+          <RichHeading as="h2" id={`${data.id}-h`} heading={data.heading} className="text-[clamp(28px,2.8vw,38px)] leading-[1.1] tracking-[-0.03em]" />
+        </Reveal>
+        <Reveal delay={0.1}>
+          <Text as="p" className="border-l-2 border-ink/15 pl-5 text-[15px] leading-[1.7] text-ink-muted lg:pt-2">{data.kicker}</Text>
+        </Reveal>
+      </Box>
+      <Box className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {data.levels.map((item, i) => (
+          <Reveal key={item.title} delay={i * 0.08} className={cn(CARD, "flex flex-col gap-3 p-6")}>
+            <Text as="span" className="font-mono text-[11px] tracking-[0.12em] uppercase text-ink-muted">{item.level}</Text>
+            <Text as="h3" className="text-[20px] font-semibold leading-snug">{item.title}</Text>
+            <Text as="p" className="flex-1 text-[14px] leading-[1.7] text-ink-muted">{item.text}</Text>
+            <Box className="border-t border-ink/10 pt-3">
+              <Text as="span" className="font-mono text-[11px] tracking-[0.1em] uppercase text-ink-muted">Evidence: </Text>
+              <Text as="span" className="text-[13px] text-ink">{item.evidence}</Text>
+            </Box>
+          </Reveal>
+        ))}
+      </Box>
+      {data.footer ? (
+        <Text as="p" className="mt-6 text-center text-[13px] text-ink-muted">{data.footer}</Text>
+      ) : null}
+    </Section>
+  );
+}
 
 /** 07 — why Edstellar: 6-card grid with icon, title, text.
  * Design: `#why-edstellar`. */
