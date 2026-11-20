@@ -153,7 +153,7 @@ export default function SiteFooter() {
     <Box as="footer" id="site-footer" className="text-[14px] leading-[1.5]">
       <FooterBand />
 
-      <Box className="bg-navy text-paper">
+      <Box className="border-t border-paper/12 bg-navy text-paper">
         <Box className="mx-auto max-w-[1360px] px-10 pt-20 pb-10 max-sm:px-4 max-sm:pt-10 max-sm:pb-6">
           <Text as="h2" className="sr-only">Edstellar site links</Text>
           <FooterIndex brand={<Brand />} contact={<Contact />} />
