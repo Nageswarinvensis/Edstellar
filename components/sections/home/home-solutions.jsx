@@ -96,6 +96,16 @@ const GRID = { 3: "lg:grid-cols-3", 4: "lg:grid-cols-4" };
  * (`.split-head`, `.stage`, `.sl`, `.cards`, `.sc`). Replaces the old
  * four-pillar block.
  */
+/** The card link's title: the button's name, then "platform" for a
+ * `/platforms/…` link and "services" for any other page (not doubled when
+ * the name already ends with it). */
+function linkTitle(card) {
+  const name = card.cta.replace(/^Explore\s+/i, "");
+  const kind = card.href.startsWith("/platforms/") ? "platform" : "services";
+  const suffix = new RegExp(`\\b${kind}$`, "i").test(name) ? "" : ` ${kind}`;
+  return `Click here to view the ${name}${suffix}`;
+}
+
 export default function HomeSolutions({ data }) {
   if (!data?.stages?.length) return null;
   const { heading, lede, stages } = data;
@@ -157,7 +167,7 @@ export default function HomeSolutions({ data }) {
                   {card.href && card.cta && (
                     <Link
                       href={card.href}
-                      title={`Click here to view the ${card.cta.replace(/^Explore\s+/i, "")}`}
+                      title={linkTitle(card)}
                       className="mt-auto inline-flex items-center gap-2 pt-[18px] font-mono text-[10.5px] font-medium uppercase tracking-[0.07em] text-ink no-underline transition-colors hover:text-olive"
                     >
                       {card.cta}
