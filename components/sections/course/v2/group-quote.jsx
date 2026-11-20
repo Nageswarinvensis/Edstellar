@@ -7,7 +7,7 @@ import Text from "@/components/ui/Text";
 import V2Section from "@/components/sections/course/v2/section";
 import V2Heading from "@/components/sections/course/v2/heading";
 import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
-import { V2_BUTTON, V2_QUOTE_TOPIC_EVENT } from "@/components/sections/course/v2/buttons";
+import { V2_BUTTON, V2ButtonArrow, V2_QUOTE_TOPIC_EVENT } from "@/components/sections/course/v2/buttons";
 import { cn } from "@/lib/utils";
 
 /** One-time: size → frequency → review. Multiple: size → programs → frequency → review. */
@@ -15,12 +15,7 @@ const FLOW = {
   "one-time": ["size", "frequency", "review"],
   multiple: ["size", "programs", "frequency", "review"],
 };
-const ARROW = (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M5 12h14" />
-    <path d="m12 5 7 7-7 7" />
-  </svg>
-);
+const ARROW = <V2ButtonArrow />;
 
 function Options({ options, value, onPick, columns }) {
   return (
@@ -101,7 +96,7 @@ export default function V2GroupQuote({ data }) {
   }
 
   const backButton = step > 0 && (
-    <button type="button" onClick={back} className="cursor-pointer rounded-full border border-ink/20 px-[22px] py-[11px] text-center font-body text-[14px] font-semibold text-ink transition-colors hover:border-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy">
+    <button type="button" onClick={back} className={cn(V2_BUTTON.ghost, "justify-center")}>
       Back
     </button>
   );
@@ -278,7 +273,7 @@ export default function V2GroupQuote({ data }) {
           </ul>
           {packages.cta?.label && (
             <Box className="mt-9 flex flex-col flex-wrap items-start justify-between gap-[22px] rounded-r-2xl border border-l-4 border-ink/12 border-l-lime bg-paper-cream px-[22px] py-5 min-[621px]:flex-row min-[621px]:items-center min-[621px]:px-7 min-[621px]:py-6">
-              <Box className="min-w-0 flex-[1_1_300px]">
+              <Box className="w-full min-w-0 min-[621px]:w-auto min-[621px]:flex-[1_1_300px]">
                 <p className="font-display text-[18.5px] leading-[1.28] font-bold tracking-[-0.025em] text-ink">{packages.cta.heading}</p>
                 <p className="mt-1.5 max-w-[58ch] text-[13.5px] leading-[1.6] text-ink-muted">{packages.cta.text}</p>
               </Box>

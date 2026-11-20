@@ -73,6 +73,44 @@ function Note({ label, title, text, hint }) {
   );
 }
 
+/*
+ * Entrance motion for the Learn / Practice / Apply views (the design's
+ * wf-in / wf-pp / wf-gx / drw). CSS animations restart whenever a hidden
+ * panel is shown, so each plays on every level or tab change, and on Replay
+ * (which re-mounts the views). Delays are literal classes so Tailwind
+ * generates them; reduced motion turns all of it off.
+ */
+const DELAY = {
+  0: "[animation-delay:0ms]",
+  60: "[animation-delay:60ms]",
+  100: "[animation-delay:100ms]",
+  200: "[animation-delay:200ms]",
+  250: "[animation-delay:250ms]",
+  300: "[animation-delay:300ms]",
+  350: "[animation-delay:350ms]",
+  380: "[animation-delay:380ms]",
+  400: "[animation-delay:400ms]",
+  450: "[animation-delay:450ms]",
+  500: "[animation-delay:500ms]",
+  550: "[animation-delay:550ms]",
+  600: "[animation-delay:600ms]",
+  650: "[animation-delay:650ms]",
+  700: "[animation-delay:700ms]",
+  750: "[animation-delay:750ms]",
+  800: "[animation-delay:800ms]",
+  850: "[animation-delay:850ms]",
+  900: "[animation-delay:900ms]",
+  950: "[animation-delay:950ms]",
+  1000: "[animation-delay:1000ms]",
+  1050: "[animation-delay:1050ms]",
+  1100: "[animation-delay:1100ms]",
+};
+const IN = (ms) => cn("animate-lab-rise motion-reduce:animate-none", DELAY[ms]);
+const PP = (ms) => cn("animate-pop-in motion-reduce:animate-none", DELAY[ms]);
+const SVG_PP = (ms) => cn("[transform-box:fill-box] origin-center animate-pop-in motion-reduce:animate-none", DELAY[ms]);
+const GX = (ms) => cn("[transform-box:fill-box] origin-left animate-grow-x motion-reduce:animate-none", DELAY[ms]);
+const DRW = (ms) => cn("[stroke-dasharray:1] animate-line-draw motion-reduce:animate-none", DELAY[ms]);
+
 /** Learn: the role at the root, three sample topics below it; the selected topic's note beside. */
 function LearnView({ level, label, note }) {
   const [sel, setSel] = useState(0);
@@ -88,14 +126,15 @@ function LearnView({ level, label, note }) {
               <path
                 key={x}
                 d={`M200 96C200 146 ${x * 4} 140 ${x * 4} 184`}
-                className={cn("fill-none transition-[stroke,stroke-width] duration-200", sel === i ? "stroke-navy [stroke-width:2.4]" : "stroke-ink/22 [stroke-width:1.6]")}
+                pathLength="1"
+                className={cn("fill-none transition-[stroke,stroke-width] duration-200", sel === i ? "stroke-navy [stroke-width:2.4]" : "stroke-ink/22 [stroke-width:1.6]", DRW([300, 400, 500][i]))}
               />
             ))}
           </svg>
-          <span className="absolute top-[20.67%] left-1/2 -mt-[29px] -ml-[29px] grid size-[58px] place-items-center rounded-full bg-navy text-lime shadow-[0_0_0_6px_color-mix(in_srgb,var(--color-lime)_22%,transparent)]">
+          <span className={cn("absolute top-[20.67%] left-1/2 -mt-[29px] -ml-[29px] grid size-[58px] place-items-center rounded-full bg-navy text-lime shadow-[0_0_0_6px_color-mix(in_srgb,var(--color-lime)_22%,transparent)]", PP(60))}>
             <V2Icon name={level.icon} size={26} />
           </span>
-          <span className="absolute top-[20.67%] left-[calc(50%+37px)] max-w-[calc(50%-39px)] -translate-y-1/2 rounded-[10px] border border-ink/12 bg-white px-[9px] py-[3px] text-[11.5px] leading-[1.3] font-semibold text-ink">
+          <span className={cn("absolute top-[20.67%] left-[calc(50%+37px)] max-w-[calc(50%-39px)] -translate-y-1/2 rounded-[10px] border border-ink/12 bg-white px-[9px] py-[3px] text-[11.5px] leading-[1.3] font-semibold text-ink", IN(200))}>
             {level.role}
           </span>
           {topics.map(([icon, title], i) => (
@@ -104,7 +143,7 @@ function LearnView({ level, label, note }) {
               type="button"
               aria-pressed={sel === i}
               onClick={() => setSel(i)}
-              className={cn("absolute top-[61.33%] -ml-[15.5%] flex w-[31%] cursor-pointer flex-col items-center gap-1.5 text-center focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-olive", LEFT[i])}
+              className={cn("absolute top-[61.33%] -ml-[15.5%] flex w-[31%] cursor-pointer flex-col items-center gap-1.5 text-center focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-olive", LEFT[i], PP([750, 850, 950][i]))}
               data-topic={i}
             >
               <span
@@ -119,9 +158,13 @@ function LearnView({ level, label, note }) {
             </button>
           ))}
         </Box>
-        <span className="mt-2.5 block text-[12px] leading-[1.45] text-ink-muted">{note}</span>
+        <span className={cn("mt-2.5 block text-[12px] leading-[1.45] text-ink-muted", IN(1000))}>{note}</span>
       </Box>
-      {topics[sel] && <Note label={label} title={topics[sel][1]} text={topics[sel][2]} hint="Select another topic icon to compare." />}
+      {topics.map((topic, i) => (
+        <Box key={i} hidden={sel !== i} className={IN(400)}>
+          <Note label={label} title={topic[1]} text={topic[2]} hint="Select another topic icon to compare." />
+        </Box>
+      ))}
     </Box>
   );
 }
@@ -134,19 +177,19 @@ function PracticeFigure({ practice }) {
   if (practice.kind === "conv") {
     return (
       <Box className="grid gap-2.5">
-        <p className="max-w-[84%] rounded-[14px_14px_14px_4px] border border-ink/12 bg-white px-3.5 pt-2.5 pb-[11px] text-[13px] leading-[1.45] text-ink">
+        <p className={cn("max-w-[84%] rounded-[14px_14px_14px_4px] border border-ink/12 bg-white px-3.5 pt-2.5 pb-[11px] text-[13px] leading-[1.45] text-ink", IN(100))}>
           <span className={cn("mb-[3px] block text-[9.5px] text-ink-muted", MONO)}>{f.from}</span>
           {f.message}
         </p>
-        <p className="max-w-[84%] justify-self-end rounded-[14px_14px_4px_14px] border border-ink/22 bg-lime-soft px-3.5 pt-2.5 pb-[11px] text-[13px] leading-[1.45] text-ink">
+        <p className={cn("max-w-[84%] justify-self-end rounded-[14px_14px_4px_14px] border border-ink/22 bg-lime-soft px-3.5 pt-2.5 pb-[11px] text-[13px] leading-[1.45] text-ink", IN(380))}>
           <span className={cn("mb-[3px] block text-[9.5px] text-ink-muted", MONO)}>{f.response_label}</span>
           {f.response}
         </p>
-        <Box className="rounded-xl border border-dashed border-ink/22 bg-white px-2.5 pt-[9px] pb-[11px]">
+        <Box className={cn("rounded-xl border border-dashed border-ink/22 bg-white px-2.5 pt-[9px] pb-[11px]", IN(600))}>
           <span className={cn("mb-3 block text-[9.5px] text-ink-muted", MONO)}>{f.flow_label}</span>
           <ol className="flex items-center gap-0.5">
             {f.flow.map((step, i) => (
-              <li key={step} className="flex min-w-0 flex-1 items-center gap-0.5">
+              <li key={step} className={cn("flex min-w-0 flex-1 items-center gap-0.5", IN([700, 800, 900, 1000, 1100][i] ?? 1100))}>
                 <span className={cn("min-w-0 flex-1 rounded-lg border px-1 py-[7px] text-center text-[11.5px] leading-[1.25] text-ink", i === f.flow_highlight ? "border-navy bg-white font-semibold" : "border-ink/12 bg-sand")}>
                   {step}
                 </span>
@@ -163,14 +206,14 @@ function PracticeFigure({ practice }) {
     return (
       <Box className="relative aspect-[4/3]">
         <svg viewBox="0 0 400 300" aria-hidden="true" className="absolute inset-0 size-full overflow-visible">
-          <path d="M227 34V250M70 142H376" className="fill-none stroke-ink/22 [stroke-dasharray:4_4]" strokeWidth="1.2" />
-          <path d="M70 26V250H384" className="fill-none stroke-navy" strokeWidth="1.6" />
-          <path d="M64 34l6-8 6 8M376 244l8 6-8 6" className="fill-none stroke-navy" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round" />
+          <path d="M227 34V250M70 142H376" className={cn("fill-none stroke-ink/22 [stroke-dasharray:4_4]", IN(400))} strokeWidth="1.2" />
+          <path d="M70 26V250H384" pathLength="1" className={cn("fill-none stroke-navy", DRW(100))} strokeWidth="1.6" />
+          <path d="M64 34l6-8 6 8M376 244l8 6-8 6" className={cn("fill-none stroke-navy", IN(600))} strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round" />
           {f.points.map((p, i) => {
             const x = p.x * 4;
             const y = p.y * 3;
             return (
-              <g key={p.label}>
+              <g key={p.label} className={SVG_PP([650, 800, 950, 1100][i] ?? 1100)}>
                 <circle cx={x} cy={y} r="17" className="fill-lime/65" />
                 <circle cx={x} cy={y} r="13" className={i === 0 ? "fill-navy stroke-navy" : "fill-white stroke-navy"} strokeWidth="1.5" />
                 <text x={x} y={y + 4} textAnchor="middle" className={cn("font-mono text-[12px] font-medium", i === 0 ? "fill-lime" : "fill-navy")}>{i + 1}</text>
@@ -179,12 +222,12 @@ function PracticeFigure({ practice }) {
             );
           })}
         </svg>
-        <span className="absolute top-[6%] left-[9%] text-[11px] text-ink-muted">{f.high}</span>
-        <span className="absolute top-[40%] left-0 w-[16%] text-[11px] leading-[1.25] font-semibold text-ink">{f.y_axis}</span>
-        <span className="absolute top-[80%] left-[9%] text-[11px] text-ink-muted">{f.low}</span>
-        <span className="absolute top-[86%] left-[17%] text-[11px] text-ink-muted">{f.low}</span>
-        <span className="absolute top-[86%] left-[46%] text-[11px] font-semibold text-ink">{f.x_axis}</span>
-        <span className="absolute top-[86%] right-0 text-[11px] text-ink-muted">{f.high}</span>
+        <span className={cn("absolute top-[6%] left-[9%] text-[11px] text-ink-muted", IN(300))}>{f.high}</span>
+        <span className={cn("absolute top-[40%] left-0 w-[16%] text-[11px] leading-[1.25] font-semibold text-ink", IN(300))}>{f.y_axis}</span>
+        <span className={cn("absolute top-[80%] left-[9%] text-[11px] text-ink-muted", IN(300))}>{f.low}</span>
+        <span className={cn("absolute top-[86%] left-[17%] text-[11px] text-ink-muted", IN(300))}>{f.low}</span>
+        <span className={cn("absolute top-[86%] left-[46%] text-[11px] font-semibold text-ink", IN(300))}>{f.x_axis}</span>
+        <span className={cn("absolute top-[86%] right-0 text-[11px] text-ink-muted", IN(300))}>{f.high}</span>
       </Box>
     );
   }
@@ -194,7 +237,7 @@ function PracticeFigure({ practice }) {
       <Box className="grid gap-2.5">
         <Box className="grid gap-2 @min-[361px]:grid-cols-3">
           {f.options.map((o, i) => (
-            <Box key={o.key} className={cn("relative rounded-xl border bg-white p-2.5", i === 1 ? "border-navy" : "border-ink/12")}>
+            <Box key={o.key} className={cn("relative rounded-xl border bg-white p-2.5", i === 1 ? "border-navy" : "border-ink/12", IN([100, 250, 400][i] ?? 400))}>
               <span className={cn("block text-[9.5px] text-ink-muted", MONO)}>{o.key}</span>
               <b className="mt-0.5 mb-2 block text-[12.5px] leading-[1.3] text-ink">{o.label}</b>
               <Box className="grid gap-[3px]">
@@ -202,7 +245,7 @@ function PracticeFigure({ practice }) {
                   <span key={bar} className={cn("grid grid-cols-[minmax(0,1fr)_44%] items-center gap-1.5 text-[10px] leading-[1.2]", j === 0 ? "font-semibold text-ink" : "text-ink-muted")}>
                     {bar}
                     <svg viewBox="0 0 100 6" preserveAspectRatio="none" className="block h-1.5 w-full rounded-full bg-ink/10" aria-hidden="true">
-                      <rect width={o.values[j]} height="6" rx="3" className={j === 0 ? "fill-navy" : "fill-olive"} />
+                      <rect width={o.values[j]} height="6" rx="3" className={cn(j === 0 ? "fill-navy" : "fill-olive", GX([500, 600, 700, 800][j] ?? 800))} />
                     </svg>
                   </span>
                 ))}
@@ -210,7 +253,7 @@ function PracticeFigure({ practice }) {
             </Box>
           ))}
         </Box>
-        <Box className="rounded-xl border border-dashed border-ink/22 bg-white px-2.5 py-2">
+        <Box className={cn("rounded-xl border border-dashed border-ink/22 bg-white px-2.5 py-2", IN(800))}>
           <span className={cn("mb-1.5 block text-[9.5px] text-ink-muted", MONO)}>{f.rehearse_label}</span>
           <Box className="flex flex-wrap gap-1.5">
             {f.rehearse.map((r) => (
@@ -224,13 +267,13 @@ function PracticeFigure({ practice }) {
 
   return (
     <Box className="grid gap-2.5">
-      <p className="rounded-xl border border-ink/12 bg-white px-3 py-2.5 text-[13px] leading-[1.45] text-ink">
+      <p className={cn("rounded-xl border border-ink/12 bg-white px-3 py-2.5 text-[13px] leading-[1.45] text-ink", IN(100))}>
         <span className={cn("mb-[3px] block text-[9.5px] text-ink-muted", MONO)}>{f.scenario_label}</span>
         {f.scenario}
       </p>
       <Box className="grid gap-2 border-l-2 border-lime pl-3">
         {f.lanes.map((lane, i) => (
-          <p key={lane.role} className={cn("rounded-xl border px-3 py-2.5 text-[13px] leading-[1.45] text-ink", i === 0 ? "border-navy bg-lime-soft" : "border-ink/12 bg-white")}>
+          <p key={lane.role} className={cn("rounded-xl border px-3 py-2.5 text-[13px] leading-[1.45] text-ink", i === 0 ? "border-navy bg-lime-soft" : "border-ink/12 bg-white", IN([300, 450, 600, 750][i] ?? 750))}>
             <span className={cn("mb-[3px] block text-[9.5px] text-ink-muted", MONO)}>{lane.role}</span>
             {lane.text}
           </p>
@@ -247,10 +290,10 @@ function PracticeView({ level, kinds }) {
     <Box className="grid gap-3.5 @min-[500px]:grid-cols-[minmax(0,1.32fr)_minmax(0,1fr)] @min-[500px]:items-start">
       <Box className="min-w-0 rounded-[14px] border border-ink/8 bg-paper p-3.5">
         <PracticeFigure practice={practice} />
-        <span className="mt-2.5 block text-[12px] leading-[1.45] text-ink-muted">{practice.note}</span>
+        <span className={cn("mt-2.5 block text-[12px] leading-[1.45] text-ink-muted", IN(1000))}>{practice.note}</span>
       </Box>
       <Box className="grid content-start gap-2.5">
-        {practice.hs?.map((h, i) => (
+        {practice.hints?.map((h, i) => (
           <button
             key={h}
             type="button"
@@ -259,6 +302,7 @@ function PracticeView({ level, kinds }) {
             className={cn(
               "grid cursor-pointer grid-cols-[22px_1fr] items-start gap-2.5 rounded-xl border px-[13px] py-[11px] text-left transition-[border-color,background-color] duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive",
               sel === i ? cn("border-navy shadow-[0_0_0_2px_var(--color-lime-soft)]", i === 1 ? "bg-paper" : "bg-lime-soft") : cn("border-ink/12", i === 0 ? "bg-white" : "bg-paper"),
+              IN([200, 350, 500][i] ?? 500),
             )}
           >
             <span className="grid size-[22px] place-items-center rounded-full bg-navy font-mono text-[11px] text-lime">{i + 1}</span>
@@ -276,19 +320,19 @@ function PracticeView({ level, kinds }) {
 /** Apply: a sample page of the team playbook, its headings selectable; the note beside. */
 function ApplyView({ level, label, bookLabel, badge, note }) {
   const [sel, setSel] = useState(0);
-  const heads = level.apply.heads ?? [];
+  const heads = level.apply.headings ?? [];
   const widths = [["w-[calc(88%-31px)]", "w-[calc(64%-31px)]"], ["w-[calc(80%-31px)]", "w-[calc(52%-31px)]"], ["w-[calc(92%-31px)]", "w-[calc(58%-31px)]"]];
   return (
     <Box className="grid gap-3.5 @min-[500px]:grid-cols-[minmax(0,1.32fr)_minmax(0,1fr)] @min-[500px]:items-start">
       <Box className="min-w-0 rounded-[14px] border border-ink/8 bg-paper p-3.5">
-        <Box className={cn("rounded-xl border border-ink/12 bg-white px-4 py-3.5", SHADOW_REST)}>
+        <Box className={cn("rounded-xl border border-ink/12 bg-white px-4 py-3.5", SHADOW_REST, IN(60))}>
           <Box className="mb-1.5 flex flex-wrap items-center justify-between gap-2">
             <span className={cn("text-[9.5px] text-ink-muted", MONO)}>{bookLabel}</span>
             <span className="rounded-md bg-lime-soft px-2 py-0.5 font-mono text-[9.5px] uppercase tracking-[0.1em] text-navy">{badge}</span>
           </Box>
           <b className="mb-2 block font-serif text-[20px] font-medium italic text-ink">{level.apply.book}</b>
           {heads.map(([h], i) => (
-            <Box key={h} className="mb-2">
+            <Box key={h} className={cn("mb-2", IN([300, 450, 600][i] ?? 600))}>
               <button
                 type="button"
                 aria-pressed={sel === i}
@@ -302,14 +346,18 @@ function ApplyView({ level, label, bookLabel, badge, note }) {
                 {h}
               </button>
               {(widths[i] ?? widths[0]).map((w) => (
-                <span key={w} aria-hidden="true" className={cn("mt-1.5 ml-[31px] block h-1.5 rounded-[3px] bg-ink/10", w)} />
+                <span key={w} aria-hidden="true" className={cn("mt-1.5 ml-[31px] block h-1.5 rounded-[3px] bg-ink/10", w, GX([450, 600, 750][i] ?? 750))} />
               ))}
             </Box>
           ))}
         </Box>
-        <span className="mt-2.5 block text-[12px] leading-[1.45] text-ink-muted">{note}</span>
+        <span className={cn("mt-2.5 block text-[12px] leading-[1.45] text-ink-muted", IN(1000))}>{note}</span>
       </Box>
-      {heads[sel] && <Note label={label} title={heads[sel][0]} text={heads[sel][1]} hint="Select another heading to compare." />}
+      {heads.map((head, i) => (
+        <Box key={i} hidden={sel !== i} className={IN(400)}>
+          <Note label={label} title={head[0]} text={head[1]} hint="Select another heading to compare." />
+        </Box>
+      ))}
     </Box>
   );
 }
@@ -356,7 +404,7 @@ export default function V2Fit({ data }) {
       <span className="grid place-items-center text-navy"><V2Icon name={l.icon} size={22} /></span>
       <span>
         <b className="block font-display text-[16px] leading-[1.3] font-medium tracking-[-0.02em] text-ink">{l.name}</b>
-        <small className="block text-[13px] text-ink-muted">{l.sub}</small>
+        <small className="block text-[13px] text-ink-muted">{l.subtitle}</small>
       </span>
       <span className="grid text-ink-muted"><V2Icon name="chevron" size={16} strokeWidth={2} /></span>
     </button>
@@ -395,7 +443,7 @@ export default function V2Fit({ data }) {
                   )}
                 >
                   <b className="font-display text-[clamp(12.5px,2.9cqw,16px)] leading-[1.2] font-semibold tracking-[-0.02em] text-ink">{l.name}</b>
-                  <small className="text-[clamp(11px,2.25cqw,13px)] leading-[1.3] text-ink/60">{l.sub}</small>
+                  <small className="text-[clamp(11px,2.25cqw,13px)] leading-[1.3] text-ink/60">{l.subtitle}</small>
                   <i
                     aria-hidden="true"
                     className={cn(
@@ -422,8 +470,8 @@ export default function V2Fit({ data }) {
               <Box className="px-4 pt-[18px] pb-4 min-[701px]:px-7 min-[701px]:pt-6 min-[701px]:pb-5">
                 <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-olive">{selected_label}</span>
                 <Box className="mb-3.5">
-                  <Text as="h3" className="mt-2.5 mb-1 text-[clamp(19px,1.9vw,25px)] leading-[1.25]">{l.heading || l.head}</Text>
-                  <Text className="text-[14.5px]">{l.subl}</Text>
+                  <Text as="h3" className="mt-2.5 mb-1 text-[clamp(19px,1.9vw,25px)] leading-[1.25]">{l.heading}</Text>
+                  <Text className="text-[14.5px]">{l.description}</Text>
                 </Box>
 
                 <Box role="tablist" aria-label="Learning preview" className="mb-4 flex gap-[clamp(6px,2.2vw,26px)] border-b border-ink/12">
@@ -450,8 +498,8 @@ export default function V2Fit({ data }) {
                 <Box key={round} className="@container relative">
                   {TABS.map((t) => (
                     <Box key={t} role="tabpanel" hidden={tab !== t}>
-                      <Text as="h4" className="mb-1.5 text-[18px] leading-[1.3]">{l[t]?.heading || l[t]?.t}</Text>
-                      <Text className="mb-3.5 text-[14.5px] leading-[1.6]">{l[t]?.d}</Text>
+                      <Text as="h4" className="mb-1.5 text-[18px] leading-[1.3]">{l[t]?.heading}</Text>
+                      <Text className="mb-3.5 text-[14.5px] leading-[1.6]">{l[t]?.description}</Text>
                       {t === "learn" && <LearnView level={l} label={learn_label} note={learn_note} />}
                       {t === "practice" && <PracticeView level={l} kinds={hint_kinds} />}
                       {t === "apply" && <ApplyView level={l} label={apply_label} bookLabel={apply_book_label} badge={apply_badge} note={apply_note} />}
@@ -460,14 +508,14 @@ export default function V2Fit({ data }) {
                 </Box>
               </Box>
 
-              {l.cap && (
+              {l.capability && (
                 <Box className="grid grid-cols-[40px_1fr] items-start gap-3.5 bg-navy px-4 py-4 text-white min-[701px]:px-7 min-[701px]:py-[18px]">
                   <span className="grid size-10 place-items-center rounded-full border-[1.5px] border-lime text-lime">
                     <V2Icon name="sprout" size={20} strokeWidth={1.8} />
                   </span>
                   <Box>
                     <span className={cn("mb-1 block text-[10px] text-white/72", MONO)}>{capability_label}</span>
-                    <p className="text-[14.5px] leading-[1.5] text-white">{l.cap}</p>
+                    <p className="text-[14.5px] leading-[1.5] text-white">{l.capability}</p>
                   </Box>
                 </Box>
               )}

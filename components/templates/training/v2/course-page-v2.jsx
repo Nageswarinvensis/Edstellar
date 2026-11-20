@@ -32,24 +32,24 @@ import V2Quote from "@/components/sections/course/v2/quote";
 export default function CoursePageV2({ course }) {
   return (
     <>
-      <V2Hero hero={course.hero} breadcrumbs={course.breadcrumbs} />
-      <V2Gap data={course.gap} />
-      <V2Lab data={course.lab} />
-      <V2Overview data={course.overview} />
-      <V2Outcomes data={course.outcomes} />
-      <V2Outline data={course.outline} />
-      <V2Toolkit data={course.toolkit} />
-      <V2Fit data={course.fit} />
-      <V2Audience data={course.audience} />
-      <V2RealWorld data={course.realworld} />
-      <V2Delivery data={course.delivery} />
-      <V2Instructor data={course.instructor} />
-      <V2Why data={course.why} />
-      <V2Certificate data={course.certificate} />
-      <V2Faq data={course.faq} />
-      <V2Path data={course.path} />
-      <V2GroupQuote data={course.group_quote} />
-      <V2Quote data={course.quote} courseName={course.name} />
+      <V2Hero hero={course.course_hero} breadcrumbs={course.course_breadcrumbs} />
+      <V2Gap data={course.course_gap} />
+      <V2Lab data={course.course_lab} />
+      <V2Overview data={course.course_overview} />
+      <V2Outcomes data={course.course_outcomes} />
+      <V2Outline data={course.course_outline} />
+      <V2Toolkit data={course.course_toolkit} />
+      <V2Fit data={course.course_fit} />
+      <V2Audience data={course.course_audience} />
+      <V2RealWorld data={course.course_realworld} />
+      <V2Delivery data={course.course_delivery} />
+      <V2Instructor data={course.course_instructor} />
+      <V2Why data={course.course_why} />
+      <V2Certificate data={course.course_certificate} />
+      <V2Faq data={course.course_faq} />
+      <V2Path data={course.course_path} />
+      <V2GroupQuote data={course.course_group_quote} />
+      <V2Quote data={course.course_quote} courseName={course.name} />
     </>
   );
 }

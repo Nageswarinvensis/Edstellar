@@ -23,7 +23,7 @@ function Clock({ size = 11 }) {
  */
 export default function V2Path({ data }) {
   if (!data?.steps?.length) return null;
-  const { heading, text, steps, related_heading, related = [], also_label, also = [] } = data;
+  const { heading, text, steps, related_heading, related = [], related_link_label, also_label, also = [] } = data;
 
   return (
     <V2Section id="path" tone="warm" className="border-b border-ink/12">
@@ -88,7 +88,7 @@ export default function V2Path({ data }) {
                     </span>
                     <span className="mt-4 block border-t border-ink/12 pt-3.5">
                       <span className="inline-flex items-center gap-1.5 font-body text-[14px] leading-[1.4] font-semibold text-ink transition-colors group-hover:text-olive">
-                        View course
+                        {related_link_label}
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                           <path d="M5 12h14" />
                           <path d="m12 5 7 7-7 7" />

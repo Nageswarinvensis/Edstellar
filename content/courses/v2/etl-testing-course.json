@@ -1,12 +1,105 @@
 {
   "slug": "data-engineering/etl-testing-course",
   "name": "ETL Testing Corporate Training",
-  "seo": {
-    "title": "ETL Testing Corporate Training for Teams | Edstellar",
-    "description": "ETL Testing Corporate Training helps data and QA teams catch bad data in pipelines before the business does, in instructor-led labs. Onsite, virtual or hybrid, by Edstellar.",
-    "canonical": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course"
+  "course_seo": {
+    "og_image": null,
+    "og_title": "ETL Testing Corporate Training for Teams | Edstellar",
+    "meta_title": "ETL Testing Corporate Training for Teams | Edstellar",
+    "og_image_url": null,
+    "twitter_card": "summary_large_image",
+    "twitter_site": "@edstellarglobal",
+    "canonical_url": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course",
+    "meta_keywords": null,
+    "twitter_title": "ETL Testing Corporate Training for Teams | Edstellar",
+    "og_description": "ETL Testing Corporate Training helps data and QA teams catch bad data in pipelines before the business does, in instructor-led labs. Onsite, virtual or hybrid, by Edstellar.",
+    "twitter_creator": "@edstellarglobal",
+    "Meta_description": "ETL Testing Corporate Training helps data and QA teams catch bad data in pipelines before the business does, in instructor-led labs. Onsite, virtual or hybrid, by Edstellar.",
+    "twitter_image_url": null,
+    "twitter_description": "ETL Testing Corporate Training helps data and QA teams catch bad data in pipelines before the business does, in instructor-led labs. Onsite, virtual or hybrid, by Edstellar."
   },
-  "breadcrumbs": [
+  "course_schema": {
+    "Course": {
+      "@id": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course#course",
+      "url": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course",
+      "name": "ETL Testing Corporate Training",
+      "@type": "Course",
+      "image": "https://media.edstellar.com/course_thumbnail/etl-testing-course.webp",
+      "teaches": [
+        "Define what to test across extract, transform, and load stages and prioritize coverage by business risk.",
+        "Run row-count, checksum, and sampling checks that prove data moved completely and correctly.",
+        "Verify business rules, aggregations, joins, and slowly changing dimension handling against expected results.",
+        "Find duplicates, nulls, and broken referential integrity with systematic constraint and quality checks.",
+        "Test CDC and delta loads, reconcile them against full loads, and baseline pipeline performance.",
+        "Build reusable SQL assertion frameworks and schedule regression runs that guard every pipeline change.",
+        "Document failures with queries, counts, and samples so developers can reproduce and fix them fast."
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Data engineers, ETL developers, QA engineers, and analytics teams who build pipelines or depend on the quality of the data they deliver. Content adapts to each cohort's roles and experience, so every team practices the testing workflows it actually owns."
+      },
+      "provider": {
+        "url": "https://www.edstellar.com",
+        "name": "Edstellar",
+        "@type": "Organization"
+      },
+      "inLanguage": "en",
+      "description": "Learn to test ETL pipelines with structured validation, reconciliation, and automation in this instructor-led corporate training.",
+      "timeRequired": "PT28H",
+      "mainEntityOfPage": {
+        "@id": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course#webpage"
+      },
+      "hasCourseInstance": [
+        {
+          "@id": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course#onsite",
+          "@type": "CourseInstance",
+          "courseMode": "Onsite"
+        },
+        {
+          "@id": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course#virtual",
+          "@type": "CourseInstance",
+          "courseMode": "Online"
+        },
+        {
+          "@id": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course#hybrid",
+          "@type": "CourseInstance",
+          "courseMode": "Blended"
+        }
+      ],
+      "coursePrerequisites": "This program benefits data engineers, ETL developers, and QA engineers most. Familiarity with SQL and basic data pipelines helps but is not required, since foundations are taught from the ground up. No prior experience with test automation tooling is needed. Content adapts to each cohort's stack, warehouse platforms, and pipeline tools.",
+      "learningResourceType": "Instructor-led corporate training",
+      "educationalCredentialAwarded": "Edstellar course completion certificate"
+    },
+    "Service": {
+      "@id": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course#service",
+      "url": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course",
+      "name": "ETL Testing Corporate Training",
+      "@type": "Service",
+      "image": "https://media.edstellar.com/course_thumbnail/etl-testing-course.webp",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Enterprise and Corporate Organizations"
+      },
+      "provider": {
+        "url": "https://www.edstellar.com",
+        "name": "Edstellar",
+        "@type": "Organization"
+      },
+      "subjectOf": {
+        "@id": "https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course#webpage"
+      },
+      "areaServed": [
+        "North America",
+        "Europe",
+        "Asia-Pacific",
+        "Middle East",
+        "Africa",
+        "Latin America and the Caribbean"
+      ],
+      "description": "Edstellar provides customized ETL Testing training for enterprise teams. Our expert trainers tailor delivery to your team’s roles, capability gaps, and business requirements. Practical exercises focus on these course outcomes: Scope ETL test strategies; Reconcile sources to targets; Test transformation logic. Training is available through onsite, live virtual or hybrid delivery. English is the default training language, with other languages available on request.",
+      "serviceType": "Customized instructor-led corporate training"
+    }
+  },
+  "course_breadcrumbs": [
     {
       "label": "Home",
       "href": "/"
@@ -23,7 +116,7 @@
       "label": "ETL Testing Corporate Training"
     }
   ],
-  "hero": {
+  "course_hero": {
     "kicker": "Corporate training · Data Engineering",
     "heading": "ETL Testing Corporate Training",
     "subhead": "Learn to catch bad data before the business does, on every single load.",
@@ -62,17 +155,9 @@
     ],
     "illustration_url": "/course-banners/etl-testing-banner.svg"
   },
-  "gap": {
+  "course_gap": {
     "eyebrow": "Why teams train now",
-    "heading": [
-      {
-        "text": "Where Data Pipeline Testing Breaks Down, and What Your Team Learns in"
-      },
-      {
-        "text": "ETL Testing Corporate Training",
-        "is_italic": true
-      }
-    ],
+    "heading": "Where Data Pipeline Testing Breaks Down, and What Your Team Learns in <span>ETL Testing Corporate Training</span>",
     "lead": "ETL Testing Corporate Training is for data and engineering leaders who need the pipelines behind their reports, AI work and migrations to be trusted. Without disciplined testing, the business spots wrong numbers first, month-end reports disagree with the source and a cloud migration cannot be signed off. The training builds that testing capability across data engineering, QA and BI teams.",
     "stats": [
       {
@@ -114,17 +199,9 @@
       "href": "#quote"
     }
   },
-  "lab": {
+  "course_lab": {
     "eyebrow": "Learning through practice",
-    "heading": [
-      {
-        "text": "Practise the Data Pipeline Testing Decisions"
-      },
-      {
-        "text": "Your Data Teams Face",
-        "is_italic": true
-      }
-    ],
+    "heading": "Practise the Data Pipeline Testing Decisions <span>Your Data Teams Face</span>",
     "lead": "Explore sample exercises from ETL Testing Corporate Training. Participants practise decisions, compare approaches and receive instructor feedback.",
     "badge": "Sample learning experience",
     "list_label": "Choose a practice scenario",
@@ -142,17 +219,17 @@
     },
     "scenarios": [
       {
-        "ic": "chart",
-        "mod": 3,
-        "t": "Month-end totals will not match billing",
-        "s": "Finance compares the warehouse report with the billing system, and the totals differ.",
+        "icon": "chart",
+        "module_number": 3,
+        "short_title": "Month-end totals will not match billing",
+        "summary": "Finance compares the warehouse report with the billing system, and the totals differ.",
         "title": "Learn to reconcile source and target data",
-        "fmt": [
+        "formats": [
           "Small-group exercise",
           "Group comparison",
           "Individual reflection"
         ],
-        "cap": "Reconcile each load against its source and show exactly where and why the totals differ.",
+        "capability": "Reconcile each load against its source and show exactly where and why the totals differ.",
         "practice": [
           "Participants work a sample month-end gap and choose where the reconciliation starts.",
           "Select a choice to reveal the question to practise."
@@ -166,37 +243,37 @@
           "Your notes stay on this page only. Nothing is saved or sent."
         ],
         "case": {
-          "k": "Fictional sample",
-          "q": "This month's risk report total is lower than the billing system. Close is on Friday, and the auditors will ask which number is right.",
-          "src": "Month-end ticket from a bank's finance team (fictional sample)"
+          "tag": "Fictional sample",
+          "quote": "This month's risk report total is lower than the billing system. Close is on Friday, and the auditors will ask which number is right.",
+          "source": "Month-end ticket from a bank's finance team (fictional sample)"
         },
         "choices": [
           {
-            "k": "Compare row counts first",
-            "q": "Do the record counts match between the billing extract and the warehouse table, and if not, which records were dropped or rejected during the load?"
+            "label": "Compare row counts first",
+            "question": "Do the record counts match between the billing extract and the warehouse table, and if not, which records were dropped or rejected during the load?"
           },
           {
-            "k": "Check the joins",
-            "q": "Which join in the transformation could be losing rows, and what query shows the rows that went missing?"
+            "label": "Check the joins",
+            "question": "Which join in the transformation could be losing rows, and what query shows the rows that went missing?"
           },
           {
-            "k": "Compare key figures",
-            "q": "Where do nulls, rounding or data type conversions change the values on the way, and which key figure shows it first?"
+            "label": "Compare key figures",
+            "question": "Where do nulls, rounding or data type conversions change the values on the way, and which key figure shows it first?"
           }
         ],
         "readings": [
           {
-            "k": "Reading A",
-            "b": "The load dropped records",
-            "asm": [
+            "label": "Reading A",
+            "claim": "The load dropped records",
+            "assumptions": [
               "Rejected rows were never logged or reported",
               "The counts differ, so the gap is in the records, not the values"
             ]
           },
           {
-            "k": "Reading B",
-            "b": "The values changed in transformation",
-            "asm": [
+            "label": "Reading B",
+            "claim": "The values changed in transformation",
+            "assumptions": [
               "The counts match, so no rows were lost",
               "Rounding and type conversions shifted the amounts on the way"
             ]
@@ -223,17 +300,17 @@
         "heading": "Learn to Reconcile Source and Target Data"
       },
       {
-        "ic": "list",
-        "mod": 4,
-        "t": "The rerun counted orders twice",
-        "s": "After last night's load was rerun, the revenue total includes the same orders twice.",
+        "icon": "list",
+        "module_number": 4,
+        "short_title": "The rerun counted orders twice",
+        "summary": "After last night's load was rerun, the revenue total includes the same orders twice.",
         "title": "Learn to test transformations, incremental loads and history",
-        "fmt": [
+        "formats": [
           "Small-group exercise",
           "Group comparison",
           "Individual reflection"
         ],
-        "cap": "Test delta loads and unique keys so a rerun never adds the same record twice.",
+        "capability": "Test delta loads and unique keys so a rerun never adds the same record twice.",
         "practice": [
           "Participants work a sample duplicate-orders ticket and choose where to look first.",
           "Select a choice to reveal the question to practise."
@@ -247,37 +324,37 @@
           "Your notes stay on this page only. Nothing is saved or sent."
         ],
         "case": {
-          "k": "Fictional sample",
-          "q": "Our order count jumped overnight after the load was rerun. Yesterday's sales total is clearly too high.",
-          "src": "Analyst ticket from a retailer (fictional sample)"
+          "tag": "Fictional sample",
+          "quote": "Our order count jumped overnight after the load was rerun. Yesterday's sales total is clearly too high.",
+          "source": "Analyst ticket from a retailer (fictional sample)"
         },
         "choices": [
           {
-            "k": "Check the unique key",
-            "q": "Which column should identify each order, and does the load match new rows against it, including rows where the key is empty?"
+            "label": "Check the unique key",
+            "question": "Which column should identify each order, and does the load match new rows against it, including rows where the key is empty?"
           },
           {
-            "k": "Compare with a full load",
-            "q": "When you reconcile this delta load against a full load, where do you find overlaps or gaps?"
+            "label": "Compare with a full load",
+            "question": "When you reconcile this delta load against a full load, where do you find overlaps or gaps?"
           },
           {
-            "k": "Review the change capture",
-            "q": "Which records did change data capture pick up twice, and what test would have caught the overlap before the rerun?"
+            "label": "Review the change capture",
+            "question": "Which records did change data capture pick up twice, and what test would have caught the overlap before the rerun?"
           }
         ],
         "readings": [
           {
-            "k": "Reading A",
-            "b": "The duplicates come from empty or unreliable unique keys",
-            "asm": [
+            "label": "Reading A",
+            "claim": "The duplicates come from empty or unreliable unique keys",
+            "assumptions": [
               "Some source orders arrive without a key value",
               "The load inserts any row it cannot match"
             ]
           },
           {
-            "k": "Reading B",
-            "b": "The duplicates come from rerunning a load that only appends",
-            "asm": [
+            "label": "Reading B",
+            "claim": "The duplicates come from rerunning a load that only appends",
+            "assumptions": [
               "The keys are complete and correct",
               "The load adds rows again instead of matching existing ones"
             ]
@@ -304,17 +381,17 @@
         "heading": "Learn to Test Transformations, Incremental Loads and History"
       },
       {
-        "ic": "shield",
-        "mod": 6,
-        "t": "A CRM column was renamed overnight",
-        "s": "Another team renamed a CRM column, and the morning load failed before anyone knew.",
+        "icon": "shield",
+        "module_number": 6,
+        "short_title": "A CRM column was renamed overnight",
+        "summary": "Another team renamed a CRM column, and the morning load failed before anyone knew.",
         "title": "Learn to catch source changes and late data before the business does",
-        "fmt": [
+        "formats": [
           "Small-group exercise",
           "Group comparison",
           "Individual reflection"
         ],
-        "cap": "Agree a data contract with the source team and add checks that stop the load and alert the team before reports are hit.",
+        "capability": "Agree a data contract with the source team and add checks that stop the load and alert the team before reports are hit.",
         "practice": [
           "Participants work a sample release note and choose the first safeguard to put in place.",
           "Select a choice to reveal the question to practise."
@@ -328,37 +405,37 @@
           "Your notes stay on this page only. Nothing is saved or sent."
         ],
         "case": {
-          "k": "Fictional sample",
-          "q": "Heads up: in tonight's CRM release we are renaming the customer status column and changing the signup date to text. Should be harmless.",
-          "src": "Release note from an insurer's CRM team (fictional sample)"
+          "tag": "Fictional sample",
+          "quote": "Heads up: in tonight's CRM release we are renaming the customer status column and changing the signup date to text. Should be harmless.",
+          "source": "Release note from an insurer's CRM team (fictional sample)"
         },
         "choices": [
           {
-            "k": "Add a schema check",
-            "q": "Which columns and types does the pipeline depend on, and what check would stop the load when one of them is renamed or retyped?"
+            "label": "Add a schema check",
+            "question": "Which columns and types does the pipeline depend on, and what check would stop the load when one of them is renamed or retyped?"
           },
           {
-            "k": "Write a data contract",
-            "q": "What schema, data quality rules and service levels should the CRM team and the data team agree before the next release?"
+            "label": "Write a data contract",
+            "question": "What schema, data quality rules and service levels should the CRM team and the data team agree before the next release?"
           },
           {
-            "k": "Add a freshness check",
-            "q": "If the load is stopped, how will the team and the business know the data is late before the 9 a.m. dashboard?"
+            "label": "Add a freshness check",
+            "question": "If the load is stopped, how will the team and the business know the data is late before the 9 a.m. dashboard?"
           }
         ],
         "readings": [
           {
-            "k": "Reading A",
-            "b": "Guard it in the pipeline with schema tests on every load",
-            "asm": [
+            "label": "Reading A",
+            "claim": "Guard it in the pipeline with schema tests on every load",
+            "assumptions": [
               "Source teams will keep changing columns without notice",
               "Stopping the load is better than loading wrong data"
             ]
           },
           {
-            "k": "Reading B",
-            "b": "Agree it at the source with a data contract before each release",
-            "asm": [
+            "label": "Reading B",
+            "claim": "Agree it at the source with a data contract before each release",
+            "assumptions": [
               "The CRM team will accept a versioned contract",
               "Changes can be checked by tools before they are released"
             ]
@@ -385,17 +462,17 @@
         "heading": "Learn to Catch Source Changes and Late Data Before the Business Does"
       },
       {
-        "ic": "target",
-        "mod": 8,
-        "t": "One change broke a report elsewhere",
-        "s": "A transformation change went live, and a report owned by another team stopped adding up.",
+        "icon": "target",
+        "module_number": 8,
+        "short_title": "One change broke a report elsewhere",
+        "summary": "A transformation change went live, and a report owned by another team stopped adding up.",
         "title": "Learn to run regression tests on every pipeline change",
-        "fmt": [
+        "formats": [
           "Small-group exercise",
           "Group comparison",
           "Individual reflection"
         ],
-        "cap": "Run a regression suite in CI that blocks a breaking change before it reaches production.",
+        "capability": "Run a regression suite in CI that blocks a breaking change before it reaches production.",
         "practice": [
           "Participants work a sample incident and choose where a test would have stopped it.",
           "Select a choice to reveal the question to practise."
@@ -409,37 +486,37 @@
           "Your notes stay on this page only. Nothing is saved or sent."
         ],
         "case": {
-          "k": "Fictional sample",
-          "q": "We changed the discount logic in one model last week. Now the margin report in another team is off, and we have spent days tracing it.",
-          "src": "Incident note from a technology company's data team (fictional sample)"
+          "tag": "Fictional sample",
+          "quote": "We changed the discount logic in one model last week. Now the margin report in another team is off, and we have spent days tracing it.",
+          "source": "Incident note from a technology company's data team (fictional sample)"
         },
         "choices": [
           {
-            "k": "Test on the full load",
-            "q": "Why did the change pass on sample data, and what changes when the same test runs on the full load?"
+            "label": "Test on the full load",
+            "question": "Why did the change pass on sample data, and what changes when the same test runs on the full load?"
           },
           {
-            "k": "Test everything downstream",
-            "q": "Which models and reports sit downstream of the changed one, and how would you build and test them in a separate schema?"
+            "label": "Test everything downstream",
+            "question": "Which models and reports sit downstream of the changed one, and how would you build and test them in a separate schema?"
           },
           {
-            "k": "Gate the merge in CI",
-            "q": "Which checks must pass before a change can merge, and what does the runbook say to do when one fails?"
+            "label": "Gate the merge in CI",
+            "question": "Which checks must pass before a change can merge, and what does the runbook say to do when one fails?"
           }
         ],
         "readings": [
           {
-            "k": "Reading A",
-            "b": "Each change needs a fuller manual test before release",
-            "asm": [
+            "label": "Reading A",
+            "claim": "Each change needs a fuller manual test before release",
+            "assumptions": [
               "The team has time to test every change by hand",
               "The tester knows every report the change can reach"
             ]
           },
           {
-            "k": "Reading B",
-            "b": "Each change should pass an automated regression suite in CI before it merges",
-            "asm": [
+            "label": "Reading B",
+            "claim": "Each change should pass an automated regression suite in CI before it merges",
+            "assumptions": [
               "The checks already exist as reusable SQL assertions",
               "A failed run blocks the merge"
             ]
@@ -466,17 +543,17 @@
         "heading": "Learn to Run Regression Tests on Every Pipeline Change"
       },
       {
-        "ic": "file",
-        "mod": 9,
-        "t": "The cloud warehouse cannot get sign-off",
-        "s": "After the move from Oracle to Snowflake, side-by-side reports show small differences.",
+        "icon": "file",
+        "module_number": 9,
+        "short_title": "The cloud warehouse cannot get sign-off",
+        "summary": "After the move from Oracle to Snowflake, side-by-side reports show small differences.",
         "title": "Learn to validate a migration to a cloud data warehouse",
-        "fmt": [
+        "formats": [
           "Small-group exercise",
           "Group comparison",
           "Individual reflection"
         ],
-        "cap": "Prove parity between the old and new warehouse row by row and write the report the business signs off.",
+        "capability": "Prove parity between the old and new warehouse row by row and write the report the business signs off.",
         "practice": [
           "Participants work a sample sign-off request and choose how to prove parity.",
           "Select a choice to reveal the question to practise."
@@ -490,37 +567,37 @@
           "Your notes stay on this page only. Nothing is saved or sent."
         ],
         "case": {
-          "k": "Fictional sample",
-          "q": "Row counts match between Oracle and Snowflake, but the claims totals are still slightly different. We cannot sign off the go-live like this.",
-          "src": "Sign-off email from a healthcare payer's reporting lead (fictional sample)"
+          "tag": "Fictional sample",
+          "quote": "Row counts match between Oracle and Snowflake, but the claims totals are still slightly different. We cannot sign off the go-live like this.",
+          "source": "Sign-off email from a healthcare payer's reporting lead (fictional sample)"
         },
         "choices": [
           {
-            "k": "Compare row by row",
-            "q": "Which rows and columns differ when you compare the two warehouses value by value, not only by count?"
+            "label": "Compare row by row",
+            "question": "Which rows and columns differ when you compare the two warehouses value by value, not only by count?"
           },
           {
-            "k": "Check the conversions",
-            "q": "Where do nulls, rounding, type casting or query logic behave differently on the new system?"
+            "label": "Check the conversions",
+            "question": "Where do nulls, rounding, type casting or query logic behave differently on the new system?"
           },
           {
-            "k": "Set the baselines",
-            "q": "Which baseline counts, totals and key figures should be fixed before each stage is compared again?"
+            "label": "Set the baselines",
+            "question": "Which baseline counts, totals and key figures should be fixed before each stage is compared again?"
           }
         ],
         "readings": [
           {
-            "k": "Reading A",
-            "b": "Matching row counts show the migration is complete",
-            "asm": [
+            "label": "Reading A",
+            "claim": "Matching row counts show the migration is complete",
+            "assumptions": [
               "No rows were lost in the move",
               "Small value differences will not change decisions"
             ]
           },
           {
-            "k": "Reading B",
-            "b": "Parity needs a value-by-value comparison, with every difference explained",
-            "asm": [
+            "label": "Reading B",
+            "claim": "Parity needs a value-by-value comparison, with every difference explained",
+            "assumptions": [
               "Rounding and type casting can change values with no change in counts",
               "The business signs off only on explained differences"
             ]
@@ -572,17 +649,9 @@
       "href": "#quote"
     }
   },
-  "overview": {
+  "course_overview": {
     "eyebrow": "Program overview",
-    "heading": [
-      {
-        "text": "ETL Testing Corporate Training:"
-      },
-      {
-        "text": "Program Overview",
-        "is_italic": true
-      }
-    ],
+    "heading": "ETL Testing Corporate Training: <span>Program Overview</span>",
     "definition": "<strong>ETL Testing Corporate Training</strong> is instructor-led training on testing ETL pipelines behind business reports, in which data engineering, QA and BI teams learn to plan tests from the source-to-target mapping, reconcile source and target data, test transformations, incremental loads and history, and automate data quality and regression checks in CI, practiced in hands-on labs on the team's own pipeline scenarios.",
     "paragraphs": [
       "This instructor-led ETL Testing Corporate Training turns test planning, source-to-target reconciliation, transformation and history testing, and automated checks in CI into practice on the work your team already has.",
@@ -621,17 +690,9 @@
       "Participants get feedback on every lab. They finish with a capstone: a tested pipeline, its regression suite and the test completion report, presented for instructor review."
     ]
   },
-  "outcomes": {
+  "course_outcomes": {
     "eyebrow": "What your team will be able to do",
-    "heading": [
-      {
-        "text": "What Your Team Can Do After"
-      },
-      {
-        "text": "ETL Testing Corporate Training",
-        "is_italic": true
-      }
-    ],
+    "heading": "What Your Team Can Do After <span>ETL Testing Corporate Training</span>",
     "tower_labels": [
       "PLANNING",
       "RECONCILE",
@@ -643,49 +704,49 @@
     ],
     "items": [
       {
-        "n": "1",
+        "number": "1",
         "label": "Plan",
         "text": "Able to write a pipeline test plan with entry and exit criteria and a test case for every mapped column.",
         "result": "Your team tests each pipeline release to a plan, so wrong numbers are caught before the business emails about them."
       },
       {
-        "n": "2",
+        "number": "2",
         "label": "Reconcile",
         "text": "Able to match row counts, checksums and totals between source and target and find the dropped records.",
         "result": "Your team closes month end with warehouse totals that match the billing system, or shows exactly where they differ, instead of days of reconciling by hand."
       },
       {
-        "n": "3",
+        "number": "3",
         "label": "Test",
         "text": "Able to test delta loads, type 2 history and duplicate keys with SQL assertions that return the failing rows.",
         "result": "Your team keeps customers and orders counted once, and last quarter’s report gives the same answer when it is rerun."
       },
       {
-        "n": "4",
+        "number": "4",
         "label": "Guard",
         "text": "Able to write a data contract for a source feed and add schema and freshness checks that stop the load.",
         "result": "Your team hears about a renamed CRM column or a late extract before the 9 a.m. dashboard, not from users."
       },
       {
-        "n": "5",
+        "number": "5",
         "label": "Report",
         "text": "Able to log a data defect in Jira with the failing rows, a severity and the expected and actual results.",
         "result": "Your team sends each data defect to the right owner with the evidence to fix it, and leads can show test coverage to auditors."
       },
       {
-        "n": "6",
+        "number": "6",
         "label": "Automate",
         "text": "Able to run a regression suite in CI that blocks a breaking change before it reaches production.",
         "result": "Your team stops a change to one transformation from breaking a report elsewhere, and gets its week back for new work."
       },
       {
-        "n": "7",
+        "number": "7",
         "label": "Compare",
         "text": "Able to compare an old and a new warehouse row by row and explain each difference in a parity report.",
         "result": "Your team takes the new cloud warehouse live on evidence the business signs off, not after weeks of manual comparison."
       }
     ],
-    "band": {
+    "banner": {
       "heading": "Turn ETL Testing Corporate Training Into Reports the Business Can Trust With Edstellar",
       "text": "Edstellar maps each skill to your team’s goals, such as month-end totals that match the source system or fewer data errors found by the business first, tracks progress after the program and shows the results.",
       "label": "Plan your learning outcomes",
@@ -696,17 +757,9 @@
       "image_height": 258
     }
   },
-  "outline": {
+  "course_outline": {
     "eyebrow": "Program outline",
-    "heading": [
-      {
-        "text": "ETL Testing Corporate Training"
-      },
-      {
-        "text": "Program Outline",
-        "is_italic": true
-      }
-    ],
+    "heading": "ETL Testing Corporate Training <span>Program Outline</span>",
     "lead": "~40 hours across 10 modules, about 70% hands-on practice. Edstellar customizes the duration, module mix and schedule to your scope.",
     "summary": [
       {
@@ -1154,17 +1207,9 @@
       "href": "#quote"
     }
   },
-  "toolkit": {
+  "course_toolkit": {
     "eyebrow": "The framework arsenal",
-    "heading": [
-      {
-        "text": "The Tools and Techniques Your Team Learns to Put Into Practice in"
-      },
-      {
-        "text": "ETL Testing Corporate Training",
-        "is_italic": true
-      }
-    ],
+    "heading": "The Tools and Techniques Your Team Learns to Put Into Practice in <span>ETL Testing Corporate Training</span>",
     "lead": "Explore the tools and techniques participants learn, practise in guided labs and carry into their own pipeline testing.",
     "badge": "Interactive toolkit preview",
     "list_label": "Explore a framework",
@@ -1196,11 +1241,11 @@
     ],
     "frameworks": [
       {
-        "mod": "02",
+        "module_number": "02",
         "title": "Test process for a pipeline (ISTQB)",
-        "sub": "Learn to test every pipeline release the same planned way, from plan to completion.",
-        "pr": "Participants turn a source-to-target mapping into a test plan and traced test cases in the ETL test case template.",
-        "cap": "Plan, run and close the testing of a pipeline release instead of relying on spot checks.",
+        "subtitle": "Learn to test every pipeline release the same planned way, from plan to completion.",
+        "practice_summary": "Participants turn a source-to-target mapping into a test plan and traced test cases in the ETL test case template.",
+        "capability": "Plan, run and close the testing of a pipeline release instead of relying on spot checks.",
         "view": {
           "parts": [
             [
@@ -1279,11 +1324,11 @@
         "icon": "grid"
       },
       {
-        "mod": "09",
+        "module_number": "09",
         "title": "Migration parity validation",
-        "sub": "Learn to prove the new cloud warehouse matches the old one before cutover.",
-        "pr": "Participants compare an Oracle source and a Snowflake target row by row, check a PowerCenter mapping migrated to IDMC against its original, explain each difference and write the migration parity report for sign-off.",
-        "cap": "Show the business, with evidence, that the new warehouse is ready to go live.",
+        "subtitle": "Learn to prove the new cloud warehouse matches the old one before cutover.",
+        "practice_summary": "Participants compare an Oracle source and a Snowflake target row by row, check a PowerCenter mapping migrated to IDMC against its original, explain each difference and write the migration parity report for sign-off.",
+        "capability": "Show the business, with evidence, that the new warehouse is ready to go live.",
         "view": {
           "parts": [
             [
@@ -1362,11 +1407,11 @@
         "icon": "file"
       },
       {
-        "mod": "03",
+        "module_number": "03",
         "title": "Reconcile after every load",
-        "sub": "Learn to compare source and target after each run, so the totals match or the gap is explained.",
-        "pr": "Participants close a month-end gap between a billing system and the warehouse report, working through the reconciliation checklist.",
-        "cap": "Show exactly where and why the warehouse differs from the source system.",
+        "subtitle": "Learn to compare source and target after each run, so the totals match or the gap is explained.",
+        "practice_summary": "Participants close a month-end gap between a billing system and the warehouse report, working through the reconciliation checklist.",
+        "capability": "Show exactly where and why the warehouse differs from the source system.",
         "view": {
           "parts": [
             [
@@ -1445,11 +1490,11 @@
         "icon": "shield-plain"
       },
       {
-        "mod": "07",
+        "module_number": "07",
         "title": "Test monitoring and test control (ISTQB)",
-        "sub": "Learn to track test results and defects, then adjust the testing where the numbers show gaps.",
-        "pr": "Participants log three data defects in Jira with the failing rows as evidence, triage them, and report test progress against the plan.",
-        "cap": "Show test progress and coverage to leads and auditors, and steer the testing to where defects appear.",
+        "subtitle": "Learn to track test results and defects, then adjust the testing where the numbers show gaps.",
+        "practice_summary": "Participants log three data defects in Jira with the failing rows as evidence, triage them, and report test progress against the plan.",
+        "capability": "Show test progress and coverage to leads and auditors, and steer the testing to where defects appear.",
         "view": {
           "parts": [
             [
@@ -1528,11 +1573,11 @@
         "icon": "bars"
       },
       {
-        "mod": "08",
+        "module_number": "08",
         "title": "Regression on every change, gated in CI",
-        "sub": "Learn to test every change and everything downstream before it reaches production.",
-        "pr": "Participants turn the assertion library into a regression suite that runs in CI and blocks a breaking change, then write the CI runbook.",
-        "cap": "Stop a change to one transformation from breaking a report elsewhere unnoticed.",
+        "subtitle": "Learn to test every change and everything downstream before it reaches production.",
+        "practice_summary": "Participants turn the assertion library into a regression suite that runs in CI and blocks a breaking change, then write the CI runbook.",
+        "capability": "Stop a change to one transformation from breaking a report elsewhere unnoticed.",
         "view": {
           "parts": [
             [
@@ -1611,11 +1656,11 @@
         "icon": "database"
       },
       {
-        "mod": "05",
+        "module_number": "05",
         "title": "SQL assertion library",
-        "sub": "Learn to write reusable checks that return the failing rows, where zero rows means a pass.",
-        "pr": "Participants build a SQL assertion library for a customer and orders model and run it as dbt tests and a Great Expectations suite.",
-        "cap": "Catch wrong, missing and duplicate records with the team's own checks, before the business does.",
+        "subtitle": "Learn to write reusable checks that return the failing rows, where zero rows means a pass.",
+        "practice_summary": "Participants build a SQL assertion library for a customer and orders model and run it as dbt tests and a Great Expectations suite.",
+        "capability": "Catch wrong, missing and duplicate records with the team's own checks, before the business does.",
         "view": {
           "parts": [
             [
@@ -1921,17 +1966,9 @@
     },
     "note_disclaimer": "Frameworks, tools and logos are shown for teaching purposes; Edstellar is not affiliated with their publishers, and the tool mix is tailored to each client."
   },
-  "fit": {
+  "course_fit": {
     "eyebrow": "Find your cohort's learning fit",
-    "heading": [
-      {
-        "text": "Where ETL Testing Corporate Training Fits"
-      },
-      {
-        "text": "Your Team",
-        "is_italic": true
-      }
-    ],
+    "heading": "Where ETL Testing Corporate Training Fits <span>Your Team</span>",
     "lead": "Edstellar tailors ETL Testing Corporate Training to each participant's part in testing the data pipelines behind the company's reports. Explore how examples, instructor-led labs and discussions are adapted to different levels of data quality ownership.",
     "select_label": "Select a Level of Data Quality Ownership",
     "scale_note": "Step height reflects data quality ownership scope. Every level gets role-relevant practice.",
@@ -1944,15 +1981,13 @@
     "levels": [
       {
         "name": "ETL testers and QA engineers",
-        "sub": "Test every pipeline load",
+        "subtitle": "Test every pipeline load",
         "icon": "users",
         "role": "ETL testers",
-        "head": "ETL Testing Corporate Training for ETL testers and QA engineers",
-        "subl": "Learn to test each load against the mapping document and show the business where its numbers differ from the source.",
-        "cap": "Participants turn a mapping document into traced test cases and reconcile a load with record counts, totals and SQL checks.",
+        "description": "Learn to test each load against the mapping document and show the business where its numbers differ from the source.",
+        "capability": "Participants turn a mapping document into traced test cases and reconcile a load with record counts, totals and SQL checks.",
         "learn": {
-          "t": "Learn to test a load from the mapping document",
-          "d": "The mapping document, reconciliation and data-level checks for the people who test each release.",
+          "description": "The mapping document, reconciliation and data-level checks for the people who test each release.",
           "topics": [
             [
               "eye",
@@ -1973,11 +2008,10 @@
           "heading": "Learn to Test a Load From the Mapping Document"
         },
         "practice": {
-          "t": "Practice answering a finance analyst about a total that does not match",
-          "d": "A fictional finance analyst reports that the warehouse total differs from billing at month end; participants trace and explain the gap.",
+          "description": "A fictional finance analyst reports that the warehouse total differs from billing at month end; participants trace and explain the gap.",
           "kind": "conv",
           "note": "Sample exercise · fictional case · instructor-guided debrief",
-          "hs": [
+          "hints": [
             "Which stage should I compare first, and what query shows where the rows were lost?",
             "How would you explain a rounding difference to the analyst without SQL terms?",
             "What check would stop this gap from reaching next month's close?"
@@ -1999,10 +2033,9 @@
           "heading": "Practice Answering a Finance Analyst About a Total That Does Not Match"
         },
         "apply": {
-          "t": "Build the load testing section of the team playbook",
-          "d": "Participants draft the checks they run on the pipelines they test.",
+          "description": "Participants draft the checks they run on the pipelines they test.",
           "book": "Testing each load",
-          "heads": [
+          "headings": [
             [
               "Traced test cases",
               "Participants practice drafting the mapping document columns and the test cases that cover them."
@@ -2022,15 +2055,13 @@
       },
       {
         "name": "Data engineers, ETL developers and analytics engineers",
-        "sub": "Build tests into pipelines",
+        "subtitle": "Build tests into pipelines",
         "icon": "branch",
         "role": "Data engineers",
-        "head": "ETL Testing Corporate Training for data engineers, ETL developers and analytics engineers",
-        "subl": "Learn to build data quality checks, history tests and regression tests into the pipelines and models you own.",
-        "cap": "Participants build a SQL assertion library and incremental-load and SCD tests, and run them as a regression suite in CI.",
+        "description": "Learn to build data quality checks, history tests and regression tests into the pipelines and models you own.",
+        "capability": "Participants build a SQL assertion library and incremental-load and SCD tests, and run them as a regression suite in CI.",
         "learn": {
-          "t": "Learn to build tests into the pipeline",
-          "d": "Transformations, incremental loads, history and automated checks for the people who build the pipelines.",
+          "description": "Transformations, incremental loads, history and automated checks for the people who build the pipelines.",
           "topics": [
             [
               "swap",
@@ -2051,11 +2082,10 @@
           "heading": "Learn to Build Tests Into the Pipeline"
         },
         "practice": {
-          "t": "Practice deciding where tests go first",
-          "d": "Participants place fictional warehouse tables by business impact and how often they change, then choose the checks for each.",
+          "description": "Participants place fictional warehouse tables by business impact and how often they change, then choose the checks for each.",
           "kind": "matrix",
           "note": "Sample exercise · fictional case · instructor-guided debrief",
-          "hs": [
+          "hints": [
             "Which table needs a regression test in CI first, and why?",
             "Where would your team place the table its revenue dashboard reads?",
             "What would a rerun of last night's load do to the orders table if the unique key had empty values?"
@@ -2086,10 +2116,9 @@
           "heading": "Practice Deciding Where Tests Go First"
         },
         "apply": {
-          "t": "Build the automated checks section of the team playbook",
-          "d": "Participants draft the tests they will add to their own pipelines.",
+          "description": "Participants draft the tests they will add to their own pipelines.",
           "book": "Automated checks and regression",
-          "heads": [
+          "headings": [
             [
               "SQL assertion library",
               "Participants practice drafting the unique, not null, accepted values and relationships checks for each model."
@@ -2109,15 +2138,13 @@
       },
       {
         "name": "ETL QA leads and data engineering managers",
-        "sub": "Own the test approach",
+        "subtitle": "Own the test approach",
         "icon": "compass",
         "role": "QA leads",
-        "head": "ETL Testing Corporate Training for ETL QA leads and data engineering managers",
-        "subl": "Learn to set one test approach for every pipeline, track coverage and sign off warehouse migrations on evidence.",
-        "cap": "Participants write an ETL test strategy with entry and exit criteria and plan migration parity validation through to sign-off.",
+        "description": "Learn to set one test approach for every pipeline, track coverage and sign off warehouse migrations on evidence.",
+        "capability": "Participants write an ETL test strategy with entry and exit criteria and plan migration parity validation through to sign-off.",
         "learn": {
-          "t": "Learn to lead the test approach and migration sign-off",
-          "d": "Test strategy, test monitoring and migration parity for the people who own releases and sign-off.",
+          "description": "Test strategy, test monitoring and migration parity for the people who own releases and sign-off.",
           "topics": [
             [
               "target",
@@ -2138,11 +2165,10 @@
           "heading": "Learn to Lead the Test Approach and Migration Sign-Off"
         },
         "practice": {
-          "t": "Practice choosing how to sign off a warehouse migration",
-          "d": "Participants compare three fictional sign-off options for an Oracle to Snowflake move on risk, effort and time to sign-off.",
+          "description": "Participants compare three fictional sign-off options for an Oracle to Snowflake move on risk, effort and time to sign-off.",
           "kind": "invest",
           "note": "Sample exercise · fictional case · instructor-guided debrief",
-          "hs": [
+          "hints": [
             "Why are matching row counts not enough proof, and which tables would you compare row by row first?",
             "How would the finance team and the data team each judge these options?",
             "What has to be in the migration parity report before you ask for sign-off?"
@@ -2192,10 +2218,9 @@
           "heading": "Practice Choosing How to Sign Off a Warehouse Migration"
         },
         "apply": {
-          "t": "Build the strategy and sign-off sections of the team playbook",
-          "d": "Participants draft the approach their team will follow on every release and migration.",
+          "description": "Participants draft the approach their team will follow on every release and migration.",
           "book": "Test strategy and sign-off",
-          "heads": [
+          "headings": [
             [
               "ETL test strategy",
               "Participants practice drafting scope, approach, entry and exit criteria and risks for each pipeline."
@@ -2215,15 +2240,13 @@
       },
       {
         "name": "Mixed data engineering, QA and BI teams",
-        "sub": "One trusted report",
+        "subtitle": "One trusted report",
         "icon": "layers",
         "role": "Mixed cohort",
-        "head": "ETL Testing Corporate Training for mixed data engineering, QA and BI teams",
-        "subl": "Learn to test one pipeline together, from a source change to the report the business reads.",
-        "cap": "Participants take one pipeline change through the full test process, each role doing its part, from the data contract to a gated release.",
+        "description": "Learn to test one pipeline together, from a source change to the report the business reads.",
+        "capability": "Participants take one pipeline change through the full test process, each role doing its part, from the data contract to a gated release.",
         "learn": {
-          "t": "Learn the shared pipeline test process",
-          "d": "The test process, the quality dimensions and who checks what at each stage.",
+          "description": "The test process, the quality dimensions and who checks what at each stage.",
           "topics": [
             [
               "layers",
@@ -2244,11 +2267,10 @@
           "heading": "Learn the Shared Pipeline Test Process"
         },
         "practice": {
-          "t": "Practice handling one source change across three roles",
-          "d": "One fictional source change is worked from three perspectives.",
+          "description": "One fictional source change is worked from three perspectives.",
           "kind": "lanes",
           "note": "Sample exercise · fictional case · instructor-guided debrief",
-          "hs": [
+          "hints": [
             "What does each role need from the others before the dashboard is back?",
             "Where do the three perspectives conflict, and how would you settle it?",
             "Which schema and freshness checks would you add before the next CRM release?"
@@ -2274,10 +2296,9 @@
           "heading": "Practice Handling One Source Change Across Three Roles"
         },
         "apply": {
-          "t": "Build the shared change section of the team playbook",
-          "d": "The cohort drafts the steps all teams follow when a source changes.",
+          "description": "The cohort drafts the steps all teams follow when a source changes.",
           "book": "Handling source changes together",
-          "heads": [
+          "headings": [
             [
               "Data contract",
               "Participants practice drafting the schema, quality rules and service levels for each feed."
@@ -2335,17 +2356,9 @@
     "default_level": 1,
     "default_tab": "practice"
   },
-  "audience": {
+  "course_audience": {
     "eyebrow": "Who it's for",
-    "heading": [
-      {
-        "text": "Who This ETL Testing Corporate Training Program"
-      },
-      {
-        "text": "Is For",
-        "is_italic": true
-      }
-    ],
+    "heading": "Who This ETL Testing Corporate Training Program <span>Is For</span>",
     "lead": "This program is for data engineering, QA and testing, BI and analytics and data governance teams that build or test the pipelines behind the company's reports, across industries, departments and roles. Edstellar adapts the cases and labs to your sector and functions, and the program is often commissioned by data engineering and QA managers with L&D and HR. Participants should know relational database, core data and software testing basics; SQL and basic data pipeline concepts help but are not required.",
     "lenses": [
       {
@@ -2755,15 +2768,7 @@
       }
     ],
     "progression": {
-      "heading": [
-        {
-          "text": "How Skills Grow Through ETL Testing Corporate Training:"
-        },
-        {
-          "text": "From SQL and Database Basics to Testing Data Pipelines End to End",
-          "is_italic": true
-        }
-      ],
+      "heading": "How Skills Grow Through ETL Testing Corporate Training: <span>From SQL and Database Basics to Testing Data Pipelines End to End</span>",
       "text": "Where participants typically start and finish on each skill. A short assessment sets each participant's starting point, and the capstone shows the progress made.",
       "levels": [
         "Foundation",
@@ -2825,16 +2830,8 @@
       "href": "#quote"
     }
   },
-  "realworld": {
-    "heading": [
-      {
-        "text": "ETL Testing"
-      },
-      {
-        "text": "in the Real World",
-        "is_italic": true
-      }
-    ],
+  "course_realworld": {
+    "heading": "ETL Testing <span>in the Real World</span>",
     "lead": "These public examples show the same ETL testing ideas your team practices: data quality rules, regression tests on every change and parity checks in a migration. They are not affiliated with Edstellar.",
     "examples": [
       {
@@ -2857,17 +2854,9 @@
       }
     ]
   },
-  "delivery": {
+  "course_delivery": {
     "eyebrow": "How Edstellar delivers",
-    "heading": [
-      {
-        "text": "How Edstellar Delivers ETL Testing Corporate Training: Methodology, Modes and"
-      },
-      {
-        "text": "Customization",
-        "is_italic": true
-      }
-    ],
+    "heading": "How Edstellar Delivers ETL Testing Corporate Training: Methodology, Modes and <span>Customization</span>",
     "lead": "Edstellar runs ETL Testing Corporate Training as instructor-led training for your teams: onsite, live virtual or hybrid, customized to your data pipelines, warehouse and test tools, and delivered in six clear stages from training needs analysis to skill assessment.",
     "controls": {
       "scale": {
@@ -2888,7 +2877,7 @@
         ],
         "default": "ent"
       },
-      "fmt": {
+      "format": {
         "label": "Delivery format",
         "options": [
           {
@@ -2908,7 +2897,18 @@
       }
     },
     "panel_kicker": "Edstellar's training methodology, stage by stage",
-    "heading_prefix": "ETL Testing Corporate Training",
+    "panel_heading": "ETL Testing Corporate Training <span>{format}</span> Delivery for <span>{scale}</span>",
+    "format_titles": {
+      "onsite": "Onsite",
+      "virtual": "Live Virtual",
+      "offsite": "Offsite",
+      "hybrid": "Hybrid"
+    },
+    "scale_titles": {
+      "one": "One Team",
+      "multi": "Multiple Cohorts",
+      "ent": "Enterprise-wide Teams"
+    },
     "stages": [
       {
         "number": "01",
@@ -2919,19 +2919,19 @@
         "rows": [
           [
             {
-              "fmt": "onsite",
+              "format": "onsite",
               "scale": null,
               "label": "Venue and room details",
               "text": "Edstellar confirms the training rooms at your offices, seating, screens and any accessibility needs."
             },
             {
-              "fmt": "virtual",
+              "format": "virtual",
               "scale": null,
               "label": "Video tool and access",
               "text": "Edstellar checks access to Microsoft Teams, or the tool you prefer, and any security limits."
             },
             {
-              "fmt": "hybrid",
+              "format": "hybrid",
               "scale": null,
               "label": "Room and remote setup",
               "text": "Edstellar maps who joins in the room and who joins remotely, and checks the room’s camera and audio."
@@ -2939,19 +2939,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "One participant list",
               "text": "Edstellar collects one list of participants with their roles and locations."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "Cohort details",
               "text": "Edstellar collects participant lists for each cohort, with group sizes and preferred dates."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "Locations, time zones and languages",
               "text": "Edstellar maps every location and time zone, and notes where local-language materials are needed."
@@ -2959,19 +2959,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "How Edstellar coordinates it",
               "text": "A dedicated Edstellar coordinator gathers everything for your {format} program in one short call with your team lead."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "How Edstellar coordinates it",
               "text": "A dedicated coordinator gathers the details for every cohort and confirms the {format} requirements with each cohort lead."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "How Edstellar coordinates it",
               "text": "A dedicated coordinator works with your regional contacts to confirm the {format} requirements in every location."
@@ -3003,19 +3003,19 @@
         "rows": [
           [
             {
-              "fmt": "onsite",
+              "format": "onsite",
               "scale": null,
               "label": "Session days at your offices",
               "text": "Full or half days are scheduled around room availability at your offices."
             },
             {
-              "fmt": "virtual",
+              "format": "virtual",
               "scale": null,
               "label": "Live session blocks",
               "text": "Shorter live blocks are scheduled on Microsoft Teams, or your tool, with invites sent to every participant."
             },
             {
-              "fmt": "hybrid",
+              "format": "hybrid",
               "scale": null,
               "label": "One hybrid timetable",
               "text": "One timetable covers the room and remote participants, with joining links in every invite."
@@ -3023,19 +3023,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "One schedule",
               "text": "The whole team is booked on the same dates, so no repeat sessions are needed."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "Batch scheduling",
               "text": "Cohorts are batched by size and role, each on dates that suit its calendar."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "Regional calendars",
               "text": "Sessions are timed to each region’s working hours and public holidays."
@@ -3043,19 +3043,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "How Edstellar coordinates it",
               "text": "Edstellar confirms the trainer’s calendar and sends one {format} schedule for your team to approve."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "How Edstellar coordinates it",
               "text": "Edstellar books trainer dates for every cohort and shares one {format} schedule covering all batches."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "How Edstellar coordinates it",
               "text": "Edstellar runs one master calendar for {format} sessions across regions and time zones."
@@ -3087,19 +3087,19 @@
         "rows": [
           [
             {
-              "fmt": "onsite",
+              "format": "onsite",
               "scale": null,
               "label": "Trainer travel and stay",
               "text": "Edstellar manages the trainer’s travel and accommodation for every onsite day."
             },
             {
-              "fmt": "virtual",
+              "format": "virtual",
               "scale": null,
               "label": "Trainer ready for virtual",
               "text": "The trainer is experienced in delivering live sessions on Microsoft Teams or your chosen tool."
             },
             {
-              "fmt": "hybrid",
+              "format": "hybrid",
               "scale": null,
               "label": "Trainer ready for hybrid",
               "text": "The trainer is experienced in sessions where room and remote participants take part equally."
@@ -3107,19 +3107,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "One matched trainer",
               "text": "One trainer is matched to your team’s roles and industry, with a profile shared before booking."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "Trainers for every cohort",
               "text": "The same trainer, or a matched trainer from Edstellar’s network, is confirmed for each cohort’s dates."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "Trainers across regions",
               "text": "Trainers for each region are matched from Edstellar’s network, so every location runs to one standard."
@@ -3127,19 +3127,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "How Edstellar coordinates it",
               "text": "If the trainer becomes unavailable, Edstellar assigns a backup from its network so your {format} sessions stay on schedule."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "How Edstellar coordinates it",
               "text": "Backup trainers are ready in Edstellar’s network, so no cohort’s {format} session is postponed."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "How Edstellar coordinates it",
               "text": "Edstellar keeps backup trainers ready for every region, so {format} sessions run as scheduled everywhere."
@@ -3171,19 +3171,19 @@
         "rows": [
           [
             {
-              "fmt": "onsite",
+              "format": "onsite",
               "scale": null,
               "label": "Printed lab kits",
               "text": "The ETL test plan, test case template, reconciliation checklist and defect report templates are printed and shipped to your offices before day one."
             },
             {
-              "fmt": "virtual",
+              "format": "virtual",
               "scale": null,
               "label": "Digital workspace",
               "text": "Digital worksheets and whiteboards are set up in Microsoft Teams, or your tool, before the first session."
             },
             {
-              "fmt": "hybrid",
+              "format": "hybrid",
               "scale": null,
               "label": "Printed and digital kits",
               "text": "Room participants get printed kits, and remote participants get matching digital versions."
@@ -3191,19 +3191,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "One set of materials",
               "text": "Materials are prepared for your team’s size and roles."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "Materials for each cohort",
               "text": "Each cohort receives its own set of materials, prepared for its group size."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "Local-language materials",
               "text": "Materials are in English, with local-language versions prepared on request for each region."
@@ -3211,19 +3211,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "How Edstellar coordinates it",
               "text": "Edstellar sends the pre-work and checks that all {format} materials are ready before the first session."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "How Edstellar coordinates it",
               "text": "Edstellar tracks materials for every cohort, so each {format} batch starts with everything in place."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "How Edstellar coordinates it",
               "text": "Edstellar coordinates materials and any requested translations, so every region’s {format} sessions start ready."
@@ -3255,19 +3255,19 @@
         "rows": [
           [
             {
-              "fmt": "onsite",
+              "format": "onsite",
               "scale": null,
               "label": "Room ready on the day",
               "text": "The trainer arrives early to set up the room, screen and printed materials."
             },
             {
-              "fmt": "virtual",
+              "format": "virtual",
               "scale": null,
               "label": "Live session support",
               "text": "Sessions run on Microsoft Teams, or your tool, with breakout rooms and polls set up in advance."
             },
             {
-              "fmt": "hybrid",
+              "format": "hybrid",
               "scale": null,
               "label": "Room and remote together",
               "text": "Camera, audio and joining links are checked, so remote participants take part fully."
@@ -3275,19 +3275,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "One trainer, one team",
               "text": "One trainer leads every session for your team, from start to finish."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "Cohorts run on schedule",
               "text": "Each cohort’s sessions run on their booked dates, with a backup trainer ready if needed."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "Coordinated across time zones",
               "text": "Sessions in every region run to one standard and one master calendar."
@@ -3295,19 +3295,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "How Edstellar coordinates it",
               "text": "Your dedicated coordinator tracks attendance and resolves any {format} issue on the day."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "How Edstellar coordinates it",
               "text": "One coordinator manages every cohort’s {format} sessions, trainer bookings and attendance."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "How Edstellar coordinates it",
               "text": "One coordinator oversees {format} sessions across regions and keeps your L&D team updated."
@@ -3324,7 +3324,7 @@
             "text": "Sessions run smoothly, without your team managing the day."
           }
         ],
-        "mini": [
+        "steps": [
           {
             "label": "Assess",
             "text": "Pre-training skill check"
@@ -3357,19 +3357,19 @@
         "rows": [
           [
             {
-              "fmt": "onsite",
+              "format": "onsite",
               "scale": null,
               "label": "In-room capstones",
               "text": "Capstone pipeline test presentations are scheduled in the room, and feedback forms are collected on the day."
             },
             {
-              "fmt": "virtual",
+              "format": "virtual",
               "scale": null,
               "label": "Online capstones",
               "text": "Capstone pipeline test work is presented live online, and feedback surveys are sent digitally."
             },
             {
-              "fmt": "hybrid",
+              "format": "hybrid",
               "scale": null,
               "label": "Room or remote capstones",
               "text": "Participants present in the room or remotely, with one feedback survey for everyone."
@@ -3377,19 +3377,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "One team report",
               "text": "Your team receives one report on attendance, feedback and progress."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "Report for each cohort",
               "text": "Attendance, feedback and progress are reported for each cohort."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "Company-wide reporting",
               "text": "Reports are combined by region and level into one view for your L&D team."
@@ -3397,19 +3397,19 @@
           ],
           [
             {
-              "fmt": null,
+              "format": null,
               "scale": "one",
               "label": "How Edstellar coordinates it",
               "text": "Edstellar issues certificates and schedules any follow-up sessions after the {format} program."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "multi",
               "label": "How Edstellar coordinates it",
               "text": "Edstellar issues certificates for each cohort and plans follow-ups after every {format} batch."
             },
             {
-              "fmt": null,
+              "format": null,
               "scale": "ent",
               "label": "How Edstellar coordinates it",
               "text": "Edstellar issues certificates in every region and schedules {format} follow-ups across locations."
@@ -3486,17 +3486,9 @@
       "hybrid"
     ]
   },
-  "instructor": {
+  "course_instructor": {
     "eyebrow": "Your learning facilitator",
-    "heading": [
-      {
-        "text": "Learn From Instructors Who Connect ETL Testing With"
-      },
-      {
-        "text": "Live Data Pipelines",
-        "is_italic": true
-      }
-    ],
+    "heading": "Learn From Instructors Who Connect ETL Testing With <span>Live Data Pipelines</span>",
     "cards": [
       {
         "heading": "Practitioners From ETL Testing and Data Quality",
@@ -3522,20 +3514,9 @@
       "href": "#quote"
     }
   },
-  "why": {
+  "course_why": {
     "eyebrow": "Why Edstellar",
-    "heading": [
-      {
-        "text": "Why Edstellar as Your"
-      },
-      {
-        "text": "ETL Testing Corporate Training",
-        "is_italic": true
-      },
-      {
-        "text": "Provider"
-      }
-    ],
+    "heading": "Why Edstellar as Your <span>ETL Testing Corporate Training</span> Provider",
     "lead": "Edstellar is a capability-building partner for organizations building their ETL testing skills for the data pipelines and data warehouses behind their reports. Edstellar shapes every ETL Testing Corporate Training program around your industry and your warehouse, ETL tools and mapping documents, matches a practitioner instructor to your cohort and delivers onsite, live virtual or hybrid, so your teams leave with hands-on skills and a tested data pipeline with its regression suite and test completion report.",
     "points": [
       {
@@ -3908,19 +3889,8 @@
       ]
     }
   },
-  "certificate": {
-    "heading": [
-      {
-        "text": "Certificate of"
-      },
-      {
-        "text": "Training Completion",
-        "is_italic": true
-      },
-      {
-        "text": "."
-      }
-    ],
+  "course_certificate": {
+    "heading": "Certificate of <span>Training Completion</span>.",
     "text": "On successful completion, employees receive an Edstellar course completion certificate, recognizing their commitment to ongoing learning and professional development. It validates the skills they have built and motivates them to keep growing and contribute to organizational success.",
     "note": "Awarded on completion of all hands-on labs and the capstone project.",
     "note_strong": "Earned, not attended.",
@@ -3929,129 +3899,9 @@
     "image_width": 1080,
     "image_height": 764
   },
-  "path": {
-    "heading": "Where This Training Fits in Your Team's Learning Path.",
-    "text": "Teams start with Fundamentals of Data Warehousing Corporate Training for the core ideas of warehouse design, dimensional modeling and star schemas. ETL Testing Corporate Training then puts those ideas to work on the team's own pipelines, from planning tests off the mapping document to reconciling loads, logging data defects and validating a cloud migration. From there, teams turn their checks into agreed data contracts and quality engineering, and keep the pipelines reliable in production with DataOps.",
-    "steps": [
-      {
-        "kicker": "Start here",
-        "name": "Fundamentals of Data Warehousing Corporate Training",
-        "href": "/corporate-training/data-engineering/fundamentals-of-data-warehousing-course",
-        "text": "The foundations: warehouse concepts, dimensional modeling, star schemas and how ETL loads them.",
-        "modes": [
-          "Instructor-led",
-          "On-site",
-          "Virtual"
-        ],
-        "hours": "~ 19 Hours",
-        "current": false
-      },
-      {
-        "kicker": "Learn this program",
-        "name": "ETL Testing Corporate Training",
-        "href": "/corporate-training/data-engineering/etl-testing-course",
-        "text": "Plan, run and report the testing of every pipeline, so wrong numbers are caught before the business sees them.",
-        "modes": [
-          "Instructor-led",
-          "On-site",
-          "Virtual"
-        ],
-        "hours": "~ 40 Hours",
-        "current": true
-      },
-      {
-        "kicker": "Go further",
-        "name": "Data Contracts and Data Quality Engineering Corporate Training",
-        "href": "/corporate-training/data-engineering/data-contracts-data-quality-engineering-course",
-        "text": "Turn the team's checks into versioned data contracts and quality gates on every pipeline.",
-        "modes": [
-          "Instructor-led",
-          "On-site",
-          "Virtual"
-        ],
-        "hours": "~ 24 Hours",
-        "current": false
-      },
-      {
-        "kicker": "Run it in production",
-        "name": "DataOps and Pipeline Reliability Corporate Training",
-        "href": "/corporate-training/data-engineering/dataops-pipeline-reliability-course",
-        "text": "Run the tests in CI/CD, wire lineage, metrics and alerts, and recover from pipeline incidents.",
-        "modes": [
-          "Instructor-led",
-          "On-site",
-          "Virtual"
-        ],
-        "hours": "~ 24 Hours",
-        "current": false
-      }
-    ],
-    "related_heading": "More Related Courses",
-    "related": [
-      {
-        "name": "Test Automation With Python Corporate Training",
-        "href": "/corporate-training/software-development/test-automation-with-python-course",
-        "hours": "~ 24 Hours",
-        "mode": "Instructor-led"
-      },
-      {
-        "name": "Informatica IDMC Cloud Data Integration Corporate Training",
-        "href": "/corporate-training/data-engineering/informatica-idmc-cloud-data-integration-course",
-        "hours": "~ 24 Hours",
-        "mode": "Instructor-led"
-      },
-      {
-        "name": "Microsoft Fabric and Azure Data Engineering Corporate Training",
-        "href": "/corporate-training/data-engineering/microsoft-fabric-azure-data-engineering-course",
-        "hours": "~ 24 Hours",
-        "mode": "Instructor-led"
-      }
-    ],
-    "also_label": "Also from Edstellar",
-    "also": [
-      {
-        "href": "/talent-assessment-services",
-        "title": "Talent Assessments",
-        "text": "Psychometric, behavioral, leadership and 360-degree assessment."
-      },
-      {
-        "href": "/training-needs-analysis-solutions",
-        "title": "Training Needs Analysis",
-        "text": "Needs analysis, gap identification, and a training roadmap."
-      },
-      {
-        "href": "/learning-development-consulting-services",
-        "title": "L&D Consulting",
-        "text": "Learning strategy, content, technology and ROI measurement."
-      },
-      {
-        "href": "/organizational-development-consulting",
-        "title": "OD Consulting",
-        "text": "Org design, succession planning and cultural change."
-      },
-      {
-        "href": "/managed-learning-services/managed-training",
-        "title": "Managed Training Services",
-        "text": "Training outsourcing, vendor management, logistics and administration."
-      },
-      {
-        "href": "/coaching-solutions",
-        "title": "Coaching Solutions",
-        "text": "Executive and manager coaching that keeps skills in use."
-      }
-    ]
-  },
-  "faq": {
+  "course_faq": {
     "eyebrow": "FAQs",
-    "heading": [
-      {
-        "text": "ETL Testing Corporate Training"
-      },
-      {
-        "text": "FAQs",
-        "is_italic": true
-      }
-    ],
+    "heading": "ETL Testing Corporate Training <span>FAQs</span>",
     "groups": [
       {
         "category": "Fit and relevance",
@@ -4237,16 +4087,121 @@
       "href": "#quote"
     }
   },
-  "group_quote": {
-    "heading": [
+  "course_path": {
+    "heading": "Where This Training Fits in Your Team's Learning Path.",
+    "text": "Teams start with Fundamentals of Data Warehousing Corporate Training for the core ideas of warehouse design, dimensional modeling and star schemas. ETL Testing Corporate Training then puts those ideas to work on the team's own pipelines, from planning tests off the mapping document to reconciling loads, logging data defects and validating a cloud migration. From there, teams turn their checks into agreed data contracts and quality engineering, and keep the pipelines reliable in production with DataOps.",
+    "steps": [
       {
-        "text": "Start an RFP"
+        "kicker": "Start here",
+        "name": "Fundamentals of Data Warehousing Corporate Training",
+        "href": "/corporate-training/data-engineering/fundamentals-of-data-warehousing-course",
+        "text": "The foundations: warehouse concepts, dimensional modeling, star schemas and how ETL loads them.",
+        "modes": [
+          "Instructor-led",
+          "On-site",
+          "Virtual"
+        ],
+        "hours": "~ 19 Hours",
+        "current": false
       },
       {
-        "text": "Shaped to Your Needs.",
-        "is_italic": true
+        "kicker": "Learn this program",
+        "name": "ETL Testing Corporate Training",
+        "href": "/corporate-training/data-engineering/etl-testing-course",
+        "text": "Plan, run and report the testing of every pipeline, so wrong numbers are caught before the business sees them.",
+        "modes": [
+          "Instructor-led",
+          "On-site",
+          "Virtual"
+        ],
+        "hours": "~ 40 Hours",
+        "current": true
+      },
+      {
+        "kicker": "Go further",
+        "name": "Data Contracts and Data Quality Engineering Corporate Training",
+        "href": "/corporate-training/data-engineering/data-contracts-data-quality-engineering-course",
+        "text": "Turn the team's checks into versioned data contracts and quality gates on every pipeline.",
+        "modes": [
+          "Instructor-led",
+          "On-site",
+          "Virtual"
+        ],
+        "hours": "~ 24 Hours",
+        "current": false
+      },
+      {
+        "kicker": "Run it in production",
+        "name": "DataOps and Pipeline Reliability Corporate Training",
+        "href": "/corporate-training/data-engineering/dataops-pipeline-reliability-course",
+        "text": "Run the tests in CI/CD, wire lineage, metrics and alerts, and recover from pipeline incidents.",
+        "modes": [
+          "Instructor-led",
+          "On-site",
+          "Virtual"
+        ],
+        "hours": "~ 24 Hours",
+        "current": false
       }
     ],
+    "related_heading": "More Related Courses",
+    "related": [
+      {
+        "name": "Test Automation With Python Corporate Training",
+        "href": "/corporate-training/software-development/test-automation-with-python-course",
+        "hours": "~ 24 Hours",
+        "mode": "Instructor-led"
+      },
+      {
+        "name": "Informatica IDMC Cloud Data Integration Corporate Training",
+        "href": "/corporate-training/data-engineering/informatica-idmc-cloud-data-integration-course",
+        "hours": "~ 24 Hours",
+        "mode": "Instructor-led"
+      },
+      {
+        "name": "Microsoft Fabric and Azure Data Engineering Corporate Training",
+        "href": "/corporate-training/data-engineering/microsoft-fabric-azure-data-engineering-course",
+        "hours": "~ 24 Hours",
+        "mode": "Instructor-led"
+      }
+    ],
+    "related_link_label": "View Program",
+    "also_label": "Also from Edstellar",
+    "also": [
+      {
+        "href": "/talent-assessment-services",
+        "title": "Talent Assessments",
+        "text": "Psychometric, behavioral, leadership and 360-degree assessment."
+      },
+      {
+        "href": "/training-needs-analysis-services",
+        "title": "Training Needs Analysis",
+        "text": "Needs analysis, gap identification, and a training roadmap."
+      },
+      {
+        "href": "/learning-development-consulting-services",
+        "title": "L&D Consulting",
+        "text": "Learning strategy, content, technology and ROI measurement."
+      },
+      {
+        "href": "/organizational-development-consulting",
+        "title": "OD Consulting",
+        "text": "Org design, succession planning and cultural change."
+      },
+      {
+        "href": "/managed-learning-services/managed-training",
+        "title": "Managed Training Services",
+        "text": "Training outsourcing, vendor management, logistics and administration."
+      },
+      {
+        "href": "/coaching-solutions",
+        "title": "Coaching Solutions",
+        "text": "Executive and manager coaching that keeps skills in use."
+      }
+    ]
+  },
+  "course_group_quote": {
+    "heading": "Start an RFP <span>Shaped to Your Needs.</span>",
     "intro": "Answer three quick questions about team size, scope, and how often you need the program run, then send the request from the last step. Everything you choose travels with it, so you only fill this in once.",
     "tabs": [
       {
@@ -4348,17 +4303,9 @@
       }
     }
   },
-  "quote": {
+  "course_quote": {
     "eyebrow": "Request a quote",
-    "heading": [
-      {
-        "text": "Request an ETL Testing Corporate Training Quote"
-      },
-      {
-        "text": "for Your Team",
-        "is_italic": true
-      }
-    ],
+    "heading": "Request an ETL Testing Corporate Training Quote <span>for Your Team</span>",
     "text": "Tell us your team size, roles and preferred delivery mode. An Edstellar training specialist replies within one business day with a tailored plan covering scope, schedule and pricing.",
     "packages": [
       {
@@ -4367,7 +4314,8 @@
       },
       {
         "name": "Growth · most chosen",
-        "text": "320 trainee licenses · 160 group training hours"
+        "text": "320 trainee licenses · 160 group training hours",
+        "default": true
       },
       {
         "name": "Enterprise",
@@ -4382,7 +4330,7 @@
       "name": "Name",
       "email": "Work email",
       "company": "Company name",
-      "jobTitle": "Job title",
+      "job_title": "Job title",
       "country": "Country",
       "phone": "Phone",
       "size": "Team size",

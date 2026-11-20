@@ -4,6 +4,8 @@ import V2Section from "@/components/sections/course/v2/section";
 import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import V2Heading from "@/components/sections/course/v2/heading";
 import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
+import { V2_BUTTON, V2ButtonArrow } from "@/components/sections/course/v2/buttons";
+import { cn } from "@/lib/utils";
 
 import styles from "./gap.module.css";
 
@@ -52,7 +54,7 @@ export default function V2Gap({ data }) {
               <li key={stat.value + stat.source} className={styles.card}>
                 {stat.icon && (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={stat.icon} alt="" aria-hidden="true" width={72} height={72} className="mb-3 size-[72px]" />
+                  <img src={stat.icon} alt="" aria-hidden="true" width={72} height={72} loading="lazy" decoding="async" className="mb-3 size-[72px]" />
                 )}
                 <b className="mb-2 block font-display text-[clamp(32px,2.9vw,42px)] font-bold leading-[1.05] tracking-[-0.03em] whitespace-nowrap text-ink tabular-nums">
                   <StatValue value={stat.value} />
@@ -83,9 +85,10 @@ export default function V2Gap({ data }) {
           <V2ScrollLink
             href={cta.href || "#quote"}
             topic={cta.heading}
-            className="inline-flex items-center gap-2 rounded-lg border-[1.5px] border-navy bg-white px-[22px] py-3 font-body text-[14px] font-semibold text-ink shadow-[0_4px_0_rgba(10,22,40,0.12)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_0_rgba(10,22,40,0.12)]"
+            className={cn(V2_BUTTON.ghost, "bg-white")}
           >
             {cta.label}
+            <V2ButtonArrow />
           </V2ScrollLink>
         </Reveal>
       )}

@@ -6,6 +6,7 @@ import Reveal from "@/components/common/reveal";
 import V2Section from "@/components/sections/course/v2/section";
 import V2SectionHead from "@/components/sections/course/v2/section-head";
 import V2Products from "@/components/sections/course/v2/products";
+import { cn } from "@/lib/utils";
 
 /** Trusted static SVG markup from the design file. */
 function Markup({ html, viewBox, className }) {
@@ -145,20 +146,29 @@ export default function V2Why({ data }) {
               {logos_label}
             </p>
           )}
-          <ul className="flex flex-wrap items-center justify-center gap-x-[30px] gap-y-3.5 px-5">
-            {logos.map((logo) => (
-              <li key={logo.name}>
-                <Image
-                  src={logo.image}
-                  alt={logo.name}
-                  title={logo.name}
-                  width={logo.image_width || 120}
-                  height={logo.image_height || 48}
-                  className="h-7 w-auto max-w-[110px] object-contain opacity-75 grayscale transition-transform duration-200 hover:-translate-y-0.5"
-                />
-              </li>
-            ))}
-          </ul>
+          {/* A scrolling strip, as the site's client-logo marquee: the list is
+              rendered twice so translateX(-50%) loops seamlessly; it pauses on
+              hover, and reduced motion falls back to one centred, wrapped row. */}
+          <Box className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)] motion-reduce:[mask-image:none]">
+            <ul className="flex w-max animate-marquee items-center gap-x-[30px] hover:[animation-play-state:paused] motion-reduce:w-full motion-reduce:animate-none motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:gap-y-3.5 motion-reduce:px-5">
+              {[...logos, ...logos].map((logo, index) => {
+                const duplicate = index >= logos.length;
+                return (
+                  <li key={`${logo.name}-${index}`} aria-hidden={duplicate || undefined} className={cn("flex-none", duplicate && "motion-reduce:hidden")}>
+                    <Image
+                      src={logo.image}
+                      alt={duplicate ? "" : logo.name}
+                      title={logo.name}
+                      loading="lazy"
+                      width={logo.image_width || 120}
+                      height={logo.image_height || 48}
+                      className="h-7 w-auto max-w-[110px] object-contain opacity-75 grayscale transition-transform duration-200 hover:-translate-y-0.5"
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          </Box>
         </Reveal>
       )}
 

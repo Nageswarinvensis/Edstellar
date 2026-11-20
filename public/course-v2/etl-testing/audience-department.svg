@@ -3,7 +3,7 @@ polygon{fill:#0a1628;stroke:rgba(200,241,53,.22);stroke-width:1;stroke-linejoin:
 .tp{fill:#14233d}.plate .fr,.plate .sd{fill:#050d1a}
 .w{fill:#050d1a;stroke:rgba(200,241,53,.22);stroke-width:.6}.w.lit{fill:#c8f135;stroke:#c8f135}
 .org.lit polygon{stroke:#c8f135}.org.lit .tp{fill:rgba(200,241,53,.65)}
-.link{fill:none;stroke:#c8f135;stroke-width:1.6;stroke-dasharray:3 3}
+.link{fill:none;stroke:#c8f135;stroke-width:1.6;stroke-dasharray:3 3;animation:auFlow 1.2s linear infinite}@keyframes auFlow{to{stroke-dashoffset:-12}}@media (prefers-reduced-motion:reduce){.link{animation:none}}
 .badge.lit{fill:#c8f135}.pp polygon,.pp .head{fill:#14233d;stroke:rgba(200,241,53,.65)}
 .podium .tp{fill:rgba(200,241,53,.22)}
 text{font-family:'DM Mono',monospace;letter-spacing:.12em}

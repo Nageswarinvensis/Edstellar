@@ -18,6 +18,9 @@ const TABS = ["practice", "discuss", "reflect"];
 const LIME_WASH = "bg-[color-mix(in_srgb,var(--color-lime)_20%,white)]";
 const MONO = "font-mono uppercase tracking-[0.12em]";
 const STEP_ICONS = ["book", "users", "chat", "file"];
+/** Each tab's format badge uses its activity's icon from the strip below:
+ * Practice → people, Discuss (compare) → chat, Reflect → document. */
+const TAB_ICONS = { practice: "users", discuss: "chat", reflect: "file" };
 
 function Prompt({ text, className }) {
   return (
@@ -38,15 +41,15 @@ function PracticeStage({ scenario }) {
     <Box>
       {scenario.case && (
         <figure className="rounded-xl border border-l-4 border-ink/12 border-l-gold bg-white px-4 py-3.5 shadow-[0_1px_2px_rgba(10,22,40,0.06),0_8px_24px_rgba(10,22,40,0.06)]">
-          <span className={cn("block text-[9.5px] text-ink-muted", MONO)}>{scenario.case.k}</span>
-          <blockquote className="mt-1.5 mb-1 font-serif text-[21px] italic leading-[1.28] text-ink">{scenario.case.q}</blockquote>
-          <figcaption className="text-[12px] text-ink-muted">{scenario.case.src}</figcaption>
+          <span className={cn("block text-[9.5px] text-ink-muted", MONO)}>{scenario.case.tag}</span>
+          <blockquote className="mt-1.5 mb-1 font-serif text-[21px] italic leading-[1.28] text-ink">{scenario.case.quote}</blockquote>
+          <figcaption className="text-[12px] text-ink-muted">{scenario.case.source}</figcaption>
         </figure>
       )}
       <Box className="mt-3.5 flex flex-wrap gap-2">
         {scenario.choices?.map((c, i) => (
           <button
-            key={c.k}
+            key={c.label}
             type="button"
             aria-pressed={choice === i}
             onClick={() => setChoice(i)}
@@ -55,50 +58,72 @@ function PracticeStage({ scenario }) {
               choice === i ? cn("border-navy shadow-[0_0_0_2px_var(--color-lime-soft)]", LIME_WASH) : "border-ink/12 bg-white hover:border-ink/35",
             )}
           >
-            {c.k}
+            {c.label}
           </button>
         ))}
       </Box>
       <Box aria-live="polite">
-        {choice < 0 ? (
-          <p className="mt-3 min-h-[62px] rounded-xl border border-dashed border-ink/12 px-[13px] py-[11px] text-[13.5px] leading-[1.5] text-ink-muted">
-            Select a choice to see the question to practise.
+        <p hidden={choice >= 0} className="mt-3 min-h-[62px] rounded-xl border border-dashed border-ink/12 px-[13px] py-[11px] text-[13.5px] leading-[1.5] text-ink-muted">
+          Select a choice to see the question to practise.
+        </p>
+        {/* Every choice's question is in the HTML; only the picked one shows. */}
+        {scenario.choices?.map((c, i) => (
+          <p key={c.label} hidden={choice !== i} className="mt-3 min-h-[62px] rounded-xl border border-ink/12 bg-white px-[13px] py-[11px] text-[13.5px] leading-[1.5] text-ink">
+            <span className={cn("mb-0.5 block text-[9.5px] text-olive", MONO)}>Question to practise · {c.label}</span>
+            {c.question}
           </p>
-        ) : (
-          <p className="mt-3 min-h-[62px] rounded-xl border border-ink/12 bg-white px-[13px] py-[11px] text-[13.5px] leading-[1.5] text-ink">
-            <span className={cn("mb-0.5 block text-[9.5px] text-olive", MONO)}>Question to practise · {scenario.choices[choice].k}</span>
-            {scenario.choices[choice].q}
-          </p>
-        )}
+        ))}
       </Box>
     </Box>
   );
 }
 
+/** The lab stage's entrance (design `lrv`): items fade up in turn. Replay
+ * re-mounts the stage, which restarts it. Delays are literal classes so
+ * Tailwind generates them. */
+const RISE = "animate-lab-rise motion-reduce:animate-none";
+const DELAY = [
+  "[animation-delay:0ms]",
+  "[animation-delay:120ms]",
+  "[animation-delay:240ms]",
+  "[animation-delay:360ms]",
+  "[animation-delay:480ms]",
+  "[animation-delay:600ms]",
+  "[animation-delay:720ms]",
+];
+const rise = (step) => cn(RISE, DELAY[Math.min(step, DELAY.length - 1)]);
+
 /** Discuss: two contrasting readings, "vs", and the instructor's prompt. */
 function DiscussStage({ scenario }) {
   const [a, b] = scenario.readings ?? [];
-  const Reading = ({ r }) => (
-    <Box className="rounded-xl border border-ink/12 bg-white p-3">
-      <span className={cn("block text-[9.5px] text-ink-muted", MONO)}>{r.k}</span>
-      <b className="mt-1 mb-2 block text-[14px] text-ink">{r.b}</b>
-      <Box className="flex flex-col gap-[5px]">
-        {r.asm?.map((x) => (
-          <span key={x} className="rounded-full bg-lime-soft px-[9px] py-1 text-[12px] text-ink">{x}</span>
+  const Reading = ({ r, step }) => (
+    <Box className={cn("flex h-full flex-col rounded-xl border border-ink/12 bg-white p-3", rise(step))}>
+      <span className={cn("block text-[9.5px] text-ink-muted", MONO)}>{r.label}</span>
+      <b className="mt-1 mb-2.5 block text-[14px] leading-[1.35] text-ink">{r.claim}</b>
+      {/* Assumptions: soft cards, not pills — the sentences wrap, and a pill
+          shape breaks on two or three lines. */}
+      <ul className="flex flex-col gap-1.5">
+        {r.assumptions?.map((x) => (
+          <li
+            key={x}
+            className="flex items-start gap-2 rounded-lg bg-lime-soft px-2.5 py-[7px] text-[12.5px] leading-[1.4] text-ink before:mt-[0.45em] before:size-1.5 before:flex-none before:rounded-full before:bg-olive before:content-['']"
+          >
+            {x}
+          </li>
         ))}
-      </Box>
+      </ul>
     </Box>
   );
   return (
     <Box>
       {a && b && (
-        <Box className="grid grid-cols-1 items-center gap-2.5 min-[561px]:grid-cols-[1fr_auto_1fr]">
-          <Reading r={a} />
-          <span className="justify-self-center font-mono text-[11px] text-ink-muted">vs</span>
-          <Reading r={b} />
+        <Box className="grid grid-cols-1 items-stretch gap-2.5 min-[561px]:grid-cols-[1fr_auto_1fr]">
+          <Reading r={a} step={0} />
+          <span className={cn("self-center justify-self-center font-mono text-[11px] text-ink-muted", rise(1))}>vs</span>
+          <Reading r={b} step={2} />
         </Box>
       )}
-      {scenario.prompt && <Prompt text={scenario.prompt} className="mt-3" />}
+      {scenario.prompt && <Prompt text={scenario.prompt} className={cn("mt-3", rise(3))} />}
     </Box>
   );
 }
@@ -109,11 +134,11 @@ function ReflectStage({ scenario, index }) {
   if (!sheet) return null;
   return (
     <Box>
-      <Box className="grid gap-[9px] rounded-[14px] border border-ink/12 bg-white px-4 py-3.5 shadow-[0_2px_4px_rgba(10,22,40,0.08),0_18px_40px_rgba(10,22,40,0.12)]">
+      <Box className={cn("grid gap-[9px] rounded-[14px] border border-ink/12 bg-white px-4 py-3.5 shadow-[0_2px_4px_rgba(10,22,40,0.08),0_18px_40px_rgba(10,22,40,0.12)]", rise(0))}>
         <span className={cn("text-[9.5px] text-ink-muted", MONO)}>Practice worksheet · sample</span>
         <p className="font-serif text-[20px] font-medium italic text-ink">{sheet.title}</p>
         {sheet.rows?.map(([label, hint], i) => (
-          <label key={label} className="block border-t border-ink/8 pt-2">
+          <label key={label} className={cn("block border-t border-ink/8 pt-2", rise(i + 1))}>
             <b className="block text-[13px] text-ink">{label}</b>
             <span className="block text-[12px] text-ink-muted">{hint}</span>
             <textarea
@@ -126,7 +151,7 @@ function ReflectStage({ scenario, index }) {
           </label>
         ))}
       </Box>
-      <p className="mt-0.5 text-[11.5px] italic text-ink-muted">{scenario.reflect?.[1]}</p>
+      <p className={cn("mt-0.5 text-[11.5px] italic text-ink-muted", rise((sheet.rows?.length ?? 0) + 1))}>{scenario.reflect?.[1]}</p>
     </Box>
   );
 }
@@ -182,7 +207,7 @@ export default function V2Lab({ data }) {
           <Box role="list" aria-label="Practice scenarios" className="grid gap-3">
             {scenarios.map((s, i) => (
               <button
-                key={s.t}
+                key={s.short_title}
                 type="button"
                 role="listitem"
                 aria-pressed={active === i}
@@ -194,11 +219,11 @@ export default function V2Lab({ data }) {
                     : "border-ink/12 bg-white hover:border-ink/30",
                 )}
               >
-                <span className="grid text-navy"><V2Icon name={s.ic} size={28} /></span>
+                <span className="grid text-navy"><V2Icon name={s.icon} size={28} /></span>
                 <span className="self-start pt-0.5 font-mono text-[13px] text-ink-muted">{String(i + 1).padStart(2, "0")}</span>
                 <span>
-                  <b className="block font-display text-[16px] font-medium tracking-[-0.015em] text-ink">{s.t}</b>
-                  <span className="mt-0.5 block text-[13.5px] text-ink-muted">{s.s}</span>
+                  <b className="block font-display text-[16px] font-medium tracking-[-0.015em] text-ink">{s.short_title}</b>
+                  <span className="mt-0.5 block text-[13.5px] text-ink-muted">{s.summary}</span>
                 </span>
               </button>
             ))}
@@ -208,7 +233,7 @@ export default function V2Lab({ data }) {
 
         <Box className="flex flex-col overflow-hidden rounded-[20px] border border-ink/12 bg-white shadow-[0_1px_2px_rgba(10,22,40,0.06),0_8px_24px_rgba(10,22,40,0.06)]">
           {scenarios.map((s, i) => (
-            <Box key={s.t} hidden={active !== i} className="flex flex-col">
+            <Box key={s.short_title} hidden={active !== i} className="flex flex-col">
               <Box className="px-4 py-[18px] min-[701px]:px-[26px] min-[701px]:pt-6 min-[701px]:pb-5">
                 {lab_kicker && (
                   <p className={cn("flex items-center gap-2 text-[11px] text-ink", MONO)}>
@@ -247,10 +272,10 @@ export default function V2Lab({ data }) {
                     <Box>
                       <p className={cn("mb-2 text-[10.5px] text-ink-muted", MONO)}>{task_keys[t]}</p>
                       <p className="mb-4 text-[16.5px] leading-[1.5] text-ink">{s[t]?.[0]}</p>
-                      {s.fmt?.[n] && (
+                      {s.formats?.[n] && (
                         <span className="inline-flex items-center gap-2 rounded-full border border-ink/12 px-3.5 py-2 text-[13px] text-ink">
-                          <V2Icon name="users" size={16} />
-                          {s.fmt[n]}
+                          <V2Icon name={TAB_ICONS[t] ?? "users"} size={16} />
+                          {s.formats[n]}
                         </span>
                       )}
                     </Box>
@@ -282,14 +307,14 @@ export default function V2Lab({ data }) {
                 </span>
                 <Box>
                   <span className={cn("mb-1 block text-[10px] text-white/60", MONO)}>Capability participants build</span>
-                  <p className="text-[16px] leading-[1.45] text-white">{s.cap}</p>
+                  <p className="text-[16px] leading-[1.45] text-white">{s.capability}</p>
                 </Box>
-                {s.mod && (
+                {s.module_number && (
                   <V2ScrollLink
-                    href={`#mod-${String(s.mod).padStart(2, "0")}`}
+                    href={`#mod-${String(s.module_number).padStart(2, "0")}`}
                     className="col-span-full justify-self-start border-b border-lime pb-0.5 text-[14px] whitespace-nowrap text-lime min-[701px]:col-auto"
                   >
-                    Explore Module {String(s.mod).padStart(2, "0")} ↗
+                    Explore Module {String(s.module_number).padStart(2, "0")} ↗
                   </V2ScrollLink>
                 )}
               </Box>

@@ -8,7 +8,7 @@ import Text from "@/components/ui/Text";
 import V2Section from "@/components/sections/course/v2/section";
 import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import V2Heading from "@/components/sections/course/v2/heading";
-import { V2_BUTTON, V2_QUOTE_TOPIC_EVENT } from "@/components/sections/course/v2/buttons";
+import { V2_BUTTON, V2ButtonArrow, V2_QUOTE_TOPIC_EVENT } from "@/components/sections/course/v2/buttons";
 import { submitEnquiry } from "@/lib/actions/submit-enquiry";
 import { COUNTRIES } from "@/lib/countries";
 import { cn } from "@/lib/utils";
@@ -51,6 +51,7 @@ export default function V2Quote({ data, courseName }) {
 
   if (!data) return null;
   const { eyebrow, heading, text, packages = [], fields = {}, size_options = [], mode_options = [], goal_placeholder, phone_placeholder, note, submit } = data;
+  const defaultPackage = Math.max(0, packages.findIndex((p) => p.default));
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -69,6 +70,7 @@ export default function V2Quote({ data, courseName }) {
 
     const requirements = [
       topic && `Request: ${topic}`,
+      v.package && `Package: ${v.package}`,
       v.size && `Team size: ${v.size}`,
       v.mode && `Delivery mode: ${v.mode}`,
       v.goal && `Goal: ${v.goal}`,
@@ -119,18 +121,43 @@ export default function V2Quote({ data, courseName }) {
           <V2Heading parts={heading} className="mb-3.5 text-white" emClassName="text-lime" />
           {text && <Text className="text-[15px] text-white/72">{text}</Text>}
           {packages.length > 0 && (
-            <ul aria-label="Annual license packages" className="mt-5 grid grid-cols-2 gap-2">
+            // One column of selectable packages; the one marked `default: true`
+            // in the JSON starts selected (the first, if none is marked).
+            // Native radios (tied to the form by `form="quote-form"`), so the
+            // pick is keyboard-operable and travels with the enquiry.
+            <Box role="radiogroup" aria-label="Annual license packages" className="mt-5 grid grid-cols-1 gap-2">
               {packages.map((p, i) => (
-                <li key={p.name} className={cn("rounded-xl border p-3", i === 1 ? "border-lime" : "border-white/16")}>
-                  <b className="block font-display text-[15px] font-medium">{p.name}</b>
-                  <span className="text-[12.5px] text-white/60">{p.text}</span>
-                </li>
+                <label
+                  key={p.name}
+                  className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/16 p-3 transition-colors hover:border-white/40 has-checked:border-lime has-checked:bg-lime/10 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-lime"
+                >
+                  <input
+                    type="radio"
+                    name="package"
+                    value={p.name}
+                    form="quote-form"
+                    defaultChecked={i === defaultPackage}
+                    // Stops the browser restoring the last pick on reload,
+                    // which would override the JSON default.
+                    autoComplete="off"
+                    className="peer sr-only"
+                  />
+                  <Box
+                    as="span"
+                    aria-hidden="true"
+                    className="mt-[3px] grid size-4 flex-none place-items-center rounded-full border-[1.5px] border-white/40 peer-checked:border-lime after:size-2 after:rounded-full after:bg-transparent after:content-[''] peer-checked:after:bg-lime"
+                  />
+                  <span className="min-w-0">
+                    <b className="block font-display text-[15px] font-medium">{p.name}</b>
+                    <span className="text-[12.5px] text-white/60">{p.text}</span>
+                  </span>
+                </label>
               ))}
-            </ul>
+            </Box>
           )}
         </Box>
 
-        <form onSubmit={onSubmit} noValidate className="relative grid min-w-0 gap-3 rounded-[18px] bg-white p-[22px] text-ink min-[640px]:grid-cols-2">
+        <form id="quote-form" onSubmit={onSubmit} noValidate className="relative grid min-w-0 gap-3 rounded-[18px] bg-white p-[22px] text-ink min-[640px]:grid-cols-2">
           {/* Honeypot — real visitors never see or fill it. */}
           <label className="absolute -left-[9999px]" aria-hidden="true">
             Company website
@@ -152,7 +179,7 @@ export default function V2Quote({ data, courseName }) {
           <Field label={fields.company} required error={errors.company}>
             <input name="company" required autoComplete="organization" className={INPUT} />
           </Field>
-          <Field label={fields.jobTitle} required error={errors.jobTitle}>
+          <Field label={fields.job_title} required error={errors.jobTitle}>
             <input name="jobTitle" required autoComplete="organization-title" className={INPUT} />
           </Field>
           <Field label={fields.country} required error={errors.country}>
@@ -193,7 +220,8 @@ export default function V2Quote({ data, courseName }) {
           <Box className="col-span-full flex flex-col gap-3 min-[640px]:flex-row min-[640px]:items-center min-[640px]:justify-between">
             {note && <p className="text-[12px] text-ink-muted">{note}</p>}
             <button type="submit" disabled={sending} className={cn(V2_BUTTON.primary, "disabled:opacity-60")}>
-              {sending ? "Sending…" : submit} →
+              {sending ? "Sending…" : submit}
+              <V2ButtonArrow />
             </button>
           </Box>
           {submitError && <p role="alert" className="col-span-full text-[13px] text-error">{submitError}</p>}
