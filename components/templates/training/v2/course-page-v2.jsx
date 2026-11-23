@@ -1,10 +1,11 @@
+import Box from "@/components/ui/Box";
 import V2Hero from "@/components/sections/course/v2/hero";
 import CourseInfo from "@/components/sections/course/course-info";
 import BrochureGate from "@/components/common/brochure-gate";
 import V2Gap from "@/components/sections/course/v2/gap";
 import V2Lab from "@/components/sections/course/v2/lab";
 import V2Overview from "@/components/sections/course/v2/overview";
-import V2Customized from "@/components/sections/course/v2/customized";
+import CustomizedTraining from "@/components/sections/course/customized-training";
 import V2Outcomes from "@/components/sections/course/v2/outcomes";
 import V2Outline from "@/components/sections/course/v2/outline";
 import V2Toolkit from "@/components/sections/course/v2/toolkit";
@@ -20,7 +21,7 @@ import WhyEdstellar from "@/components/sections/course/why-edstellar";
 import AlsoFromEdstellar from "@/components/sections/course/also-from-edstellar";
 import GroupQuote from "@/components/forms/group-quote";
 import StickyFooter from "@/components/common/sticky-footer";
-import V2QuoteForm from "@/components/sections/course/v2/quote-form";
+import LeadForm from "@/components/forms/lead-form";
 
 /**
  * Course page — NEW v2 design (testing).
@@ -65,9 +66,11 @@ export default function CoursePageV2({ course: data, cmsCourse }) {
       {/* The live course's proof bar (CMS `proof`), as on the old layout. */}
       <CourseInfo proof={cmsCourse?.proof} capabilityModel={cmsCourse?.CapabilityModel} trainersImage={trainersImage} />
       <V2Gap data={course.course_gap} />
-      <V2Customized data={course.course_customized} />
       <V2Lab data={course.course_lab} />
-      <V2Overview data={course.course_overview} />
+      <V2Overview data={course.course_overview}>
+        {/* The live site's Customized band, as on the old layout. */}
+        <CustomizedTraining deliveryModeText={cmsCourse?.about?.delivery_mode_text} />
+      </V2Overview>
       <V2Outcomes data={course.course_outcomes} />
       <V2Outline data={course.course_outline} />
       <V2Toolkit data={course.course_toolkit} />
@@ -84,9 +87,12 @@ export default function CoursePageV2({ course: data, cmsCourse }) {
       <WhyEdstellar data={cmsCourse?.learning_path ?? cmsCourse?.WhyEds} relatedCourses={cmsCourse?.related_courses} />
       <AlsoFromEdstellar />
       <GroupQuote courseName={cmsCourse?.name} />
-      {/* The v2 quote section with the live lead form's fields (same Zoho form):
-          heading/text from CMS `leadForm`, packages/note from local `course_quote`. */}
-      <V2QuoteForm data={cmsCourse?.leadForm} quote={course.course_quote} />
+      {/* The live site's lead form, as on the old layout. Wrapped in `#quote`
+          because the v2 sections' buttons link there; the form's own id
+          stays `#apply` for the sticky footer and Customized band. */}
+      <Box id="quote" className="scroll-mt-[76px]">
+        <LeadForm data={cmsCourse?.leadForm} thankYou="course" branch="course" />
+      </Box>
       <StickyFooter data={cmsCourse?.stickyFooter} />
     </BrochureGate>
   );

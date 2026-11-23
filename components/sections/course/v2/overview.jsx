@@ -12,9 +12,10 @@ const KEY = ["bg-lime", "bg-gold", "bg-ring-3", "bg-navy"];
  * v2 · 3 Program overview (the design's `#overview`) — the quotable
  * definition on a lime rule, how the instructor-led delivery works (with
  * the lab examples), and four training steps, one per key part of the
- * definition, each with a numbered label and a colour key.
+ * definition, each with a numbered label and a colour key. `children`
+ * render at the end of the same section (the Customized panel).
  */
-export default function V2Overview({ data }) {
+export default function V2Overview({ data, children }) {
   if (!data) return null;
   const { heading, definition, paragraphs = [], lab_examples = [], lead_after = [], steps = [] } = data;
 
@@ -65,6 +66,8 @@ export default function V2Overview({ data }) {
           ))}
         </ol>
       )}
+
+      {children}
     </V2Section>
   );
 }

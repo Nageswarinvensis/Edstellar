@@ -239,7 +239,9 @@ export default function LeadForm({ data, background = "paper-warm", id = "apply"
                   // Only the default label has this title; CMS labels like
                   // "Book a consultation" say something else.
                   title={/^submit request$/i.test(submitLabel) ? "Click here to submit your training request" : undefined}
-                  className="w-full sm:w-auto"
+                  // `sm:ml-auto` keeps the button on the right when the CMS
+                  // sends no `sla_note` to fill the left side.
+                  className="w-full sm:ml-auto sm:w-auto"
                 >
                   {isSubmitting ? "Submitting…" : submitLabel}
                 </CtaButton>
