@@ -7,14 +7,14 @@ import { V2_BUTTON, V2ButtonArrow } from "@/components/sections/course/v2/button
 import { cn } from "@/lib/utils";
 
 /**
- * v2 · 1 Hero (the design's `.hero`) — kicker, H1 (the program keyword),
+ * v2 · 1 Hero (the design's `.hero`) — H1 (the program keyword),
  * serif theme line, audience line, brand intro, delivery formats and two
  * CTAs, beside the transparent hero illustration (`<object>`
  * keeps the SVG's own animation).
  */
 export default function V2Hero({ hero, breadcrumbs }) {
   if (!hero) return null;
-  const { kicker, heading, subhead, description, intro_text, formats = [], actions = [], illustration_url } = hero;
+  const { heading, subhead, description, intro_text, formats = [], actions = [], illustration_url } = hero;
 
   return (
     <Section
@@ -25,10 +25,7 @@ export default function V2Hero({ hero, breadcrumbs }) {
 
       <Box className="mt-5 grid grid-cols-1 items-center gap-[22px] lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] lg:items-start lg:gap-[clamp(20px,2.6vw,44px)]">
         <Box className="relative z-[1] max-w-[640px]">
-          {kicker && (
-            <Text className="mb-[18px] font-mono text-[11px] uppercase tracking-[0.2em] text-ink-muted">{kicker}</Text>
-          )}
-          <Text as="h1" className="mb-3.5 text-[clamp(40px,4.4vw,66px)] font-semibold leading-[1.03] tracking-[-0.045em]">
+          <Text as="h1" className="mb-3.5 text-[clamp(40px,4.4vw,60px)] font-semibold leading-[1.03] tracking-[-0.045em]">
             {heading}
           </Text>
           {subhead && (

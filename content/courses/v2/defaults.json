@@ -1,4 +1,12 @@
 {
+  "course_outcomes": {
+    "banner": {
+      "image": "/course-v2/learning-impact.webp",
+      "image_alt": "Learn new skills, apply on the job, improve performance and drive business impact",
+      "image_width": 812,
+      "image_height": 330
+    }
+  },
   "course_lab": {
     "steps": [
       {
@@ -33,9 +41,7 @@
       "In-person Onsite, Live Virtual or Hybrid Training Modes",
       "Plan from 2000+ Industry-ready Training Programs",
       "Guided Technical Labs, Led by Industry Experts"
-    ],
-    "image": "/course/custimized-training.webp",
-    "image_alt": "Customized corporate training solutions"
+    ]
   },
   "course_credentials": {
     "stats": [
