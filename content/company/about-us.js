@@ -245,13 +245,13 @@ export const ABOUT_US = {
   solve: {
     heading: "Who we work with, and the problems <span>we solve.</span>",
     description:
-      "We start with the capability problem in front of each organization, then bring in the right service and tool.",
+      "We start with the problem in front of each company, then bring in the right service and tool. Smaller companies often use Edstellar as their L&D team.",
     problem_label: "The typical problem",
     solution_label: "How Edstellar solves it",
     segments: [
       {
         stage: "Stage 1",
-        title: "Growth-stage companies",
+        title: "Growth-stage",
         size: "Up to 200 employees",
         problem: "Managers are promoted fast, without the skills to lead.",
         solution: "Training needs analysis, first-time manager programs and coaching on Meridian.",
@@ -259,7 +259,7 @@ export const ABOUT_US = {
       },
       {
         stage: "Stage 2",
-        title: "Mid-size companies",
+        title: "Mid-size",
         size: "200 to 1,000",
         problem: "Teams struggle to align as functions multiply.",
         solution: "Team diagnostics with Polaris and Orbit, then targeted team programs.",
@@ -267,7 +267,7 @@ export const ABOUT_US = {
       },
       {
         stage: "Stage 3",
-        title: "Large enterprises",
+        title: "Large enterprise",
         size: "1,000 to 10,000",
         problem: "Training spend is high, but impact is hard to show.",
         solution: "Role-based journeys on Spectra LMS, with proficiency measured before and after.",
@@ -275,7 +275,7 @@ export const ABOUT_US = {
       },
       {
         stage: "Stage 4",
-        title: "Global organizations",
+        title: "Global organization",
         size: "10,000+",
         problem: "Strategy moves faster than skills, in every country.",
         solution: "One skills map and one L&D roadmap across regions.",
@@ -469,9 +469,9 @@ export const ABOUT_US = {
   },
 
   clients: {
-    heading: "Industries and organizations that build capability <span>with Edstellar.</span>",
+    heading: "One L&D partner, close to every <span>team.</span>",
     description:
-      "200+ organizations across 10 industries work with Edstellar. Choose an industry to see the organizations Edstellar works with.",
+      "Teams in the United States, the United Kingdom and India deliver global training and development across the Americas, EMEA, MENA and APAC: the same program in every location, in the language and format each workforce needs.",
     choose_label: "Choose an industry",
     all_label: "All industries",
     initial: 24,

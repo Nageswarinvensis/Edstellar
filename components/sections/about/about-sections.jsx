@@ -390,43 +390,77 @@ export function AboutReach({ data }) {
   return (
     <Section id="reach" aria-labelledby="reach-h" className="scroll-mt-32 bg-paper">
       <Head id="reach" data={data} />
-      <Box className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.75fr_1.25fr]">
-        <Reveal>
-          <Text as="h3" className="mb-4 text-[18px] leading-snug">
-            {data.scale_title}
-          </Text>
-          <Box as="ul" className="m-0 grid list-none gap-3 p-0">
-            {data.scales.map((scale) => (
-              <Box as="li" key={scale.label} className="flex gap-4 rounded-[14px] border border-ink/12 bg-white p-4">
-                <Box as="span" className="grid size-9 flex-none place-items-center rounded-[10px] bg-navy text-lime">
-                  <AboutIcon name={scale.icon} size={17} />
-                </Box>
-                <Box className="flex-1">
-                  <Text as="p" className="font-display text-[16px] font-semibold text-ink">
+
+      {/* Scale rails + world map */}
+      <Reveal className="mb-10 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.6fr] lg:items-start">
+        <Box>
+          {data.scale_title && (
+            <Text as="p" className="mb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+              {data.scale_title}
+            </Text>
+          )}
+          <Box className="flex flex-col gap-5">
+            {data.scales?.map((scale) => (
+              <Box key={scale.label}>
+                <Box className="mb-1.5 flex items-center justify-between gap-2">
+                  <Text as="span" className="font-display text-[13px] font-semibold text-ink">
                     {scale.label}
                   </Text>
-                  <Box aria-hidden="true" className="relative mt-2.5 h-1 rounded-full bg-[linear-gradient(90deg,var(--color-ring-3),var(--color-ring-1),var(--color-navy))] before:absolute before:-top-1 before:left-0 before:size-3 before:rounded-full before:border-2 before:border-ring-3 before:bg-white before:content-[''] after:absolute after:-top-1 after:right-0 after:size-3 after:rounded-full after:border-2 after:border-white after:bg-navy after:content-['']" />
-                  <Text as="p" className="mt-2 flex justify-between text-[13px] text-ink-muted">
-                    <Text as="span" className="text-[13px]">{scale.from}</Text>
-                    <Text as="span" className="text-[13px]">{scale.to}</Text>
-                  </Text>
+                </Box>
+                <Box className="relative h-1.5 w-full overflow-hidden rounded-full bg-ink/10">
+                  <Box className="absolute inset-y-0 left-0 w-full rounded-full bg-gradient-to-r from-ink/30 to-navy" />
+                </Box>
+                <Box className="mt-1 flex items-center justify-between gap-2">
+                  <Text as="span" className="font-mono text-[10px] text-ink-muted">{scale.from}</Text>
+                  <Text as="span" className="font-mono text-[10px] text-ink-muted">{scale.to}</Text>
                 </Box>
               </Box>
             ))}
           </Box>
-        </Reveal>
-        <Reveal delay={1}>
-          <img src={data.map.src} alt={data.map.alt} width={960} height={540} loading="lazy" decoding="async" className="block h-auto w-full rounded-[16px]" />
-        </Reveal>
-      </Box>
-      <Reveal as="ul" className="m-0 mt-10 flex list-none flex-wrap justify-center gap-2.5 p-0">
-        {[...data.promises, ...data.formats].map((item) => (
-          <li key={item.label} title={item.description} className="flex items-center gap-2 rounded-full border border-ink/15 bg-white px-4.5 py-2.5 text-[15px] font-medium text-ink">
-            <AboutIcon name={item.icon} size={16} />
-            {item.label}
-          </li>
-        ))}
+        </Box>
+        {data.map?.src && (
+          <Box className="overflow-hidden rounded-[14px]">
+            <img
+              src={data.map.src}
+              alt={data.map.alt}
+              width={760}
+              height={400}
+              loading="lazy"
+              className="h-auto w-full object-contain"
+            />
+          </Box>
+        )}
       </Reveal>
+
+      {/* Delivery promises */}
+      {data.promises?.length > 0 && (
+        <Reveal className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
+          {data.promises.map((promise) => (
+            <Box key={promise.label} className="rounded-[14px] border border-ink/12 bg-paper p-5">
+              <Text as="p" className="mb-1 font-display text-[15px] font-semibold text-ink">
+                {promise.label}
+              </Text>
+              <Text as="p" className="text-[14px] leading-[1.6] text-ink-muted">
+                {promise.description}
+              </Text>
+            </Box>
+          ))}
+        </Reveal>
+      )}
+
+      {/* Format chips */}
+      {data.formats?.length > 0 && (
+        <Reveal className="flex flex-wrap gap-3">
+          {data.formats.map((fmt) => (
+            <Box key={fmt.label} className="flex items-center gap-2 rounded-full border border-ink/12 bg-white px-4 py-2">
+              <AboutIcon name={fmt.icon} size={14} className="text-ink-muted" />
+              <Text as="span" className="font-display text-[13.5px] font-semibold text-ink">
+                {fmt.label}
+              </Text>
+            </Box>
+          ))}
+        </Reveal>
+      )}
     </Section>
   );
 }
@@ -591,14 +625,99 @@ export function AboutExperts({ data }) {
   );
 }
 
-/** Industry filter and client logos. Design: `#clients`. */
-export function AboutClients({ data }) {
+/** Industry tiles + logo marquee slider — one unified section. */
+export function AboutClients({ data, homeClients, reach }) {
   return (
-    <Section id="clients" aria-labelledby="clients-h" className="scroll-mt-32 bg-white">
+    <Section id="clients" aria-labelledby="clients-h" className="scroll-mt-32 overflow-hidden bg-paper">
       <Head id="clients" data={data} />
-      <Reveal>
-        <ClientLogoWall data={data} />
+
+      {/* Office cards */}
+      {reach?.offices?.length > 0 && (
+        <Reveal className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {reach.offices.map((office) => (
+            <Box key={office.region} className="rounded-[14px] border border-ink/12 bg-white p-6">
+              <Text as="p" className="mb-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
+                {office.region}
+              </Text>
+              <Text as="h3" className="mb-1 text-[22px] font-semibold leading-tight text-ink">
+                {office.country}
+              </Text>
+              {office.city && (
+                <Text as="p" className="mb-3 text-[13.5px] text-ink-muted">{office.city}</Text>
+              )}
+              <Text as="p" className="text-[16px] font-medium text-ink">{office.phone}</Text>
+            </Box>
+          ))}
+        </Reveal>
+      )}
+
+      {/* Language pills */}
+      {reach?.languages?.length > 0 && (
+        <Reveal className="mb-10 flex flex-wrap items-center gap-3">
+          <Text as="span" className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
+            Delivery in 10+ languages, including
+          </Text>
+          <Box as="ul" className="m-0 flex list-none flex-wrap gap-2 p-0">
+            {reach.languages.map((lang) => (
+              <Box as="li" key={lang} className="rounded-full border border-ink/12 bg-white px-3 py-1 font-mono text-[11px] uppercase tracking-[0.06em] text-ink">
+                {lang}
+              </Box>
+            ))}
+          </Box>
+        </Reveal>
+      )}
+
+      {/* Industry tiles — informational with counts */}
+      <Reveal className="mb-10">
+        <Text as="h3" className="mb-4 text-[20px] font-semibold leading-snug text-ink">
+          Industries and organizations that work with Edstellar
+        </Text>
+        <Box className="grid grid-cols-2 gap-2.5 md:grid-cols-3 lg:grid-cols-5">
+          {data.industries.map((item) => (
+            <Box
+              key={item.key}
+              className="flex items-center justify-between gap-3 rounded-[14px] border border-ink/12 bg-paper px-4 py-3.5 text-left"
+            >
+              <Text as="span" className="font-display text-[14.5px] font-semibold leading-snug text-ink">
+                {item.label}
+              </Text>
+              <Text as="span" className="font-mono text-[11px] text-ink-muted">
+                {data.logos.filter((l) => l.industry === item.key).length}
+              </Text>
+            </Box>
+          ))}
+        </Box>
       </Reveal>
+
+      {/* Logo marquee slider — bleeds to section edges */}
+      {homeClients?.logos?.length > 0 && (
+        <Box className="-mx-5 lg:-mx-10">
+          <Box className="mx-5 mb-4 flex items-center justify-between gap-4 lg:mx-10">
+            <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
+              {homeClients.heading}
+            </Text>
+            <a href={homeClients.see?.href} className="hidden shrink-0 items-center font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-olive sm:inline-flex">
+              {homeClients.see?.label}
+              <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true" className="ml-1.5">
+                <path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="square" />
+              </svg>
+            </a>
+          </Box>
+          <Box aria-hidden="true" className="group overflow-hidden border-y border-ink/12 bg-white">
+            <Box className="flex w-max animate-marquee items-center motion-reduce:animate-none group-hover:[animation-play-state:paused]">
+              {[0, 1].map((copy) => (
+                <Box as="ul" key={copy} className="flex shrink-0 list-none items-center">
+                  {homeClients.logos.map((logo) => (
+                    <Box as="li" key={`${copy}-${logo.name}`} className="flex h-20 w-[150px] shrink-0 items-center justify-center border-r border-ink/12 px-6">
+                      <img src={logo.src} alt={logo.name} width={120} height={32} loading="lazy" className="h-7 w-auto max-w-[120px] object-contain opacity-70 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0" />
+                    </Box>
+                  ))}
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        </Box>
+      )}
     </Section>
   );
 }

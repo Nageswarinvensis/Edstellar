@@ -1,5 +1,6 @@
 import SectionNav from "@/components/common/section-nav";
 import RetreatForm from "@/components/forms/retreat-form";
+import { getHomePage } from "@/lib/content/home";
 import {
   AboutClients,
   AboutExperts,
@@ -23,6 +24,7 @@ import {
 /** `/about-us` — top to bottom as in the design, ending with the shared
  * navy lead form (heading beside the form). */
 export default function AboutUsPage({ page }) {
+  const home = getHomePage();
   return (
     <>
       <AboutHero data={page.hero} breadcrumbs={page.breadcrumbs} />
@@ -35,10 +37,10 @@ export default function AboutUsPage({ page }) {
       <AboutJourney data={page.journey} />
       <AboutReach data={page.reach} />
       <AboutSolve data={page.solve} />
+      <AboutClients data={page.clients} homeClients={home.clients} reach={page.reach} />
       <AboutMethod data={page.method} />
       <AboutTools data={page.tools} />
       <AboutExperts data={page.experts} />
-      <AboutClients data={page.clients} />
       <AboutTrust data={page.trust} />
       <AboutShift data={page.shift} />
       <AboutWork data={page.work_with_us} />
