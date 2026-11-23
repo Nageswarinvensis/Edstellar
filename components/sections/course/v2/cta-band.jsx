@@ -7,9 +7,11 @@ import { cn } from "@/lib/utils";
 /**
  * The CTA block that closes most v2 sections (the design's `.cta-block`):
  * cream panel, 4px lime rule on the left, heading, line and one button.
- * `cta` = `{ heading, text, label, href }`. `tone="dark"` for navy sections.
+ * `cta` = `{ heading, text, label, href }` — or a one-item list of it, as
+ * the CMS repeater sends (`course_lab.cta`). `tone="dark"` for navy sections.
  */
-export default function V2CtaBand({ cta, className, tone = "paper", buttonClassName }) {
+export default function V2CtaBand({ cta: value, className, tone = "paper", buttonClassName }) {
+  const cta = Array.isArray(value) ? value[0] : value;
   if (!cta?.label) return null;
   const dark = tone === "dark";
   return (
@@ -30,7 +32,7 @@ export default function V2CtaBand({ cta, className, tone = "paper", buttonClassN
           {cta.text}
         </Text>
       )}
-      <V2ScrollLink href={cta.href || "#quote"} topic={cta.heading} className={cn(dark ? V2_BUTTON.lime : V2_BUTTON.primary, buttonClassName)}>
+      <V2ScrollLink href={cta.href || "#quote"} topic={cta.heading} title={cta.title || `Click here to ${cta.label}`} className={cn(dark ? V2_BUTTON.lime : V2_BUTTON.primary, buttonClassName)}>
         {cta.label}
         <V2ButtonArrow />
       </V2ScrollLink>

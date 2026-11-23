@@ -4,7 +4,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import V2Section from "@/components/sections/course/v2/section";
-import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import V2Heading from "@/components/sections/course/v2/heading";
 import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
 import { V2_BUTTON, V2ButtonArrow } from "@/components/sections/course/v2/buttons";
@@ -17,7 +16,7 @@ import { cn } from "@/lib/utils";
  */
 export default function V2Instructor({ data }) {
   if (!data?.cards?.length) return null;
-  const { eyebrow, heading, cards, cta } = data;
+  const { heading, cards, cta } = data;
 
   return (
     <V2Section
@@ -26,7 +25,6 @@ export default function V2Instructor({ data }) {
       className="relative isolate overflow-hidden bg-[radial-gradient(circle,rgba(10,22,40,0.12)_1px,transparent_1.2px)] bg-[length:18px_18px]"
     >
       <Reveal className="mx-auto mb-[34px] max-w-[820px] text-center">
-        <V2Eyebrow className="justify-center">{eyebrow}</V2Eyebrow>
         <V2Heading parts={heading} />
         <span aria-hidden="true" className="mt-4 flex items-center justify-center gap-1.5">
           <i className="block h-0.5 w-16 rounded-sm bg-ink" />
@@ -44,7 +42,7 @@ export default function V2Instructor({ data }) {
           >
             {card.image && (
               <Box className="mb-2.5 flex h-[220px] items-center justify-center">
-                <Image src={card.image} alt={card.image_alt || ""} loading="lazy" width={card.image_width || 588} height={card.image_height || 400} className="block h-full w-auto max-w-full object-contain" />
+                <Image src={card.image} alt={card.image_alt || ""} title={card.image_alt || undefined} loading="lazy" width={card.image_width || 588} height={card.image_height || 400} className="block h-full w-auto max-w-full object-contain" />
               </Box>
             )}
             <Text as="h3" className="mt-1 mb-2.5 text-[21px] leading-[1.25]">{card.heading}</Text>
@@ -59,6 +57,7 @@ export default function V2Instructor({ data }) {
           <V2ScrollLink
             href={cta.href || "#quote"}
             topic={cta.heading}
+            title={cta.title || `Click here to ${cta.label}`}
             // Global pill (shape, padding, type, arrow, hover lift); the
             // design's olive fill and white text for this one button.
             className={cn(V2_BUTTON.primary, "relative bg-olive text-white")}

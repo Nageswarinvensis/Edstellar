@@ -81,8 +81,10 @@ export function phoneForSubmit(phone) {
  * downward is cut off at its bottom edge).
  *
  * `renderField({ label, error, className, children })` replaces the field
- * wrapper (label + error) and `phoneInputClassName` the phone input's look,
- * for a form whose own fields look different (the header's brief composer).
+ * wrapper (label + error) of both fields, `phoneInputClassName` the phone
+ * input's look and `selectClassName` the country dropdown's, for a form
+ * whose own fields look different (the header's brief composer, the v2
+ * course quote form).
  *
  * react-phone-input-2 is client-only and ships its own stylesheet, imported
  * here; Tailwind overrides need `!` (TASTE.md §7.2).
@@ -97,6 +99,7 @@ export default function CountryPhoneFields({
   country: withCountry = true,
   renderField,
   phoneInputClassName,
+  selectClassName,
   dropUp = false,
 }) {
   // React's ids look like `«R1a»`; keep only [A-Za-z0-9_-] so a checker that
@@ -127,8 +130,12 @@ export default function CountryPhoneFields({
 
   return (
     <>
-      {withCountry ? (
-      <Field dark={dark} labelled={labelled} label="Country" error={errors.country?.message} className={countryClassName}>
+      {withCountry
+        ? phoneField({
+        label: "Country",
+        error: errors.country?.message,
+        className: countryClassName,
+        children: (
         <select
           {...register("country", { required: "Please select your country." })}
           autoComplete="country-name"
@@ -138,12 +145,13 @@ export default function CountryPhoneFields({
           onKeyDown={mountList}
           onFocus={mountList}
           className={
-            dark
+            selectClassName ??
+            (dark
               ? cn(
                   darkInputClasses,
                   "appearance-none bg-[linear-gradient(45deg,transparent_50%,var(--color-lime)_50%),linear-gradient(135deg,var(--color-lime)_50%,transparent_50%)] bg-[length:5px_5px] bg-[position:calc(100%-18px)_55%,calc(100%-13px)_55%] bg-no-repeat pr-9 [&_option]:text-ink",
                 )
-              : formInputClasses
+              : formInputClasses)
           }
         >
           <option value="" disabled>
@@ -171,8 +179,9 @@ export default function CountryPhoneFields({
             <option value={selectedCountry}>{selectedCountry}</option>
           ) : null}
         </select>
-      </Field>
-      ) : null}
+        ),
+      })
+        : null}
 
       {phoneField({
         label: phoneLabel,

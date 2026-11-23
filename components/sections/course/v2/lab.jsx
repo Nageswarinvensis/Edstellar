@@ -6,7 +6,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import V2Section from "@/components/sections/course/v2/section";
-import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import V2Heading from "@/components/sections/course/v2/heading";
 import V2CtaBand from "@/components/sections/course/v2/cta-band";
 import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
@@ -169,7 +168,7 @@ export default function V2Lab({ data }) {
   const [tab, setTab] = useState("practice");
   const [round, setRound] = useState(0);
   if (!data?.scenarios?.length) return null;
-  const { eyebrow, heading, lead, badge, list_label, note, lab_kicker, tabs = {}, task_keys = {}, scenarios, steps = [], cta } = data;
+  const { heading, lead, badge, list_label, note, lab_kicker, tabs = {}, task_keys = {}, scenarios, steps = [], cta } = data;
 
   function pick(i) {
     setActive(i);
@@ -189,7 +188,6 @@ export default function V2Lab({ data }) {
     <V2Section id="lab">
       <Reveal className="mb-[30px] flex flex-wrap items-start justify-between gap-x-[30px] gap-y-4">
         <Box>
-          <V2Eyebrow>{eyebrow}</V2Eyebrow>
           <V2Heading parts={heading} className="mb-3" />
           {lead && <Text className="max-w-[720px] text-[16.5px] leading-[1.7]">{lead}</Text>}
         </Box>
@@ -312,6 +310,7 @@ export default function V2Lab({ data }) {
                 {s.module_number && (
                   <V2ScrollLink
                     href={`#mod-${String(s.module_number).padStart(2, "0")}`}
+                    title={`Click here to view module ${String(s.module_number).padStart(2, "0")}`}
                     className="col-span-full justify-self-start border-b border-lime pb-0.5 text-[14px] whitespace-nowrap text-lime min-[701px]:col-auto"
                   >
                     Explore Module {String(s.module_number).padStart(2, "0")} ↗

@@ -115,11 +115,11 @@ function Module({ mod, open }) {
  */
 export default function V2Outline({ data }) {
   if (!data?.modules?.length) return null;
-  const { eyebrow, heading, lead, summary = [], modules, cta } = data;
+  const { heading, lead, summary = [], modules, cta } = data;
 
   return (
     <V2Section id="outline">
-      <V2SectionHead eyebrow={eyebrow} heading={heading} lead={lead} />
+      <V2SectionHead heading={heading} lead={lead} />
 
       {summary.length > 0 && (
         <Reveal>

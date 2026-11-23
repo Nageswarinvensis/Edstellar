@@ -33,17 +33,20 @@ function StatValue({ value }) {
 /**
  * v2 · 10 Why Edstellar (the design's `#why`) — the lead and four
  * commitments, the proof numbers and accreditations beside the globe of
- * delivery regions; the client logo band; then the Edstellar products.
+ * delivery regions; the client logo band; then the Edstellar products —
+ * `products`, the local `course_products` (not `data.products` from the CMS).
  */
-export default function V2Why({ data }) {
+export default function V2Why({ data, credentials = {}, products }) {
   if (!data) return null;
-  const { eyebrow, heading, lead, points = [], stats = [], accreditations = [], globe, logos_label, logos = [], products } = data;
+  const { heading, lead, points = [], globe } = data;
+  // Stats, ISO badges and the client-logo band are local (`course_credentials`), not CMS.
+  const { stats = [], accreditations = [], logos_label, logos = [] } = credentials;
 
   return (
     <V2Section id="why">
       <Box className="grid items-center gap-7 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-12">
         <Box className="min-w-0">
-          <V2SectionHead eyebrow={eyebrow} heading={heading} lead={lead} className="mb-[22px]" />
+          <V2SectionHead heading={heading} lead={lead} className="mb-[22px]" />
 
           <Reveal as="ul" className="mt-[18px] grid gap-2.5">
             {points.map((p) => (
@@ -113,7 +116,7 @@ export default function V2Why({ data }) {
                   <li key={`${logo.name}-${index}`} aria-hidden={duplicate || undefined} className={cn("flex-none", duplicate && "motion-reduce:hidden")}>
                     <Image
                       src={logo.image}
-                      alt={duplicate ? "" : logo.name}
+                      alt={logo.name}
                       title={logo.name}
                       loading="lazy"
                       width={logo.image_width || 120}

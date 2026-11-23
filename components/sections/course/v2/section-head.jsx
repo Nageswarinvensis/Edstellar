@@ -4,28 +4,11 @@ import Reveal from "@/components/common/reveal";
 import V2Heading from "@/components/sections/course/v2/heading";
 import { cn } from "@/lib/utils";
 
-/** The v2 eyebrow (the design's `.eyebrow`): olive mono caps with the lime dot. */
-export function V2Eyebrow({ children, className }) {
-  if (!children) return null;
-  return (
-    <Box
-      as="p"
-      className={cn(
-        "mb-3.5 inline-flex items-center gap-[9px] font-mono text-[11px] uppercase tracking-[0.18em] text-olive",
-        className,
-      )}
-    >
-      <span aria-hidden="true" className="inline-block size-1.5 shrink-0 rounded-full bg-lime ring-[3px] ring-lime/25" />
-      {children}
-    </Box>
-  );
-}
-
 /**
- * Eyebrow + H2 + lead — the design's `.sec-head` (max 820px, 34px below).
+ * H2 + lead — the design's `.sec-head` (max 820px, 34px below).
  * `align="center"` centers it; `aside` renders beside it on desktop.
  */
-export default function V2SectionHead({ eyebrow, heading, lead, align = "left", aside, className, headingClassName, emClassName, eyebrowClassName, leadClassName }) {
+export default function V2SectionHead({ heading, lead, align = "left", aside, className, headingClassName, emClassName, leadClassName }) {
   const centered = align === "center";
   return (
     <Reveal
@@ -37,7 +20,6 @@ export default function V2SectionHead({ eyebrow, heading, lead, align = "left", 
       )}
     >
       <Box className={cn(aside && "max-w-[820px]")}>
-        <V2Eyebrow className={eyebrowClassName}>{eyebrow}</V2Eyebrow>
         <V2Heading parts={heading} className={cn("mb-3.5", headingClassName)} emClassName={emClassName} />
         {lead && (
           <Text className={cn("max-w-[760px] text-[16.5px] leading-[1.7]", centered && "mx-auto", leadClassName)}>

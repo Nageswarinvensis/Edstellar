@@ -156,7 +156,7 @@ export default function V2Delivery({ data }) {
     };
   }, [signal]);
   if (!data?.stages?.length) return null;
-  const { eyebrow, heading, lead, panel_kicker, panel_heading, format_titles = {}, scale_titles = {}, stages, modes = [], mode_keys = [], custom, cta, format_words } = data;
+  const { heading, lead, panel_kicker, panel_heading, format_titles = {}, scale_titles = {}, stages, modes = [], mode_keys = [], custom, cta, format_words } = data;
   // The panel heading follows the chips: `{format}` / `{scale}` in the JSON's
   // span-format heading are filled from `format_titles` / `scale_titles`.
   const panelHeading = String(panel_heading ?? "")
@@ -190,11 +190,9 @@ export default function V2Delivery({ data }) {
   return (
     <V2Section id="delivery" tone="navy">
       <V2SectionHead
-        eyebrow={eyebrow}
         heading={heading}
         lead={lead}
         headingClassName="text-white"
-        eyebrowClassName="text-lime"
         leadClassName="text-white/72"
         emClassName="text-lime"
       />

@@ -146,12 +146,12 @@ export default function V2Audience({ data }) {
     return () => io.disconnect();
   }, []);
   if (!data?.lenses?.length) return null;
-  const { eyebrow, heading, lead, lenses, progression, cta } = data;
+  const { heading, lead, lenses, progression, cta } = data;
   const current = lenses[lens];
 
   return (
     <V2Section id="audience">
-      <V2SectionHead eyebrow={eyebrow} heading={heading} lead={lead} />
+      <V2SectionHead heading={heading} lead={lead} />
 
       <Box role="tablist" aria-label="Browse by" className="mb-3.5 inline-flex max-w-full gap-1.5 overflow-x-auto rounded-full bg-paper-warm p-1 [scrollbar-width:none]">
         {lenses.map((l, i) => (

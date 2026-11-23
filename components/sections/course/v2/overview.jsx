@@ -16,11 +16,11 @@ const KEY = ["bg-lime", "bg-gold", "bg-ring-3", "bg-navy"];
  */
 export default function V2Overview({ data }) {
   if (!data) return null;
-  const { eyebrow, heading, definition, paragraphs = [], lab_examples = [], lead_after = [], steps = [] } = data;
+  const { heading, definition, paragraphs = [], lab_examples = [], lead_after = [], steps = [] } = data;
 
   return (
     <V2Section id="overview">
-      <V2SectionHead eyebrow={eyebrow} heading={heading} />
+      <V2SectionHead heading={heading} />
 
       {definition && (
         <Reveal>
