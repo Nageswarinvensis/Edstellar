@@ -11,11 +11,11 @@ import V2CtaBand from "@/components/sections/course/v2/cta-band";
  */
 export default function V2Faq({ data }) {
   if (!data?.groups?.length) return null;
-  const { eyebrow, heading, groups, cta } = data;
+  const { heading, groups, cta } = data;
 
   return (
     <V2Section id="faq">
-      <V2SectionHead eyebrow={eyebrow} heading={heading} />
+      <V2SectionHead heading={heading} />
       <Box className="grid gap-x-10 gap-y-1 lg:grid-cols-2 lg:items-start">
         {groups.map((group, gi) => (
           <Box key={group.category} className="min-w-0">

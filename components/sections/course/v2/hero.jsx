@@ -8,13 +8,13 @@ import { cn } from "@/lib/utils";
 
 /**
  * v2 · 1 Hero (the design's `.hero`) — kicker, H1 (the program keyword),
- * serif theme line, audience line, brand intro, delivery formats, two CTAs
- * and three stats, beside the transparent hero illustration (`<object>`
+ * serif theme line, audience line, brand intro, delivery formats and two
+ * CTAs, beside the transparent hero illustration (`<object>`
  * keeps the SVG's own animation).
  */
 export default function V2Hero({ hero, breadcrumbs }) {
   if (!hero) return null;
-  const { kicker, heading, subhead, description, intro_text, formats = [], actions = [], stats = [], illustration_url } = hero;
+  const { kicker, heading, subhead, description, intro_text, formats = [], actions = [], illustration_url } = hero;
 
   return (
     <Section
@@ -58,6 +58,7 @@ export default function V2Hero({ hero, breadcrumbs }) {
                 <V2ScrollLink
                   key={action.label}
                   href={action.href}
+                  title={action.title || `Click here to ${action.label}`}
                   className={cn(i === 0 ? V2_BUTTON.lime : V2_BUTTON.ghost, V2_BUTTON.lg)}
                 >
                   {action.label}
@@ -65,25 +66,6 @@ export default function V2Hero({ hero, breadcrumbs }) {
                 </V2ScrollLink>
               ))}
             </Box>
-          )}
-
-          {stats.length > 0 && (
-            <dl className="mt-7 grid max-w-[620px] grid-cols-3 border-t border-ink/12 pt-5 min-[561px]:grid-cols-[repeat(3,auto)] min-[561px]:justify-start">
-              {stats.map((stat, i) => (
-                <div
-                  key={stat.value}
-                  className={cn(
-                    "px-2.5 min-[561px]:px-[clamp(14px,2vw,40px)]",
-                    i === 0 ? "pl-0 min-[561px]:pl-0" : "border-l border-ink/12",
-                  )}
-                >
-                  <dt className="font-display text-[clamp(16px,1.5vw,21px)] font-medium tracking-[-0.025em] text-ink lg:whitespace-nowrap">
-                    {stat.value}
-                  </dt>
-                  <dd className="mt-0.5 text-[12.5px] text-ink-muted min-[561px]:text-[14px] lg:whitespace-nowrap">{stat.label}</dd>
-                </div>
-              ))}
-            </dl>
           )}
         </Box>
 

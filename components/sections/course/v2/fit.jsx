@@ -6,7 +6,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import V2Section from "@/components/sections/course/v2/section";
-import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import V2Heading from "@/components/sections/course/v2/heading";
 import V2CtaBand from "@/components/sections/course/v2/cta-band";
 import V2Icon from "@/components/sections/course/v2/icon";
@@ -375,7 +374,7 @@ export default function V2Fit({ data }) {
   const [tab, setTab] = useState(data?.default_tab ?? "learn");
   const [round, setRound] = useState(0);
   if (!data?.levels?.length) return null;
-  const { eyebrow, heading, lead, select_label, scale_note, selected_label, tabs = {}, levels, hint_kinds, learn_note, apply_note, learn_label, apply_label, apply_book_label, apply_badge, capability_label, sample_note, close = [], cta } = data;
+  const { heading, lead, select_label, scale_note, selected_label, tabs = {}, levels, hint_kinds, learn_note, apply_note, learn_label, apply_label, apply_book_label, apply_badge, capability_label, sample_note, close = [], cta } = data;
   const steps = levels.slice(0, 3);
   const mixed = levels[3];
 
@@ -418,7 +417,6 @@ export default function V2Fit({ data }) {
   return (
     <V2Section id="fit">
       <Reveal className="mb-[30px] max-w-[820px]">
-        <V2Eyebrow>{eyebrow}</V2Eyebrow>
         <V2Heading parts={heading} className="mb-3" />
         {lead && <Text className="max-w-[780px] text-[16.5px] leading-[1.7]">{lead}</Text>}
       </Reveal>

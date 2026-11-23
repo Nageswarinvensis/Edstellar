@@ -1,7 +1,6 @@
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import V2Section from "@/components/sections/course/v2/section";
-import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import V2Heading from "@/components/sections/course/v2/heading";
 import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
 import { V2_BUTTON, V2ButtonArrow } from "@/components/sections/course/v2/buttons";
@@ -37,12 +36,11 @@ function Burst() {
  */
 export default function V2Gap({ data }) {
   if (!data) return null;
-  const { eyebrow, heading, lead, stats = [], sources_note, cta } = data;
+  const { heading, lead, stats = [], sources_note, cta } = data;
 
   return (
     <V2Section id="gap">
       <Reveal className="mx-auto mb-10 max-w-[900px] text-center">
-        <V2Eyebrow className="justify-center text-ink">{eyebrow}</V2Eyebrow>
         <V2Heading parts={heading} className="mb-3.5" />
         {lead && <Text className="mx-auto mt-3.5 max-w-[860px] text-[16.5px] leading-[1.7] text-ink">{lead}</Text>}
       </Reveal>
@@ -85,6 +83,7 @@ export default function V2Gap({ data }) {
           <V2ScrollLink
             href={cta.href || "#quote"}
             topic={cta.heading}
+            title={cta.title || `Click here to ${cta.label}`}
             className={cn(V2_BUTTON.ghost, "bg-white")}
           >
             {cta.label}

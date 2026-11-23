@@ -3,7 +3,6 @@ import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
-import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import { V2_BUTTON, V2ButtonArrow } from "@/components/sections/course/v2/buttons";
 import { cn } from "@/lib/utils";
 
@@ -78,6 +77,7 @@ function Product({ p, single }) {
       {p.href && (
         <Link
           href={p.href}
+          title={p.link_title || `Click here to ${p.link_label}`}
           className={cn(
             V2_BUTTON.lime,
             "mt-auto self-start",
@@ -107,13 +107,12 @@ const STICK_TOP = ["lg:top-[88px]", "lg:top-[104px]", "lg:top-[120px]", "lg:top-
 
 export default function V2Products({ data }) {
   if (!data?.stages?.length) return null;
-  const { eyebrow, heading, text, stages } = data;
+  const { heading, text, stages } = data;
 
   return (
-    <Box id="edProducts" className="mt-10">
+    <Box id="edProducts" className="mt-16 lg:mt-20">
       <Reveal className="mb-[22px] max-w-[780px]">
-        <V2Eyebrow>{eyebrow}</V2Eyebrow>
-        <Text as="h3" className="mt-1.5 mb-2 text-[clamp(21px,2.3vw,27px)] leading-[1.2] tracking-[-0.02em]">{heading}</Text>
+        <Text as="h3" className="mb-2 text-[clamp(21px,2.3vw,27px)] leading-[1.2] tracking-[-0.02em]">{heading}</Text>
         {text && <Text className="text-[15.5px] leading-[1.55]">{text}</Text>}
       </Reveal>
       <Box className="grid min-w-0 gap-4">

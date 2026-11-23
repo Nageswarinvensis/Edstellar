@@ -7,7 +7,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import V2Section from "@/components/sections/course/v2/section";
 import Reveal from "@/components/common/reveal";
-import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import V2Heading from "@/components/sections/course/v2/heading";
 import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
 import OutcomesTower from "@/components/sections/course/v2/outcomes-tower";
@@ -50,7 +49,7 @@ export default function V2Outcomes({ data }) {
   }, []);
 
   if (!data?.items?.length) return null;
-  const { eyebrow, heading, tower_labels = [], items, banner } = data;
+  const { heading, tower_labels = [], items, banner } = data;
   const total = items.length;
 
   function select(n) {
@@ -70,7 +69,6 @@ export default function V2Outcomes({ data }) {
   return (
     <V2Section id="outcomes">
       <Reveal className="mb-[34px] max-w-[820px]">
-        <V2Eyebrow>{eyebrow}</V2Eyebrow>
         <V2Heading parts={heading} className={cn("max-w-[640px]", styles.swash)} emClassName="text-ink" />
       </Reveal>
 
@@ -156,6 +154,7 @@ export default function V2Outcomes({ data }) {
             <V2ScrollLink
               href={banner.href || "#quote"}
               topic={banner.heading}
+              title={banner.title || `Click here to ${banner.label}`}
               className={V2_BUTTON.primary}
             >
               {banner.label}
@@ -166,6 +165,7 @@ export default function V2Outcomes({ data }) {
             <Image
               src={banner.image}
               alt={banner.image_alt || ""}
+              title={banner.image_alt || undefined}
               width={banner.image_width || 650}
               height={banner.image_height || 258}
               loading="lazy"

@@ -48,18 +48,19 @@ export default async function CourseRoute({ params }) {
   // belongs to a different domain than the one in the URL. Both are real 404s.
   if (!course) notFound();
 
-  // New v2 design (testing): CMS + local JSON fallback, switched in
-  // content/courses/v2/index.js. SEO, schema and breadcrumbs stay the live
-  // course's own (`seo`, `schema`, `breadcrumbs` CMS components), exactly as
-  // the old layout uses them. The old layout below is untouched.
-  const v2 = await getCourseV2(slug, courseSlug);
-  if (v2) {
+  // New v2 design: only for a course whose CMS page sets
+  // `meta.is_new_design: "yes"`. Its `course_*` components (over any local
+  // JSON in content/courses/v2/) feed the design; SEO, schema and breadcrumbs
+  // stay the course's own CMS components, exactly as the old layout uses them.
+  // The old layout below is untouched.
+  if (course.is_new_design) {
+    const v2 = await getCourseV2(slug, courseSlug);
     // FAQPage must match the questions visible on the page: the v2 FAQ.
     const v2Faqs = (v2.course_faq?.groups ?? []).flatMap((group) => group.items);
     return (
       <>
         <CourseSchema course={course} slug={slug} courseSlug={courseSlug} faqItems={v2Faqs} />
-        <CoursePageV2 course={v2} breadcrumbs={course.breadcrumbs?.items} />
+        <CoursePageV2 course={v2} cmsCourse={course} />
       </>
     );
   }

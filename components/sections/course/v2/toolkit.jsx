@@ -6,7 +6,6 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import V2Section from "@/components/sections/course/v2/section";
-import { V2Eyebrow } from "@/components/sections/course/v2/section-head";
 import V2Heading from "@/components/sections/course/v2/heading";
 import V2CtaBand from "@/components/sections/course/v2/cta-band";
 import V2ScrollLink from "@/components/sections/course/v2/scroll-link";
@@ -246,7 +245,6 @@ function ToolsPanel({ panel }) {
       )}
     >
       <Box className="relative max-w-[760px]">
-        <V2Eyebrow>{panel.eyebrow}</V2Eyebrow>
         <Text as="h3" className="mb-2 text-[clamp(22px,2.4vw,28px)] leading-[1.2] tracking-[-0.02em]">{panel.heading}</Text>
         <Text className="text-[15.5px] leading-[1.55]">{panel.text}</Text>
       </Box>
@@ -380,7 +378,7 @@ export default function V2Toolkit({ data }) {
   const [active, setActive] = useState(0);
   const [tab, setTab] = useState("view");
   if (!data?.frameworks?.length) return null;
-  const { eyebrow, heading, lead, badge, list_label, note, kicker, tabs = {}, instructions = {}, groups = [], frameworks, cta, tools_panel, note_disclaimer } = data;
+  const { heading, lead, badge, list_label, note, kicker, tabs = {}, instructions = {}, groups = [], frameworks, cta, tools_panel, note_disclaimer } = data;
 
   let cursor = 0;
   const grouped = groups.map((g) => {
@@ -407,7 +405,6 @@ export default function V2Toolkit({ data }) {
     <V2Section id="toolkit">
       <Reveal className="mb-[30px] flex flex-wrap items-start justify-between gap-x-[30px] gap-y-4">
         <Box>
-          <V2Eyebrow>{eyebrow}</V2Eyebrow>
           <V2Heading parts={heading} className="mb-3" />
           {lead && <Text className="max-w-[720px] text-[16.5px] leading-[1.7]">{lead}</Text>}
         </Box>
@@ -511,7 +508,7 @@ export default function V2Toolkit({ data }) {
                     </Box>
                   </Box>
                 ))}
-                <V2ScrollLink href={`#mod-${fx.module_number}`} className="justify-self-start border-b border-lime pb-0.5 text-[14px] whitespace-nowrap text-lime">
+                <V2ScrollLink href={`#mod-${fx.module_number}`} title={`Click here to view module ${fx.module_number}`} className="justify-self-start border-b border-lime pb-0.5 text-[14px] whitespace-nowrap text-lime">
                   View Module {fx.module_number} ↗
                 </V2ScrollLink>
               </Box>
