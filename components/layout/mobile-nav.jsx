@@ -6,6 +6,7 @@ import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { MEGA_NAV } from "@/lib/nav-data";
+import { navPrefetch } from "@/lib/links";
 import SiteSearch from "@/components/layout/site-search";
 
 
@@ -123,6 +124,7 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
                             </a>
                           ) : (
                             <Link
+                              prefetch={navPrefetch(link.href)}
                               href={link.href}
                               target="_blank"
                               rel="noopener"
@@ -138,6 +140,7 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
                     </Box>
                     {group.more && (
                       <Link
+                        prefetch={navPrefetch(group.more.href)}
                         href={group.more.href}
                         target="_blank"
                         rel="noopener"
@@ -166,6 +169,7 @@ export default function MobileNav({ id, open, onClose, onOpenBrief, cta }) {
                 ))}
                 {section.foot && (
                   <Link
+                    prefetch={navPrefetch(section.foot.href)}
                     href={section.foot.href}
                     target="_blank"
                     rel="noopener"
