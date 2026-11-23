@@ -83,8 +83,7 @@ function Brand() {
         <Image src="/course/edstellar.svg" alt="Edstellar" title="Edstellar" width={139} height={50} className="block h-[50px] w-auto brightness-0 invert" />
       </Link>
       <Text as="p" className="mt-4 max-w-[44ch] text-[14px] leading-[1.7] text-paper/60">
-        Edstellar is a capability transformation partner. Consulting, talent assessments, academies,
-        coaching and corporate training, delivered in 100+ countries and 10+ languages.
+        Edstellar is a learning and development solutions company for growing businesses worldwide: consulting, assessments, corporate training, coaching and managed learning, delivered in 100+ countries and 10+ languages.
       </Text>
 
       <Box className="mt-6 flex gap-2">

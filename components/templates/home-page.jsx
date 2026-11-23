@@ -3,6 +3,10 @@ import HomeStats from "@/components/sections/home/home-stats";
 import HomeClients from "@/components/sections/home/home-clients";
 import HomeDefinition from "@/components/sections/home/home-definition";
 import HomeSolutions from "@/components/sections/home/home-solutions";
+import HomeEngage from "@/components/sections/home/home-engage";
+import HomeGlobal from "@/components/sections/home/home-global";
+import HomeChoose from "@/components/sections/home/home-choose";
+import HomeResults from "@/components/sections/home/home-results";
 import HomeTaxonomy from "@/components/sections/home/home-taxonomy";
 import HomePlatforms from "@/components/sections/home/home-platforms";
 import HomeMethod from "@/components/sections/home/home-method";
@@ -26,6 +30,10 @@ export default function HomePage({ page }) {
       <HomeClients data={page.clients} />
       <HomeDefinition data={page.definition} />
       <HomeSolutions data={page.solutions} />
+      <HomeEngage data={page.engage} />
+      <HomeGlobal data={page.global} />
+      <HomeChoose data={page.choose} />
+      {/* <HomeResults data={page.results} /> */}
       <HomeTaxonomy data={page.taxonomy} />
       <HomePlatforms data={page.platforms} />
       <HomeMethod data={page.method} />
