@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { preload } from "react-dom";
 import Box from "@/components/ui/Box";
 import { cn } from "@/lib/utils";
 
@@ -24,8 +24,16 @@ import { cn } from "@/lib/utils";
  * `video` wins over `image` when both are supplied. With neither, a tonal
  * placeholder renders so layout and spacing are still reviewable.
  */
+const DESKTOP_MEDIA = "(min-width: 768px)";
+const BLANK_PIXEL = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAACH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
 function HeroMedia({ image, video, alt = "", poster, className }) {
   const hasMedia = Boolean(video || image);
+
+  // The hero image is the LCP candidate on tablet and desktop, so preload it
+  // there — and only there. `next/image`'s `priority` preload has no media
+  // query, which made phones download an image they never show.
+  if (image && !video) preload(image, { as: "image", media: DESKTOP_MEDIA, fetchPriority: "high" });
 
   return (
     <Box
@@ -52,16 +60,19 @@ function HeroMedia({ image, video, alt = "", poster, className }) {
           <source src={video} type="video/mp4" />
         </video>
       ) : image ? (
-        <Image
-          src={image}
-          alt={alt}
-          title={alt || undefined}
-          fill
-          priority
-          quality={100}
-          sizes="(max-width: 767px) 0px, (max-width: 1140px) 100vw, 80vw"
-          className="object-cover object-right"
-        />
+        // `<picture>` so phones, where this box is hidden, never fetch the
+        // image: below 768px the <img> falls back to a 1×1 blank pixel.
+        <picture>
+          <source media={DESKTOP_MEDIA} srcSet={image} />
+          <img
+            src={BLANK_PIXEL}
+            alt={alt}
+            title={alt || undefined}
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover object-right"
+          />
+        </picture>
       ) : (
         <Box className="size-full bg-[linear-gradient(135deg,var(--color-navy)_0%,var(--color-navy-soft)_55%,var(--color-paper-cream)_100%)] opacity-90" />
       )}
