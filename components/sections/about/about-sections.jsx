@@ -523,42 +523,28 @@ export function AboutTools({ data }) {
               {group.description}
             </Text>
             <Box className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {group.items.map((tool) => {
-                const body = (
-                  <>
-                    <Box className="mb-4 flex items-start justify-between gap-3">
-                      <Box as="span" className="grid size-11 flex-none place-items-center rounded-[10px] bg-lime/12 text-lime">
-                        <AboutIcon name={tool.icon} size={19} />
-                      </Box>
-                      <Text as="span" className="text-right font-mono text-[10.5px] tracking-[0.14em] text-paper/60 uppercase">
-                        {tool.stages}
-                      </Text>
+              {group.items.map((tool) => (
+                <Box key={tool.name} className="flex h-full flex-col rounded-[14px] border border-paper/12 bg-navy-soft p-5">
+                  <Box className="mb-4 flex items-start justify-between gap-3">
+                    <Box as="span" className="grid size-11 flex-none place-items-center rounded-[10px] bg-lime/12 text-lime">
+                      <AboutIcon name={tool.icon} size={19} />
                     </Box>
-                    <Text as="h4" className="mb-3 text-[18px] leading-snug text-paper">
-                      {tool.name}
+                    <Text as="span" className="text-right font-mono text-[10.5px] tracking-[0.14em] text-paper/60 uppercase">
+                      {tool.stages}
                     </Text>
-                    <Text as="p" className="mb-4 flex-1 text-[14.5px] leading-[1.6] text-paper/75">
-                      {tool.description}
-                    </Text>
-                    {tool.href ? (
-                      <Text as="span" className="inline-flex items-center gap-1.5 font-display text-[14px] font-semibold text-lime">
-                        {data.explore_label}
-                        <ArrowRight size={14} aria-hidden="true" />
-                      </Text>
-                    ) : null}
-                  </>
-                );
-                const card = "flex h-full flex-col rounded-[14px] border border-paper/12 bg-navy-soft p-5";
-                return tool.href ? (
-                  <Link key={tool.name} href={tool.href} title={`Click Here to Explore ${tool.name}`} className={cn(card, "transition-colors hover:border-lime/50")}>
-                    {body}
-                  </Link>
-                ) : (
-                  <Box key={tool.name} className={card}>
-                    {body}
                   </Box>
-                );
-              })}
+                  <Text as="h4" className="mb-3 text-[18px] leading-snug text-paper">
+                    {tool.href ? (
+                      <Link href={tool.href} title={`Click here to explore ${tool.name}`} className="no-underline hover:text-lime hover:no-underline">
+                        {tool.name}
+                      </Link>
+                    ) : tool.name}
+                  </Text>
+                  <Text as="p" className="flex-1 text-[14.5px] leading-[1.6] text-paper/75">
+                    {tool.description}
+                  </Text>
+                </Box>
+              ))}
             </Box>
           </Reveal>
         ))}

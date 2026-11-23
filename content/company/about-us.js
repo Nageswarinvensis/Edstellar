@@ -149,7 +149,7 @@ export const ABOUT_US = {
     id: "what-we-do",
     heading: "What Edstellar <span>does.</span>",
     kicker: "Eleven learning and development solutions in three layers. Start with one program, plan a year of L&D, or let us run L&D for you.",
-    footer_note: "See the full picture on our [learning and development solutions](/) page, or compare [managed L&D engagement models](/managed-learning-services).",
+    footer_note: "See the full picture on our [learning and development solutions](/learning-development-consulting-services) page, or compare [managed L&D engagement models](/managed-learning-services).",
     groups: [
       {
         num: "01",
@@ -168,9 +168,9 @@ export const ABOUT_US = {
         title: "Learning and talent <span>programs</span>",
         items: [
           { label: "Corporate training", href: "/corporate-training", title: "Click here to learn about corporate training" },
-          { label: "Leadership development (Zenith)", href: "/leadership-retreats", title: "Click here to learn about leadership development" },
+          { label: "Leadership development (Zenith)", href: "/platforms/zenith", title: "Click here to learn about leadership development" },
           { label: "Coaching", href: "/coaching-solutions", title: "Click here to learn about coaching solutions" },
-          { label: "Team effectiveness (Polaris)", href: "/", title: "Click here to learn about team effectiveness" },
+          { label: "Team effectiveness (Polaris)", href: "/platforms/polaris", title: "Click here to learn about team effectiveness" },
         ],
       },
       {
@@ -179,7 +179,7 @@ export const ABOUT_US = {
         title: "Delivery and <span>enablement</span>",
         items: [
           { label: "Managed learning services", href: "/managed-learning-services", title: "Click here to learn about managed learning services" },
-          { label: "Spectra LMS", href: "/", title: "Click here to learn about Spectra LMS" },
+          { label: "Spectra LMS", href: "/platforms/spectra-lms", title: "Click here to learn about Spectra LMS" },
           { label: "Capability OS", href: "/platforms/capability-os", title: "Click here to explore Capability OS" },
         ],
       },
@@ -383,20 +383,21 @@ export const ABOUT_US = {
             name: "Spectra LMS",
             stages: "Activate · Advance",
             description: "Hosts and tracks learning from enrollment to completion.",
+            href: "/platforms/spectra-lms",
           },
           {
             icon: "layers",
             name: "Capability OS",
             stages: "Assess · Analyze · Advance",
             description: "One live view of workforce capability from every assessment.",
-            href: null,
+            href: "/platforms/capability-os",
           },
           {
             icon: "filter",
             name: "TNA/TNI Engine",
             stages: "Assess · Analyze",
             description: "Turns employee and skills data into gap matrices and training roadmaps.",
-            href: null,
+            href: "/platforms/tna-tni-engine",
           },
           {
             icon: "sparkles",
@@ -416,28 +417,28 @@ export const ABOUT_US = {
             name: "Zenith",
             stages: "Assess · Activate",
             description: "Leadership assessment for selection, succession and development.",
-            href: null,
+            href: "/platforms/zenith",
           },
           {
             icon: "orbit",
             name: "Orbit",
             stages: "Assess · Advance",
             description: "360-degree feedback from managers, peers and reports.",
-            href: null,
+            href: "/platforms/orbit",
           },
           {
             icon: "users",
             name: "Polaris",
             stages: "Activate",
             description: "Facilitated team sessions that strengthen how teams work together.",
-            href: null,
+            href: "/platforms/polaris",
           },
           {
             icon: "chat",
             name: "Meridian",
             stages: "Activate · Advance",
             description: "AI-assisted one-on-one coaching with certified coaches.",
-            href: null,
+            href: "/platforms/meridian",
           },
         ],
       },
@@ -568,7 +569,7 @@ export const ABOUT_US = {
         question: "Is Edstellar a corporate training company?",
         answer:
           "Corporate training is one part of what Edstellar does, with 2,000+ instructor-led programs. As a learning and development solutions company, Edstellar also finds the skill gaps first, adds coaching, consulting and managed learning where they help, and measures the change.",
-        answer_links: [{ text: "2,000+ corporate training programs", href: "/corporate-training" }],
+        answer_links: [{ text: "2,000+ instructor-led programs", href: "/corporate-training", title: "Browse the corporate training catalog" }],
       },
       {
         question: "Who does Edstellar work with?",
@@ -593,6 +594,7 @@ export const ABOUT_US = {
         question: "How do we start working with Edstellar?",
         answer:
           "Book a 30-minute consultation. A consultant will discuss your teams and priorities and recommend where to start: one program for one team, a yearly L&D plan built from a training needs analysis, or managed learning services.",
+        answer_links: [{ text: "managed learning services", href: "/managed-learning-services", title: "Learn about managed learning services" }],
       },
     ],
   },

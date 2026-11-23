@@ -20,7 +20,7 @@ function Answer({ text, links = [] }) {
     const inlineLink = links.find((l) => l.text === part);
     if (inlineLink) {
       return (
-        <a key={index} href={inlineLink.href} title={inlineLink.title} className="font-semibold underline underline-offset-2">
+        <a key={index} href={inlineLink.href} title={inlineLink.title} className="font-semibold text-olive underline underline-offset-2">
           {part}
         </a>
       );
