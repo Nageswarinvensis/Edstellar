@@ -12,9 +12,9 @@ const CONSULTATION = { label: "Book a consultation", href: "#contact", title: "C
 
 export const ABOUT_US = {
   seo: {
-    title: "About Edstellar",
+    title: "About Edstellar | Learning & Development Solutions Company",
     description:
-      "Learn about Edstellar — a learning and development solutions company for growing businesses worldwide. Discover our purpose, values and how we deliver L&D consulting, corporate training, coaching and managed learning in 100+ countries.",
+      "Edstellar is a learning and development solutions company for growing businesses worldwide. Meet the team, our story, values and 5A method, in 100+ countries.",
     path: "/about-us",
   },
   breadcrumbs: [

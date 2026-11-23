@@ -30,8 +30,8 @@ export default function AboutUsRoute() {
         "@type": "WebPage",
         "@id": "https://www.edstellar.com/about-us#webpage",
         "url": "https://www.edstellar.com/about-us",
-        "name": "Your Capability Transformation Partner",
-        "description": "Learn about Edstellar, our purpose, values and approach to capability transformation, and how we help organizations develop their people and teams.",
+        "name": "About Edstellar",
+        "description": "Edstellar is a learning and development solutions company for growing businesses worldwide. Meet the team, our story, values and 5A method, in 100+ countries.",
         "inLanguage": "en-US"
       }} />
       <JsonLd data={{
