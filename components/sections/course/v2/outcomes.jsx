@@ -147,7 +147,7 @@ export default function V2Outcomes({ data }) {
       </Box>
 
       {banner && (
-        <Reveal className="relative mt-8 grid items-center gap-5 overflow-hidden rounded-r-[20px] border-l-[6px] border-lime bg-[linear-gradient(100deg,color-mix(in_srgb,var(--color-lime)_10%,transparent),color-mix(in_srgb,var(--color-lime)_24%,transparent))] px-[18px] py-6 min-[481px]:px-7 min-[481px]:py-[30px] min-[900px]:grid-cols-[minmax(0,1fr)_minmax(360px,520px)] min-[900px]:py-[34px] min-[900px]:pr-10 min-[900px]:pl-[34px]">
+        <Reveal className="relative mt-8 grid items-center gap-5 overflow-hidden rounded-[20px] bg-[linear-gradient(100deg,color-mix(in_srgb,var(--color-lime)_10%,transparent),color-mix(in_srgb,var(--color-lime)_24%,transparent))] px-[18px] py-6 min-[481px]:px-7 min-[481px]:py-[30px] min-[900px]:grid-cols-[minmax(0,1fr)_minmax(360px,520px)] min-[900px]:py-[34px] min-[900px]:pr-10 min-[900px]:pl-[34px]">
           <Box className="self-center">
             <Text as="h3" className="mb-2 text-[clamp(20px,2vw,24px)] leading-[1.2]">{banner.heading}</Text>
             <Text className="mb-5 max-w-[560px] text-[15px] text-ink">{banner.text}</Text>
