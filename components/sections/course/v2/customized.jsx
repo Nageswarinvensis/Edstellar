@@ -16,20 +16,22 @@ import { V2_BUTTON, V2ButtonArrow } from "@/components/sections/course/v2/button
  * list on the right. A separate component from the old
  * `course/customized-training.jsx`, which stays untouched.
  *
- * `data` = `{ heading, text, cta: { label, href, title }, items, image, image_alt }`.
+ * `data` = `{ heading, text, cta: { label, href, title }, items }` — text
+ * only. The background image is fixed here, as on the live section, so the
+ * CMS never has to send it.
  */
+const BACKGROUND = { src: "/course/custimized-training.webp", alt: "Customized corporate training solutions" };
+
 export default function V2Customized({ data }) {
   if (!data?.items?.length) return null;
-  const { heading, text, cta, items, image, image_alt } = data;
+  const { heading, text, cta, items } = data;
 
   return (
     <V2Section id="customized" aria-label="Customized training">
       <Box className="relative isolate grid items-center gap-8 overflow-hidden rounded-[18px] bg-navy p-6 sm:p-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-13 lg:p-14">
-        {image && (
-          <Box className="absolute inset-0 -z-10 hidden lg:block">
-            <Image src={image} alt={image_alt || ""} title={image_alt || undefined} fill sizes="1280px" loading="lazy" className="object-cover" />
-          </Box>
-        )}
+        <Box className="absolute inset-0 -z-10 hidden lg:block">
+          <Image src={BACKGROUND.src} alt={BACKGROUND.alt} title={BACKGROUND.alt} fill sizes="1280px" loading="lazy" className="object-cover" />
+        </Box>
         <Reveal>
           <V2Heading parts={heading} className="mb-3.5 text-white" emClassName="text-lime" />
           {text && <Text className="mb-6 max-w-[44ch] text-[15px] leading-[1.65] text-white/75">{text}</Text>}
