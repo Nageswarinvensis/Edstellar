@@ -161,6 +161,9 @@ export default function HomeResults({ data }) {
               <Box
                 as="a"
                 href={c.href}
+                title={`Click here to view the ${c.title} case study`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`mt-4 inline-flex items-center gap-1.5 text-[13.5px] font-semibold ${
                   c.featured ? "text-paper" : "text-ink"
                 }`}

@@ -92,6 +92,9 @@ export default function HomeEngage({ data }) {
               <Box
                 as="a"
                 href={item.href}
+                title={`Click here to explore ${item.title}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`mt-[18px] inline-flex items-center gap-2 font-mono text-[10.5px] font-medium uppercase tracking-[0.07em] ${
                   item.featured ? "text-lime" : "text-ink"
                 }`}

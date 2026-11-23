@@ -17,7 +17,7 @@ function Desc({ parts }) {
         typeof part === "string" ? (
           <Fragment key={i}>{part}</Fragment>
         ) : (
-          <Link key={i} href={part.href} className="font-medium text-ink underline decoration-ink/30 underline-offset-2 hover:decoration-ink">
+          <Link key={i} href={part.href} title={`Click here to explore ${part.text}`} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline decoration-ink/30 underline-offset-2 hover:decoration-ink">
             {part.text}
           </Link>
         ),

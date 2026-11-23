@@ -58,6 +58,8 @@ export default function HomePlatforms({ data }) {
               <Link
                 href={item.href}
                 title={`Click here to view the ${item.name} platform`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-2 self-start font-mono text-[10px] font-medium uppercase tracking-[0.07em] text-ink no-underline transition-colors hover:text-olive"
               >
                 {item.cta}

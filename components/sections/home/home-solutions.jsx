@@ -168,6 +168,8 @@ export default function HomeSolutions({ data }) {
                     <Link
                       href={card.href}
                       title={linkTitle(card)}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="mt-auto inline-flex items-center gap-2 pt-[18px] font-mono text-[10.5px] font-medium uppercase tracking-[0.07em] text-ink no-underline transition-colors hover:text-olive"
                     >
                       {card.cta}

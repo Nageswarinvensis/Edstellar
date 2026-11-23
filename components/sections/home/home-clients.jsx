@@ -38,6 +38,9 @@ export default function HomeClients({ data }) {
         </Text>
         <a
           href={data.see.href}
+          title={`Click here to view ${data.see.label}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex shrink-0 items-center font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:text-olive max-sm:hidden"
         >
           {data.see.label}
@@ -72,6 +75,9 @@ export default function HomeClients({ data }) {
       <Box className="px-5 pt-6 sm:hidden">
         <a
           href={data.see.href}
+          title={`Click here to view ${data.see.label}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:text-olive"
         >
           {data.see.label}

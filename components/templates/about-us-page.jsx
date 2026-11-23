@@ -42,7 +42,6 @@ export default function AboutUsPage({ page }) {
       <AboutTools data={page.tools} />
       <AboutExperts data={page.experts} />
       <AboutTrust data={page.trust} />
-      <AboutShift data={page.shift} />
       <AboutWork data={page.work_with_us} />
       <AboutFaqs faqs={page.faqs} cta={page.cta} />
       <RetreatForm data={page.form} accent="lime" split thankYou="about-us" />

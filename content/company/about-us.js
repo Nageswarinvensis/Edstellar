@@ -51,7 +51,7 @@ export const ABOUT_US = {
     heading: "From corporate training company to L&D <span>partner.</span>",
     description: "How Edstellar grew from training into the full L&D function, and why it now starts with the skills your business needs, not with a course request.",
     paragraphs: [
-      "Edstellar started with a simple job: give companies great instructor-led training, in any topic, anywhere their people work.",
+      "Edstellar began with one clear purpose: give companies great instructor-led training, customized to their needs, in any topic, anywhere their people work.",
       "Clients kept asking harder questions. Which skills matter most? Did the training change anything? And who should run all of this when there is no L&D team? To answer them, we added L&D and OD consulting, assessments, coaching and managed learning, then built our own platforms to measure skills before and after.",
       "Training is still a core strength. What changed is how much of L&D we can carry: one program for one team, a yearly plan, or the whole L&D function for a company that has never had one.",
     ],
@@ -89,7 +89,7 @@ export const ABOUT_US = {
       { part: "Stellar", meaning: "High-performing people who shine within their organizations." },
     ],
     items: [
-      { title: "The e at the core", description: "The employee sits at the center of everything Edstellar does." },
+      { title: "The 'e' at the core", description: "The employee sits at the center of everything Edstellar does." },
       {
         title: "Three concentric rings",
         description: "Capability keeps growing outward. Learning is a journey, not an event.",
@@ -580,11 +580,6 @@ export const ABOUT_US = {
         question: "Which platforms has Edstellar built?",
         answer:
           "Edstellar has built Capability OS, the TNA/TNI Engine, Stellar AI, the Spectra LMS, Zenith for leadership assessment, Orbit for 360-degree feedback, Polaris for team effectiveness and Meridian for AI-assisted coaching.",
-      },
-      {
-        question: "How does Edstellar choose trainers and coaches?",
-        answer:
-          "Edstellar matches experts from its network of 5,000+ trainers and coaches by subject, industry experience, language and region. Clients review the shortlist and can meet experts before confirming, and participant ratings shape future matches.",
       },
       {
         question: "Which certifications does Edstellar hold?",

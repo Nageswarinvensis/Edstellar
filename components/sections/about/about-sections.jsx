@@ -32,7 +32,7 @@ function LinkButton({ cta, variant, className }) {
     <CtaButton
       arrow={variant !== "ghost"}
       variant={variant}
-      render={internal ? <Link href={cta.href} title={cta.title} /> : <a href={cta.href} title={cta.title} />}
+      render={internal ? <Link href={cta.href} title={cta.title} target="_blank" rel="noopener noreferrer" /> : <a href={cta.href} title={cta.title} target="_blank" rel="noopener noreferrer" />}
       className={className}
     >
       {cta.label}
@@ -86,10 +86,10 @@ export function AboutHero({ data, breadcrumbs }) {
           {data.description}
         </Text>
         <Box className="mt-9 flex flex-wrap justify-center gap-3">
-          <CtaButton color="lime" arrow render={<a href={data.primary_cta.href} title={data.primary_cta.title} />}>
+          <CtaButton color="lime" arrow render={<a href={data.primary_cta.href} title={data.primary_cta.title} target="_blank" rel="noopener noreferrer" />}>
             {data.primary_cta.label}
           </CtaButton>
-          <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} title={data.secondary_cta.title} />} className="border-paper/40 text-paper hover:border-paper hover:bg-paper/5">
+          <CtaButton arrow variant="ghost" render={<a href={data.secondary_cta.href} title={data.secondary_cta.title} target="_blank" rel="noopener noreferrer" />} className="border-paper/40 text-paper hover:border-paper hover:bg-paper/5">
             {data.secondary_cta.label}
           </CtaButton>
         </Box>
@@ -339,7 +339,7 @@ export function AboutWhatWeDo({ data }) {
             <Box as="ul" className="m-0 list-none p-0">
               {group.items.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} title={item.title} className="flex items-center justify-between border-t border-ink/10 py-3.5 text-[14.5px] text-ink hover:text-olive">
+                  <Link href={item.href} title={item.title} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between border-t border-ink/10 py-3.5 text-[14.5px] text-ink hover:text-olive">
                     {item.label}
                     <ArrowRight size={15} className="flex-none text-ink/40" aria-hidden="true" />
                   </Link>
@@ -354,7 +354,7 @@ export function AboutWhatWeDo({ data }) {
           {data.footer_note.split(/(\[.*?\]\(.*?\))/g).map((part, i) => {
             const m = part.match(/\[(.*?)\]\((.*?)\)/);
             return m ? (
-              <Link key={i} href={m[2]} className="font-semibold text-ink underline underline-offset-2 hover:text-olive">
+              <Link key={i} href={m[2]} target="_blank" rel="noopener noreferrer" title={`Click here to view ${m[1]}`} className="font-semibold text-ink underline underline-offset-2 hover:text-olive">
                 {m[1]}
               </Link>
             ) : part;
@@ -535,7 +535,7 @@ export function AboutTools({ data }) {
                   </Box>
                   <Text as="h4" className="mb-3 text-[18px] leading-snug text-paper">
                     {tool.href ? (
-                      <Link href={tool.href} title={`Click here to explore ${tool.name}`} className="no-underline hover:text-lime hover:no-underline">
+                      <Link href={tool.href} title={`Click here to explore ${tool.name}`} target="_blank" rel="noopener noreferrer" className="no-underline hover:text-lime hover:no-underline">
                         {tool.name}
                       </Link>
                     ) : tool.name}
@@ -682,7 +682,7 @@ export function AboutClients({ data, homeClients, reach }) {
             <Text as="p" className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
               {homeClients.heading}
             </Text>
-            <a href={homeClients.see?.href} className="hidden shrink-0 items-center font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-olive sm:inline-flex">
+            <a href={homeClients.see?.href} title={`Click here to view ${homeClients.see?.label}`} target="_blank" rel="noopener noreferrer" className="hidden shrink-0 items-center font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-olive sm:inline-flex">
               {homeClients.see?.label}
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true" className="ml-1.5">
                 <path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="square" />
@@ -746,7 +746,7 @@ export function AboutTrust({ data }) {
           return (
             <Reveal key={item.title} delay={i * 0.08}>
               {item.href ? (
-                <Link href={item.href} title={item.title_attr} className="block h-full transition-opacity hover:opacity-80">
+                <Link href={item.href} title={item.title_attr} target="_blank" rel="noopener noreferrer" className="block h-full transition-opacity hover:opacity-80">
                   {inner}
                 </Link>
               ) : (
@@ -818,6 +818,8 @@ export function AboutWork({ data }) {
             <Link
               href={item.href}
               title={item.title_attr}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex h-full flex-col justify-between rounded-[14px] border border-paper/15 p-6 transition-colors hover:border-paper/30"
             >
               <Box className="flex items-start justify-between gap-3">
@@ -852,7 +854,7 @@ export function AboutFaqs({ faqs, cta }) {
           </Text>
         </Box>
         <Box className="flex flex-wrap gap-3">
-          <CtaButton color="lime" arrow render={<a href={cta.primary_cta.href} title={cta.primary_cta.title} />}>
+          <CtaButton color="lime" arrow render={<a href={cta.primary_cta.href} title={cta.primary_cta.title} target="_blank" rel="noopener noreferrer" />}>
             {cta.primary_cta.label}
           </CtaButton>
           <LinkButton cta={cta.secondary_cta} variant="ghost" className="border-paper/40 text-paper hover:border-paper hover:bg-paper/5" />
