@@ -8,21 +8,21 @@ import RichHeading from "@/components/common/rich-heading";
 import SvgOrImage from "@/components/common/svg-or-image";
 
 /**
- * The concept section shared across the talent-assessment family: a decorative
- * illustration beside the principles behind the method. The illustration is
- * chosen by `data.art` so each sub-page shows the right diagram — `behavior-map`
- * (default) for the pillar, `competency-grid` for assessment/development centers.
- * Server Component with inline SVG/markup illustrations (the established
- * pattern — see `organizational_development_consulting/shift-section.jsx`).
+- The concept section shared across the talent-assessment family: a decorative
+- illustration beside the principles behind the method. The illustration is
+- chosen by `data.art` so each sub-page shows the right diagram — `behavior-map`
+- (default) for the pillar, `competency-grid` for assessment/development centers.
+- Server Component with inline SVG/markup illustrations (the established
+- pattern — see `organizational_development_consulting/shift-section.jsx`).
  *
- * Design: `#concept`, `.ib`, `.ib-art`, `.ib-list`.
+- Design: `#concept`, `.ib`, `.ib-art`, `.ib-list`.
  */
 
 /**
- * Example exercise × competency grid. All of it — column headers, row labels,
- * which cells are observed and the footer caption — comes from the content
- * record (`concept.grid`); nothing is hardcoded here, so each page supplies its
- * own. Renders nothing if the data is absent.
+- Example exercise × competency grid. All of it — column headers, row labels,
+- which cells are observed and the footer caption — comes from the content
+- record (`concept.grid`); nothing is hardcoded here, so each page supplies its
+- own. Renders nothing if the data is absent.
  */
 function CompetencyGrid({ grid }) {
   const columns = grid?.columns ?? [];
@@ -89,9 +89,9 @@ const MAP_POSITIONS = [
 ];
 
 /**
- * The behavior map illustration. Every label — the two axes, the four plotted
- * points and the caption — comes from `concept.map`; only the plot geometry is
- * fixed here. Renders nothing if the data is absent.
+- The behavior map illustration. Every label — the two axes, the four plotted
+- points and the caption — comes from `concept.map`; only the plot geometry is
+- fixed here. Renders nothing if the data is absent.
  */
 function BehaviorMap({ map }) {
   if (!map?.nodes?.length) return null;
@@ -137,11 +137,12 @@ function BehaviorMap({ map }) {
 export default function Concept({ data }) {
   if (!data?.principles?.length) return null;
 
-  const { section_id, heading, description, principles, art, grid, map, svg_image, svg_image_alt_text } = data;
+  const { section_id, heading, description, principles, art, grid, map, svg_image } = data;
+  const headingAlt = typeof heading === "string" ? heading.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() : "";
 
   return (
     <Section id={section_id} className="bg-paper-warm">
-      <Box className="mb-12 max-w-[760px]">
+      <Box className="mb-7 lg:mb-12 `max-w-190`">
         <Reveal>
           <RichHeading heading={heading} emphasisClassName="font-normal" />
         </Reveal>
@@ -159,13 +160,17 @@ export default function Concept({ data }) {
 
       <Box className="grid grid-cols-[minmax(0,420px)_1fr] items-center gap-12 max-[900px]:grid-cols-1 max-[900px]:gap-7">
         <Reveal>
-          <Box as="figure" className="m-0 max-[900px]:mx-auto max-[900px]:max-w-[420px]">
+          <Box
+            as="figure"
+            title={headingAlt}
+            className="m-0 max-[900px]:mx-auto `max-[900px]:max-w-105`"
+          >
             {/* A page's own diagram from the CMS (`svg_image`) wins over the
                 built-in ones picked by `art` — inline SVG code or a webp URL. */}
             {svg_image ? (
               <SvgOrImage
                 value={svg_image}
-                alt={svg_image_alt_text}
+                alt={headingAlt}
                 className="[&_svg]:block [&_svg]:h-auto [&_svg]:w-full [&_img]:block [&_img]:h-auto [&_img]:w-full [&_img]:rounded-[18px]"
               />
             ) : art === "competency-grid" ? (
@@ -194,7 +199,7 @@ export default function Concept({ data }) {
                   <Box>
                     <Text
                       as="h3"
-                      className="mb-1.5 mt-1 font-display text-[18px] font-medium leading-[1.3] tracking-[-0.01em] text-ink"
+                      className="mb-1.5 font-display text-[18px] font-medium leading-[1.3] tracking-[-0.01em] text-ink"
                     >
                       {item.title}
                     </Text>
