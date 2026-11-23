@@ -23,16 +23,17 @@ import V2Quote from "@/components/sections/course/v2/quote";
  * Separate from the old `course-page.jsx`: every section here is its own
  * component in `components/sections/course/v2/`, even where an old section
  * covers similar ground, so nothing in the old layout changes. The data is
- * the course's local JSON (`content/courses/v2/`), not the CMS. Which
- * courses use it is the switch in `content/courses/v2/index.js`.
+ * the CMS `course_*` components over the local JSON (`content/courses/v2/`);
+ * `breadcrumbs` are the live course's own CMS breadcrumbs, passed in by the
+ * route. Which courses use it is the switch in `content/courses/v2/index.js`.
  *
  * Section order follows the design: 1–8 are the program's own story,
  * 9–14 the fixed Edstellar closing sections.
  */
-export default function CoursePageV2({ course }) {
+export default function CoursePageV2({ course, breadcrumbs }) {
   return (
     <>
-      <V2Hero hero={course.course_hero} breadcrumbs={course.course_breadcrumbs} />
+      <V2Hero hero={course.course_hero} breadcrumbs={breadcrumbs} />
       <V2Gap data={course.course_gap} />
       <V2Lab data={course.course_lab} />
       <V2Overview data={course.course_overview} />

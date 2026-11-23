@@ -1,7 +1,7 @@
 import etlTestingCourse from "./etl-testing-course.json";
 
 /**
- * Course pages in the NEW v2 design — local JSON only, nothing from the CMS.
+ * Course pages in the NEW v2 design — CMS `course_*` components, local JSON fallback.
  *
  * This is a testing area. The old course layout (`course-page.jsx`) and its
  * sections are not touched: a course listed here renders through
@@ -16,8 +16,16 @@ import etlTestingCourse from "./etl-testing-course.json";
  *              committing this file can never take the design live.
  *   "live"     the new design everywhere, production included
  *
+ * THE DATA — `cms_slug` (optional) names the CMS page whose `course_*`
+ * components feed the design; `data` (the local JSON) fills every section or
+ * field that page does not have. Without `cms_slug`, `data` alone is used.
+ *
  * The key is `{domain}/{course-slug}`, exactly as in the URL.
  */
 export const COURSE_V2 = {
-  "data-engineering/etl-testing-course": { mode: "preview", data: etlTestingCourse },
+  "data-engineering/etl-testing-course-copy": {
+    mode: "preview",
+    cms_slug: "data-engineering/etl-testing-course-copy",
+    data: etlTestingCourse,
+  },
 };

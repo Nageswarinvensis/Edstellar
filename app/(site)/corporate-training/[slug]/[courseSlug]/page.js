@@ -32,27 +32,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug, courseSlug } = await params;
-  const course = await getSeoCourse(slug, courseSlug);
+  // Both designs: SEO comes from the live CMS course (`seo` component).
+  const course = await getCourse(slug, courseSlug);
   return course ? courseMetadata(course, slug, courseSlug) : {};
 }
 
 export default async function CourseRoute({ params }) {
   const { slug, courseSlug } = await params;
-
-  // New v2 design (testing): local JSON, switched in content/courses/v2/index.js.
-  // The old layout below is untouched and still serves every other course.
-  const v2 = getCourseV2(slug, courseSlug);
-  if (v2) {
-    const seoCourse = await getSeoCourse(slug, courseSlug);
-    // FAQPage must match the questions visible on the page: the v2 FAQ.
-    const v2Faqs = (v2.course_faq?.groups ?? []).flatMap((group) => group.items);
-    return (
-      <>
-        <CourseSchema course={seoCourse} slug={slug} courseSlug={courseSlug} faqItems={v2Faqs} />
-        <CoursePageV2 course={v2} />
-      </>
-    );
-  }
 
   // Both segments. A one-argument read would render this course under any
   // parent slug, including an industry or a vendor (TASTE.md §1.2).
@@ -62,35 +48,26 @@ export default async function CourseRoute({ params }) {
   // belongs to a different domain than the one in the URL. Both are real 404s.
   if (!course) notFound();
 
+  // New v2 design (testing): CMS + local JSON fallback, switched in
+  // content/courses/v2/index.js. SEO, schema and breadcrumbs stay the live
+  // course's own (`seo`, `schema`, `breadcrumbs` CMS components), exactly as
+  // the old layout uses them. The old layout below is untouched.
+  const v2 = await getCourseV2(slug, courseSlug);
+  if (v2) {
+    // FAQPage must match the questions visible on the page: the v2 FAQ.
+    const v2Faqs = (v2.course_faq?.groups ?? []).flatMap((group) => group.items);
+    return (
+      <>
+        <CourseSchema course={course} slug={slug} courseSlug={courseSlug} faqItems={v2Faqs} />
+        <CoursePageV2 course={v2} breadcrumbs={course.breadcrumbs?.items} />
+      </>
+    );
+  }
+
   return (
     <>
       <CourseSchema course={course} slug={slug} courseSlug={courseSlug} />
       <CoursePage course={course} />
     </>
   );
-}
-
-/**
- * The course whose SEO a page uses — metadata and schema go through the same
- * `courseMetadata` / `CourseSchema` for both designs, exactly as live.
- *
- * Live layout: the CMS course. v2 design: its JSON's `course_seo` and
- * `course_schema` — its own CMS components, with the same fields as live
- * (`meta_title`, `Meta_description`, `og_image_url`…, `Course` / `Service`) —
- * over the CMS course for what the JSON does not carry (`noindex`, banner
- * image, domain name).
- */
-async function getSeoCourse(slug, courseSlug) {
-  const v2 = getCourseV2(slug, courseSlug);
-  const cms = await getCourse(slug, courseSlug);
-  if (!v2) return cms;
-
-  const crumbs = v2.course_breadcrumbs ?? [];
-  return {
-    ...(cms ?? {}),
-    name: cms?.name ?? v2.name,
-    domain_name: cms?.domain_name ?? crumbs[crumbs.length - 2]?.label,
-    seo: v2.course_seo ?? cms?.seo,
-    schema: v2.course_schema ?? cms?.schema,
-  };
 }

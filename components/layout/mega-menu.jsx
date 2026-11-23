@@ -6,6 +6,7 @@ import Link from "next/link";
 import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import { MEGA_NAV, MEGA_STAGES } from "@/lib/nav-data";
+import { navPrefetch } from "@/lib/links";
 
 const ROOT_ID = "mega-menu-root";
 
@@ -103,6 +104,7 @@ function PanelLink({ link, divider, active, onNavigate, onPreview }) {
         </a>
       ) : (
         <Link
+          prefetch={navPrefetch(link.href)}
           href={link.href}
           target="_blank"
           rel="noopener"
@@ -148,6 +150,7 @@ function PanelGroup({ group, first, activeKey, onNavigate, onPreview }) {
       </Box>
       {group.more && (
         <Link
+          prefetch={navPrefetch(group.more.href)}
           href={group.more.href}
           target="_blank"
           rel="noopener"
@@ -180,6 +183,7 @@ function Preview({ pv, ctaHref, ctaTitle }) {
       {ctaHref && (
         <Box className="mt-0.5 border-t border-ink/12 pt-3.5">
           <Link
+            prefetch={navPrefetch(ctaHref)}
             href={ctaHref}
             target="_blank"
             rel="noopener"
@@ -413,6 +417,7 @@ export default function MegaMenu({ onOpenBrief }) {
                 {item.foot && (
                   <Box className="mt-6 border-t border-ink/12 pt-4">
                     <Link
+                      prefetch={navPrefetch(item.foot.href)}
                       href={item.foot.href}
                       target="_blank"
                       rel="noopener"
