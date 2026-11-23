@@ -40,17 +40,28 @@ function LinkButton({ cta, variant, className }) {
   );
 }
 
-/** Heading + intro at the top of a section. */
+/** Heading + intro at the top of a section — split-head layout: heading
+ *  left, description right with a left-border rule, bottom-aligned. */
 function Head({ id, data, dark = false, className }) {
   return (
-    <Reveal className={cn("mb-11 max-w-[64rem]", className)}>
-      <RichHeading as="h2" id={`${id}-h`} heading={data.heading} className={cn(dark && "text-paper")} emphasisClassName={dark ? "text-lime" : "text-ink"} />
+    <Box className={cn("mb-11 grid items-end gap-x-[60px] gap-y-5 lg:grid-cols-[1.1fr_0.9fr]", className)}>
+      <Reveal>
+        <RichHeading
+          as="h2"
+          id={`${id}-h`}
+          heading={data.heading}
+          className={cn("m-0 text-[clamp(32px,4vw,50px)] font-medium leading-[1.08] tracking-[-0.03em] text-balance", dark ? "text-paper" : "text-ink")}
+          emphasisClassName={dark ? "text-lime" : "text-ink"}
+        />
+      </Reveal>
       {data.description ? (
-        <Text as="p" className={cn("mt-4 max-w-[60ch] text-[17px] leading-[1.7]", dark && "text-paper/75")}>
-          {data.description}
-        </Text>
+        <Reveal delay={1}>
+          <Text as="p" className={cn("m-0 border-l-2 pl-5 text-[16px] leading-[1.65]", dark ? "border-paper/22 text-paper/70" : "border-ink/22 text-ink-muted")}>
+            {data.description}
+          </Text>
+        </Reveal>
       ) : null}
-    </Reveal>
+    </Box>
   );
 }
 
@@ -67,7 +78,7 @@ export function AboutHero({ data, breadcrumbs }) {
           emphasisClassName="text-lime"
         />
         {data.entity_line && (
-          <Text as="p" className="mx-auto mt-5 max-w-[52ch] font-serif text-[clamp(20px,1.8vw,26px)] italic leading-[1.5] text-paper/90">
+          <Text as="p" className="mx-auto mt-5 font-serif text-[clamp(20px,1.8vw,26px)] italic leading-[1.5] text-paper/90">
             {data.entity_line}
           </Text>
         )}
@@ -137,7 +148,7 @@ export function AboutJourney({ data }) {
               <Box as="th" className="p-4 text-left font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">
                 {data.compare.from_label}
               </Box>
-              <Box as="th" className="p-4 text-left font-mono text-[11px] tracking-[0.12em] text-navy uppercase">
+              <Box as="th" className="bg-navy p-4 text-left font-mono text-[11px] tracking-[0.12em] text-lime uppercase">
                 {data.compare.to_label}
               </Box>
             </Box>
@@ -343,7 +354,7 @@ export function AboutWhatWeDo({ data }) {
           {data.footer_note.split(/(\[.*?\]\(.*?\))/g).map((part, i) => {
             const m = part.match(/\[(.*?)\]\((.*?)\)/);
             return m ? (
-              <Link key={i} href={data.footer_link?.href ?? m[2]} title={data.footer_link?.title} className="font-semibold text-ink underline underline-offset-2 hover:text-olive">
+              <Link key={i} href={m[2]} className="font-semibold text-ink underline underline-offset-2 hover:text-olive">
                 {m[1]}
               </Link>
             ) : part;

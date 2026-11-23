@@ -14,7 +14,7 @@ export const ABOUT_US = {
   seo: {
     title: "About Edstellar",
     description:
-      "Learn about Edstellar, our purpose, values and approach to capability transformation, and how we help organizations develop their people and teams.",
+      "Learn about Edstellar — a learning and development solutions company for growing businesses worldwide. Discover our purpose, values and how we deliver L&D consulting, corporate training, coaching and managed learning in 100+ countries.",
     path: "/about-us",
   },
   breadcrumbs: [
@@ -24,9 +24,9 @@ export const ABOUT_US = {
 
   hero: {
     heading: "About <span>Edstellar</span>",
-    entity_line: "An enterprise capability development company.",
+    entity_line: "A learning and development solutions company for growing businesses, worldwide.",
     description:
-      "We help organizations measure, build and prove the capability their strategy depends on. Assessments, consulting, coaching, training and our own platforms come together in one connected program, delivered in 100+ countries.",
+      "Most growing companies don't have a full L&D team. We give them one: L&D and OD consulting, assessments, corporate training, coaching and our own platforms from one partner, sized to each company's stage and delivered in 100+ countries and 10+ languages.",
     primary_cta: CONSULTATION,
     secondary_cta: { label: "See how Edstellar works", href: "#method", title: "Click here to see how Edstellar works" },
   },
@@ -48,29 +48,29 @@ export const ABOUT_US = {
   },
 
   journey: {
-    heading: "From training partner to capability development <span>partner.</span>",
-    description: "How Edstellar grew, and why it now starts with the capability your business needs, not with a course request.",
+    heading: "From corporate training company to L&D <span>partner.</span>",
+    description: "How Edstellar grew from training into the full L&D function, and why it now starts with the skills your business needs, not with a course request.",
     paragraphs: [
-      "Edstellar started with a simple job: give global enterprises great instructor-led training, in any topic, anywhere their people work.",
-      "Clients kept asking a harder question. Which skills matter most, and did the training change anything? To answer it, we added assessments, consulting and coaching, then built our own platforms to measure capability before and after.",
-      "Training is still a core strength. What changed is where we start and where we finish: with the capability your strategy needs, measured on both sides.",
+      "Edstellar started with a simple job: give companies great instructor-led training, in any topic, anywhere their people work.",
+      "Clients kept asking harder questions. Which skills matter most? Did the training change anything? And who should run all of this when there is no L&D team? To answer them, we added L&D and OD consulting, assessments, coaching and managed learning, then built our own platforms to measure skills before and after.",
+      "Training is still a core strength. What changed is how much of L&D we can carry: one program for one team, a yearly plan, or the whole L&D function for a company that has never had one.",
     ],
     timeline: [
-      { year: "2021", text: "Edstellar launches as a corporate training company for global enterprises." },
+      { year: "2021", text: "Edstellar launches as a corporate training company." },
       { year: "2022", text: "The catalog grows to 2,000+ instructor-led programs across 76 domains, with 5,000+ trainers." },
       { year: "2023", text: "L&D and OD consulting, talent assessments and coaching join the offer." },
-      { year: "2024", text: "Edstellar builds its own platforms, from Spectra LMS to Capability OS, Zenith and Meridian." },
-      { year: "2026", text: "Edstellar becomes an enterprise capability development company, running the full 5A cycle." },
+      { year: "2024", text: "Edstellar builds its own platforms, from Spectra LMS to Capability OS, Zenith and Meridian, and launches managed learning services." },
+      { year: "2026", text: "Edstellar becomes a learning and development solutions company for growing businesses worldwide, from one program to a fully managed L&D function." },
     ],
     compare: {
-      from_label: "A training partner",
-      to_label: "Edstellar as capability partner",
+      from_label: "A training vendor",
+      to_label: "Edstellar as your L&D partner",
       rows: [
-        { label: "Starts with", from: "A course request", to: "A capability goal", detail: "Linked to the strategy and the roles that deliver it." },
-        { label: "First step", from: "Picks programs from a catalog", to: "Assesses and analyzes first", detail: "Skills data shows where capability stands before anything is designed." },
-        { label: "Delivery", from: "Runs one-off sessions", to: "Builds connected journeys", detail: "Training, coaching and on-the-job support work toward one outcome." },
-        { label: "Reports", from: "Attendance and feedback", to: "Change in capability", detail: "Proficiency and behavior tracked before and after." },
-        { label: "Over time", from: "Training as an event", to: "Capability as a continuous function", detail: "Each cycle's results set the baseline for the next." },
+        { label: "Starts with", from: "A course request", to: "The skills your business needs next", detail: "Linked to your goals and the roles that deliver them." },
+        { label: "First step", from: "Picks programs from a catalog", to: "Assesses and analyzes first", detail: "Skills data shows where your people stand before anything is designed." },
+        { label: "Who runs it", from: "Your HR team, on top of everything else", to: "Edstellar, alongside your team", detail: "From one program to the whole L&D function." },
+        { label: "Reports", from: "Attendance and feedback", to: "Skill change and business results", detail: "Proficiency and behavior tracked before and after." },
+        { label: "Over time", from: "Training as an event", to: "L&D as a continuous function", detail: "Each cycle's results set the baseline for the next." },
       ],
     },
   },
@@ -92,10 +92,10 @@ export const ABOUT_US = {
       { title: "The e at the core", description: "The employee sits at the center of everything Edstellar does." },
       {
         title: "Three concentric rings",
-        description: "Knowledge and capability keep expanding outward, because learning is a continuous journey, not a single event.",
+        description: "Capability keeps growing outward. Learning is a journey, not an event.",
       },
-      { title: "Shifting shades", description: "The changing tones show that capability must keep adapting as the demands of work change." },
-      { title: "A key-shaped outline", description: "Employees equipped with the right capability are the key that unlocks organizational success." },
+      { title: "Shifting shades", description: "Capability must keep adapting as work changes." },
+      { title: "A key-shaped outline", description: "Capable people are the key to organizational success." },
     ],
   },
 
@@ -127,20 +127,20 @@ export const ABOUT_US = {
     vision: {
       label: "Vision",
       question: "Where we are going",
-      text: "To be the most trusted capability development partner for organizations <span>around the world.</span>",
+      text: "To be the most trusted learning and development partner for growing companies <span>around the world.</span>",
     },
     mission: {
       label: "Mission",
       question: "How we get there",
-      text: "To help organizations build the capability their strategy needs, with assessment, design, delivery and measurement in one <span>accountable program.</span>",
+      text: "To give every company, whatever its size, the L&D strategy, programs and delivery it needs, from one <span>accountable partner.</span>",
     },
     values: {
       label: "Values",
       question: "How we work",
       items: [
         { title: "Excel", tag: "The standard we hold", text: "We hold every program, assessment and engagement to a high, measurable standard, so clients can rely on the result." },
-        { title: "Elevate", tag: "The change we create", text: "We raise the capability of people, teams and organizations, and show the change in evidence leaders can use." },
-        { title: "Empower", tag: "The ownership we build", text: "We give clients the insight and tools to keep building capability on their own." },
+        { title: "Elevate", tag: "The change we create", text: "We raise the skills of people, teams and organizations, and show the change in evidence leaders can use." },
+        { title: "Empower", tag: "The ownership we build", text: "We give clients the insight and tools to keep developing their people as they grow." },
       ],
     },
   },
@@ -148,40 +148,39 @@ export const ABOUT_US = {
   what_we_do: {
     id: "what-we-do",
     heading: "What Edstellar <span>does.</span>",
-    kicker: "Eleven solutions in three groups. Start with one, or run the whole cycle with us.",
-    footer_note: "See the full picture on our [capability development services](/) page.",
-    footer_link: { match: "capability development services", href: "/", title: "Click here to view capability development services" },
+    kicker: "Eleven learning and development solutions in three layers. Start with one program, plan a year of L&D, or let us run L&D for you.",
+    footer_note: "See the full picture on our [learning and development solutions](/) page, or compare [managed L&D engagement models](/managed-learning-services).",
     groups: [
       {
         num: "01",
-        tag: "Measure",
-        title: "Know where capability <span>stands</span>",
+        tag: "Diagnose and design",
+        title: "Strategy and <span>consulting</span>",
         items: [
-          { label: "Talent assessments", href: "/talent-assessment-services", title: "Click here to learn about talent assessments" },
           { label: "Training needs analysis", href: "/training-needs-analysis-services", title: "Click here to learn about training needs analysis" },
-          { label: "Capability OS", href: "/platforms/capability-os", title: "Click here to explore Capability OS" },
+          { label: "Talent assessments", href: "/talent-assessment-services", title: "Click here to learn about talent assessments" },
+          { label: "L&D consulting", href: "/learning-development-consulting-services", title: "Click here to learn about L&D consulting" },
+          { label: "OD consulting", href: "/organizational-development-consulting", title: "Click here to learn about OD consulting" },
         ],
       },
       {
         num: "02",
-        tag: "Build",
-        title: "Close the gaps that <span>matter</span>",
+        tag: "Build skills",
+        title: "Learning and talent <span>programs</span>",
         items: [
           { label: "Corporate training", href: "/corporate-training", title: "Click here to learn about corporate training" },
-          { label: "Coaching", href: "/coaching-solutions", title: "Click here to learn about coaching solutions" },
           { label: "Leadership development (Zenith)", href: "/leadership-retreats", title: "Click here to learn about leadership development" },
+          { label: "Coaching", href: "/coaching-solutions", title: "Click here to learn about coaching solutions" },
           { label: "Team effectiveness (Polaris)", href: "/", title: "Click here to learn about team effectiveness" },
         ],
       },
       {
         num: "03",
-        tag: "Embed",
-        title: "Make it how you <span>work</span>",
+        tag: "Deliver and run",
+        title: "Delivery and <span>enablement</span>",
         items: [
-          { label: "L&D consulting", href: "/learning-development-consulting-services", title: "Click here to learn about L&D consulting" },
-          { label: "OD consulting", href: "/organizational-development-consulting", title: "Click here to learn about OD consulting" },
           { label: "Managed learning services", href: "/managed-learning-services", title: "Click here to learn about managed learning services" },
           { label: "Spectra LMS", href: "/", title: "Click here to learn about Spectra LMS" },
+          { label: "Capability OS", href: "/platforms/capability-os", title: "Click here to explore Capability OS" },
         ],
       },
     ],
@@ -191,7 +190,7 @@ export const ABOUT_US = {
     heading: "Edstellar <span>at a glance.</span>",
     description: "The facts people (and search engines) look for first: who we are, where we are, and the depth behind every program.",
     facts: [
-      { label: "What we do", value: "Enterprise capability development" },
+      { label: "What we do", value: "Learning and development solutions" },
       { label: "Founded", value: "2021" },
       { label: "Headquarters", value: "Bengaluru, India" },
       { label: "Offices", value: "US, UK, India" },
@@ -213,7 +212,7 @@ export const ABOUT_US = {
   reach: {
     heading: "A global company, <span>close to your teams.</span>",
     description:
-      "Teams in the United States, the United Kingdom and India, delivering across the Americas, EMEA, MENA and APAC in the language and format each workforce needs.",
+      "Teams in the United States, the United Kingdom and India, delivering L&D programs across the Americas, EMEA, MENA and APAC — in the language, format and time zone each workforce needs, from small teams to global enterprises.",
     offices: [
       { region: "Americas", country: "United States", city: "Lewisville, Texas", phone: "+1 682 297 4830" },
       { region: "EMEA", country: "United Kingdom", phone: "+44 151 453 4009" },
@@ -279,7 +278,7 @@ export const ABOUT_US = {
         title: "Global organizations",
         size: "10,000+",
         problem: "Strategy moves faster than skills, in every country.",
-        solution: "One capability map and one enterprise roadmap across regions.",
+        solution: "One skills map and one L&D roadmap across regions.",
         tags: ["L&D consulting", "Capability OS", "TNA/TNI Engine"],
       },
       {
@@ -521,17 +520,17 @@ export const ABOUT_US = {
   },
 
   shift: {
-    heading: "Edstellar has grown from training partner to <span>capability partner.</span>",
+    heading: "Edstellar has grown from corporate training company to <span>L&D partner.</span>",
     description:
-      "Training remains a core strength. What changed is where Edstellar starts and where it finishes: with the capability your business needs, not with a course request.",
-    from_label: "A training partner",
-    to_label: "Edstellar as capability partner",
+      "Training remains a core strength. What changed is how much of L&D Edstellar can carry: one program for one team, a yearly plan, or the whole L&D function.",
+    from_label: "A training vendor",
+    to_label: "Edstellar as your L&D partner",
     rows: [
-      { from: "Starts with a course request", to: "Starts with a capability goal", detail: "Linked to the business strategy and the roles that deliver it." },
-      { from: "Picks programs from a catalog", to: "Assesses and analyzes first", detail: "Assessments and skills data show where capability stands before anything is designed." },
-      { from: "Runs one-off sessions", to: "Builds connected journeys", detail: "Training, coaching and on-the-job support work together toward one outcome." },
-      { from: "Reports attendance and feedback", to: "Measures change in capability", detail: "Proficiency and behavior are tracked before and after, and reported to leaders." },
-      { from: "Training as an event", to: "Capability as a continuous function", detail: "Each cycle's results set the baseline for the next, so capability keeps growing." },
+      { from: "Starts with a course request", to: "Starts with the skills your business needs next", detail: "Linked to your goals and the roles that deliver them." },
+      { from: "Picks programs from a catalog", to: "Assesses and analyzes first", detail: "Skills data shows where your people stand before anything is designed." },
+      { from: "Your HR team runs it, on top of everything else", to: "Edstellar, alongside your team", detail: "From one program to the whole L&D function." },
+      { from: "Reports attendance and feedback", to: "Reports skill change and business results", detail: "Proficiency and behavior tracked before and after." },
+      { from: "Training as an event", to: "L&D as a continuous function", detail: "Each cycle's results set the baseline for the next." },
     ],
   },
 
@@ -553,12 +552,12 @@ export const ABOUT_US = {
       {
         question: "What does Edstellar do?",
         answer:
-          "Edstellar is an enterprise capability development company. It helps organizations measure, build and prove the capability their strategy needs, through assessments, consulting, coaching, corporate training, managed learning services and its own platforms.",
+          "Edstellar is a learning and development solutions company. It gives growing companies the L&D support they need, from one partner: L&D and OD consulting, talent assessments, corporate training, coaching, managed learning services and its own platforms, delivered in 100+ countries and 10+ languages.",
       },
       {
         question: "When was Edstellar founded?",
         answer:
-          "Edstellar was founded in 2021 as a corporate training company and has since grown into a capability development partner for global enterprises.",
+          "Edstellar was founded in 2021 as a corporate training company and has since grown into a learning and development solutions partner for companies worldwide.",
       },
       {
         question: "Where is Edstellar based?",
@@ -566,10 +565,15 @@ export const ABOUT_US = {
           "Edstellar is headquartered in Bengaluru, India, with teams in the United States and the United Kingdom. It delivers in 100+ countries and 10+ languages across the Americas, EMEA, MENA and APAC.",
       },
       {
-        question: "How is Edstellar different from a corporate training company?",
+        question: "Is Edstellar a corporate training company?",
         answer:
-          "A training company delivers the courses it is asked for. Edstellar starts with the capability goal, measures the gap, and connects consulting, training, coaching and managed services so the result can be measured. Edstellar still offers 2,000+ corporate training programs as one part of that.",
+          "Corporate training is one part of what Edstellar does, with 2,000+ instructor-led programs. As a learning and development solutions company, Edstellar also finds the skill gaps first, adds coaching, consulting and managed learning where they help, and measures the change.",
         answer_links: [{ text: "2,000+ corporate training programs", href: "/corporate-training" }],
+      },
+      {
+        question: "Who does Edstellar work with?",
+        answer:
+          "Edstellar works with start-ups, small and mid-sized businesses, global enterprises and the public sector. Many smaller clients have no L&D team, so Edstellar plans, runs and reports on learning for them; larger clients use Edstellar alongside their own L&D team.",
       },
       {
         question: "Which platforms has Edstellar built?",
@@ -588,22 +592,22 @@ export const ABOUT_US = {
       {
         question: "How do we start working with Edstellar?",
         answer:
-          "Share your capability goal through the consultation form. A consultant will discuss your teams and priorities and recommend where to start in the 5A method. Many clients begin with one step, such as a training needs analysis or a coaching program.",
+          "Book a 30-minute consultation. A consultant will discuss your teams and priorities and recommend where to start: one program for one team, a yearly L&D plan built from a training needs analysis, or managed learning services.",
       },
     ],
   },
 
   cta: {
-    heading: "Start building capability <span>with Edstellar.</span>",
+    heading: "Start your L&D program <span>with Edstellar.</span>",
     description:
-      "Tell Edstellar the capability your organization needs. A consultant will recommend where to start in the 5A methodology and what the first step would deliver.",
+      "Tell Edstellar the L&D challenge your organization is facing. A consultant will recommend where to start and what the first step would deliver.",
     primary_cta: CONSULTATION,
     secondary_cta: { label: "Explore consulting", href: "/learning-development-consulting-services", title: "Click here to explore consulting services" },
   },
 
   form: {
-    heading: "Talk to Edstellar about your <span>capability goals.</span>",
-    description: "Tell us the capability your organization needs. A consultant will recommend where to start and what the first step would deliver.",
+    heading: "Talk to Edstellar about your <span>L&D goals.</span>",
+    description: "Tell us the L&D challenge your organization is facing. A consultant will recommend where to start and what the first step would deliver.",
     message_label: "Your requirements",
     message_placeholder: "Tell us the capability you want to build, the teams involved, locations and timelines.",
     sla_note: "We reply within one business day with a scoped response, no automated sales sequence.",
