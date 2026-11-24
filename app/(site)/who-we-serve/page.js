@@ -21,7 +21,7 @@ import WwsContact from "@/components/sections/who-we-serve/wws-contact";
 export const revalidate = 300;
 
 export const metadata = buildMetadata({
-  title: "Who We Serve: Organizational Training & Development | Edstellar",
+  title: "Who We Serve: Organizational Training & Development",
   description:
     "Organizational training and development for start-ups, small and mid-sized businesses, enterprises, non-profits, education and government, in 100+ countries and 10+ languages.",
   path: "/who-we-serve",

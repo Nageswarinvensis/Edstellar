@@ -44,7 +44,7 @@ import { submitEnquiry } from "@/lib/actions/submit-enquiry";
  *
  * Design: contact-us / enquiry-form `.form-card`, `.field`, `.phone-group`.
  */
-export default function EnquiryForm({ data, thankYou = "contact-us", program, queryParam, branch, variant = "card", className }) {
+export default function EnquiryForm({ data, thankYou = "contact-us", program, queryParam, branch, variant = "card", hideHeader = false, className }) {
   const {
     register,
     control,
@@ -204,12 +204,16 @@ export default function EnquiryForm({ data, thankYou = "contact-us", program, qu
         className,
       )}
     >
-      <Text as="h2" className="mb-1.5">
-        {data.heading}
-      </Text>
-      <Text as="p" className="mb-8 text-[15px] leading-[1.6] text-ink-muted">
-        Fields marked <Text as="span" className="text-red-600">*</Text> are required.
-      </Text>
+      {!hideHeader && (
+        <>
+          <Text as="h2" className="mb-1.5">
+            {data.heading}
+          </Text>
+          <Text as="p" className="mb-8 text-[15px] leading-[1.6] text-ink-muted">
+            Fields marked <Text as="span" className="text-red-600">*</Text> are required.
+          </Text>
+        </>
+      )}
 
       {form}
     </Reveal>
