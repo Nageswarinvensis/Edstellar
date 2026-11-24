@@ -775,7 +775,7 @@ Every program is instructor-led and customizable, delivered onsite, virtually or
 - [Delta Lake for Data Lakehouse Engineering Training](https://www.edstellar.com/corporate-training/data-engineering/delta-lake-for-data-lakehouse-engineering-course)
 - [Denodo Training](https://www.edstellar.com/corporate-training/data-engineering/denodo-course)
 - [Dimensional Data Modeling Training](https://www.edstellar.com/corporate-training/data-engineering/dimensional-data-modeling-course)
-- [ETL Testing Training](https://www.edstellar.com/corporate-training/data-engineering/etl-testing-course)
+- [ETL Testing Training](https://www.edstellar.com/corporate-training/data-engineering/etl-testing-training)
 - [Event Streaming with Apache Kafka Training](https://www.edstellar.com/corporate-training/data-engineering/event-streaming-with-apache-kafka-course)
 - [Fundamentals of Data Warehousing Training](https://www.edstellar.com/corporate-training/data-engineering/fundamentals-of-data-warehousing-course)
 - [Google BigQuery Training](https://www.edstellar.com/corporate-training/data-engineering/google-bigquery-course)

@@ -6,7 +6,7 @@ import Box from "@/components/ui/Box";
 
 /*
  * The "Training Delivered Across the Globe" wireframe globe — a port of the
- * design's canvas globe (`etl-testing-course` → `#whyGlobe`).
+ * design's canvas globe (`etl-testing-training` → `#whyGlobe`).
  *
  * Navy hairline sphere on paper; lime is the single glow: region pins and
  * pulses travelling along delivery arcs between regions. Navy label pills name
