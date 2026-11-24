@@ -7,33 +7,7 @@ import Reveal from "@/components/common/reveal";
 import SectionHead from "@/components/common/section-head";
 import EnquiryForm from "@/components/forms/enquiry-form";
 import ProgramCatalog from "./program-catalog";
-
-/** One course in a program's catalog pop-up: name, duration + delivery, blurb. */
-function CatalogCourse({ course, deliveryLabel }) {
-  return (
-    <Box className="rounded-xl border border-ink/12 bg-paper px-4 py-3.5">
-      <Text
-        as="h4"
-        className="mb-1.5 text-[15px] leading-[1.3] font-semibold tracking-normal text-navy"
-      >
-        {course.name}
-      </Text>
-      <Box className="mb-1.5 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[10.5px] leading-[1.4] tracking-[0.06em] text-ink-muted">
-        <Text as="span" className="font-mono text-[10.5px] leading-[1.4] text-inherit">
-          {course.duration}
-        </Text>
-        {deliveryLabel ? (
-          <Text as="span" className="font-mono text-[10.5px] leading-[1.4] text-inherit">
-            {deliveryLabel}
-          </Text>
-        ) : null}
-      </Box>
-      <Text as="p" className="text-[13.5px] leading-[1.55]">
-        {course.description}
-      </Text>
-    </Box>
-  );
-}
+import CatalogCourses from "./catalog-courses";
 
 /**
  * The sector's skill-development programs: a 3-up grid of photo cards, each
@@ -52,7 +26,9 @@ function CatalogCourse({ course, deliveryLabel }) {
  * `delivery_label`, `enquire_label`, `enquiry` `{ program_param, thank_you,
  * form: { heading, requirements_placeholder, submit_label } }`, `items`
  * `{ slug, title, description, course_count, image, catalog_label,
- * catalog_title, courses: { name, duration, description }[] }[]`.
+ * catalog_title, courses: { name, href?, duration, category?, description }[] }[]`.
+ * A program whose courses carry more than one `category` gets category
+ * filter chips in its pop-up (CatalogCourses).
  *
  * Design: government-employees-training-courses / training-for-universities
  * `[data-cmp="related-grid"]` `.grid.g3`, `.rel.prog`, `.prog-img`, `.prog-n`,
@@ -133,18 +109,11 @@ export default function Programs({ data }) {
                       >
                         {item.catalog_title}
                       </Text>
-                      <Box
-                        data-scroll=""
-                        className="grid min-h-0 flex-1 gap-3 overflow-auto pr-1 sm:grid-cols-2"
-                      >
-                        {item.courses.map((course, courseIndex) => (
-                          <CatalogCourse
-                            key={`${course.name}-${courseIndex}`}
-                            course={course}
-                            deliveryLabel={delivery_label}
-                          />
-                        ))}
-                      </Box>
+                      <CatalogCourses
+                        courses={item.courses}
+                        deliveryLabel={delivery_label}
+                        label={item.title}
+                      />
                     </ProgramCatalog>
                   </Box>
                 </Box>

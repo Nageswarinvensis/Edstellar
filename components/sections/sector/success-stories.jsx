@@ -32,7 +32,7 @@ export default function SuccessStories({ data }) {
 
   return (
     <Section id={section_id} className="scroll-mt-20 bg-paper-warm">
-      <SectionHead heading={heading} align="start" />
+      <SectionHead heading={heading} />
 
       <Reveal className="mx-auto mt-2.5 flex max-w-[970px] flex-col gap-3">
         {items.map((item, index) => (

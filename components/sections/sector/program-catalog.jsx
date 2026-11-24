@@ -82,7 +82,7 @@ export default function ProgramCatalog({
 
   return (
     <>
-      <CtaButton variant="ghost" title={title} onClick={open} className="self-start">
+      <CtaButton variant="ghost" arrow title={title} onClick={open} className="self-start">
         {label}
       </CtaButton>
 
@@ -95,9 +95,12 @@ export default function ProgramCatalog({
         onClick={(event) => {
           if (event.target === event.currentTarget) close();
         }}
-        className="fixed inset-0 m-auto h-fit max-h-[88vh] w-[calc(100%-48px)] max-w-225 overflow-hidden rounded-[18px] bg-white p-0 text-ink shadow-[0_30px_80px_-20px_rgba(10,22,40,0.5)] backdrop:bg-navy/60 max-sm:w-[calc(100%-32px)]"
+        // A catalog with category filters (CatalogCourses, `data-catalog-filter`)
+        // keeps one fixed height, so picking a small category doesn't shrink
+        // the pop-up; one without fits its content as before.
+        className="fixed inset-0 m-auto h-fit max-h-[88vh] w-[calc(100%-48px)] max-w-225 overflow-hidden rounded-[18px] bg-white p-0 text-ink shadow-[0_30px_80px_-20px_rgba(10,22,40,0.5)] backdrop:bg-navy/60 has-[[data-catalog-filter]]:h-[88vh] max-sm:w-[calc(100%-32px)]"
       >
-        <Box className="relative flex max-h-[88vh] flex-col px-8 py-7.5 max-sm:px-5 max-sm:py-6">
+        <Box className="relative flex h-full max-h-[88vh] flex-col px-8 py-7.5 max-sm:px-5 max-sm:py-6">
           <button
             type="button"
             aria-label="Close"

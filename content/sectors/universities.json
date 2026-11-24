@@ -60,7 +60,7 @@
         "slug": "campus-to-corporate-skilling-program",
         "title": "Campus to Corporate Skilling Program",
         "description": "To develop skills that transition students to professional roles",
-        "course_count": "40+ Courses",
+        "course_count": "30+ Courses",
         "image": {
           "src": "https://media.edstellar.com/website/Rectangle_27213.webp",
           "alt": "Campus to Corporate Skilling Program",
@@ -72,208 +72,248 @@
         "courses": [
           {
             "name": "Business Communication Skills",
-            "duration": "12 hours",
-            "description": "Develop essential communication skills for a successful business career."
+            "href": "/corporate-training/soft-skills/business-communication-skills-course",
+            "duration": "16 hours",
+            "category": "Business Communication",
+            "description": "Communicate clearly and concisely in meetings, emails and conversations across the business."
           },
           {
-            "name": "Active Listening",
-            "duration": "6 hours",
-            "description": "Enhance your listening skills to improve understanding and collaboration."
+            "name": "Active Listening & Empathy at Work",
+            "href": "/corporate-training/soft-skills/active-listening-empathy-at-work-course",
+            "duration": "14 hours",
+            "category": "Business Communication",
+            "description": "Listen fully, check understanding and respond with empathy in everyday conversations."
           },
           {
-            "name": "Managing Difficult Conversations",
-            "duration": "8 hours",
-            "description": "Learn strategies to handle challenging conversations effectively."
+            "name": "Non-Verbal Communication & Body Language",
+            "href": "/corporate-training/soft-skills/non-verbal-communication-body-language-course",
+            "duration": "16 hours",
+            "category": "Business Communication",
+            "description": "Read and use posture, gesture, eye contact and expression at work."
           },
           {
-            "name": "Body Language",
-            "duration": "4 hours",
-            "description": "Understand and use body language to communicate confidently."
-          },
-          {
-            "name": "Presentation Skills",
-            "duration": "8 hours",
-            "description": "Master the art of delivering impactful and engaging presentations."
+            "name": "Virtual Presentation Skills",
+            "href": "/corporate-training/soft-skills/virtual-presentation-skills-course",
+            "duration": "14 hours",
+            "category": "Presentation, Public Speaking & Facilitation",
+            "description": "Present on video calls and webinars with good camera presence and engagement."
           },
           {
             "name": "Accent Neutralization",
-            "duration": "8 hours",
-            "description": "Reduce accent barriers for clearer and more effective communication."
+            "href": "/corporate-training/soft-skills/accent-neutralization-course",
+            "duration": "13 hours",
+            "category": "Business Communication",
+            "description": "Work on sounds, word stress, intonation and pace so speech is easy for any listener to follow."
           },
           {
-            "name": "Interview Skills",
-            "duration": "8 hours",
-            "description": "Prepare and excel in job interviews with confidence."
+            "name": "Interviewing Skills",
+            "href": "/corporate-training/soft-skills/interviewing-skills-course",
+            "duration": "12 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Plan structured interviews, ask competency questions and assess candidates consistently."
           },
           {
             "name": "Effective Public Speaking",
-            "duration": "8 hours",
-            "description": "Gain confidence and skills for speaking in front of audiences."
+            "href": "/corporate-training/soft-skills/effective-public-speaking-course",
+            "duration": "16 hours",
+            "category": "Presentation, Public Speaking & Facilitation",
+            "description": "Plan, structure and deliver talks to groups with confidence and clarity."
           },
           {
             "name": "Business Networking Skills",
+            "href": "/corporate-training/soft-skills/business-networking-skills-course",
+            "duration": "16 hours",
+            "category": "Influence, Negotiation & Stakeholder Management",
+            "description": "Start conversations, follow up and keep professional relationships that benefit both sides."
+          },
+          {
+            "name": "Business Writing & Report Skills",
+            "href": "/corporate-training/soft-skills/business-writing-report-skills-course",
+            "duration": "16 hours",
+            "category": "Business Writing",
+            "description": "Plan, structure and write reports and business documents readers can act on."
+          },
+          {
+            "name": "Email Writing & Etiquette",
+            "href": "/corporate-training/soft-skills/email-writing-etiquette-course",
             "duration": "8 hours",
-            "description": "Build valuable connections and professional networks."
-          },
-          {
-            "name": "Influential Communication",
-            "duration": "8 hours",
-            "description": "Learn to communicate persuasively to influence others."
-          },
-          {
-            "name": "Written Communication",
-            "duration": "6 hours",
-            "description": "Improve your writing skills for clear and professional communication."
-          },
-          {
-            "name": "Email Writing Etiquettes",
-            "duration": "6 hours",
-            "description": "Master the dos and don'ts of professional email communication."
+            "category": "Business Writing",
+            "description": "Write clear, concise emails with the right tone, subject line and call to action."
           },
           {
             "name": "Minute Taking",
-            "duration": "4 hours",
-            "description": "Develop the skills to take accurate and effective meeting minutes."
+            "href": "/corporate-training/soft-skills/minute-taking-course",
+            "duration": "14 hours",
+            "category": "Business Writing",
+            "description": "Capture decisions, actions and owners accurately, then write up concise, usable minutes."
           },
           {
-            "name": "Time Management",
-            "duration": "6 hours",
-            "description": "Learn techniques to manage your time effectively and efficiently."
+            "name": "Personal Productivity & Time Management",
+            "href": "/corporate-training/soft-skills/personal-productivity-time-management-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Plan, prioritize and protect your time with practical techniques."
           },
           {
-            "name": "Managing Multiple Tasks Priorities & Deadlines",
-            "duration": "6 hours",
-            "description": "Optimize your productivity by handling multiple tasks and deadlines."
-          },
-          {
-            "name": "Effective Time Task & Work Planning",
-            "duration": "6 hours",
-            "description": "Plan and organize your work for maximum efficiency."
-          },
-          {
-            "name": "MoSCoW Prioritization",
-            "duration": "2 hours",
-            "description": "Learn the MoSCoW method to prioritize tasks effectively."
-          },
-          {
-            "name": "Creative Problem Solving Skills",
-            "duration": "8 hours",
-            "description": "Enhance your ability to solve problems creatively."
-          },
-          {
-            "name": "Lateral Thinking",
-            "duration": "6 hours",
-            "description": "Develop lateral thinking skills for innovative problem-solving."
+            "name": "Creative Problem Solving",
+            "href": "/corporate-training/soft-skills/creative-problem-solving-course",
+            "duration": "16 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Define problems clearly, generate options and select workable solutions with structured methods."
           },
           {
             "name": "Risk Taking",
-            "duration": "6 hours",
-            "description": "Understand and manage risks to make better decisions."
+            "href": "/corporate-training/soft-skills/risk-taking-course",
+            "duration": "14 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Weigh risks and rewards, then take calculated risks with clear limits and fallback plans."
           },
           {
-            "name": "Adaptable Mindset",
-            "duration": "6 hours",
-            "description": "Cultivate a mindset that adapts to change and challenges."
+            "name": "Growth Mindset & Adaptability",
+            "href": "/corporate-training/soft-skills/growth-mindset-adaptability-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Treat setbacks as learning and adapt quickly when circumstances change."
           },
           {
-            "name": "Conflict Resolution",
-            "duration": "6 hours",
-            "description": "Learn techniques to resolve conflicts constructively."
+            "name": "Conflict Management",
+            "href": "/corporate-training/soft-skills/conflict-management-course",
+            "duration": "16 hours",
+            "category": "Feedback & Conflict",
+            "description": "Work through disagreements by uncovering interests and agreeing a way forward."
           },
           {
-            "name": "Decision Making",
-            "duration": "6 hours",
-            "description": "Improve your decision-making skills for better outcomes."
+            "name": "Professional Presence & Personal Effectiveness",
+            "href": "/corporate-training/soft-skills/professional-presence-personal-effectiveness-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Combine manner, reliability and communication into a consistent professional presence."
           },
           {
-            "name": "Self-Awareness",
-            "duration": "6 hours",
-            "description": "Increase self-awareness to enhance personal and professional growth."
+            "name": "Stress Management at Work",
+            "href": "/corporate-training/soft-skills/stress-management-at-work-course",
+            "duration": "8 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Recognize the signs of stress and use practical ways to manage it at work."
           },
           {
-            "name": "Stress Management",
-            "duration": "6 hours",
-            "description": "Learn strategies to manage and reduce stress effectively."
-          },
-          {
-            "name": "Personal Branding: Step Into Your Spotlight",
-            "duration": "6 hours",
-            "description": "Build and promote your personal brand for career success."
-          },
-          {
-            "name": "Growth Mindset Skill",
-            "duration": "6 hours",
-            "description": "Develop a growth mindset to embrace learning and development."
+            "name": "Personal Branding",
+            "href": "/corporate-training/soft-skills/personal-branding-course",
+            "duration": "15 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Define your strengths and values and communicate a clear personal brand."
           },
           {
             "name": "Action Planning",
-            "duration": "6 hours",
-            "description": "Learn to create effective action plans to achieve your goals."
+            "href": "/corporate-training/business-management/action-planning-course",
+            "duration": "16 hours",
+            "category": "Strategy Execution & Organization Design",
+            "description": "Break goals into tasks with owners, deadlines and checkpoints, and follow them through."
           },
           {
-            "name": "Emotional Intelligence",
-            "duration": "6 hours",
-            "description": "Improve your emotional intelligence to build better relationships."
+            "name": "Emotional Intelligence at Work",
+            "href": "/corporate-training/soft-skills/emotional-intelligence-at-work-course",
+            "duration": "16 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Build self-awareness, self-control and awareness of others' emotions at work."
           },
           {
-            "name": "Negotiation Skills",
-            "duration": "8 hours",
-            "description": "Master negotiation techniques for win-win outcomes."
+            "name": "Negotiation Skills for Commercial Teams",
+            "href": "/corporate-training/soft-skills/negotiation-skills-for-commercial-teams-course",
+            "duration": "24 hours",
+            "category": "Influence, Negotiation & Stakeholder Management",
+            "description": "Prepare, plan and negotiate commercial deals on price, terms and value."
           },
           {
-            "name": "Influence and Impact",
-            "duration": "6 hours",
-            "description": "Learn to influence others and make a positive impact."
+            "name": "Influence & Impact: Leading Without Authority",
+            "href": "/corporate-training/leadership/influence-impact-leading-without-authority-course",
+            "duration": "16 hours",
+            "category": "Executive Communication & Influence",
+            "description": "Get results across teams and functions without formal authority, by building trust and shared goals."
           },
           {
-            "name": "Ownership and Accountability",
-            "duration": "6 hours",
-            "description": "Cultivate a sense of ownership and accountability in your work."
+            "name": "Ownership, Accountability & Proactiveness",
+            "href": "/corporate-training/soft-skills/ownership-accountability-proactiveness-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Take ownership of outcomes, act proactively and follow through on commitments."
           },
           {
             "name": "Dealing with Challenging Situations",
-            "duration": "6 hours",
-            "description": "Develop skills to handle challenging situations with confidence."
+            "href": "/corporate-training/soft-skills/dealing-with-challenging-situations-course",
+            "duration": "14 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Respond calmly and practically to setbacks, difficult people and high-pressure moments."
           },
           {
             "name": "Creative Thinking",
-            "duration": "6 hours",
-            "description": "Enhance your creativity for innovative thinking and problem-solving."
+            "href": "/corporate-training/soft-skills/creative-thinking-course",
+            "duration": "14 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Break thinking habits and use techniques to generate a wider range of ideas."
           },
           {
             "name": "Motivational Skills",
-            "duration": "4 hours",
-            "description": "Learn techniques to stay motivated and inspire others."
+            "href": "/corporate-training/soft-skills/motivational-skills-course",
+            "duration": "13 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Understand what motivates people and use practical ways to build and keep engagement."
           },
           {
-            "name": "Executive Presence",
-            "duration": "6 hours",
-            "description": "Develop a commanding presence to lead with confidence."
+            "name": "Executive Presence & Influence",
+            "href": "/corporate-training/leadership/executive-presence-influence-course",
+            "duration": "13 hours",
+            "category": "Executive Communication & Influence",
+            "description": "Combine composure, communication and judgment so senior audiences take you seriously."
           },
           {
-            "name": "Personality Development",
-            "duration": "8 hours",
-            "description": "Improve your personality traits for personal and professional success."
-          },
-          {
-            "name": "7 Habits of Highly Effective People",
-            "duration": "8 hours",
-            "description": "Adopt the seven habits for effectiveness in all areas of life."
-          },
-          {
-            "name": "Problem Solving",
-            "duration": "6 hours",
-            "description": "Enhance your problem-solving skills for better decision-making."
+            "name": "Critical Thinking & Problem Solving",
+            "href": "/corporate-training/soft-skills/critical-thinking-problem-solving-course",
+            "duration": "13 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Question assumptions, weigh evidence and reason through problems logically."
           },
           {
             "name": "Intercultural Communication",
-            "duration": "6 hours",
-            "description": "Improve communication skills across different cultures."
+            "href": "/corporate-training/soft-skills/intercultural-communication-course",
+            "duration": "16 hours",
+            "category": "Cross-Cultural Skills & Inclusion",
+            "description": "Adapt language, style and expectations to communicate across cultures at work."
           },
           {
-            "name": "Myers-Briggs Type Indicator",
-            "duration": "8 hours",
-            "description": "Understand your personality type and how it affects your interactions."
+            "name": "Personality & Team Dynamics (MBTI/DISC)",
+            "href": "/corporate-training/soft-skills/personality-team-dynamics-mbti-disc-course",
+            "duration": "12 hours",
+            "category": "Teamwork & Collaboration",
+            "description": "Use MBTI and DISC to understand personality and working style differences."
+          },
+          {
+            "name": "Communicating with Tact & Diplomacy",
+            "href": "/corporate-training/soft-skills/communicating-with-tact-diplomacy-course",
+            "duration": "16 hours",
+            "category": "Business Communication",
+            "description": "Phrase sensitive messages with care, choosing words and timing that protect relationships."
+          },
+          {
+            "name": "AI Fluency for Every Employee (AI Literacy Program)",
+            "href": "/corporate-training/ai/ai-fluency-for-every-employee-ai-literacy-programme-course",
+            "duration": "12 hours",
+            "category": "AI Literacy & Foundations",
+            "description": "Give every employee a shared, practical understanding of AI, its uses and its limits."
+          },
+          {
+            "name": "Human-AI Collaboration",
+            "href": "/corporate-training/ai/human-ai-collaboration-course",
+            "duration": "21 hours",
+            "category": "AI Strategy & Leadership",
+            "description": "Split tasks between people and AI, review AI output and know when human judgment must lead."
+          },
+          {
+            "name": "Prompt & Context Engineering for Enterprise Teams",
+            "href": "/corporate-training/ai/prompt-context-engineering-for-enterprise-teams-course",
+            "duration": "20 hours",
+            "category": "AI Productivity Tools",
+            "description": "Design structured prompts, examples, system instructions and context sources for consistent, testable outputs across teams."
           }
         ]
       },
@@ -293,183 +333,276 @@
         "courses": [
           {
             "name": "Introduction to Machine Learning",
-            "duration": "12 hours",
-            "description": "Gain a foundational understanding of machine learning algorithms and techniques."
+            "href": "/corporate-training/ai/introduction-to-machine-learning-course",
+            "duration": "24 hours",
+            "category": "AI for Industries: Banking & Financial Services",
+            "description": "Learn supervised and unsupervised learning, model evaluation and the end-to-end ML workflow."
           },
           {
-            "name": "Introduction to Natural Language Processing",
-            "duration": "10 hours",
-            "description": "Explore the fundamentals of processing and analyzing human language using computational methods."
+            "name": "Natural Language Processing (NLP)",
+            "href": "/corporate-training/ai/natural-language-processing-nlp-course",
+            "duration": "24 hours",
+            "category": "Generative AI & LLM Engineering",
+            "description": "Cover tokenisation, text representation, classification, entity extraction, and sentiment as the core NLP techniques."
           },
           {
-            "name": "Deep Learning Fundamentals",
-            "duration": "14 hours",
-            "description": "Dive into the principles and applications of deep learning neural networks."
+            "name": "Introduction to Deep Learning",
+            "href": "/corporate-training/ai/introduction-to-deep-learning-course",
+            "duration": "24 hours",
+            "category": "Machine Learning & Deep Learning",
+            "description": "Understand neural networks, backpropagation, and training practice before choosing tools or applications."
           },
           {
-            "name": "Introduction to Computer Vision",
-            "duration": "12 hours",
-            "description": "Learn the basics of computer vision and image processing algorithms."
+            "name": "Computer Vision & Visual AI",
+            "href": "/corporate-training/ai/computer-vision-visual-ai-course",
+            "duration": "20 hours",
+            "category": "Machine Learning & Deep Learning",
+            "description": "Cover image classification, object detection, segmentation, and the model families behind each of them."
           },
           {
             "name": "Quantum Computing Essentials",
-            "duration": "10 hours",
-            "description": "Discover the fundamental concepts and principles behind quantum computing."
+            "href": "/corporate-training/emerging-technologies/quantum-computing-essentials-course",
+            "duration": "24 hours",
+            "category": "Quantum Computing",
+            "description": "Learn qubits, superposition, entanglement, gates, and the main quantum algorithms in plain terms."
           },
           {
-            "name": "Artificial Intelligence Essentials",
-            "duration": "8 hours",
-            "description": "Explore the core concepts and applications of artificial intelligence."
+            "name": "AI Fluency for Every Employee (AI Literacy Program)",
+            "href": "/corporate-training/ai/ai-fluency-for-every-employee-ai-literacy-programme-course",
+            "duration": "12 hours",
+            "category": "AI Literacy & Foundations",
+            "description": "Give every employee a shared, practical understanding of AI, its uses and its limits."
           },
           {
-            "name": "Fundamentals of Big Data",
-            "duration": "10 hours",
-            "description": "Learn the basics of big data technologies and their applications."
+            "name": "Big Data Analytics",
+            "href": "/corporate-training/data-analytics/big-data-analytics-course",
+            "duration": "24 hours",
+            "category": "Analytics Programming, Engineering & Cloud",
+            "description": "Learn how distributed storage and processing work, and when data volume calls for big data tools."
           },
           {
-            "name": "Introduction to Blockchain and Cryptocurrency",
-            "duration": "8 hours",
-            "description": "Explore the foundational concepts of blockchain technology and cryptocurrencies."
+            "name": "Blockchain",
+            "href": "/corporate-training/emerging-technologies/blockchain-course",
+            "duration": "24 hours",
+            "category": "Blockchain & Web3",
+            "description": "Learn how blockchains, consensus, hashing, and distributed ledgers work, and where they fit in business."
           },
           {
-            "name": "AWS Cloud Essentials",
-            "duration": "8 hours",
-            "description": "Gain a basic understanding of key AWS cloud services and their use cases."
+            "name": "AWS Cloud Practitioner & Business Essentials",
+            "href": "/corporate-training/cloud-computing/aws-cloud-practitioner-business-essentials-course",
+            "duration": "24 hours",
+            "category": "Cloud Foundations",
+            "description": "Learn AWS core services, pricing, billing and the shared responsibility model in business-friendly terms."
           },
           {
             "name": "Microsoft Azure Fundamentals",
-            "duration": "8 hours",
-            "description": "Learn the basics of Microsoft Azure cloud computing services."
+            "href": "/corporate-training/cloud-computing/microsoft-azure-fundamentals-course",
+            "duration": "21 hours",
+            "category": "Microsoft Azure",
+            "description": "Learn cloud concepts, core Azure services, pricing and governance in a way the whole team can follow."
           },
           {
             "name": "Google Cloud Fundamentals - Core Infrastructure",
-            "duration": "8 hours",
-            "description": "Explore the core infrastructure components of Google Cloud Platform (GCP)."
+            "href": "/corporate-training/cloud-computing/google-cloud-fundamentals-core-infrastructure-course",
+            "duration": "24 hours",
+            "category": "Cloud Foundations",
+            "description": "Learn GCP projects, compute, storage, networking and IAM, the core infrastructure everything else uses."
           },
           {
-            "name": "Cybersecurity Fundamentals",
-            "duration": "10 hours",
-            "description": "Understand the fundamental principles and practices of cybersecurity."
+            "name": "Cybersecurity Awareness for the Enterprise Workforce",
+            "href": "/corporate-training/cybersecurity/cybersecurity-awareness-for-the-enterprise-workforce-course",
+            "duration": "16 hours",
+            "category": "Security Awareness & Human Risk",
+            "description": "Teach every employee safe habits for passwords, devices, data and reporting incidents."
           },
           {
-            "name": "Ethical Hacking",
-            "duration": "14 hours",
-            "description": "Learn ethical hacking techniques to identify and address security vulnerabilities."
+            "name": "Certified Ethical Hacker (CEH)",
+            "href": "/corporate-training/cybersecurity/certified-ethical-hacker-ceh-course",
+            "duration": "32 hours",
+            "category": "Offensive Security & Vulnerability Management",
+            "description": "Prepare for the CEH exam across reconnaissance, scanning, exploitation and common attack types."
           },
           {
-            "name": "Digital Forensics",
-            "duration": "12 hours",
-            "description": "Gain skills in investigating digital crimes and analyzing digital evidence."
+            "name": "Digital Forensics & Incident Response (DFIR)",
+            "href": "/corporate-training/cybersecurity/digital-forensics-incident-response-dfir-course",
+            "duration": "24 hours",
+            "category": "Security Operations & Incident Response",
+            "description": "Collect, preserve and analyze evidence across endpoints, memory, logs and networks."
           },
           {
-            "name": "Python for Cybersecurity",
-            "duration": "12 hours",
-            "description": "Learn Python programming to support cybersecurity applications."
+            "name": "Python for Cybersecurity Teams",
+            "href": "/corporate-training/cybersecurity/python-for-cybersecurity-teams-course",
+            "duration": "24 hours",
+            "category": "Security Foundations & Skills",
+            "description": "Write Python scripts to parse logs, automate scans, analyze data and build simple security tools."
           },
           {
-            "name": "Cryptography",
-            "duration": "10 hours",
-            "description": "Explore the principles and techniques of cryptographic algorithms and protocols."
+            "name": "Post-Quantum Cryptography Migration",
+            "href": "/corporate-training/cybersecurity/post-quantum-cryptography-migration-course",
+            "duration": "16 hours",
+            "category": "Data Protection, Cryptography & Ransomware Resilience",
+            "description": "Inventory cryptography, plan migration to post-quantum algorithms and manage the transition across systems."
           },
           {
-            "name": "Data Analytics & Visualization Fundamentals",
-            "duration": "10 hours",
-            "description": "Learn the basics of data analysis and visualization techniques."
+            "name": "Data Analytics & Visualization",
+            "href": "/corporate-training/data-analytics/data-analytics-visualization-course",
+            "duration": "24 hours",
+            "category": "Data Literacy & Business Analytics",
+            "description": "Analyze business data and choose clear charts and layouts that show what the data actually says."
           },
           {
             "name": "Introduction to Data Science",
-            "duration": "12 hours",
-            "description": "Gain an overview of the data science process and its applications."
+            "href": "/corporate-training/data-analytics/introduction-to-data-science-course",
+            "duration": "24 hours",
+            "category": "Low-Code Data Science Platforms",
+            "description": "Learn the data science process, common problem types and how projects deliver value."
           },
           {
             "name": "Business Analytics Fundamentals",
-            "duration": "10 hours",
-            "description": "Learn the basics of applying analytics to business decision-making."
+            "href": "/corporate-training/data-analytics/business-analytics-fundamentals-course",
+            "duration": "24 hours",
+            "category": "Data Literacy & Business Analytics",
+            "description": "Learn descriptive analysis, KPIs, trends and simple comparisons that turn business data into findings."
           },
           {
-            "name": "Internet of Things (IoT) Fundamentals",
-            "duration": "8 hours",
-            "description": "Understand the core concepts and applications of IoT technology."
+            "name": "IoT Architecture & Connected Products",
+            "href": "/corporate-training/iot/iot-architecture-connected-products-course",
+            "duration": "24 hours",
+            "category": "IoT Architecture & Devices",
+            "description": "Design connected product architecture across devices, networks and cloud."
           },
           {
-            "name": "Introduction and Programming with IoT Boards",
-            "duration": "8 hours",
-            "description": "Learn how to program and interact with IoT boards for various applications."
+            "name": "Raspberry Pi",
+            "href": "/corporate-training/iot/raspberry-pi-course",
+            "duration": "25 hours",
+            "category": "IoT Architecture & Devices",
+            "description": "Build prototypes on Raspberry Pi with sensors, GPIO and Linux."
           },
           {
             "name": "Fundamentals of Android",
-            "duration": "10 hours",
-            "description": "Explore the basics of Android app development."
+            "href": "/corporate-training/software-development/fundamentals-of-android-course",
+            "duration": "19 hours",
+            "category": "Mobile App Development",
+            "description": "Learn Android components, lifecycle, layouts, intents and the Android Studio toolchain as a base for app work."
           },
           {
             "name": "Fundamentals of iOS",
-            "duration": "10 hours",
-            "description": "Learn the basics of iOS app development."
+            "href": "/corporate-training/software-development/fundamentals-of-ios-course",
+            "duration": "19 hours",
+            "category": "Mobile App Development",
+            "description": "Learn iOS app structure, Xcode, Swift basics and Apple's design conventions before writing production code."
           },
           {
             "name": "Android Security Essentials",
-            "duration": "8 hours",
-            "description": "Understand the fundamentals of securing Android applications."
+            "href": "/corporate-training/software-development/android-security-essentials-course",
+            "duration": "23 hours",
+            "category": "Mobile App Development",
+            "description": "Secure Android apps: storage, permissions, cryptography, network security and safe coding practices."
           },
           {
-            "name": "Networking Fundamentals",
-            "duration": "10 hours",
-            "description": "Gain a foundational understanding of computer networking principles."
+            "name": "Enterprise Networking Fundamentals",
+            "href": "/corporate-training/networking/enterprise-networking-fundamentals-course",
+            "duration": "26 hours",
+            "category": "Enterprise & Data Center Networking",
+            "description": "Learn IP addressing, subnets, routing, switching, and core network protocols that every later step relies on."
           },
           {
-            "name": "Introduction to Networking and Storage",
-            "duration": "8 hours",
-            "description": "Learn about networking and storage technologies and their integration."
+            "name": "Cisco CCNA",
+            "href": "/corporate-training/networking/cisco-ccna-course",
+            "duration": "28 hours",
+            "category": "Enterprise Networking",
+            "description": "Configure and troubleshoot Cisco routing, switching, wireless, and security at CCNA level."
           },
           {
-            "name": "Cisco Networking Basics",
-            "duration": "10 hours",
-            "description": "Explore the basics of networking with Cisco devices."
-          },
-          {
-            "name": "Generative AI with Large Language Models (LLMs)",
-            "duration": "12 hours",
-            "description": "Discover how to generate text using large language models like GPT."
+            "name": "Generative AI",
+            "href": "/corporate-training/ai/generative-ai-course",
+            "duration": "24 hours",
+            "category": "AI Literacy & Foundations",
+            "description": "Learn how LLMs and generative models work, their business uses, limits and risks."
           },
           {
             "name": "LiDAR",
-            "duration": "10 hours",
-            "description": "Learn about LiDAR technology and its applications in various fields."
+            "href": "/corporate-training/emerging-technologies/lidar-course",
+            "duration": "26 hours",
+            "category": "Sensing & LiDAR",
+            "description": "Collect, process, and classify LiDAR point clouds for terrain, structures, and vegetation."
           },
           {
             "name": "Python",
-            "duration": "8 hours",
-            "description": "Gain proficiency in the Python programming language."
+            "href": "/corporate-training/software-development/python-course",
+            "duration": "24 hours",
+            "category": "Programming Languages & Back-End Development",
+            "description": "Learn Python syntax, data types, functions, modules, files and testing basics as the base for all later work."
           },
           {
-            "name": "DevOps Fundamentals",
-            "duration": "12 hours",
-            "description": "Understand the principles and practices of DevOps for software development."
+            "name": "DevOps & CI/CD Engineering",
+            "href": "/corporate-training/devops/devops-ci-cd-engineering-course",
+            "duration": "28 hours",
+            "category": "CI/CD & Pipeline Tools",
+            "description": "Build CI/CD pipelines with automated builds, tests, artefacts and deployment strategies."
           },
           {
             "name": "DevSecOps",
-            "duration": "10 hours",
-            "description": "Learn how to integrate security practices into the DevOps process."
+            "href": "/corporate-training/devops/devsecops-course",
+            "duration": "24 hours",
+            "category": "DevSecOps",
+            "description": "Add code, dependency and container scanning, secrets handling and policy gates to pipelines."
           },
           {
             "name": "PostgreSQL",
-            "duration": "14 hours",
-            "description": "Gain skills in working with PostgreSQL, a powerful open-source relational database management system."
+            "href": "/corporate-training/databases/postgresql-course",
+            "duration": "24 hours",
+            "category": "Relational Database Administration",
+            "description": "Install, configure, secure, back up and operate PostgreSQL databases."
           },
           {
-            "name": "MangoDB",
-            "duration": "14 hours",
-            "description": "Learn about MongoDB, a popular NoSQL database management system."
+            "name": "MongoDB",
+            "href": "/corporate-training/databases/mongodb-course",
+            "duration": "24 hours",
+            "category": "NoSQL, Search & In-Memory Databases",
+            "description": "Model documents, write queries and aggregations, and run replica sets and indexes in MongoDB."
           },
           {
-            "name": "ChatGPT for Excel",
-            "duration": "4 hours",
-            "description": "Learn how to leverage ChatGPT prompts to streamline Excel operations and boost productivity."
+            "name": "ChatGPT",
+            "href": "/corporate-training/ai/chatgpt-course",
+            "duration": "18 hours",
+            "category": "AI Productivity Tools",
+            "description": "Use ChatGPT for drafting, summarising, analysis and research, with custom GPTs and file uploads where useful."
           },
           {
-            "name": "Introduction to ChatGPT",
-            "duration": "4 hours",
-            "description": "Explore the capabilities and practical applications of ChatGPT in professional settings, facilitating tasks and enhancing workflow efficiency."
+            "name": "Agentic AI",
+            "href": "/corporate-training/ai/agentic-ai-course",
+            "duration": "24 hours",
+            "category": "AI Literacy & Foundations",
+            "description": "Understand agent architectures, tool use, memory and planning, and where agents fit in the business."
+          },
+          {
+            "name": "AI-Assisted Software Engineering with Claude Code",
+            "href": "/corporate-training/software-development/ai-assisted-software-engineering-with-claude-code-course",
+            "duration": "24 hours",
+            "category": "AI-Assisted Software Engineering",
+            "description": "Use Claude Code in the terminal to read, edit, test and refactor real codebases."
+          },
+          {
+            "name": "Responsible AI & Ethics",
+            "href": "/corporate-training/ai/responsible-ai-ethics-course",
+            "duration": "20 hours",
+            "category": "AI Governance & Responsible AI",
+            "description": "Learn fairness, transparency, privacy and accountability, and how to spot and reduce harm in AI use."
+          },
+          {
+            "name": "AI Governance",
+            "href": "/corporate-training/ai/ai-governance-course",
+            "duration": "21 hours",
+            "category": "AI Governance & Responsible AI",
+            "description": "Set up AI policies, a governance committee, an AI inventory and approval processes across the organization."
+          },
+          {
+            "name": "Microsoft Copilot",
+            "href": "/corporate-training/ai/microsoft-copilot-course",
+            "duration": "12 hours",
+            "category": "AI Productivity Tools",
+            "description": "Use Copilot across Microsoft 365 to draft, summarize, search and catch up on meetings and email."
           }
         ]
       },
@@ -488,64 +621,137 @@
         "catalog_title": "Student Entrepreneurship and Innovation Program",
         "courses": [
           {
-            "name": "Business Model Innovation",
-            "duration": "12 hours",
-            "description": "Explore innovative frameworks to redesign business models for competitive advantage."
+            "name": "Business Model Innovation & AI-Era Strategy",
+            "href": "/corporate-training/business-management/business-model-innovation-ai-era-strategy-course",
+            "duration": "20 hours",
+            "category": "Strategy & Foresight",
+            "description": "Test and redesign how the business creates, delivers and captures value as AI changes markets."
           },
           {
             "name": "Creative Thinking",
-            "duration": "8 hours",
-            "description": "Develop the ability to think creatively and generate innovative solutions in any scenario."
+            "href": "/corporate-training/soft-skills/creative-thinking-course",
+            "duration": "14 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Break thinking habits and use techniques to generate a wider range of ideas."
           },
           {
-            "name": "Design Thinking",
-            "duration": "8 hours",
-            "description": "Learn to apply design thinking processes to solve problems creatively and efficiently."
+            "name": "Design Thinking & Service Design",
+            "href": "/corporate-training/design-multimedia/design-thinking-service-design-course",
+            "duration": "14 hours",
+            "category": "Service Design & Design Thinking",
+            "description": "Learn empathy research, problem framing, ideation and service blueprints as a shared method."
           },
           {
-            "name": "Entrepreneurial Leadership",
-            "duration": "12 hours",
-            "description": "Gain leadership skills tailored for entrepreneurial settings to effectively guide startup teams."
-          },
-          {
-            "name": "Financial Management for Entrepreneurs",
-            "duration": "16 hours",
-            "description": "Master key financial principles and tools essential for building and sustaining a successful startup."
+            "name": "Finance for Non-Finance Managers",
+            "href": "/corporate-training/finance-accounting/finance-for-non-finance-managers-course",
+            "duration": "26 hours",
+            "category": "FP&A, Modeling & Business Finance",
+            "description": "Learn profit, cash, budgets and key finance terms so managers can follow finance discussions."
           },
           {
             "name": "Market Research",
-            "duration": "12 hours",
-            "description": "Acquire techniques for conducting thorough market research to make data-driven decisions."
+            "href": "/corporate-training/marketing/market-research-course",
+            "duration": "24 hours",
+            "category": "Market Research & Customer Insight",
+            "description": "Plan research, write surveys and interview guides, choose samples, and analyze results your team can rely on."
           },
           {
-            "name": "Product Management Fundamentals",
-            "duration": "12 hours",
-            "description": "Understand the roles and processes of product management from concept to market launch."
-          },
-          {
-            "name": "Startup Fundamentals",
-            "duration": "12 hours",
-            "description": "Learn the critical steps for starting a business, from idea validation to market entry."
-          },
-          {
-            "name": "Venture Capital and Angel Investment",
-            "duration": "12 hours",
-            "description": "Explore the dynamics of securing venture capital and angel investments for startups."
+            "name": "Digital Product Management",
+            "href": "/corporate-training/product-management/digital-product-management-course",
+            "duration": "24 hours",
+            "category": "Product Management Foundations",
+            "description": "Learn how digital products are planned, built, and improved with agile teams."
           },
           {
             "name": "Strategic Marketing",
+            "href": "/corporate-training/marketing/strategic-marketing-course",
+            "duration": "23 hours",
+            "category": "B2B Marketing, ABM & Demand Generation",
+            "description": "Set segments, targeting, positioning and growth strategy based on market insight."
+          },
+          {
+            "name": "Fundamentals of Digital Marketing",
+            "href": "/corporate-training/marketing/fundamentals-of-digital-marketing-course",
+            "duration": "19 hours",
+            "category": "Marketing & Brand Strategy",
+            "description": "Cover the main digital channels, the buyer funnel, and the core metrics everyone on the team should understand."
+          },
+          {
+            "name": "Product Discovery & Customer Research",
+            "href": "/corporate-training/product-management/product-discovery-customer-research-course",
+            "duration": "24 hours",
+            "category": "Product Strategy & Discovery",
+            "description": "Interview customers, map their needs, and validate problems and solutions before your team builds anything."
+          },
+          {
+            "name": "Brand Strategy & Management",
+            "href": "/corporate-training/marketing/brand-strategy-management-course",
             "duration": "16 hours",
-            "description": "Develop advanced strategies to identify market opportunities and position your business for growth."
+            "category": "Marketing & Brand Strategy",
+            "description": "Define brand positioning, identity and architecture, and manage brand health, consistency and equity over time."
           },
           {
-            "name": "Digital Marketing Essentials",
-            "duration": "8 hours",
-            "description": "Grasp the core concepts of digital marketing to enhance online presence and customer engagement."
+            "name": "Social Media Marketing & Community",
+            "href": "/corporate-training/marketing/social-media-marketing-community-course",
+            "duration": "24 hours",
+            "category": "Content, Email & Social",
+            "description": "Plan social strategy, publish content, grow and moderate communities, and report on engagement across platforms."
           },
           {
-            "name": "Innovation and Productivity in the Workplace",
-            "duration": "8 hours",
-            "description": "Enhance workplace productivity by fostering an environment of innovation and continuous improvement."
+            "name": "Content & Email Marketing",
+            "href": "/corporate-training/marketing/content-email-marketing-course",
+            "duration": "24 hours",
+            "category": "Content, Email & Social",
+            "description": "Plan editorial content, build email programs, segment lists, and measure opens, clicks and conversions from each send."
+          },
+          {
+            "name": "SEO & Generative Engine Optimization (GEO/AEO)",
+            "href": "/corporate-training/marketing/seo-generative-engine-optimisation-geo-aeo-course",
+            "duration": "24 hours",
+            "category": "Search, Paid Media & Performance",
+            "description": "Handle technical SEO, topic research, content optimisation, and the signals that get pages cited in AI answers."
+          },
+          {
+            "name": "Product Launch",
+            "href": "/corporate-training/product-management/product-launch-course",
+            "duration": "22 hours",
+            "category": "Data Products",
+            "description": "Plan and run launches with readiness checks, cross-team coordination, and success measures."
+          },
+          {
+            "name": "Product-Led Growth",
+            "href": "/corporate-training/product-management/product-led-growth-course",
+            "duration": "24 hours",
+            "category": "Product Growth",
+            "description": "Grow with self-serve onboarding, free trials, and in-product expansion, guided by the experiments run earlier."
+          },
+          {
+            "name": "Pricing Strategy & Revenue Management",
+            "href": "/corporate-training/marketing/pricing-strategy-revenue-management-course",
+            "duration": "14 hours",
+            "category": "Marketing & Brand Strategy",
+            "description": "Set price levels and structures, manage discounting, and use revenue management methods to protect margin."
+          },
+          {
+            "name": "Consumer Behavior & Behavioral Economics",
+            "href": "/corporate-training/marketing/consumer-behaviour-behavioural-economics-course",
+            "duration": "24 hours",
+            "category": "Market Research & Customer Insight",
+            "description": "Understand biases, heuristics and choice architecture, and how they shape what customers notice, choose and pay for."
+          },
+          {
+            "name": "Strategic Foresight & Scenario Planning",
+            "href": "/corporate-training/business-management/strategic-foresight-scenario-planning-course",
+            "duration": "14 hours",
+            "category": "Strategy & Foresight",
+            "description": "Build and test plausible future scenarios, spot early signals and prepare options for each."
+          },
+          {
+            "name": "Negotiation Skills for Commercial Teams",
+            "href": "/corporate-training/soft-skills/negotiation-skills-for-commercial-teams-course",
+            "duration": "24 hours",
+            "category": "Influence, Negotiation & Stakeholder Management",
+            "description": "Prepare, plan and negotiate commercial deals on price, terms and value."
           }
         ]
       },
@@ -553,7 +759,7 @@
         "slug": "professional-development-programs-for-staff",
         "title": "Professional Development Programs for Staff",
         "description": "To develop soft skills and essential behavioral skills in staff",
-        "course_count": "30+ Courses",
+        "course_count": "20+ Courses",
         "image": {
           "src": "https://media.edstellar.com/website/professional.webp",
           "alt": "Professional Development Programs for Staff",
@@ -564,174 +770,200 @@
         "catalog_title": "Professional Development Programs for Staff",
         "courses": [
           {
-            "name": "Active Listening",
-            "duration": "8 hours",
-            "description": "Master the skills of listening attentively to improve communication and understanding."
+            "name": "Active Listening & Empathy at Work",
+            "href": "/corporate-training/soft-skills/active-listening-empathy-at-work-course",
+            "duration": "14 hours",
+            "category": "Business Communication",
+            "description": "Listen fully, check understanding and respond with empathy in everyday conversations."
           },
           {
-            "name": "Body Language",
-            "duration": "8 hours",
-            "description": "Learn to read and convey non-verbal cues effectively to enhance interpersonal interactions."
+            "name": "Non-Verbal Communication & Body Language",
+            "href": "/corporate-training/soft-skills/non-verbal-communication-body-language-course",
+            "duration": "16 hours",
+            "category": "Business Communication",
+            "description": "Read and use posture, gesture, eye contact and expression at work."
           },
           {
             "name": "Business Communication Skills",
-            "duration": "8 hours",
-            "description": "Develop professional communication techniques for a business environment."
+            "href": "/corporate-training/soft-skills/business-communication-skills-course",
+            "duration": "16 hours",
+            "category": "Business Communication",
+            "description": "Communicate clearly and concisely in meetings, emails and conversations across the business."
           },
           {
-            "name": "Email Writing and Etiquettes",
+            "name": "Email Writing & Etiquette",
+            "href": "/corporate-training/soft-skills/email-writing-etiquette-course",
             "duration": "8 hours",
-            "description": "Gain expertise in crafting concise, professional emails and understanding email etiquette."
+            "category": "Business Writing",
+            "description": "Write clear, concise emails with the right tone, subject line and call to action."
           },
           {
-            "name": "Written Communication",
-            "duration": "8 hours",
-            "description": "Enhance your ability to write clear, effective reports, and documents."
+            "name": "Business Writing & Report Skills",
+            "href": "/corporate-training/soft-skills/business-writing-report-skills-course",
+            "duration": "16 hours",
+            "category": "Business Writing",
+            "description": "Plan, structure and write reports and business documents readers can act on."
           },
           {
-            "name": "Adaptable Mindset",
-            "duration": "8 hours",
-            "description": "Cultivate the ability to adapt to change and maintain flexibility in a dynamic work environment."
+            "name": "Growth Mindset & Adaptability",
+            "href": "/corporate-training/soft-skills/growth-mindset-adaptability-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Treat setbacks as learning and adapt quickly when circumstances change."
           },
           {
-            "name": "Being Proactive",
-            "duration": "8 hours",
-            "description": "Learn strategies to anticipate challenges and take initiative in solving problems."
+            "name": "Ownership, Accountability & Proactiveness",
+            "href": "/corporate-training/soft-skills/ownership-accountability-proactiveness-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Take ownership of outcomes, act proactively and follow through on commitments."
           },
           {
-            "name": "Goal Setting",
-            "duration": "8 hours",
-            "description": "Master the art of setting, pursuing, and achieving personal and professional goals."
+            "name": "Goal Setting & Personal OKRs",
+            "href": "/corporate-training/soft-skills/goal-setting-personal-okrs-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Set clear personal goals and OKRs with measurable key results."
           },
           {
             "name": "Motivational Skills",
-            "duration": "8 hours",
-            "description": "Develop techniques to inspire and motivate individuals and teams effectively."
+            "href": "/corporate-training/soft-skills/motivational-skills-course",
+            "duration": "13 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Understand what motivates people and use practical ways to build and keep engagement."
           },
           {
             "name": "Positive Mindset",
-            "duration": "8 hours",
-            "description": "Foster a positive attitude and approach to improve resilience and workplace morale."
+            "href": "/corporate-training/soft-skills/positive-mindset-course",
+            "duration": "14 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Build a positive outlook and habits that help people handle daily pressure."
           },
           {
-            "name": "Executive Presence",
-            "duration": "8 hours",
-            "description": "Build the skills to command respect and inspire confidence as a leader."
+            "name": "Executive Presence & Influence",
+            "href": "/corporate-training/leadership/executive-presence-influence-course",
+            "duration": "13 hours",
+            "category": "Executive Communication & Influence",
+            "description": "Combine composure, communication and judgment so senior audiences take you seriously."
           },
           {
-            "name": "Facilitation Skills",
-            "duration": "8 hours",
-            "description": "Learn to guide discussions and workshops effectively, ensuring productive outcomes."
+            "name": "Facilitation Skills for Workshops & Workgroups",
+            "href": "/corporate-training/soft-skills/facilitation-skills-for-workshops-workgroups-course",
+            "duration": "15 hours",
+            "category": "Presentation, Public Speaking & Facilitation",
+            "description": "Design and run workshops with structured activities that get groups to outcomes."
           },
           {
-            "name": "Negotiation Skills",
-            "duration": "8 hours",
-            "description": "Acquire strategies to negotiate successfully and achieve optimal solutions."
+            "name": "Negotiation Skills for Commercial Teams",
+            "href": "/corporate-training/soft-skills/negotiation-skills-for-commercial-teams-course",
+            "duration": "24 hours",
+            "category": "Influence, Negotiation & Stakeholder Management",
+            "description": "Prepare, plan and negotiate commercial deals on price, terms and value."
           },
           {
-            "name": "Persuasion Skills",
-            "duration": "8 hours",
-            "description": "Master the art of influencing others to promote ideas and drive decisions."
+            "name": "Influence, Persuasion & Networking Skills",
+            "href": "/corporate-training/soft-skills/influence-persuasion-networking-skills-course",
+            "duration": "12 hours",
+            "category": "Influence, Negotiation & Stakeholder Management",
+            "description": "Persuade and influence with structured arguments and build a supportive professional network."
           },
           {
             "name": "Risk Taking",
-            "duration": "8 hours",
-            "description": "Understand how to assess and take calculated risks to drive innovation and growth."
+            "href": "/corporate-training/soft-skills/risk-taking-course",
+            "duration": "14 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Weigh risks and rewards, then take calculated risks with clear limits and fallback plans."
           },
           {
             "name": "Team Building",
-            "duration": "8 hours",
-            "description": "Develop and strengthen team cohesion and collaborative skills."
+            "href": "/corporate-training/soft-skills/team-building-course",
+            "duration": "12 hours",
+            "category": "Teamwork & Collaboration",
+            "description": "Build trust, shared goals and stronger working relationships across the team."
           },
           {
             "name": "Anger Management",
-            "duration": "8 hours",
-            "description": "Learn techniques to control anger and maintain professionalism in high-stress situations."
+            "href": "/corporate-training/soft-skills/anger-management-course",
+            "duration": "16 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Recognize anger triggers and use practical techniques to respond calmly instead of reacting."
           },
           {
-            "name": "Self Awareness",
-            "duration": "8 hours",
-            "description": "Enhance understanding of your emotions, strengths, and weaknesses to improve personal effectiveness."
+            "name": "Professional Presence & Personal Effectiveness",
+            "href": "/corporate-training/soft-skills/professional-presence-personal-effectiveness-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Combine manner, reliability and communication into a consistent professional presence."
           },
           {
-            "name": "Emotional Intelligence for Finance Professionals",
-            "duration": "8 hours",
-            "description": "Apply emotional intelligence skills to enhance decision-making in the financial sector."
-          },
-          {
-            "name": "Strategic Internal Communication Skills",
-            "duration": "8 hours",
-            "description": "Learn to communicate strategically within an organization to align teams and objectives."
-          },
-          {
-            "name": "Managing Conflict with Emotional Intelligence",
-            "duration": "8 hours",
-            "description": "Use emotional intelligence to resolve conflicts constructively."
-          },
-          {
-            "name": "Time Management",
-            "duration": "8 hours",
-            "description": "Master techniques to manage time efficiently, enhancing productivity and reducing stress."
-          },
-          {
-            "name": "Getting Things Done (GTD)",
-            "duration": "8 hours",
-            "description": "Implement the GTD productivity method to manage tasks and projects efficiently."
-          },
-          {
-            "name": "Building Team Synergy",
-            "duration": "8 hours",
-            "description": "Cultivate a team environment where synergy boosts collective performance."
+            "name": "Personal Productivity & Time Management",
+            "href": "/corporate-training/soft-skills/personal-productivity-time-management-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Plan, prioritize and protect your time with practical techniques."
           },
           {
             "name": "Workplace Empathy",
-            "duration": "8 hours",
-            "description": "Foster an empathetic workplace that enhances understanding and cooperation among staff."
+            "href": "/corporate-training/soft-skills/workplace-empathy-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Understand colleagues' perspectives and feelings and respond with care."
           },
           {
             "name": "Accent Neutralization",
-            "duration": "8 hours",
-            "description": "Train to reduce non-native accents and improve clarity in spoken English."
+            "href": "/corporate-training/soft-skills/accent-neutralization-course",
+            "duration": "13 hours",
+            "category": "Business Communication",
+            "description": "Work on sounds, word stress, intonation and pace so speech is easy for any listener to follow."
           },
           {
-            "name": "English Language Elementary Level",
-            "duration": "8 hours",
-            "description": "Build fundamental English language skills for basic communication."
+            "name": "Business English & Pronunciation",
+            "href": "/corporate-training/soft-skills/business-english-pronunciation-course",
+            "duration": "16 hours",
+            "category": "Business Communication",
+            "description": "Speak business English clearly with better pronunciation, vocabulary and fluency."
           },
           {
-            "name": "English Language - Intermediate Level",
-            "duration": "8 hours",
-            "description": "Expand on basic skills to achieve intermediate competency in English."
-          },
-          {
-            "name": "English Pronunciation",
-            "duration": "8 hours",
-            "description": "Focus on improving pronunciation to enhance clarity and understanding."
-          },
-          {
-            "name": "Train the Trainer",
-            "duration": "8 hours",
-            "description": "Equip potential trainers with the skills to design and deliver effective training sessions."
-          },
-          {
-            "name": "Peer-to-Peer Feedback",
-            "duration": "8 hours",
-            "description": "Learn how to give and receive constructive feedback among peers to foster a growth environment."
-          },
-          {
-            "name": "Ownership and Accountability",
-            "duration": "8 hours",
-            "description": "Cultivate a sense of ownership and accountability in your work."
-          },
-          {
-            "name": "Dealing with Challenging Situations",
-            "duration": "8 hours",
-            "description": "Develop skills to handle challenging situations with confidence."
+            "name": "Train The Trainer",
+            "href": "/corporate-training/hr/train-the-trainer-course",
+            "duration": "12 hours",
+            "category": "Learning & Development",
+            "description": "Plan and deliver training sessions, engage adult learners and check what they have learned."
           },
           {
             "name": "Constructive Feedback",
-            "duration": "8 hours",
-            "description": "Master the skills to provide feedback that motivates and encourages improvement."
+            "href": "/corporate-training/soft-skills/constructive-feedback-course",
+            "duration": "12 hours",
+            "category": "Feedback & Conflict",
+            "description": "Give specific, balanced feedback, and receive it well, in everyday work."
+          },
+          {
+            "name": "Dealing with Challenging Situations",
+            "href": "/corporate-training/soft-skills/dealing-with-challenging-situations-course",
+            "duration": "14 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Respond calmly and practically to setbacks, difficult people and high-pressure moments."
+          },
+          {
+            "name": "Microsoft Copilot",
+            "href": "/corporate-training/ai/microsoft-copilot-course",
+            "duration": "12 hours",
+            "category": "AI Productivity Tools",
+            "description": "Use Copilot across Microsoft 365 to draft, summarize, search and catch up on meetings and email."
+          },
+          {
+            "name": "AI Fluency for Every Employee (AI Literacy Program)",
+            "href": "/corporate-training/ai/ai-fluency-for-every-employee-ai-literacy-programme-course",
+            "duration": "12 hours",
+            "category": "AI Literacy & Foundations",
+            "description": "Give every employee a shared, practical understanding of AI, its uses and its limits."
+          },
+          {
+            "name": "Coaching & Mentoring for Leaders",
+            "href": "/corporate-training/leadership/coaching-mentoring-for-leaders-course",
+            "duration": "16 hours",
+            "category": "Leading Teams & Developing People",
+            "description": "Coach and mentor people to find their own solutions and grow in their roles."
           }
         ]
       },
@@ -750,139 +982,179 @@
         "catalog_title": "Compliance Skills Development Program",
         "courses": [
           {
-            "name": "Business Ethics",
-            "duration": "8 hours",
-            "description": "Understand fundamental ethical principles and how to apply them in the workplace to ensure integrity and trust."
+            "name": "Business Ethics & Ethical Decision Making",
+            "href": "/corporate-training/grc/business-ethics-ethical-decision-making-course",
+            "duration": "16 hours",
+            "category": "Business Ethics",
+            "description": "Work through ethical dilemmas with practical frameworks for making and explaining decisions."
           },
           {
-            "name": "Code of Conduct",
-            "duration": "6 hours",
-            "description": "Learn the importance of adhering to a code of conduct to maintain professional standards and organizational values."
+            "name": "Code of Conduct & Workplace Ethics",
+            "href": "/corporate-training/grc/code-of-conduct-workplace-ethics-course",
+            "duration": "16 hours",
+            "category": "Ethics, Anti-Bribery & Integrity",
+            "description": "Learn what your code of conduct asks of every employee, how it applies at work and where to go with questions."
           },
           {
             "name": "GDPR",
-            "duration": "6 hours",
-            "description": "Gain a thorough understanding of GDPR requirements to manage and protect personal data responsibly."
+            "href": "/corporate-training/grc/gdpr-course",
+            "duration": "26 hours",
+            "category": "Data Privacy & Protection",
+            "description": "Apply the regulation to your processing: principles, lawful bases, data subject rights, records, breach notice and international transfers."
           },
           {
             "name": "Finance Compliance",
-            "duration": "6 hours",
-            "description": "Explore key financial compliance regulations and how to implement them to avoid financial risks."
+            "href": "/corporate-training/quality-management/finance-compliance-course",
+            "duration": "19 hours",
+            "category": "Quality Systems & Quality Engineering",
+            "description": "Understand the regulatory, tax and reporting obligations finance must meet, and build processes that keep you compliant."
           },
           {
-            "name": "Regulatory and Compliance",
-            "duration": "8 hours",
-            "description": "Understand the scope of regulatory frameworks and how to ensure compliance in a corporate setting."
+            "name": "Compliance Program Management (ISO 37301)",
+            "href": "/corporate-training/grc/compliance-programme-management-iso-37301-course",
+            "duration": "24 hours",
+            "category": "Compliance Program Management",
+            "description": "Build an ISO 37301 compliance program: obligations, risk assessment, controls, training and monitoring."
           },
           {
             "name": "HR Compliance",
-            "duration": "6 hours",
-            "description": "Dive into human resources laws and regulations to manage employee relations legally and effectively."
+            "href": "/corporate-training/hr/hr-compliance-course",
+            "duration": "24 hours",
+            "category": "Employment & Labor Law Compliance",
+            "description": "Meet employment law duties on contracts, pay, working time, records, leave and termination."
           },
           {
             "name": "Prevention of Sexual Harassment (POSH)",
-            "duration": "6 hours",
-            "description": "Learn about preventing sexual harassment in the workplace and creating a safe environment for all employees."
+            "href": "/corporate-training/hr/prevention-of-sexual-harassment-posh-course",
+            "duration": "24 hours",
+            "category": "Workplace Conduct & Harassment Prevention",
+            "description": "Learn India's POSH law: what counts as harassment, employee rights and how to raise a complaint."
           },
           {
-            "name": "Anti-Money Laundering (AML)",
-            "duration": "6 hours",
-            "description": "Understand the processes to prevent, detect, and report money laundering activities effectively."
+            "name": "Financial Crime Prevention: AML, KYC & Sanctions",
+            "href": "/corporate-training/grc/financial-crime-prevention-aml-kyc-sanctions-course",
+            "duration": "25 hours",
+            "category": "AML & Financial Crime",
+            "description": "Learn how money laundering, terrorist financing and sanctions evasion work, and the controls a firm needs against them."
           },
           {
-            "name": "Electronic Communications Compliance",
-            "duration": "6 hours",
-            "description": "Explore the legal standards for managing electronic communications and ensuring privacy and security."
+            "name": "FCPA Anti-Bribery & Corruption Compliance (US)",
+            "href": "/corporate-training/grc/fcpa-anti-bribery-corruption-compliance-us-course",
+            "duration": "24 hours",
+            "category": "Ethics, Anti-Bribery & Integrity",
+            "description": "Apply the FCPA: anti-bribery provisions, books and records, internal controls, third-party due diligence and DOJ and SEC enforcement priorities."
           },
           {
-            "name": "Anti-Bribery and Corruption",
-            "duration": "6 hours",
-            "description": "Equip yourself with strategies to prevent bribery and corruption within the organization."
+            "name": "Competition & Antitrust Compliance",
+            "href": "/corporate-training/grc/competition-antitrust-compliance-course",
+            "duration": "27 hours",
+            "category": "Ethics, Anti-Bribery & Integrity",
+            "description": "Avoid antitrust breaches: price fixing, information exchange with competitors, abuse of dominance, trade association risks and dawn raids."
           },
           {
-            "name": "Antitrust Compliance",
-            "duration": "6 hours",
-            "description": "Learn to navigate and comply with antitrust laws to ensure fair competition and avoid legal pitfalls."
+            "name": "Whistleblower Programs & Speak-Up Culture (EU Whistleblowing Directive)",
+            "href": "/corporate-training/grc/whistleblower-programs-speak-up-culture-eu-whistleblowing-directive-course",
+            "duration": "24 hours",
+            "category": "Ethics, Anti-Bribery & Integrity",
+            "description": "Design and run whistleblowing channels and a speak-up culture that meet the EU Whistleblowing Directive."
           },
           {
-            "name": "Whistleblowing",
-            "duration": "4 hours",
-            "description": "Learn the significance of whistleblowing mechanisms and protecting those who report misconduct."
+            "name": "Emergency Preparedness, Evacuation & Crisis Response",
+            "href": "/corporate-training/hse/emergency-preparedness-evacuation-crisis-response-course",
+            "duration": "24 hours",
+            "category": "Workplace Emergency Preparedness",
+            "description": "Plan, drill and lead evacuations and crisis response across the site."
           },
           {
-            "name": "Emergency Evacuation Procedures",
-            "duration": "4 hours",
-            "description": "Acquire skills to safely manage and execute emergency evacuations in the workplace."
+            "name": "Fire Safety & Fire Warden",
+            "href": "/corporate-training/hse/fire-safety-fire-warden-course",
+            "duration": "24 hours",
+            "category": "Fire, First Aid & Emergency Response",
+            "description": "Prevent fires, use extinguishers correctly and lead evacuations as a trained fire warden."
           },
           {
-            "name": "Fire Safety",
-            "duration": "6 hours",
-            "description": "Understand fire safety protocols to prevent, detect, and respond to fire emergencies effectively."
+            "name": "First Aid & CPR Awareness",
+            "href": "/corporate-training/hse/first-aid-cpr-awareness-course",
+            "duration": "24 hours",
+            "category": "Fire, First Aid & Emergency Response",
+            "description": "Recognize emergencies, give basic first aid and CPR, and support people until help arrives."
           },
           {
-            "name": "First Aid and CPR",
+            "name": "Food Safety & HACCP (ISO 22000)",
+            "href": "/corporate-training/food-beverage/food-safety-haccp-iso-22000-course",
+            "duration": "24 hours",
+            "category": "Food Safety & Quality",
+            "description": "Identify hazards, set critical control points and run an ISO 22000 food safety management system."
+          },
+          {
+            "name": "Workplace Ergonomics",
+            "href": "/corporate-training/hse/workplace-ergonomics-course",
             "duration": "8 hours",
-            "description": "Gain critical skills to provide first aid and CPR in emergencies, enhancing workplace safety."
+            "category": "Occupational Health & Safety",
+            "description": "Assess workstations and tasks and redesign them to reduce musculoskeletal risk."
           },
           {
-            "name": "Food Safety",
-            "duration": "6 hours",
-            "description": "Learn about food handling, storage, and safety measures to prevent foodborne illnesses."
+            "name": "ISO 14001 Environmental Management System",
+            "href": "/corporate-training/esg-sustainability/iso-14001-environmental-management-system-course",
+            "duration": "24 hours",
+            "category": "Environmental & Energy Management Systems",
+            "description": "Set up and run an ISO 14001 system: aspects, objectives, controls, audits and improvement."
           },
           {
-            "name": "Work Integrity",
-            "duration": "6 hours",
-            "description": "Cultivate a workplace culture that promotes honesty, integrity, and ethical behavior."
+            "name": "Internal Audit & Assurance (IIA Standards)",
+            "href": "/corporate-training/finance-accounting/internal-audit-assurance-iia-standards-course",
+            "duration": "24 hours",
+            "category": "Audit & Forensic Accounting",
+            "description": "Plan and carry out risk-based audits, and report findings, in line with IIA standards."
           },
           {
-            "name": "Ergonomics at the Workplace",
-            "duration": "6 hours",
-            "description": "Understand ergonomic principles to create a safe and comfortable work environment."
+            "name": "Document Control & Records Management",
+            "href": "/corporate-training/grc/document-control-records-management-course",
+            "duration": "32 hours",
+            "category": "Records & Information Governance",
+            "description": "Control documents with versioning, approvals, distribution and archiving so the right version is always in use."
           },
           {
-            "name": "ISO 14001-Environmental Management System",
-            "duration": "10 hours",
-            "description": "Master the implementation of environmental management systems according to ISO 14001 standards."
+            "name": "Contract Drafting & Commercial Contract Review",
+            "href": "/corporate-training/grc/contract-drafting-commercial-contract-review-course",
+            "duration": "24 hours",
+            "category": "Contracts & Commercial Law",
+            "description": "Draft clear commercial contracts and review counterparty drafts for risk, gaps and unclear terms."
           },
           {
-            "name": "Writing Effective Policies and Procedures",
-            "duration": "6 hours",
-            "description": "Develop skills to write clear, comprehensive policies and procedures that enhance organizational operations."
+            "name": "Workplace Harassment & Discrimination Prevention",
+            "href": "/corporate-training/hr/workplace-harassment-discrimination-prevention-course",
+            "duration": "24 hours",
+            "category": "Workplace Conduct & Harassment Prevention",
+            "description": "Prevent harassment and discrimination with clear policy, reporting routes, bystander action and fair investigations."
           },
           {
-            "name": "Fundamentals of Internal Auditing",
-            "duration": "8 hours",
-            "description": "Learn the basics of conducting internal audits to ensure compliance and efficiency."
+            "name": "CISA",
+            "href": "/corporate-training/cybersecurity/cisa-course",
+            "duration": "28 hours",
+            "category": "Cyber GRC, Frameworks & Regulation",
+            "description": "Prepare for the CISA exam across IS audit, governance, systems acquisition, operations and asset protection."
           },
           {
-            "name": "Information and Documentation Compliance",
-            "duration": "6 hours",
-            "description": "Understand the regulations governing information management and ensure proper documentation compliance."
+            "name": "Data Privacy Fundamentals (PII, DPIA, Consent)",
+            "href": "/corporate-training/grc/data-privacy-fundamentals-pii-dpia-consent-course",
+            "duration": "27 hours",
+            "category": "Data Privacy & Protection",
+            "description": "Learn the core concepts of PII, lawful processing, consent and data protection impact assessments that every later course assumes."
           },
           {
-            "name": "Contract Risk Management and Compliance",
-            "duration": "6 hours",
-            "description": "Learn to identify and mitigate risks in contract management to maintain compliance."
+            "name": "Fraud Prevention, Detection & Investigation",
+            "href": "/corporate-training/grc/fraud-prevention-detection-investigation-course",
+            "duration": "30 hours",
+            "category": "Internal Controls & Fraud Risk",
+            "description": "Prevent, detect and investigate fraud: risk assessment, analytics, interviews, evidence handling and investigation reports."
           },
           {
-            "name": "Workplace Harassment",
-            "duration": "6 hours",
-            "description": "Understand the dynamics of workplace harassment and strategies to prevent it, ensuring a respectful work environment."
-          },
-          {
-            "name": "Effective Document Control & Record Management",
-            "duration": "8 hours",
-            "description": "Acquire techniques for effective management of business documents and records."
-          },
-          {
-            "name": "Protecting Intellectual Property",
-            "duration": "6 hours",
-            "description": "Learn the importance of intellectual property rights and strategies to protect them within the organization."
-          },
-          {
-            "name": "Information Systems Auditing, Controls and Assurance",
-            "duration": "10 hours",
-            "description": "Dive into the standards for auditing information systems and ensuring controls and assurance in technology environments."
+            "name": "AI Governance",
+            "href": "/corporate-training/ai/ai-governance-course",
+            "duration": "21 hours",
+            "category": "AI Governance & Responsible AI",
+            "description": "Set up AI policies, a governance committee, an AI inventory and approval processes across the organization."
           }
         ]
       },
@@ -890,7 +1162,7 @@
         "slug": "leadership-development-program",
         "title": "Leadership Development Program",
         "description": "To develop leadership abilities and managerial skills in staff",
-        "course_count": "70+ Courses",
+        "course_count": "50+ Courses",
         "image": {
           "src": "https://media.edstellar.com/website/leadership.webp",
           "alt": "Leadership Development Program",
@@ -901,406 +1173,382 @@
         "catalog_title": "Leadership Development Program",
         "courses": [
           {
-            "name": "Lead High Performing Teams",
+            "name": "Leading High-Performing & Cross-Functional Teams",
+            "href": "/corporate-training/leadership/leading-high-performing-cross-functional-teams-course",
             "duration": "16 hours",
-            "description": "Develop the skills to foster and manage high-performing teams in any organizational context."
+            "category": "Leading Teams & Developing People",
+            "description": "Raise performance in larger, mixed teams with clear goals, roles and ways of working."
           },
           {
-            "name": "Influence and Impact",
-            "duration": "8 hours",
-            "description": "Develop your ability to influence others and make a significant impact in your organization."
+            "name": "Influence & Impact: Leading Without Authority",
+            "href": "/corporate-training/leadership/influence-impact-leading-without-authority-course",
+            "duration": "16 hours",
+            "category": "Executive Communication & Influence",
+            "description": "Get results across teams and functions without formal authority, by building trust and shared goals."
           },
           {
             "name": "Image Management",
-            "duration": "8 hours",
-            "description": "Master the art of personal branding and image management to influence and lead effectively."
+            "href": "/corporate-training/leadership/image-management-course",
+            "duration": "14 hours",
+            "category": "Executive Communication & Influence",
+            "description": "Shape how colleagues and clients read them, through appearance, body language, etiquette and consistent first impressions."
           },
           {
             "name": "Managerial Effectiveness",
-            "duration": "16 hours",
-            "description": "Enhance your management skills to drive performance and achieve organizational goals."
-          },
-          {
-            "name": "Analytical Skills",
-            "duration": "8 hours",
-            "description": "Improve your ability to interpret data, solve problems, and make well-informed decisions."
+            "href": "/corporate-training/leadership/managerial-effectiveness-course",
+            "duration": "12 hours",
+            "category": "New & Frontline Managers",
+            "description": "Get more done through others by improving priorities, decisions, time use and the way work is followed up."
           },
           {
             "name": "Agile Leadership",
-            "duration": "16 hours",
-            "description": "Learn agile methodologies to lead teams flexibly and responsively in dynamic environments."
+            "href": "/corporate-training/agile/agile-leadership-course",
+            "duration": "24 hours",
+            "category": "Agile Leadership",
+            "description": "Shift leaders from command and control to setting outcomes, coaching teams and removing obstacles to delivery."
           },
           {
             "name": "Aspiring Directors",
+            "href": "/corporate-training/leadership/aspiring-directors-course",
             "duration": "16 hours",
-            "description": "Prepare for executive roles with strategic leadership skills and board-level insights."
+            "category": "Mid-Level & Emerging Senior Leaders",
+            "description": "Prepare for a director role: what boards expect, director duties and how to contribute from day one."
           },
           {
-            "name": "First Time Managers",
+            "name": "First-Time Manager Essentials",
+            "href": "/corporate-training/leadership/first-time-manager-essentials-course",
+            "duration": "14 hours",
+            "category": "New & Frontline Managers",
+            "description": "Make the move from individual contributor to manager: expectations, one-to-ones and first decisions."
+          },
+          {
+            "name": "Multigenerational Workforce & Knowledge Transfer",
+            "href": "/corporate-training/hr/multigenerational-workforce-knowledge-transfer-course",
+            "duration": "12 hours",
+            "category": "Workforce Planning & Transformation",
+            "description": "Work well across generations and transfer knowledge from experienced staff to newer colleagues."
+          },
+          {
+            "name": "Leading Innovation & Intrapreneurship",
+            "href": "/corporate-training/leadership/leading-innovation-intrapreneurship-course",
             "duration": "16 hours",
-            "description": "Equip new managers with essential skills for successful leadership and team management."
+            "category": "Innovation Leadership",
+            "description": "Run innovation as a process: back intrapreneurs, test ideas quickly and scale what works."
           },
           {
-            "name": "Managing Millennials",
-            "duration": "8 hours",
-            "description": "Understand generational characteristics and tailor management approaches for engaging millennials effectively."
+            "name": "Delegation & Empowerment",
+            "href": "/corporate-training/leadership/delegation-empowerment-course",
+            "duration": "14 hours",
+            "category": "New & Frontline Managers",
+            "description": "Hand over tasks and decisions with clear expectations, support and the right level of control."
           },
           {
-            "name": "Leading Innovation",
+            "name": "Leading Organizational Change",
+            "href": "/corporate-training/leadership/leading-organizational-change-course",
             "duration": "16 hours",
-            "description": "Get formal training to foster creativity and innovation within teams to drive organizational growth through."
+            "category": "Change, Transformation & Crisis Leadership",
+            "description": "Lead change from the front: build the case, sponsor it visibly and help people through resistance."
           },
           {
-            "name": "Delegation Skills",
-            "duration": "8 hours",
-            "description": "Learn how to master the art of effective delegation to enhance team productivity and time management."
+            "name": "Ownership, Accountability & Proactiveness",
+            "href": "/corporate-training/soft-skills/ownership-accountability-proactiveness-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Take ownership of outcomes, act proactively and follow through on commitments."
           },
           {
-            "name": "Driving Change",
-            "duration": "16 hours",
-            "description": "Learn strategies to lead organizational change and overcome resistance effectively."
+            "name": "Critical Thinking & Problem Solving",
+            "href": "/corporate-training/soft-skills/critical-thinking-problem-solving-course",
+            "duration": "13 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Question assumptions, weigh evidence and reason through problems logically."
           },
           {
-            "name": "Ownership and Accountability",
-            "duration": "8 hours",
-            "description": "Gain the knowhow to cultivate a culture of responsibility and accountability in the workplace."
+            "name": "Frontline & Team Leadership",
+            "href": "/corporate-training/leadership/frontline-team-leadership-course",
+            "duration": "14 hours",
+            "category": "New & Frontline Managers",
+            "description": "Lead the frontline team: set priorities, allocate work, handle issues and keep morale up."
           },
           {
-            "name": "Problem Solving Skills",
-            "duration": "8 hours",
-            "description": "Develop critical thinking skills to solve complex problems efficiently."
-          },
-          {
-            "name": "Frontline Leaders",
-            "duration": "16 hours",
-            "description": "Equip frontline leaders with the tools and techniques to manage operational challenges and lead teams."
-          },
-          {
-            "name": "Leadership Through Nurturing",
-            "duration": "16 hours",
-            "description": "Learn to support and develop your team through nurturing leadership practices."
-          },
-          {
-            "name": "Leading Effective Meetings",
-            "duration": "8 hours",
-            "description": "Get training to master the techniques to conduct productive and engaging meetings."
+            "name": "Facilitation & Leading Effective Meetings",
+            "href": "/corporate-training/soft-skills/facilitation-leading-effective-meetings-course",
+            "duration": "14 hours",
+            "category": "Presentation, Public Speaking & Facilitation",
+            "description": "Plan agendas, chair discussions and reach clear decisions and actions in meetings."
           },
           {
             "name": "Transformational Leadership",
+            "href": "/corporate-training/leadership/transformational-leadership-course",
             "duration": "16 hours",
-            "description": "Learn how to cultivate a leadership style to inspire and motivate significant change."
+            "category": "Change, Transformation & Crisis Leadership",
+            "description": "Change how people see their work and what they believe is possible, raising performance across the team."
           },
           {
-            "name": "Leading for Results",
+            "name": "Leading Through Change & Uncertainty",
+            "href": "/corporate-training/leadership/leading-through-change-uncertainty-course",
             "duration": "16 hours",
-            "description": "Gain exposure to outcome-based leadership methods to achieve and exceed organizational goals."
+            "category": "Change, Transformation & Crisis Leadership",
+            "description": "Keep teams focused and confident when plans shift, information is incomplete and the future is unclear."
           },
           {
-            "name": "Adaptive Leadership",
+            "name": "Crisis Leadership & Enterprise Resilience",
+            "href": "/corporate-training/leadership/crisis-leadership-enterprise-resilience-course",
             "duration": "16 hours",
-            "description": "Learn to modify your leadership approach in response to changing organizational and team dynamics."
+            "category": "Change, Transformation & Crisis Leadership",
+            "description": "Lead through an acute crisis: take control, communicate under pressure and protect people, operations and reputation."
           },
           {
-            "name": "Breakthrough Leadership",
+            "name": "Global & Cross-Cultural Leadership",
+            "href": "/corporate-training/leadership/global-cross-cultural-leadership-course",
             "duration": "16 hours",
-            "description": "Acquire skills to challenge conventional boundaries and drive innovation and strategic shifts."
+            "category": "Inclusive & Global Leadership",
+            "description": "Lead people across countries and cultures, adapting style while keeping one shared direction."
           },
           {
-            "name": "Crisis Leadership",
+            "name": "Digital Transformation Leadership",
+            "href": "/corporate-training/leadership/digital-transformation-leadership-course",
             "duration": "16 hours",
-            "description": "Develop the ability to navigate and manage effectively during organizational crises and emergencies."
+            "category": "Change, Transformation & Crisis Leadership",
+            "description": "Set the digital agenda, prioritize initiatives and lead teams as technology reshapes processes and services."
           },
           {
-            "name": "Cross-Cultural Leadership",
-            "duration": "16 hours",
-            "description": "Understand how to lead effectively in diverse cultural contexts and enhance global team dynamics."
-          },
-          {
-            "name": "Digital Leadership",
-            "duration": "16 hours",
-            "description": "Master the strategies for leading digital transformation initiatives and managing technology-driven change."
-          },
-          {
-            "name": "Environmental Leadership",
-            "duration": "8 hours",
-            "description": "Gain the skills to lead sustainability efforts and promote environmental stewardship within your organization."
-          },
-          {
-            "name": "Global Leadership",
-            "duration": "16 hours",
-            "description": "Discover how to effectively manage and make strategic decisions in a global business environment."
-          },
-          {
-            "name": "Ethical Leadership",
-            "duration": "8 hours",
-            "description": "Learn to exemplify and promote ethical practices and integrity in all aspects of leadership."
-          },
-          {
-            "name": "Kaizen Leadership",
-            "duration": "8 hours",
-            "description": "Implement and sustain continuous improvement processes to enhance organizational efficiency."
+            "name": "Ethical Leadership & Corporate Integrity",
+            "href": "/corporate-training/leadership/ethical-leadership-corporate-integrity-course",
+            "duration": "12 hours",
+            "category": "Personal Leadership, EQ & Values",
+            "description": "Set the ethical tone, model integrity and build a culture where doing the right thing is expected."
           },
           {
             "name": "Leadership at the Peak",
+            "href": "/corporate-training/leadership/leadership-at-the-peak-course",
+            "duration": "14 hours",
+            "category": "AI & Data-Driven Leadership",
+            "description": "Handle the pressures of the top job: isolation, high-stakes decisions, sustained performance and the example you set."
+          },
+          {
+            "name": "Marketing Leadership & CMO Agenda",
+            "href": "/corporate-training/leadership/marketing-leadership-cmo-agenda-course",
+            "duration": "24 hours",
+            "category": "Functional & Sector Leadership",
+            "description": "Lead the marketing function: set the agenda, work with the board and show marketing's commercial impact."
+          },
+          {
+            "name": "Building Trust with Stakeholders",
+            "href": "/corporate-training/soft-skills/building-trust-with-stakeholders-course",
             "duration": "16 hours",
-            "description": "Explore advanced leadership strategies to maximize influence at senior levels."
+            "category": "Influence, Negotiation & Stakeholder Management",
+            "description": "Build credibility through consistency, transparency and following through on commitments."
           },
           {
-            "name": "Leadership Insights",
-            "duration": "8 hours",
-            "description": "Gain valuable insights into effective leadership practices and their transformative impacts."
+            "name": "Values-Based & Mindful Leadership",
+            "href": "/corporate-training/leadership/values-based-mindful-leadership-course",
+            "duration": "13 hours",
+            "category": "Personal Leadership, EQ & Values",
+            "description": "Lead from clear personal values, using mindful practice to make calmer, more consistent decisions."
           },
           {
-            "name": "Digital Innovation Leadership",
+            "name": "Leading Hybrid, Remote & Distributed Teams",
+            "href": "/corporate-training/leadership/leading-hybrid-remote-distributed-teams-course",
             "duration": "16 hours",
-            "description": "Learn to spearhead innovation and foster a culture of creativity in the digital realm."
+            "category": "Leading Teams & Developing People",
+            "description": "Lead teams spread across places and time zones: set rhythms, build trust and track output."
           },
           {
-            "name": "Leading for Organizational Impact",
+            "name": "Product Leadership & Organization Design",
+            "href": "/corporate-training/business-management/product-leadership-organisation-design-course",
+            "duration": "12 hours",
+            "category": "Strategy Execution & Organization Design",
+            "description": "Design product roles, team structures and leadership so strategy is carried out by the right people."
+          },
+          {
+            "name": "Safety Leadership & Culture",
+            "href": "/corporate-training/hse/safety-leadership-culture-course",
+            "duration": "24 hours",
+            "category": "Safety Management & Culture",
+            "description": "Lead visibly on safety, build trust and create a culture where people raise risks."
+          },
+          {
+            "name": "Sustainable & Purpose-Driven Leadership",
+            "href": "/corporate-training/leadership/sustainable-purpose-driven-leadership-course",
+            "duration": "18 hours",
+            "category": "Personal Leadership, EQ & Values",
+            "description": "Tie leadership to a clear purpose and long-term impact on people, society and the environment."
+          },
+          {
+            "name": "Executive Leadership Program",
+            "href": "/corporate-training/leadership/executive-leadership-programme-course",
+            "duration": "14 hours",
+            "category": "Executive & Strategic Leadership",
+            "description": "Take on the executive role: lead the enterprise, work with the board and balance strategy with operations."
+          },
+          {
+            "name": "Servant & Authentic Leadership",
+            "href": "/corporate-training/leadership/servant-authentic-leadership-course",
+            "duration": "14 hours",
+            "category": "Personal Leadership, EQ & Values",
+            "description": "Put the team's growth first and lead consistently with your own values and character."
+          },
+          {
+            "name": "Essential Management Skills",
+            "href": "/corporate-training/leadership/essential-management-skills-course",
+            "duration": "14 hours",
+            "category": "New & Frontline Managers",
+            "description": "Learn the core of the manager's role: planning, organizing, communicating and keeping work on track."
+          },
+          {
+            "name": "Emotional Intelligence at Work",
+            "href": "/corporate-training/soft-skills/emotional-intelligence-at-work-course",
             "duration": "16 hours",
-            "description": "Learn how to strategically make decisions that drive significant organizational impact."
-          },
-          {
-            "name": "Leadership Through Marketing",
-            "duration": "8 hours",
-            "description": "Utilize marketing principles to strengthen your leadership effectiveness and organizational presence."
-          },
-          {
-            "name": "Leading with Trust",
-            "duration": "8 hours",
-            "description": "Develop strategies to build and maintain trust within your team, enhancing organizational culture."
-          },
-          {
-            "name": "Generational Diversity",
-            "duration": "8 hours",
-            "description": "Master managing and valuing diverse generational perspectives within the workplace."
-          },
-          {
-            "name": "Maximizing Your Leadership Potential",
-            "duration": "16 hours",
-            "description": "Uncover and develop strategies to realize the full potential of your leadership capabilities."
-          },
-          {
-            "name": "Mindful Leadership",
-            "duration": "8 hours",
-            "description": "Integrate mindfulness practices to enhance your leadership focus, clarity, and empathy."
-          },
-          {
-            "name": "Remote Leadership",
-            "duration": "8 hours",
-            "description": "Acquire effective strategies for leading distributed teams and managing remote work challenges."
-          },
-          {
-            "name": "Strategic Human Resources Leadership",
-            "duration": "16 hours",
-            "description": "Align human resources strategies with broader organizational goals for maximum impact."
-          },
-          {
-            "name": "The 7 Habits for Managers - Essential Skills and Tools for Leading Teams",
-            "duration": "16 hours",
-            "description": "Develop the essential skills and tools for effective team leadership."
-          },
-          {
-            "name": "Virtual Leadership",
-            "duration": "8 hours",
-            "description": "Develop skills to effectively lead in virtual or hybrid work environments."
-          },
-          {
-            "name": "Leading Through Adversity",
-            "duration": "16 hours",
-            "description": "Learn strategies to navigate and lead your team through challenging times with resilience."
-          },
-          {
-            "name": "Product Leadership",
-            "duration": "8 hours",
-            "description": "Master the skills to lead product development initiatives for market success."
-          },
-          {
-            "name": "Safety Leadership",
-            "duration": "8 hours",
-            "description": "Enhance your ability to promote and ensure workplace safety through proactive leadership."
-          },
-          {
-            "name": "Sustainable Leadership",
-            "duration": "8 hours",
-            "description": "Acquire techniques to lead with a focus on sustainability and long-term organizational health."
-          },
-          {
-            "name": "VUCA Leadership",
-            "duration": "8 hours",
-            "description": "Understand how to navigate the volatile, uncertain, complex, and ambiguous aspects of leadership."
-          },
-          {
-            "name": "Leadership Resilience",
-            "duration": "8 hours",
-            "description": "Build resilience to effectively face and adapt to leadership challenges."
-          },
-          {
-            "name": "Executive Leadership",
-            "duration": "16 hours",
-            "description": "Discover high-level leadership strategies for senior executives to drive organizational success."
-          },
-          {
-            "name": "Servant Leadership",
-            "duration": "16 hours",
-            "description": "Embrace and foster a serve-first mindset to enrich team and organizational culture."
-          },
-          {
-            "name": "Leadership for Managers",
-            "duration": "16 hours",
-            "description": "Gain core leadership skills essential for managers to effectively lead their teams."
-          },
-          {
-            "name": "Emotional Intelligence in Leadership",
-            "duration": "8 hours",
-            "description": "Utilize emotional intelligence to enhance leadership effectiveness and interpersonal relations."
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Build self-awareness, self-control and awareness of others' emotions at work."
           },
           {
             "name": "Sales Leadership",
-            "duration": "8 hours",
-            "description": "Learn to drive sales team success and revenue growth through effective leadership strategies."
+            "href": "/corporate-training/leadership/sales-leadership-course",
+            "duration": "24 hours",
+            "category": "Functional & Sector Leadership",
+            "description": "Lead the sales function: set targets, design the team, manage pipeline and drive results."
           },
           {
-            "name": "Healthcare Leadership",
-            "duration": "8 hours",
-            "description": "Acquire leadership skills to effectively manage healthcare settings with efficiency and compassion."
+            "name": "Clinical Leadership & Physician Management Development",
+            "href": "/corporate-training/life-sciences-healthcare/clinical-leadership-physician-management-development-course",
+            "duration": "24 hours",
+            "category": "Clinical Leadership",
+            "description": "Develop physicians and clinical managers to lead teams, budgets, quality and change."
           },
           {
             "name": "Leadership in the Age of AI",
-            "duration": "8 hours",
-            "description": "Understand how to integrate AI into your leadership practices for enhanced decision-making."
+            "href": "/corporate-training/leadership/leadership-in-the-age-of-ai-course",
+            "duration": "20 hours",
+            "category": "AI & Data-Driven Leadership",
+            "description": "Rethink how teams work, what roles look like and how leaders guide people as AI changes the work."
           },
           {
-            "name": "Visionary Leadership and Strategic Thinking",
+            "name": "Strategic Thinking & Visionary Leadership",
+            "href": "/corporate-training/leadership/strategic-thinking-visionary-leadership-course",
             "duration": "16 hours",
-            "description": "Develop the ability to think strategically and lead your organization towards a successful future."
+            "category": "Executive & Strategic Leadership",
+            "description": "See the bigger picture, spot patterns and long-term opportunities, and set a vision others can follow."
           },
           {
-            "name": "Data-Driven Leadership",
-            "duration": "8 hours",
-            "description": "Utilize data effectively to inform leadership decisions and shape organizational strategies."
-          },
-          {
-            "name": "Influential Leader",
-            "duration": "8 hours",
-            "description": "Cultivate the ability to inspire and positively influence at all organizational levels."
-          },
-          {
-            "name": "People Development",
+            "name": "Data-Driven & AI-Informed Leadership",
+            "href": "/corporate-training/leadership/data-driven-ai-informed-leadership-course",
             "duration": "16 hours",
-            "description": "Focus on developing and maximizing the potential of your team members."
+            "category": "AI & Data-Driven Leadership",
+            "description": "Use data and AI outputs in everyday leadership, setting expectations and judging when evidence should change a decision."
           },
           {
             "name": "Leadership Out of the Box",
-            "duration": "16 hours",
-            "description": "Explore innovative leadership strategies that challenge traditional norms."
+            "href": "/corporate-training/leadership/leadership-out-of-the-box-course",
+            "duration": "12 hours",
+            "category": "AI & Data-Driven Leadership",
+            "description": "Challenge habitual thinking and try unconventional approaches to leadership problems that the usual answers have not solved."
           },
           {
             "name": "Creative Leadership",
+            "href": "/corporate-training/leadership/creative-leadership-course",
+            "duration": "14 hours",
+            "category": "Change, Transformation & Crisis Leadership",
+            "description": "Lead in a way that invites ideas, tolerates sensible risk and gets the best creative work from the team."
+          },
+          {
+            "name": "Communicating with Tact & Diplomacy",
+            "href": "/corporate-training/soft-skills/communicating-with-tact-diplomacy-course",
             "duration": "16 hours",
-            "description": "Encourage creativity and innovation within your team through dynamic and supportive leadership."
-          },
-          {
-            "name": "Communicating with Tact and Diplomacy",
-            "duration": "8 hours",
-            "description": "Enhance your communication skills to effectively manage sensitive discussions with tact and diplomacy."
-          },
-          {
-            "name": "Purpose Driven Resilient Leadership",
-            "duration": "6 hours",
-            "description": "Lead with purpose and resilience, ensuring your organization's success in facing various challenges."
+            "category": "Business Communication",
+            "description": "Phrase sensitive messages with care, choosing words and timing that protect relationships."
           },
           {
             "name": "Inclusive Leadership",
-            "duration": "8 hours",
-            "description": "Learn to foster an inclusive environment that values diversity within your team or organization."
-          },
-          {
-            "name": "Decisions, Dynamics, and Leadership Styles",
-            "duration": "8 hours",
-            "description": "Understand different leadership styles and their impacts on decision-making and team dynamics."
+            "href": "/corporate-training/leadership/inclusive-leadership-course",
+            "duration": "16 hours",
+            "category": "Inclusive & Global Leadership",
+            "description": "Lead so every person is heard, valued and able to contribute, in daily decisions and team habits."
           },
           {
             "name": "Leadership Without Boundaries",
-            "duration": "16 hours",
-            "description": "Promote an open and innovative culture by embracing a boundary-less approach in leadership."
+            "href": "/corporate-training/leadership/leadership-without-boundaries-course",
+            "duration": "12 hours",
+            "category": "Executive Communication & Influence",
+            "description": "Lead across functions, locations and organizational lines where no single reporting line holds the team together."
           },
           {
-            "name": "Communication Skills for Leaders in the Digital Age",
-            "duration": "8 hours",
-            "description": "Adapt your leadership communication skills to thrive in the digital era."
+            "name": "Advanced Leadership Communication Strategies",
+            "href": "/corporate-training/leadership/advanced-leadership-communication-strategies-course",
+            "duration": "16 hours",
+            "category": "AI & Data-Driven Leadership",
+            "description": "Adapt messages for senior audiences, difficult news and change, and choose the right channel for each moment."
           },
           {
             "name": "Leading Beyond Ego",
-            "duration": "8 hours",
-            "description": "Learn to lead with humility and focus on collective goals over personal recognition."
+            "href": "/corporate-training/leadership/leading-beyond-ego-course",
+            "duration": "12 hours",
+            "category": "Executive Communication & Influence",
+            "description": "Recognize how ego shapes decisions and relationships, and lead with humility and openness."
           },
           {
-            "name": "Neuroscience of Leadership",
-            "duration": "8 hours",
-            "description": "Apply neuroscience principles to enhance leadership effectiveness and team dynamics."
-          },
-          {
-            "name": "Leading Disruptive Change and Innovation",
-            "duration": "16 hours",
-            "description": "Drive and manage change within your organization through innovative leadership techniques."
-          },
-          {
-            "name": "Data Analytics for Managerial Decision Making",
-            "duration": "8 hours",
-            "description": "Integrate data analytics into managerial decision-making processes."
+            "name": "Neuroscience of Leadership & Decision Making",
+            "href": "/corporate-training/leadership/neuroscience-of-leadership-decision-making-course",
+            "duration": "14 hours",
+            "category": "Personal Leadership, EQ & Values",
+            "description": "Understand how the brain drives attention, bias, stress and decisions, and lead with that in mind."
           },
           {
             "name": "Building Task Leadership Skills",
-            "duration": "8 hours",
-            "description": "Develop practical skills to lead specific tasks and projects effectively."
-          },
-          {
-            "name": "Harnessing the Power of Teams",
-            "duration": "8 hours",
-            "description": "Maximize team productivity through effective leadership and team-building strategies."
+            "href": "/corporate-training/leadership/building-task-leadership-skills-course",
+            "duration": "16 hours",
+            "category": "New & Frontline Managers",
+            "description": "Plan and assign tasks, set standards and follow work through until it is done well."
           },
           {
             "name": "Women in Leadership",
-            "duration": "8 hours",
-            "description": "Empower female leaders with strategies to overcome challenges and excel in leadership roles."
+            "href": "/corporate-training/leadership/women-in-leadership-course",
+            "duration": "12 hours",
+            "category": "Inclusive & Global Leadership",
+            "description": "Develop leadership confidence, navigate barriers women often face and build networks and sponsorship."
           },
           {
-            "name": "Next Generation Leadership",
+            "name": "Board Governance & Director Effectiveness",
+            "href": "/corporate-training/corporate-governance/board-governance-director-effectiveness-course",
             "duration": "16 hours",
-            "description": "Prepare for future leadership challenges with forward-thinking strategies and skills."
+            "category": "Board & Director Development",
+            "description": "Learn board roles, duties, committees, composition, evaluation and how effective boards run meetings."
           },
           {
-            "name": "Strategies for Effective Board Membership",
-            "duration": "8 hours",
-            "description": "Equip yourself with the skills needed for effective and strategic board membership."
-          },
-          {
-            "name": "Feedback Skills for Leaders",
-            "duration": "8 hours",
-            "description": "Develop skills to provide constructive and effective feedback to enhance team performance."
-          },
-          {
-            "name": "Critical Thinking for Leaders",
-            "duration": "8 hours",
-            "description": "Sharpen your critical thinking skills to improve problem-solving and decision-making."
+            "name": "Coaching & Mentoring for Leaders",
+            "href": "/corporate-training/leadership/coaching-mentoring-for-leaders-course",
+            "duration": "16 hours",
+            "category": "Leading Teams & Developing People",
+            "description": "Coach and mentor people to find their own solutions and grow in their roles."
           },
           {
             "name": "Adversity Intelligence (AQ) for Leaders",
-            "duration": "8 hours",
-            "description": "Strengthen your resilience and capability to lead through adversity."
+            "href": "/corporate-training/leadership/adversity-intelligence-aq-for-leaders-course",
+            "duration": "16 hours",
+            "category": "Personal Leadership, EQ & Values",
+            "description": "Strengthen how leaders respond to setbacks: control, ownership, reach and endurance under pressure."
           },
           {
-            "name": "Cultural Intelligence (CQ) for Leaders",
-            "duration": "8 hours",
-            "description": "Enhance your ability to lead across diverse cultures by developing your cultural intelligence."
+            "name": "Collaborative Leadership Skills",
+            "href": "/corporate-training/leadership/collaborative-leadership-skills-course",
+            "duration": "14 hours",
+            "category": "New & Frontline Managers",
+            "description": "Lead by bringing people together, sharing ownership and making joint decisions that stick."
+          },
+          {
+            "name": "Change Management Practitioner (ADKAR & OCM)",
+            "href": "/corporate-training/leadership/change-management-practitioner-adkar-ocm-course",
+            "duration": "20 hours",
+            "category": "Change, Transformation & Crisis Leadership",
+            "description": "Learn ADKAR and OCM methods to assess readiness, plan change activities and track adoption."
           }
         ]
       },
       {
         "slug": "diversity-and-inclusion-skilling-program",
         "title": "Diversity and Inclusion Skilling Program",
-        "description": "To create awareness and building an inclusive environment on campus",
+        "description": "To create awareness and build an inclusive environment on campus",
         "course_count": "10+ Courses",
         "image": {
           "src": "https://media.edstellar.com/website/diversity.webp",
@@ -1313,78 +1561,108 @@
         "courses": [
           {
             "name": "Cultural Sensitivity",
-            "duration": "8 hours",
-            "description": "Develop an understanding of diverse cultures to foster sensitivity and inclusivity in interactions."
+            "href": "/corporate-training/soft-skills/cultural-sensitivity-course",
+            "duration": "13 hours",
+            "category": "Cross-Cultural Skills & Inclusion",
+            "description": "Build awareness of cultural norms and differences that shape behavior at work."
           },
           {
             "name": "Inclusive Leadership",
-            "duration": "8 hours",
-            "description": "Learn leadership strategies that promote inclusivity and diversity within teams and organizations."
+            "href": "/corporate-training/leadership/inclusive-leadership-course",
+            "duration": "16 hours",
+            "category": "Inclusive & Global Leadership",
+            "description": "Lead so every person is heard, valued and able to contribute, in daily decisions and team habits."
           },
           {
             "name": "Unconscious Bias",
-            "duration": "8 hours",
-            "description": "Identify and mitigate unconscious biases to create a fair and equitable workplace."
+            "href": "/corporate-training/soft-skills/unconscious-bias-course",
+            "duration": "12 hours",
+            "category": "Cross-Cultural Skills & Inclusion",
+            "description": "Recognize unconscious bias and use practical steps to reduce it in decisions."
           },
           {
-            "name": "Gender Sensitivity",
-            "duration": "8 hours",
-            "description": "Acquire skills to navigate and respect gender diversity in professional settings."
+            "name": "Intercultural Communication",
+            "href": "/corporate-training/soft-skills/intercultural-communication-course",
+            "duration": "16 hours",
+            "category": "Cross-Cultural Skills & Inclusion",
+            "description": "Adapt language, style and expectations to communicate across cultures at work."
           },
           {
-            "name": "Managing a Multicultural Environment",
-            "duration": "8 hours",
-            "description": "Gain insights into effectively managing and valuing diversity in multicultural settings."
+            "name": "Employee Relations",
+            "href": "/corporate-training/hr/employee-relations-course",
+            "duration": "19 hours",
+            "category": "Employment & Labor Law Compliance",
+            "description": "Manage grievances, discipline, consultation and relations with employee representatives fairly and consistently."
           },
           {
-            "name": "Managing Grievances",
-            "duration": "8 hours",
-            "description": "Learn to address and resolve grievances in a fair and constructive manner."
-          },
-          {
-            "name": "Diversity and Inclusion Coaching",
-            "duration": "8 hours",
-            "description": "Master coaching techniques that support diversity and foster an inclusive culture."
-          },
-          {
-            "name": "Cultural Intelligence (CQ) for Leaders",
-            "duration": "8 hours",
-            "description": "Enhance your leadership effectiveness across diverse cultural contexts through improved cultural intelligence."
-          },
-          {
-            "name": "Inclusive Intelligence",
-            "duration": "8 hours",
-            "description": "Cultivate an ability to adapt and thrive in diverse environments by enhancing inclusive intelligence."
-          },
-          {
-            "name": "Lateral Leadership: The New Way to Lead",
-            "duration": "8 hours",
-            "description": "Learn how to embrace lateral leadership to collaborate effectively across diverse groups."
-          },
-          {
-            "name": "Managing Conflict with Emotional Intelligence",
-            "duration": "8 hours",
-            "description": "Gain exposure on using emotional intelligence to manage and resolve conflicts effectively in diverse teams."
-          },
-          {
-            "name": "Emotional Intelligence",
-            "duration": "8 hours",
-            "description": "Develop emotional intelligence to better understand, empathize, and interact positively with diverse individuals."
+            "name": "Emotional Intelligence at Work",
+            "href": "/corporate-training/soft-skills/emotional-intelligence-at-work-course",
+            "duration": "16 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Build self-awareness, self-control and awareness of others' emotions at work."
           },
           {
             "name": "Conflict Management",
-            "duration": "8 hours",
-            "description": "Learn effective strategies to manage and resolve conflicts in a diverse workplace."
+            "href": "/corporate-training/soft-skills/conflict-management-course",
+            "duration": "16 hours",
+            "category": "Feedback & Conflict",
+            "description": "Work through disagreements by uncovering interests and agreeing a way forward."
           },
           {
             "name": "Collaborative Leadership Skills",
-            "duration": "8 hours",
-            "description": "Acquire skills to lead collaboratively, enhancing participation and innovation among diverse teams."
+            "href": "/corporate-training/leadership/collaborative-leadership-skills-course",
+            "duration": "14 hours",
+            "category": "New & Frontline Managers",
+            "description": "Lead by bringing people together, sharing ownership and making joint decisions that stick."
           },
           {
-            "name": "Building Team Synergy",
-            "duration": "8 hours",
-            "description": "Develop skills to enhance synergy and collaboration in diverse teams."
+            "name": "Inclusive Workplace & Respect at Work",
+            "href": "/corporate-training/hr/inclusive-workplace-respect-at-work-course",
+            "duration": "16 hours",
+            "category": "Diversity, Equity & Inclusion",
+            "description": "Set and hold shared standards of respect, civility and inclusion across the whole workplace."
+          },
+          {
+            "name": "Disability Inclusion & Workplace Accessibility",
+            "href": "/corporate-training/hr/disability-inclusion-workplace-accessibility-course",
+            "duration": "16 hours",
+            "category": "Diversity, Equity & Inclusion",
+            "description": "Remove barriers for disabled employees with reasonable adjustments, accessible workplaces and inclusive recruitment."
+          },
+          {
+            "name": "Neurodiversity Inclusion Strategy",
+            "href": "/corporate-training/hr/neurodiversity-inclusion-strategy-course",
+            "duration": "12 hours",
+            "category": "Diversity, Equity & Inclusion",
+            "description": "Build a neurodiversity strategy covering recruitment, work design, adjustments, manager support and inclusive communication."
+          },
+          {
+            "name": "Anti-Racism",
+            "href": "/corporate-training/hr/anti-racism-course",
+            "duration": "15 hours",
+            "category": "Diversity, Equity & Inclusion",
+            "description": "Recognize racism in its individual and structural forms, and act against it in decisions, policies and daily conduct."
+          },
+          {
+            "name": "Microaggressions",
+            "href": "/corporate-training/hr/microaggressions-course",
+            "duration": "15 hours",
+            "category": "Diversity, Equity & Inclusion",
+            "description": "Spot microaggressions, understand their impact, and respond or repair well whether you made the comment or witnessed it."
+          },
+          {
+            "name": "Workplace Harassment & Discrimination Prevention",
+            "href": "/corporate-training/hr/workplace-harassment-discrimination-prevention-course",
+            "duration": "24 hours",
+            "category": "Workplace Conduct & Harassment Prevention",
+            "description": "Prevent harassment and discrimination with clear policy, reporting routes, bystander action and fair investigations."
+          },
+          {
+            "name": "Multigenerational Workforce & Knowledge Transfer",
+            "href": "/corporate-training/hr/multigenerational-workforce-knowledge-transfer-course",
+            "duration": "12 hours",
+            "category": "Workforce Planning & Transformation",
+            "description": "Work well across generations and transfer knowledge from experienced staff to newer colleagues."
           }
         ]
       },
@@ -1392,7 +1670,7 @@
         "slug": "career-advancement-program-for-alumni",
         "title": "Career Advancement Program for Alumni",
         "description": "To provide alumni with the resources and skills to advance their careers",
-        "course_count": "40+ Courses",
+        "course_count": "30+ Courses",
         "image": {
           "src": "https://media.edstellar.com/website/career.webp",
           "alt": "Career Advancement Program for Alumni",
@@ -1403,209 +1681,221 @@
         "catalog_title": "Career Advancement Program for Alumni",
         "courses": [
           {
-            "name": "Career Counseling",
-            "duration": "8 hours",
-            "description": "Explore career paths and develop strategies to navigate the job market effectively."
+            "name": "Career Counselling",
+            "href": "/corporate-training/hr/career-counselling-course",
+            "duration": "16 hours",
+            "category": "Skills-Based Organization & Internal Mobility",
+            "description": "Guide career conversations: explore strengths and options, and set realistic development plans."
           },
           {
-            "name": "Active Listening",
-            "duration": "8 hours",
-            "description": "Enhance your listening skills to improve understanding and collaboration."
+            "name": "Active Listening & Empathy at Work",
+            "href": "/corporate-training/soft-skills/active-listening-empathy-at-work-course",
+            "duration": "14 hours",
+            "category": "Business Communication",
+            "description": "Listen fully, check understanding and respond with empathy in everyday conversations."
           },
           {
-            "name": "Managing Difficult Conversations",
-            "duration": "8 hours",
-            "description": "Learn strategies to handle challenging conversations effectively."
+            "name": "Non-Verbal Communication & Body Language",
+            "href": "/corporate-training/soft-skills/non-verbal-communication-body-language-course",
+            "duration": "16 hours",
+            "category": "Business Communication",
+            "description": "Read and use posture, gesture, eye contact and expression at work."
           },
           {
-            "name": "Body Language",
-            "duration": "8 hours",
-            "description": "Understand and use body language to communicate confidently."
-          },
-          {
-            "name": "Presentation Skills",
-            "duration": "8 hours",
-            "description": "Master the art of delivering impactful and engaging presentations."
+            "name": "Virtual Presentation Skills",
+            "href": "/corporate-training/soft-skills/virtual-presentation-skills-course",
+            "duration": "14 hours",
+            "category": "Presentation, Public Speaking & Facilitation",
+            "description": "Present on video calls and webinars with good camera presence and engagement."
           },
           {
             "name": "Accent Neutralization",
-            "duration": "8 hours",
-            "description": "Reduce accent barriers for clearer and more effective communication."
+            "href": "/corporate-training/soft-skills/accent-neutralization-course",
+            "duration": "13 hours",
+            "category": "Business Communication",
+            "description": "Work on sounds, word stress, intonation and pace so speech is easy for any listener to follow."
           },
           {
-            "name": "Interview Skills",
-            "duration": "8 hours",
-            "description": "Prepare and excel in job interviews with confidence."
+            "name": "Interviewing Skills",
+            "href": "/corporate-training/soft-skills/interviewing-skills-course",
+            "duration": "12 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Plan structured interviews, ask competency questions and assess candidates consistently."
           },
           {
             "name": "Business Networking Skills",
-            "duration": "8 hours",
-            "description": "Build valuable connections and professional networks."
+            "href": "/corporate-training/soft-skills/business-networking-skills-course",
+            "duration": "16 hours",
+            "category": "Influence, Negotiation & Stakeholder Management",
+            "description": "Start conversations, follow up and keep professional relationships that benefit both sides."
           },
           {
             "name": "Effective Public Speaking",
-            "duration": "8 hours",
-            "description": "Gain confidence and skills for speaking in front of audiences."
+            "href": "/corporate-training/soft-skills/effective-public-speaking-course",
+            "duration": "16 hours",
+            "category": "Presentation, Public Speaking & Facilitation",
+            "description": "Plan, structure and deliver talks to groups with confidence and clarity."
           },
           {
-            "name": "Influential Communication",
-            "duration": "8 hours",
-            "description": "Learn to communicate persuasively to influence others."
-          },
-          {
-            "name": "Written Communication",
-            "duration": "8 hours",
-            "description": "Improve your writing skills for clear and professional communication."
-          },
-          {
-            "name": "Business Networking Skills",
-            "duration": "8 hours",
-            "description": "Learn to build and maintain professional relationships crucial for career advancement."
+            "name": "Business Writing & Report Skills",
+            "href": "/corporate-training/soft-skills/business-writing-report-skills-course",
+            "duration": "16 hours",
+            "category": "Business Writing",
+            "description": "Plan, structure and write reports and business documents readers can act on."
           },
           {
             "name": "Business Communication Skills",
-            "duration": "8 hours",
-            "description": "Enhance your ability to communicate clearly and effectively in business settings."
+            "href": "/corporate-training/soft-skills/business-communication-skills-course",
+            "duration": "16 hours",
+            "category": "Business Communication",
+            "description": "Communicate clearly and concisely in meetings, emails and conversations across the business."
           },
           {
-            "name": "Email Writing and Etiquettes",
+            "name": "Email Writing & Etiquette",
+            "href": "/corporate-training/soft-skills/email-writing-etiquette-course",
             "duration": "8 hours",
-            "description": "Master the art of professional email writing and etiquettes."
+            "category": "Business Writing",
+            "description": "Write clear, concise emails with the right tone, subject line and call to action."
           },
           {
-            "name": "Effective Public Speaking",
-            "duration": "8 hours",
-            "description": "Develop skills to speak confidently and persuasively in public settings."
+            "name": "Goal Setting & Personal OKRs",
+            "href": "/corporate-training/soft-skills/goal-setting-personal-okrs-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Set clear personal goals and OKRs with measurable key results."
           },
           {
-            "name": "Written Communication",
-            "duration": "8 hours",
-            "description": "Improve your written communication skills for professional clarity and impact."
+            "name": "Personal Productivity & Time Management",
+            "href": "/corporate-training/soft-skills/personal-productivity-time-management-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Plan, prioritize and protect your time with practical techniques."
           },
           {
-            "name": "Goal Setting",
-            "duration": "8 hours",
-            "description": "Learn to set realistic and achievable goals to guide your career progress."
+            "name": "Critical Thinking & Problem Solving",
+            "href": "/corporate-training/soft-skills/critical-thinking-problem-solving-course",
+            "duration": "13 hours",
+            "category": "Critical Thinking & Problem Solving",
+            "description": "Question assumptions, weigh evidence and reason through problems logically."
           },
           {
-            "name": "Time Management",
-            "duration": "8 hours",
-            "description": "Acquire techniques to manage time effectively, boosting productivity and efficiency."
+            "name": "Negotiation Skills for Commercial Teams",
+            "href": "/corporate-training/soft-skills/negotiation-skills-for-commercial-teams-course",
+            "duration": "24 hours",
+            "category": "Influence, Negotiation & Stakeholder Management",
+            "description": "Prepare, plan and negotiate commercial deals on price, terms and value."
           },
           {
-            "name": "Problem Solving Skills",
-            "duration": "8 hours",
-            "description": "Enhance your ability to solve complex problems with innovative solutions."
+            "name": "Influence & Impact: Leading Without Authority",
+            "href": "/corporate-training/leadership/influence-impact-leading-without-authority-course",
+            "duration": "16 hours",
+            "category": "Executive Communication & Influence",
+            "description": "Get results across teams and functions without formal authority, by building trust and shared goals."
           },
           {
-            "name": "Negotiation Skills",
-            "duration": "8 hours",
-            "description": "Develop strategies to negotiate effectively and achieve optimal outcomes."
+            "name": "Leadership Essentials",
+            "href": "/corporate-training/leadership/leadership-essentials-course",
+            "duration": "12 hours",
+            "category": "New & Frontline Managers",
+            "description": "Learn the core of leadership: direction, trust, accountability and getting work done through people."
           },
           {
-            "name": "Influence and Impact",
-            "duration": "8 hours",
-            "description": "Learn teGain skills to influence others and make impactful contributions in your professional field.chniques to resolve conflicts constructively."
+            "name": "Personal Branding",
+            "href": "/corporate-training/soft-skills/personal-branding-course",
+            "duration": "15 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Define your strengths and values and communicate a clear personal brand."
           },
           {
-            "name": "Managing Multiple Tasks, Priorities & Deadlines",
+            "name": "Stress Management at Work",
+            "href": "/corporate-training/soft-skills/stress-management-at-work-course",
             "duration": "8 hours",
-            "description": "Master techniques to handle multiple responsibilities efficiently."
-          },
-          {
-            "name": "Introduction to Leadership Skills",
-            "duration": "8 hours",
-            "description": "Learn fundamental leadership skills to manage teams and projects effectively."
-          },
-          {
-            "name": "Personal Branding: Step Into Your Spotlight",
-            "duration": "8 hours",
-            "description": "Learn to create and communicate your unique brand value to advance your career."
-          },
-          {
-            "name": "Stress Management",
-            "duration": "8 hours",
-            "description": "Learn strategies to manage stress for better personal and professional well-being."
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Recognize the signs of stress and use practical ways to manage it at work."
           },
           {
             "name": "Conflict Management",
-            "duration": "8 hours",
-            "description": "Develop skills to manage and resolve conflicts constructively."
+            "href": "/corporate-training/soft-skills/conflict-management-course",
+            "duration": "16 hours",
+            "category": "Feedback & Conflict",
+            "description": "Work through disagreements by uncovering interests and agreeing a way forward."
           },
           {
-            "name": "Presentation Skills",
-            "duration": "8 hours",
-            "description": "Enhance your ability to deliver compelling and persuasive presentations."
+            "name": "Emotional Intelligence at Work",
+            "href": "/corporate-training/soft-skills/emotional-intelligence-at-work-course",
+            "duration": "16 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Build self-awareness, self-control and awareness of others' emotions at work."
           },
           {
-            "name": "Emotional Intelligence",
-            "duration": "8 hours",
-            "description": "Increase your emotional intelligence to improve interpersonal relationships and self-awareness."
+            "name": "Facilitation Skills for Workshops & Workgroups",
+            "href": "/corporate-training/soft-skills/facilitation-skills-for-workshops-workgroups-course",
+            "duration": "15 hours",
+            "category": "Presentation, Public Speaking & Facilitation",
+            "description": "Design and run workshops with structured activities that get groups to outcomes."
           },
           {
-            "name": "Building Team Synergy",
-            "duration": "8 hours",
-            "description": "Foster collaboration and synergy within teams to enhance collective performance."
+            "name": "Strategic Planning & Annual Operating Plan",
+            "href": "/corporate-training/business-management/strategic-planning-annual-operating-plan-course",
+            "duration": "12 hours",
+            "category": "Strategy Execution & Organization Design",
+            "description": "Turn strategy into a yearly operating plan with priorities, targets, owners and resource choices."
           },
           {
-            "name": "Facilitation Skills",
-            "duration": "8 hours",
-            "description": "Learn to facilitate discussions and workshops effectively, ensuring productive outcomes."
+            "name": "Customer Experience (CX) Strategy & Journey Design",
+            "href": "/corporate-training/customer-experience-service/customer-experience-cx-strategy-journey-design-course",
+            "duration": "24 hours",
+            "category": "CX Strategy & Journey Design",
+            "description": "Set a CX strategy, map current journeys, find pain points and design better end-to-end experiences."
           },
           {
-            "name": "Strategic Management",
-            "duration": "8 hours",
-            "description": "Understand and apply strategic management principles to drive business success."
+            "name": "Financial Planning & Analysis (FP&A)",
+            "href": "/corporate-training/finance-accounting/financial-planning-analysis-fp-a-course",
+            "duration": "24 hours",
+            "category": "Accounting & Finance Operations",
+            "description": "Build budgets and forecasts, analyze variances and give business partners clear financial insight."
           },
           {
-            "name": "Customer Excellence",
-            "duration": "8 hours",
-            "description": "Develop skills to deliver outstanding customer service and build customer loyalty."
+            "name": "PMP",
+            "href": "/corporate-training/project-management/pmp-course",
+            "duration": "28 hours",
+            "category": "Project Management Methods",
+            "description": "Prepare for the PMP exam, covering people, process and business environment domains across predictive, agile and hybrid approaches."
           },
           {
-            "name": "Financial Management",
-            "duration": "8 hours",
-            "description": "Learn fundamental financial management skills to make informed business decisions."
+            "name": "Marketing Leadership & CMO Agenda",
+            "href": "/corporate-training/leadership/marketing-leadership-cmo-agenda-course",
+            "duration": "24 hours",
+            "category": "Functional & Sector Leadership",
+            "description": "Lead the marketing function: set the agenda, work with the board and show marketing's commercial impact."
           },
           {
-            "name": "Project Management Fundamentals",
-            "duration": "8 hours",
-            "description": "Gain foundational knowledge in managing projects efficiently and effectively."
-          },
-          {
-            "name": "Leadership Through Marketing",
-            "duration": "8 hours",
-            "description": "Utilize marketing principles to enhance leadership effectiveness and organizational impact."
-          },
-          {
-            "name": "Leading Effective Meetings",
-            "duration": "8 hours",
-            "description": "Learn how to conduct meetings that are efficient, productive, and outcome-oriented."
-          },
-          {
-            "name": "Decision Making",
-            "duration": "8 hours",
-            "description": "Develop decision-making skills to choose the best courses of action in complex business situations."
+            "name": "Facilitation & Leading Effective Meetings",
+            "href": "/corporate-training/soft-skills/facilitation-leading-effective-meetings-course",
+            "duration": "14 hours",
+            "category": "Presentation, Public Speaking & Facilitation",
+            "description": "Plan agendas, chair discussions and reach clear decisions and actions in meetings."
           },
           {
             "name": "Cultural Sensitivity",
-            "duration": "8 hours",
-            "description": "Cultivate sensitivity and awareness towards diverse cultures within professional environments."
+            "href": "/corporate-training/soft-skills/cultural-sensitivity-course",
+            "duration": "13 hours",
+            "category": "Cross-Cultural Skills & Inclusion",
+            "description": "Build awareness of cultural norms and differences that shape behavior at work."
           },
           {
             "name": "Mindfulness",
-            "duration": "8 hours",
-            "description": "Integrate mindfulness practices to enhance focus, resilience, and well-being."
+            "href": "/corporate-training/employee-wellbeing/mindfulness-course",
+            "duration": "14 hours",
+            "category": "Resilience & Wellbeing",
+            "description": "Learn simple mindfulness practices for focus, emotional regulation, and calm in daily work."
           },
           {
-            "name": "Adaptable Mindset",
-            "duration": "8 hours",
-            "description": "Develop flexibility and adaptability in your thinking and approach to challenges."
-          },
-          {
-            "name": "Critical Thinking",
-            "duration": "8 hours",
-            "description": "Strengthen your ability to analyze issues and come up with reasoned conclusions effectively."
+            "name": "Growth Mindset & Adaptability",
+            "href": "/corporate-training/soft-skills/growth-mindset-adaptability-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Treat setbacks as learning and adapt quickly when circumstances change."
           }
         ]
       },
@@ -1624,94 +1914,123 @@
         "catalog_title": "Sustainability and Social Responsibility Skilling Program",
         "courses": [
           {
-            "name": "Environmental and Chemical Safety",
-            "duration": "8 hours",
-            "description": "Learn to manage and mitigate risks associated with environmental chemicals and safety hazards."
+            "name": "Chemical Safety & Hazard Communication (GHS)",
+            "href": "/corporate-training/hse/chemical-safety-hazard-communication-ghs-course",
+            "duration": "24 hours",
+            "category": "Occupational Health & Safety",
+            "description": "Read GHS labels and safety data sheets, and store, handle and dispose of chemicals safely."
           },
           {
-            "name": "Environmental Awareness",
-            "duration": "8 hours",
-            "description": "Gain knowledge about environmental issues and the importance of sustainability in modern practices."
+            "name": "Environmental Sustainability Essentials",
+            "href": "/corporate-training/esg-sustainability/environmental-sustainability-essentials-course",
+            "duration": "24 hours",
+            "category": "Sustainability Strategy & Foundations",
+            "description": "Learn the core environmental issues: climate, resources, pollution and nature, and why they matter."
           },
           {
             "name": "Environmental Compliance",
-            "duration": "8 hours",
-            "description": "Understand legal and regulatory frameworks to ensure compliance with environmental laws."
+            "href": "/corporate-training/hse/environmental-compliance-course",
+            "duration": "24 hours",
+            "category": "Environmental & Product Compliance",
+            "description": "Meet environmental duties for permits, emissions, waste, water and record keeping."
           },
           {
-            "name": "ISO 26000 - Social Responsibility",
-            "duration": "8 hours",
-            "description": "Explore the principles and practices of social responsibility according to ISO 26000."
+            "name": "Social Responsibility (CSR)",
+            "href": "/corporate-training/esg-sustainability/social-responsibility-csr-course",
+            "duration": "24 hours",
+            "category": "Sustainability Strategy & Foundations",
+            "description": "Plan and run CSR programs that benefit communities and fit the business."
           },
           {
-            "name": "ISO 14001-Environmental Management System",
-            "duration": "8 hours",
-            "description": "Learn to implement and manage an environmental management system based on ISO 14001 standards."
+            "name": "ISO 14001 Environmental Management System",
+            "href": "/corporate-training/esg-sustainability/iso-14001-environmental-management-system-course",
+            "duration": "24 hours",
+            "category": "Environmental & Energy Management Systems",
+            "description": "Set up and run an ISO 14001 system: aspects, objectives, controls, audits and improvement."
           },
           {
-            "name": "ISO 50001 - Energy Management Systems",
-            "duration": "8 hours",
-            "description": "Acquire skills to develop and implement energy management systems that reduce environmental impact."
+            "name": "ISO 50001 Energy Management System",
+            "href": "/corporate-training/esg-sustainability/iso-50001-energy-management-system-course",
+            "duration": "24 hours",
+            "category": "Environmental & Energy Management Systems",
+            "description": "Set up an ISO 50001 system: energy review, baselines, performance indicators and improvement."
           },
           {
-            "name": "Sustainability and Social Responsibility",
-            "duration": "8 hours",
-            "description": "Understand the interconnections between sustainability practices and social responsibility."
+            "name": "Sustainable Waste Management",
+            "href": "/corporate-training/esg-sustainability/sustainable-waste-management-course",
+            "duration": "24 hours",
+            "category": "Circular Economy, Product & Waste",
+            "description": "Set up waste systems for reduction, segregation, recycling and responsible disposal."
           },
           {
-            "name": "Corporate Social Responsibility (CSR)",
-            "duration": "8 hours",
-            "description": "Learn strategies to integrate CSR into business practices to benefit society and the environment."
+            "name": "Renewable Energy Integration",
+            "href": "/corporate-training/energy-utilities/renewable-energy-integration-course",
+            "duration": "24 hours",
+            "category": "Renewables & Energy Storage",
+            "description": "Connect wind and solar to the grid, manage variability and keep the system stable and reliable."
           },
           {
-            "name": "Waste Management & Sustainability",
-            "duration": "8 hours",
-            "description": "Gain insights into effective waste management techniques that promote sustainability."
+            "name": "Sustainable Business Strategy & Transformation",
+            "href": "/corporate-training/esg-sustainability/sustainable-business-strategy-transformation-course",
+            "duration": "24 hours",
+            "category": "Sustainability Strategy & Foundations",
+            "description": "Build sustainability into strategy, business models and the transformation needed to deliver them."
           },
           {
-            "name": "Renewable Energy and Sustainability",
-            "duration": "8 hours",
-            "description": "Explore renewable energy technologies and their role in sustainable development."
+            "name": "Sustainable Finance, Climate Risk & Green Bonds",
+            "href": "/corporate-training/finance-accounting/sustainable-finance-climate-risk-green-bonds-course",
+            "duration": "24 hours",
+            "category": "Sustainable Finance",
+            "description": "Assess climate risk, issue and invest in green bonds and apply sustainable finance frameworks."
           },
           {
-            "name": "Sustainable Business Strategy",
-            "duration": "8 hours",
-            "description": "Develop strategies that incorporate sustainability into core business operations."
+            "name": "Environmental, Social & Governance (ESG Policy)",
+            "href": "/corporate-training/esg-sustainability/environmental-social-governance-esg-policy-course",
+            "duration": "24 hours",
+            "category": "ESG Strategy & Governance",
+            "description": "Write ESG policies, assign ownership and set the governance that keeps them working."
           },
           {
-            "name": "Sustainable Finance",
-            "duration": "8 hours",
-            "description": "Understand how to apply financial principles to foster sustainability in business practices."
+            "name": "Emergency Management & National Disaster Response",
+            "href": "/corporate-training/public-sector/emergency-management-national-disaster-response-course",
+            "duration": "24 hours",
+            "category": "Emergency & Disaster Management",
+            "description": "Coordinate national disaster risk management, response and recovery across agencies."
           },
           {
-            "name": "Environmental, Social, and Governance (ESG)",
-            "duration": "8 hours",
-            "description": "Delve into ESG criteria and their importance in corporate decision-making and sustainability."
+            "name": "Sustainable & Responsible Procurement",
+            "href": "/corporate-training/procurement/sustainable-responsible-procurement-course",
+            "duration": "24 hours",
+            "category": "Sustainable Procurement",
+            "description": "Add environmental and social criteria to sourcing and supplier selection."
           },
           {
-            "name": "Disaster Management",
-            "duration": "8 hours",
-            "description": "Acquire skills to effectively manage and mitigate disasters with an emphasis on minimizing environmental impact."
+            "name": "Carbon Accounting & GHG Protocol (Scope 1, 2 & 3)",
+            "href": "/corporate-training/esg-sustainability/carbon-accounting-ghg-protocol-scope-1-2-3-course",
+            "duration": "24 hours",
+            "category": "Carbon Accounting & Decarbonization",
+            "description": "Build a GHG Protocol inventory across Scope 1, 2 and 3, with sound data and boundaries."
           },
           {
-            "name": "Digital Transformation in Financial Services",
-            "duration": "8 hours",
-            "description": "Learn how digital transformation can drive sustainability in financial services."
+            "name": "Circular Economy Fundamentals",
+            "href": "/corporate-training/esg-sustainability/circular-economy-fundamentals-course",
+            "duration": "24 hours",
+            "category": "Circular Economy, Product & Waste",
+            "description": "Learn circular principles: designing out waste, keeping materials in use and new circular business models."
           },
           {
-            "name": "Food Security and Sustainability",
-            "duration": "8 hours",
-            "description": "Understand the challenges and strategies related to achieving sustainable food security."
+            "name": "Net-Zero Strategy & Decarbonization Roadmaps",
+            "href": "/corporate-training/esg-sustainability/net-zero-strategy-decarbonisation-roadmaps-course",
+            "duration": "24 hours",
+            "category": "Carbon Accounting & Decarbonization",
+            "description": "Set credible net-zero targets and a roadmap of reduction measures, milestones and owners."
           },
           {
-            "name": "Ergonomics at the Workplace",
-            "duration": "8 hours",
-            "description": "Learn to design workplace environments that ensure safety, comfort, and efficiency, contributing to sustainability."
-          },
-          {
-            "name": "Sustainable Procurement",
-            "duration": "8 hours",
-            "description": "Master the practices and policies for procuring goods and services in an environmentally friendly and socially responsible manner."
+            "name": "Climate Risk Management",
+            "href": "/corporate-training/esg-sustainability/climate-risk-management-course",
+            "duration": "24 hours",
+            "category": "Climate Risk & Resilience",
+            "description": "Identify, assess and manage the physical and transition climate risks the business faces."
           }
         ]
       },
@@ -1730,82 +2049,103 @@
         "catalog_title": "Health and Well-being Training Program",
         "courses": [
           {
-            "name": "Mental Health Awareness",
-            "duration": "8 hours",
-            "description": "Increase your understanding of mental health issues and learn strategies to support well-being in academic and professional settings."
+            "name": "Mental Health Awareness & Psychological Safety at Work",
+            "href": "/corporate-training/hr/mental-health-awareness-psychological-safety-at-work-course",
+            "duration": "24 hours",
+            "category": "Wellbeing & Mental Health",
+            "description": "Spot signs of poor mental health, start supportive conversations and build psychological safety at work."
           },
           {
-            "name": "Emotional Intelligence",
-            "duration": "8 hours",
-            "description": "Develop your ability to recognize, understand, and manage your own emotions and those of others to enhance personal and professional relationships."
+            "name": "Emotional Intelligence at Work",
+            "href": "/corporate-training/soft-skills/emotional-intelligence-at-work-course",
+            "duration": "16 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Build self-awareness, self-control and awareness of others' emotions at work."
           },
           {
-            "name": "Psychological Safety",
-            "duration": "8 hours",
-            "description": "Learn how to create a safe environment where team members feel comfortable expressing themselves and taking risks without fear of negative consequences."
-          },
-          {
-            "name": "Managing Conflict with Emotional Intelligence",
-            "duration": "8 hours",
-            "description": "Equip staff and students with skills to manage interpersonal conflicts effectively by applying principles of emotional intelligence."
+            "name": "Psychological Safety & High-Performance Teams",
+            "href": "/corporate-training/leadership/psychological-safety-high-performance-teams-course",
+            "duration": "16 hours",
+            "category": "Leading Teams & Developing People",
+            "description": "Create a climate where people raise concerns, admit mistakes and share ideas without fear."
           },
           {
             "name": "Healthy Living",
-            "duration": "8 hours",
-            "description": "Gain insights into healthy lifestyle choices that enhance physical and mental well-being."
+            "href": "/corporate-training/employee-wellbeing/healthy-living-course",
+            "duration": "14 hours",
+            "category": "Resilience & Wellbeing",
+            "description": "Build everyday habits in sleep, nutrition, movement, and rest that support health at work."
           },
           {
-            "name": "Stress Management",
+            "name": "Stress Management at Work",
+            "href": "/corporate-training/soft-skills/stress-management-at-work-course",
             "duration": "8 hours",
-            "description": "Learn techniques to manage stress effectively and maintain well-being in high-pressure environments."
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Recognize the signs of stress and use practical ways to manage it at work."
           },
           {
-            "name": "Managing Conflict with Emotional Intelligence",
-            "duration": "8 hours",
-            "description": "Equip staff and students with skills to manage interpersonal conflicts effectively by applying principles of emotional intelligence."
+            "name": "Resilience, Energy & Burnout Prevention",
+            "href": "/corporate-training/employee-wellbeing/resilience-energy-burnout-prevention-course",
+            "duration": "15 hours",
+            "category": "Resilience & Wellbeing",
+            "description": "Recognize early burnout signs and build resilience, energy, and recovery habits that last."
           },
           {
-            "name": "Emotional Intelligence for Finance Professionals",
+            "name": "Workplace Ergonomics",
+            "href": "/corporate-training/hse/workplace-ergonomics-course",
             "duration": "8 hours",
-            "description": "Tailored for finance professionals, this course enhances your ability to navigate the emotional landscape of the financial sector."
-          },
-          {
-            "name": "Work Life Balance",
-            "duration": "8 hours",
-            "description": "Explore strategies to balance personal and professional life, reducing stress and improving overall happiness."
-          },
-          {
-            "name": "Ergonomics at the Workplace",
-            "duration": "8 hours",
-            "description": "Learn to optimize your work environment to improve comfort and efficiency, reducing the risk of injury."
-          },
-          {
-            "name": "Wellness Coaching",
-            "duration": "8 hours",
-            "description": "Acquire skills to support others in achieving their personal health and wellness goals through effective coaching techniques."
-          },
-          {
-            "name": "Health Mindset Coaching",
-            "duration": "8 hours",
-            "description": "Develop the ability to foster a positive health mindset in others, promoting long-lasting health behavior changes."
+            "category": "Occupational Health & Safety",
+            "description": "Assess workstations and tasks and redesign them to reduce musculoskeletal risk."
           },
           {
             "name": "Workplace Empathy",
-            "duration": "8 hours",
-            "description": "Learn to cultivate empathy in the workplace, leading to more collaborative and supportive work environments."
+            "href": "/corporate-training/soft-skills/workplace-empathy-course",
+            "duration": "12 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Understand colleagues' perspectives and feelings and respond with care."
           },
           {
-            "name": "Nutrition and Wellness",
+            "name": "Mindfulness",
+            "href": "/corporate-training/employee-wellbeing/mindfulness-course",
+            "duration": "14 hours",
+            "category": "Resilience & Wellbeing",
+            "description": "Learn simple mindfulness practices for focus, emotional regulation, and calm in daily work."
+          },
+          {
+            "name": "Digital Detox: Powerful Techniques to End Screen Addiction",
+            "href": "/corporate-training/employee-wellbeing/digital-detox-powerful-techniques-to-end-screen-addiction-course",
+            "duration": "14 hours",
+            "category": "Resilience & Wellbeing",
+            "description": "Reduce screen time and constant notifications with practical boundaries for devices, email, and messaging."
+          },
+          {
+            "name": "Financial Wellness for Employees",
+            "href": "/corporate-training/employee-wellbeing/financial-wellness-for-employees-course",
             "duration": "8 hours",
-            "description": "Understand the basics of nutrition and how dietary choices impact overall health and wellness."
+            "category": "Financial Wellbeing",
+            "description": "Help employees budget, manage debt, save, and plan for their financial future with confidence."
+          },
+          {
+            "name": "Anger Management",
+            "href": "/corporate-training/soft-skills/anger-management-course",
+            "duration": "16 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Recognize anger triggers and use practical techniques to respond calmly instead of reacting."
+          },
+          {
+            "name": "Positive Mindset",
+            "href": "/corporate-training/soft-skills/positive-mindset-course",
+            "duration": "14 hours",
+            "category": "Personal Effectiveness & Mindset",
+            "description": "Build a positive outlook and habits that help people handle daily pressure."
           }
         ]
       },
       {
         "slug": "occupational-safety-training-program",
         "title": "Occupational Safety Training Program",
-        "description": "To enhance campus safety, reduce risks, and ensure a secure learning environment for all.",
-        "course_count": "07 Courses",
+        "description": "To enhance campus safety, reduce risks, and ensure a secure learning environment for all",
+        "course_count": "10+ Courses",
         "image": {
           "src": "https://media.edstellar.com/website/health_1.webp",
           "alt": "Occupational Safety Training Program",
@@ -1816,39 +2156,102 @@
         "catalog_title": "Occupational Safety Training Program",
         "courses": [
           {
-            "name": "First Aid and CPR",
-            "duration": "8 hours",
-            "description": "Learn essential life saving skills, including CPR and emergency first aid techniques, to respond effectively in medical emergencies."
+            "name": "First Aid & CPR Awareness",
+            "href": "/corporate-training/hse/first-aid-cpr-awareness-course",
+            "duration": "24 hours",
+            "category": "Fire, First Aid & Emergency Response",
+            "description": "Recognize emergencies, give basic first aid and CPR, and support people until help arrives."
           },
           {
-            "name": "Fire Safety - 8 hours",
-            "duration": "8 hours",
-            "description": "Gain knowledge on fire prevention practices and emergency response strategies to enhance safety in various settings."
+            "name": "Fire Safety & Fire Warden",
+            "href": "/corporate-training/hse/fire-safety-fire-warden-course",
+            "duration": "24 hours",
+            "category": "Fire, First Aid & Emergency Response",
+            "description": "Prevent fires, use extinguishers correctly and lead evacuations as a trained fire warden."
           },
           {
-            "name": "Ladder Safety",
-            "duration": "8 hours",
-            "description": "Understand the best practices and safety precautions for using ladders to prevent falls and injuries."
+            "name": "Working at Height & Fall Protection",
+            "href": "/corporate-training/hse/working-at-height-fall-protection-course",
+            "duration": "24 hours",
+            "category": "Occupational Health & Safety",
+            "description": "Plan work at height, select fall protection, inspect equipment and prepare rescue."
           },
           {
-            "name": "Safe Manual Handling",
-            "duration": "8 hours",
-            "description": "Learn techniques for safe lifting and material handling to avoid workplace injuries and enhance ergonomics."
+            "name": "Manual Handling & Safe Lifting",
+            "href": "/corporate-training/hse/manual-handling-safe-lifting-course",
+            "duration": "12 hours",
+            "category": "Occupational Health & Safety",
+            "description": "Assess lifting tasks, use safe techniques and reduce strain from carrying, pushing and pulling."
           },
           {
-            "name": "Electrical Safety",
-            "duration": "8 hours",
-            "description": "Acquire essential knowledge on preventing electrical hazards and ensuring safety when working with or near electrical installations."
+            "name": "Electrical Safety & Arc Flash (NFPA 70E)",
+            "href": "/corporate-training/hse/electrical-safety-arc-flash-nfpa-70e-course",
+            "duration": "16 hours",
+            "category": "High-Risk Work & Site Safety",
+            "description": "Apply NFPA 70E practices, arc flash boundaries and PPE for work near energised equipment."
           },
           {
             "name": "Heat Safety",
-            "duration": "8 hours",
-            "description": "Understand how to recognize and prevent heat-related illnesses and injuries, essential for maintaining safety in hot work environments."
+            "href": "/corporate-training/hse/heat-safety-course",
+            "duration": "16 hours",
+            "category": "Occupational Health & Safety",
+            "description": "Recognize heat illness, plan rest, water and shade, and acclimatise workers safely."
           },
           {
-            "name": "Hazard Identification and Risk Assessment",
-            "duration": "8 hours",
-            "description": "Develop skills to identify potential hazards and conduct risk assessments to mitigate workplace risks effectively."
+            "name": "Hazard Identification & Risk Assessment (HIRA / JSA)",
+            "href": "/corporate-training/hse/hazard-identification-risk-assessment-hira-jsa-course",
+            "duration": "24 hours",
+            "category": "Safety Management & Culture",
+            "description": "Identify hazards, rate risks and complete HIRA and job safety analyses for real tasks."
+          },
+          {
+            "name": "Occupational Health & Safety Essentials",
+            "href": "/corporate-training/hse/occupational-health-safety-essentials-course",
+            "duration": "24 hours",
+            "category": "Safety Management & Culture",
+            "description": "Learn hazards, controls, reporting and safe habits that every worker and manager needs."
+          },
+          {
+            "name": "ISO 45001 Occupational Health & Safety Management System",
+            "href": "/corporate-training/hse/iso-45001-occupational-health-safety-management-system-course",
+            "duration": "24 hours",
+            "category": "Safety Management & Culture",
+            "description": "Implement and run ISO 45001, from context and policy to objectives, audits and review."
+          },
+          {
+            "name": "Confined Space Entry & Rescue",
+            "href": "/corporate-training/hse/confined-space-entry-rescue-course",
+            "duration": "24 hours",
+            "category": "High-Risk Work & Site Safety",
+            "description": "Test atmospheres, enter confined spaces safely and plan rescues before work starts."
+          },
+          {
+            "name": "Construction Site Safety Management",
+            "href": "/corporate-training/hse/construction-site-safety-management-course",
+            "duration": "24 hours",
+            "category": "High-Risk Work & Site Safety",
+            "description": "Plan and run construction sites safely, from induction and inspection to traffic and plant."
+          },
+          {
+            "name": "Incident Investigation & Near-Miss Reporting",
+            "href": "/corporate-training/hse/incident-investigation-near-miss-reporting-course",
+            "duration": "24 hours",
+            "category": "Safety Management & Culture",
+            "description": "Report near misses, collect evidence and investigate incidents with a clear method."
+          },
+          {
+            "name": "Permit to Work & Energy Isolation (LOTO)",
+            "href": "/corporate-training/hse/permit-to-work-energy-isolation-loto-course",
+            "duration": "24 hours",
+            "category": "High-Risk Work & Site Safety",
+            "description": "Issue, control and close permits, and isolate energy with lockout and tagout."
+          },
+          {
+            "name": "Defensive Driving & Road Safety",
+            "href": "/corporate-training/hse/defensive-driving-road-safety-course",
+            "duration": "12 hours",
+            "category": "High-Risk Work & Site Safety",
+            "description": "Drive defensively, manage fatigue and distraction, and reduce road risk for work driving."
           }
         ]
       }
