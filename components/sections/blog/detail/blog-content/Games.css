@@ -1806,6 +1806,22 @@
   transform: scale(1.15);
 }
 
+/* The CMS is moving these card headings from h5 to h4 (heading order).
+   Global.css gives every .blog-content h4 the article-heading look (Sora,
+   20px, 28px top margin); inside the game cards an h4 must look exactly like
+   the h5 it replaces, so that is undone here, before the rules below that
+   set each heading's size, weight, colour and bottom margin. */
+.step-content h4,
+.rules-col h4,
+.ol-body h4,
+.var-card h4 {
+  font-family: inherit;
+  letter-spacing: normal;
+  line-height: inherit;
+  margin: 0;
+  scroll-margin-top: 0;
+}
+
 .step-content {
   flex: 1;
   background: #fff;
@@ -1820,7 +1836,8 @@
   box-shadow: 0 6px 18px rgba(34, 41, 90, 0.04);
 }
 
-.step-content h5 {
+.step-content h5,
+.step-content h4 {
   font-size: 14px;
   font-weight: 700;
   color: #22295a;
@@ -1868,17 +1885,20 @@
   border: 1px solid #fecaca;
 }
 
-.rules-col h5 {
+.rules-col h5,
+.rules-col h4 {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
-.rules-col.do h5 {
+.rules-col.do h5,
+.rules-col.do h4 {
   color: #166534;
 }
 
-.rules-col.dont h5 {
+.rules-col.dont h5,
+.rules-col.dont h4 {
   color: #991b1b;
 }
 
@@ -2011,7 +2031,8 @@
   margin-bottom: 5px;
 }
 
-.ol-body h5 {
+.ol-body h5,
+.ol-body h4 {
   font-size: 14px;
   font-weight: 700;
   color: #22295a;
@@ -2054,7 +2075,8 @@
   flex-shrink: 0;
 }
 
-.var-card h5 {
+.var-card h5,
+.var-card h4 {
   font-size: 14px;
   font-weight: 700;
   color: #22295a;
