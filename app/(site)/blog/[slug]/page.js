@@ -75,7 +75,8 @@ function readBlogContentCss(filename) {
  * animation name is looked up globally regardless), so any are pulled out
  * and kept as top-level rules alongside the scoped block.
  */
-function scopeToBlogContent(css) {
+function scopeToBlogContent(css, extraRoots = []) {
+  const roots = [".blog-content.blog-content-richtext", ...extraRoots].join(", ");
   const keyframes = [];
   const rest = css.replace(
     /@keyframes\s+[\w-]+\s*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}/g,
@@ -84,7 +85,7 @@ function scopeToBlogContent(css) {
       return "";
     },
   );
-  return `${keyframes.join("\n")}\n@scope (.blog-content.blog-content-richtext) {\n${rest}\n}`;
+  return `${keyframes.join("\n")}\n@scope (${roots}) {\n${rest}\n}`;
 }
 
 const FAQ_CSS = scopeToBlogContent(readBlogContentCss("Faq.css"));
@@ -102,7 +103,13 @@ const LAYOUT_VARIANT_CSS = {
   "In-demand Skills": scopeToBlogContent(
     readBlogContentCss("InDemandSkills.css"),
   ),
-  Games: scopeToBlogContent(readBlogContentCss("Games.css")),
+  // The games' fullscreen modal (BlogDetailGamesModal) renders outside
+  // `blog.body`, and the demo it opens is cloned into it — so its wrapper is a
+  // second scope root, or none of Games.css reaches the modal and its markup
+  // shows on the page as plain, unstyled text. The root is the wrapper, not
+  // `#fsModal` itself: `@scope` rules only match the root's descendants, so
+  // `.fs-modal { display: none }` would never reach the modal element.
+  Games: scopeToBlogContent(readBlogContentCss("Games.css"), [".blog-games-modal"]),
 };
 
 export async function generateMetadata({ params }) {
@@ -332,7 +339,11 @@ export default async function BlogPostPage({ params }) {
 
       {post.styleBlocks.includes("highlight") && <BlogDetailHighlightReveal />}
 
-      {blog.meta?.layout_variant === "Games" && <BlogDetailGamesModal />}
+      {blog.meta?.layout_variant === "Games" && (
+        <Box className="blog-games-modal">
+          <BlogDetailGamesModal />
+        </Box>
+      )}
 
       {/* Only posts whose body has the popup CTA ship the form's JS. */}
       {/id=["'](form-btn|get-quote)["']/.test(blog.body ?? "") && <BlogDetailEnquiryPopup />}

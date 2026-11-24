@@ -27,6 +27,13 @@ const nextConfig = {
           { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
         ],
       },
+      // The L&D content samples are shown inside the consulting page's
+      // "View sample" dialog, not as pages of their own — keep every file
+      // (html, mp4, mp3) out of search results.
+      {
+        source: "/samples/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
     ];
   },
   // Old URLs → their current ones (the CMS renamed these site pages,
@@ -39,10 +46,7 @@ const nextConfig = {
       { source: "/platforms/meridian", destination: "/meridian.html" },
       { source: "/platforms/spectra-lms", destination: "/spectra-lms.html" },
       { source: "/platforms/tna-tni-engine", destination: "/tna-tni-engine.html" },
-      { source: "/platforms/tna", destination: "/tna-tni-engine.html" },
-      { source: "/platforms/tni", destination: "/tna-tni-engine.html" },
       { source: "/platforms/zenith", destination: "/zenith.html" },
-      { source: "/capability-os", destination: "/capability-os.html" },
       { source: "/platforms/capability-os", destination: "/capability-os.html" },
     ];
   },
@@ -51,6 +55,12 @@ const nextConfig = {
       ["/training-needs-analysis", "/training-needs-analysis-services"],
       ["/training-needs-analysis-solutions", "/training-needs-analysis-services"],
       ["/coaching-services", "/coaching-solutions"],
+      // Capability OS lives under /platforms (canonical, nav, sitemap); the
+      // bare URL used to serve the same page as a duplicate.
+      ["/capability-os", "/platforms/capability-os"],
+      // TNA/TNI engine: one page, canonical /platforms/tna-tni-engine.
+      ["/platforms/tna", "/platforms/tna-tni-engine"],
+      ["/platforms/tni", "/platforms/tna-tni-engine"],
       // The program enquiry form now opens in the program's pop-up on the
       // sector page; the old standalone form pages go back to it.
       ["/training-for-universities-enquiry", "/training-for-universities#explore-programs"],

@@ -57,8 +57,8 @@ function initDemo(demo) {
         void scene.offsetWidth;
         scene.classList.add("active");
         if (!demo.closest("#fsMount")) {
-          if (titleEl) titleEl.innerHTML = scene.getAttribute("data-title") || "";
-          if (subEl) subEl.innerHTML = scene.getAttribute("data-sub") || "";
+          if (titleEl) titleEl.textContent = scene.getAttribute("data-title") || "";
+          if (subEl) subEl.textContent = scene.getAttribute("data-sub") || "";
         }
       } else {
         scene.classList.remove("active");
@@ -90,8 +90,8 @@ function initDemo(demo) {
   demo.addEventListener("click", handleClick);
 
   if (!demo.closest("#fsMount") && scenes[0]) {
-    if (titleEl) titleEl.innerHTML = scenes[0].getAttribute("data-title") || "";
-    if (subEl) subEl.innerHTML = scenes[0].getAttribute("data-sub") || "";
+    if (titleEl) titleEl.textContent = scenes[0].getAttribute("data-title") || "";
+    if (subEl) subEl.textContent = scenes[0].getAttribute("data-sub") || "";
   }
   render();
 

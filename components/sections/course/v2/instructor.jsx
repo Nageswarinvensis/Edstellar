@@ -58,9 +58,8 @@ export default function V2Instructor({ data }) {
             href={cta.href || "#quote"}
             topic={cta.heading}
             title={cta.title || `Click here to ${cta.label}`}
-            // Global pill (shape, padding, type, arrow, hover lift); the
-            // design's olive fill and white text for this one button.
-            className={cn(V2_BUTTON.primary, "relative bg-olive text-white")}
+            // Global navy pill — same blue as the page's other primary CTAs.
+            className={cn(V2_BUTTON.primary, "relative")}
           >
             {cta.label}
             <V2ButtonArrow />
