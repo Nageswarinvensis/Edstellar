@@ -3,21 +3,6 @@ import Text from "@/components/ui/Text";
 import Section from "@/components/ui/Section";
 import RichHeading from "@/components/common/rich-heading";
 
-/** Dots: d2=16px lime, d1=12px lime/65, d0=8px paper/22 */
-function CapabilityDot({ value }) {
-  const sizes  = { 2: "size-4",  1: "size-3",  0: "size-2" };
-  const colors = { 2: "bg-lime", 1: "bg-lime/65", 0: "bg-paper/[0.22]" };
-  const labels = { 2: "Critical", 1: "Important", 0: "Situational" };
-  return (
-    <Box
-      as="span"
-      role="img"
-      aria-label={labels[value] ?? ""}
-      className={`inline-block rounded-full align-middle ${sizes[value] ?? sizes[0]} ${colors[value] ?? colors[0]}`}
-    />
-  );
-}
-
 export default function WwsIndustries({ data }) {
   if (!data) return null;
 
@@ -25,116 +10,62 @@ export default function WwsIndustries({ data }) {
     <Section
       id="industries"
       aria-labelledby="ind-h"
-      className="scroll-mt-20 bg-ink text-paper"
+      className="scroll-mt-20 bg-white py-16 lg:py-20"
     >
-      {/* cgrid: 4fr 8fr — left panel + table */}
-      <Box className="grid items-start gap-12 max-[1200px]:grid-cols-1 max-[1200px]:gap-8 min-[1201px]:grid-cols-[4fr_8fr]">
+      {/* Split heading */}
+      <Box className="mb-14 grid gap-10 max-[900px]:grid-cols-1 min-[901px]:grid-cols-[1.1fr_1fr] min-[901px]:items-start">
+        <RichHeading
+          as="h2"
+          id="ind-h"
+          heading={data.heading}
+          className="m-0 text-[clamp(32px,4vw,42px)] font-bold leading-[1.08] tracking-[-0.03em] text-ink"
+        />
+        <Text as="p" className="m-0 border-l-2 border-ink/15 pl-6 text-[clamp(15px,1.1vw,17px)] leading-[1.75] text-ink-muted">
+          {data.lede}
+        </Text>
+      </Box>
 
-        {/* Left panel */}
-        <Box>
-          <RichHeading
-            as="h2"
-            id="ind-h"
-            heading={data.heading}
-            className="m-0 text-[clamp(32px,4vw,40px)] font-bold leading-[1.08] tracking-[-0.03em] text-paper"
-            emphasisClassName="text-lime"
-          />
-          <Text as="p" className="mt-5 text-[clamp(16px,1.2vw,18px)] leading-[1.7] text-paper/72">
-            {data.lede}
-          </Text>
-
-          {/* Steps */}
-          <Box as="ol" className="mt-8 grid list-none gap-2 p-0 max-[1200px]:grid-cols-2 max-[600px]:grid-cols-1">
-            {data.steps.map((s) => (
-              <Box
-                as="li"
-                key={s.n}
-                className="flex items-center gap-3 rounded-[10px] border border-paper/[0.12] px-4 py-3 text-[15px]"
-              >
-                <Text as="span" className="font-mono text-[12px] font-medium text-lime">{s.n}</Text>
-                <Text as="b" className="font-semibold text-paper">{s.label}</Text>
-              </Box>
-            ))}
-          </Box>
-
-          {/* Legend */}
-          <Box className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[14px] text-paper/72" aria-hidden="true">
-            {[
-              { v: 2, label: "Critical capability" },
-              { v: 1, label: "Important" },
-              { v: 0, label: "Situational" },
-            ].map(({ v, label }) => (
-              <Box key={v} className="inline-flex items-center gap-2">
-                <CapabilityDot value={v} />
-                {label}
-              </Box>
-            ))}
-          </Box>
-        </Box>
-
-        {/* Right: scrollable table */}
-        <Box
-          tabIndex={0}
-          role="region"
-          aria-labelledby="ind-cap"
-          className="overflow-x-auto rounded-[14px] border border-paper/[0.12] bg-navy-soft focus-visible:outline-2 focus-visible:outline-lime focus-visible:outline-offset-[3px]"
-        >
-          <Box
-            as="table"
-            className="w-full min-w-[720px] border-collapse"
-          >
-            <Text as="caption" id="ind-cap" className="sr-only">
-              Capability priorities across 17 industries
+      {/* 4-step cards */}
+      <Box
+        as="ol"
+        className="list-none p-0 rounded-2xl border border-ink/10 overflow-hidden grid grid-cols-1 min-[900px]:grid-cols-4 divide-y divide-ink/10 min-[900px]:divide-y-0 min-[900px]:divide-x"
+      >
+        {data.steps.map((s) => (
+          <Box as="li" key={s.n} className="px-6 py-7">
+            <Text as="span" className="mb-4 block font-mono text-[10px] font-medium text-ink-muted">
+              {s.n}
             </Text>
-            <thead>
-              <tr>
-                <Box
-                  as="th"
-                  scope="col"
-                  className="sticky left-0 bg-navy-soft px-5 py-4 text-left text-[13px] font-semibold text-paper/72"
-                >
-                  Industry
-                </Box>
-                {data.cols.map((col) => (
-                  <Box
-                    as="th"
-                    key={col}
-                    scope="col"
-                    className="px-2 py-4 text-center text-[13px] font-semibold leading-snug text-paper/72"
-                  >
-                    {col}
-                  </Box>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {data.rows.map((row) => (
-                <tr
-                  key={row.label}
-                  className="border-t border-paper/[0.07] transition-colors hover:bg-paper/[0.04]"
-                >
-                  <Box
-                    as="th"
-                    scope="row"
-                    className="sticky left-0 bg-navy-soft p-0 text-left text-[14px] font-semibold transition-colors [[data-hover=true]_&]:bg-[#1a2a45]"
-                  >
-                    {/* Plain text for now: the `/industries/{slug}` pages
-                        (`row.href`) don't exist yet. Restore the link when
-                        they launch. */}
-                    <Box as="span" className="flex min-h-[44px] items-center gap-2.5 px-5 py-2 text-paper">
-                      {row.label}
-                    </Box>
-                  </Box>
-                  {row.dots.map((dot, j) => (
-                    <Box as="td" key={j} className="px-2 py-1 text-center">
-                      <CapabilityDot value={dot} />
-                    </Box>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
+            <Text as="h3" className="mb-2 text-[18px] font-bold leading-[1.3] tracking-[-0.01em] text-ink">
+              {s.label}
+            </Text>
+            <Text as="p" className="m-0 text-[13.5px] leading-[1.55] text-ink-muted">
+              {s.desc}
+            </Text>
           </Box>
-        </Box>
+        ))}
+      </Box>
+
+      {/* Industry pill cloud */}
+      <Box as="ul" className="mt-12 flex list-none flex-wrap gap-2.5 p-0">
+        {data.industries.map((ind) => (
+          <Box as="li" key={ind.label}>
+            {ind.href ? (
+              <a
+                href={ind.href}
+                title={ind.title}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full border border-ink/15 bg-paper px-4 py-2 text-[14px] font-medium text-ink no-underline transition-colors hover:border-ink/30 hover:bg-paper-warm"
+              >
+                {ind.label}
+              </a>
+            ) : (
+              <Text as="span" className="inline-flex items-center rounded-full border border-ink/10 bg-paper px-4 py-2 text-[14px] font-medium text-ink-muted">
+                {ind.label}
+              </Text>
+            )}
+          </Box>
+        ))}
       </Box>
     </Section>
   );

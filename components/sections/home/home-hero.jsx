@@ -34,8 +34,8 @@ export default function HomeHero({ data }) {
             as="h1"
             id="hero-headline"
             heading={data.heading}
-            emphasisClassName="block mt-2.5 text-[1.06em] font-normal leading-[1.04] tracking-[-0.01em]"
-            className="mx-0 mb-0 mt-3 text-[clamp(48px,5.6vw,65px)] font-medium leading-[1.04] tracking-[-0.025em] text-ink text-balance"
+            emphasisClassName="block mt-2.5 text-[0.731em] font-normal leading-[1.04] tracking-[-0.01em]"
+            className="mx-0 mb-0 mt-3 text-[clamp(42px,5.6vw,52px)] font-medium leading-[1.04] tracking-[-0.025em] text-ink text-balance"
           />
 
           {/* Body paragraphs */}
@@ -126,7 +126,7 @@ export default function HomeHero({ data }) {
                     <Text as="b" className="block text-[15px] font-medium leading-[1.3] tracking-[-0.01em] text-ink">
                       {tier.title}
                     </Text>
-                    <Text as="p" className="mb-2 mt-[3px] text-[12.5px] leading-[1.45] text-ink-muted">
+                    <Text as="p" className="mb-[20px] mt-[3px] text-[12.5px] leading-[1.45] text-ink-muted">
                       {tier.desc}
                     </Text>
                     {tier.pills?.length > 0 && (

@@ -426,6 +426,10 @@ h3 span {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Hide scrollbars on the horizontally scrollable pill/crumb rails. */
 @utility no-scrollbar {
   scrollbar-width: none;

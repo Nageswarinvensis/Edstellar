@@ -68,7 +68,10 @@ export default function WwsFaq({ data }) {
                     {item.a.split(item.link.text)[0]}
                     <Link
                       href={item.link.href}
-                      className="font-semibold text-navy underline-offset-[3px] hover:underline"
+                      title={item.link.title}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-ink underline decoration-olive underline-offset-[3px] hover:text-olive"
                     >
                       {item.link.text}
                     </Link>
