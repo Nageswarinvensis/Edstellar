@@ -30,7 +30,7 @@ export const CORPORATE_TRAINING_HUB = {
   ],
 
   hero: {
-    heading: "Corporate Training Services Company for <span>Global Enterprises</span>",
+    heading: "Corporate Training Services Company for <span>Enterprises Globally </span>",
     lede: "Edstellar is a corporate training company for global enterprises. We deliver 2,000+ instructor-led corporate training programs across 76 domains, tailored to your roles and run onsite or virtually.",
     definition:
       "Train one team or the whole workforce. Start with a domain, a role or a business goal, and we shape the program, the trainer and the delivery plan around it.",
