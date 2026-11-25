@@ -4,17 +4,17 @@ import AuthorHero from "@/components/sections/blog/author/author-hero";
 import BlogPostsPanel from "@/components/sections/blog/common/blog-posts-panel";
 import { SOCIAL_LINKS } from "@/components/sections/blog/common/social-icon";
 import { fetchAuthorPosts } from "@/lib/actions/blog-author";
+import { splitAuthorName } from "@/components/sections/blog/author/split-author-name";
 
 /** The CMS sends these flags as strings ("True" / "False"), so a plain
  * truthiness check would treat "False" as true. */
 const isTrue = (value) => value === true || String(value).toLowerCase() === "true";
 
-/** "Vanessa R Bruno" → "Vanessa R <span>Bruno</span>" for `RichHeading`. */
-function emphasizeLastWord(name) {
-  const words = name.trim().split(/\s+/);
-  if (words.length < 2) return name;
-  const last = words.pop();
-  return `${words.join(" ")} <span>${last}</span>`;
+/** "Subbaiah M U" → "Subbaiah <span>M U</span>" for `RichHeading` — the
+ * same words the author hero emphasizes (`splitAuthorName`). */
+function emphasizeSurname(name) {
+  const { lead, accent } = splitAuthorName(name);
+  return accent ? `${lead} <span>${accent}</span>` : lead;
 }
 
 export default function AuthorPageContent({ author, slug, categories }) {
@@ -37,12 +37,13 @@ export default function AuthorPageContent({ author, slug, categories }) {
         verified={isTrue(meta.verified_expert)}
         socialLinks={socialLinks}
         articleCount={author.blogs?.pagination?.total}
+        tags={meta.author_tags}
       />
 
       <Section className="scroll-mt-24" id="blogs">
         <RichHeading
           as="h2"
-          heading={`Articles By ${emphasizeLastWord(author.name)}`}
+          heading={`Articles By ${emphasizeSurname(author.name)}`}
           className="mb-6.5"
           emphasisClassName="font-normal text-olive"
         />

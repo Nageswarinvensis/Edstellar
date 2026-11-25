@@ -12,6 +12,9 @@ const DELAY_CLASS = {
   4: "delay-[320ms]",
 };
 
+/** Phones: below Tailwind's `md` breakpoint. */
+const MOBILE_QUERY = "(max-width: 767.98px)";
+
 /**
  * Scroll-reveal wrapper.
  *
@@ -37,6 +40,19 @@ function Reveal({ as = "div", delay = 0, className, children, ...props }) {
       typeof window === "undefined" ||
       !("IntersectionObserver" in window) ||
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      setShown(true);
+      return;
+    }
+
+    // On phones, whatever is already on screen when the page loads (the
+    // hero) is never armed: arming hides it after hydration and fades it back
+    // in, which pushes mobile LCP back to the end of the animation. It stays
+    // exactly as the server painted it; content below the fold still reveals
+    // on scroll, and desktop is unchanged.
+    if (
+      window.matchMedia(MOBILE_QUERY).matches &&
+      node.getBoundingClientRect().top < window.innerHeight
     ) {
       setShown(true);
       return;

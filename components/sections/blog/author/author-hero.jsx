@@ -5,10 +5,13 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import { SocialIcon } from "@/components/sections/blog/common/social-icon";
+import { splitAuthorName } from "@/components/sections/blog/author/split-author-name";
+import AuthorTags from "@/components/sections/blog/common/author-tags";
 
 /**
  * Author page header: navy band with a lime underline — breadcrumb, avatar,
- * "Author" kicker, name (last word in lime serif italic), bio, social links
+ * "Author" kicker, name (surname — last word, or trailing initials — in lime
+ * serif italic), bio, social links
  * and the article count.
  *
  * Design: Blog Author Template `.ahead`, `.aprof`, `.astat`, `.crumb`.
@@ -20,9 +23,9 @@ export default function AuthorHero({
   verified,
   socialLinks = [],
   articleCount,
+  tags,
 }) {
-  const words = name.trim().split(/\s+/);
-  const lastWord = words.length > 1 ? words.pop() : null;
+  const { lead, accent: lastWord } = splitAuthorName(name);
 
   return (
     <Box as="header" className="border-b-4 border-lime bg-navy px-5 lg:px-10">
@@ -50,6 +53,7 @@ export default function AuthorHero({
             <img loading="eager"
               src={image}
               alt={name}
+              title={name}
               width={110}
               height={110}
               className="size-27.5 flex-none rounded-full border-3 border-lime/50 object-cover"
@@ -69,7 +73,7 @@ export default function AuthorHero({
                 as="h1"
                 className="text-paper"
               >
-                {words.join(" ")}
+                {lead}
                 {lastWord ? (
                   <>
                     {" "}
@@ -94,6 +98,8 @@ export default function AuthorHero({
                 {bio}
               </Text>
             ) : null}
+
+            <AuthorTags tags={tags} name={name} tone="dark" className="mt-4" />
 
             {articleCount || socialLinks.length ? (
               <Box className="mt-4 flex flex-wrap items-center gap-x-6.5 gap-y-3">

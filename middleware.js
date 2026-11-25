@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { COURSE_FALLBACKS } from "@/content/courses";
+import { DOMAINS } from "@/content/domains";
 
 /**
  * CMS Redirect Middleware
@@ -137,14 +138,20 @@ function sitePathFromCmsUrl(finalUrl) {
  * 404. Answering here makes both take effect on the next request.
  *
  * Courses written only in local content (`COURSE_FALLBACKS` with a `name`)
- * are not in the CMS and are left to the page. Domain pages are not
- * included: `/corporate-training/{slug}` also serves industry and vendor
- * slugs, which the CMS's domain endpoint does not know.
+ * are not in the CMS and are left to the page. Domain pages are included
+ * (the route is ISR since Nov 2026) except slugs in the local `DOMAINS`
+ * registry, which can render from local content or map to a different CMS
+ * slug — those are left to the page. `/corporate-training/{slug}` also serves
+ * industry and vendor slugs, which the CMS's domain endpoint does not know;
+ * none exist yet (both registries are empty, and the route has no template
+ * for them) — exempt them here when they do.
  */
 function cmsMissingIs404(pathname) {
   const slug = pathname.replace(/^\/+|\/+$/g, "");
   const course = slug.match(/^corporate-training\/([^/]+\/[^/]+)$/);
   if (course) return !COURSE_FALLBACKS[course[1]]?.name;
+  const domain = slug.match(/^corporate-training\/([^/]+)$/);
+  if (domain) return !DOMAINS[domain[1]];
   return /^blog\/(?!author\/|category\/)[^/]+$/.test(slug);
 }
 

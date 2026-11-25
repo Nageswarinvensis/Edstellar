@@ -33,6 +33,7 @@ export default function BlogPostCard({ post }) {
           <img decoding="async"
             src={post.cover_image}
             alt={post.title}
+            title={post.title}
             loading="lazy"
             className="size-full object-cover"
           />
@@ -55,7 +56,7 @@ export default function BlogPostCard({ post }) {
           as="p"
           className="font-display text-[16.5px] leading-[1.35] font-medium tracking-[-0.02em] text-ink"
         >
-          <Link href={href} title={linkTitle} className="transition-colors hover:text-olive">
+          <Link href={href} title={linkTitle} target="_blank" rel="noopener" className="transition-colors hover:text-olive">
             {titleHead}
             {/* The arrow is glued to the last word so it never wraps onto a
                 line by itself. */}

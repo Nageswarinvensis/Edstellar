@@ -186,12 +186,15 @@ export default function BlogPosts({
                 {post.cover_image && (
                   <Link
                     href={`/blog/${post.slug}`}
+                    target="_blank"
+                    rel="noopener"
                     title={`Click Here to Read ${post.title}`}
                     className="block h-50 flex-none overflow-hidden"
                   >
                     <img decoding="async"
                       src={post.cover_image}
                       alt={post.title}
+                      title={post.title}
                       loading="lazy"
                       className="size-full object-cover transition-transform duration-300 hover:scale-105"
                     />
@@ -201,6 +204,8 @@ export default function BlogPosts({
                 <Box className="flex h-full flex-col rounded-b-lg border-b-[6px] border-lime p-6">
                   <Link
                     href={`/blog/${post.slug}`}
+                    target="_blank"
+                    rel="noopener"
                     title={`Click Here to Read ${post.title}`}
                     className="group"
                   >

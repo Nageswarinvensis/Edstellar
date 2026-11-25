@@ -25,6 +25,18 @@ function stripSiteSuffix(title) {
 export const revalidate = 300;
 
 /**
+ * Nothing is prebuilt (SSG stays off until launch), but returning a list at
+ * all is what makes this route ISR: each page renders on its first request
+ * and is then cached for `revalidate` seconds. Without it Next 15 renders
+ * the route on every request (`private, no-store`) and ignores `revalidate`.
+ * A domain the CMS drops still 404s on the next request — `middleware.js`
+ * answers that before the page cache (`cmsMissingIs404`).
+ */
+export async function generateStaticParams() {
+  return [];
+}
+
+/**
  * One template per entity type. Industry and vendor content is not modeled
  * yet, so those types resolve to nothing and 404 — adding one is a line here
  * plus a registry in `lib/content/`, with no change to this route.

@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { notFound } from "next/navigation";
-import { getBlogMain, getBlogPost } from "@/lib/content/blog";
+import { getBlogAuthor, getBlogMain, getBlogPost } from "@/lib/content/blog";
 import { getBlogRailCategories } from "@/lib/content/blog-rail";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
 import { SITE } from "@/lib/constants";
@@ -143,6 +143,13 @@ export default async function BlogPostPage({ params }) {
 
   const { blog, author, category } = post;
   const railCategories = await getBlogRailCategories();
+
+  // The author's tags (CMS `author_tags`, comma-separated). The post API's
+  // author object doesn't carry it yet, so it comes from the author endpoint
+  // (cached, shared with the author page) until the CMS adds it there.
+  const authorTags =
+    author?.author_tags ??
+    (author?.slug ? (await getBlogAuthor(author.slug)).author?.meta?.author_tags : null);
 
   // "More Blog Insights": the newest posts from the listing, minus this one.
   const latest = await getBlogMain(1);
@@ -309,6 +316,7 @@ export default async function BlogPostPage({ params }) {
                 twitter={author?.twitter}
                 facebook={author?.facebook}
                 medium={author?.medium}
+                tags={authorTags}
               />
             </Box>
           </Box>

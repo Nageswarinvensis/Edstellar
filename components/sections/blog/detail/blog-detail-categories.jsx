@@ -38,6 +38,8 @@ export default function BlogDetailCategories({ categories, currentSlug }) {
               <Link
                 key={category.id}
                 href={`/blog/category/${category.slug}`}
+                target="_blank"
+                rel="noopener"
                 title={
                   category.tag_title ||
                   `Click here to view ${category.name} related articles`

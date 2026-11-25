@@ -17,6 +17,8 @@ function CategoryList({ categoryList }) {
         <li key={category.id}>
           <Link
             href={`/blog/category/${category.slug}`}
+            target="_blank"
+            rel="noopener"
             title={
               category.tag_title ||
               `Click Here to View ${category.name} Related Articles`

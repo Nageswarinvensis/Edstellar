@@ -34,11 +34,8 @@ export default function BlogDetailMoreInsights({ posts = [] }) {
         <Box as="ul" className="m-0 grid list-none grid-cols-3 gap-4.5 p-0 max-lg:grid-cols-2 max-sm:grid-cols-1">
           {shown.map((post) => (
             <Box as="li" key={post.slug} className="h-full">
-              <Link
-                href={`/blog/${post.slug}`}
-                title={`Click here to read ${post.title}`}
-                className="flex h-full flex-col rounded-2xl border border-ink/12 bg-white p-6.5 no-underline transition-[transform,box-shadow,border-color] duration-250 hover:-translate-y-1.25 hover:border-ink/22 hover:shadow-[0_22px_46px_-28px_rgba(10,22,40,0.5)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
-              >
+              {/* Only the title is a link; the card around it is not. */}
+              <Box className="flex h-full flex-col rounded-2xl border border-ink/12 bg-white p-6.5 transition-[transform,box-shadow,border-color] duration-250 hover:-translate-y-1.25 hover:border-ink/22 hover:shadow-[0_22px_46px_-28px_rgba(10,22,40,0.5)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                 {post.category_name ? (
                   <Text
                     as="span"
@@ -52,7 +49,15 @@ export default function BlogDetailMoreInsights({ posts = [] }) {
                   as="h3"
                   className="mb-4 text-[17px] leading-[1.36] font-medium tracking-[-0.02em] text-ink"
                 >
-                  {post.title}
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    target="_blank"
+                    rel="noopener"
+                    title={`Click here to read ${post.title}`}
+                    className="no-underline transition-colors hover:text-olive"
+                  >
+                    {post.title}
+                  </Link>
                 </Text>
 
                 {post.published_at ? (
@@ -65,7 +70,7 @@ export default function BlogDetailMoreInsights({ posts = [] }) {
                     </time>
                   </Text>
                 ) : null}
-              </Link>
+              </Box>
             </Box>
           ))}
         </Box>

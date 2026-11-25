@@ -60,6 +60,8 @@ export default function BlogDetailHero({
               {categorySlug ? (
                 <Link
                   href={`/blog/category/${categorySlug}`}
+                  target="_blank"
+                  rel="noopener"
                   title={`Click here to view ${category} articles`}
                   className="inline-flex rounded-full border border-paper/28 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-lime transition-colors hover:border-lime"
                 >
@@ -100,6 +102,7 @@ export default function BlogDetailHero({
                   <img loading="eager"
                     src={authorAvatar}
                     alt={authorName || "Blog author"}
+                    title={authorName || undefined}
                     width={44}
                     height={44}
                     className="size-11 flex-none rounded-full bg-navy-soft object-cover"

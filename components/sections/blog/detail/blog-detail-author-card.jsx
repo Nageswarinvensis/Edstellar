@@ -6,6 +6,7 @@ import Text from "@/components/ui/Text";
 import BlogDetailCopyLinkButton from "@/components/sections/blog/detail/blog-detail-copy-link-button";
 import { SOCIAL_LINKS, SocialIcon } from "@/components/sections/blog/common/social-icon";
 import { SITE } from "@/lib/constants";
+import AuthorTags from "@/components/sections/blog/common/author-tags";
 
 import Reveal from "@/components/common/reveal";
 export default function BlogDetailAuthorCard({
@@ -17,6 +18,7 @@ export default function BlogDetailAuthorCard({
   twitter,
   facebook,
   medium,
+  tags,
 }) {
   if (!name) return null;
 
@@ -89,6 +91,8 @@ export default function BlogDetailAuthorCard({
           {shortDescription}
         </Text>
       )}
+
+      <AuthorTags tags={tags} name={name} className="mt-4" />
     </Reveal>
   );
 }
