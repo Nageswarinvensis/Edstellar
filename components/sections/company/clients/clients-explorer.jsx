@@ -99,7 +99,7 @@ function ClientCard({ client, className, open, onOpen, onClose }) {
         className="flex h-full min-h-[188px] w-full flex-col items-stretch gap-3 rounded-[14px] border border-ink/12 bg-white p-4 text-left shadow-rest transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lift focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
       >
         <Box className="flex flex-[0_0_88px] items-center justify-center border-b border-ink/12 pb-3">
-          <Image src={client.logo} alt={`${client.name} logo`} width={150} height={56} className="h-14 w-full max-w-[150px] object-contain" />
+          <Image src={client.src} alt={client.alt} title={client.alt} width={150} height={56} className="h-14 w-full max-w-[150px] object-contain" />
         </Box>
         <Box className="flex items-start justify-between gap-2 leading-[1.35]">
           <Box>

@@ -695,7 +695,7 @@ export function AboutClients({ data, homeClients, reach }) {
                 <Box as="ul" key={copy} className="flex shrink-0 list-none items-center">
                   {homeClients.logos.map((logo) => (
                     <Box as="li" key={`${copy}-${logo.name}`} className="flex h-20 w-[150px] shrink-0 items-center justify-center border-r border-ink/12 px-6">
-                      <img src={logo.src} alt={logo.name} width={120} height={32} loading="lazy" className="h-7 w-auto max-w-[120px] object-contain opacity-70 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0" />
+                      <img src={logo.src} alt={logo.alt} title={logo.alt} width={120} height={32} loading="lazy" className="h-7 w-auto max-w-[120px] object-contain opacity-70 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0" />
                     </Box>
                   ))}
                 </Box>

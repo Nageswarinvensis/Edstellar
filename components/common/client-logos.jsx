@@ -3,125 +3,7 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import { cn } from "@/lib/utils";
-
-/** The client-logo strip every page shows. */
-const CLIENT_LOGOS = {
-  heading: "Trusted by teams at",
-  logos: [
-    {
-      src: "https://media.edstellar.com/clients_logos/abb.webp",
-      alt: "ABB",
-      title: "ABB",
-      width: 121,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/aditya-birla-group.webp",
-      alt: "Aditya Birla Group",
-      title: "Aditya Birla Group",
-      width: 86,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/adobe.webp",
-      alt: "Adobe",
-      title: "Adobe",
-      width: 184,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/amazon.webp",
-      alt: "Amazon",
-      title: "Amazon",
-      width: 86,
-      height: 26,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/autodesk.webp",
-      alt: "Autodesk",
-      title: "Autodesk",
-      width: 287,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/emerson.webp",
-      alt: "Emerson",
-      title: "Emerson",
-      width: 109,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/godrej.webp",
-      alt: "Godrej",
-      title: "Godrej",
-      width: 100,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/intel.webp",
-      alt: "Intel",
-      title: "Intel",
-      width: 124,
-      height: 42,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/johnson&johnson.webp",
-      alt: "Johnson & Johnson",
-      title: "Johnson & Johnson",
-      width: 120,
-      height: 11,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/mediatek.webp",
-      alt: "MediaTek",
-      title: "MediaTek",
-      width: 183,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/microsoft.webp",
-      alt: "Microsoft",
-      title: "Microsoft",
-      width: 219,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/nrsc.webp",
-      alt: "NRSC",
-      title: "NRSC",
-      width: 50,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/sportskeeda.webp",
-      alt: "Sportskeeda",
-      title: "Sportskeeda",
-      width: 120,
-      height: 14,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/tata_chemicals.webp",
-      alt: "Tata Chemicals",
-      title: "Tata Chemicals",
-      width: 110,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/total.webp",
-      alt: "TotalEnergies",
-      title: "TotalEnergies",
-      width: 162,
-      height: 48,
-    },
-    {
-      src: "https://media.edstellar.com/clients_logos/visa.webp",
-      alt: "Visa",
-      title: "Visa",
-      width: 137,
-      height: 48,
-    },
-  ],
-};
+import { getClientLogoStrip } from "@/lib/content/client-logos";
 
 const LOGO_MAX_HEIGHT = 36;
 const LOGO_SCALE = 48;
@@ -135,16 +17,18 @@ function logoSize(logo) {
 }
 
 /**
- * The client-logo strip — one set of logos for every page, `CLIENT_LOGOS`
- * above. A page whose eyebrow text differs passes `heading`; nothing else
- * varies by page.
+ * The client-logo strip — one set of logos for every page, the ids in
+ * `CLIENT_LOGO_STRIP` (`content/company/client-logos.js`). A page whose
+ * eyebrow text differs passes `heading`; nothing else varies by page.
  *
  * The list is rendered twice so the -50% marquee loops seamlessly; the second
  * copy is aria-hidden so screen readers announce each client once. With
  * reduced motion the strip stops, drops the copy and wraps as a static row.
  */
-function ClientLogos({ heading = CLIENT_LOGOS.heading, className }) {
-  const { logos } = CLIENT_LOGOS;
+function ClientLogos({ heading, className }) {
+  const strip = getClientLogoStrip();
+  const { logos } = strip;
+  heading ??= strip.heading;
 
   return (
     <Box
@@ -180,7 +64,7 @@ function ClientLogos({ heading = CLIENT_LOGOS.heading, className }) {
             const duplicate = index >= logos.length;
             return (
               <Box
-                key={`${logo.alt}-${index}`}
+                key={`${logo.id}-${index}`}
                 aria-hidden={duplicate || undefined}
                 className={cn(
                   "flex h-13.5 flex-none items-center justify-center rounded-[8px] py-2",
@@ -190,8 +74,8 @@ function ClientLogos({ heading = CLIENT_LOGOS.heading, className }) {
               >
                 <Image
                   src={logo.src}
-                  alt={logo.alt || logo.title || "Edstellar client logo"}
-                  title={logo.title || logo.alt || ""}
+                  alt={logo.alt}
+                  title={logo.alt}
                   width={size?.width ?? 140}
                   height={size?.height ?? 48}
                   className={cn(!size && "max-h-10.5 w-auto max-w-30 object-contain")}

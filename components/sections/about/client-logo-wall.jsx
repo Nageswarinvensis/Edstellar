@@ -73,7 +73,7 @@ export default function ClientLogoWall({ data }) {
           const shown = position !== -1 && position < limit;
           return (
             <li key={logo.src} hidden={!shown} className="grid h-21 place-items-center border-r border-b border-ink/12 bg-white p-4">
-              <img src={logo.src} alt={logo.name} width={160} height={44} loading="lazy" decoding="async" className="max-h-11 w-auto max-w-full object-contain" />
+              <img src={logo.src} alt={logo.alt} title={logo.alt} width={160} height={44} loading="lazy" decoding="async" className="max-h-11 w-auto max-w-full object-contain" />
             </li>
           );
         })}

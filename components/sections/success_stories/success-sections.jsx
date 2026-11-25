@@ -66,7 +66,7 @@ export function SuccessClients({ data }) {
         <Box aria-hidden="true" className="group min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent_0,black_5%,black_95%,transparent_100%)]">
           <Box className="flex w-max animate-[marquee_60s_linear_infinite] items-center gap-13 group-hover:[animation-play-state:paused] motion-reduce:animate-none">
             {[...data.logos, ...data.logos].map((logo, index) => (
-              <img key={index} src={logo.src} alt={logo.name} title={logo.description} height={34} loading="lazy" decoding="async" className="block h-8.5 w-auto max-w-37.5 flex-none object-contain" />
+              <img key={index} src={logo.src} alt={logo.alt} title={logo.alt} height={34} loading="lazy" decoding="async" className="block h-8.5 w-auto max-w-37.5 flex-none object-contain" />
             ))}
           </Box>
         </Box>

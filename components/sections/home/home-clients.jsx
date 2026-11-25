@@ -58,7 +58,8 @@ export default function HomeClients({ data }) {
                 <Box as="li" key={`${copy}-${logo.name}`} className="group flex h-20 w-[150px] shrink-0 items-center justify-center border-r border-ink/12 px-6">
                   <Image
                     src={logo.src}
-                    alt={logo.name}
+                    alt={logo.alt}
+                    title={logo.alt}
                     width={120}
                     height={32}
                     className="h-7 w-auto max-w-[120px] object-contain opacity-70 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"

@@ -70,7 +70,7 @@ export default function PricingClients({ data }) {
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                title={logo.alt.split(":")[0].trim()}
+                title={logo.alt}
                 width={160}
                 height={46}
                 loading="lazy"

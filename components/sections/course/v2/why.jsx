@@ -7,6 +7,7 @@ import V2Section from "@/components/sections/course/v2/section";
 import V2SectionHead from "@/components/sections/course/v2/section-head";
 import V2Products from "@/components/sections/course/v2/products";
 import { cn } from "@/lib/utils";
+import { getClientLogoStrip } from "@/lib/content/client-logos";
 import WhyGlobe from "@/components/sections/course/v2/why-globe";
 
 /** Trusted static SVG markup from the design file. */
@@ -33,14 +34,17 @@ function StatValue({ value }) {
 /**
  * v2 · 10 Why Edstellar (the design's `#why`) — the lead and four
  * commitments, the proof numbers and accreditations beside the globe of
- * delivery regions; the client logo band; then the Edstellar products —
+ * delivery regions; the client logo band (the site-wide logo strip,
+ * restyled for this card); then the Edstellar products —
  * `products`, the local `course_products` (not `data.products` from the CMS).
  */
 export default function V2Why({ data, credentials = {}, products }) {
   if (!data) return null;
   const { heading, lead, points = [], globe } = data;
-  // Stats, ISO badges and the client-logo band are local (`course_credentials`), not CMS.
-  const { stats = [], accreditations = [], logos_label, logos = [] } = credentials;
+  // Stats and ISO badges are local (`course_credentials`), not CMS. The logos
+  // are the shared client-logo list, so one edit there reaches every page.
+  const { stats = [], accreditations = [] } = credentials;
+  const { heading: logos_label, logos } = getClientLogoStrip();
 
   return (
     <V2Section id="why">
@@ -113,14 +117,14 @@ export default function V2Why({ data, credentials = {}, products }) {
               {[...logos, ...logos].map((logo, index) => {
                 const duplicate = index >= logos.length;
                 return (
-                  <li key={`${logo.name}-${index}`} aria-hidden={duplicate || undefined} className={cn("flex-none", duplicate && "motion-reduce:hidden")}>
+                  <li key={`${logo.id}-${index}`} aria-hidden={duplicate || undefined} className={cn("flex-none", duplicate && "motion-reduce:hidden")}>
                     <Image
-                      src={logo.image}
-                      alt={logo.name}
-                      title={logo.name}
+                      src={logo.src}
+                      alt={logo.alt}
+                      title={logo.alt}
                       loading="lazy"
-                      width={logo.image_width || 120}
-                      height={logo.image_height || 48}
+                      width={logo.width || 120}
+                      height={logo.height || 48}
                       className="h-7 w-auto max-w-[110px] object-contain opacity-75 grayscale transition-transform duration-200 hover:-translate-y-0.5"
                     />
                   </li>

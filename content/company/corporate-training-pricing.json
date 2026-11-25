@@ -65,514 +65,133 @@
     "more_label": "View More",
     "less_label": "View Less",
     "logos": [
-      {
-        "src": "https://media.edstellar.com/client_logo/Microsoft.webp",
-        "alt": "Microsoft: A Leading Company in Software, Cloud Computing, and Technology Solutions Worldwide"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Amazon.webp",
-        "alt": "Amazon: A Leading Company in Cloud, E-commerce & Retail"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Intel2.webp",
-        "alt": "Intel: A Leading Company in Software & Technology"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Adobe.webp",
-        "alt": "Adobe: A Leading Company In Digital Media and Creative Software Solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/MediaTek.webp",
-        "alt": "MediaTek: Leading company in advanced semiconductor solutions, MediaTek connects and enriches the modern digital world."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Tata_Chemicals.webp",
-        "alt": "Tata Chemicals Ltd: A Leading Company in Chemical Industry"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/JohnsonJohnson_1.webp",
-        "alt": "Johnson & Johnson: A Leading Company in Pharmaceuticals"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/godrej.webp",
-        "alt": "Godrej: A Leading Company in FMCG"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/nrsc.webp",
-        "alt": "NRSC (National Remote Sensing Centre): A Leading Company in Scientific Research"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Sportskeeda_1.webp",
-        "alt": "Sportskeeda: A Global Sports and Entertainment Content Platform"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Total.webp",
-        "alt": "Total: A Leading Company in Energy & Petroleum"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/visa.webp",
-        "alt": "VISA: Global digital payments technology company"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Abb.webp",
-        "alt": "ABB: A Leading Company in Industrial Automation & Electrical Equipment"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Emerson.webp",
-        "alt": "Emerson : A Leading Company in Industrial Automation and Climate Solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Aditya_Birla_Group.webp",
-        "alt": "Aditya Birla Group: A global business group with impact across diverse sectors"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/AutoDesk.webp",
-        "alt": "Autodesk: A Leading Company in Software & Technology"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Cummins_logo.svg_1.png",
-        "alt": "Cummins Inc : Global leader in power and zero-emission tech."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Kelloggs.webp",
-        "alt": "Kellogg's: A Leading Company in Food & Beverages"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/NIIT.webp",
-        "alt": "NIIT : A Leading Company in Learning and Talent Development"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/TVS.webp",
-        "alt": "TVS Electronics: A Leading Company in Supply Chain & Manufacturing"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Uworld.webp",
-        "alt": "UWorld: A Leading Company in Education & Test Preparation"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Uber.svg",
-        "alt": "UBER: Global ride-hailing and mobility platform."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Coromandel.webp",
-        "alt": "Coromandel: A Leading Company in Agriculture & Chemicals"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Invensis.webp",
-        "alt": "Invensis: A Leading Company in Software & Technology"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/khazana_jewellery.webp",
-        "alt": "Khazana Jewellery: Trusted Name in Fine Jewellery Craftsmanship"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Dev_on.webp",
-        "alt": "Devon: A Leading Company in IT Services and IT Consulting"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/spartan.webp",
-        "alt": "Spartan: A Leading Company in Manufacturing"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Currax.webp",
-        "alt": "Currax Pharmaceuticals LLC: A Leading Company in Pharmaceuticals"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/shanmukha.webp",
-        "alt": "ShanMukha: A Leading Company in Biotechnology / Diagnostics"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/devstring.webp",
-        "alt": "Devstringx: A Leading Company in Software & Technology"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Excitel.webp",
-        "alt": "Excitel: A Leading Company in Telecommunications"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Auro.webp",
-        "alt": "Auro: A Leading Company in Real Estate"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/industryarc.webp",
-        "alt": "IndustryARC: A Leading Company in Market Research & Consulting"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Motorq.webp",
-        "alt": "MOTORQ: Vehicle Data and Insights Software Company"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/littlefuse.webp",
-        "alt": "Littelfuse: A Leading Company in Manufacturing"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Taylor__Francis_Group.webp",
-        "alt": "Taylor & Francis: A Leading Company in Academic Publishing"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Sandvik_Coromant.webp",
-        "alt": "Sandvik: A Leading Company in Supply Chain & Manufacturing"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Boston_consulting_group.webp",
-        "alt": "Boston Consulting Group: A Global Consulting Firm Specializing in Business Strategy"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Mio_amore.webp",
-        "alt": "Mio Amore: A Leading Comapany in Food & Beverages"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Thryve.webp",
-        "alt": "Thryve: A Leading Company in Healthcare"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Blu_Smart_Mobility.webp",
-        "alt": "BLU Smart Mobility: A Leading Company in Electric Vehicles & Mobility"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Bombay_Metrics.webp",
-        "alt": "Bombay Metrics: A Leading Company in Supply Chain & Manufacturing"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/ByNaric.webp",
-        "alt": "ByNaric: A Leading Company in Software & Technology"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/HALCON.webp",
-        "alt": "HALCON: A Leading Company in System Manufactures"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/SIS.webp",
-        "alt": "SIS: A Leading Company in Security and Logistics Services"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/CanFinHomes_Ltd.webp",
-        "alt": "CanFinHomes Ltd: A Leading Company in Financial Services"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/edifecs.webp",
-        "alt": "Edifecs: A Leading Company in Healthcare Technology"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Brevo.webp",
-        "alt": "Brevo: A Leading Company in Software & Technology"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/BOLD_Group.webp",
-        "alt": "BCLD Group: A Leading Company in Real Estate"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Emiza_Inc.webp",
-        "alt": "Emiza Inc: A Leading Company in Logistics and Supply Chain"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Indobevs.webp",
-        "alt": "IndoBevs : A Leading Company in Beverage Manufacturing and Distribution"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Shravas_Technologies.webp",
-        "alt": "Shravas Technologies : A Leading Company in Software Testing and Quality Assurance"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/GreenCell_Mobility.webp",
-        "alt": "GreenCell Mobility: A Leading Green-Tech Company"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Garware_Technical_Fibres.webp",
-        "alt": "Garware Technical Fibres: A Leading Company In the Technical Textile Sector"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Bry-Air.webp",
-        "alt": "Bry-Air : A Leading Company in Dehumidification and Environmental Control Solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/eClinical_Solutions.webp",
-        "alt": "eClinical Solutions : A Leading Company in Intelligent Clinical Research Data Solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/ycp_.webp",
-        "alt": "YCP | Global Expertise, Asian Insight: A Leading Company in Management Consulting and Principal Investments Across Asia"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Social_Discovery_group.webp",
-        "alt": "Social Discovery group: A Leading Global Company in Social Discovery and Online Entertainment"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Smarsh.webp",
-        "alt": "Smarsh: Leading company in digital compliance and communications archiving solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Greystar.webp",
-        "alt": "Greystar: A Global Leader in Rental Housing Investment, Development, and Management"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Global_North.webp",
-        "alt": "Global North: Global Experts in Investment Advisory for Citizenship and Residency Solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Indian_Hospitality_Mart.webp",
-        "alt": "INDIA HOSPITALITY MART: Pioneers in the Hospitality Services"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/SRF_Limited.webp",
-        "alt": "SRF Limited: Global Leader in Chemicals, Textiles, and Packaging Solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/AMPIN_Energy_Transition.webp",
-        "alt": "AMPIN Energy Transition: Renewable energy solution provider for Commercial & Industrial (C&I) and utility customers"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Indo_British_Garments_Pvt._Ltd._.webp",
-        "alt": "BG (Brahmaputra Group): A Leading Company in Construction & Infrastructure"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Endeavor_.webp",
-        "alt": "Endeavor: A Leading Company in Media & Entertainment"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Neovia.webp",
-        "alt": "Neovia: A Leading Company in Logistics"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Market99.webp",
-        "alt": "Market99: Affordable Home & Lifestyle Shopping in India"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Mankiewicz_India_Private_Limited.webp",
-        "alt": "Mankiewicz India Private Limited: World leader in high-quality coating systems for industry, aviation, and automotive."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Uplers.webp",
-        "alt": "Uplers: AI hiring platform connecting SaaS companies with top product & engineering talent"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Oswaal_Books_and_Learning_.webp",
-        "alt": "Oswaal Books and Learning (P) Ltd: India’s No.1 educational publisher"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/ERGO_Technology__Services.webp",
-        "alt": "ERGO Technology & Services: A Hub of Innovation and Digital Excellence"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Maharana_Pratap_Group_of_Institutions.webp",
-        "alt": "Maharana Pratap Group of Institutions (MPGI): A Center of Academic Excellence and Holistic Learning"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Circle_K.webp",
-        "alt": "Circle K: A Globally Recognized Convenience Store"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/ETP_International.webp",
-        "alt": "ETP International: A leading unified commerce software company"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/EPL_Global.webp",
-        "alt": "EPL Global: Specialized packaging solutions for the world’s leading FMCG brands"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/KMK_Ventures.webp",
-        "alt": "KMK Ventures: A Leading Outsourced Accounting and Tax Service Provider"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Ideal_Solutions.webp",
-        "alt": "Ideal Solutions: A leading smart solutions and services provider"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/KPMG.webp",
-        "alt": "KPMG: A leading professional services firm"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Royalquot.webp",
-        "alt": "West African Ceramics Limited: The company markets its products under the \"Royal\" brand"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Dayforce.webp",
-        "alt": "Dayforce: All-in-one software to manage every stage of the employee journey"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Bechtel.webp",
-        "alt": "Bechtel: A leading global engineering, construction, and project management company"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/SPI_Pharma.webp",
-        "alt": "SPI Pharma: Global leader in pharmaceutical manufacturing"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Sunstone.webp",
-        "alt": "Sunstone: Industry-aligned education service provider"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Hudson_Link.webp",
-        "alt": "Hudson Link: Prison education and reentry nonprofit"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Regeneron_Science_to_Medicine.webp",
-        "alt": "Regeneron Pharmaceuticals: A science-driven biotechnology company"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/KIET_Group_of_Institution.webp",
-        "alt": "KIET Group of Institution: A technical higher-education institution"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/QuadGen.webp",
-        "alt": "QuadGen: A Leading Company in Telecommunications"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/D_B_Corp_Ltd.webp",
-        "alt": "DB Corp Ltd: Indian print and media company"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Majestic_Asset_Management_Inc_Management_Team.webp",
-        "alt": "Majestic Asser Management, INC.: Real estate investment and property management company"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Ujjivan_Small_Finance_Bank.webp",
-        "alt": "Ujjivan: Indian Small Finance Bank"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/DERIV_LOGO_COL_RGB-1_1.png",
-        "alt": "Deriv: One of the world’s largest online brokers"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/CIPS.svg",
-        "alt": "C.I.P.S: Indigenous-owned consulting and engagement firm."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Jet_parts.svg",
-        "alt": "Jet Parts Engineering: Aerospace aftermarket manufacturer & repair provider"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/ADB_SAFE_Gate.svg",
-        "alt": "ADB SAFEGATE: Global airport and airside technology provider."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/cloudify.svg",
-        "alt": "Cloudify: Open-source multi-cloud and edge orchestration platform"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Fito.svg",
-        "alt": "Semillas Fitó: Global seed breeding and agriculture innovator"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/national_Bank_of_Iraq.svg",
-        "alt": "The National Bank of Iraq: Iraq-based full-service regional bank"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/PIE.svg",
-        "alt": "Pierian Services: Global business-services and consulting provider"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/digit_life_insurance.svg",
-        "alt": "Go Digit Life Insurance: Digital-first life insurance company"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Datawrkz.svg",
-        "alt": "Datawrkz: Omnichannel digital advertising and ad-tech platform"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Sangam.svg",
-        "alt": "Sangam Group: Integrated textile manufacturer and global exporter."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/JICA__Japan_International_Cooperation_Agency_.webp",
-        "alt": "JICA : is a Japanese government agency providing aid and technical support for global development."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Nike.webp",
-        "alt": "Nike: A global company designing and selling athletic footwear, apparel, and equipment"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Ecozen.webp",
-        "alt": "Ecozen: An agritech company providing solar-powered cold storage and irrigation solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/International_Solar_Alliance_Secretariat.webp",
-        "alt": "ISA: is a global organization accelerating solar energy adoption for worldwide energy security."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Knolscape_.webp",
-        "alt": "KNOLSKAPE: A company providing experiential learning and gamified training solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Silverline_IT_Solutions.webp",
-        "alt": "Silverline: A consulting firm delivering cloud and digital transformation solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Assetz_Soho__Sky.webp",
-        "alt": "Assetz Property Group: A real estate company developing residential and commercial properties"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/PCAPI_Region_4A_Chapter_.webp",
-        "alt": "PCAPI (Pollution Control Association of the Philippines): A non-profit organization dedicated to environmental protection and compliance through professional training."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Agratas.webp",
-        "alt": "Agratas: A global battery technology company"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/KNS_Logistics_Service.webp",
-        "alt": "KNS Express: A logistics provider offering specialized delivery and shipping solutions."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Artha_Bharath.webp",
-        "alt": "Artha Bharat: An investment firm focused on infrastructure and development projects"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/WiredScore.webp",
-        "alt": "WiredScore: A company certifying digital connectivity standards for buildings"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Evident_Scientific.webp",
-        "alt": "Eviden: A global leader in digital transformation, advanced computing, and cybersecurity."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Medsynaptic_Pvt._Ltd.webp",
-        "alt": "Medsynaptic: A healthcare technology company specializing in medical imaging solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Tadmur_Holding.webp",
-        "alt": "Tadmur Holding: A diversified business group operating across multiple industries"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Daund_Sugar_Limited.webp",
-        "alt": "Daund Sugar: A company producing sugar and related agro-based products"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/ZS_Associates.webp",
-        "alt": "ZS Associates: A global management consulting and technology firm focused on transforming healthcare and other industries."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Renishaw_Technologies.webp",
-        "alt": "Renishaw: A company providing precision measurement and healthcare technologies"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Cloyes.webp",
-        "alt": "Cloyes: A manufacturer of timing drive systems and automotive components"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/SP_Global_Inc.webp",
-        "alt": "S&P Global: A company providing financial data, analytics, and market intelligence"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Transunion.webp",
-        "alt": "TransUnion: A company offering credit information and risk management solutions"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Cenovus.webp",
-        "alt": "Cenovus Energy: An energy company focused on oil production and refining operations"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Solflare.webp",
-        "alt": "Solflare: A secure digital wallet for managing, staking, and trading assets on the Solana blockchain."
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Vedanta.webp",
-        "alt": "Vedanta Limited: A natural resources company operating in mining, oil, and gas sectors"
-      },
-      {
-        "src": "https://media.edstellar.com/client_logo/Vesuvius.webp",
-        "alt": "Vesuvius plc: A company providing solutions for molten metal processing in industries"
-      }
+      "microsoft",
+      "amazon",
+      "intel",
+      "adobe",
+      "mediatek",
+      "tata-chemicals",
+      "johnson-johnson",
+      "godrej",
+      "nrsc",
+      "sportskeeda",
+      "totalenergies",
+      "visa",
+      "abb",
+      "emerson",
+      "aditya-birla-group",
+      "autodesk",
+      "cummins",
+      "kelloggs",
+      "niit",
+      "tvs-electronics",
+      "uworld",
+      "uber",
+      "coromandel",
+      "invensis",
+      "khazana-jewellery",
+      "devon",
+      "spartan",
+      "currax-pharmaceuticals",
+      "shanmukha",
+      "devstringx",
+      "excitel",
+      "auro",
+      "industryarc",
+      "motorq",
+      "littelfuse",
+      "taylor-francis",
+      "sandvik",
+      "boston-consulting-group",
+      "mio-amore",
+      "thryve",
+      "blusmart-mobility",
+      "bombay-metrics",
+      "bynaric",
+      "halcon",
+      "sis",
+      "can-fin-homes",
+      "edifecs",
+      "brevo",
+      "bcld-group",
+      "emiza",
+      "indobevs",
+      "shravas-technologies",
+      "greencell-mobility",
+      "garware-technical-fibres",
+      "bry-air",
+      "eclinical-solutions",
+      "ycp",
+      "social-discovery-group",
+      "smarsh",
+      "greystar",
+      "global-north",
+      "india-hospitality-mart",
+      "srf-limited",
+      "ampin-energy-transition",
+      "brahmaputra-group",
+      "endeavor",
+      "neovia",
+      "market99",
+      "mankiewicz",
+      "uplers",
+      "oswaal-books",
+      "ergo-technology-services",
+      "maharana-pratap-group-of-institutions",
+      "circle-k",
+      "etp-international",
+      "epl-global",
+      "kmk-ventures",
+      "ideal-solutions",
+      "kpmg",
+      "west-african-ceramics",
+      "dayforce",
+      "bechtel",
+      "spi-pharma",
+      "sunstone",
+      "hudson-link",
+      "regeneron",
+      "kiet-group-of-institutions",
+      "quadgen",
+      "db-corp",
+      "majestic-asset-management",
+      "ujjivan-small-finance-bank",
+      "deriv",
+      "c-i-p-s",
+      "jet-parts-engineering",
+      "adb-safegate",
+      "cloudify",
+      "semillas-fito",
+      "the-national-bank-of-iraq",
+      "pierian-services",
+      "go-digit-life-insurance",
+      "datawrkz",
+      "sangam-group",
+      "jica",
+      "nike",
+      "ecozen",
+      "international-solar-alliance",
+      "knolskape",
+      "silverline",
+      "assetz-property-group",
+      "pcapi",
+      "agratas",
+      "kns-express",
+      "artha-bharat",
+      "wiredscore",
+      "eviden",
+      "medsynaptic",
+      "tadmur-holding",
+      "daund-sugar",
+      "zs-associates",
+      "renishaw",
+      "cloyes",
+      "s-p-global",
+      "transunion",
+      "cenovus-energy",
+      "solflare",
+      "vedanta",
+      "vesuvius"
     ]
   },
   "how_it_works": {

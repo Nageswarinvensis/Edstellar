@@ -4,13 +4,17 @@ import { Dialog } from "@base-ui/react/dialog";
 
 import Text from "@/components/ui/Text";
 
+/** Where the sample pages live — the media CDN, not this site's `public/`. */
+const SAMPLE_BASE = "https://media.edstellar.com/learning_content_formats";
+
 /**
  * A format row's "View sample" button and the preview dialog it opens. The
  * smallest client leaf of the formats table — the table itself is rendered
  * on the server. Base UI handles focus trapping, Escape and scroll lock.
  *
  * The stage is an iframe of the format's live sample page
- * (`public/samples/learning-content/{file}.html`). The popup only mounts while
+ * (`media.edstellar.com/learning_content_formats/{file}.html`; the AR/VR and
+ * podcast samples load their mp4/mp3 from the same folder). The popup only mounts while
  * open, so a sample loads when its dialog opens and unloads (stopping any
  * audio or video) when it closes.
  *
@@ -63,7 +67,7 @@ export default function LdFormatSample({ name, label, sample, dialog }) {
             >
               <iframe
                 title={sample.title}
-                src={`/samples/learning-content/${sample.file}.html`}
+                src={`${SAMPLE_BASE}/${sample.file}.html`}
                 className="block size-full border-0"
               />
             </Text>

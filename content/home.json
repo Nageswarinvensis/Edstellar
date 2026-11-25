@@ -90,102 +90,30 @@
       "href": "/clients"
     },
     "logos": [
-      {
-        "name": "Microsoft",
-        "src": "https://media.edstellar.com/client_logo/Microsoft.webp"
-      },
-      {
-        "name": "Amazon",
-        "src": "https://media.edstellar.com/client_logo/Amazon.webp"
-      },
-      {
-        "name": "Intel",
-        "src": "https://media.edstellar.com/client_logo/Intel2.webp"
-      },
-      {
-        "name": "Adobe",
-        "src": "https://media.edstellar.com/client_logo/Adobe.webp"
-      },
-      {
-        "name": "MediaTek",
-        "src": "https://media.edstellar.com/client_logo/MediaTek.webp"
-      },
-      {
-        "name": "Visa",
-        "src": "https://media.edstellar.com/client_logo/visa.webp"
-      },
-      {
-        "name": "KPMG",
-        "src": "https://media.edstellar.com/client_logo/KPMG.webp"
-      },
-      {
-        "name": "Boston Consulting Group",
-        "src": "https://media.edstellar.com/client_logo/Boston_consulting_group.webp"
-      },
-      {
-        "name": "Johnson & Johnson",
-        "src": "https://media.edstellar.com/client_logo/JohnsonJohnson_1.webp"
-      },
-      {
-        "name": "Godrej",
-        "src": "https://media.edstellar.com/client_logo/godrej.webp"
-      },
-      {
-        "name": "Tata Chemicals",
-        "src": "https://media.edstellar.com/client_logo/Tata_Chemicals.webp"
-      },
-      {
-        "name": "ABB",
-        "src": "https://media.edstellar.com/client_logo/Abb.webp"
-      },
-      {
-        "name": "Emerson",
-        "src": "https://media.edstellar.com/client_logo/Emerson.webp"
-      },
-      {
-        "name": "Aditya Birla Group",
-        "src": "https://media.edstellar.com/client_logo/Aditya_Birla_Group.webp"
-      },
-      {
-        "name": "Bechtel",
-        "src": "https://media.edstellar.com/client_logo/Bechtel.webp"
-      },
-      {
-        "name": "Regeneron",
-        "src": "https://media.edstellar.com/client_logo/Regeneron_Science_to_Medicine.webp"
-      },
-      {
-        "name": "Uber",
-        "src": "https://media.edstellar.com/client_logo/Uber.svg"
-      },
-      {
-        "name": "Autodesk",
-        "src": "https://media.edstellar.com/client_logo/AutoDesk.webp"
-      },
-      {
-        "name": "Cummins",
-        "src": "https://media.edstellar.com/client_logo/Cummins_logo.svg_1.png"
-      },
-      {
-        "name": "Kellogg's",
-        "src": "https://media.edstellar.com/client_logo/Kelloggs.webp"
-      },
-      {
-        "name": "Sandvik",
-        "src": "https://media.edstellar.com/client_logo/Sandvik_Coromant.webp"
-      },
-      {
-        "name": "Dayforce",
-        "src": "https://media.edstellar.com/client_logo/Dayforce.webp"
-      },
-      {
-        "name": "Circle K",
-        "src": "https://media.edstellar.com/client_logo/Circle_K.webp"
-      },
-      {
-        "name": "Littelfuse",
-        "src": "https://media.edstellar.com/client_logo/littlefuse.webp"
-      }
+      "microsoft",
+      "amazon",
+      "intel",
+      "adobe",
+      "mediatek",
+      "visa",
+      "kpmg",
+      "boston-consulting-group",
+      "johnson-johnson",
+      "godrej",
+      "tata-chemicals",
+      "abb",
+      "emerson",
+      "aditya-birla-group",
+      "bechtel",
+      "regeneron",
+      "uber",
+      "autodesk",
+      "cummins",
+      "kelloggs",
+      "sandvik",
+      "dayforce",
+      "circle-k",
+      "littelfuse"
     ],
     "sr_text": "Clients include Microsoft, Amazon, Intel, Adobe, MediaTek, Visa, KPMG, Boston Consulting Group, Johnson & Johnson, Godrej, Tata Chemicals, ABB, Emerson, Aditya Birla Group, Bechtel, Regeneron, Uber, Autodesk, Cummins, Kellogg's, Sandvik, Dayforce, Circle K and Littelfuse.",
     "certs": [

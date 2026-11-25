@@ -58,8 +58,9 @@ export default function ClientsHero({ data, breadcrumbs }) {
             <Box as="li" key={tile.name} className={tile.off ? "opacity-45" : undefined}>
               <Box className="flex h-full items-center justify-center rounded-[14px] border border-ink/12 bg-white p-4 shadow-rest max-sm:rounded-[10px] max-sm:p-2">
                 <Image loading="eager"
-                  src={tile.logo}
-                  alt={tile.name}
+                  src={tile.src}
+                  alt={tile.alt}
+                  title={tile.alt}
                   width={160}
                   height={64}
                   className="h-16 w-full max-w-[160px] object-contain max-sm:h-8"

@@ -15,9 +15,9 @@ const nextConfig = {
     },
   },
   // Clickjacking protection: no other site may show our pages in a frame.
-  // SAMEORIGIN, not DENY — the L&D consulting page frames our own
-  // /samples/learning-content/*.html. `frame-ancestors` is the modern
-  // equivalent; X-Frame-Options stays for older browsers and scanners.
+  // `frame-ancestors` is the modern equivalent; X-Frame-Options stays for
+  // older browsers and scanners. (The L&D consulting page's samples are
+  // framed from media.edstellar.com, which these headers don't govern.)
   async headers() {
     return [
       {
@@ -26,13 +26,6 @@ const nextConfig = {
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
         ],
-      },
-      // The L&D content samples are shown inside the consulting page's
-      // "View sample" dialog, not as pages of their own — keep every file
-      // (html, mp4, mp3) out of search results.
-      {
-        source: "/samples/:path*",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
     ];
   },
@@ -120,11 +113,19 @@ const nextConfig = {
       ]),
     ];
 
-    return moved.map(([source, destination]) => ({
-      source,
-      destination,
-      permanent: true,
-    }));
+    return [
+      ...moved.map(([source, destination]) => ({
+        source,
+        destination,
+        permanent: true,
+      })),
+      // The L&D content samples moved to the media CDN (Nov 2026).
+      {
+        source: "/samples/learning-content/:file",
+        destination: "https://media.edstellar.com/learning_content_formats/:file",
+        permanent: true,
+      },
+    ];
   },
   images: {
     // Serve images straight from their source (the CMS and Webflow CDNs

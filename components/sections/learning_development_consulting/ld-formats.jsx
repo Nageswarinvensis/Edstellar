@@ -23,7 +23,7 @@ const SAMPLE_DIALOG = {
 };
 
 // The live sample behind each format, keyed by the CMS's format `name`. Each
-// is a self-contained page in `public/samples/learning-content/`, loaded in
+// is a self-contained page in `media.edstellar.com/learning_content_formats/`, loaded in
 // the dialog's iframe only when it opens. A format with no entry here has no
 // sample and is left out of the table.
 //
