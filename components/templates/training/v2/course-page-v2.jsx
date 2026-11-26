@@ -15,7 +15,6 @@ import V2RealWorld from "@/components/sections/course/v2/realworld";
 import V2Delivery from "@/components/sections/course/v2/delivery";
 import V2Instructor from "@/components/sections/course/v2/instructor";
 import V2Why from "@/components/sections/course/v2/why";
-import V2Certificate from "@/components/sections/course/v2/certificate";
 import V2Faq from "@/components/sections/course/v2/faq";
 import WhyEdstellar from "@/components/sections/course/why-edstellar";
 import AlsoFromEdstellar from "@/components/sections/course/also-from-edstellar";
@@ -80,7 +79,6 @@ export default function CoursePageV2({ course: data, cmsCourse }) {
       <V2Delivery data={course.course_delivery} />
       <V2Instructor data={course.course_instructor} />
       <V2Why data={course.course_why} credentials={course.course_credentials} products={course.course_products} />
-      <V2Certificate data={course.course_certificate} />
       <V2Faq data={course.course_faq} />
       {/* The live site's sections, shared with the old layout (not v2 sections),
           fed from the page's own CMS course as live is. */}

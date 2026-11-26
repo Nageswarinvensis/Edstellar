@@ -392,11 +392,14 @@ export default function V2Toolkit({ data }) {
     setTab("view");
   }
 
-  function onTabKey(event, i) {
+  // A framework without a takeaway tool has no Takeaway tab.
+  const tabsFor = (fx) => TABS.filter((t) => t !== "take" || fx.take);
+
+  function onTabKey(event, i, list) {
     const j = { ArrowRight: i + 1, ArrowLeft: i - 1 }[event.key];
     if (j === undefined) return;
     event.preventDefault();
-    const next = TABS[(j + TABS.length) % TABS.length];
+    const next = list[(j + list.length) % list.length];
     setTab(next);
     event.currentTarget.parentElement?.querySelector(`[data-t="${next}"]`)?.focus();
   }
@@ -465,7 +468,7 @@ export default function V2Toolkit({ data }) {
                 <Text className="mb-4 text-[15px]">{fx.subtitle}</Text>
 
                 <Box role="tablist" aria-label="Framework preview" className="mb-3.5 flex gap-1.5 border-b border-ink/12 min-[561px]:gap-[clamp(10px,2.6vw,30px)]">
-                  {TABS.map((t, n) => (
+                  {tabsFor(fx).map((t, n, list) => (
                     <button
                       key={t}
                       type="button"
@@ -474,7 +477,7 @@ export default function V2Toolkit({ data }) {
                       aria-selected={tab === t}
                       tabIndex={tab === t ? 0 : -1}
                       onClick={() => setTab(t)}
-                      onKeyDown={(e) => onTabKey(e, n)}
+                      onKeyDown={(e) => onTabKey(e, n, list)}
                       className={cn(
                         "-mb-px flex-1 cursor-pointer border-b-[3px] px-0.5 pt-1.5 pb-2.5 text-center text-[13.5px] leading-[1.3] transition-colors hover:text-ink min-[561px]:flex-none min-[561px]:px-4 min-[561px]:pt-2 min-[561px]:pb-[11px] min-[561px]:text-[15px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive",
                         tab === t ? "border-lime font-semibold text-ink" : "border-transparent text-ink-muted",
@@ -489,7 +492,7 @@ export default function V2Toolkit({ data }) {
                 <Box className="relative min-w-0 p-1.5 min-[561px]:min-h-[396px] -mx-1.5">
                   <Box role="tabpanel" hidden={tab !== "view"}><FrameworkView fx={fx} hint={instructions.view} /></Box>
                   <Box role="tabpanel" hidden={tab !== "practice"}><PracticeView fx={fx} hint={instructions.practice} /></Box>
-                  <Box role="tabpanel" hidden={tab !== "take"}><TakeawayView fx={fx} hint={instructions.take} /></Box>
+                  {fx.take && <Box role="tabpanel" hidden={tab !== "take"}><TakeawayView fx={fx} hint={instructions.take} /></Box>}
                 </Box>
               </Box>
 

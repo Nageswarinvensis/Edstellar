@@ -30,6 +30,38 @@ function Burst() {
 }
 
 /**
+ * A stat icon: an image URL, or SVG code from the CMS — a whole `<svg>…</svg>`
+ * or just its inner shapes (with `icon_viewbox`, default 0 0 64 64). Inline
+ * shapes are drawn as navy line art, as in the design's `.gap-card .gi`.
+ */
+function StatIcon({ icon, viewBox }) {
+  const code = icon.trim();
+  if (!code.startsWith("<")) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={code} alt="" aria-hidden="true" width={72} height={72} loading="lazy" decoding="async" className="mb-3 size-[72px]" />;
+  }
+  const svg = code.match(/^<svg\b([^>]*)>([\s\S]*)<\/svg>$/i);
+  const inner = svg ? svg[2] : code;
+  const box = viewBox || svg?.[1].match(/viewbox\s*=\s*["']([^"']+)["']/i)?.[1] || "0 0 64 64";
+  return (
+    <svg
+      viewBox={box}
+      width={72}
+      height={72}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      className="mb-3 size-[72px] text-navy"
+      dangerouslySetInnerHTML={{ __html: inner }}
+    />
+  );
+}
+
+/**
  * v2 · 2 Why teams train now (the design's `#gap`) — centered definition
  * lead, 3 to 5 sourced stat cards on a baseline (vertical on small
  * screens), the full sources line, and the "map our gaps" CTA.
@@ -50,10 +82,7 @@ export default function V2Gap({ data }) {
           <ul className={styles.rail}>
             {stats.map((stat) => (
               <li key={stat.value + stat.source} className={styles.card}>
-                {stat.icon && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={stat.icon} alt="" aria-hidden="true" width={72} height={72} loading="lazy" decoding="async" className="mb-3 size-[72px]" />
-                )}
+                {stat.icon && <StatIcon icon={stat.icon} viewBox={stat.icon_viewbox} />}
                 <b className="mb-2 block font-display text-[clamp(32px,2.9vw,42px)] font-bold leading-[1.05] tracking-[-0.03em] whitespace-nowrap text-ink tabular-nums">
                   <StatValue value={stat.value} />
                 </b>

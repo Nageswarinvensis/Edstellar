@@ -35,12 +35,6 @@ const TOC_ITEMS = [
     has_modules: false,
   },
   {
-    id: "certificate",
-    label: "Certificate",
-    title: "Click here to view the certificate",
-    has_modules: false,
-  },
-  {
     id: "delivery",
     label: "Delivery format",
     title: "Click here to view the delivery format",

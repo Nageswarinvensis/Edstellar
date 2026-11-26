@@ -169,6 +169,9 @@ export default function V2Lab({ data }) {
   const [round, setRound] = useState(0);
   if (!data?.scenarios?.length) return null;
   const { heading, lead, badge, list_label, note, lab_kicker, tabs = {}, task_keys = {}, scenarios, steps = [], cta } = data;
+  // Only the activities the scenarios carry: a course without "discuss"
+  // readings shows Practice and Reflect.
+  const tabList = TABS.filter((t) => scenarios.some((s) => s[t]?.length));
 
   function pick(i) {
     setActive(i);
@@ -179,7 +182,7 @@ export default function V2Lab({ data }) {
     const j = { ArrowRight: i + 1, ArrowLeft: i - 1 }[event.key];
     if (j === undefined) return;
     event.preventDefault();
-    const next = TABS[(j + TABS.length) % TABS.length];
+    const next = tabList[(j + tabList.length) % tabList.length];
     setTab(next);
     event.currentTarget.parentElement?.querySelector(`[data-t="${next}"]`)?.focus();
   }
@@ -242,7 +245,7 @@ export default function V2Lab({ data }) {
                 <Text as="h3" className="mt-2.5 mb-3.5 text-[clamp(22px,2.3vw,30px)] leading-[1.2]">{s.heading || s.title}</Text>
 
                 <Box role="tablist" aria-label="Lab activity" className="mb-5 flex gap-3 border-b border-ink/12 min-[421px]:gap-[clamp(14px,3vw,30px)]">
-                  {TABS.map((t, n) => (
+                  {tabList.map((t, n) => (
                     <button
                       key={t}
                       type="button"
@@ -265,7 +268,7 @@ export default function V2Lab({ data }) {
                   ))}
                 </Box>
 
-                {TABS.map((t, n) => (
+                {tabList.map((t, n) => (
                   <Box key={t} role="tabpanel" hidden={tab !== t} className="grid gap-5 min-[900px]:grid-cols-[minmax(0,0.6fr)_minmax(0,1fr)]">
                     <Box>
                       <p className={cn("mb-2 text-[10.5px] text-ink-muted", MONO)}>{task_keys[t]}</p>

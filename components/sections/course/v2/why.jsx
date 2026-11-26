@@ -4,8 +4,8 @@ import Box from "@/components/ui/Box";
 import Text from "@/components/ui/Text";
 import Reveal from "@/components/common/reveal";
 import V2Section from "@/components/sections/course/v2/section";
-import V2SectionHead from "@/components/sections/course/v2/section-head";
 import V2Products from "@/components/sections/course/v2/products";
+import V2SectionHead from "@/components/sections/course/v2/section-head";
 import { cn } from "@/lib/utils";
 import { getClientLogoStrip } from "@/lib/content/client-logos";
 import WhyGlobe from "@/components/sections/course/v2/why-globe";
@@ -35,8 +35,8 @@ function StatValue({ value }) {
  * v2 · 10 Why Edstellar (the design's `#why`) — the lead and four
  * commitments, the proof numbers and accreditations beside the globe of
  * delivery regions; the client logo band (the site-wide logo strip,
- * restyled for this card); then the Edstellar products —
- * `products`, the local `course_products` (not `data.products` from the CMS).
+ * restyled for this card); then the Edstellar products as four stage
+ * columns — `products`, the shared local `course_products`.
  */
 export default function V2Why({ data, credentials = {}, products }) {
   if (!data) return null;

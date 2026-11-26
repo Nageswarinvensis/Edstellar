@@ -126,6 +126,10 @@ export default function V2Delivery({ data }) {
   // signal dot travelling its front (the design's `.dl-pl` + `.dl-sig`).
   const [drawn, setDrawn] = useState(false);
   const [signal, setSignal] = useState(false);
+  // While resetting for a replay the lit line jumps back without animating.
+  const [resetting, setResetting] = useState(false);
+  // "Replay journey" only where the journey animates (hidden on reduced motion).
+  const [canReplay, setCanReplay] = useState(false);
   const motionRef = useRef(null);
   useEffect(() => {
     const journey = journeyRef.current;
@@ -134,6 +138,7 @@ export default function V2Delivery({ data }) {
       setDrawn(true);
       return;
     }
+    setCanReplay(true);
     const io = new IntersectionObserver(
       (entries) => {
         if (!entries.some((e) => e.isIntersecting)) return;
@@ -155,6 +160,20 @@ export default function V2Delivery({ data }) {
       clearTimeout(end);
     };
   }, [signal]);
+  // The design's "Replay journey": clear the line instantly, then draw it
+  // again with the signal dot.
+  function replay() {
+    setResetting(true);
+    setDrawn(false);
+    setSignal(false);
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        setResetting(false);
+        setDrawn(true);
+        setSignal(true);
+      }),
+    );
+  }
   if (!data?.stages?.length) return null;
   const { heading, lead, panel_kicker, panel_heading, format_titles = {}, scale_titles = {}, stages, modes = [], mode_keys = [], custom, cta, format_words } = data;
   // The panel heading follows the chips: `{format}` / `{scale}` in the JSON's
@@ -235,6 +254,7 @@ export default function V2Delivery({ data }) {
                 strokeWidth="2.6"
                 className={cn(
                   "fill-none stroke-lime [stroke-dasharray:1_2] [stroke-linecap:round] [stroke-linejoin:round] [filter:drop-shadow(0_0_4px_color-mix(in_srgb,var(--color-lime)_65%,transparent))] transition-[stroke-dashoffset] delay-200 duration-[3800ms] ease-in-out motion-reduce:transition-none",
+                  resetting && "transition-none",
                   drawn ? "[stroke-dashoffset:0]" : "[stroke-dashoffset:1]",
                 )}
               />
@@ -346,7 +366,7 @@ export default function V2Delivery({ data }) {
                 </ol>
               )}
               <ul className="mt-0.5 grid gap-3 min-[720px]:max-[1199px]:col-start-2! min-[720px]:max-[1199px]:row-span-7 min-[720px]:max-[1199px]:row-start-1 min-[720px]:max-[1199px]:self-start">
-                {s.rows.map((row, r) => {
+                {(s.rows ?? []).map((row, r) => {
                   const v = pickVariant(row, fmt, scale);
                   return (
                     <li key={r} className="flex items-start gap-3">
@@ -372,6 +392,23 @@ export default function V2Delivery({ data }) {
               ))}
             </Box>
           ))}
+          {canReplay && (
+            <button
+              type="button"
+              onClick={replay}
+              className={cn(
+                "mt-1.5 inline-flex min-h-10 cursor-pointer items-center gap-2 self-start rounded-full border border-lime/40 px-4 py-[9px] text-[13px] font-semibold text-lime transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-lime",
+                // Hidden while the journey is drawing, as in the design.
+                (signal || !drawn) && "invisible",
+              )}
+            >
+              Replay journey
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+                <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+                <path d="M3 3v5h5" />
+              </svg>
+            </button>
+          )}
         </aside>
       </Box>
 

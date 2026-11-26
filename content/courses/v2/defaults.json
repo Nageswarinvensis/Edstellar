@@ -62,11 +62,14 @@
         "value": "ISO 9001&27001"
       }
     ],
-    "accreditations": ["ISO 9001 certified", "ISO 27001 certified"]
+    "accreditations": [
+      "ISO 9001 certified",
+      "ISO 27001 certified"
+    ]
   },
   "course_products": {
     "heading": "Edstellar Products That Extend Your Training",
-    "text": "{course} can sit inside a wider capability plan. Alongside its instructor-led programs, Edstellar offers seven products that find skill gaps, run learning, assess leaders and keep teams improving after the training ends.",
+    "text": "Alongside its instructor-led programs, Edstellar offers seven products that find skill gaps, run learning, assess leaders and keep teams improving after the training ends.",
     "stages": [
       {
         "step": "Diagnose needs",
@@ -155,6 +158,14 @@
             ],
             "tagline": "The AI-powered LMS built for engagement on the go.",
             "link_label": "Explore Spectra LMS",
+            "icon_viewbox": "0 0 32 32"
+          },
+          {
+            "href": null,
+            "coming_soon": true,
+            "icon": "<path d=\"M5 7h22v14H15l-6 5v-5H5z\"/><path d=\"M10.5 17.5l3-7 3 7M11.7 15h3.6\" class=\"pd-lime\"/><path d=\"M20 11.5v6M22.5 11.5v6\" class=\"pd-lime\"/>",
+            "kind": "English assessment",
+            "name": "Spica",
             "icon_viewbox": "0 0 32 32"
           }
         ],

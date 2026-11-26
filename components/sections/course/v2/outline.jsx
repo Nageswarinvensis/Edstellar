@@ -3,6 +3,7 @@ import Reveal from "@/components/common/reveal";
 import V2Section from "@/components/sections/course/v2/section";
 import V2SectionHead from "@/components/sections/course/v2/section-head";
 import V2CtaBand from "@/components/sections/course/v2/cta-band";
+import { cn } from "@/lib/utils";
 
 /** "Learn ~1.5 h · Practice ~2.5 h" → [1.5, 2.5]; null when it does not parse. */
 function parseSplit(split) {
@@ -37,6 +38,9 @@ function Tags({ label, items }) {
 function Module({ mod, open }) {
   const split = parseSplit(mod.split);
   const learnShare = split ? (split[0] / (split[0] + split[1])) * 100 : 0;
+  const before = mod.week?.before ?? [];
+  const after = mod.week?.after ?? [];
+  const hasAfter = after.length > 0 || Boolean(mod.week?.produces);
   return (
     <details
       id={`mod-${mod.number}`}
@@ -87,20 +91,29 @@ function Module({ mod, open }) {
               <span className={LABEL.replace("mb-1.5", "mb-0.5")}>{mod.week.label}</span>
               {mod.week.scenario}
             </p>
-            <Box className="grid gap-2.5 min-[720px]:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-              <Box className="rounded-xl border border-dashed border-ink/22 bg-paper-warm px-3 py-2.5 text-[13.5px] text-ink-muted">
-                <b className="mb-1 block font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-ink-muted">Before</b>
-                <ul className="grid list-disc gap-[3px] pl-[18px]">
-                  {mod.week.before.map((line) => <li key={line}>{line}</li>)}
-                </ul>
-              </Box>
-              <Box className="rounded-xl border border-ink/12 bg-paper px-3 py-2.5 text-[13.5px] text-ink">
-                <b className="mb-1 block font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-olive">After</b>
-                <ol className="grid list-decimal gap-[3px] pl-[18px]">
-                  {mod.week.after.map((line) => <li key={line}>{line}</li>)}
-                </ol>
-                {mod.week.produces && <p className="mt-1.5 text-[13px] font-semibold">{mod.week.produces}</p>}
-              </Box>
+            {/* Either list can be cleared in the CMS (an empty list arrives as
+                missing), so each box renders only with content, and the
+                two-column split only when both are there. */}
+            <Box className={cn("grid gap-2.5", before.length > 0 && hasAfter && "min-[720px]:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]")}>
+              {before.length > 0 && (
+                <Box className="rounded-xl border border-dashed border-ink/22 bg-paper-warm px-3 py-2.5 text-[13.5px] text-ink-muted">
+                  <b className="mb-1 block font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-ink-muted">Before</b>
+                  <ul className="grid list-disc gap-[3px] pl-[18px]">
+                    {before.map((line, i) => <li key={i}>{line}</li>)}
+                  </ul>
+                </Box>
+              )}
+              {hasAfter && (
+                <Box className="rounded-xl border border-ink/12 bg-paper px-3 py-2.5 text-[13.5px] text-ink">
+                  <b className="mb-1 block font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-olive">After</b>
+                  {after.length > 0 && (
+                    <ol className="grid list-decimal gap-[3px] pl-[18px]">
+                      {after.map((line, i) => <li key={i}>{line}</li>)}
+                    </ol>
+                  )}
+                  {mod.week.produces && <p className="mt-1.5 text-[13px] font-semibold">{mod.week.produces}</p>}
+                </Box>
+              )}
             </Box>
           </Box>
         )}

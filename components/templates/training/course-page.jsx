@@ -13,7 +13,6 @@ import PageToc from "@/components/sections/course/page-toc";
 import Curriculum from "@/components/sections/course/curriculum";
 import Skills from "@/components/sections/course/skills";
 import Audience from "@/components/sections/course/audience";
-import Certificate from "@/components/sections/course/certificate";
 import DeliveryModes from "@/components/common/delivery-modes";
 
 import CourseWhyTrain from "@/components/sections/course/course-why-train";
@@ -86,7 +85,6 @@ export default function CoursePage({ course }) {
         <Curriculum curriculum={course.curriculum} trainersImage={trainersImage} topic={topic} />
         <Skills skills={course.skills} />
         <Audience audience={course.audience} topic={topic} />
-        <Certificate topic={topic} />
         <DeliveryModes
           deliveryModes={course.deliveryModes}
           topic={topic || undefined}

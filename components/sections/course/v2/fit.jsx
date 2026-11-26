@@ -234,14 +234,18 @@ function PracticeFigure({ practice }) {
   if (practice.kind === "invest") {
     return (
       <Box className="grid gap-2.5">
-        <Box className="grid gap-2 @min-[361px]:grid-cols-3">
+        {/* One card per option, stacked: its name, then one row per measure
+            (label on the left, bar on the right). */}
+        <Box className="grid grid-cols-1 gap-2">
           {f.options.map((o, i) => (
-            <Box key={o.key} className={cn("relative rounded-xl border bg-white p-2.5", i === 1 ? "border-navy" : "border-ink/12", IN([100, 250, 400][i] ?? 400))}>
-              <span className={cn("block text-[9.5px] text-ink-muted", MONO)}>{o.key}</span>
-              <b className="mt-0.5 mb-2 block text-[12.5px] leading-[1.3] text-ink">{o.label}</b>
-              <Box className="grid gap-[3px]">
+            <Box key={o.key} className={cn("relative grid grid-cols-1 gap-2 rounded-xl border bg-white px-3 py-2.5", i === 1 ? "border-navy" : "border-ink/12", IN([100, 250, 400][i] ?? 400))}>
+              <Box className="min-w-0">
+                <span className={cn("block text-[9.5px] text-ink-muted", MONO)}>{o.key}</span>
+                <b className="mt-0.5 block text-[12.5px] leading-[1.3] text-ink">{o.label}</b>
+              </Box>
+              <Box className="grid min-w-0 gap-1.5 border-t border-ink/8 pt-2">
                 {f.bars.map((bar, j) => (
-                  <span key={bar} className={cn("grid grid-cols-[minmax(0,1fr)_44%] items-center gap-1.5 text-[10px] leading-[1.2]", j === 0 ? "font-semibold text-ink" : "text-ink-muted")}>
+                  <span key={bar} className={cn("grid grid-cols-[minmax(0,1fr)_42%] items-center gap-3 text-[11px] leading-[1.3]", j === 0 ? "font-semibold text-ink" : "text-ink-muted")}>
                     {bar}
                     <svg viewBox="0 0 100 6" preserveAspectRatio="none" className="block h-1.5 w-full rounded-full bg-ink/10" aria-hidden="true">
                       <rect width={o.values[j]} height="6" rx="3" className={cn(j === 0 ? "fill-navy" : "fill-olive", GX([500, 600, 700, 800][j] ?? 800))} />
@@ -375,6 +379,9 @@ export default function V2Fit({ data }) {
   const [round, setRound] = useState(0);
   if (!data?.levels?.length) return null;
   const { heading, lead, select_label, scale_note, selected_label, tabs = {}, levels, hint_kinds, learn_note, apply_note, learn_label, apply_label, apply_book_label, apply_badge, capability_label, sample_note, close = [], cta } = data;
+  // Only the tabs the levels carry: a course without "apply" playbooks shows
+  // Learn and Practice.
+  const tabList = TABS.filter((t) => levels.some((l) => l[t]));
   const steps = levels.slice(0, 3);
   const mixed = levels[3];
 
@@ -387,7 +394,7 @@ export default function V2Fit({ data }) {
     const j = { ArrowRight: i + 1, ArrowLeft: i - 1 }[event.key];
     if (j === undefined) return;
     event.preventDefault();
-    const next = TABS[(j + TABS.length) % TABS.length];
+    const next = tabList[(j + tabList.length) % tabList.length];
     setTab(next);
     event.currentTarget.parentElement?.querySelector(`[data-t="${next}"]`)?.focus();
   }
@@ -473,7 +480,7 @@ export default function V2Fit({ data }) {
                 </Box>
 
                 <Box role="tablist" aria-label="Learning preview" className="mb-4 flex gap-[clamp(6px,2.2vw,26px)] border-b border-ink/12">
-                  {TABS.map((t, n) => (
+                  {tabList.map((t, n) => (
                     <button
                       key={t}
                       type="button"
@@ -494,7 +501,7 @@ export default function V2Fit({ data }) {
                 </Box>
 
                 <Box key={round} className="@container relative">
-                  {TABS.map((t) => (
+                  {tabList.map((t) => (
                     <Box key={t} role="tabpanel" hidden={tab !== t}>
                       <Text as="h4" className="mb-1.5 text-[18px] leading-[1.3]">{l[t]?.heading}</Text>
                       <Text className="mb-3.5 text-[14.5px] leading-[1.6]">{l[t]?.description}</Text>
