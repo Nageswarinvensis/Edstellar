@@ -206,8 +206,10 @@ export default function V2Audience({ data }) {
                 <img
                   key={l.key}
                   src={l.image}
-                  alt=""
-                  aria-hidden="true"
+                  alt={l.image_alt || `Illustration of training audiences ${l.label.toLowerCase()}`}
+                  title={l.image_alt || undefined}
+                  // Only the shown lens is exposed; the faded-out ones stay hidden.
+                  aria-hidden={lens === li ? undefined : true}
                   width={198}
                   height={211}
                   loading="lazy"

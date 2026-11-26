@@ -1,4 +1,4 @@
-import { getUniversitiesPage } from "@/lib/content/sectors";
+import { getUniversitiesPage, getUniversitiesPageWithCatalog } from "@/lib/content/sectors";
 import { buildMetadata, stripSiteSuffix } from "@/lib/seo/metadata";
 // import SchemaOrg from "@/components/seo/schema-org";
 import SectorPage from "@/components/templates/sector-page";
@@ -18,11 +18,13 @@ export function generateMetadata() {
 
 /**
  * Training for Universities — skill-development programs for students, staff
- * and alumni. Local JSON (`content/sectors/universities.json`); the design it
+ * and alumni. Local JSON (`content/sectors/universities.json`), with the
+ * programs grid from `GET /api/v2/catalogs/universities`; the design it
  * shares with Training for Government is `components/templates/sector-page`.
  */
-export default function UniversitiesTrainingPage() {
-  const page = getUniversitiesPage();
+export default async function UniversitiesTrainingPage() {
+  // Programs grid from the CMS catalog API (local JSON as the fallback).
+  const page = await getUniversitiesPageWithCatalog();
   const BASE = "https://www.edstellar.com";
   const pageUrl = `${BASE}/training-for-universities`;
 

@@ -33,12 +33,13 @@ function Burst() {
  * A stat icon: an image URL, or SVG code from the CMS — a whole `<svg>…</svg>`
  * or just its inner shapes (with `icon_viewbox`, default 0 0 64 64). Inline
  * shapes are drawn as navy line art, as in the design's `.gap-card .gi`.
+ * An image icon takes `icon_alt` (falling back to the stat's value and text).
  */
-function StatIcon({ icon, viewBox }) {
+function StatIcon({ icon, viewBox, alt }) {
   const code = icon.trim();
   if (!code.startsWith("<")) {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={code} alt="" aria-hidden="true" width={72} height={72} loading="lazy" decoding="async" className="mb-3 size-[72px]" />;
+    return <img src={code} alt={alt} width={72} height={72} loading="lazy" decoding="async" className="mb-3 size-[72px]" />;
   }
   const svg = code.match(/^<svg\b([^>]*)>([\s\S]*)<\/svg>$/i);
   const inner = svg ? svg[2] : code;
@@ -82,7 +83,7 @@ export default function V2Gap({ data }) {
           <ul className={styles.rail}>
             {stats.map((stat) => (
               <li key={stat.value + stat.source} className={styles.card}>
-                {stat.icon && <StatIcon icon={stat.icon} viewBox={stat.icon_viewbox} />}
+                {stat.icon && <StatIcon icon={stat.icon} viewBox={stat.icon_viewbox} alt={stat.icon_alt || `Icon: ${stat.value} ${stat.description ?? ""}`.trim()} />}
                 <b className="mb-2 block font-display text-[clamp(32px,2.9vw,42px)] font-bold leading-[1.05] tracking-[-0.03em] whitespace-nowrap text-ink tabular-nums">
                   <StatValue value={stat.value} />
                 </b>

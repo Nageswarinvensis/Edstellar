@@ -1,5 +1,5 @@
 import RetreatForm from "@/components/forms/retreat-form";
-import homeData from "@/content/home.json";
+import { getHomePage } from "@/lib/content/home";
 import {
   HubApproach,
   HubClients,
@@ -21,6 +21,9 @@ import {
 /** `/corporate-training` — the hub, top to bottom as in the design. `domains`
  * is the CMS sitemap API's domain list, as `{ label, href }`. */
 export default function CorporateTrainingHubPage({ page, domains }) {
+  // Through the loader, not the raw JSON: `clients.logos` there are logo ids
+  // that `getHomePage()` resolves to `{ name, src, alt }`.
+  const homeData = getHomePage();
   return (
     <>
       <HubHero data={page.hero} proof={page.proof} breadcrumbs={page.breadcrumbs} />
