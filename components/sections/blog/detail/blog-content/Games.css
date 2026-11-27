@@ -2567,7 +2567,9 @@
   padding: 4px;
   font-size: 12px;
   line-height: 20px;
-  color: #059669;
+  /* #047857, not #059669: the lighter green is 3.76:1 on white and fails
+     WCAG AA for this 12px text; this one is 5.48:1. */
+  color: #047857;
   font-weight: 600;
   margin-bottom: 0px !important;
 }
