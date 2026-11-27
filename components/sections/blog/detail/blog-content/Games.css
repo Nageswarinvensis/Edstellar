@@ -213,20 +213,6 @@
   background: #27c93f;
 }
 
-.gdemo-address-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 6px;
-  padding: 4px 16px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-  width: 300px;
-  max-width: 55%;
-}
-
 .gdemo-window-actions {
   width: 40px;
 }
@@ -2429,11 +2415,6 @@
     max-width: 300px;
   }
 
-  .gdemo-address-bar {
-    width: auto;
-    max-width: 75%;
-  }
-
   .fs-modal {
     padding: 16px;
   }
@@ -2468,10 +2449,6 @@
 
   .fs-demo-wrap .gdemo-caption .gtitle {
     font-size: 18px !important;
-  }
-
-  .gdemo-fullscreen-demo .scene-teams .em {
-    font-size: 40px;
   }
 
   .fs-demo-wrap .scene-teams .em {

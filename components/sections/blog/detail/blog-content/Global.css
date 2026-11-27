@@ -596,7 +596,6 @@ html {
   }
 }
 
-.blog-cta-btn,
 .cta-btn {
   display: inline-flex;
   align-items: center;
@@ -616,11 +615,9 @@ html {
     transform 0.2s,
     box-shadow 0.2s;
 }
-.blog-cta-btn::after,
 .cta-btn::after {
   display: none;
 }
-.blog-cta-btn:hover,
 .cta-btn:hover {
   color: var(--lime);
   background: rgba(200, 241, 53, 0.14);
@@ -955,8 +952,7 @@ html {
        The legacy markup carries inline background colours, so the neutral
        paper tone has to win with !important. Everything else is class-level.
    -------------------------------------------------------------------------- */
-.benifits-block,
-.benefits-block {
+.benifits-block {
   display: block;
   background: var(--paper-warm) !important;
   border-left: 3px solid var(--lime-ink);
@@ -969,8 +965,7 @@ html {
 h3 {
   margin-top: 20px !important;
 }
-.benifits-block p:last-child,
-.benefits-block p:last-child {
+.benifits-block p:last-child {
   margin-bottom: 0;
 }
 
