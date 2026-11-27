@@ -261,7 +261,7 @@ export default async function BlogPostPage({ params }) {
       />
 
       <Section className="bg-white lg:py-5">
-        <Breadcrumbs items={breadcrumb} className="mt-0" />
+        <Breadcrumbs items={breadcrumb} className="mt-0" newTab />
       </Section>
 
       <Section className="bg-white pt-0 lg:pt-0">

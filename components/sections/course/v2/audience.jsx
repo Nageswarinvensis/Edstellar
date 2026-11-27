@@ -200,24 +200,31 @@ export default function V2Audience({ data }) {
           // All three lens illustrations stacked in one cell; switching lens
           // crossfades them (the design's 0.4s opacity), instead of a swap.
           <Box className="grid max-w-[220px] self-start rounded-[18px] bg-[radial-gradient(ellipse_70%_60%_at_50%_45%,var(--color-navy-soft),var(--color-navy)_75%)] p-2.5">
-            {lenses.map((l, li) =>
-              l.image ? (
+            {lenses.map((l, li) => {
+              if (!l.image) return null;
+              // The CMS's `image_alt` when it sends one; otherwise a description
+              // built from the lens label. The title always repeats the alt.
+              const alt = l.image_alt || `Illustration of training audiences ${l.label.toLowerCase()}`;
+              return (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   key={l.key}
                   src={l.image}
-                  alt={l.image_alt || `Illustration of training audiences ${l.label.toLowerCase()}`}
-                  title={l.image_alt || undefined}
+                  alt={alt}
+                  // The three images share one cell, so the last one sits on
+                  // top: only the selected tab's image carries the tooltip and
+                  // takes the pointer, or hovering shows another tab's title.
+                  title={lens === li ? alt : undefined}
                   // Only the shown lens is exposed; the faded-out ones stay hidden.
                   aria-hidden={lens === li ? undefined : true}
                   width={198}
                   height={211}
                   loading="lazy"
                   decoding="async"
-                  className={cn("[grid-area:1/1] h-auto w-full transition-opacity duration-400 motion-reduce:transition-none", lens === li ? "opacity-100" : "opacity-0")}
+                  className={cn("[grid-area:1/1] h-auto w-full transition-opacity duration-400 motion-reduce:transition-none", lens === li ? "opacity-100" : "pointer-events-none opacity-0")}
                 />
-              ) : null,
-            )}
+              );
+            })}
           </Box>
         )}
         <Box className="min-w-0">

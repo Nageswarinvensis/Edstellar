@@ -55,6 +55,8 @@ export default function CategoryExplorer({ categories = [], featuredDomain }) {
       {featured ? (
         <a
           href={featured.href}
+          target="_blank"
+          rel="noopener"
           title={`Click here to view ${featured.name} training programs`}
           className="mt-3.5 flex items-center gap-3 rounded-xl bg-navy p-3 text-paper no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lift"
         >
@@ -128,6 +130,8 @@ export default function CategoryExplorer({ categories = [], featuredDomain }) {
                     <Box as="li" key={domain.name} className="border-b border-dashed border-ink/12 last:border-b-0">
                       <a
                         href={domain.href}
+                        target="_blank"
+                        rel="noopener"
                         title={`Click here to view ${domain.name} training programs`}
                         className="group flex justify-between gap-2.5 px-1 py-1.75 text-[13px] leading-[1.35] text-ink no-underline"
                       >
@@ -149,6 +153,8 @@ export default function CategoryExplorer({ categories = [], featuredDomain }) {
 
       <a
         href="/corporate-training-catalog"
+        target="_blank"
+        rel="noopener"
         title={`Click here to browse all ${allDomains.length} training domains`}
         className="mt-3 flex items-center gap-2 border-t border-ink/12 pt-3 text-[13px] font-semibold text-navy no-underline"
       >

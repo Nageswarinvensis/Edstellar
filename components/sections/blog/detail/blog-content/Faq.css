@@ -11,8 +11,8 @@ body {
   --paper-cream: #ede9dd;
   --white: #fff;
   --ink: #0a1628;
-  --muted: rgba(10, 22, 40, 0.6);
-  --muted-soft: rgba(10, 22, 40, 0.45);
+  --muted: rgba(10, 22, 40, 0.65); /* ink at 65% — the site's text-ink-muted; lighter fails WCAG AA on small text */
+  --muted-soft: rgba(10, 22, 40, 0.65); /* was 0.45 (2.97:1 on white, fails AA); kept as an alias so existing rules stay readable */
   --rule: rgba(10, 22, 40, 0.12);
   --rule-strong: rgba(10, 22, 40, 0.22);
   --paper-on-dark: rgba(250, 250, 247, 0.78);

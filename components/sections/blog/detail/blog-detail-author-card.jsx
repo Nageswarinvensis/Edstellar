@@ -76,6 +76,8 @@ export default function BlogDetailAuthorCard({
           {slug && (
             <Link
               href={`/blog/author/${slug}`}
+              target="_blank"
+              rel="noopener"
               title={`Click here to view ${name}'s full bio and articles`}
               className="mt-1 inline-flex cursor-pointer items-center gap-1 text-[13px] font-medium text-olive underline-offset-2 transition-colors hover:underline"
             >

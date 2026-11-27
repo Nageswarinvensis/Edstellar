@@ -207,26 +207,29 @@ export default function V2Lab({ data }) {
           {list_label && <p className={cn("mb-3.5 text-[11px] text-ink", MONO)}>{list_label}</p>}
           <Box role="list" aria-label="Practice scenarios" className="grid gap-3">
             {scenarios.map((s, i) => (
-              <button
-                key={s.short_title}
-                type="button"
-                role="listitem"
-                aria-pressed={active === i}
-                onClick={() => pick(i)}
-                className={cn(
-                  "grid cursor-pointer grid-cols-[34px_24px_1fr] items-center gap-2.5 rounded-[14px] border px-[18px] py-4 text-left transition-[background-color,border-color,box-shadow] duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive",
-                  active === i
-                    ? cn("border-navy shadow-[inset_4px_0_0_var(--color-lime),0_1px_2px_rgba(10,22,40,0.06),0_8px_24px_rgba(10,22,40,0.06)]", LIME_WASH)
-                    : "border-ink/12 bg-white hover:border-ink/30",
-                )}
-              >
-                <span className="grid text-navy"><V2Icon name={s.icon} size={28} /></span>
-                <span className="self-start pt-0.5 font-mono text-[13px] text-ink-muted">{String(i + 1).padStart(2, "0")}</span>
-                <span>
-                  <b className="block font-display text-[16px] font-medium tracking-[-0.015em] text-ink">{s.short_title}</b>
-                  <span className="mt-0.5 block text-[13.5px] text-ink-muted">{s.summary}</span>
-                </span>
-              </button>
+              // The list item is the wrapper, not the button: a button with
+              // role="listitem" loses its button role, and aria-pressed is
+              // not allowed on a listitem (axe aria-allowed-role/-attr).
+              <Box key={s.short_title} role="listitem" className="grid">
+                <button
+                  type="button"
+                  aria-pressed={active === i}
+                  onClick={() => pick(i)}
+                  className={cn(
+                    "grid cursor-pointer grid-cols-[34px_24px_1fr] items-center gap-2.5 rounded-[14px] border px-[18px] py-4 text-left transition-[background-color,border-color,box-shadow] duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive",
+                    active === i
+                      ? cn("border-navy shadow-[inset_4px_0_0_var(--color-lime),0_1px_2px_rgba(10,22,40,0.06),0_8px_24px_rgba(10,22,40,0.06)]", LIME_WASH)
+                      : "border-ink/12 bg-white hover:border-ink/30",
+                  )}
+                >
+                  <span className="grid self-start text-navy"><V2Icon name={s.icon} size={28} /></span>
+                  <span className="self-start pt-0.5 font-mono text-[13px] text-ink-muted">{String(i + 1).padStart(2, "0")}</span>
+                  <span>
+                    <b className="block font-display text-[16px] font-medium tracking-[-0.015em] text-ink">{s.short_title}</b>
+                    <span className="mt-0.5 block text-[13.5px] text-ink-muted">{s.summary}</span>
+                  </span>
+                </button>
+              </Box>
             ))}
           </Box>
           {note && <Text className="mt-[18px] border-t border-ink/12 pt-4 text-[13px]">{note}</Text>}

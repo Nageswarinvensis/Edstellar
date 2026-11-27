@@ -14,7 +14,11 @@ import { cn } from "@/lib/utils";
  */
 export default function V2Hero({ hero, breadcrumbs }) {
   if (!hero) return null;
-  const { heading, subhead, description, intro_text, formats = [], actions = [], illustration_url } = hero;
+  const { heading, subhead, description, intro_text, formats = [], actions = [], illustration_url, illustration_alt } = hero;
+  // The CMS's `illustration_alt` when it sends one; otherwise the course
+  // heading (markup stripped), so the image is never unnamed.
+  const illustrationAlt =
+    illustration_alt || `${String(heading || "Course").replace(/<[^>]+>/g, "").trim()} illustration`;
 
   return (
     <Section
@@ -69,7 +73,19 @@ export default function V2Hero({ hero, breadcrumbs }) {
         {illustration_url && (
           <figure className="relative mx-auto w-full max-w-[760px] min-w-0 pt-11 lg:pt-0">
             <Box className="relative aspect-[560/485] w-full">
-              <object data={illustration_url} type="image/svg+xml" aria-hidden="true" className="absolute inset-0 size-full" />
+              {/* An <img>, not an <object>: <object> cannot carry alt or title.
+                  The hero SVGs animate with CSS @keyframes only, which play
+                  the same inside an <img>. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={illustration_url}
+                alt={illustrationAlt}
+                title={illustrationAlt}
+                width={560}
+                height={485}
+                fetchPriority="high"
+                className="absolute inset-0 size-full"
+              />
             </Box>
           </figure>
         )}

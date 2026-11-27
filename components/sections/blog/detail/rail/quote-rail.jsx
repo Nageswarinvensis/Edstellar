@@ -34,7 +34,7 @@ export default function QuoteRail() {
         ))}
       </Box>
 
-      <CtaButton arrow block render={<Link href="/contact-us" />} title="Click here to request a quote" className="py-3.5 text-[13px]">
+      <CtaButton arrow block render={<Link href="/contact-us" target="_blank" rel="noopener" />} title="Click here to request a quote" className="py-3.5 text-[13px]">
         Request a quote
       </CtaButton>
     </RailCard>

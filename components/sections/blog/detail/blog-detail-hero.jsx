@@ -114,6 +114,8 @@ export default function BlogDetailHero({
                     {authorSlug ? (
                       <Link
                         href={`/blog/author/${authorSlug}`}
+                        target="_blank"
+                        rel="noopener"
                         title={`Click here to view ${authorName}'s profile`}
                         className="font-display text-[15px] font-semibold tracking-[-0.01em] text-paper hover:underline hover:underline-offset-3"
                       >

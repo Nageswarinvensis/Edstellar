@@ -20,11 +20,23 @@ import "./globals.css";
  * full page load (TASTE.md §1.4).
  */
 
+/*
+ * Font display: "optional" for Sora, Cormorant Garamond and DM Sans (all three
+ * preloaded). With "swap", headings first paint in the metric-adjusted
+ * fallback, whose widths differ enough — the serif italic accent most — that a
+ * heading changes its line count when the real font lands and pushes the page
+ * down. PageSpeed measured CLS 0.19 on /corporate-training/ai/generative-ai-course
+ * from exactly this (Nov 2026); forcing "optional" took it to ~0.01. A first,
+ * slow visit keeps the fallback for that page view instead of reflowing; the
+ * font is cached for the next navigation. DM Mono is not preloaded, so it keeps
+ * "swap" — with "optional" it would almost never be used on a first visit, and
+ * its one-line kickers do not reflow.
+ */
 const sora = Sora({
   variable: "--font-sora",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
+  display: "optional",
 });
 
 const cormorant = Cormorant_Garamond({
@@ -32,13 +44,13 @@ const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
-  display: "swap",
+  display: "optional",
 });
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
 });
 
 const dmMono = DM_Mono({

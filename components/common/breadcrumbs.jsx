@@ -20,7 +20,7 @@ function slugToLabel(slug) {
  * Renders CMS/local `items` verbatim when provided. Falls back to a trail
  * auto-built from the current URL path only when no `items` are passed.
  */
-function Breadcrumbs({ items: itemsProp, className, tone = "light" }) {
+function Breadcrumbs({ items: itemsProp, className, tone = "light", newTab = false }) {
   const pathname = usePathname();
 
   const items =
@@ -70,6 +70,9 @@ function Breadcrumbs({ items: itemsProp, className, tone = "light" }) {
             ) : (
               <Link
                 href={item.href === "/" ? "/" : item.href.replace(/\/$/, "")}
+                // Opt-in: the blog detail page opens every link in a new tab.
+                target={newTab ? "_blank" : undefined}
+                rel={newTab ? "noopener" : undefined}
                 title={item.title}
                 className={cn(
                   "transition-colors focus-visible:outline-2 focus-visible:outline-offset-2",

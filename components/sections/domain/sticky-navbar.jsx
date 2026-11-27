@@ -161,6 +161,11 @@ export default function StickyTabs({ data, hasTrainers }) {
               src="/course/edstellar.svg"
               alt={data?.logo?.alt || "Edstellar"}
               title={data?.logo?.alt || "Edstellar"}
+              // Intrinsic size at the sm:h-7 height (the SVG is 318×111), so
+              // the browser reserves the box before the file loads; the
+              // classes still set the rendered size.
+              width={80}
+              height={28}
               className="h-6 sm:h-7 w-auto object-contain"
             />
           </Box>

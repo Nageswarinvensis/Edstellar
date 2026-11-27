@@ -20,8 +20,8 @@ html {
   --paper-cream: #ede9dd;
   --white: #fff;
   --ink: #0a1628;
-  --muted: rgba(10, 22, 40, 0.6);
-  --muted-soft: rgba(10, 22, 40, 0.45);
+  --muted: rgba(10, 22, 40, 0.65); /* ink at 65% — the site's text-ink-muted; lighter fails WCAG AA on small text */
+  --muted-soft: rgba(10, 22, 40, 0.65); /* was 0.45 (2.97:1 on white, fails AA); kept as an alias so existing rules stay readable */
   --rule: rgba(10, 22, 40, 0.12);
   --rule-strong: rgba(10, 22, 40, 0.22);
   --paper-on-dark: rgba(250, 250, 247, 0.78);
@@ -93,7 +93,10 @@ html {
   color: var(--lime-ink);
 }
 .blog-content a {
-  color: var(--lime-quote);
+  /* Olive, not --lime-quote (#7c9c10): that is 3.17:1 on white and fails
+     WCAG AA for body-size link text. --lime-quote stays for the decorative
+     blockquote mark only. */
+  color: var(--lime-ink);
   font-weight: 500;
   cursor: pointer;
   /* A hover-reveal underline used to be a `::after` pseudo-element sized by
@@ -114,7 +117,7 @@ html {
     text-decoration-color 0.4s;
 }
 .blog-content a:hover {
-  text-decoration-color: var(--lime-quote);
+  text-decoration-color: var(--lime-ink);
 }
 
 .blog-content ul {

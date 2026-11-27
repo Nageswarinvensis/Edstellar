@@ -2169,7 +2169,7 @@ Every program is instructor-led and customizable, delivered onsite, virtually or
 
 ### Software Development Training (179)
 
-- [.NET Architecture & Design Patterns Training](https://www.edstellar.com/corporate-training/software-development/net-architecture-design-patterns-course)
+- [.NET Architecture & Design Patterns Training](https://www.edstellar.com/corporate-training/software-development/net-architecture-training)
 - [Adobe ColdFusion Training](https://www.edstellar.com/corporate-training/software-development/adobe-coldfusion-course)
 - [Adobe Experience Manager (AEM) Admin Training](https://www.edstellar.com/corporate-training/software-development/adobe-experience-manager-aem-admin-course)
 - [Adobe Experience Manager (AEM) Developer Training](https://www.edstellar.com/corporate-training/software-development/adobe-experience-manager-aem-developer-course)
